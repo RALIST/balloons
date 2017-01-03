@@ -1,0 +1,48 @@
+@media screen and (max-width: 600px) {
+
+	.main-menu {
+		display: none;
+	}
+
+	header {
+		position: relative;
+		width: 100%;
+		.logo{
+			left: 14%;
+			width: 80%;
+			top: 0;
+		}
+
+		.top-phones, .top-right, .top-menu {
+			display: none;
+		}
+
+		.responsive-menu {
+			display: inline-block;
+			position: absolute;
+			top: 2%;
+			left: 2%;
+			font-size: 2em;
+			z-index: 999;
+			i {
+				color: red;
+			}
+		}
+	}
+
+	.responsive-menu-list {
+		display: none;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: black;
+		z-index: 998;
+		opacity: 80%;
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
+		}		
+	}
+}
+

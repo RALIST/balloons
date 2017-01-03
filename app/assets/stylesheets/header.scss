@@ -1,0 +1,72 @@
+header {
+	height: 25%;
+}
+
+.logo {
+	position: absolute;
+	width: 40%;
+	top: 5%;
+	left: 30%;
+	min-width: 250px;
+	img {
+		width: 100%;
+		position: relative;
+	}
+}
+
+.top-menu {
+	position: absolute;
+	top: 3%;
+	left: 10%;
+	li {
+		list-style-type: none;
+		display: inline-block;
+		padding: 0 6px;
+		position: relative;
+	}
+}
+
+.top-left {
+	position: absolute;
+	top: 10%;
+	left: 10%;
+	width: 20%;
+}
+
+.top-right {
+	position: absolute;
+	top: 3%;
+	right: 10%;
+	li {
+		list-style-type: none;
+		padding: 0 4px;
+		display: inline-block;
+		position: relative;
+	}
+}
+
+.top-phones {
+	position: absolute;
+	top: 10%;
+	right: 10%;
+	li {
+		list-style-type: none;
+		padding: 0 4px;
+	}
+}
+
+.social {
+	font-size: 2em;
+	text-align: justify;
+	a {
+		text-decoration: none;
+		color: black;
+		&:hover {
+			color: red;
+		}
+	}
+}
+
+.responsive-menu {
+	display: none;
+}

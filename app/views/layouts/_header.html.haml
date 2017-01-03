@@ -1,0 +1,27 @@
+.responsive-menu
+  %i.fa.fa-bars
+  
+.logo
+  = link_to image_tag('Обложка.jpeg'), root_path
+.top-menu
+  %li= link_to 'Доставка'
+  %li= link_to 'Оплата'
+  %li= link_to 'Контакты'
+.top-right
+  =link_to do
+    %i.fa.fa-sign-in
+      Войти
+  %li= link_to 'Регистрация'
+.top-phones
+  %li 123 (456) 789
+  %li 123 (456) 789
+  %li
+    .social
+      = link_to '/' do
+        %i.fa.fa-facebook
+      = link_to '/' do
+        %i.fa.fa-vk
+      = link_to '/' do
+        %i.fa.fa-instagram
+
+

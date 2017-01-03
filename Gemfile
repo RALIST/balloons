@@ -44,3 +44,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'haml-rails'
 gem 'pg'
 gem 'font-awesome-sass'
+
+group :production do
+  gem 'rails_12factor'
+end

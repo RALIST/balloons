@@ -36,13 +36,27 @@
 		position: absolute;
 		width: 100%;
 		height: 100%;
-		background-color: red;
+		background-color: #000000;
 		z-index: 998;
 		ul {
-			margin: 0;
+			margin: 2em 0;
 			padding: 0;
 			list-style-type: none;
-		}		
+		}
+		li {
+			color: white;
+			padding-left: 1em;
+			font-size: 1.5em;
+			padding-bottom: 1em;
+		}
+		span {
+			position: absolute;
+			color: white;
+			left: 1.5em;
+			top: 1.5em;
+			font-size: 1em;
+			width: 50%;
+		}
 	}
 }
 

@@ -14,3 +14,17 @@
 h2 {
 	text-align: center;
 }
+
+.item-list {
+	width: 90%;
+	margin: auto;
+	.item {
+		width: 30%;
+		margin: 2% 1%;
+		float: left;
+		text-align: center;
+		img {
+			width: 100%;
+		}
+	}
+}

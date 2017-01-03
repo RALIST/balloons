@@ -7,10 +7,11 @@
 	header {
 		position: relative;
 		width: 100%;
+		height: 20%;
 		.logo{
 			left: 0%;
-			width: 80%;
-			top: 0;
+			width: 90%;
+			top: 20%;
 			z-index: 1;
 		}
 
@@ -38,16 +39,19 @@
 		height: 100%;
 		background-color: #000000;
 		z-index: 998;
+		opacity: 0.85;
 		ul {
 			margin: 2em 0;
 			padding: 0;
 			list-style-type: none;
 		}
 		li {
-			color: white;
 			padding-left: 1em;
 			font-size: 1.5em;
 			padding-bottom: 1em;
+			a {
+				color: white;
+			}
 		}
 		span {
 			position: absolute;
@@ -56,6 +60,16 @@
 			top: 1.5em;
 			font-size: 1em;
 			width: 50%;
+		}
+	}
+
+	.item-list {
+		width: 100%;
+		.item {
+			float: none;
+			width: 90%;
+			margin: 2em auto;
+			border-bottom: 1px solid black;
 		}
 	}
 }

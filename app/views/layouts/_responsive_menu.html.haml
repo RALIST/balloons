@@ -2,12 +2,27 @@
   %span 
     Шариковая фея
   %ul
+    %br
+    %br
+    %br
+    %li.sub
+      Повод
+      %ul{style: 'display: none;'}
+        %li= link_to 'День Рождения'
+    %li.sub
+      Кому
+      %ul{style: 'display: none;'}
+        %li= link_to 'День Рождения'
+    %li.sub
+      Цены
+      %ul{style: 'display: none;'}
+        %li= link_to 'День Рождения'
     %li
+      Контакты
     %li
-    %li= link_to 'Повод'
-    %li= link_to 'Кому'
-    %li= link_to 'Цены'
-    %li= link_to 'Контакты'
-    %li= link_to 'Корзина'
-    %li 
+      = link_to 'Корзина'
+    %li.sub= link_to 'B2B'
+    %br
+    %br
+    %br
     %li= link_to 'Личный кабинет'

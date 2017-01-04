@@ -13,6 +13,12 @@ $(document).ready(function(){
 $(document).ready(function(){
 	$('.fa').on('click', 
 		function(){
-			$('.responsive-menu-list').toggle('slow')
+			$('.responsive-menu-list').toggle('slide', 'slow')
 		});
+});
+
+$(document).ready(function(){
+	$('.sub').on('click', function(){
+		$('ul:first', this).toggle('slow');
+	});
 });

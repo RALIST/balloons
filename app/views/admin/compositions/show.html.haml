@@ -1,15 +1,15 @@
+= image_tag(@comp.img.url, size: '200')
+%br
 = @comp.title
 %br
-= @comp.price
+%span.price
+  = @comp.price
 
-=form_tag(controller: 'compositions', action: 'add_item') do
+=form_tag({controller: 'compositions', action: 'add_item'}, remote: true) do
   = select_tag :item, options_for_select(Item.all.map{|i| [i.name, i.id]})
+  = number_field_tag :count
   = submit_tag 'Add Item'
-
-  %p
-    %span Items in compositions
-    - @comp.items.each do |item|
-      %p
-        =item.name
-        %br
-        =item.price
+  %br
+  %span Items in compositions
+  .items 
+    = render 'item'

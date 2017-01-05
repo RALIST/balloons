@@ -1,7 +1,1 @@
-- @compositions.each do |c|
-  %p
-    %span Title
-    = link_to c.title, admin_composition_path(c)
-    %br
-    %span Price
-    = c.price
+= render @compositions, locals: {composition: @comp}

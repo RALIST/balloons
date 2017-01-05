@@ -32,9 +32,15 @@ class Admin::CompositionsController < Admin::AdminController
 
   def add_item
     @item = Item.find(params[:item])
-    @comp.items.push(@item)
+    params[:count].to_i.times do
+      @comp.items.push(@item)
+    end
     @comp.comp_price
-    redirect_back(fallback_location: admin_root_path)
+    respond_to do |format|
+      format.html { redirect_back(fallback_location: admin_root_path) }
+      format.js
+    end
+    
   end
 
   private

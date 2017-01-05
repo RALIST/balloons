@@ -1,0 +1,8 @@
+- @comp.items.uniq.each do |item|
+  %p
+    =item.name
+    %br
+    =item.price
+    x
+    = @comp.items.where(id: item.id).count
+    штук

@@ -1,0 +1,15 @@
+= @comp.title
+%br
+= @comp.price
+
+=form_tag(controller: 'compositions', action: 'add_item') do
+  = select_tag :item, options_for_select(Item.all.map{|i| [i.name, i.id]})
+  = submit_tag 'Add Item'
+
+  %p
+    %span Items in compositions
+    - @comp.items.each do |item|
+      %p
+        =item.name
+        %br
+        =item.price

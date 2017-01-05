@@ -7,6 +7,7 @@
   .item-list
     - @compositions.each do |c|
       .item
-        = image_tag url(c.img)
-        %span c.price
+        = image_tag c.img.url
+        %span 
+          =c.price
         = link_to 'Добавить в корзину', "", class: 'add-to-cart'

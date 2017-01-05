@@ -49,16 +49,16 @@ ActiveRecord::Schema.define(version: 20170105110501) do
     t.datetime "img_updated_at"
   end
 
-  create_table "items_in_composition", force: :cascade do |t|
+  create_table "items_in_compositions", force: :cascade do |t|
     t.integer  "item_id"
     t.integer  "composition_id"
     t.integer  "items_count"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.index ["composition_id"], name: "index_items_in_composition_on_composition_id", using: :btree
-    t.index ["item_id"], name: "index_items_in_composition_on_item_id", using: :btree
+    t.index ["composition_id"], name: "index_items_in_compositions_on_composition_id", using: :btree
+    t.index ["item_id"], name: "index_items_in_compositions_on_item_id", using: :btree
   end
 
-  add_foreign_key "items_in_composition", "compositions"
-  add_foreign_key "items_in_composition", "items"
+  add_foreign_key "items_in_compositions", "compositions"
+  add_foreign_key "items_in_compositions", "items"
 end

@@ -1,7 +1,8 @@
 class Admin::CompositionsController < Admin::AdminController
-  before_action :set_comp, only: [:show, :edit, :update, :destroy]
-  
+  before_action :set_comp, only: [:show, :edit, :update, :destroy, :add_item]
+
   def index
+    @compositions = Composition.all
   end
 
   def show
@@ -27,6 +28,13 @@ class Admin::CompositionsController < Admin::AdminController
   end
 
   def destroy
+  end
+
+  def add_item
+    @item = Item.find(params[:item])
+    @comp.items.push(@item)
+    @comp.comp_price
+    redirect_back(fallback_location: admin_root_path)
   end
 
   private

@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     root 'main#index'
     resources :items
     resources :compositions
+    post 'admin/compositions/:id', to: 'compositions#add_item', as: :add_item
   end
  
 end

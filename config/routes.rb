@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
- 
- root 'main#index'
+
+  namespace :delivery do
+    root 'main#index'
+  end
+
+  namespace :shop do
+    root 'main#index'
+  end
  
 end

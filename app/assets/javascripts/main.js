@@ -11,9 +11,9 @@ $(document).ready(function(){
 
 
 $(document).ready(function(){
-	$('.fa').on('click', 
+	$('.fa-bars').on('click', 
 		function(){
-			$('.responsive-menu-list').toggle('slide', 'slow')
+			$('.responsive-menu-list').toggle('slide', 'slow');
 		});
 });
 

@@ -15,11 +15,15 @@ h2 {
 	text-align: center;
 }
 
+.bestsell {
+	float: left;
+}
+
 .item-list {
-	width: 90%;
 	margin: auto;
+	float: left;
 	.item {
-		width: 30%;
+		width: 31%;
 		margin: 2% 1%;
 		float: left;
 		text-align: center;

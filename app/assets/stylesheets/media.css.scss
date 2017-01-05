@@ -15,6 +15,9 @@
 			display: inline;
 			padding: 1em 0.5em;
 		}
+		a {
+			text-decoration: underline;
+		}
 	}
 
 	header {
@@ -40,7 +43,7 @@
 			font-size: 2em;
 			z-index: 999;
 			i {
-				color: red;
+				color: #FF8500;
 			}
 		}
 	}

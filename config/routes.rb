@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   namespace :delivery do
     root 'main#index'
+    resources :items, only: [:index, :show]
+    resources :compositions, only: [:index, :show]
   end
 
   namespace :shop do
@@ -12,6 +14,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root 'main#index'
+    resources :items
+    resources :compositions
   end
  
 end

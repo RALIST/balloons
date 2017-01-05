@@ -10,17 +10,55 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170102121030) do
+ActiveRecord::Schema.define(version: 20170105110501) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "title"
+    t.text     "desc"
+    t.string   "img_file_name"
+    t.string   "img_content_type"
+    t.integer  "img_file_size"
+    t.datetime "img_updated_at"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "compositions", force: :cascade do |t|
+    t.string   "title"
+    t.string   "price"
+    t.string   "img_file_name"
+    t.string   "img_content_type"
+    t.integer  "img_file_size"
+    t.datetime "img_updated_at"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
   create_table "items", force: :cascade do |t|
     t.string   "name"
     t.text     "desc"
     t.float    "price"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "img_file_name"
+    t.string   "img_content_type"
+    t.integer  "img_file_size"
+    t.datetime "img_updated_at"
   end
 
+  create_table "items_in_composition", force: :cascade do |t|
+    t.integer  "item_id"
+    t.integer  "composition_id"
+    t.integer  "items_count"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["composition_id"], name: "index_items_in_composition_on_composition_id", using: :btree
+    t.index ["item_id"], name: "index_items_in_composition_on_item_id", using: :btree
+  end
+
+  add_foreign_key "items_in_composition", "compositions"
+  add_foreign_key "items_in_composition", "items"
 end

@@ -5,27 +5,8 @@
   %h2
     Лучшие композиции
   .item-list
-    .item
-      = image_tag 'ad2.jpg'
-      %span 9999 руб.
-      = link_to 'Добавить в корзину', "", class: 'add-to-cart'
-    .item
-      = image_tag 'ad1.jpg'
-      %span 9999 руб.
-      = link_to 'Добавить в корзину', "", class: 'add-to-cart'
-    .item
-      = image_tag 'ad3.jpg'
-      %span 9999 руб.
-      = link_to 'Добавить в корзину', "", class: 'add-to-cart'
-    .item
-      = image_tag 'ad2.jpg'
-      %span 9999 руб.
-      = link_to 'Добавить в корзину', "", class: 'add-to-cart'
-    .item
-      = image_tag 'ad1.jpg'
-      %span 9999 руб.
-      = link_to 'Добавить в корзину', "", class: 'add-to-cart'
-    .item
-      = image_tag 'ad3.jpg'
-      %span 9999 руб.
-      = link_to 'Добавить в корзину', "", class: 'add-to-cart'
+    - @compositions.each do |c|
+      .item
+        = image_tag url(c.img)
+        %span c.price
+        = link_to 'Добавить в корзину', "", class: 'add-to-cart'

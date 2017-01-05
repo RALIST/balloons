@@ -1,0 +1,11 @@
+= form_for [:admin, @comp] do |f|
+  =f.label 'Title'
+  =f.text_field :title
+  %br
+  =f.label 'Price'
+  =f.text_field :price
+  %br
+  =f.label 'Image'
+  =f.file_field :img
+  %br
+  =f.submit 'Create composition'

@@ -45,6 +45,7 @@ gem 'haml-rails'
 gem 'pg'
 gem 'font-awesome-sass'
 gem 'jquery-ui-rails'
+gem 'paperclip'
 
 group :production do
   gem 'rails_12factor'

@@ -46,6 +46,7 @@ gem 'pg'
 gem 'font-awesome-sass'
 gem 'jquery-ui-rails'
 gem 'paperclip'
+gem 'sorcery'
 
 group :production do
   gem 'rails_12factor'

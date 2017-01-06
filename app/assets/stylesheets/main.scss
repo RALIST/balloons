@@ -33,3 +33,28 @@ h2 {
 		}
 	}
 }
+
+.item-in-cart-list {
+	.item-in-cart {
+		width: 100%;
+		text-align: center;
+		float: left;
+		margin: 1em 0;
+		.img {
+			width: 10%;
+			float: left;
+			img { 
+				width: 100%;
+			}
+		}
+		.info {
+			text-align: left;
+			float: left;
+			margin-left: 4%;
+		}
+		.title {
+			font-size: 1em;
+			font-weight: bold;
+		}
+	}
+}

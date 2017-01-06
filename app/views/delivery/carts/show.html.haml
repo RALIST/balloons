@@ -1,0 +1,21 @@
+.item-in-cart-list
+  - @cart.compositions.each do |c|
+    .item-in-cart
+      .img
+        = image_tag c.img.url
+      .info
+        %span.title
+          В композицию входит:
+          %br
+        - c.items.uniq.each do |i|
+          %span
+            = i.name
+            = i.price
+            %br
+        =c.price
+
+  
+%div
+  %span 
+    Total in cart
+    = @cart.compositions.map{|c| c.price.to_f}.sum

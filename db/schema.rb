@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170105110501) do
+ActiveRecord::Schema.define(version: 20170106103843) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "carts", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_carts_on_user_id", using: :btree
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string   "title"
@@ -59,6 +66,52 @@ ActiveRecord::Schema.define(version: 20170105110501) do
     t.index ["item_id"], name: "index_items_in_compositions_on_item_id", using: :btree
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
+  end
+
+  create_table "positions", force: :cascade do |t|
+    t.integer  "cart_id"
+    t.integer  "item_id"
+    t.integer  "quantity"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "composition_id"
+    t.index ["cart_id"], name: "index_positions_on_cart_id", using: :btree
+    t.index ["composition_id"], name: "index_positions_on_composition_id", using: :btree
+    t.index ["item_id"], name: "index_positions_on_item_id", using: :btree
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.string   "taggable_type"
+    t.integer  "taggable_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["taggable_type", "taggable_id"], name: "index_tags_on_taggable_type_and_taggable_id", using: :btree
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email",            null: false
+    t.string   "crypted_password"
+    t.string   "salt"
+    t.string   "phone"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.text     "address"
+    t.float    "discount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+  end
+
+  add_foreign_key "carts", "users"
   add_foreign_key "items_in_compositions", "compositions"
   add_foreign_key "items_in_compositions", "items"
+  add_foreign_key "orders", "users"
+  add_foreign_key "positions", "carts"
+  add_foreign_key "positions", "items"
 end

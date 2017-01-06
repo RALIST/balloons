@@ -10,4 +10,4 @@
         = image_tag c.img.url
         %span 
           =c.price
-        = link_to 'Добавить в корзину', "", class: 'add-to-cart'
+        = link_to 'Добавить в корзину', delivery_add_to_cart_path(composition_id: c.id), method: :post,  class: 'add-to-cart'

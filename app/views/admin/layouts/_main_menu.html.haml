@@ -16,5 +16,12 @@
         %li= link_to 'Добавить композицию', new_admin_composition_path
     %li
       = link_to do 
+        %span Теги
+        %i.fa.fa-sort-desc
+      %ul
+        %li= link_to 'Все теги', admin_tags_path
+        %li= link_to 'Добавить тег', new_admin_tag_path
+    %li
+      = link_to do 
         %span Заказы
         %i.fa.fa-sort-desc

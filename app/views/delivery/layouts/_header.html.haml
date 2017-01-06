@@ -2,7 +2,11 @@
   %i.fa.fa-bars
 
 .logo
-  = link_to image_tag('Обложка.jpg'), delivery_root_path
+  .desk
+    = link_to image_tag('Обложка.jpg'), delivery_root_path
+  .mobile
+    = link_to image_tag('Logos.jpg'), delivery_root_path
+
 .top-menu
   %li= link_to 'Доставка'
   %li= link_to 'Оплата'

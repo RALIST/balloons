@@ -14,7 +14,7 @@ $(document).ready(function(){
 	$('.fa-bars').on('click', 
 		function(){
 			$('.responsive-menu-list').toggle('slide', 'slow', function(){
-				$('.responsive-menu i').toggleClass('fa-bars', function(){
+				$('.responsive-menu i').toggleClass('fa-bars', 1,  function(){
 					$(this).addClass('fa-times')
 				});
 			});

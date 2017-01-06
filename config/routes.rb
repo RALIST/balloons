@@ -7,8 +7,8 @@ Rails.application.routes.draw do
     resources :items,         only: [:index, :show]
     resources :compositions,  only: [:index, :show]
     resources :carts
-    resources :orders,        only: [:new, :create]
-    resources :positions,     only: [:new, :create]
+    resources :orders
+    resources :positions
     resources :users
     post '/add_to_cart', to: 'carts#add_to_cart', as: :add_to_cart
   end
@@ -16,10 +16,11 @@ Rails.application.routes.draw do
   namespace :shop do
     root 'main#index'
     resources :users
-    resources :items,         only: [:index, :show]
-    resources :carts,         only: [:new, :create]
-    resources :orders,        only: [:new, :create]
-    resources :positions,     only: [:new, :create]
+    resources :items
+    resources :carts
+    resources :orders
+    resources :positions
+    resources :compositions
   end
 
   namespace :admin do

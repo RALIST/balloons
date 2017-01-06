@@ -1,0 +1,16 @@
+=form_for [:delivery, @order] do |f|
+	=f.label 'Ваше имя'
+	= f.text_field :name
+	%br
+	=f.label 'Контактный телефон'
+	= f.text_field :phone
+	%br
+	=f.label 'Адрес доставки'
+	= f.text_field :address
+	%br
+	=f.label 'Дополнительно'
+	= f.text_area :desc
+	%br
+	= f.hidden_field(:total, value:  @cart.total_price)
+	%br
+	= f.submit 'Создать заказа'

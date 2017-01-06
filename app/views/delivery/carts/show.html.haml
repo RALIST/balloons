@@ -19,3 +19,4 @@
   %span 
     Total in cart
     = @cart.compositions.map{|c| c.price.to_f}.sum
+  = link_to 'Оформить заказ', new_delivery_order_path, class: 'add-to-cart'

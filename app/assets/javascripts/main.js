@@ -13,7 +13,12 @@ $(document).ready(function(){
 $(document).ready(function(){
 	$('.fa-bars').on('click', 
 		function(){
-			$('.responsive-menu-list').toggle('slide', 'slow');
+			$('.responsive-menu-list').toggle('slide', 'slow', function(){
+				$('.responsive-menu i').toggleClass('fa-bars', function(){
+					$(this).addClass('fa-times')
+				});
+			});
+
 		});
 });
 

@@ -5,6 +5,7 @@ class Delivery::OrdersController < Delivery::DeliveryController
 
   def create
     @order = Order.create(order_params)
+    @order.total = @cart.total_price
     if @order.save
       redirect_to delivery_order_path(@order)
     else

@@ -7,16 +7,13 @@
         %span.title
           В композицию входит:
           %br
-        - c.items.uniq.each do |i|
-          %span
-            = i.name
-            = i.price
-            %br
-        =c.price
+        - @cart.positions.where(composition: c).last.subpositions.each do |s|
+          = s.item.name
+          = s.quantity
 
   
 %div
   %span 
     Total in cart
-    = @cart.compositions.map{|c| c.price.to_f}.sum
+    = @cart.total_price
   = link_to 'Оформить заказ', new_delivery_order_path, class: 'add-to-cart'

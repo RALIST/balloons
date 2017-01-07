@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170106204718) do
+ActiveRecord::Schema.define(version: 20170107162940) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,6 +90,16 @@ ActiveRecord::Schema.define(version: 20170106204718) do
     t.index ["item_id"], name: "index_positions_on_item_id", using: :btree
   end
 
+  create_table "subpositions", force: :cascade do |t|
+    t.integer  "position_id"
+    t.integer  "item_id"
+    t.integer  "quantity"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["item_id"], name: "index_subpositions_on_item_id", using: :btree
+    t.index ["position_id"], name: "index_subpositions_on_position_id", using: :btree
+  end
+
   create_table "tags", force: :cascade do |t|
     t.string   "name"
     t.string   "taggable_type"
@@ -119,4 +129,6 @@ ActiveRecord::Schema.define(version: 20170106204718) do
   add_foreign_key "orders", "users"
   add_foreign_key "positions", "carts"
   add_foreign_key "positions", "items"
+  add_foreign_key "subpositions", "items"
+  add_foreign_key "subpositions", "positions"
 end

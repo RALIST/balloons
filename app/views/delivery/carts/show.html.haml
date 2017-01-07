@@ -10,6 +10,8 @@
         - @cart.positions.where(composition: c).last.subpositions.each do |s|
           = s.item.name
           = s.quantity
+          = button_to "Add quantity", delivery_add_quantity_path(id: s.id)
+          = button_to "Remove quantity", delivery_down_quantity_path(id: s.id)
 
   
 %div

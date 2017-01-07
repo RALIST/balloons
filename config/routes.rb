@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     resources :positions
     resources :users
     post '/add_to_cart', to: 'carts#add_to_cart', as: :add_to_cart
+    post '/add_quantity', to: 'subpositions#up_quantity', as: :add_quantity
+    post '/down_quantity', to: 'subpositions#down_quantity', as: :down_quantity
   end
 
   namespace :shop do

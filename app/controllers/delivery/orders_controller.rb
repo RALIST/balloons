@@ -16,6 +16,8 @@ class Delivery::OrdersController < Delivery::DeliveryController
     else
       user = User.find_by!(phone: params[:phone])
       @order.user = user
+      @user.update(first_name: params[:order][:name],
+                          address: params[:order][:address])
     end
     rescue ActiveRecord::RecordNotFound
       @user = User.create(first_name: params[:order][:name],

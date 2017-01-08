@@ -14,7 +14,7 @@ class Delivery::OrdersController < Delivery::DeliveryController
     if current_user
       @order.user = current_user
     else
-      user = User.where(phone: params[:phone]).first
+      user = User.find_by!(phone: params[:phone])
       @order.user = user
     end
     rescue ActiveRecord::RecordNotFound
@@ -25,6 +25,7 @@ class Delivery::OrdersController < Delivery::DeliveryController
       auto_login(@user)
       @cart.user = @user
       @order.user = @user
+
     if @order.save
       @cart.positions.each do |p|
         p.update_attribute(:cart_id, nil)

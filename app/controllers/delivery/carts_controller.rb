@@ -1,5 +1,5 @@
 class Delivery::CartsController < Delivery::DeliveryController
-  before_action :current_cart
+  before_action :current_cart, only: [:add_to_cart]
 
   def index
   end

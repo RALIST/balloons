@@ -1,6 +1,5 @@
 class Delivery::DeliveryController < ApplicationController
   layout 'delivery'
-  before_action :current_cart
 
 
 

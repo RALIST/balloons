@@ -10,9 +10,13 @@ Rails.application.routes.draw do
     resources :orders
     resources :positions
     resources :users
-    post '/add_to_cart', to: 'carts#add_to_cart', as: :add_to_cart
-    post '/add_quantity', to: 'subpositions#up_quantity', as: :add_quantity
-    post '/down_quantity', to: 'subpositions#down_quantity', as: :down_quantity
+    resources :sessions
+    post '/add_to_cart',    to: 'carts#add_to_cart',          as: :add_to_cart
+    post '/add_quantity',   to: 'subpositions#up_quantity',   as: :add_quantity
+    post '/down_quantity',  to: 'subpositions#down_quantity', as: :down_quantity
+
+    get 'login' => 'sessions#new', :as => :login
+    post 'logout' => 'sessions#destroy', :as => :logout
   end
 
   namespace :shop do
@@ -31,6 +35,7 @@ Rails.application.routes.draw do
     resources :compositions
     resources :tags
     resources :user
+    resources :orders
     post 'admin/compositions/:id', to: 'compositions#add_item', as: :add_item
   end
  

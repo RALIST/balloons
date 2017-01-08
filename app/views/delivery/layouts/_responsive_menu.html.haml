@@ -37,4 +37,8 @@
     %br
     %li= link_to 'В магазин', shop_root_path
     %br
-    %li= link_to 'Личный кабинет'
+    %li
+      - if current_user
+        = link_to 'Личный кабинет', delivery_user_path(current_user)
+      - else
+        = link_to 'Войти', delivery_login_path

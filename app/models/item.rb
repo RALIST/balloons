@@ -8,5 +8,5 @@ class Item < ApplicationRecord
   validates :name, :img, :price, presence: true
   has_attached_file :img
   validates_attachment_content_type :img, 
-                        content_type: ["image/jpeg", "image/jpg"]
+                        content_type: ["image/jpeg", "image/jpg", "image/png"]
 end

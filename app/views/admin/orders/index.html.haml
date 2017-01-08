@@ -1,0 +1,8 @@
+- @orders.each do |order|
+  - order.compositions.each do |c|
+    = c.title
+    %br
+    - order.positions.where(composition: c).last.subpositions.each do |sub|
+      = sub.item.name
+      = sub.quantity
+

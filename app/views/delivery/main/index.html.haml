@@ -12,6 +12,6 @@
           =c.price
           %i.fa.fa-rub{style: 'aria-hidden="true"'}
         %br
-        %span{style: 'font-size: 0.7em;'}
+        %span{style: 'font-size: 0.8em;'}
           Вы можете изменить количество шаров в композиции, добавив ее в корзину!
         = link_to 'Добавить в корзину', delivery_add_to_cart_path(composition_id: c.id), method: :post,  class: 'add-to-cart'

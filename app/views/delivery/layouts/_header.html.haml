@@ -1,4 +1,15 @@
-.responsive-menu
+.top
+  .top-right
+    - if current_user
+      Ваша скидка:
+      = current_user.discount
+      \%
+      = link_to 'Выйти', delivery_logout_path, method: :post
+    - else
+      =link_to delivery_login_path do
+        %i.fa.fa-sign-in
+          Войти
+      = link_to 'Регистрация', new_delivery_user_path
   %i.fa.fa-bars
 
 .logo
@@ -12,17 +23,7 @@
   %li= link_to 'Оплата'
   %li= link_to 'Контакты'
   %li= link_to 'Админка', admin_root_path
-.top-right
-  - if current_user
-    Ваша скидка:
-    = current_user.discount
-    \%
-    = link_to 'Выйти', delivery_logout_path, method: :post
-  - else
-    =link_to delivery_login_path do
-      %i.fa.fa-sign-in
-        Войти
-    = link_to 'Регистрация', new_delivery_user_path
+
 .top-phones
   %li 123 (456) 789
   %li 123 (456) 789

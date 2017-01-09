@@ -10,6 +10,7 @@ class User < ApplicationRecord
   validates :phone, uniqueness: true
 
 
+
   def calculate_discount
     orders_total = self.orders.map{|order| order.total.to_f}.sum
     discount_rate = orders_total * 0.001

@@ -27,16 +27,13 @@
 	header {
 		width: 100%;
 		.logo {
-			margin-top: 2em;
-			display: inline-block;
-			width: 100%;
-			top: 0;
-			left: 0;
+			position: relative;
+			max-width: 90%;
+			margin: 2em auto 0;
 			.desk{
 				display: none;
 			}
 			.mobile{
-				margin-top: 2em;
 				display:inline-block;
 				width: 100%;
 				img{
@@ -47,22 +44,24 @@
 		}
 
 		.top {
-			float: left;
+			position: absolute;
 			top: 0;
 			right: 0;
 			width: 100%;
 			z-index: 998;
 			text-align: right;
 			i {
-				font-size: 2em;
-				color: #FF8500;
+
 			}
 			.fa-bars, .fa-times {
-				position: absolute;
-				top: 4%;
-				right: 4%;
+				position: fixed;
+				display: inline-block;
+				margin-top: 2%;
+				right: 5%;
 				display: inline;
 				z-index: 998;
+				font-size: 2em;
+				color: #FF8500;
 			}
 		}
 	}
@@ -74,7 +73,7 @@
 
 	.responsive-menu-list {
 		display: none;
-		position: relative;
+		position: absolute;
 		width: 100%;
 		min-height: 100%;
 		background-color: #000000;

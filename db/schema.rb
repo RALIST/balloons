@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170108114153) do
+ActiveRecord::Schema.define(version: 20170109073618) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,12 +48,14 @@ ActiveRecord::Schema.define(version: 20170108114153) do
     t.string   "name"
     t.text     "desc"
     t.float    "price"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.string   "img_file_name"
     t.string   "img_content_type"
     t.integer  "img_file_size"
     t.datetime "img_updated_at"
+    t.integer  "price_with_helium"
+    t.string   "type"
   end
 
   create_table "items_in_compositions", force: :cascade do |t|
@@ -115,11 +117,11 @@ ActiveRecord::Schema.define(version: 20170108114153) do
     t.string   "email"
     t.string   "crypted_password"
     t.string   "salt"
-    t.string   "phone",            null: false
+    t.string   "phone",                          null: false
     t.string   "first_name"
     t.string   "last_name"
     t.text     "address"
-    t.float    "discount"
+    t.float    "discount",         default: 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["phone"], name: "index_users_on_phone", unique: true, using: :btree

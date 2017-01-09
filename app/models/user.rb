@@ -9,4 +9,15 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
   validates :phone, uniqueness: true
 
+
+  def calculate_discount
+    orders_total = self.orders.map{|order| order.total.to_f}.sum
+    discount_rate = orders_total * 0.001
+    if dicount_rate > 25
+      self.update(discount: 25 ) 
+    else
+      self.update(discount: discount_rate)
+    end
+  end
+
 end

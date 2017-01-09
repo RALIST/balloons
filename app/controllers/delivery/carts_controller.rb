@@ -4,6 +4,10 @@ class Delivery::CartsController < Delivery::DeliveryController
   def index
   end
 
+  def show
+    @cart = current_cart
+  end
+
   def add_to_cart
     @composition = Composition.find(params[:composition_id])
     if !@cart.compositions.include?(@composition)

@@ -8,30 +8,18 @@ class Delivery::OrdersController < Delivery::DeliveryController
     @order = Order.create(order_params)
     @cart.positions.each do |p|
       @order.positions.push(p)
+      p.update_attribute(:cart_id, nil)
     end
     @order.total = @cart.total_price
-
     if current_user
       @order.user = current_user
     else
-      user = User.find_by!(phone: params[:phone])
-      @order.user = user
-      @user.update(first_name: params[:order][:name],
-                          address: params[:order][:address])
+      @order.save_user(order_params)
+      auto_login(@order.user)
     end
-    rescue ActiveRecord::RecordNotFound
-      @user = User.create(first_name: params[:order][:name],
-                          phone: params[:order][:phone],
-                          address: params[:order][:address], 
-                          password: params[:order][:name])
-      auto_login(@user)
-      @cart.user = @user
-      @order.user = @user
-
     if @order.save
-      @cart.positions.each do |p|
-        p.update_attribute(:cart_id, nil)
-      end
+      @cart.destroy
+      @order.user.calculate_discount
       redirect_to delivery_order_path(@order)
     else
       render 'new'
@@ -39,6 +27,7 @@ class Delivery::OrdersController < Delivery::DeliveryController
   end
 
   def show
+    @order = Order.find(params[:id])
   end
 
   def index

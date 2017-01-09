@@ -14,6 +14,9 @@
   %li= link_to 'Админка', admin_root_path
 .top-right
   - if current_user
+    Ваша скидка:
+    = current_user.discount
+    \%
     = link_to 'Выйти', delivery_logout_path, method: :post
   - else
     =link_to delivery_login_path do

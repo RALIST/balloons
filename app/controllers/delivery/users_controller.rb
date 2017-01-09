@@ -8,7 +8,6 @@ class Delivery::UsersController < Delivery::DeliveryController
     @user = User.create(user_params)
     if @user.save
       auto_login(@user)
-      @user.create_cart
       redirect_to delivery_root_path
     end
   end

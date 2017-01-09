@@ -5,6 +5,7 @@ def new
 
   def create
     if @user = login(params[:phone], params[:password])
+      session[:user_id] = @user.id
       redirect_back(fallback_location: delivery_root_path)
     else
       flash.now[:alert] = 'Login failed'

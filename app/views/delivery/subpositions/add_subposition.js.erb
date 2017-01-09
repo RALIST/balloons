@@ -1,0 +1,4 @@
+<% @cart.compositions.each do |c| %>
+  $('.info').html('<%= j(render partial: "delivery/carts/subposition", locals: {c: c} ) %>')
+  $('.total').html(<%= @cart.total_price %>)
+<% end %>

@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     post '/add_to_cart',    to: 'carts#add_to_cart',          as: :add_to_cart
     post '/add_quantity',   to: 'subpositions#up_quantity',   as: :add_quantity
     post '/down_quantity',  to: 'subpositions#down_quantity', as: :down_quantity
-
+    post '/add_subposition', to: 'subpositions#add_subposition', as: :add_subposition
     get 'login' => 'sessions#new', :as => :login
     post 'logout' => 'sessions#destroy', :as => :logout
   end

@@ -27,3 +27,10 @@ $(document).ready(function(){
 		$('ul:first', this).toggle('slow');
 	});
 });
+
+$(document).ready(function(event){
+	event.preventDefault;
+	$('.add-to-comp').on('click', function(){
+		$('.form-add-sub').toggle();
+	});
+});

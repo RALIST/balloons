@@ -5,20 +5,14 @@
         .img
           = image_tag c.img.url
         .info
-          %span.title
-            В композицию входит:
-            %br
-          - @cart.positions.where(composition: c).last.subpositions.each do |s|
-            = s.item.name
-            = s.quantity
-            = button_to "Add quantity", delivery_add_quantity_path(id: s.id)
-            = button_to "Remove quantity", delivery_down_quantity_path(id: s.id)
+          = render partial: 'subposition', locals: {c: c}
+    %div
+      %span
+        Total in cart
+        .total 
+          = @cart.total_price
+      = link_to 'Оформить заказ', new_delivery_order_path, class: 'add-to-cart'
   - else
     %span В вашей корзине пока ничего нет
 
   
-%div
-  %span 
-    Total in cart
-    = @cart.total_price
-  = link_to 'Оформить заказ', new_delivery_order_path, class: 'add-to-cart'

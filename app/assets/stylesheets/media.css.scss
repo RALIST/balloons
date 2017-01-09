@@ -48,18 +48,19 @@
 
 		.top {
 			float: left;
-			position: fixed;
 			top: 0;
 			right: 0;
 			width: 100%;
 			z-index: 998;
-			background-color: white;
 			text-align: right;
 			i {
 				font-size: 2em;
 				color: #FF8500;
 			}
 			.fa-bars, .fa-times {
+				position: absolute;
+				top: 4%;
+				right: 4%;
 				display: inline;
 				z-index: 998;
 			}

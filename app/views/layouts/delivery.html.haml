@@ -9,10 +9,12 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     = render 'delivery/layouts/responsive_menu'
-    %header
-      = render 'delivery/layouts/header'
-    = render 'delivery/layouts/main_menu'
+    - if !@hide_header
+      %header
+        = render 'delivery/layouts/header'
+      = render 'delivery/layouts/main_menu'
     .wrapper
       .container
         = yield
-    %footer
+    - if !@hide_footer
+      %footer

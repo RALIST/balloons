@@ -1,5 +1,6 @@
 class Delivery::SessionsController < Delivery::DeliveryController
-def new
+  before_action :hide
+  def new
     @user = User.new
   end
 
@@ -9,12 +10,19 @@ def new
       redirect_back(fallback_location: delivery_root_path)
     else
       flash.now[:alert] = 'Login failed'
-      render action: 'new'
+      render 'new'
     end
   end
 
   def destroy
     logout
     redirect_to delivery_root_path
+  end
+
+  private
+
+  def hide
+    @hide_header = true
+    @hide_footer = true
   end
 end

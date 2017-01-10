@@ -48,20 +48,19 @@ body {
 
 .add-to-cart {
 	display: inline-block;
-	margin-top: 10px;
+	margin: 0.3125em auto;
 	font-size: 1.2em;
 	text-align: center;
-	width: 100%;
-	padding: 0.4em 0;
-	border-radius: 6px;
+	width: 80%;
+	padding: 0.3125em;
+	border-radius: 4px;
 	background-color: #00B454;
 	border: 1px solid #00B454;
 	color: white;
-	position: relative;
-	margin-bottom: 1em;
 	&:hover {
 		border: 1px solid #00B454;
 		background: transparent;
 		color: #00B454;
 	}
 }
+

@@ -1,10 +1,16 @@
-= form_for [:delivery, @user] do |f|
-  = f.label "Phone"
-  = f.text_field :phone
-  %br
-  = f.label 'Password'
-  = f.password_field :password
-  %br
-  = f.label 'Confirm pasword'
-  = f.password_field :password_confirmation
-  = f.submit
+.form-wrapper
+  .form-logo
+    = link_to delivery_root_path do
+      = image_tag 'form-logo.jpg'
+  .form
+    = form_for [:delivery, @user] do |f|
+      .form-field
+        = f.label "Ваш телефон"
+        = f.text_field :phone, class: 'form-input'
+      .form-field
+        = f.label 'Пароль'
+        = f.password_field :password, class: 'form-input'
+      .form-field
+        = f.label 'Подтвердите пароль'
+        = f.password_field :password_confirmation, class: 'form-input'
+      = f.submit 'Зарегистрироваться', class: 'add-to-cart'

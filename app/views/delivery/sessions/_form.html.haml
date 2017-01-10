@@ -1,6 +1,14 @@
-= form_tag delivery_sessions_path,  method: :post do
-  = text_field_tag :phone
-  %br
-  = text_field_tag :password
-  %br
-  = submit_tag 'Войти'
+.form-wrapper
+  .form-logo
+    = link_to delivery_root_path do
+      = image_tag 'form-logo.jpg'
+  .form
+    %h2 Войдите
+    = form_tag delivery_sessions_path,  method: :post do
+      .form-field
+        = label_tag 'Номер телефона'
+        = text_field_tag :phone, '', class: 'form-input'
+      .form-field
+        = label_tag 'Пароль'
+        = text_field_tag :password, '', class: 'form-input'
+      = submit_tag 'Войти', class: 'add-to-cart'

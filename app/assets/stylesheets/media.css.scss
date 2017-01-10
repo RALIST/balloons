@@ -109,6 +109,18 @@
 			width: 50%;
 		}
 	}
+	.form-wrapper {
+		.form {
+			display: block;
+			form {
+				width: 100%;
+			}
+		}
+		.form-logo {
+			display: block;
+			width: 80%;
+		}
+	}
 
 	.item-list {
 		width: 100%;

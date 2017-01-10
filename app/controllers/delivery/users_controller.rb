@@ -2,6 +2,8 @@ class Delivery::UsersController < Delivery::DeliveryController
 
   def new
     @user = User.new
+    @hide_header = true
+    @hide_footer = true
   end
 
   def create

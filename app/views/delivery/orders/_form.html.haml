@@ -1,14 +1,17 @@
-=form_for [:delivery, @order] do |f|
-	=f.label 'Ваше имя'
-	= f.text_field :name, value: (current_user.first_name if current_user)
-	%br
-	=f.label 'Контактный телефон'
-	= f.text_field :phone, value: (current_user.phone if current_user)
-	%br
-	=f.label 'Адрес доставки'
-	= f.text_area :address, value: (current_user.address if current_user),  rows: 5
-	%br
-	=f.label 'Дополнительно'
-	= f.text_area :desc, rows: 5
-	%br
-	= f.submit 'Создать заказа'
+.form-wrapper
+	.form
+		=form_for [:delivery, @order] do |f|
+			.form-field
+				=f.label 'Ваше имя'
+				= f.text_field :name, value: (current_user.first_name if current_user), class: 'form-input'
+			.form-field
+				=f.label 'Контактный телефон'
+				= f.text_field :phone, value: (current_user.phone if current_user), class: 'form-input'
+			.form-field
+				=f.label 'Адрес доставки'
+				= f.text_area :address, value: (current_user.address if current_user),  rows: 5, class: 'form-input'
+			.form-field
+				=f.label 'Дополнительно'
+				= f.text_area :desc, rows: 5, class: 'form-input'
+
+			= f.submit 'Создать заказа', class: 'add-to-cart'

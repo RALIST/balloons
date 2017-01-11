@@ -1,8 +1,11 @@
-= form_for [:admin, @comp] do |f|
-  =f.label 'Title'
-  =f.text_field :title
-  %br
-  =f.label 'Image'
-  =f.file_field :img
-  %br
-  =f.submit 'Create composition'
+.form-wrapper
+  .form
+    %h2 Создать композицию
+    = form_for [:admin, @comp] do |f|
+      .form-field
+        =f.label 'Название'
+        =f.text_field :title, class: 'form-input'
+      .form-field
+        =f.label 'Изображение'
+        =f.file_field :img, class: 'form-input'
+        =f.submit 'Создать композицию', class: 'add-to-cart'

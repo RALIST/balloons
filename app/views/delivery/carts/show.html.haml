@@ -1,18 +1,20 @@
-.item-in-cart-list
+.cart
   - if @cart.positions.any?
-    - @cart.compositions.each do |c|
-      .item-in-cart
-        .img
-          = image_tag c.img.url
-        .info
-          = render partial: 'subposition', locals: {c: c}
-    %div
-      %span
-        Total in cart
-        .total 
-          = @cart.total_price
-      = link_to 'Оформить заказ', new_delivery_order_path, class: 'add-to-cart'
+    .item-in-cart-list
+      - @cart.compositions.each do |c|
+        .item-in-cart
+          .img
+            = image_tag c.img.url
+          .info
+            = render partial: 'subposition', locals: {c: c}
+    %span
+      Total in cart
+      .total
+        = @cart.total_price
+    = link_to 'Оформить заказ', new_delivery_order_path, class: 'add-to-cart'
   - else
     %span В вашей корзине пока ничего нет
 
-  
+%div{style: 'clear: both;'}
+
+

@@ -18,19 +18,27 @@
  @import "font-awesome";
 
 body {
+	position: absolute;
 	width: 100%;
 	height: 100%;
 	padding: 0px;
 	margin: 0px;
-	font-family: 'Bookman Old Style', sans-serif;
+	border: 0;
+	font-family: 'Open Sans Condensed';
 	font-size: 100%;
-	position: absolute;
+	font-size: 16px;
+	font-weight: lighter;
+	line-height: 1.8em;
+	color: #444444;
 	a {
 		text-decoration: none;
 		color: black;
 		&:hover {
 			color: red;
 		}
+	}
+	ul, ol {
+		list-style-type: none;
 	}
 }
 

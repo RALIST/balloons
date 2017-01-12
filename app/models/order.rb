@@ -19,6 +19,5 @@ class Order < ApplicationRecord
                         password: params[:name],
                         password_confirmation: params[:name])
     self.user = user
-
   end
 end

@@ -1,14 +1,17 @@
-= form_for [:admin, @item] do |f|
-  =f.label 'Name'
-  =f.text_field :name
-  %br
-  =f.label 'Desc'
-  =f.text_field :desc
-  %br
-  =f.label 'Price'
-  =f.number_field :price
-  %br
-  =f.label 'Image'
-  =f.file_field :img
-  %br
-  =f.submit 'Create Item'
+.form-wrapper
+  .form
+    %h2 Добавить товар
+    = form_for [:admin, @item] do |f|
+      .form-field
+        =f.label 'Название'
+        =f.text_field :name, class: 'form-input'
+      .form-field
+        =f.label 'Описание'
+        =f.text_field :desc, class: 'form-input'
+      .form-field
+        =f.label 'Цена'
+        =f.number_field :price, class: 'form-input'
+      .form-field
+        =f.label 'Изображение'
+        =f.file_field :img, class: 'form-input'
+      =f.submit 'Добавить товар', class: 'add-to-cart'

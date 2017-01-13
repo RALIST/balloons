@@ -10,7 +10,7 @@ require 'roo'
 require 'nokogiri'
 
 
-xls = Roo::Spreadsheet.open('./tmp/price.xlsm')
+xls = Roo::Spreadsheet.open('./public/price.xlsm')
 start_row = 21
 end_row = 1937
 (start_row..end_row).each do |row|
@@ -27,7 +27,7 @@ end_row = 1937
     puts "Latex Added"
   end
 
-xls = Roo::Spreadsheet.open('./tmp/price_foil.xlsm')
+xls = Roo::Spreadsheet.open('./public/price_foil.xlsm')
 start_row = 21
 end_row = 2879
 (start_row..end_row).each do |row|

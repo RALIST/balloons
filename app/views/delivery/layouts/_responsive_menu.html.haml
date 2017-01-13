@@ -8,10 +8,9 @@
     %li.sub
       Повод
       %ul{style: 'display: none;'}
-        %li= link_to 'День Рождения'
-        %li= link_to 'На выписку'
-        %li= link_to 'Юбилей'
-        %li= link_to 'Сюрприз'
+        - Tag.composition_tags.each do |tag|
+          %li
+            = link_to "#{tag.name}", delivery_search_path(tag_name: tag.name)
     %li.sub
       Кому
       %ul{style: 'display: none;'}
@@ -25,7 +24,7 @@
         %li= link_to 'до 1000'
         %li= link_to 'от 1000 до 5000'
         %li= link_to 'от 5000 до 7000'
-        %li= link_to 'от 7000' 
+        %li= link_to 'от 7000'
     %li
       Контакты
     %li

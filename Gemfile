@@ -49,6 +49,9 @@ gem 'paperclip'
 gem 'sorcery'
 gem 'aws-sdk'
 
+gem 'roo'
+gem 'roo-xls'
+
 group :production do
   gem 'rails_12factor'
 end

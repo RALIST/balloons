@@ -6,20 +6,20 @@ Rails.application.routes.draw do
     root 'main#index'
     resources :items,         only: [:index, :show]
     resources :compositions,  only: [:index, :show]
+    resources :tags,          only: [:index]
     resources :carts
     resources :orders
     resources :positions
     resources :users
     resources :sessions
-    resources :tags, only: [:index]
     post '/add_to_cart',        to: 'carts#add_to_cart',            as: :add_to_cart
     post '/remove_from_cart',   to: 'carts#remove_from_cart',       as: :remove_from_cart
     post '/add_quantity',       to: 'subpositions#up_quantity',     as: :add_quantity
     post '/down_quantity',      to: 'subpositions#down_quantity',   as: :down_quantity
     post '/add_subposition',    to: 'subpositions#add_subposition', as: :add_subposition
-    get 'login', to: 'sessions#new',          :as => :login
-    post 'logout' , to:  'sessions#destroy',    :as => :logout
-    get '/search', to: 'main#index_with_tags', as: :search
+    get 'login',                to: 'sessions#new',                 as: :login
+    post 'logout' ,             to:  'sessions#destroy',            as: :logout
+    get '/search',              to: 'main#index_with_tags',         as: :search
   end
 
   namespace :shop do

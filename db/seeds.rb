@@ -26,6 +26,7 @@ end_row = 1937
       )
     puts "Latex Added"
   end
+end
 
 xls = Roo::Spreadsheet.open('./public/price_foil.xlsm')
 start_row = 21
@@ -43,6 +44,4 @@ end_row = 2879
       )
     puts "Foil Added"
   end
-
-
 end

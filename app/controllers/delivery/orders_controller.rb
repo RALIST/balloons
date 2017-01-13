@@ -2,6 +2,8 @@ class Delivery::OrdersController < Delivery::DeliveryController
 
   def new
     @order = Order.new
+    @hide_header = true
+    @hide_footer = true
   end
 
   def create
@@ -36,7 +38,7 @@ class Delivery::OrdersController < Delivery::DeliveryController
 
 
 
-  private 
+  private
 
   def order_params
     params.require(:order).permit(:name, :phone, :address, :desc, :total)

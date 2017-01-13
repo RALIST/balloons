@@ -19,6 +19,7 @@ class Admin::TagsController < Admin::AdminController
 
   def destroy
     @tag.destroy
+    redirect_back fallback_location: admin_root_path
   end
 
   private

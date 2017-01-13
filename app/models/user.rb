@@ -16,6 +16,8 @@ class User < ApplicationRecord
     discount_rate = orders_total * 0.001
     unless discount_rate > 25
       self.update(discount: discount_rate)
+    else
+      self.update(discount: 25)
     end
   end
 

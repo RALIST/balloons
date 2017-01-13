@@ -5,7 +5,7 @@
         %span ПОВОД
         %i.fa.fa-sort-desc
       %ul
-        %li= link_to 'День Рождения'
+        %li= link_to 'День Рождения', delivery_search_path(tag_name: 'День рождения')
         %li= link_to 'Юбилей'
         %li= link_to 'На выписку'
         %li= link_to 'Сюрприз'
@@ -19,7 +19,7 @@
         %li= link_to 'Шефу'
         %li= link_to 'Родителям'
     %li
-      = link_to do 
+      = link_to do
         %span ПО ЦЕНАМ
         %i.fa.fa-sort-desc
       %ul

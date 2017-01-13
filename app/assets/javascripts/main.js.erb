@@ -11,10 +11,10 @@ $(document).ready(function(){
 
 
 $(document).ready(function(){
-	$('.fa-bars').on('click', 
+	$('.fa-bars').on('click',
 		function(){
 			$('.responsive-menu-list').toggle('slide', 'slow', function(){
-				$('.top i.fa').toggleClass('fa-bars', 1,  
+				$('.top i.fa').toggleClass('fa-bars', 1,
 					function(){
 						$(this).addClass('fa-times');
 				});
@@ -35,3 +35,10 @@ $(document).ready(function(event){
 		$('.form-add-sub').toggle();
 	});
 });
+
+
+$('#enter_tags').keypress(function(e){
+      if(e.which == 13){
+           $(this).closest('form').submit();
+       }
+    });

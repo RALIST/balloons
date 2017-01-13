@@ -7,6 +7,8 @@
             = image_tag c.img.url
           .info
             = render partial: 'subposition', locals: {c: c}
+            = link_to 'Удалить', delivery_remove_from_cart_path(id: c.id), method: :post
+    %div{style: 'clear: both;'}
     %span
       Total in cart
       .total

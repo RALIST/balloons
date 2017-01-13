@@ -1,5 +1,5 @@
 class Admin::CompositionsController < Admin::AdminController
-  before_action :set_comp, only: [:show, :edit, :update, :destroy, :add_item]
+  before_action :set_comp, only: [:show, :edit, :update, :destroy, :add_item, :remove_tag]
 
   def index
     @compositions = Composition.all
@@ -25,6 +25,8 @@ class Admin::CompositionsController < Admin::AdminController
   end
 
   def update
+    @comp.update(comp_params)
+    redirect_back fallback_location: admin_root_path
   end
 
   def destroy
@@ -40,13 +42,18 @@ class Admin::CompositionsController < Admin::AdminController
       format.html { redirect_back(fallback_location: admin_root_path) }
       format.js
     end
-    
+  end
+
+  def remove_tag
+    @tag = Tag.find(params[:tag_id])
+    @comp.tags.delete(@tag)
+    redirect_back fallback_location: admin_root_path
   end
 
   private
 
   def comp_params
-    params.require(:composition).permit(:title, :img, :price)
+    params.require(:composition).permit(:title, :img, :price, :tag_name)
   end
 
   def set_comp

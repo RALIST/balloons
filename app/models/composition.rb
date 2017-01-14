@@ -4,7 +4,7 @@ class Composition < ApplicationRecord
   has_many :tags, as: :taggable
   has_many :carts, through: :positions
   validates :title, :img, presence: true
-  has_attached_file :img
+  has_attached_file :img, styles: {small: 'x100', thumb: 'x300', large: '1080x1080'}
   validates_attachment_content_type :img,
                         content_type: ["image/jpeg", "image/jpg", "image/png"]
 

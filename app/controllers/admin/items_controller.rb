@@ -35,7 +35,7 @@ class Admin::ItemsController < Admin::AdminController
   def index
     @companies = Item.all.map{|i| i.made_by}.uniq
     @types = Item.all.map{ |i| i.item_type }.uniq
-    @items = Item.search(params[:query]).paginate(page: params[:page], per_page: 20) unless params[:query].blank?
+    @items = Item.search(params[:query]).paginate(page: params[:page], per_page: 10) unless params[:query].blank?
   end
 
   private

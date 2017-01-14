@@ -11,4 +11,6 @@
     = link_to type, admin_items_path(query: type) unless type.blank?
 %br
 = link_to 'Добавить товар', new_admin_item_path, class: 'add-to-cart'
-= render @items if params[:query]
+= render 'item' if params[:query]
+%div{style: 'clear:both'}
+= will_paginate @items

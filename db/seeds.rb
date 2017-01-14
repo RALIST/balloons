@@ -12,36 +12,64 @@ require 'nokogiri'
 
 xls = Roo::Spreadsheet.open('./public/price.xlsm')
 start_row = 21
-end_row = 1937
+end_row = 200
 (start_row..end_row).each do |row|
   unless xls.cell(row, 'B').blank?
     page = Nokogiri::HTML(open(xls.cell(row, 'C')))
     img_url = 'http://sharik.ru' + page.xpath('//img[@class = "main_image"]/@src').to_s
     Item.create(
-      name:     xls.cell(row, 'B'),
-      made_by:  xls.cell(row, 'D'),
-      price:    xls.cell(row, 'G'),
-      barcode:  xls.cell(row, 'I'),
+      name:           xls.cell(row, 'B'),
+      made_by:        xls.cell(row, 'D'),
+      price:          xls.cell(row, 'G'),
+      barcode:        xls.cell(row, 'I'),
+      item_type:      'latex',
+      collection:     xls.cell(row, 'J'),
+      min_order:      xls.cell(row, 'E'),
+      quantity_type:  xls.cell(row, 'F'),
       img_remote_url: img_url
       )
-    puts "Latex Added"
   end
 end
 
 xls = Roo::Spreadsheet.open('./public/price_foil.xlsm')
 start_row = 21
-end_row = 2879
+end_row = 200
 (start_row..end_row).each do |row|
   unless xls.cell(row, 'B').blank?
     page = Nokogiri::HTML(open(xls.cell(row, 'C')))
     img_url = 'http://sharik.ru' + page.xpath('//img[@class = "main_image"]/@src').to_s
     Item.create(
-      name:     xls.cell(row, 'B'),
-      made_by:  xls.cell(row, 'D'),
-      price:    xls.cell(row, 'G'),
-      barcode:  xls.cell(row, 'I'),
+      name:           xls.cell(row, 'B'),
+      made_by:        xls.cell(row, 'D'),
+      price:          xls.cell(row, 'G'),
+      barcode:        xls.cell(row, 'I'),
+      item_type:      'foil',
+      collection:     xls.cell(row, 'J'),
+      min_order:      xls.cell(row, 'E'),
+      quantity_type:  xls.cell(row, 'F'),
       img_remote_url: img_url
       )
-    puts "Foil Added"
+  end
+end
+
+
+xls = Roo::Spreadsheet.open('./public/price_supplies.xlsm')
+start_row = 21
+end_row = 200
+(start_row..end_row).each do |row|
+  unless xls.cell(row, 'B').blank?
+    page = Nokogiri::HTML(open(xls.cell(row, 'C')))
+    img_url = 'http://sharik.ru' + page.xpath('//img[@class = "main_image"]/@src').to_s
+    Item.create(
+      name:           xls.cell(row, 'B'),
+      made_by:        xls.cell(row, 'D'),
+      price:          xls.cell(row, 'G'),
+      barcode:        xls.cell(row, 'I'),
+      item_type:      'supplies',
+      collection:     xls.cell(row, 'J'),
+      min_order:      xls.cell(row, 'E'),
+      quantity_type:  xls.cell(row, 'F'),
+      img_remote_url: img_url
+      )
   end
 end

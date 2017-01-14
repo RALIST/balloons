@@ -16,6 +16,7 @@
  */
  @import "font-awesome-sprockets";
  @import "font-awesome";
+@import url('https://fonts.googleapis.com/css?family=Kurale|Neucha');
 
 body {
 	position: absolute;
@@ -24,10 +25,10 @@ body {
 	padding: 0px;
 	margin: 0px;
 	border: 0;
-	font-family: 'Open Sans Condensed';
+	// font-family:'Neucha', cursive;
+	font-family: 'Kurale', serif;
 	font-size: 100%;
-	font-size: 16px;
-	font-weight: lighter;
+	font-size: 18px;
 	line-height: 1.8em;
 	color: #444444;
 	a {

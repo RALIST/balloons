@@ -51,6 +51,7 @@ gem 'aws-sdk'
 
 gem 'roo'
 gem 'roo-xls'
+gem 'will_paginate'
 
 group :production do
   gem 'rails_12factor'

@@ -55,9 +55,12 @@ ActiveRecord::Schema.define(version: 20170113113215) do
     t.integer  "img_file_size"
     t.datetime "img_updated_at"
     t.integer  "price_with_helium"
-    t.string   "type"
+    t.string   "item_type"
     t.string   "made_by"
     t.string   "barcode"
+    t.string   "collection"
+    t.integer  "min_order"
+    t.string   "quantity_type"
   end
 
   create_table "items_in_compositions", force: :cascade do |t|

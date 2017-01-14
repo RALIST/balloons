@@ -7,15 +7,29 @@ class Item < ApplicationRecord
   has_many :subpositions, dependent: :delete_all
 
   validates :name, :price, presence: true
-  has_attached_file :img
+  has_attached_file :img, styles: {small: 'x100', thumb: 'x300', large: '1080x1080'}
   validates_attachment_content_type :img,
                         content_type: ["image/jpeg", "image/jpg", "image/png"]
   attr_reader :img_remote_url
 
+  scope :with_tag, -> (tag) { joins(:tags).where('tags.name = ?', tag.name) }
+  scope :search, -> (query) { where("made_by LIKE ? OR item_type LIKE ?", query, query )}
 
+  TYPES = ['Латексные шары', 'Фольгированые шары', 'Товары для праздника']
 
   def img_remote_url=(url_value)
     self.img = URI.parse(url_value)
     @img_remote_url = url_value
+  end
+
+  def humanize_type
+    case item_type
+    when 'latex'
+      TYPES[0]
+    when 'foil'
+      TYPES[1]
+    else
+      TYPES[2]
+    end
   end
 end

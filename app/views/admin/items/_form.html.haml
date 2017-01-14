@@ -9,8 +9,14 @@
         =f.label 'Описание'
         =f.text_field :desc, class: 'form-input'
       .form-field
+        =f.label 'Коллекция'
+        =f.text_field :collection, class: 'form-input'
+      .form-field
         =f.label 'Цена'
         =f.number_field :price, class: 'form-input'
+      .form-field
+        =f.label 'Цена c гелием'
+        =f.number_field :price_with_helium, class: 'form-input'
       .form-field
         =f.label 'Изображение'
         =f.file_field :img, class: 'form-input'

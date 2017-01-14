@@ -11,7 +11,7 @@ class Composition < ApplicationRecord
   scope :with_tag, -> (tag) { joins(:tags).where('tags.name = ?', tag.name) }
 
   def comp_price
-    price = self.items.map{|i| i.price}.sum
+    price = self.items.map{|i| i.price_with_helium}.sum
     self.update(price: price)
   end
 

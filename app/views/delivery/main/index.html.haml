@@ -1,14 +1,14 @@
 
 .slider
-.offer 
+.offer
 .bestsell
   %h2
     Лучшие композиции
   .item-list
     - @compositions.each do |c|
       .item
-        = image_tag c.img.url
-        %span{style: 'font-weight: bold;'} 
+        = image_tag c.img.url(:thumb)
+        %span{style: 'font-weight: bold;'}
           =c.price
           %i.fa.fa-rub{style: 'aria-hidden="true"'}
         %br

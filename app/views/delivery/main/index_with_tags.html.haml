@@ -4,7 +4,7 @@
   .item-list
     - @compositions.each do |c|
       .item
-        = image_tag c.img.url
+        = image_tag c.img.url(:thumb)
         %span{style: 'font-weight: bold;'}
           =c.price
           %i.fa.fa-rub{style: 'aria-hidden="true"'}

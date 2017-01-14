@@ -12,5 +12,4 @@
 %br
 = link_to 'Добавить товар', new_admin_item_path, class: 'add-to-cart'
 = render 'item' if params[:query]
-%div{style: 'clear:both'}
-= will_paginate @items
+

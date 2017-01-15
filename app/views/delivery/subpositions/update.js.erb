@@ -1,0 +1,9 @@
+<% @position = @subposition.position %>
+$('#edit_subposition_<%= @subposition.id %>').on('ajax:success', function(){
+  <% unless @subposition.destroyed? %>
+    $(this).find("input#subposition_quantity", this).first().val('<%= @subposition.quantity %>');
+  <% else %>
+    $('li#sub-<%= @subposition.id %>').hide();
+  <% end %>
+  $('.total').html('<%= @cart.total_price %>');
+});

@@ -6,7 +6,15 @@
           .img
             = image_tag c.img.url(:thumb)
           .info
-            = render partial: 'subposition', locals: {c: c}
+            %span.title
+              В композицию входит:
+              %br
+            - @position = @cart.positions.find_by(composition_id: c.id)
+            .subpositions
+              = render @position.subpositions.order(:id)
+            %span{class: "add-to-comp", style: 'cursor: pointer'} Добавить в композицию
+            %div{class: "form-add-sub"}
+              = render partial: 'delivery/carts/add', locals: {position: @position}
             = link_to 'Удалить', delivery_remove_from_cart_path(id: c.id), method: :post
     %div{style: 'clear: both;'}
     %span

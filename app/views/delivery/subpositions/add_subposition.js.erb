@@ -1,6 +1,4 @@
-<% @cart.compositions.each do |c| %>
-  $('#add-sub').submit(function(event){
-    event.preventDefault();
-    $(this).closest('.info').first().html(.html('<%= j(render partial: "delivery/carts/subposition", locals: {c: c} ) %>'));
-  });
-<% end %>
+$('#add-sub<%= @position.id %>').on('ajax:success', function(){
+  $(this).closest('.info').find('.subpositions').first().html('<%= j(render @position.subpositions) %>');
+  $('.total').html(<%= @cart.total_price %>)
+});

@@ -1,4 +1,4 @@
-= form_tag({controller: 'subpositions', action: 'add_subposition'}, remote: true, id: "add-sub") do
+= form_tag({controller: 'subpositions', action: 'add_subposition'}, remote: true, id: "add-sub#{position.id}") do
   = select_tag :item, options_for_select(Item.all.map{|item| [item.name, item.id]})
   = number_field_tag :quantity, 1, min: 1
   = hidden_field_tag :position_id, position.id, required: true

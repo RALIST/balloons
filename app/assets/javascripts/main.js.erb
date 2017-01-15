@@ -36,3 +36,9 @@ $('#enter_tags').keypress(function(e){
            $(this).closest('form').submit();
        }
     });
+
+$('.quantity').keypress(function(e){
+      if(e.which == 13){
+           $(this).closest('form').submit();
+       }
+    });

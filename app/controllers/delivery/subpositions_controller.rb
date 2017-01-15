@@ -29,11 +29,27 @@ class Delivery::SubpositionsController < Delivery::DeliveryController
       @position.add_quantity_to_sub(item, params[:quantity])
     else
       @position.subpositions.create(item: item, quantity: params[:quantity])
-    end 
+    end
     respond_to do |format|
       format.html{ redirect_back(fallback_location: delivery_root_path) }
       format.js
-    end    
+    end
   end
 
+  def update
+    @subposition = Subposition.find(params[:id])
+    if params[:subposition][:quantity].to_i > 0
+      @subposition.update(sub_params)
+    else
+      @subposition.destroy
+    end
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+  private
+  def sub_params
+    params.require(:subposition).permit(:quantity)
+  end
 end

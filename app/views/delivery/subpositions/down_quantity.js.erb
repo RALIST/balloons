@@ -1,4 +1,5 @@
-<% @cart.compositions.each do |c| %>
-  $('.info').html('<%= j(render partial: "delivery/carts/subposition", locals: {c: c} ) %>')
-  $('.total').html(<%= @cart.total_price %>)
-<% end %>
+<% @position = @subposition.position %>
+$('.sub-<%= @subposition.id %>').on('ajax:success', function(){
+  $(this).closest('.info').find('.subpositions').first().html('<%= j(render @position.subpositions) %>');
+  $('.total').html(<%= @cart.total_price %>);
+});

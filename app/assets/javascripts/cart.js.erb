@@ -1,0 +1,6 @@
+$(document).ready(function(){
+  $('.add-to-comp').click(function(event){
+    event.preventDefault();
+    $(this).closest('.info').find('.form-add-sub').first().toggle();
+  });
+});

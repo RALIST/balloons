@@ -1,4 +1,6 @@
 <% @cart.compositions.each do |c| %>
-  $('.info').html('<%= j(render partial: "delivery/carts/subposition", locals: {c: c} ) %>')
-  $('.total').html(<%= @cart.total_price %>)
+  $('#add-sub').submit(function(event){
+    event.preventDefault();
+    $(this).closest('.info').first().html(.html('<%= j(render partial: "delivery/carts/subposition", locals: {c: c} ) %>'));
+  });
 <% end %>

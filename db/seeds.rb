@@ -11,9 +11,10 @@ require 'nokogiri'
 
 
 xls = Roo::Spreadsheet.open('./public/price.xlsm')
-start_row = 21
+start_row = 1
 end_row = 200
-(start_row..end_row).each do |row|
+puts xls.last_row
+(start_row..xls.last_row).each do |row|
   unless xls.cell(row, 'B').blank?
     page = Nokogiri::HTML(open(xls.cell(row, 'C')))
     img_url = 'http://sharik.ru' + page.xpath('//img[@class = "main_image"]/@src').to_s
@@ -32,9 +33,9 @@ end_row = 200
 end
 
 xls = Roo::Spreadsheet.open('./public/price_foil.xlsm')
-start_row = 21
+start_row = 1
 end_row = 200
-(start_row..end_row).each do |row|
+(start_row..xls.last_row).each do |row|
   unless xls.cell(row, 'B').blank?
     page = Nokogiri::HTML(open(xls.cell(row, 'C')))
     img_url = 'http://sharik.ru' + page.xpath('//img[@class = "main_image"]/@src').to_s
@@ -54,9 +55,9 @@ end
 
 
 xls = Roo::Spreadsheet.open('./public/price_supplies.xlsm')
-start_row = 21
+start_row = 1
 end_row = 200
-(start_row..end_row).each do |row|
+(start_row..xls.last_row).each do |row|
   unless xls.cell(row, 'B').blank?
     page = Nokogiri::HTML(open(xls.cell(row, 'C')))
     img_url = 'http://sharik.ru' + page.xpath('//img[@class = "main_image"]/@src').to_s

@@ -14,6 +14,8 @@
         %i.fa.fa-minus
       %br
 
-%span.add-to-comp{style: 'cursor: pointer'} Добавить в композицию
-.form-add-sub
+%span{class: "add-to-comp", style: 'cursor: pointer'} Добавить в композицию
+%div{class: "form-add-sub"}
   = render partial: 'delivery/carts/add', locals: {position: @position}
+
+

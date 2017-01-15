@@ -1,11 +1,18 @@
 - @items.each do |item|
-  %p{style: 'float: left; width: 50%; min-height: 100px;'}
+  %div{style: 'float: left; width: 50%; min-height: 100px;'}
     %br
-    = image_tag item.img.url(:small)
-    = link_to item.name, admin_item_path(item)
-    %br
-    Минимальная партия:
-    = item.min_order
-    = item.quantity_type
-%div{styl: 'clear:both'}
+    = image_tag item.img.url(:small), style: 'float:left;'
+    %p{style: 'margin-left: 1em; float:left; width: 70%;'}
+      = link_to item.name, admin_item_path(item)
+      %br
+      Минимальная партия:
+      = item.min_order
+      = item.quantity_type
+      %br
+      Производитель:
+      = item.made_by
+      %br
+      %span{style: 'font-weight: bold;'}
+        = item.price
+%div{style: 'clear:both'}
 = will_paginate @items

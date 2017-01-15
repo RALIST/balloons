@@ -13,7 +13,7 @@ class Item < ApplicationRecord
   attr_reader :img_remote_url
 
   scope :with_tag, -> (tag) { joins(:tags).where('tags.name = ?', tag.name) }
-  scope :search, -> (query) { where("made_by LIKE ? OR item_type LIKE ?", query, query )}
+  scope :search, -> (query) { where("made_by LIKE ? OR item_type LIKE ? OR collection LIKE ?", query, query, query )}
 
   TYPES = ['Латексные шары', 'Фольгированые шары', 'Товары для праздника']
 

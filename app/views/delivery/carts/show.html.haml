@@ -2,9 +2,9 @@
   - if @cart.positions.any?
     .item-in-cart-list
       - @cart.compositions.each do |c|
-        .item-in-cart
+        %div{class: "item-in-cart"}
           .img
-            = image_tag c.img.url
+            = image_tag c.img.url(:thumb)
           .info
             = render partial: 'subposition', locals: {c: c}
             = link_to 'Удалить', delivery_remove_from_cart_path(id: c.id), method: :post

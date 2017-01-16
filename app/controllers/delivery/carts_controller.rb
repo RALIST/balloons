@@ -17,7 +17,11 @@ class Delivery::CartsController < Delivery::DeliveryController
         @cart.positions.where(composition: @composition).last.subpositions.create(item: item, quantity: quantity)
       end
     end
-    redirect_back(fallback_location: delivery_root_path)
+    respond_to do |format|
+      format.html {redirect_back(fallback_location: delivery_root_path)}
+      format.js
+    end
+
   end
 
   def remove_from_cart

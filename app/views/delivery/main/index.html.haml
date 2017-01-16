@@ -15,7 +15,7 @@
         %span{style: 'font-size: 0.8em;'}
           Вы можете изменить количество шаров в композиции, добавив ее в корзину!
         - unless @cart.compositions.include?(c)
-          = link_to 'Добавить в корзину', delivery_add_to_cart_path(composition_id: c.id), method: :post,  class: 'add-to-cart'
+          = link_to 'Добавить в корзину', delivery_add_to_cart_path(composition_id: c.id), method: :post, remote: true,  class: 'add-to-cart'
         - else
           %div
             В корзине

@@ -1,0 +1,6 @@
+$(document).ready(function(){
+  $('.products .add-to-cart').on('ajax:success', function(){
+    $(this).fadeOut('slow').html('<div>В корзине</div>');
+    $('.right-options .cart-info span').html('(<%= @cart.positions.count %>)')
+  })
+})

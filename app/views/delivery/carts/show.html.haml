@@ -1,11 +1,14 @@
 .cart
   - if @cart.positions.any?
     .item-in-cart-list
+      %h2 В корзине
       - @cart.compositions.each do |c|
         %div{class: "item-in-cart"}
           .img
             = image_tag c.img.url(:thumb)
           .info
+            %h2
+              = link_to c.title, delivery_composition_path(c)
             %span.title
               В композицию входит:
               %br
@@ -16,14 +19,14 @@
             %div{class: "form-add-sub"}
               = render partial: 'delivery/carts/add', locals: {position: @position}
             = link_to 'Удалить', delivery_remove_from_cart_path(id: c.id), method: :post
-    %div{style: 'clear: both;'}
-    %span
-      Total in cart
-      .total
-        = @cart.total_price
-    = link_to 'Оформить заказ', new_delivery_order_path, class: 'add-to-cart'
+    .subtotal
+      =render 'subtotal'
   - else
-    %span В вашей корзине пока ничего нет
+    %h2
+      В вашей корзине пока ничего нет
+      %br
+      = link_to 'Добавить в корзину', delivery_root_path
+
 
 %div{style: 'clear: both;'}
 

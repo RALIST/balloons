@@ -17,7 +17,7 @@
 %h2 Add tags to composition
 
 = form_for [:admin, @comp] do |f|
-  = f.select :tag_name, options_for_select(Tag.all.map{|i| [i.name]})
+  = f.select :tag_name, options_for_select(Tag.all.map{|i| [i.name]}.uniq)
   %br
   = f.submit 'Add tags'
 

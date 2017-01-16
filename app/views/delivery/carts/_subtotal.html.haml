@@ -1,0 +1,22 @@
+%h2 Итог:
+.cart-summary
+  %div
+    Всего в корзине
+    = pluralize(@cart.positions.count, 'товар', 'товара')
+    на сумму
+    = @cart.total_price.round(2)
+    %i.fa.fa-rub{style: 'aria-hidden="true"'}
+  %div
+    Ваша скидка:
+    = current_user ? current_user.discount : 0
+    %span %
+  .shipping
+    Доставка:
+    = @cart.total_price > 1000 ? 0 : 150
+    %i.fa.fa-rub{style: 'aria-hidden="true"'}
+  %div
+    Всего к оплате:
+    .total
+      = @cart.total_price.round(2)
+      %i.fa.fa-rub{style: 'aria-hidden="true"'}
+= link_to 'Оформить заказ', new_delivery_order_path, class: 'add-to-cart'

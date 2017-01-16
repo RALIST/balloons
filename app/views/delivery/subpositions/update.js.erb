@@ -5,5 +5,5 @@ $('#edit_subposition_<%= @subposition.id %>').on('ajax:success', function(){
   <% else %>
     $('li#sub-<%= @subposition.id %>').hide();
   <% end %>
-  $('.total').html('<%= @cart.total_price %>');
+  $('.subtotal').html('<%= j(render "delivery/carts/subtotal") %>');
 });

@@ -7,6 +7,7 @@ class Delivery::SessionsController < Delivery::DeliveryController
   def create
     if @user = login(params[:phone], params[:password])
       session[:user_id] = @user.id
+      @user.cart = @cart
       redirect_to @user
     else
       flash.now[:alert] = 'Login failed'

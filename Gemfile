@@ -53,6 +53,8 @@ gem 'roo'
 gem 'roo-xls'
 gem 'will_paginate'
 
+gem 'unicorn'
+
 group :production do
   gem 'rails_12factor'
 end

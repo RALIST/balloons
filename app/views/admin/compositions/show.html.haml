@@ -24,7 +24,7 @@
 Create your own tag
 = form_for [:admin, @comp] do |f|
   Add tags to composition
-  = f.text_field :tag_name, value: '', id: 'enter_tags'
+  = f.text_field :tag_name, value: '', id: 'tags'
 - @comp.tags.each do |tag|
   %p
     = tag.name

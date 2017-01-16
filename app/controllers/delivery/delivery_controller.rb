@@ -5,7 +5,11 @@ class Delivery::DeliveryController < ApplicationController
 
 private
   def current_cart
-    @cart = Cart.find(session[:cart_id])
+    if current_user
+      @cart = current_cart.cart
+    else
+      @cart = Cart.find(session[:cart_id])
+    end
   rescue ActiveRecord::RecordNotFound
     @cart = Cart.create
     session[:cart_id] = @cart.id

@@ -18,9 +18,9 @@ class Delivery::OrdersController < Delivery::DeliveryController
     else
       @order.save_user(order_params)
       auto_login(@order.user)
+      @order.user.cart = @cart
     end
     if @order.save
-      @cart.destroy
       @order.user.calculate_discount
       redirect_to delivery_order_path(@order)
     else

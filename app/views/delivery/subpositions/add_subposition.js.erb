@@ -1,4 +1,4 @@
 $('#add-sub<%= @position.id %>').on('ajax:success', function(){
-  $(this).closest('.info').find('.subpositions').first().html('<%= j(render @position.subpositions) %>');
+  $(this).closest('.info').find('.subpositions').first().html('<%= j(render @position.subpositions.order(:id)) %>');
   $('.total').html(<%= @cart.total_price %>)
 });

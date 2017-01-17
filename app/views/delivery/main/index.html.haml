@@ -8,5 +8,6 @@
             = link_to delivery_composition_path(c) do
               = image_tag c.img.url(:thumb)
             %h3= c.price
+            %p.text-center Добавьте композицию в корзину, чтобы изменить количество шаров
             %p.text-center
               = link_to 'Добавить в корзину', delivery_add_to_cart_path(composition_id: c.id), class: 'btn btn-primary', method: :post

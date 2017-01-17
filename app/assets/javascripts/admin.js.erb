@@ -1,5 +1,0 @@
-$(document).ready(function(){
-  <% @tags = [] %>
-  <% Tag.composition_tags.map{|tag| @tags << tag.name} %>
-  $('#tags').autocomplete({source: <%= @tags %>});
-});

@@ -9,7 +9,7 @@ class Delivery::UsersController < Delivery::DeliveryController
   def create
     @user = User.create(user_params)
     if @user.save
-      auto_login(@user)
+      auto_login(@user, should_remember = true)
       redirect_to delivery_root_path
     end
   end

@@ -17,7 +17,7 @@ class Delivery::OrdersController < Delivery::DeliveryController
       @order.user = current_user
     else
       @order.save_user(order_params)
-      auto_login(@order.user)
+      auto_login(@order.user, should_remember = true)
       @order.user.cart = @cart
     end
     if @order.save

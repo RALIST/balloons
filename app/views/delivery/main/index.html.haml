@@ -1,21 +1,12 @@
-
-.slider
-.offer
-.products
-  %h2
-    Лучшие композиции
-  .item-list
-    - @compositions.each do |c|
-      .item
-        = image_tag c.img.url(:thumb)
-        %span{style: 'font-weight: bold;'}
-          =c.price
-          %i.fa.fa-rub{style: 'aria-hidden="true"'}
-        %br
-        %span{style: 'font-size: 0.8em;'}
-          Вы можете изменить количество шаров в композиции, добавив ее в корзину!
-        - unless @cart.compositions.include?(c)
-          = link_to 'Добавить в корзину', delivery_add_to_cart_path(composition_id: c.id), method: :post, remote: true,  class: 'add-to-cart'
-        - else
-          %div
-            В корзине
+.container-fluide
+  .container
+    %h2.text-center Лучшие композиции
+    .row
+      - @compositions.each do |c|
+        .col-md-4
+          .thumbnail
+            = link_to delivery_composition_path(c) do
+              = image_tag c.img.url(:thumb)
+            %h3= c.price
+            %p.text-center
+              = link_to 'Добавить в корзину', delivery_add_to_cart_path(composition_id: c.id), class: 'btn btn-primary', method: :post

@@ -8,13 +8,8 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = render 'delivery/layouts/responsive_menu'
-    - if !@hide_header
-      %header
-        = render 'delivery/layouts/header'
-      = render 'delivery/layouts/main_menu'
-    .wrapper
-      .container
-        = yield
-    - if !@hide_footer
-      %footer
+    %header
+      = render 'delivery/layouts/header'
+      =render 'delivery/layouts/main_menu'
+    = yield
+    %footer

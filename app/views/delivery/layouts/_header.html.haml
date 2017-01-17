@@ -1,40 +1,25 @@
-.top
-  .top-right
-    - if current_user
-      Ваша скидка:
-      = current_user.discount
-      \%
-      = link_to 'Выйти', delivery_logout_path, method: :post
-    - else
-      =link_to delivery_login_path do
-        %i.fa.fa-sign-in
-          Войти
-      = link_to 'Регистрация', new_delivery_user_path
-  %i.fa.fa-bars
-
-
-.logo
-  .desk
-    = link_to image_tag('Обложка.jpg'), delivery_root_path
-  .mobile
-    = link_to image_tag('Logos.jpg'), delivery_root_path
-
-.top-menu
-  %li= link_to 'Доставка'
-  %li= link_to 'Оплата'
-  %li= link_to 'Контакты'
-  %li= link_to 'Админка', admin_root_path
-
-.top-phones
-  %li 123 (456) 789
-  %li 123 (456) 789
-  %li
-    .social
-      = link_to '/' do
-        %i.fa.fa-facebook
-      = link_to '/' do
-        %i.fa.fa-vk
-      = link_to '/' do
-        %i.fa.fa-instagram
+.container-fluide
+  .row
+    .col-md-12.bg-brand
+      Check your discount
+  .row
+    .container
+      .col-md-6
+        %ul.text-left.list-inline.list-unstyled
+          %li Контакты
+          %li Доставка
+          %li= link_to 'Админка', admin_root_path
+      .col-md-6
+        %ul.text-right.list-inline.list-unstyled
+          - if current_user
+            %li Выйти
+          - else
+            %li= link_to 'Войти', login_path
+  .row
+    .col-md-2
+    .col-md-8.col-xs-12
+      = link_to delivery_root_path do
+        = image_tag 'Обложка.jpg', class: 'img-responsive'
+    .col-md-2
 
 

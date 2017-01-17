@@ -6,7 +6,7 @@ class Delivery::DeliveryController < ApplicationController
 private
   def current_cart
     if current_user
-      @cart = current_cart.cart
+      @cart = current_user.cart
     else
       @cart = Cart.find(session[:cart_id])
     end

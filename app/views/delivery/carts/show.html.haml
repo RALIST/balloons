@@ -1,31 +1,33 @@
-.cart
-  - if @cart.positions.any?
-    .item-in-cart-list
-      %h2 В корзине
-      - @cart.compositions.each do |c|
-        %div{class: "item-in-cart"}
-          .img
-            = image_tag c.img.url(:thumb)
-          .info
-            %h2
-              = link_to c.title, delivery_composition_path(c)
-            %span.title
-              В композицию входит:
-              %br
-            - @position = @cart.positions.find_by(composition_id: c.id)
-            .subpositions
-              = render @position.subpositions.order(:id)
-            %span{class: "add-to-comp", style: 'cursor: pointer'} Добавить в композицию
-            %div{class: "form-add-sub"}
-              = render partial: 'delivery/carts/add', locals: {position: @position}
-            = link_to 'Удалить', delivery_remove_from_cart_path(id: c.id), method: :post
-    .subtotal
-      =render 'subtotal'
-  - else
-    %h2
-      В вашей корзине пока ничего нет
-      %br
-      = link_to 'Добавить в корзину', delivery_root_path
+.container
+  .row
+    - if @cart.positions.any?
+      .col-md-9
+        %h3 В корзине
+        - @cart.compositions.each do |c|
+          .row
+            .col-md-12.thumbnail
+              .col-md-4
+                = image_tag c.img.url(:thumb), class: 'img-responsive'
+              .col-md-8
+                %h4
+                  = link_to c.title, delivery_composition_path(c)
+                %span.title
+                  В композицию входит:
+                  %br
+                - @position = @cart.positions.find_by(composition_id: c.id)
+                .subpositions
+                  = render @position.subpositions.order(:id)
+                %span{class: "add-to-comp", style: 'cursor: pointer'} Добавить в композицию
+                %div{class: "form-add-sub"}
+                  = render partial: 'delivery/carts/add', locals: {position: @position}
+                = link_to 'Удалить', delivery_remove_from_cart_path(id: c.id), method: :post
+      .col-md-3
+        =render 'subtotal'
+    - else
+      %h2
+        В вашей корзине пока ничего нет
+        %br
+        = link_to 'Добавить в корзину', delivery_root_path
 
 
 %div{style: 'clear: both;'}

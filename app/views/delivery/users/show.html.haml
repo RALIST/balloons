@@ -1,1 +1,5 @@
-= current_user.name
+Имя:
+= current_user.first_name
+%br
+Заказов:
+= current_user.orders.count

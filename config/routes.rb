@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     post '/add_subposition',    to: 'subpositions#add_subposition', as: :add_subposition
     get 'login',                to: 'sessions#new',                 as: :login
     post 'logout' ,             to:  'sessions#destroy',            as: :logout
+    get 'signin',               to: 'users#new',                    as: :signin
     get '/search',              to: 'main#index_with_tags',         as: :search
   end
 

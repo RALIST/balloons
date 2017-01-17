@@ -14,7 +14,8 @@
           - if current_user
             %li Выйти
           - else
-            %li= link_to 'Войти', login_path
+            %li= link_to 'Войти', delivery_login_path
+            %li= link_to 'Регистрация', delivery_signin_path
   .row
     .col-md-2
     .col-md-8.col-xs-12

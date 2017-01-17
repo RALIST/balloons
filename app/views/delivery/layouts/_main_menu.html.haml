@@ -19,5 +19,7 @@
           = link_to delivery_cart_path(@cart) do
             %i.fa.fa-shopping-cart{style: 'aria-hidden="true"'}
             Корзина
+        %li.text-uppercase.h4
+          = link_to 'Личный кабинет', delivery_user_path(current_user) if current_user
 
 

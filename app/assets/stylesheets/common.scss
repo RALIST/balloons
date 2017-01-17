@@ -3,7 +3,20 @@
 }
 .bg-brand {
   background-color: $brand-primary;
-  color: #ffffff;
+  a {
+    color: #ffffff;
+  }
+}
+
+.social {
+  font-size: 2em;
+  li {
+    float:right;
+  }
+}
+
+.phones {
+  font-size: 1.2em;
 }
 
 

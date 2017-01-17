@@ -1,26 +1,49 @@
-.container-fluide
+.container-fluid
   .row
-    .col-md-12.bg-brand
-      Check your discount
+    .col-md-12.bg-brand.text-center
+      =link_to 'Скидка на все товары 15%!'
   .row
     .container
       .col-md-6
         %ul.text-left.list-inline.list-unstyled
-          %li Контакты
-          %li Доставка
+          %li= link_to 'Контакты'
+          %li= link_to 'Доставка'
           %li= link_to 'Админка', admin_root_path
       .col-md-6
         %ul.text-right.list-inline.list-unstyled
           - if current_user
-            %li Выйти
+            %li= link_to 'Выйти', delivery_logout_path
           - else
             %li= link_to 'Войти', delivery_login_path
             %li= link_to 'Регистрация', delivery_signin_path
   .row
-    .col-md-2
-    .col-md-8.col-xs-12
-      = link_to delivery_root_path do
-        = image_tag 'Обложка.jpg', class: 'img-responsive'
-    .col-md-2
+    .container
+      .col-md-2
+      .col-md-8.col-xs-12
+        = link_to delivery_root_path do
+          = image_tag 'Обложка.jpg', class: 'img-responsive'
+      .col-md-2
+        .row.text-right
+          .col-md-12
+            Мы в соц.сетях
+            %ul.list-unstyled.list-inline.social.text-right
+              %li
+                =link_to do
+                  %i.fa.fa-instagram{"aria-hidden" => "true"}
+              %li
+                =link_to do
+                  %i.fa.fa-facebook{"aria-hidden" => "true"}
+              %li
+                =link_to do
+                  %i.fa.fa-vk{"aria-hidden" => "true"}
+        .row.text-right
+          .col-md-12
+            Позвоните нам!
+            %ul.list-unstyled.phones
+              %li +79124614168
+              %li +79124532598
+        .row
+          .col-md-12.text-right
+            %p= link_to 'Заказать звонок','', class: 'btn btn-primary'
 
 

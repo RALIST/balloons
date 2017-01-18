@@ -1,7 +1,7 @@
 
-%h3 Итог:
+%h3.border-bot Итог:
 .row
-  .col-md-12.thumbnail
+  .col-md-12
     %div
       Всего в корзине
       = pluralize(@cart.positions.count, 'товар', 'товара')
@@ -22,4 +22,4 @@
         = @cart.total_price.round(2)
         %i.fa.fa-rub{style: 'aria-hidden="true"'}
     .text-center
-      = link_to 'Оформить заказ', new_delivery_order_path, class: 'btn btn-success'
+      = link_to 'Оформить заказ', new_delivery_order_path, class: 'btn btn-success btn-block'

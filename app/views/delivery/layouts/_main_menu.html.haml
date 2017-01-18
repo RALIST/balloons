@@ -1,5 +1,5 @@
 .container
-  .row.border-bot
+  .row
     .col-md-6
       %ul.nav.nav-pills
         %li.text-uppercase.dropdown.h4{role: "presentation"}
@@ -15,6 +15,13 @@
           = link_to 'По цене'
     .col-md-6
       %ul.nav.nav-pills{style: 'float:right'}
+        %li.h4
+          = form_tag delivery_search_path, method: :get, class: 'form-inline' do
+            .input-group
+              = text_field_tag :tag_name,'', class: 'form-control input-sm', placeholder: 'Введите событие...'
+              %span.input-group-btn
+                = button_tag(type: 'submit', class: 'btn btn-primary btn-sm') do
+                  %i.fa.fa-search
         %li.text-uppercase.h4
           = link_to delivery_cart_path(@cart) do
             %i.fa.fa-shopping-cart{style: 'aria-hidden="true"'}

@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     get 'login',                to: 'sessions#new',                 as: :login
     post 'logout' ,             to:  'sessions#destroy',            as: :logout
     get 'signin',               to: 'users#new',                    as: :signin
-    get '/search',              to: 'main#index_with_tags',         as: :search
+    get '/search',              to: 'main#search',                  as: :search
   end
 
   namespace :shop do

@@ -8,7 +8,7 @@ class Composition < ApplicationRecord
   validates_attachment_content_type :img,
                         content_type: ["image/jpeg", "image/jpg", "image/png"]
 
-  scope :with_tag, -> (tag) { joins(:tags).where('tags.name = ?', tag.name) }
+  scope :with_tag, -> (tag) { joins(:tags).where('tags.name LIKE ?', "%#{tag}%") }
 
   def comp_price
     price = self.items.map{ |i| i.price }.sum

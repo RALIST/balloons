@@ -1,14 +1,27 @@
-.form-wrapper
-  .form-logo
-    = link_to delivery_root_path do
-      = image_tag 'form-logo.jpg'
-  .form
-    %h2 Войдите
-    = form_tag delivery_sessions_path,  method: :post do
-      .form-field
-        = label_tag 'Номер телефона'
-        = text_field_tag :phone, '', class: 'form-input'
-      .form-field
-        = label_tag 'Пароль'
-        = text_field_tag :password, '', class: 'form-input'
-      = submit_tag 'Войти', class: 'add-to-cart'
+.container
+  .row
+    .col-md-4
+      = link_to delivery_root_path do
+        = image_tag 'form-logo.jpg', class: 'img-responsive'
+    .col-md-4
+      %h2 Войдите
+      = form_tag delivery_sessions_path,  method: :post, class: 'form-horizontal border-right' do
+        .form-group
+          .col-sm-10
+            = label_tag '', 'Ваше имя', class: 'control-label'
+            = text_field_tag :password, '', class: 'form-control'
+        .form-group
+          .col-sm-10
+            = label_tag '', 'Номер телефона', class: 'control-label'
+            = text_field_tag :phone, '', class: 'form-control'
+        .form-group
+          .col-sm-10
+            .checkbox
+              %label
+                = check_box_tag :remember_me
+                Запомнить меня
+        .form-group
+          .col-sm-10
+            = submit_tag 'Войти', class: 'btn btn-primary btn-block'
+    .col-md-4
+      %h2 Через соц.сети

@@ -9,9 +9,9 @@ class Delivery::SessionsController < Delivery::DeliveryController
       session[:user_id] = @user.id
       remember_me!
       @user.cart = @cart
-      redirect_to @user
+      redirect_to delivery_root_path
     else
-      flash.now[:alert] = 'Login failed'
+      flash.now[:danger] = 'Не удалось войти!'
       render 'new'
     end
   end

@@ -1,5 +1,7 @@
-= form_tag({controller: 'subpositions', action: 'add_subposition'}, remote: true, id: "add-sub#{position.id}") do
-  = select_tag :item, options_for_select(Item.all.map{|item| [item.name, item.id]})
-  = number_field_tag :quantity, 1, min: 1
-  = hidden_field_tag :position_id, position.id, required: true
-  = submit_tag 'Добавить'
+= form_tag({controller: 'subpositions', action: 'add_subposition'}, remote: true, id: "add-sub#{position.id}", class: 'form-inline') do
+  .form-group
+    = select_tag :item, options_for_select(Item.all.map{|item| [item.name, item.id]}), class: 'form-control input-sm'
+  .form-group
+    = number_field_tag :quantity, 1, min: 1, class: 'form-control input-sm'
+    = hidden_field_tag :position_id, position.id, required: true
+    = submit_tag 'Добавить', class: 'btn btn-default btn-sm'

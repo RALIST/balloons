@@ -1,16 +1,21 @@
-.form-wrapper
-  .form-logo
-    = link_to delivery_root_path do
-      = image_tag 'form-logo.jpg'
-  .form
-    = form_for [:delivery, @user] do |f|
-      .form-field
-        = f.label "Ваш телефон"
-        = f.text_field :phone, class: 'form-input'
-      .form-field
-        = f.label 'Пароль'
-        = f.password_field :password, class: 'form-input'
-      .form-field
-        = f.label 'Подтвердите пароль'
-        = f.password_field :password_confirmation, class: 'form-input'
-      = f.submit 'Зарегистрироваться', class: 'add-to-cart'
+.container
+  .row
+    .col-md-4
+      = link_to delivery_root_path do
+        = image_tag 'form-logo.jpg', class: 'img-responsive'
+    .col-md-4
+      %h2 Регистрация
+      = form_for [:delivery, @user], html: {class: 'form-horizontal border-right'}  do |f|
+        .form-group
+          .col-sm-10
+            = f.label 'Ваше имя'
+            = f.text_field :password, class: 'form-control'
+        .form-group
+          .col-sm-10
+            = f.label "Ваш телефон", class: 'lable-control'
+            = f.text_field :phone, class: 'form-control'
+        .form-group
+          .col-sm-10
+            = f.submit 'Зарегистрироваться', class: 'btn btn-primary btn-block'
+    .col-md-4
+      %h2 Через соц.сети

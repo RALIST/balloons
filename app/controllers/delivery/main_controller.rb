@@ -3,8 +3,17 @@ class Delivery::MainController < Delivery::DeliveryController
     @compositions = Composition.all
   end
 
-  def index_with_tags
-    tag = Tag.find_by(name: params[:tag_name])
-    @compositions =  Composition.all.with_tag(tag)
+  def search
+    unless params[:tag_name].blank?
+      @compositions =  Composition.all.with_tag(params[:tag_name])
+      if @compositions.any?
+        @compositions
+      else
+        redirect_to delivery_root_path
+        flash[:info] = 'По запросу ' + params[:tag_name] + ' ничего не найдено!'
+      end
+    else
+      redirect_to delivery_root_path
+    end
   end
 end

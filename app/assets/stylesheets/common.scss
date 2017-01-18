@@ -8,6 +8,14 @@
   }
 }
 
+.border-top {
+  border-top: 1px solid $brand-primary;
+}
+
+.border-right {
+  border-right: 1px solid $brand-primary;
+}
+
 .social {
   font-size: 2em;
   li {
@@ -19,4 +27,29 @@
   font-size: 1.2em;
 }
 
+#del-from-cart {
+  position: absolute;
+  top: 4%;
+  right: 4%;
+  font-size: 1.4em;
+}
 
+.form-inline {
+  .form-group {
+    max-width: 50%;
+    select {
+      max-width: 100%;
+    }
+  }
+  #quantity {
+    display: inline;
+    max-width: 6em;
+  }
+}
+.edit_subposition {
+  display: inline;
+  #subposition_quantity {
+    max-width: 5em;
+    display: inline;
+  }
+}

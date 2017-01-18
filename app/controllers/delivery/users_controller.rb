@@ -10,7 +10,12 @@ class Delivery::UsersController < Delivery::DeliveryController
     @user = User.create(user_params)
     if @user.save
       auto_login(@user, should_remember = true)
+      @user.cart = @cart
+      flash[:success] = 'Вы успешно зарегистрировались!'
       redirect_to delivery_root_path
+    else
+      flash.now[:danger] = 'Не удалось зарегистрироваться. Проверьте данные'
+      render 'new'
     end
   end
 
@@ -29,7 +34,7 @@ class Delivery::UsersController < Delivery::DeliveryController
 
   private
   def user_params
-    params.require(:user).permit(:phone, :password, :password_confirmation)
+    params.require(:user).permit(:phone, :password, :first_name)
   end
 
 end

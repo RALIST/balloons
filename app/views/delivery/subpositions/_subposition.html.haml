@@ -3,9 +3,8 @@
     = subposition.item.name
     = link_to delivery_add_quantity_path(id: subposition.id), method: :post, remote: true, class: "sub-#{subposition.id}" do
       %i.fa.fa-plus
-    %span.quantity
-      = form_for [:delivery, subposition], remote: true do |f|
-        = f.number_field :quantity
+    = form_for [:delivery, subposition], remote: true do |f|
+      = f.number_field :quantity, class: 'form-control input-sm'
     = link_to delivery_down_quantity_path(id: subposition.id), method: :post, remote: true, class: "sub-#{subposition.id}" do
       %i.fa.fa-minus
     %br

@@ -23,6 +23,7 @@ class Delivery::OrdersController < Delivery::DeliveryController
     if @order.save
       @order.user.calculate_discount
       redirect_to delivery_order_path(@order)
+      flash[:success] = 'Заказ успешно создан!'
     else
       render 'new'
     end

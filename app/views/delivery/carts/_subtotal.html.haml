@@ -1,25 +1,57 @@
 
-%h3.border-bot Итог:
+%h2.border-bot Итог:
 .row
-  .col-md-12
-    %div
-      Всего в корзине
-      = pluralize(@cart.positions.count, 'товар', 'товара')
-      на сумму
-      = @cart.total_price.round(2)
-      %i.fa.fa-rub{style: 'aria-hidden="true"'}
-    %div
-      Ваша скидка:
-      = current_user ? current_user.discount : 0
-      %span %
-    .shipping
-      Доставка:
-      = @cart.total_price > 1000 ? 0 : 150
-      %i.fa.fa-rub{style: 'aria-hidden="true"'}
-    %div.text-center
-      Всего к оплате:
-      .total.h3
+  .col-md-12.col-xs-12.col-sm-12
+    .row
+      .col-md-6.text-left
+        Всего в корзине
+      .col-md-6.text-right
+        = pluralize(@cart.positions.count, 'товар', 'товара')
+    .row
+      .col-md-6.text-left
+        Сумма
+      .col-md-6.text-right
         = @cart.total_price.round(2)
         %i.fa.fa-rub{style: 'aria-hidden="true"'}
-    .text-center
-      = link_to 'Оформить заказ', new_delivery_order_path, class: 'btn btn-success btn-block'
+    .row
+      .col-md-6.text-left
+        Ваша скидка:
+      .col-md-6.text-right
+        - if current_user
+          #{current_user.discount}
+        - else
+          = link_to 'Войдите', delivery_login_path
+
+    .row
+      .col-md-6.text-left
+        - to_delivery = 1500 - @cart.total_price.round(2)
+        Доставка
+      .col-md-6.text-right
+        = to_delivery > 0 ? 150 : 0
+        %i.fa.fa-rub{style: 'aria-hidden="true"'}
+    .row
+      .col-md-6.text-left.border-bot
+        %strong
+          Всего к оплате:
+      .col-md-6.text-right.border-bot
+        %strong
+          = @cart.total_price.round(2)
+          %i.fa.fa-rub{style: 'aria-hidden="true"'}
+    .row
+      .col-md-12
+        %form.form-inline{style: 'margin-bottom: 14px;'}
+          .form-group
+            = text_field_tag '', '', class: 'form-control input-sm', placeholder: 'Промо код'
+          .form-group.text-right
+            %span= link_to 'Как получить?'
+  .col-md-12
+    = link_to 'Оформить заказ', new_delivery_order_path, class: 'btn btn-info btn-block'
+  .row
+    .col-md-12.text-center
+      %small
+        - if to_delivery > 0
+          Вам осталось #{to_delivery}
+          %i.fa.fa-rub{style: 'aria-hidden="true"'}
+          до бесплатной доставки
+        -else
+          Бесплатная доставка в любой конец города!

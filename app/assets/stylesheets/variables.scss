@@ -1,6 +1,12 @@
 // Colors
  $brand-primary: #68c4af;
+ $brand-secondary: #F68294;
  // Dropdowns
- $dropdown-link-color: #68c4af;
+ $dropdown-link-color: $brand-secondary;
  // Navs
- $nav-link-hover-bg: #f2f6c3;
+ $nav-link-hover-bg: lighten($brand-primary, 30%);
+// Grid
+// Button
+$btn-info-bg: $brand-secondary;
+$input-border-focus: $brand-secondary;
+$headings-color: darken($brand-primary, 10%);

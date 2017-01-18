@@ -8,11 +8,14 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    %header
-      = render 'delivery/layouts/header'
-      =render 'delivery/layouts/main_menu'
-    - flash.each do |key, message|
-      %div{class: "alert alert-#{key} text-center"}
-        = message
-    = yield
+    .wrapper
+      %header
+        = render 'delivery/layouts/header'
+        =render 'delivery/layouts/main_menu'
+      - flash.each do |key, message|
+        %div{class: "alert alert-#{key} text-center"}
+          = message
+      = yield
+    .clearfix
     %footer
+      =render 'delivery/layouts/footer'

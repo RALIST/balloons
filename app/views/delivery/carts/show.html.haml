@@ -2,15 +2,15 @@
   .row
     .container
       - if @cart.positions.any?
-        .col-md-7
-          %h3.border-bot В корзине
+        .col-md-7.col-sm-12.col-xs-12
+          %h2.border-bot В корзине
           - @cart.compositions.each do |c|
             .row
               .col-md-12
                 .thumbnail{style: 'float: left'}
-                  .col-md-4
+                  .col-md-4.col-sm-12.col-xs-12
                     = image_tag c.img.url(:thumb), class: 'img-responsive'
-                  .col-md-8
+                  .col-md-8.col-sm-12.col-xs-12
                     %h4
                       = link_to c.title, delivery_composition_path(c)
                     %span.title
@@ -22,14 +22,14 @@
                     %span{class: "add-to-comp", style: 'cursor: pointer'} Добавить в композицию
                     %div{class: "form-add-sub"}
                       = render partial: 'delivery/carts/add', locals: {position: @position}
-                    = link_to delivery_remove_from_cart_path(id: c.id), method: :post do
-                      %i.fa.fa-times#del-from-cart
-        .col-md-1
-        .col-md-4
+                = link_to delivery_remove_from_cart_path(id: c.id), method: :post do
+                  %i.fa.fa-times#del-from-cart
+        .col-md-1.hidden-sm.hidden-xs
+        .col-md-4.col-sm-12.col-xs-12
           =render 'subtotal'
       - else
         .col-md-12
-          %h3
+          %h2
             В вашей корзине пока ничего нет
             %br
             = link_to 'Добавить в корзину', delivery_root_path

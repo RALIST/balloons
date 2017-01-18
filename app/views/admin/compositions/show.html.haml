@@ -1,32 +1,33 @@
-= image_tag(@comp.img.url, size: '200')
-%br
-= @comp.title
-%br
-%span.price
-  = @comp.price
-
-=form_tag({controller: 'compositions', action: 'add_item'}, remote: true) do
-  = select_tag :item, options_for_select(Item.all.map{|i| [i.name, i.id]})
-  = number_field_tag :count
-  = submit_tag 'Add Item'
+.container
+  = image_tag(@comp.img.url, size: '200')
   %br
-  %span Items in compositions
-  .items
-    = render 'item'
-
-%h2 Add tags to composition
-
-= form_for [:admin, @comp] do |f|
-  = f.select :tag_name, options_for_select(Tag.all.map{|i| [i.name]}.uniq)
+  = @comp.title
   %br
-  = f.submit 'Add tags'
+  %span.price
+    = @comp.price
 
-Create your own tag
-= form_for [:admin, @comp] do |f|
-  Add tags to composition
-  = f.text_field :tag_name, value: '', id: 'tags'
-- @comp.tags.each do |tag|
-  %p
-    = tag.name
-    = link_to admin_remove_tag_path(tag_id: tag.id), method: :put do
-      %i.fa.fa-times-circle{style: 'aria-hidden="true"'}
+  =form_tag({controller: 'compositions', action: 'add_item'}, remote: true) do
+    = select_tag :item, options_for_select(Item.all.map{|i| [i.name, i.id]})
+    = number_field_tag :count
+    = submit_tag 'Add Item'
+    %br
+    %span Items in compositions
+    .items
+      = render 'item'
+
+  %h2 Add tags to composition
+
+  = form_for [:admin, @comp] do |f|
+    = f.select :tag_name, options_for_select(Tag.all.map{|i| [i.name]}.uniq)
+    %br
+    = f.submit 'Add tags'
+
+  Create your own tag
+  = form_for [:admin, @comp] do |f|
+    Add tags to composition
+    = f.text_field :tag_name, value: '', id: 'tags'
+  - @comp.tags.each do |tag|
+    %p
+      = tag.name
+      = link_to admin_remove_tag_path(tag_id: tag.id), method: :put do
+        %i.fa.fa-times-circle{style: 'aria-hidden="true"'}

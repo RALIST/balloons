@@ -1,11 +1,10 @@
-.form-wrapper
-  .form
-    %h2 Создать композицию
-    = form_for [:admin, @comp] do |f|
-      .form-field
-        =f.label 'Название'
-        =f.text_field :title, class: 'form-input'
-      .form-field
-        =f.label 'Изображение'
-        =f.file_field :img, class: 'form-input'
-        =f.submit 'Создать композицию', class: 'add-to-cart'
+.col-md-4
+  = form_for [:admin, @comp] do |f|
+    .form-group
+      =f.label 'Название', class: 'control-label'
+      =f.text_field :title, class: 'form-control'
+    .form-group
+      =f.label 'Изображение', class: 'control-label'
+      =f.file_field :img, class: 'form-control'
+    .form-group
+      =f.submit 'Создать композицию', class: 'btn btn-primary'

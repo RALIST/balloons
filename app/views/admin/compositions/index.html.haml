@@ -1,1 +1,4 @@
-= render @compositions, locals: {composition: @comp}
+.container
+  = render @compositions, locals: {composition: @comp}
+  .clearfix
+  =link_to 'Добавить композицию', new_admin_composition_path, class: 'btn btn-primary'

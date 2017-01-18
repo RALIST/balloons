@@ -1,29 +1,31 @@
-.main-menu
-  %ul.left-options
-    %li
-      = link_to do
-        %span Товары
-        %i.fa.fa-sort-desc
-      %ul
-        %li= link_to 'Все товары', admin_items_path
-        %li= link_to 'Добавить товар', new_admin_item_path
-    %li
-      = link_to do
-        %span Композиции
-        %i.fa.fa-sort-desc
-      %ul
-        %li= link_to 'Все композиции', admin_compositions_path
-        %li= link_to 'Добавить композицию', new_admin_composition_path
-    %li
-      = link_to do 
-        %span Теги
-        %i.fa.fa-sort-desc
-      %ul
-        %li= link_to 'Все теги', admin_tags_path
-        %li= link_to 'Добавить тег', new_admin_tag_path
-    %li
-      = link_to do 
-        %span Заказы
-      %ul
-        %li= link_to 'All orders', admin_orders_path
-        %i.fa.fa-sort-desc
+.container-fluid
+  .container
+    .row
+      .col-md-8.col-sm-8
+        %ul.nav.nav-pills
+          %li.text-uppercase.dropdown.h4{role: "presentation"}
+            = link_to '#', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
+              Композиции
+              %i.fa.fa-caret-down{style: 'aria-hidden="true"'}
+            %ul.dropdown-menu
+              %li.text-capitalize= link_to 'Добавить композицию', new_admin_composition_path
+              %li.text-capitalize= link_to 'Все композиции', admin_compositions_path
+          %li.text-uppercase.dropdown.h4{role: "presentation"}
+            = link_to '#', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
+              Товары
+              %i.fa.fa-caret-down{style: 'aria-hidden="true"'}
+            %ul.dropdown-menu
+              %li.text-capitalize= link_to 'Добавить товар', new_admin_item_path
+              %li.text-capitalize= link_to 'Все товары', admin_items_path
+          %li.text-uppercase.dropdown.h4{role: "presentation"}
+            = link_to '#', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
+              Заказы
+              %i.fa.fa-caret-down{style: 'aria-hidden="true"'}
+            %ul.dropdown-menu
+              %li.text-capitalize= link_to 'Все заказы', admin_orders_path
+      .col-md-4.col-sm-4
+        %ul.nav.nav-pills.pull-right
+          %li.text-uppercase.h4
+            =link_to 'Доставка', delivery_root_path
+          %li.text-uppercase.h4
+            =link_to 'Магазин', shop_root_path

@@ -1,20 +1,21 @@
-= Item.all.count
-%p
-  Производители:
+.container
+  = Item.all.count
+  %p
+    Производители:
+    %br
+    - @companies.each do |company|
+      %span{style: "margin: 0 0.5em; display: inline-block;" }
+        = link_to company, admin_items_path(query: company) unless company.blank?
+  %p
+    Тип:
+    - @types.each do |type|
+      = link_to type, admin_items_path(query: type) unless type.blank?
+  %p
+    Коллекция:
+    %br
+    - @collections.each do |collection|
+      = link_to collection, admin_items_path(query: collection)
   %br
-  - @companies.each do |company|
-    %span{style: "margin: 0 0.5em; display: inline-block;" }
-      = link_to company, admin_items_path(query: company) unless company.blank?
-%p
-  Тип:
-  - @types.each do |type|
-    = link_to type, admin_items_path(query: type) unless type.blank?
-%p
-  Коллекция:
-  %br
-  - @collections.each do |collection|
-    = link_to collection, admin_items_path(query: collection)
-%br
-= link_to 'Добавить товар', new_admin_item_path, class: 'add-to-cart'
-= render 'item' if params[:query]
+  = link_to 'Добавить товар', new_admin_item_path, class: 'add-to-cart'
+  = render 'item' if params[:query]
 

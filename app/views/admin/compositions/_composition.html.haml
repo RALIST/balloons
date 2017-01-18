@@ -1,6 +1,5 @@
-%p
-  %span Title
+.col-md-2
+  =image_tag composition.img.url(:small), class: 'img-responsive',style: 'min-height: 100%; object-fit: contain;'
   = link_to composition.title, admin_composition_path(composition)
   %br
-  %span Price
-  = composition.price
+  = composition.price.to_f.round(2) unless composition.price.blank?

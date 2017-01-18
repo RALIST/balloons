@@ -1,22 +1,23 @@
-= image_tag @item.img.url(:thumb)
-%br
-= @item.name
-%br
-Производитель:
-= @item.made_by
-%br
-Цена:
-= @item.price
-руб.
-= @item.price_with_helium
-%br
-Коллекция:
-= @item.collection
-%br
-= @item.humanize_type
-%br
-Минимальная партия:
-= @item.min_order
-= @item.quantity_type
-%br
-= link_to 'Редактировать', edit_admin_item_path(@item), class: 'add-to-cart'
+ .container
+  = image_tag @item.img.url(:thumb)
+  %br
+  = @item.name
+  %br
+  Производитель:
+  = @item.made_by
+  %br
+  Цена:
+  = @item.price
+  руб.
+  = @item.price_with_helium
+  %br
+  Коллекция:
+  = @item.collection
+  %br
+  = @item.humanize_type
+  %br
+  Минимальная партия:
+  = @item.min_order
+  = @item.quantity_type
+  %br
+  = link_to 'Редактировать', edit_admin_item_path(@item), class: 'add-to-cart'

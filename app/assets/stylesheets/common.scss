@@ -15,7 +15,9 @@ body {
   vertical-align: middle;
   float: none;
 }
-
+.hidden {
+  display: none;
+}
 .on-icon {
   position: absolute;
   margin-left: -1em;

@@ -5,6 +5,22 @@ body {
   font-size: 14px;
 }
 
+.display-table {
+  display: table;
+  table-layout: fixed;
+}
+
+.display-cell {
+  display: table-cell;
+  vertical-align: middle;
+  float: none;
+}
+
+.on-icon {
+  position: absolute;
+  margin-left: -1em;
+  background-color: $brand-secondary;
+}
 .wrapper {
   position: relative;
   width: 100%;

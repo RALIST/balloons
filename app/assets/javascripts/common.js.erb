@@ -2,6 +2,7 @@ $(document).ready(function(){
   $('.fa-bars').on('click', function(){
     $('.resp-menu').toggle('slide','slow', function(){
       $('.fixed .fa').toggleClass('fa-bars fa-times');
+      $('.on-icon').toggle();
     });
 
   })

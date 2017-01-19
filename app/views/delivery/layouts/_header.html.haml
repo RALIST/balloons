@@ -6,7 +6,10 @@
   .row.hidden-md.hidden-lg
     .col-sm-12.col-xs-12.bg-brand.fixed
       .col-xs-6.col-sm-6.pull-right.text-right
-        %i.fa.fa-bars{style: 'aria-hidden="true"; font-size: 2em;'}
+        .icon-wrapper{style: 'position: relative;'}
+          %i.fa.fa-bars{style: 'aria-hidden="true"; font-size: 2em; position: relative;'}
+          %small
+            %span.badge.on-icon= @cart.positions.count if @cart.positions.any?
       .col-xs-6.col-sm-6.pull-left.text-left
   .container
     .row.hidden-xs

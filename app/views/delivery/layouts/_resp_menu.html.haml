@@ -3,15 +3,14 @@
     .container
       .row
         .col-xs-12.col-sm-12
-      .row
-        .col-xs-12.col-sm-12{style: 'display: table; table-layout: fixed; float: none;'}
-          .col-xs-4.col-sm-4{style: 'display: table-cell; vertical-align: middle; float: none;'}
-            =link_to delivery_root_path do
-              =image_tag 'logo2.png', class: 'img-responsive'
-          .col-sm-8.col-xs-8{style: 'display: table-cell; vertical-align: middle; float: none;'}
-            Нужна помощь?
-            .h4
-              +7(912)453-25-98
+      .row.display-table
+        .col-xs-4.col-sm-4.display-cell
+          =link_to delivery_root_path do
+            =image_tag 'logo2.png', class: 'img-responsive'
+        .col-sm-8.col-xs-8.display-cell
+          Нужна помощь?
+          .h4
+            +7(912)453-25-98
       .row
         .col-sm-12.col-xs-12
           %ul.nav.nav-pills
@@ -46,3 +45,4 @@
               %ul.list-unstyled.dropdown-menus
                 - Tag.composition_tags.each do |tag|
                   %li.text-capitalize.h4= link_to tag.name, delivery_search_path(tag_name: tag.name)
+

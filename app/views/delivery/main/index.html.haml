@@ -13,4 +13,8 @@
 
             %p.text-center Добавьте композицию в корзину, чтобы изменить количество шаров
             %p.text-center
+              %small
+                - c.tags.each do |tag|
+                  = tag.name
+            %p.text-center
               = link_to 'Добавить в корзину', delivery_add_to_cart_path(composition_id: c.id), class: 'btn btn-info btn-block', method: :post

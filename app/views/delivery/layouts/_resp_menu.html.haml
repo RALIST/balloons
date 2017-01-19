@@ -13,6 +13,16 @@
             +7(912)453-25-98
       .row
         .col-sm-12.col-xs-12
+          %ul.nav.nav-pills
+            %li.h4.text-center
+              = form_tag delivery_search_path, method: :get, class: 'form-horizontal' do
+                .input-group
+                  = text_field_tag :tag_name,'', class: 'form-control input-sm', placeholder: 'Введите событие...'
+                  %span.input-group-btn
+                    = button_tag(type: 'submit', class: 'btn btn-primary btn-sm') do
+                      %i.fa.fa-search
+      .row
+        .col-sm-12.col-xs-12
           %ul.list-unstyled.dropdown
             %li.dropdown
               .h3

@@ -1,4 +1,4 @@
-.resp-menu{style: 'margin-top: 2.55em;'}
+.resp-menu{style: 'margin-top: 2.55em; padding-bottom: 3em;'}
   .container-fluid
     .container
       .row
@@ -45,4 +45,11 @@
               %ul.list-unstyled.dropdown-menus
                 - Tag.composition_tags.each do |tag|
                   %li.text-capitalize.h4= link_to tag.name, delivery_search_path(tag_name: tag.name)
-
+      - if @cart.positions.any?
+        .row{style: 'margin-top: 1em; border-bottom: 1px solid #ffffff; padding-bottom: 1em;'}
+          .col-xs-8
+            = link_to delivery_cart_path(@cart), class: 'btn btn-info btn-block' do
+              Корзина
+              %span.badge
+                = @cart.total_price
+                %i.fa.fa-rub{style: 'aria-hidden="true"'}

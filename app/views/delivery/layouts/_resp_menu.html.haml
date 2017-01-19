@@ -1,40 +1,37 @@
-.resp-menu{style: 'margin-top: 2em;'}
+.resp-menu{style: 'margin-top: 29px;'}
   .container-fluid
-    .row
-      .col-xs-12.col-sm-12
-    .row
-      .col-xs-4.col-sm-4
-        =image_tag 'logo2.png', class: 'img-responsive'
-      .col-sm-8.col-xs-8
-        - if current_user
-          %strong
-            Здравствуйте, #{current_user.first_name}
-            Ваша скидка: #{current_user.dicount}
-        - else
+    .container
+      .row
+        .col-xs-12.col-sm-12
+      .row
+        .col-xs-4.col-sm-4
+          =link_to delivery_root_path do
+            =image_tag 'logo2.png', class: 'img-responsive'
+        .col-sm-8.col-xs-8
+          Нужна помощь?
           .h4
-            = link_to 'Войти', delivery_login_path
-            = link_to 'Регистрация', delivery_signin_path
-        .h4
-          -if @cart.positions.any?
-            У вас в корзине:
-            %strong
-              #{@cart.total_price}
-              %i.fa.fa-rub{style: 'aria-hidden="true"'}
-            =link_to 'Перейти', delivery_cart_path(@cart)
-          -else
-            У вас в корзине пусто
-    .row
-      .container
-        .col-sm-6.col-xs-6
-          %ul.list-unstyled
-            %li.h2
-              Повод
-              %span.caret
-            %li.h2
-              Кому
-              %span.caret
-            %li.h2
-              По цене
-              %span.caret
-            %li
-            %li
+            +7(912)453-25-98
+      .row
+        .col-sm-12.col-xs-12
+          %ul.list-unstyled.dropdown
+            %li.dropdown
+              .h3
+                Повод
+                %span.caret
+              %ul.list-unstyled.dropdown-menus
+                - Tag.composition_tags.each do |tag|
+                  %li.text-capitalize.h4= link_to tag.name, delivery_search_path(tag_name: tag.name)
+            %li.dropdown
+              .h3
+                Кому
+                %span.caret
+              %ul.list-unstyled.dropdown-menus
+                - Tag.composition_tags.each do |tag|
+                  %li.text-capitalize.h4= link_to tag.name, delivery_search_path(tag_name: tag.name)
+            %li.dropdown
+              .h3
+                По цене
+                %span.caret
+              %ul.list-unstyled.dropdown-menus
+                - Tag.composition_tags.each do |tag|
+                  %li.text-capitalize.h4= link_to tag.name, delivery_search_path(tag_name: tag.name)

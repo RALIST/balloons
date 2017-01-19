@@ -118,9 +118,17 @@ h4 {
   z-index: 998;
   background: rgba(0, 0, 0, 0.8);
   color: white;
+  a {
+    color: white;
+  }
 }
 
 .fixed {
   z-index: 999;
   position: fixed;
+}
+
+.dropdown-menus {
+  margin-left: 1em;
+  display: none;
 }

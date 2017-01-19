@@ -1,47 +1,46 @@
-.container-fluid
-  .container
-    .row.hidden-xs
-      .col-md-4.col-sm-6
-        %ul.nav.nav-pills
-          %li.text-uppercase.dropdown.h4{role: "presentation"}
-            = link_to '#', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
-              Повод
-              %i.fa.fa-caret-down{style: 'aria-hidden="true"'}
-            %ul.dropdown-menu
-              - Tag.composition_tags.each do |tag|
-                %li.text-capitalize= link_to tag.name, delivery_search_path(tag_name: tag.name)
-          %li.text-uppercase.h4{role: "presentation"}
-            = link_to 'Кому'
-          %li.text-uppercase.h4{role: "presentation"}
-            = link_to 'По цене'
-      .col-md-3.hidden-sm
-        %ul.nav.nav-pills
-          %li.h4.text-center
-            = form_tag delivery_search_path, method: :get, class: 'form-horizontal' do
-              .input-group
-                = text_field_tag :tag_name,'', class: 'form-control input-sm', placeholder: 'Введите событие...'
-                %span.input-group-btn
-                  = button_tag(type: 'submit', class: 'btn btn-info btn-sm') do
-                    %i.fa.fa-search
-      .col-md-5.col-sm-6
-        %ul.nav.nav-pills{style: 'float:right'}
-          %li.text-uppercase.h4
-            = link_to delivery_cart_path(@cart) do
-              %i.fa.fa-shopping-cart{style: 'aria-hidden="true"'}
-              Корзина
-          %li.text-uppercase.h4
-            = link_to 'Личный кабинет', delivery_user_path(current_user) if current_user
-    .col-sm-12.col-xs-12.hidden-md.hidden-lg
+.container
+  .row.hidden-xs
+    .col-md-4.col-sm-6
+      %ul.nav.nav-pills
+        %li.text-uppercase.dropdown.h4{role: "presentation"}
+          = link_to '#', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
+            Повод
+            %i.fa.fa-caret-down{style: 'aria-hidden="true"'}
+          %ul.dropdown-menu
+            - Tag.composition_tags.each do |tag|
+              %li.text-capitalize= link_to tag.name, delivery_search_path(tag_name: tag.name)
+        %li.text-uppercase.h4{role: "presentation"}
+          = link_to 'Кому'
+        %li.text-uppercase.h4{role: "presentation"}
+          = link_to 'По цене'
+    .col-md-3.hidden-sm
       %ul.nav.nav-pills
         %li.h4.text-center
           = form_tag delivery_search_path, method: :get, class: 'form-horizontal' do
             .input-group
               = text_field_tag :tag_name,'', class: 'form-control input-sm', placeholder: 'Введите событие...'
               %span.input-group-btn
-                = button_tag(type: 'submit', class: 'btn btn-primary btn-sm') do
+                = button_tag(type: 'submit', class: 'btn btn-info btn-sm') do
                   %i.fa.fa-search
-    .row
-      .container
-        .col-md-12.col-sm-12.col-xs-12.text-uppercase.text-center.bg-brand
-          %h4
-            =link_to 'Бесплатная доставка по Ижевску от 1500 рублей!'
+    .col-md-5.col-sm-6
+      %ul.nav.nav-pills{style: 'float:right'}
+        %li.text-uppercase.h4
+          = link_to delivery_cart_path(@cart) do
+            %i.fa.fa-shopping-cart{style: 'aria-hidden="true"'}
+            Корзина
+        %li.text-uppercase.h4
+          = link_to 'Личный кабинет', delivery_user_path(current_user) if current_user
+  .row.hidden-md.hidden-lg
+    .col-sm-12.col-xs-12
+      %ul.nav.nav-pills
+        %li.h4.text-center
+          = form_tag delivery_search_path, method: :get, class: 'form-horizontal' do
+            .input-group
+              = text_field_tag :tag_name,'', class: 'form-control input-sm', placeholder: 'Введите событие...'
+              %span.input-group-btn
+                = button_tag(type: 'submit', class: 'btn btn-info btn-sm') do
+                  %i.fa.fa-search
+  .row
+    .col-md-12.col-sm-12.col-xs-12.text-uppercase.text-center.bg-brand
+      %h5
+        =link_to 'Бесплатная доставка по Ижевску от 1500 рублей!'

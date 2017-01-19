@@ -3,56 +3,54 @@
     .col-md-12.col-xs-12.col-sm-12.bg-brand.text-center.hidden-xs.hidden-sm
       %h4
         =link_to 'Скидка на все товары 15%!'
-  .row.hidden-md.hidden-lg
-    .col-sm-12.col-xs-12.bg-brand.fixed
-      .col-xs-6.col-sm-6.pull-right.text-right
-        .icon-wrapper{style: 'position: relative;'}
-          %i.fa.fa-bars{style: 'aria-hidden="true"; font-size: 2em; position: relative;'}
-          %small
-            %span.badge.on-icon= @cart.positions.count if @cart.positions.any?
-      .col-xs-6.col-sm-6.pull-left.text-left
-  .container
-    .row.hidden-xs
-      .col-md-6.col-sm-6
-        %ul.text-left.list-inline.list-unstyled
-          %li= link_to 'Контакты'
-          %li= link_to 'Доставка'
-          %li= link_to 'Админка', admin_root_path
-      .col-md-6.col-xs-12.col-sm-6
-        %ul.text-right.list-inline.list-unstyled
-          - if current_user
-            %li Здравствуйте, #{current_user.first_name}
-            %li= link_to 'Выйти', delivery_logout_path, method: :post
-          - else
-            %li= link_to 'Войти', delivery_login_path
-            %li= link_to 'Регистрация', delivery_signin_path
-    .row
-      .col-md-2.hidden-xs.hidden-sm
-      .col-md-8.col-xs-12.col-sm-9{style: 'margin-top: 2em;'}
-        = link_to delivery_root_path do
-          = image_tag 'logo1.png', class: 'img-responsive'
-      .col-md-2.col-sm-3.hidden-xs
-        .row.text-right
-          .col-md-12
-            Мы в соц.сетях
-            %ul.list-unstyled.list-inline.social.text-right
-              %li
-                =link_to do
-                  %i.fa.fa-instagram{"aria-hidden" => "true"}
-              %li
-                =link_to do
-                  %i.fa.fa-facebook{"aria-hidden" => "true"}
-              %li
-                =link_to do
-                  %i.fa.fa-vk{"aria-hidden" => "true"}
-        .row.text-right
-          .col-md-12
-            Позвоните нам!
-            %ul.list-unstyled.phones
-              %li +79124614168
-              %li +79124532598
-        .row
-          .col-md-12.text-right
-            %p= link_to 'Заказать звонок','', class: 'btn btn-info'
+  .row.hidden-md.hidden-lg{style: 'width: 100%; float: left;'}
+    .col-sm-12.col-xs-12.bg-brand.fixed.text-right
+      .icon-wrapper{style: 'position: relative; margin: 0.125em 0;'}
+        %i.fa.fa-bars{style: 'aria-hidden="true"; font-size: 2.4em; position: relative; '}
+        -# %small
+        -#   %span.badge.on-icon= @cart.positions.count if @cart.positions.any?
+.container
+  .row.hidden-xs
+    .col-md-6.col-sm-6.hidden-xs
+      %ul.text-left.list-inline.list-unstyled
+        %li= link_to 'Контакты'
+        %li= link_to 'Доставка'
+        %li= link_to 'Админка', admin_root_path
+    .col-md-6.col-xs-12.col-sm-6.hidden-xs
+      %ul.text-right.list-inline.list-unstyled
+        - if current_user
+          %li Здравствуйте, #{current_user.first_name}
+          %li= link_to 'Выйти', delivery_logout_path, method: :post
+        - else
+          %li= link_to 'Войти', delivery_login_path
+          %li= link_to 'Регистрация', delivery_signin_path
+  .row
+    .col-md-2.hidden-xs.hidden-sm
+    .col-md-8.col-xs-12.col-sm-9{style: 'margin-top: 3em;'}
+      = link_to delivery_root_path do
+        = image_tag 'logo1.png', class: 'img-responsive'
+    .col-md-2.col-sm-3.hidden-xs
+      .row.text-right
+        .col-md-12.hidden-xs
+          Мы в соц.сетях
+          %ul.list-unstyled.list-inline.social.text-right
+            %li
+              =link_to do
+                %i.fa.fa-instagram{"aria-hidden" => "true"}
+            %li
+              =link_to do
+                %i.fa.fa-facebook{"aria-hidden" => "true"}
+            %li
+              =link_to do
+                %i.fa.fa-vk{"aria-hidden" => "true"}
+      .row.text-right
+        .col-md-12.hidden-xs
+          Позвоните нам!
+          %ul.list-unstyled.phones
+            %li +79124614168
+            %li +79124532598
+      .row
+        .col-md-12.text-right.hidden-xs
+          %p= link_to 'Заказать звонок','', class: 'btn btn-info'
 
 

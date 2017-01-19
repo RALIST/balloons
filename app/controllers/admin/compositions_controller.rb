@@ -30,6 +30,9 @@ class Admin::CompositionsController < Admin::AdminController
   end
 
   def destroy
+    if @comp.destroy
+      redirect_back fallback_location: admin_root_path
+    end
   end
 
   def add_item

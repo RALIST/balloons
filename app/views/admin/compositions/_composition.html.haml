@@ -3,3 +3,5 @@
   = link_to composition.title, admin_composition_path(composition)
   %br
   = composition.price.to_f.round(2) unless composition.price.blank?
+  %br
+  = link_to 'Удалить', admin_composition_path(composition), method: :delete

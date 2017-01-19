@@ -12,9 +12,14 @@
               %i.fa.fa-rub{style: 'aria-hidden="true"'}
 
             %p.text-center Добавьте композицию в корзину, чтобы изменить количество шаров
-            %p.text-center
+            %p.text-center{ style: 'overflow-x: auto;' }
               %small
-                - c.tags.each do |tag|
-                  = tag.name
+                %strong Теги:
+                %br
+                - if c.tags.any?
+                  - c.tags.each do |tag|
+                    = tag.name
+                - else
+                  Нет тегов!
             %p.text-center
               = link_to 'Добавить в корзину', delivery_add_to_cart_path(composition_id: c.id), class: 'btn btn-info btn-block', method: :post

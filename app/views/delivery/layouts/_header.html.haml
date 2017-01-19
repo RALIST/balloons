@@ -7,8 +7,8 @@
     .col-sm-12.col-xs-12.bg-brand.fixed.text-right
       .icon-wrapper{style: 'position: relative; margin: 0.125em 0;'}
         %i.fa.fa-bars{style: 'aria-hidden="true"; font-size: 2.4em; position: relative; '}
-        -# %small
-        -#   %span.badge.on-icon= @cart.positions.count if @cart.positions.any?
+        %small
+          %span.badge.on-icon= @cart.positions.count if @cart.positions.any?
 .container
   .row.hidden-xs
     .col-md-6.col-sm-6.hidden-xs

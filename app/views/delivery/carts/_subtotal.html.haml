@@ -24,7 +24,7 @@
 
     .row
       .col-md-6.text-left
-        - to_delivery = 1500 - @cart.total_price.round(2)
+        - to_delivery = 1500 - @cart.total_price
         Доставка
       .col-md-6.text-right
         = to_delivery > 0 ? 150 : 0
@@ -35,7 +35,7 @@
           Всего к оплате:
       .col-md-6.text-right.border-bot
         %strong
-          = @cart.total_price.round(2)
+          = @cart.total_price
           %i.fa.fa-rub{style: 'aria-hidden="true"'}
     .row
       .col-md-12

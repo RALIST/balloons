@@ -10,6 +10,6 @@ class Cart < ApplicationRecord
     self.positions.each do |p|
       total += p.subpositions.map{|s| s.item.price.to_f * s.quantity}.sum
     end
-    return total
+    return total.round(2)
   end
 end

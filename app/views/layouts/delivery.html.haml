@@ -10,6 +10,7 @@
   %body
     .wrapper
       %header
+        = render 'delivery/layouts/resp_menu'
         = render 'delivery/layouts/header'
         =render 'delivery/layouts/main_menu'
       - flash.each do |key, message|

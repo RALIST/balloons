@@ -1,0 +1,40 @@
+.resp-menu{style: 'margin-top: 2em;'}
+  .container-fluid
+    .row
+      .col-xs-12.col-sm-12
+    .row
+      .col-xs-4.col-sm-4
+        =image_tag 'logo2.png', class: 'img-responsive'
+      .col-sm-8.col-xs-8
+        - if current_user
+          %strong
+            Здравствуйте, #{current_user.first_name}
+            Ваша скидка: #{current_user.dicount}
+        - else
+          .h4
+            = link_to 'Войти', delivery_login_path
+            = link_to 'Регистрация', delivery_signin_path
+        .h4
+          -if @cart.positions.any?
+            У вас в корзине:
+            %strong
+              #{@cart.total_price}
+              %i.fa.fa-rub{style: 'aria-hidden="true"'}
+            =link_to 'Перейти', delivery_cart_path(@cart)
+          -else
+            У вас в корзине пусто
+    .row
+      .container
+        .col-sm-6.col-xs-6
+          %ul.list-unstyled
+            %li.h2
+              Повод
+              %span.caret
+            %li.h2
+              Кому
+              %span.caret
+            %li.h2
+              По цене
+              %span.caret
+            %li
+            %li

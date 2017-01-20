@@ -1,0 +1,23 @@
+.modal.fade{id: "call-modal",  tabindex: "-1",  role: "dialog"}
+  .modal-dialog{role: "document"}
+    .modal-content
+      .modal-header
+        %button{type: "button",  class: "close",  data: {dismiss: "modal"}}
+          %span
+            &times;
+        .h3.modal-title{id: "myModalLabel"}
+          Нужна помощь?
+          %br
+          %small
+            Оставьте заявку на обратный звонок или напишите нам в чате!
+            %br
+            Мы отвечаем на заявки ежедневно с 8:00 до 21:00
+      .modal-body
+        = render 'delivery/layouts/form_to_call'
+        .h3.text-center.border-top
+          Мы доступны в
+          %br
+          WhatsApp Viber Telegram
+          %br
+          +7 912 453 25 98
+

@@ -27,6 +27,10 @@
         %li.text-uppercase.h4
           = link_to delivery_cart_path(@cart) do
             %i.fa.fa-shopping-cart{style: 'aria-hidden="true"'}
+            - if @cart.positions.any?
+              %span.badge.on-icon{style: 'margin-left: 5em; margin-top: -1.3em; font-weight: normal'}
+                = @cart.total_price
+                %i.fa.fa-rub
             Корзина
         %li.text-uppercase.h4
           = link_to 'Личный кабинет', delivery_user_path(current_user) if current_user

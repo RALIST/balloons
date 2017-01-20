@@ -1,0 +1,12 @@
+.h3
+  Оставьте заявку
+= form_tag delivery_root_path, method: :get do
+  .form-group
+    = label_tag '', 'Как вас зовут?', class: 'control-label'
+    = text_field_tag :name,'', class: 'form-control'
+  .form-group
+    = label_tag '', 'Ваш телефон', class: 'control-label'
+    = text_field_tag :phone,'', class: 'form-control'
+  .form-group
+    .modal-footer{style: 'padding: 0;'}
+      = submit_tag 'Отправить', class: 'btn btn-info'

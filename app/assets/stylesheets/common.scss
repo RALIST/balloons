@@ -18,6 +18,21 @@ body {
 .hidden {
   display: none;
 }
+
+.as_btn {
+  border: 1px solid $brand-secondary;
+  padding: 4px 0;
+  text-align: center;
+  display: inline-block;
+  margin: 2px 0;
+  width: 100%;
+  border-radius: 4px;
+  &:hover {
+    background-color: $gray-light;
+    color: white;
+    border: 1px solid $gray-light;
+  }
+}
 .on-icon {
   position: absolute;
   margin-left: -1em;
@@ -76,9 +91,10 @@ body {
 
 #del-from-cart {
   position: absolute;
-  top: 4%;
-  right: 4%;
-  font-size: 1.4em;
+  top: 5px;
+  right: 20px;
+  font-size: 1.5em;
+  z-index: 995;
 }
 
 .form-inline {

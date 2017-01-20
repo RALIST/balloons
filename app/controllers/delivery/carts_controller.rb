@@ -6,6 +6,7 @@ class Delivery::CartsController < Delivery::DeliveryController
 
   def show
     @cart = current_cart
+    @collections = Item.all.map{|i| i.collection}.uniq.reject(&:blank?)
   end
 
   def add_to_cart

@@ -1,3 +1,14 @@
+$.extend($.expr[':'], {
+  'containsi': function(elem, i, match, array)
+  {
+    return (elem.textContent || elem.innerText || '').toLowerCase()
+    .indexOf((match[3] || "").toLowerCase()) >= 0;
+  }
+});
+
+
+
+
 $(document).ready(function(){
   $('.fa-bars').on('click', function(){
     $('.resp-menu').toggle('slide','slow', function(){
@@ -13,3 +24,16 @@ $(document).ready(function(){
     $('.dropdown-menus', this).toggle();
   });
 })
+
+
+$(document).ready(function(){
+  $('input[name="search"]').keyup(function(){
+    var search = $('input[name="search"]').val();
+    if(search === ''){
+      $('.modal div').show();
+    }else{
+      $('.modal').find('.as_btn:not(:containsi("'+search+'"))').closest('div').hide();
+    }
+
+  })
+});

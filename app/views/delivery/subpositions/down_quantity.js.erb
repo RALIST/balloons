@@ -1,3 +1,7 @@
-$('#sub-<%=@subposition.id%>').html('<%=j(render partial: "delivery/subpositions/subposition", locals: {subposition: @subposition}) %>')
-$('.subtotal').html('<%= j(render "delivery/carts/subtotal") %>')
-$('#menu').html('<%= j(render "delivery/layouts/main_menu") %>')
+<% unless @subposition.destroyed? %>
+  $('#sub-<%=@subposition.id%>').html('<%=j(render partial: "delivery/subpositions/subposition", locals: {subposition: @subposition}) %>')
+  $('.subtotal').html('<%= j(render "delivery/carts/subtotal") %>')
+  $('#menu').html('<%= j(render "delivery/layouts/main_menu") %>')
+<% else %>
+  $('#sub-<%=@subposition.id%>').fadeOut();
+<% end %>

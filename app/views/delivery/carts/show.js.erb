@@ -1,1 +1,5 @@
-$("#subposition-modal-<%= @position.id %> .modal-body").html('<%= j(render partial: "delivery/carts/collection", locals: {position: @position})%>')
+<% if params[:collection] %>
+  $("#subposition-modal-<%= @position.id %> .modal-body").html('<%= j(render partial: "delivery/carts/category", locals: {position: @position})%>')
+<% else %>
+  $("#subposition-modal-<%= @position.id %> .modal-body").html('<%= j(render partial: "delivery/carts/category_list")%>')
+<% end %>

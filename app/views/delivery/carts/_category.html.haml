@@ -1,0 +1,16 @@
+.container-fluid
+  .row
+    - @items_in_collection.each do |item|
+      .col-md-4.col-sm-6-col-xs-12
+        .thumbnail{style: 'float: left;'}
+          .col-md-6.col-sm-6.col-xs-6
+            = image_tag item.img.url(:small),class: 'img-responsive'
+          .col-md-6.col-sm-6.col-xs-6
+            = item.name
+            .h4
+              = button_to 'Добавить', delivery_add_subposition_path(item: item.id, position: position), class: 'btn btn-info', data: {disable_with: 'Подождите...'}
+  .row
+    .col-md-12
+      %p.text-center{style: 'font-size: 1.5em;'}
+        = link_to 'Назад', delivery_cart_path(position: position), remote:  true
+

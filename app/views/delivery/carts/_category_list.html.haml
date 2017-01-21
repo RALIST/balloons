@@ -1,0 +1,7 @@
+.row
+  .container
+    - @collections.sort!.each do |collection|
+      .col-md-3.col-xs-12.col-sm-4
+        - position = p || @position
+        = link_to delivery_cart_path(collection: collection, position: position), remote: true do
+          %span.as_btn= collection

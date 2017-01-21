@@ -1,6 +1,7 @@
 $(document).on('ajax:success', function(){
   $(".add-to-cart<%=@composition.id%>").fadeOut().closest('div').html('Добавлено в корзину!');
   $('#menu').html('<%= j(render "delivery/layouts/main_menu") %>');
+  $('header').html('<%= j(render "delivery/layouts/header")');
 });
 
 

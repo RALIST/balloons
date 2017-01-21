@@ -42,8 +42,8 @@ $(document).ready(function(){
     $('.modal div').show();
   });
 
-  $('.modal-body a').on('click', function(){
-    $('.modal-body').html('<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>')
+  $(document).on('click','.modal-body a', function(event){
+    $('.modal-body').html('<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>');
   });
 
   $('#subposition_quantity').keypress(function (e) {

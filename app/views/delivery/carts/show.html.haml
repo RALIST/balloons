@@ -21,8 +21,26 @@
                     .subpositions
                       = render p.subpositions.order(:id)
                     = link_to 'Добавить в композицию', '', class: 'btn btn-info', data:{ toggle: 'modal', target: "#subposition-modal-#{p.id}"}
-                    = render partial: 'delivery/carts/add', locals: {p: p}
-
+                    .modal.fade{id: "subposition-modal-#{p.id}",  tabindex: "-1",  role: "dialog"}
+                      .modal-dialog{role: "document", style: 'float: center; width: 90%; margin: auto;'}
+                        .modal-content{style: 'float: left;'}
+                          .modal-header
+                            %button{type: "button",  class: "close",  data: {dismiss: "modal"}}
+                              %span
+                                &times;
+                            .h3.modal-title{id: "myModalLabel"}
+                              Добавьте в композицию шары
+                              %br
+                              %small
+                                Выберите категорию
+                            .col-md-6.col-sm-6.col-xs-12.col-sm-12
+                              .input-group
+                                = text_field_tag :search,'', class: 'form-control', placeholder: 'Начните вводить название категории...'
+                                %span.input-group-btn
+                                  = button_tag(class: 'btn btn-info', id: 'clear-search') do
+                                    %i.fa.fa-times
+                          .modal-body{style: 'float: left; width: 100%;'}
+                            = render partial: 'category_list', locals: {p: p}
 
         .col-md-1.hidden-sm.hidden-xs
         .col-md-4.col-sm-12.col-xs-12

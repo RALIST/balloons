@@ -21,7 +21,7 @@
                     - @position = @cart.positions.find_by(composition_id: c.id)
                     .subpositions
                       = render @position.subpositions.order(:id)
-                    = link_to 'Добавить в композицию', url_for(params.merge(position: @position)), class: 'add-to-comp btn btn-info', data:{ toggle: 'modal', target: '#subposition-modal'}
+                    = link_to 'Добавить в композицию', '', class: 'add-to-comp btn btn-info', data:{ toggle: 'modal', target: '#subposition-modal'}
 
                     = render partial: 'delivery/carts/add', locals: {position: @position}
         .col-md-1.hidden-sm.hidden-xs

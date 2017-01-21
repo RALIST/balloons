@@ -7,9 +7,7 @@
           - @cart.compositions.each do |c|
             .row
               .col-md-12.col-xs-12.col-sm-12.col-lg-12
-                = link_to delivery_remove_from_cart_path(id: c.id), method: :post do
-                  %i.fa.fa-times#del-from-cart
-                .thumbnail{style: 'float: left'}
+                .thumbnail{style: 'float: left; width: 100%;'}
                   = link_to delivery_remove_from_cart_path(id: c.id), method: :post do
                     %i.fa.fa-times#del-from-cart
                   .col-md-4.col-sm-12.col-xs-12
@@ -23,9 +21,9 @@
                     - @position = @cart.positions.find_by(composition_id: c.id)
                     .subpositions
                       = render @position.subpositions.order(:id)
-                    %span{class: "add-to-comp btn btn-info", style: 'margin-top: 1em;', data:{ toggle: 'modal', target: '#subposition-modal'}}Добавить в композицию
-                    %div{class: "form-add-sub"}
-                      = render partial: 'delivery/carts/add', locals: {position: @position}
+                    = link_to 'Добавить в композицию', url_for(params.merge(position: @position)), class: 'add-to-comp btn btn-info', data:{ toggle: 'modal', target: '#subposition-modal'}
+
+                    = render partial: 'delivery/carts/add', locals: {position: @position}
         .col-md-1.hidden-sm.hidden-xs
         .col-md-4.col-sm-12.col-xs-12
           =render 'subtotal'

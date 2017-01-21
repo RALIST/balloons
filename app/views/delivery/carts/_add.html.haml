@@ -1,5 +1,5 @@
 .modal.fade{id: "subposition-modal",  tabindex: "-1",  role: "dialog"}
-  .modal-dialog{role: "document", style: 'float: center; width: 80%;'}
+  .modal-dialog{role: "document", style: 'float: center; width: 90%; margin: auto;'}
     .modal-content{style: 'float: left;'}
       .modal-header
         %button{type: "button",  class: "close",  data: {dismiss: "modal"}}
@@ -10,18 +10,19 @@
           %br
           %small
             Выберите категорию
-        .col-md-6.col-sm-6.col-xs-6
-          = form_tag do
-            .input-group
-              = text_field_tag :search,'', class: 'form-control', placeholder: 'Начните вводить название категории...'
-              %span.input-group-btn
-                = button_tag(type: 'submit', class: 'btn btn-info') do
-                  %i.fa.fa-search
+        .col-md-6.col-sm-6.col-xs-12.col-sm-12
+          .input-group
+            = text_field_tag :search,'', class: 'form-control', placeholder: 'Начните вводить название категории...'
+            %span.input-group-btn
+              = button_tag(class: 'btn btn-info', id: 'clear-search') do
+                %i.fa.fa-times
       .modal-body{style: 'float: left;'}
-        - @collections.sort!.each do |collection|
-          .col-md-3.col-xs-6.col-sm-4
-            = link_to '' do
-              %span.as_btn= collection
+        .row
+          .container
+            - @collections.sort!.each do |collection|
+              .col-md-3.col-xs-12.col-sm-4
+                = link_to delivery_cart_path(collection: collection, position: position), remote: true do
+                  %span.as_btn= collection
 
         / = form_tag({controller: 'subpositions', action: 'add_subposition'}, remote: true, id: "add-sub#{position.id}", class: 'form-inline') do
         /   .form-group

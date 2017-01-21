@@ -4,9 +4,17 @@
  // Dropdowns
  $dropdown-link-color: $brand-secondary;
  // Navs
- $nav-link-hover-bg: lighten($brand-primary, 30%);
+ $nav-link-hover-bg: darken($brand-secondary, 10%);
+ $nav-pills-active-link-hover-color: #ffffff;
 // Grid
 // Button
 $btn-info-bg: $brand-secondary;
 $input-border-focus: $brand-secondary;
 $headings-color: darken($brand-primary, 10%);
+// Fonts
+$font-family-serif: 'Alice', serif;;
+$font-family-sans-serif: 'El Messiri', sans-serif;
+$font-family-base: 'El Messiri', sans-serif;
+ small, p {
+  font-family: $font-family-serif;
+ }

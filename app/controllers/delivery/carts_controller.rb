@@ -7,7 +7,13 @@ class Delivery::CartsController < Delivery::DeliveryController
   def show
     @cart = current_cart
     @collections = Item.all.map{|i| i.collection}.uniq.reject(&:blank?)
+    @items_in_collection = Item.all.where(collection: params[:collection])
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
+
 
   def add_to_cart
     @composition = Composition.find(params[:composition_id])

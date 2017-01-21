@@ -27,13 +27,18 @@ $(document).ready(function(){
 
 
 $(document).ready(function(){
-  $('input[name="search"]').keyup(function(){
-    var search = $('input[name="search"]').val();
-    if(search === ''){
+  $('input[name="search"]').on('keyup', function(e){
+    var search = $(this).val();
+    var key = event.which || event.keyCode || event.charCode;
+    if(search == ''){
       $('.modal div').show();
     }else{
       $('.modal').find('.as_btn:not(:containsi("'+search+'"))').closest('div').hide();
+      $('.modal').find('.as_btn:containsi("'+search+'")').closest('div').show();
     }
-
-  })
+  });
+  $('#clear-search').on('click', function(){
+    $('input[name="search"]').val('');
+    $('.modal div').show();
+  });
 });

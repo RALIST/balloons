@@ -24,11 +24,11 @@ class Delivery::SubpositionsController < Delivery::DeliveryController
 
   def add_subposition
     item = Item.find(params[:item])
-    @position = Position.find(params[:position_id])
+    @position = Position.find(params[:position])
     if @position.sub_exists?(item)
       @position.add_quantity_to_sub(item, params[:quantity])
     else
-      @position.subpositions.create(item: item, quantity: params[:quantity])
+      @position.subpositions.create(item: item, quantity: 1)
     end
     respond_to do |format|
       format.html{ redirect_back(fallback_location: delivery_root_path) }

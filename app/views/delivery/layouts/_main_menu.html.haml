@@ -10,9 +10,13 @@
             - Tag.composition_tags.each do |tag|
               %li.text-capitalize= link_to tag.name, delivery_search_path(tag_name: tag.name)
         %li.text-uppercase.h4{role: "presentation"}
-          = link_to 'Кому'
+          = link_to do
+            Кому
+            %i.fa.fa-caret-down{style: 'aria-hidden="true"'}
         %li.text-uppercase.h4{role: "presentation"}
-          = link_to 'По цене'
+          = link_to do
+            По цене
+            %i.fa.fa-caret-down{style: 'aria-hidden="true"'}
     .col-md-3.hidden-sm
       %ul.nav.nav-pills
         %li.h4.text-center

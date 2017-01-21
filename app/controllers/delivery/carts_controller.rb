@@ -18,12 +18,12 @@ class Delivery::CartsController < Delivery::DeliveryController
 
 
   def add_to_cart
-    @composition = Composition.find(params[:composition_id])
-    if !@cart.compositions.include?(@composition)
-      @cart.positions.create(composition: @composition)
+    @composition = Composition.find(params[:id])
+    if !current_cart.compositions.include?(@composition)
+      current_cart.positions.create(composition: @composition)
       @composition.items.uniq.each do |item|
         quantity = @composition.items.where(id: item.id).count
-        @cart.positions.where(composition: @composition).last.subpositions.create(item: item, quantity: quantity)
+        current_cart.positions.where(composition: @composition).last.subpositions.create(item: item, quantity: quantity)
       end
       flash[:success] = 'Композиция добавлена в корзину!'
     else

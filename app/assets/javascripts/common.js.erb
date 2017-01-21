@@ -44,5 +44,13 @@ $(document).ready(function(){
 
   $('.modal-body a').on('click', function(){
     $('.modal-body').html('<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>')
-  })
+  });
+
+  $('#subposition_quantity').keypress(function (e) {
+    if (e.which == 13) {
+      $(this).blur();
+      $(this).closest('form').submit();
+      return false;
+    }
+  });
 });

@@ -13,9 +13,13 @@
         = render 'delivery/layouts/resp_menu'
         = render 'delivery/layouts/header'
         =render 'delivery/layouts/main_menu'
-      - flash.each do |key, message|
-        %div{class: "alert alert-#{key} text-center"}
-          = message
+        #flash
+          - flash.each do |key, message|
+            %div{class: "alert alert-#{key} alert-dismissible fade in text-center"}
+              = message
+              %button{type: "button",  class: "close",  data:{dismiss: "alert"} }
+                %span
+                  &times;
       = yield
       .clearfix
     %footer

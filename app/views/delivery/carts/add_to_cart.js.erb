@@ -1,6 +1,6 @@
-$(document).ready(function(){
-  $('.products .add-to-cart').on('ajax:success', function(){
-    $(this).fadeOut('slow').html('<div>В корзине</div>');
-    $('.right-options .cart-info span').html('(<%= @cart.positions.count %>)')
-  })
-})
+$(document).on('ajax:success', function(){
+  $(".add-to-cart<%=@composition.id%>").fadeOut().closest('div').html('Добавлено в корзину!');
+  $('#menu').html('<%= j(render "delivery/layouts/main_menu") %>');
+});
+
+

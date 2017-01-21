@@ -13,10 +13,10 @@ Rails.application.routes.draw do
     resources :users
     resources :sessions
     resources :subpositions, only: [:edit, :update]
-    post '/add_to_cart',        to: 'carts#add_to_cart',            as: :add_to_cart
+    post '/add_to_cart/:id',        to: 'carts#add_to_cart',            as: :add_to_cart
     post '/remove_from_cart/:id',   to: 'carts#remove_from_cart',       as: :remove_from_cart
-    post '/add_quantity',       to: 'subpositions#up_quantity',     as: :add_quantity
-    post '/down_quantity',      to: 'subpositions#down_quantity',   as: :down_quantity
+    post '/add_quantity/:id',       to: 'subpositions#up_quantity',     as: :add_quantity
+    post '/down_quantity/:id',      to: 'subpositions#down_quantity',   as: :down_quantity
     post '/add_subposition',    to: 'subpositions#add_subposition', as: :add_subposition
     get 'login',                to: 'sessions#new',                 as: :login
     post 'logout' ,             to:  'sessions#destroy',            as: :logout

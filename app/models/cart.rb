@@ -9,7 +9,7 @@ class Cart < ApplicationRecord
     total = 0
     self.positions.each do |p|
       p.subpositions.each do |sub|
-        unless sub.item.price?
+        unless sub.item.price.blank?
           total += sub.item.price.to_f * sub.quantity
         end
       end

@@ -41,4 +41,8 @@ $(document).ready(function(){
     $('input[name="search"]').val('');
     $('.modal div').show();
   });
+
+  $('.modal-body a').on('click', function(){
+    $('.modal-body').html('<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>')
+  })
 });

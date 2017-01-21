@@ -8,11 +8,13 @@ class Delivery::CartsController < Delivery::DeliveryController
     @cart = current_cart
     @collections = Item.all.map{|i| i.collection}.uniq.reject(&:blank?)
     @items_in_collection = Item.all.where(collection: params[:collection])
+    @position = Position.find(params[:position]) if params[:position]
     respond_to do |format|
       format.html
       format.js
     end
   end
+
 
 
   def add_to_cart
@@ -35,9 +37,8 @@ class Delivery::CartsController < Delivery::DeliveryController
   end
 
   def remove_from_cart
-    @composition = Composition.find(params[:id])
-    @position = Position.where(cart: current_cart, composition: @composition).first
-    @cart.positions.destroy(@position)
+    @position = Position.find(params[:id])
+    current_cart.positions.destroy(@position)
     respond_to do |format|
       format.html {redirect_back(fallback_location: delivery_root_path)}
       format.js

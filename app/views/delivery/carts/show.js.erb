@@ -1,1 +1,1 @@
-$('.modal-body').html('<%= j(render partial: "delivery/carts/collection", locals: {position: params[:position]})%>')
+$("#subposition-modal-<%= @position.id %> .modal-body").html('<%= j(render partial: "delivery/carts/collection", locals: {position: @position})%>')

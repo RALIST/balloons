@@ -3,13 +3,12 @@
     .col-md-12.col-xs-12.col-sm-12.bg-brand.text-center.hidden-xs.hidden-sm
       %h4
         =link_to 'Скидка на все товары 15%!'
-  .row.hidden-md.hidden-lg{style: 'width: 100%; position: absolute;'}
-    .col-sm-12.col-xs-12.text-right.bg-brand{style: 'height: 2.9em;'}
-      .col-xs-2.fixed.text-center{style: 'padding: 0;'}
-        .icon-wrapper.bg-brand{style: 'margin: 0.125em 0;border-radius: 100px;'}
-          %i.fa.fa-bars.bg-brand{style: 'aria-hidden="true"; font-size: 2.4em;'}
-          %small
-            %span.badge.on-icon= @cart.positions.count if @cart.positions.any?
+  .row.hidden-md.hidden-lg{style: 'width: 100%;'}
+    .col-sm-12.col-xs-12.text-right.bg-brand.fixed
+      .icon-wrapper{style: 'margin: 0.125em 0;'}
+        %i.fa.fa-bars{style: 'aria-hidden="true"; font-size: 2.4em;'}
+        %small
+          %span.badge.on-icon= @cart.positions.count if @cart.positions.any?
 .container
   .row.hidden-xs
     .col-md-6.col-sm-6.hidden-xs

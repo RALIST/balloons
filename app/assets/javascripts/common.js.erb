@@ -11,16 +11,18 @@ $.extend($.expr[':'], {
 $(document).on('click', '.fa-bars', function(e){
   e.preventDefault();
   $('.resp-menu').toggle('slide','slow', function(){
-    $('.fixed .fa').toggleClass('fa-bars fa-times');
     $('.on-icon').toggleClass('hidden');
   });
+  $('.fixed .fa').toggleClass('fa-bars fa-times', 'slow');
+  $('.fixed').toggleClass('bg-brand', 'slow');
 });
 
 $(document).on('click', '.fixed .fa-times', function(){
   $('.resp-menu').toggle('slide','slow', function(){
-    $('.fixed .fa').toggleClass('fa-bars fa-times');
     $('.on-icon').toggleClass('hidden');
   });
+  $('.fixed .fa').toggleClass('fa-bars fa-times', 'slow');
+  $('.fixed').toggleClass('bg-brand', 'slow');
 });
 
 $(document).on('click','.modal-body a', function(event){

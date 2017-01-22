@@ -5,14 +5,15 @@
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
     %title Balloons
     = csrf_meta_tags
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
   %body
     .wrapper
       %header
-        = render 'delivery/layouts/resp_menu'
+        #responsive
+          = render 'delivery/layouts/resp_menu'
         = render 'delivery/layouts/header'
-        =render 'delivery/layouts/main_menu'
+
         #flash.col-md-6.col-xs-12.col-sm-12
           - flash.each do |key, message|
             %div{class: "alert alert-#{key} alert-dismissible fade in text-center"}
@@ -20,6 +21,7 @@
               %button{type: "button",  class: "close", style: 'font-size: 2em;' ,  data:{dismiss: "alert"} }
                 %span
                   &times;
+      =render 'delivery/layouts/main_menu'
       = yield
       .clearfix
     %footer

@@ -1,3 +1,10 @@
-$('#position<%=@position.id %>').hide();
-$('.subtotal').html('<%= j(render "subtotal") %>')
-$('#menu').html('<%= j(render "delivery/layouts/main_menu") %>')
+$('#position<%=@position.id %>').fadeOut();
+$('.subtotal').html('<%= j(render "subtotal") %>');
+$('#menu').html('<%= j(render "delivery/layouts/main_menu") %>');
+<% if @cart.positions.any? %>
+  $('.icon-wrapper small .badge').html('<%= @cart.positions.count %>');
+  $('#responsive').html('<%= j(render "delivery/layouts/resp_menu")%>');
+<% else %>
+  $('.icon-wrapper small .badge').hide();
+  $('#responsive').html('<%= j(render "delivery/layouts/resp_menu")%>');
+<% end %>

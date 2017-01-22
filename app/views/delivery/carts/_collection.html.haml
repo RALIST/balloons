@@ -1,0 +1,11 @@
+.row
+  - @items_in_collection.each do |item|
+    .col-md-4.col-sm-6-col-xs-12
+      .thumbnail{style: 'float: left;'}
+        .col-md-6.col-sm-6.col-xs-12
+          = image_tag item.img.url(:small),class: 'img-responsive'
+        .col-md-6.col-sm-6.col-xs-12
+          = item.name
+          %br
+          = link_to 'Добавить', delivery_add_subposition_path(item: item.id, position: position), class: 'btn btn-info', method: :post
+

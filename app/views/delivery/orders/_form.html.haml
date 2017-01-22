@@ -1,21 +1,27 @@
-.form-wrapper
-  .form-logo
-    = link_to delivery_root_path do
-      = image_tag 'form-logo.jpg'
-  .form
-    %h2 Оформление нового заказа
-    =form_for [:delivery, @order] do |f|
-      .form-field
-        =f.label 'Ваше имя'
-        = f.text_field :name, value: (current_user.first_name if current_user), class: 'form-input'
-      .form-field
-        =f.label 'Контактный телефон'
-        = f.text_field :phone, value: (current_user.phone if current_user), class: 'form-input'
-      .form-field
-        =f.label 'Адрес доставки'
-        = f.text_area :address, value: (current_user.address if current_user),  rows: 5, class: 'form-input'
-      .form-field
-        =f.label 'Дополнительно'
-        = f.text_area :desc, rows: 5, class: 'form-input'
-
-      = f.submit 'Создать заказа', class: 'add-to-cart'
+.container
+  .row
+    .col-md-4.col-sm-4.hidden-xs
+      = link_to delivery_root_path do
+        = image_tag 'form-logo.jpg', class: 'img-responsive pull-right'
+    .col-md-8.col-xs-12.col-sm-8
+      %h2 Оформление нового заказа
+      =form_for [:delivery, @order], html: {class: 'form-horizontal'} do |f|
+        .form-group
+          .col-sm-10
+            =f.label 'Ваше имя', class: 'lable-control'
+            = f.text_field :name, value: (current_user.first_name if current_user), class: 'form-control'
+        .form-group
+          .col-sm-10
+            =f.label 'Контактный телефон', class: 'lable-control'
+            = f.text_field :phone, value: (current_user.phone if current_user), class: 'form-control'
+        .form-group
+          .col-sm-10
+            =f.label 'Адрес доставки', class: 'lable-control'
+            = f.text_area :address, value: (current_user.address if current_user),  rows: 5, class: 'form-control'
+        .form-group
+          .col-sm-10
+            =f.label 'Дополнительно', class: 'lable-control'
+            = f.text_area :desc, rows: 5, class: 'form-control'
+        .form-group
+          .col-sm-10
+            = f.submit 'Создать заказа', class: 'btn btn-info btn-block'

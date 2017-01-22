@@ -170,6 +170,9 @@ body {
     position: relative;
   }
 }
+.dropdown>li{
+  cursor: pointer;
+}
 
 .dropdown-menus {
   margin-left: 1em;

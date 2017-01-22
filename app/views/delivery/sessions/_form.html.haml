@@ -16,7 +16,7 @@
             .input-group
               %span.input-group-addon
                 +7
-              = text_field_tag :phone, '', class: 'form-control', placeholder: '999 999 99 99'
+              = text_field_tag :phone, nil, data:{mask: '(999) 999-99-99'}, class: 'form-control', placeholder: '999 999 99 99'
         .form-group
           .col-sm-10
             .checkbox

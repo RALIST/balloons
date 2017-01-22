@@ -54,3 +54,12 @@
               %span.badge
                 = @cart.total_price
                 %i.fa.fa-rub{style: 'aria-hidden="true"'}
+
+      .row
+        .col-sm-12.col-xs-12{style: 'margin-top: 1.5em;'}
+          %ul.list-unstyled.list-inline.h4
+            - unless current_user
+              %li= link_to 'Войти', delivery_login_path
+              %li= link_to 'Регистрация', delivery_signin_path
+            - else
+              %li= link_to 'Личный кабинет', delivery_user_path(current_user)

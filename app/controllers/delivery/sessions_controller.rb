@@ -5,7 +5,8 @@ class Delivery::SessionsController < Delivery::DeliveryController
   end
 
   def create
-    if @user = login(params[:phone], params[:password])
+    password = Unicode.downcase(params[:password])
+    if @user = login(params[:phone], password)
       session[:user_id] = @user.id
       remember_me!
       @user.cart = @cart

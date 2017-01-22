@@ -54,6 +54,7 @@ gem 'roo-xls'
 gem 'will_paginate'
 
 gem 'bootstrap-sass'
+gem 'unicode'
 
 group :production do
   gem 'rails_12factor'

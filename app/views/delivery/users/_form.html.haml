@@ -13,7 +13,10 @@
         .form-group
           .col-sm-10
             = f.label "Ваш телефон", class: 'lable-control'
-            = f.text_field :phone, class: 'form-control'
+            .input-group
+              %span.input-group-addon
+                +7
+              = f.text_field :phone, class: 'form-control', placeholder: '999 999 99 99'
         .form-group
           .col-sm-10
             = f.submit 'Зарегистрироваться', class: 'btn btn-info btn-block'

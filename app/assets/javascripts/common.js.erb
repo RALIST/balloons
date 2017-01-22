@@ -6,6 +6,24 @@ $.extend($.expr[':'], {
   }
 });
 
+
+
+$(document).on('click', '.fa-bars', function(){
+  $('.resp-menu').toggle('slide','slow', function(){
+    $('.on-icon').toggleClass('hidden');
+  });
+  $('.fixed .fa').toggleClass('fa-bars fa-times', 'slow');
+  $('.fixed').toggleClass('bg-brand', 'slow');
+});
+
+$(document).on('click', '.fixed .fa-times', function(){
+  $('.resp-menu').toggle('slide','slow', function(){
+    $('.on-icon').toggleClass('hidden');
+  });
+  $('.fixed .fa').toggleClass('fa-bars fa-times', 'slow');
+  $('.fixed').toggleClass('bg-brand', 'slow');
+});
+
 $(document).on('click','.modal-body a', function(){
   $('.modal-body').html('<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>');
 });
@@ -17,21 +35,7 @@ $(document).on('click','.resp-menu  .dropdown li', function(){
 
 
 $(document).ready(function(){
-  $('.fa-bars').on('click', function(){
-    $('.resp-menu').toggle('slide','slow', function(){
-      $('.on-icon').toggleClass('hidden');
-    });
-    $('.fixed .fa').toggleClass('fa-bars fa-times', 'slow');
-    $('.fixed').toggleClass('bg-brand', 'slow');
-  });
 
-  $('.fixed .fa-times').on('click', function(){
-    $('.resp-menu').toggle('slide','slow', function(){
-      $('.on-icon').toggleClass('hidden');
-    });
-    $('.fixed .fa').toggleClass('fa-bars fa-times', 'slow');
-    $('.fixed').toggleClass('bg-brand', 'slow');
-  });
 
   $('input[name="search"]').on('keyup', function(e){
     var search = $(this).val();

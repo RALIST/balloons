@@ -5,8 +5,8 @@
         =link_to 'Скидка на все товары 15%!'
   .row.hidden-md.hidden-lg{style: 'width: 100%;'}
     .col-sm-12.col-xs-12.text-right.bg-brand.fixed
-      .icon-wrapper{style: 'margin: 0.125em 0;'}
-        %i.fa.fa-bars{style: 'aria-hidden="true"; font-size: 2.4em;'}
+      .icon-wrapper{style: 'margin: 0.125em 0;position: relative;'}
+        %i.fa.fa-bars{style: 'aria-hidden="true"; '}
         %small
           %span.badge.on-icon= @cart.positions.count if @cart.positions.any?
 .container
@@ -24,7 +24,7 @@
         - else
           %li= link_to 'Войти', delivery_login_path
           %li= link_to 'Регистрация', delivery_signin_path
-  .row.display-table{style: 'margin-top: 2.56em;'}
+  .row.display-table{style: 'margin-top: 2.8em;'}
     .col-md-2.hidden-xs.hidden-sm
     .col-md-8.col-xs-12.col-sm-9.display-cell
       = link_to delivery_root_path do

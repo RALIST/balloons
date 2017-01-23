@@ -37,5 +37,6 @@ module Balloons
     config.action_mailer.raise_delivery_errors = true
 
     config.time_zone = 'Samara'
+    config.i18n.default_locale = :ru
   end
 end

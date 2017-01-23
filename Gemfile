@@ -55,6 +55,8 @@ gem 'will_paginate'
 
 gem 'bootstrap-sass'
 gem 'unicode'
+gem 'premailer-rails'
+gem 'russian'
 
 group :production do
   gem 'rails_12factor'

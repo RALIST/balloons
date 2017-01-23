@@ -36,7 +36,6 @@ $(document).on('click','.resp-menu  .dropdown li', function(){
 
 $(document).ready(function(){
 
-
   $('input[name="search"]').on('keyup', function(e){
     var search = $(this).val();
     var key = event.which || event.keyCode || event.charCode;
@@ -63,5 +62,6 @@ $(document).ready(function(){
     element = $(value)
     element.mask($(value).data('mask'), {placeholder: '-'})
   });
+
   $('.clockpicker').clockpicker();
 });

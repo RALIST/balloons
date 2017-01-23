@@ -24,6 +24,6 @@ class Order < ApplicationRecord
 
   private
   def normalize_date
-    self.order_date = Time.parse(order_date.to_s + ' ' + order_time.to_s)
+    self.order_date = Time.parse(order_time + ' ' + order_date.to_s)
   end
 end

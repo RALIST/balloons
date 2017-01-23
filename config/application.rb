@@ -25,6 +25,6 @@ module Balloons
       }
     end
 
-    config.time_zone = Time.zone.now
+    config.time_zone = 'Samara'
   end
 end

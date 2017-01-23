@@ -5,6 +5,7 @@ class Order < ApplicationRecord
   has_many :items, through: :subspositions
   has_many :positions
   validates :user_id, :order_date, :phone, :address, :name, presence: true
+  validate :availible_date
 
   before_validation :normalize_date
 
@@ -25,5 +26,11 @@ class Order < ApplicationRecord
   private
   def normalize_date
     self.order_date = Time.parse(order_time + ' ' + order_date.to_s)
+  end
+
+  def availible_date
+    if self.order_date - Time.now < 2.hours
+      errors.add(:order_date, 'Возможно, мы не успеем привезти ваш заказ вовремя! Пожалуйста, дайте нам больше времени!')
+    end
   end
 end

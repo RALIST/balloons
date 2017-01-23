@@ -14,6 +14,9 @@ class Cart < ApplicationRecord
         end
       end
     end
+    if self.user.present?
+      total = total * self.user.discount
+    end
     return total.round(2)
   end
 end

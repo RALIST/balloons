@@ -1,0 +1,21 @@
+.container
+  .h2
+    Поступил новый заказ №#{@order.id}
+  .col-md-12
+    В заказ входит композиция:
+    - @order.positions.each do |position|
+      = image_tag position.composition.img.url(:thumb)
+      Которая состоит из:
+      - if position.subpositions.any?
+        - position.subpositions.each do |sub|
+          %p
+            = sub.item.name
+            = sub.quantity
+    Сумма:
+    = @order.total
+    Доставить по адресу:
+    = @order.address
+    к
+    = @order.order_date.localtime
+    Телефон для связи:
+    = @order.phone

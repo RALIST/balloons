@@ -1,5 +1,4 @@
 class Delivery::SessionsController < Delivery::DeliveryController
-  before_action :hide
   def new
     @user = User.new
   end
@@ -22,10 +21,4 @@ class Delivery::SessionsController < Delivery::DeliveryController
     redirect_to delivery_root_path
   end
 
-  private
-
-  def hide
-    @hide_header = true
-    @hide_footer = true
-  end
 end

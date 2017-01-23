@@ -7,9 +7,8 @@ class User < ApplicationRecord
   has_one :cart
   has_many :orders, dependent: :destroy
 
-  validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
-  validates :password, presence: true, if: -> { new_record? || changes[:crypted_password] }
-  validates :phone, uniqueness: true, length: { is: 18 }
+  validates :password, length: { minimum: 1 }, presence: true, if: -> { new_record? || changes[:crypted_password] }
+  validates :phone, uniqueness: true
 
 
 

@@ -6,22 +6,18 @@ class Order < ApplicationRecord
   has_many :positions
   validates :user_id, :order_date, :phone, :address, :name, presence: true
 
-  accepts_nested_attributes_for :user
-
   before_validation :normalize_date
 
   attr_accessor :order_time
 
 
-  def save_user(params={})
-    user = User.find_by!(phone: params[:phone])
-    self.user = user
+  def save_user(params = {})
+    user = User.find_by!(phone: phone)
+    self.user ||= user
   rescue ActiveRecord::RecordNotFound
-    user = User.create(phone: params[:phone],
-                        first_name: params[:name],
-                        address: params[:address],
-                        password: params[:name],
-                        password_confirmation: params[:name])
+    user = User.create(first_name: name,
+                        phone: phone,
+                        password: Unicode.downcase(name))
     self.user = user
   end
 

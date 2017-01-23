@@ -24,6 +24,17 @@ module Balloons
           }
       }
     end
+    config.action_mailer.smtp_settings = {
+      address:              'smtp.mail.ru',
+      port:                 465,
+      domain:               'mail.ru',
+      user_name:            ENV['MAIL_LOGIN'],
+      password:             ENV['MAIL_PASSWORD'],
+      authentication:       :plain,
+      enable_starttls_auto: true,
+      tls:                  true  }
+    config.action_mailer.default_options = { from: ENV['MAIL_BOX'] }
+    config.action_mailer.raise_delivery_errors = true
 
     config.time_zone = 'Samara'
   end

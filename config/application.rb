@@ -24,5 +24,7 @@ module Balloons
           }
       }
     end
+
+    config.time_zone = Time.zone.now
   end
 end

@@ -48,6 +48,18 @@ class Delivery::SubpositionsController < Delivery::DeliveryController
       format.js
     end
   end
+
+
+  def destroy
+    @subposition = Subposition.find(params[:id])
+    if @subposition.destroy
+      respond_to do |format|
+        format.html
+        format.js
+      end
+    end
+  end
+
   private
   def sub_params
     params.require(:subposition).permit(:quantity)

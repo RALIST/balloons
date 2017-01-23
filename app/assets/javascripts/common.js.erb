@@ -61,6 +61,6 @@ $(document).ready(function(){
   });
   $('[data-mask]').each(function(index, value){
     element = $(value)
-    element.mask($(value).data('mask'))
+    element.mask($(value).data('mask'), {placeholder: '-'})
   });
 });

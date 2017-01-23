@@ -24,9 +24,9 @@ class Delivery::CartsController < Delivery::DeliveryController
         quantity = @composition.items.where(id: item.id).count
         current_cart.positions.where(composition: @composition).last.subpositions.create(item: item, quantity: quantity)
       end
-      flash[:success] = 'Композиция добавлена в корзину!'
+      flash.now[:success] = 'Композиция добавлена в корзину!'
     else
-      flash[:danger] = 'Эта композиция уже в корзине!'
+      flash.now[:danger] = 'Эта композиция уже в корзине!'
     end
     respond_to do |format|
       format.html {redirect_back(fallback_location: delivery_root_path)}

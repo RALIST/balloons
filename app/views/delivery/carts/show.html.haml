@@ -15,12 +15,13 @@
                   .col-md-8.col-sm-12.col-xs-12
                     %h4
                       = link_to p.composition.title, delivery_composition_path(p.composition)
-                    %span.title
-                      В композицию входит:
-                      %br
-                    .subpositions
-                      = render p.subpositions.order(:id)
-                    = link_to 'Добавить в композицию', '', class: 'btn btn-info', data:{ toggle: 'modal', target: "#subposition-modal-#{p.id}"}
+                    .col-md-12.col-sm-12.col-xs-12
+                      .h5
+                        %strong
+                          В композицию входит:
+                      .subpositions
+                        = render p.subpositions.order(:id)
+                      = link_to 'Добавить в композицию', '', class: 'btn btn-info', data:{ toggle: 'modal', target: "#subposition-modal-#{p.id}"}
                     .modal.fade{id: "subposition-modal-#{p.id}",  tabindex: "-1",  role: "dialog"}
                       .modal-dialog{role: "document", style: 'float: center; width: 90%; margin: auto;'}
                         .modal-content{style: 'float: left;'}

@@ -1,14 +1,39 @@
 %div{id: "sub-#{subposition.id}"}
-  %ul
-    %li
-      = subposition.item.name
-      = link_to delivery_add_quantity_path(subposition), method: :post, remote: true, class: "sub-#{subposition.id}" do
-        %i.fa.fa-plus
-      = form_for [:delivery, subposition], remote: true do |f|
-        = f.number_field :quantity, class: 'form-control input-sm'
-      = link_to delivery_down_quantity_path(subposition), method: :post, remote: true, class: "sub-#{subposition.id}" do
-        %i.fa.fa-minus
-
+  .thumbnail.display-table.hidden-xs
+    .row
+      .col-md-6.col-sm-12.col-xs-8.display-cell{style: 'padding: 0 0 0 15px;'}
+        = subposition.item.name
+      .col-md-5.col-sm-12.col-xs-4.display-cell
+        = form_for [:delivery, subposition],class: 'form-inline', remote: true do |f|
+          .input-group
+            .input-group-addon
+              = link_to delivery_add_quantity_path(subposition), method: :post, remote: true, class: "sub-#{subposition.id}" do
+                %i.fa.fa-plus
+            = f.number_field :quantity, class: 'form-control input-sm'
+            .input-group-addon
+              = link_to delivery_down_quantity_path(subposition), method: :post, remote: true, class: "sub-#{subposition.id}" do
+                %i.fa.fa-minus
+      .col-md-1.col-sm-1.col-xs-2.display-cell.hidden-xs
+        =link_to delivery_subposition_path(subposition), method: :delete, remote: true do
+          %i.fa.fa-times
+  .thumbnail.visible-xs
+    .row
+      .col-xs-12.display-table
+        .col-xs-11.display-cell{style: 'padding: 0;'}
+          = subposition.item.name
+        .col-xs-1.display-cell.text-center{style: 'padding: 0; font-size: 1.5em;'}
+          =link_to delivery_subposition_path(subposition), method: :delete, remote: true do
+            %i.fa.fa-times
+      .col-xs-12
+        = form_for [:delivery, subposition],class: 'form-inline', remote: true do |f|
+          .input-group
+            .input-group-addon
+              = link_to delivery_add_quantity_path(subposition), method: :post, remote: true, class: "sub-#{subposition.id}" do
+                %i.fa.fa-plus
+            = f.number_field :quantity, class: 'form-control input-sm'
+            .input-group-addon
+              = link_to delivery_down_quantity_path(subposition), method: :post, remote: true, class: "sub-#{subposition.id}" do
+                %i.fa.fa-minus
 
 
 

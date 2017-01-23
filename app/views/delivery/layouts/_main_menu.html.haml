@@ -30,6 +30,8 @@
       .col-md-5.col-sm-6
         %ul.nav.nav-pills{style: 'float:right'}
           %li.text-uppercase.h4
+            = link_to 'Личный кабинет', delivery_user_path(current_user) if current_user
+          %li.text-uppercase.h4
             = link_to delivery_cart_path(@cart) do
               %i.fa.fa-shopping-cart{style: 'aria-hidden="true"'}
               - if @cart.positions.any?
@@ -37,8 +39,6 @@
                   = @cart.total_price
                   %i.fa.fa-rub
               Корзина
-          %li.text-uppercase.h4
-            = link_to 'Личный кабинет', delivery_user_path(current_user) if current_user
     .row.hidden-md.hidden-lg
       .col-sm-12.col-xs-12
         %ul.nav.nav-pills

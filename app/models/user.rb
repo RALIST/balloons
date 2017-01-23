@@ -1,15 +1,15 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
 
+  before_validation :normalize_password
   before_save :set_name
-  before_create :normalize_password
 
   has_one :cart
   has_many :orders, dependent: :destroy
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, presence: true, if: -> { new_record? || changes[:crypted_password] }
-  validates :phone, uniqueness: true, length: { is: 10 }, numericality: { only_integer: true }
+  validates :phone, uniqueness: true, length: { is: 18 }
 
 
 
@@ -27,7 +27,7 @@ class User < ApplicationRecord
   private
   def set_name
     if first_name.blank?
-      self.first_name = password
+      self.first_name = Unicode.capitalize(password)
     end
   end
 

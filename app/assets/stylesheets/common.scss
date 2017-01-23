@@ -111,25 +111,6 @@ body {
   right: 1em;
 }
 
-.form-inline {
-  .form-group {
-    max-width: 50%;
-    select {
-      max-width: 100%;
-    }
-  }
-  #quantity {
-    display: inline;
-    max-width: 6em;
-  }
-}
-.edit_subposition {
-  display: inline;
-  #subposition_quantity {
-    max-width: 5em;
-    display: inline;
-  }
-}
 
 
 .thumbnail {
@@ -181,4 +162,10 @@ body {
 .input-group>.input-group-addon {
   background-color: $brand-primary;
   color: white;
+  a {
+    color: white;
+    &:hover {
+      color: $brand-secondary;
+    }
+  }
 }

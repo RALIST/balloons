@@ -24,11 +24,16 @@
           .col-sm-10
             = f.label 'Укажите дату и время доставки'
             .row
-              .col-md-6
-                .bfh-datepicker{data: {name: 'order[order_date]', format: 'd/m'}}
-                  = f.text_field :order_date, class: 'form-control'
-              .col-md-6
-                .bfh-timepicker{data: {name: 'order[order_time]'}}
+              .col-md-6.col-xs-6
+                .input-group
+                  .input-group-addon
+                    %i.fa.fa-calendar
+                  = f.date_field :order_date, class: 'form-control'
+              .col-md-6.col-xs-6
+                .input-group.clockpicker{data: {autoclose: true, donetext: 'Готово!', default: 'now', mask: '00:00'}}
+                  .input-group-addon
+                    %i.fa.fa-clock-o
+                  = f.text_field :order_time, class: 'form-control'
         .form-group
           .col-sm-10
             =f.label 'Адрес доставки', class: 'lable-control'

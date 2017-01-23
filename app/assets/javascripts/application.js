@@ -15,10 +15,6 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require jquery.maskedinput
-//= require bootstrap-formhelpers-datepicker
-//= require bootstrap-formhelpers-datepicker.ru_RU
-//= require bootstrap-formhelpers-timepicker
-//= require bootstrap-formhelpers-timepicker_ru
-//= require bootstrap-formhelpers-number
+//= require clockpicker
 //= require_tree .
 

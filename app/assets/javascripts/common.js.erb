@@ -59,8 +59,6 @@ $(document).ready(function(){
       return false;
     }
   });
-  $('[data-mask]').each(function(index, value){
-    element = $(value)
-    element.mask($(value).data('mask'), {placeholder: '-'})
-  });
+
+  $('.clockpicker').clockpicker();
 });

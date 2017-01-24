@@ -2,7 +2,9 @@ class Admin::CompositionsController < Admin::AdminController
   before_action :set_comp, only: [:show, :edit, :update, :destroy, :add_item, :remove_tag]
 
   def index
-    @compositions = Composition.all
+    @compositions = Composition.availible.paginate(page: params[:page], per_page: 12)
+    @compositions_without_items = Composition.without_items
+    @compositions_without_price = Composition.without_price
   end
 
   def show
@@ -29,8 +31,8 @@ class Admin::CompositionsController < Admin::AdminController
     redirect_back fallback_location: admin_root_path
   end
 
-  def destroy
-    if @comp.destroy
+  def delete
+    if @comp.update(deleted: true)
       redirect_back fallback_location: admin_root_path
     end
   end
@@ -56,7 +58,7 @@ class Admin::CompositionsController < Admin::AdminController
   private
 
   def comp_params
-    params.require(:composition).permit(:title, :img, :price, :tag_name)
+    params.require(:composition).permit(:title, :img, :price, :tag_name, :deleted)
   end
 
   def set_comp

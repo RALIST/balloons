@@ -3,15 +3,27 @@ class Composition < ApplicationRecord
   has_many :items, through: :items_in_compositions
   has_many :tags, as: :taggable
   has_many :carts, through: :positions
+
   validates :title, :img, presence: true
-  has_attached_file :img, styles: {small: 'x100', thumb: 'x300', large: '1080x1080'}
+  has_attached_file :img, styles: {small: 'x100',
+                                    thumb: 'x300',
+                                    large: '1080x1080'}
   validates_attachment_content_type :img,
                         content_type: ["image/jpeg", "image/jpg", "image/png"]
 
-  scope :with_tag, -> (tag) { joins(:tags).where('tags.name LIKE ?', "%#{tag}%") }
+  scope :with_tag, -> (tag) { joins(:tags)
+                            .where('tags.name LIKE ?', "%#{tag}%") }
+  scope :with_items, -> { joins(:items).uniq }
+  scope :without_items, -> {left_outer_joins(:items)
+                            .where(items_in_compositions: {id: nil})}
+  scope :without_price, -> { with_items.where(items: {price_with_helium: nil}).uniq }
+
+  scope :availible, -> {joins(:items).where.not(items: {price_with_helium: nil}).uniq}
+
+
 
   def comp_price
-    price = self.items.map{ |i| i.price }.sum.round(2)
+    price = self.items.map{ |i| i.price_with_helium }.reject(&:nil?).sum.round(2)
     self.update(price: price)
   end
 

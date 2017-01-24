@@ -1,11 +1,11 @@
 class Delivery::MainController < Delivery::DeliveryController
   def index
-    @compositions = Composition.all
+    @compositions = Composition.availible
   end
 
   def search
     unless params[:tag_name].blank?
-      @compositions =  Composition.all.with_tag(params[:tag_name])
+      @compositions =  Composition.availible.with_tag(params[:tag_name])
       if @compositions.any?
         @compositions
       else

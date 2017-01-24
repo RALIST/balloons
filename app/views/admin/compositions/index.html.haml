@@ -1,4 +1,26 @@
 .container
-  = render @compositions, locals: {composition: @comp}
+  .row
+    %h2
+      Доступные композиции
+      %small Доступные к покупке пользователям
+    = render @compositions
+    = will_paginate @compositions
+  .clearfix
+
+
+  .row
+    %h2
+      Композиции без товаров
+      %small
+        Нет ни одного товара в композиции
+    = render @compositions_without_items
+
+  .row
+    %h2
+      Композиции без цены
+      %small
+        Не указана цена с гелием
+    = render @compositions_without_price
+
   .clearfix
   =link_to 'Добавить композицию', new_admin_composition_path, class: 'btn btn-primary'

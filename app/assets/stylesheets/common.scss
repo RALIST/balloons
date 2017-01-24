@@ -19,6 +19,10 @@ body {
   color:#ffffff;
 }
 
+.nav-pills>li>a:focus{
+  color: #ffffff;
+}
+
 .display-table {
   display: table;
   table-layout: fixed;
@@ -69,8 +73,22 @@ body {
 .bg-brand {
   background-color: $brand-primary;
   color: #ffffff;
+  text-decoration: none;
   a {
     color: #ffffff;
+    &:hover {
+      color: #ffffff;
+    }
+    &:visited {
+      color: #ffffff;
+    }
+  }
+  &:hover, &:focus, &:visited {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+  &:focus {
+    text-decoration: none;
   }
 }
 

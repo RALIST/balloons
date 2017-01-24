@@ -63,5 +63,9 @@ $(document).ready(function(){
     element.mask($(value).data('mask'), {placeholder: '-'})
   });
 
-  $('.clockpicker').clockpicker();
+  $('.clockpicker').clockpicker(
+    {'default': 'now',
+      autoclose: true,
+      donetext: 'Готово!'}
+    );
 });

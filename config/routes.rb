@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     post 'logout' ,             to:  'sessions#destroy',            as: :logout
     get 'signin',               to: 'users#new',                    as: :signin
     get '/search',              to: 'main#search',                  as: :search
+
   end
 
   namespace :shop do
@@ -41,6 +42,7 @@ Rails.application.routes.draw do
     resources :tags
     resources :user
     resources :orders
+    put '/delete/:id', to: 'compositions#delete', as: :delete_composition
     post 'admin/compositions/:id', to: 'compositions#add_item', as: :add_item
     put 'admin/compositions/:id/remove_tag', to: 'compositions#remove_tag', as: :remove_tag
   end

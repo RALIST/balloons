@@ -30,7 +30,10 @@
       .col-md-5.col-sm-6
         %ul.nav.nav-pills{style: 'float:right'}
           %li.text-uppercase.h4
-            = link_to 'Личный кабинет', delivery_user_path(current_user) if current_user
+            - if current_user
+              = link_to delivery_user_path(current_user) do
+                %i.fa.fa-user{style: 'aria-hidden="true"'}
+                Личный кабинет
           %li.text-uppercase.h4
             = link_to delivery_cart_path(@cart) do
               %i.fa.fa-shopping-cart{style: 'aria-hidden="true"'}

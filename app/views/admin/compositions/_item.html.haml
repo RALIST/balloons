@@ -1,8 +1,8 @@
 - @comp.items.uniq.each do |item|
   %p
-    =item.name
+    =link_to item.name, admin_item_path(item)
     %br
-    =item.price
+    =item.price_with_helium
     x
     = @comp.items.where(id: item.id).count
     штук

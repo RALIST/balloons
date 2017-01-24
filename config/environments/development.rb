@@ -53,4 +53,5 @@ Rails.application.configure do
   # config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
   Paperclip.options[:command_path] = "C:\Program Files\ImageMagick-7.0.4-Q16"
+  config.action_mailer.default_url_options = { host: 'localhost:3000'}
 end

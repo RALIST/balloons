@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170123084403) do
+ActiveRecord::Schema.define(version: 20170124120822) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,16 +40,17 @@ ActiveRecord::Schema.define(version: 20170123084403) do
     t.string   "img_content_type"
     t.integer  "img_file_size"
     t.datetime "img_updated_at"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.boolean  "deleted",          default: false
   end
 
   create_table "items", force: :cascade do |t|
     t.string   "name"
     t.text     "desc"
     t.float    "price"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.string   "img_file_name"
     t.string   "img_content_type"
     t.integer  "img_file_size"
@@ -61,6 +62,7 @@ ActiveRecord::Schema.define(version: 20170123084403) do
     t.string   "collection"
     t.integer  "min_order"
     t.string   "quantity_type"
+    t.boolean  "deleted",           default: false
   end
 
   create_table "items_in_compositions", force: :cascade do |t|
@@ -123,7 +125,7 @@ ActiveRecord::Schema.define(version: 20170123084403) do
     t.string   "email"
     t.string   "crypted_password"
     t.string   "salt"
-    t.string   "phone",                                      null: false
+    t.string   "phone",                                        null: false
     t.string   "first_name"
     t.string   "last_name"
     t.text     "address"
@@ -132,6 +134,7 @@ ActiveRecord::Schema.define(version: 20170123084403) do
     t.datetime "updated_at"
     t.string   "remember_me_token"
     t.datetime "remember_me_token_expires_at"
+    t.boolean  "admin",                        default: false
     t.index ["phone"], name: "index_users_on_phone", unique: true, using: :btree
     t.index ["remember_me_token"], name: "index_users_on_remember_me_token", using: :btree
   end

@@ -1,0 +1,49 @@
+@import 'variables';
+
+.bg-brand {
+  background-color: #68c4af;
+  color: #ffffff;
+  a {
+    color: #ffffff;
+  }
+}
+
+a {
+  color: #68c4af;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.display-table {
+  display: table;
+  font-size: 16px;
+}
+
+.display-cell {
+  display: table-cell;
+  vertical-align: top;
+  padding: 20px;
+}
+
+.unstyled {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #68c4af;
+}
+
+.btn {
+  display: inline-block;
+  padding: 6px;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 18px;
+  &:hover {
+    background-color: #F68294;
+  }
+  vertical-align: bottom;
+}

@@ -1,35 +1,43 @@
-.container
-  .h2
-    Поступил новый заказ №#{@order.id}
-  .row
-    .h3
-
-    .col-md-12
-      - @order.positions.each do |position|
-        .row
-          .col-md-4
-            = image_tag position.composition.img.url(:thumb)
-          .col-md-8
-            .h4
-              Композиция состоит из:
-            - if position.subpositions.any?
-              - position.subpositions.each do |sub|
-                %li
-                  = sub.item.name
-                  %strong
-                    = sub.quantity
-                    штук
-            Доставка:
-            %br
-            %strong
-              = @order.address
-              %br
-              = l(@order.order_date.localtime)
-            %br
-            Телефон для связи:
-            %strong
-              = @order.phone
-            %br
-            Сумма:
-            %strong
-              = @order.total
+.mail_container{style: 'width: 100%; margin: auto;'}
+  .bg-brand
+    %h2.text-center{style: 'padding: 6px;'}
+      Ура! Поступил новый заказ №#{@order.id}
+  .display-table
+    - @order.positions.each do |position|
+      .display-cell
+        %h3 Композиция id = #{position.composition.id}
+        = image_tag position.composition.img.url(:thumb)
+      .display-cell
+        %h3
+          Композиция состоит из:
+        - if position.subpositions.any?
+          - position.subpositions.each do |sub|
+            %ul.unstyled
+              %li
+                = link_to sub.item.name, admin_item_url(sub.item)
+                %strong
+                  = sub.quantity
+                  штук
+      .display-cell
+        %h3 Доставка:
+        Адрес:
+        %strong
+          = @order.address
+        %br
+        Время доставки:
+        %strong
+          = l(@order.order_date.localtime)
+        %br
+        Телефон для связи:
+        %strong
+          = @order.phone
+        %br
+        Сумма:
+        %strong
+          = @order.total
+        %br
+        Примечание:
+        = @order.desc
+  .display-table{style: 'padding: 0; width: 100%; text-align: right;'}
+    .display-cell{style: 'padding: 0; width: 100%;'}
+      = link_to 'На страницу заказа', admin_order_url(@order), class: 'bg-brand btn'

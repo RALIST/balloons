@@ -40,7 +40,7 @@ Rails.application.routes.draw do
     resources :items
     resources :compositions
     resources :tags
-    resources :user
+    resources :users
     resources :orders
     put '/delete/:id', to: 'compositions#delete', as: :delete_composition
     post 'admin/compositions/:id', to: 'compositions#add_item', as: :add_item

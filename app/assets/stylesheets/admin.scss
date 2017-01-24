@@ -1,0 +1,37 @@
+.admin>.container {
+  padding-top: 3%;
+}
+
+
+.left-menu {
+  min-height: 100%;
+  position: absolute;
+  display: none;
+  z-index: 998;
+  ul {
+    list-style-type: none;
+  }
+  .nav-header {
+    min-height: 100px;
+  }
+  &:hover, &:focus, &:visited {
+    text-decoration: none;
+  }
+}
+
+.left-menu.toggled + .container {
+  padding-left: 200px;
+}
+
+.top-menu {
+  width: 100%;
+  position: absolute;
+  z-index: 999;
+  i {
+    font-size: 2em;
+  }
+}
+
+.top-menu + .container {
+  padding-top: 60px;
+}

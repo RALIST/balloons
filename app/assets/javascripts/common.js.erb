@@ -16,6 +16,12 @@ $(document).on('click', '.fa-bars', function(){
   $('.fixed').toggleClass('bg-brand', 'slow');
 });
 
+$(document).on('click', '#admin-collapse', function(){
+  $('.left-menu').toggle('slide', 'slow', function(){
+    $(this).toggleClass('toggled');
+  });
+});
+
 $(document).on('click', '.fixed .fa-times', function(){
   $('.resp-menu').toggle('slide','slow', function(){
     $('.on-icon').toggleClass('hidden');

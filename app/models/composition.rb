@@ -13,13 +13,12 @@ class Composition < ApplicationRecord
 
   scope :with_tag, -> (tag) { joins(:tags)
                             .where('tags.name LIKE ?', "%#{tag}%") }
-  scope :with_items, -> { joins(:items).uniq }
+  scope :with_items, -> { joins(:items).distinct(:id)  }
   scope :without_items, -> {left_outer_joins(:items)
                             .where(items_in_compositions: {id: nil})}
-  scope :without_price, -> { with_items.where(items: {price_with_helium: nil}).uniq }
+  scope :without_price, -> { with_items.where(items: {price_with_helium: nil}).distinct(:id)  }
 
-  scope :availible, -> {joins(:items).where.not(items: {price_with_helium: nil}).uniq}
-
+  scope :availible, -> {joins(:items).where.not(items: {price_with_helium: nil}).distinct(:id) }
 
 
   def comp_price

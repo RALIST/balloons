@@ -2,9 +2,9 @@ class Admin::CompositionsController < Admin::AdminController
   before_action :set_comp, only: [:show, :edit, :update, :destroy, :add_item, :remove_tag]
 
   def index
-    @compositions = Composition.availible.paginate(page: params[:page], per_page: 12)
-    @compositions_without_items = Composition.without_items
-    @compositions_without_price = Composition.without_price
+    @compositions = Composition.availible.paginate(page: params[:availible_page], per_page: 12)
+    @compositions_without_items = Composition.without_items.paginate(page: params[:without_items_page], per_page: 12)
+    @compositions_without_price = Composition.without_price.paginate(page: params[:without_price_page], per_page: 12)
   end
 
   def show

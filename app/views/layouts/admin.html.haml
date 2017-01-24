@@ -10,12 +10,15 @@
   %body
     .wrapper
       %header
-        = render 'admin/layouts/header'
-        =render 'admin/layouts/main_menu'
+        / = render 'admin/layouts/header'
+        / =render 'admin/layouts/main_menu'
       - flash.each do |key, message|
         %div{class: "alert alert-#{key} text-center"}
           = message
-      = yield
+      .admin
+        = render 'admin/layouts/top_menu'
+        = render 'admin/layouts/left_menu'
+        = yield
       .clearfix
     %footer
       =render 'admin/layouts/footer'

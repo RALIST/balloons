@@ -1,21 +1,23 @@
 .container
-  = Item.all.count
-  %p
+  .h3{data: {toggle: 'collapse', target: '#companies'}}
     Производители:
-    %br
+  %ul.list-unstyled.list-inline.collapse#companies
     - @companies.each do |company|
-      %span{style: "margin: 0 0.5em; display: inline-block;" }
+      %li
         = link_to company, admin_items_path(query: company) unless company.blank?
-  %p
+  .h3{data: {toggle: 'collapse', target: '#types'}}
     Тип:
+  %ul.list-unstyled.list-inline.collapse#types
     - @types.each do |type|
-      = link_to type, admin_items_path(query: type) unless type.blank?
-  %p
+      %li
+        = link_to type, admin_items_path(query: type) unless type.blank?
+  .h3{data: {toggle: 'collapse', target: '#collections'}}
     Коллекция:
-    %br
+  %ul.list-unstyled.list-inline.collapse#collections
     - @collections.each do |collection|
-      = link_to collection, admin_items_path(query: collection)
-  %br
-  = link_to 'Добавить товар', new_admin_item_path, class: 'add-to-cart'
+      %li
+        = link_to collection, admin_items_path(query: collection)
+
+  = link_to 'Добавить товар', new_admin_item_path, class: 'btn btn-info'
   = render 'item' if params[:query]
 

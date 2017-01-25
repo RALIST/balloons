@@ -34,7 +34,7 @@
 
 
 
-/ =form_tag({controller: 'compositions', action: 'add_item'}) do
-/   = select_tag :item, options_for_select(Item.all.map{|i| [i.name, i.id]})
-/   = number_field_tag :count
-/   = submit_tag 'Add Item'
+=form_tag({controller: 'compositions', action: 'add_item'}) do
+  = select_tag :item, options_for_select(Item.all.map{|i| [i.name, i.id]})
+  = number_field_tag :count
+  = submit_tag 'Add Item'

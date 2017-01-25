@@ -1,18 +1,21 @@
 .container
   .h3{data: {toggle: 'collapse', target: '#companies'}}
-    Производители:
+    %span.btn.btn-default
+      Производители
   %ul.list-unstyled.list-inline.collapse#companies
     - @companies.each do |company|
       %li
         = link_to company, admin_items_path(query: company) unless company.blank?
   .h3{data: {toggle: 'collapse', target: '#types'}}
-    Тип:
+    %span.btn.btn-default
+      Тип
   %ul.list-unstyled.list-inline.collapse#types
     - @types.each do |type|
       %li
         = link_to type, admin_items_path(query: type) unless type.blank?
   .h3{data: {toggle: 'collapse', target: '#collections'}}
-    Коллекция:
+    %span.btn.btn-default
+      Коллекции
   %ul.list-unstyled.list-inline.collapse#collections
     - @collections.each do |collection|
       %li

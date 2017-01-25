@@ -198,3 +198,12 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+.error {
+  color: red;
+  margin-top: 6px;
+}
+
+.error + .item {
+  border: 1px solid red;
+}

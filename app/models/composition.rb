@@ -12,18 +12,23 @@ class Composition < ApplicationRecord
                         content_type: ["image/jpeg", "image/jpg", "image/png"]
 
   scope :with_tag, -> (tag) { joins(:tags)
-                            .where('tags.name LIKE ?', "%#{tag}%") }
+                            .where('tags.name LIKE ?', "%#{tag}%").distinct(:id) }
   scope :with_items, -> { joins(:items).distinct(:id)  }
   scope :without_items, -> {left_outer_joins(:items)
                             .where(items_in_compositions: {id: nil})}
   scope :without_price, -> { with_items.where(items: {price_with_helium: nil}).distinct(:id)  }
 
-  scope :availible, -> {joins(:items).where.not(items: {price_with_helium: nil}).distinct(:id) }
+  scope :availible, -> {joins(:items).merge(Item.with_price).distinct(:id)
+                        .where.not(id: Composition.without_price.map(&:id))}
 
 
   def comp_price
     price = self.items.map{ |i| i.price_with_helium }.reject(&:nil?).sum.round(2)
     self.update(price: price)
+  end
+
+  def update_price
+      self.comp_price
   end
 
   def tag_name
@@ -35,6 +40,5 @@ class Composition < ApplicationRecord
   def tag_name=(name)
     self.tags.find_or_create_by!(name: name) unless name.blank?
   end
-
 
 end

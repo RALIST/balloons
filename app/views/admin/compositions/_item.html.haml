@@ -1,8 +1,26 @@
+.row.text-center
+  .col-md-7
+    %strong
+      Название
+  .col-md-2
+    %strong
+      Цена
+  .col-md-2
+    %strong
+      Кол-во
+  .col-md-1
+
 - @comp.items.uniq.each do |item|
-  %p
-    =link_to item.name, admin_item_path(item)
-    %br
-    =item.price_with_helium
-    x
-    = @comp.items.where(id: item.id).count
-    штук
+  -if item.price_with_helium.blank?
+    .error
+      Не указан цена с гелием!
+  .row.item
+    .col-md-7
+      =link_to item.name, admin_item_path(item)
+    .col-md-2.text-center
+      =item.price_with_helium
+    .col-md-2.text-center
+      = @comp.items.where(id: item.id).count
+    .col-md-1
+      %i.fa.fa-times-circle{style: 'aria-hidden="true"'}
+

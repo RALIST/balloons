@@ -1,34 +1,40 @@
 .container
-  = image_tag(@comp.img.url, size: '200')
-  %br
-  = @comp.title
-  %br
-  %span.price
-    = @comp.price
+  .row
+    .col-md-4
+      = image_tag @comp.img.url, class: 'img-responsive'
+      = link_to 'Обновить цену', admin_update_price_path(@comp), class: 'btn btn-info btn-block'
+    .col-md-8
+      .row
+        .col-md-8
+          .h4.bg-brand Товары в композиции
+          .items.text-left
+            = render 'item'
+        .col-md-4
+          .h4.bg-brand Теги
+          - @comp.tags.each do |tag|
+            %p
+              = tag.name
+              = link_to admin_remove_tag_path(tag_id: tag.id), method: :put do
+                %i.fa.fa-times-circle{style: 'aria-hidden="true"'}
+          = form_for [:admin, @comp], class: 'form-inline' do |f|
+            = f.select :tag_name, options_for_select(Tag.all.map{|i| [i.name]}.uniq)
+            %br
+            = f.submit 'Добавить тег'
+          = form_for [:admin, @comp] do |f|
+            Add tags to composition
+            = f.text_field :tag_name, value: '', id: 'tags'
+      .row
+        .col-md-8.text-right
+          .h3.border-top
+            = @comp.price
+
+  .row
+    .col-md-12
+      .h2 Статистика
 
 
-  =form_tag({controller: 'compositions', action: 'add_item'}, remote: true) do
-    = select_tag :item, options_for_select(Item.all.map{|i| [i.name, i.id]})
-    = number_field_tag :count
-    = submit_tag 'Add Item'
-    %br
-    %span Items in compositions
-    .items
-      = render 'item'
 
-  %h2 Add tags to composition
-
-  = form_for [:admin, @comp] do |f|
-    = f.select :tag_name, options_for_select(Tag.all.map{|i| [i.name]}.uniq)
-    %br
-    = f.submit 'Add tags'
-
-  Create your own tag
-  = form_for [:admin, @comp] do |f|
-    Add tags to composition
-    = f.text_field :tag_name, value: '', id: 'tags'
-  - @comp.tags.each do |tag|
-    %p
-      = tag.name
-      = link_to admin_remove_tag_path(tag_id: tag.id), method: :put do
-        %i.fa.fa-times-circle{style: 'aria-hidden="true"'}
+/ =form_tag({controller: 'compositions', action: 'add_item'}) do
+/   = select_tag :item, options_for_select(Item.all.map{|i| [i.name, i.id]})
+/   = number_field_tag :count
+/   = submit_tag 'Add Item'

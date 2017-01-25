@@ -35,7 +35,7 @@
                   .input-group-addon
                     %i.fa.fa-clock-o
                   = f.text_field :order_time, value: Time.now.to_s(:time), class: 'form-control', data:{mask: '99:99'}, required: true, readonly: true
-            .error{style: 'color:  red; margin-top: 6px;'}
+            .error
               = show_errors(@order, :order_date)
 
 

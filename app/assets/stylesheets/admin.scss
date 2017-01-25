@@ -1,12 +1,11 @@
 .admin>.container {
-  padding-top: 3%;
+  padding-top: 5%;
 }
 
 
 .left-menu {
   min-height: 100%;
   position: absolute;
-  display: none;
   z-index: 998;
   ul {
     list-style-type: none;
@@ -27,8 +26,8 @@
   width: 100%;
   position: absolute;
   z-index: 999;
-  i {
-    font-size: 2em;
+  i, li {
+    font-size: 1.2em;
   }
 }
 

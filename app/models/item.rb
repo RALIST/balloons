@@ -14,6 +14,7 @@ class Item < ApplicationRecord
 
   scope :with_tag, -> (tag) { joins(:tags).where('tags.name = ?', tag.name) }
   scope :search, -> (query) { where("made_by LIKE ? OR item_type LIKE ? OR collection LIKE ?", query, query, query )}
+  scope :with_price, -> {where.not(price_with_helium: nil)}
 
   TYPES = ['Латексные шары', 'Фольгированые шары', 'Товары для праздника']
 

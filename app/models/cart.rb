@@ -8,15 +8,8 @@ class Cart < ApplicationRecord
   def total_price
     total = 0
     self.positions.each do |p|
-      p.subpositions.each do |sub|
-        unless sub.item.price.blank?
-          total += sub.item.price.to_f * sub.quantity
-        end
-      end
+      total = p.subpositions.map{|s| s.item.price_with_helium.to_f * s.quantity}.sum
     end
-    if self.user.present?
-      total = total * self.user.discount
-    end
-    return total.round(2)
+    return total
   end
 end

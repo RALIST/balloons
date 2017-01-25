@@ -1,5 +1,5 @@
 class Admin::CompositionsController < Admin::AdminController
-  before_action :set_comp, only: [:show, :edit, :update, :destroy, :add_item, :remove_tag]
+  before_action :set_comp, only: [:show, :edit, :update, :destroy, :add_item, :remove_tag, :update_price]
 
   def index
     @compositions = Composition.availible.paginate(page: params[:availible_page], per_page: 12)
@@ -23,6 +23,8 @@ class Admin::CompositionsController < Admin::AdminController
     end
   end
 
+
+
   def edit
   end
 
@@ -42,7 +44,7 @@ class Admin::CompositionsController < Admin::AdminController
     params[:count].to_i.times do
       @comp.items.push(@item)
     end
-    @comp.comp_price
+    @comp.update_price
     respond_to do |format|
       format.html { redirect_back(fallback_location: admin_root_path) }
       format.js
@@ -52,6 +54,11 @@ class Admin::CompositionsController < Admin::AdminController
   def remove_tag
     @tag = Tag.find(params[:tag_id])
     @comp.tags.delete(@tag)
+    redirect_back fallback_location: admin_root_path
+  end
+
+  def update_price
+    @comp.update_price
     redirect_back fallback_location: admin_root_path
   end
 

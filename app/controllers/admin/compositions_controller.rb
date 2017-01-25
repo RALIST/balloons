@@ -1,5 +1,5 @@
 class Admin::CompositionsController < Admin::AdminController
-  before_action :set_comp, only: [:show, :edit, :update, :destroy, :add_item, :remove_tag, :update_price]
+  before_action :set_comp, only: [:show, :edit, :update, :destroy, :add_item, :remove_tag, :update_price, :delete]
 
   def index
     @compositions = Composition.availible.paginate(page: params[:availible_page], per_page: 12)
@@ -34,7 +34,7 @@ class Admin::CompositionsController < Admin::AdminController
   end
 
   def delete
-    if @comp.update(deleted: true)
+    if @comp.update_attributes(deleted: true)
       redirect_back fallback_location: admin_root_path
     end
   end

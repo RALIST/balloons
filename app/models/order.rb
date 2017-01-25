@@ -29,7 +29,7 @@ class Order < ApplicationRecord
   end
 
   def availible_date
-    if self.order_date - Time.now < 2.hours
+    if self.order_date - Time.current < 2.hours
       errors.add(:order_date, 'Возможно, мы не успеем привезти ваш заказ вовремя! Пожалуйста, дайте нам больше времени!')
     end
   end

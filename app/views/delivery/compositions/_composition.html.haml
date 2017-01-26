@@ -26,6 +26,7 @@
           %td
             %strong
               = number_to_currency(composition.price, precision: 0)
+
     .row
       .col-md-12.col-xs-12
         - if composition.tags.any?
@@ -35,6 +36,13 @@
               %span
                 = link_to delivery_search_path(tag_name: tag.name) do
                   #{tag.name},
+    .row
+      .col-md-12.col-xs-12
+        - unless @cart.compositions.include?(composition)
+          = button_to 'Добавить в корзину', delivery_add_to_cart_path(composition), class: "btn btn-info add-to-cart#{composition.id}", data: {disable_with: 'Добавляем...'}, remote: true
+        - else
+          .btn.btn-success{disabled: true}
+            Добавлено в корзину
   .col-md-2.col-xs-12.text-center
     %p
       %strong
@@ -45,8 +53,4 @@
           = link_to delivery_root_path(id: related.id), remote: true  do
             = image_tag related.img.url(:small), class: 'img-responsive'
 .modal-footer
-  - unless @cart.compositions.include?(composition)
-    = button_to 'Добавить в корзину', delivery_add_to_cart_path(composition), class: "btn btn-info add-to-cart#{composition.id}", data: {disable_with: 'Добавляем...'}, remote: true
-  - else
-    .btn.btn-success{disabled: true}
-      Добавлено в корзину
+

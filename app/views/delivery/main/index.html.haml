@@ -35,7 +35,7 @@
                 .h3.modal-title{id: "myModalLabel"}
                   Композиция №#{c.id}
                   %br
-                  %small
+                  %small.hidden-xs
                     Вы сможете изменить состав композиции и количество шаров просто добавив ее в корзину!
               .modal-body
                 = render partial: 'delivery/layouts/composition', locals: {c: c}

@@ -74,4 +74,18 @@ $(document).ready(function(){
       autoclose: true,
       donetext: 'Готово!'}
     );
+
+  $('[data-item-id] a, [data-item-id] span').each(function(index, value){
+    element = $(value)
+    element.popover({
+      trigger: 'hover',
+      placement: 'bottom',
+      container: 'body',
+      html: 'true',
+      content: function(){
+        var imgSrc = $(this).closest('.item').find('.popover-img img').attr('src');
+        return '<img src ="' + imgSrc + '" />'
+      }
+    })
+  })
 });

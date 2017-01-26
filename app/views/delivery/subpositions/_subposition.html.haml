@@ -1,8 +1,10 @@
 %div{id: "sub-#{subposition.id}"}
   .thumbnail.display-table.hidden-xs
     .row
-      .col-md-6.col-sm-12.col-xs-8.display-cell{style: 'padding: 0 0 0 15px;'}
-        = subposition.item.name
+      .col-md-6.col-sm-12.col-xs-8.display-cell.item{style: 'padding: 0 0 0 15px;', data: {item_id: "#{subposition.item.id}"}}
+        %span{style: 'cursor: pointer;'}= subposition.item.name
+        .popover-img{style: 'display: none;'}
+          = image_tag subposition.item.img.url(:small)
       .col-md-5.col-sm-12.col-xs-4.display-cell
         = form_for [:delivery, subposition],class: 'form-inline', remote: true do |f|
           .input-group
@@ -34,6 +36,4 @@
             .input-group-addon
               = link_to delivery_down_quantity_path(subposition), method: :post, remote: true, class: "sub-#{subposition.id}" do
                 %i.fa.fa-minus
-
-
 

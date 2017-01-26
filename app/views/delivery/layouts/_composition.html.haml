@@ -1,0 +1,39 @@
+.row
+  .col-md-4
+    = image_tag c.img.url(:original), class: 'img-responsive'
+  .col-md-5
+    .bg-brand
+      В композицию входит:
+    .table-responsive
+      %table.table.table-bordered.table-condensed
+        %thead
+          %tr
+            %th
+              Название
+            %th
+              Количество
+            %th
+              Цена
+        %tbody
+        - c.items.uniq.each do |i|
+          %tr.item{data: {item_id: "#{i.id}"}}
+            %td
+              %span{style: 'cursor: pointer;'}
+                = i.name
+            %td= c.items.where(id: i.id).count
+            %td= i.price_with_helium
+            %td.popover-img{style: 'display: none;'}
+              = image_tag i.img.url(:small)
+        %tr.text-right
+          %td
+          %td
+            Итого:
+          %td
+            %strong
+              = c.price
+  .col-md-3
+  .clearfix
+  .h3.text-center
+    %strong
+      Вы сможете изменить состав композиции и количество шаров просто добавив ее в корзину!
+

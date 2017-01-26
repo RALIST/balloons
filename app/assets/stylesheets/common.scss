@@ -83,13 +83,6 @@ body {
       color: #ffffff;
     }
   }
-  &:hover, &:focus, &:visited {
-    color: #ffffff;
-    text-decoration: underline;
-  }
-  &:focus {
-    text-decoration: none;
-  }
 }
 
 .bg-secondary {
@@ -206,4 +199,8 @@ input::-webkit-inner-spin-button {
 
 .error + .item {
   border: 1px solid red;
+}
+
+.close {
+  font-size: 3em;
 }

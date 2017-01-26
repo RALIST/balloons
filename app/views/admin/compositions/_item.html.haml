@@ -14,7 +14,7 @@
   -if item.price_with_helium.blank?
     .error
       Не указан цена с гелием!
-  .row.item
+  .row.item{data: {item_id: "#{item.id}"}}
     .col-md-7
       =link_to item.name, admin_item_path(item)
     .col-md-2.text-center
@@ -23,4 +23,6 @@
       = @comp.items.where(id: item.id).count
     .col-md-1
       %i.fa.fa-times-circle{style: 'aria-hidden="true"'}
+    .popover-img{style: 'display: none;'}
+      = image_tag item.img.url(:small)
 

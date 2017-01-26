@@ -20,4 +20,4 @@
       .form-field
         =f.label 'Изображение'
         =f.file_field :img, class: 'form-input'
-      =f.submit class: 'add-to-cart'
+      =f.submit class: 'btn btn-info', data: {disable_with: 'Сохраняю...'}

@@ -11,7 +11,7 @@
               = c.price.to_f.round(2)
               %i.fa.fa-rub{style: 'aria-hidden="true"'}
 
-            %p.text-center
+            %p.text-center{style: 'height: 4em;'}
               %strong Теги:
               %br
               - if c.tags.any?
@@ -26,4 +26,5 @@
               - unless @cart.compositions.include?(c)
                 = button_to 'Добавить в корзину', delivery_add_to_cart_path(c), class: "btn btn-info btn-block add-to-cart#{c.id}", data: {disable_with: 'Добавляем...'}, remote: true
               - else
-                Добавлено в корзину
+                .btn.btn-success.btn-block{disabled: true}
+                  Добавлено в корзину

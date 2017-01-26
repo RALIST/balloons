@@ -8,7 +8,7 @@
             = link_to delivery_composition_path(c) do
               = image_tag c.img.url(:thumb), class: 'img-responsive', style: 'height: 100%; object-fit: contain;'
             %h3.text-center
-              = c.price.to_f.round(2)
+              = number_to_currency(c.price, precision: 0)
               %i.fa.fa-rub{style: 'aria-hidden="true"'}
 
             %p.text-center{style: 'height: 4em;'}

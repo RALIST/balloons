@@ -1,11 +1,11 @@
 %div{id: "sub-#{subposition.id}"}
-  .thumbnail.display-table.hidden-xs
-    .row
-      .col-md-6.col-sm-12.col-xs-8.display-cell.item{style: 'padding: 0 0 0 15px;', data: {item_id: "#{subposition.item.id}"}}
+  %table.table-bordered.table-responsive.table-hover.hidden-xs
+    %tr
+      %td.item{style: 'width: 55%;', data: {item_id: "#{subposition.item.id}"}}
         %span{style: 'cursor: pointer;'}= subposition.item.name
         .popover-img{style: 'display: none;'}
           = image_tag subposition.item.img.url(:small)
-      .col-md-5.col-sm-12.col-xs-4.display-cell
+      %td{style: 'width: 35%;'}
         = form_for [:delivery, subposition],class: 'form-inline', remote: true do |f|
           .input-group
             .input-group-addon
@@ -15,9 +15,11 @@
             .input-group-addon
               = link_to delivery_down_quantity_path(subposition), method: :post, remote: true, class: "sub-#{subposition.id}" do
                 %i.fa.fa-minus
-      .col-md-1.col-sm-1.col-xs-2.display-cell.hidden-xs
+      %td.text-center.hidden-xs
         =link_to delivery_subposition_path(subposition), method: :delete, remote: true do
           %i.fa.fa-times
+
+
   .thumbnail.visible-xs
     .row
       .col-xs-12.display-table

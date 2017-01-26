@@ -2,6 +2,13 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
+  .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h5, h4, a {
+  font-family: $font-family-serif;
+    .color-red {
+      color: darken($brand-secondary, 10%);
+    }
+  }
+
 }
 
 #flash {
@@ -45,8 +52,9 @@ body {
   margin: 2px 0;
   width: 100%;
   border-radius: 4px;
+  font-weight: bold;
   &:hover {
-    background-color: $gray-light;
+    background-color: $brand-secondary;
     color: white;
     border: 1px solid $gray-light;
   }

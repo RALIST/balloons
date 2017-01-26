@@ -12,9 +12,6 @@ $btn-info-bg: $brand-secondary;
 $input-border-focus: $brand-secondary;
 $headings-color: darken($brand-primary, 10%);
 // Fonts
-$font-family-serif: 'Alice', serif;;
-$font-family-sans-serif: 'El Messiri', sans-serif;
-$font-family-base: 'El Messiri', sans-serif;
- small, p {
-  font-family: $font-family-serif;
- }
+$font-family-serif: 'Lora', serif;
+$font-family-sans-serif: 'Open Sans', sans-serif;
+$font-family-base: $font-family-sans-serif;

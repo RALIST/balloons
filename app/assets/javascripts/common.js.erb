@@ -75,6 +75,10 @@ $(document).ready(function(){
       donetext: 'Готово!'}
     );
 
+
+});
+
+$(document).on('mouseenter', '[data-item-id]', function(){
   $('[data-item-id] a, [data-item-id] span').each(function(index, value){
     element = $(value)
     element.popover({
@@ -86,6 +90,6 @@ $(document).ready(function(){
         var imgSrc = $(this).closest('.item').find('.popover-img img').attr('src');
         return '<img src ="' + imgSrc + '" />'
       }
-    })
-  })
+    });
+  });
 });

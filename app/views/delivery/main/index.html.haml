@@ -9,9 +9,7 @@
               = image_tag c.img.url(:thumb), class: 'img-responsive', style: 'height: 100%; object-fit: contain;'
             %h3.text-center
               %strong
-                = c.price.to_f
-              %i.fa.fa-rub{style: 'aria-hidden="true"'}
-
+                = number_to_currency(c.price, precision: 0)
             %p.text-center{style: 'height: 4em;'}
               %strong Теги:
               %br
@@ -36,6 +34,9 @@
                     &times;
                 .h3.modal-title{id: "myModalLabel"}
                   Композиция №#{c.id}
+                  %br
+                  %small
+                    Вы сможете изменить состав композиции и количество шаров просто добавив ее в корзину!
               .modal-body
                 = render partial: 'delivery/layouts/composition', locals: {c: c}
               .modal-footer

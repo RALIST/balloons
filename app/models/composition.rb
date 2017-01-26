@@ -21,7 +21,6 @@ class Composition < ApplicationRecord
   scope :availible, -> {joins(:items).merge(Item.with_price).distinct(:id)
                         .where.not(id: Composition.without_price.map(&:id))}
 
-
   def comp_price
     price = self.items.map{ |i| i.price_with_helium }.reject(&:nil?).sum.round(2)
     self.update(price: price)
@@ -39,6 +38,14 @@ class Composition < ApplicationRecord
 
   def tag_name=(name)
     self.tags.find_or_create_by!(name: name) unless name.blank?
+  end
+
+  def related
+    min = (self.price - 5000)
+    max = (self.price + 5000)
+    Composition.availible.where(price: min..max).includes(:tags)
+                        .where(tags: {name: self.tags.map(&:name)})
+                        .where.not(id: self.id)
   end
 
 end

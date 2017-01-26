@@ -2,7 +2,7 @@
   .row
     .container
       - if @cart.positions.any?
-        .col-md-7.col-sm-12.col-xs-12.col-lg-7
+        .col-md-8.col-sm-12.col-xs-12.col-lg-7
           %h2.border-bot В корзине
           - @cart.positions.each do |p|
             .row{id: "position#{p.id}"}
@@ -12,15 +12,7 @@
                     %i.fa.fa-times#del-from-cart
                   .col-md-4.col-sm-12.col-xs-12
                     = image_tag p.composition.img.url(:thumb), class: 'img-responsive'
-                  .col-md-8.col-sm-12.col-xs-12
-                    %h4
-                      = link_to p.composition.title, delivery_composition_path(p.composition)
-                    .col-md-12.col-sm-12.col-xs-12
-                      .h5
-                        %strong
-                          В композицию входит:
-                      .subpositions
-                        = render p.subpositions.order(:id)
+                    .h3
                       = link_to 'Добавить в композицию', '', class: 'btn btn-info', data:{ toggle: 'modal', target: "#subposition-modal-#{p.id}"}
                     .modal.fade{id: "subposition-modal-#{p.id}",  tabindex: "-1",  role: "dialog"}
                       .modal-dialog{role: "document", style: 'float: center; width: 90%; margin: auto;'}
@@ -42,9 +34,12 @@
                                     %i.fa.fa-times
                           .modal-body{style: 'float: left; width: 100%;'}
                             = render partial: 'category_list', locals: {p: p}
-
-        .col-md-1.hidden-sm.hidden-xs
-        .col-md-4.col-sm-12.col-xs-12
+                  .col-md-8.col-sm-12.col-xs-12
+                    %strong
+                      В композицию входит:
+                    .subpositions
+                      = render p.subpositions.order(:id)
+        .col-md-4.col-sm-12.col-xs-12.pull-right
           .subtotal
             =render 'subtotal'
       - else

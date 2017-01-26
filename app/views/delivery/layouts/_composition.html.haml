@@ -46,5 +46,5 @@
     %strong
       Похожие
     - c.related.limit(3).each do |related|
-      %span{data: { toggle: 'modal', target: "#composition#{related.id}"},style: 'cursor: pointer'}
+      %div{data: { toggle: 'modal', target: "#composition#{related.id}"},style: 'cursor: pointer'}
         = image_tag related.img.url(:small), style: 'object-fit: fill;'

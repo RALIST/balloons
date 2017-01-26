@@ -46,5 +46,6 @@
     %strong
       Похожие
     - c.related.limit(3).each do |related|
-      .col-md-12.col-xs-4{data: { toggle: 'modal', target: "#composition#{related.id}"},style: 'cursor: pointer'}
-        = image_tag related.img.url(:small), style: 'object-fit: fill;'
+      .row
+        .col-md-12.col-xs-4{data: { toggle: 'modal', target: "#composition#{related.id}"},style: 'cursor: pointer'}
+          = image_tag related.img.url(:small), class: 'img-responsive'

@@ -42,6 +42,9 @@
             %span
               = link_to delivery_search_path(tag_name: tag.name) do
                 #{tag.name},
-  .col-md-2
-    - c.related.each do |related|
-      = image_tag related.img.url(:small)
+  .col-md-2.text-center
+    %strong
+      Похожие
+    - c.related.limit(3).each do |related|
+      %span{data: { toggle: 'modal', target: "#composition#{related.id}"},style: 'cursor: pointer'}
+        = image_tag related.img.url(:small), style: 'object-fit: fill;'

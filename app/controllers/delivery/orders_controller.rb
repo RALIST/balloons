@@ -20,7 +20,6 @@ class Delivery::OrdersController < Delivery::DeliveryController
         p.update_attribute(:cart_id, nil)
       end
       @order.user.calculate_discount
-      AdminMailer.new_order_notify(@order).deliver_now
       redirect_to delivery_order_path(@order)
     else
       render 'new'

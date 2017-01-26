@@ -8,6 +8,7 @@ class Order < ApplicationRecord
   validate :availible_date
 
   before_validation :normalize_date
+  after_save :send_admin_notification
 
   attr_accessor :order_time
 
@@ -32,5 +33,10 @@ class Order < ApplicationRecord
     if self.order_date - Time.current < 2.hours
       errors.add(:order_date, 'Возможно, мы не успеем привезти ваш заказ вовремя! Пожалуйста, дайте нам больше времени!')
     end
+  end
+
+  private
+  def send_admin_notification
+    AdminMailer.new_order_notify(self).deliver_later
   end
 end

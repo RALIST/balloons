@@ -1,28 +1,20 @@
 .row
   .col-md-4.col-xs-12
-    = image_tag c.img.url(:original), class: 'img-responsive', style: 'margin-bottom: 2em;'
+    = image_tag composition.img.url(:original), class: 'img-responsive', style: 'margin-bottom: 2em;'
   .col-md-6.col-xs-12
     %p.bg-brand
       %strong
         В композицию входит:
     .table-responsive
       %table.table.table-bordered.table-condensed
-        %thead
-          %tr
-            %th
-              Название
-            %th
-              Количество
-            %th
-              Цена
         %tbody
-        - c.items.uniq.each do |i|
+        - composition.items.uniq.each do |i|
           %tr.item{data: {item_id: "#{i.id}"}}
             %td
               %span{style: 'cursor: pointer;'}
                 = i.name
             %td
-              = c.items.where(id: i.id).count
+              = composition.items.where(id: i.id).count
               шт.
             %td= number_to_currency(i.price_with_helium, precision: 0)
             %td.popover-img{style: 'display: none;'}
@@ -33,13 +25,13 @@
             Итого:
           %td
             %strong
-              = number_to_currency(c.price, precision: 0)
+              = number_to_currency(composition.price, precision: 0)
     .row
       .col-md-12.col-xs-12
-        - if c.tags.any?
+        - if composition.tags.any?
           %p
             Композиция на
-            - c.tags.each do |tag|
+            - composition.tags.each do |tag|
               %span
                 = link_to delivery_search_path(tag_name: tag.name) do
                   #{tag.name},
@@ -48,6 +40,13 @@
       %strong
         Похожие
     .row
-      - c.related.limit(3).each do |related|
-        .col-md-12.col-xs-4{data: { toggle: 'modal', target: "#composition#{related.id}"},style: 'cursor: pointer'}
-          = image_tag related.img.url(:small), class: 'img-responsive'
+      - composition.related.limit(3).each do |related|
+        .col-md-12.col-xs-4
+          = link_to delivery_root_path(id: related.id), remote: true  do
+            = image_tag related.img.url(:small), class: 'img-responsive'
+.modal-footer
+  - unless @cart.compositions.include?(composition)
+    = button_to 'Добавить в корзину', delivery_add_to_cart_path(composition), class: "btn btn-info add-to-cart#{composition.id}", data: {disable_with: 'Добавляем...'}, remote: true
+  - else
+    .btn.btn-success{disabled: true}
+      Добавлено в корзину

@@ -1,0 +1,9 @@
+$(document).on('ajaxStart', function(){
+  $('.modal-title').html('Загрузка...');
+  $('.modal-body').html('<div class="text-center h1"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i></div>');
+});
+$(document).on('ajaxSuccess', function(){
+  $('.modal-title').html('Композиция №<%= @composition.id %> <br> <small>Вы сможете изменить состав композиции и количество шаров просто добавив ее в корзину!</small');
+  $('.modal-body').html('<%= j( render @composition) %>');
+})
+

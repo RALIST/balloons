@@ -19,7 +19,8 @@ class Order < ApplicationRecord
   rescue ActiveRecord::RecordNotFound
     user = User.create(first_name: name,
                         phone: phone,
-                        password: Unicode.downcase(name))
+                        password: Unicode.downcase(name),
+                        address: address)
     self.user = user
   end
 

@@ -37,9 +37,9 @@
                 = link_to delivery_search_path(tag_name: tag.name) do
                   #{tag.name},
     .row
-      .col-md-12.col-xs-12
+      .col-md-4.col-xs-12
         - unless @cart.compositions.include?(composition)
-          = button_to 'Добавить в корзину', delivery_add_to_cart_path(composition), class: "btn btn-info add-to-cart#{composition.id}", data: {disable_with: 'Добавляем...'}, remote: true
+          = button_to 'Добавить в корзину', delivery_add_to_cart_path(composition), class: "btn btn-info btn-block add-to-cart#{composition.id}", data: {disable_with: 'Добавляем...'}, remote: true
         - else
           .btn.btn-success{disabled: true}
             Добавлено в корзину

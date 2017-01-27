@@ -38,7 +38,8 @@
                     %strong
                       В композицию входит:
                     .subpositions
-                      = render p.subpositions.order(:id)
+                      %table.table.table-striped.table-responsive.table-hover.hidden-xs
+                        = render p.subpositions.order(:id)
         .col-md-4.col-sm-12.col-xs-12.pull-right
           .subtotal
             =render 'subtotal'

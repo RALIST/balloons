@@ -1,6 +1,11 @@
 class Delivery::MainController < Delivery::DeliveryController
   def index
     @compositions = Composition.availible
+    @composition  = Composition.find(params[:id]) if params[:id]
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def search

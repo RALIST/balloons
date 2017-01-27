@@ -8,9 +8,10 @@ body {
       color: darken($brand-secondary, 10%);
     }
   }
-
 }
-
+.modal {
+  -webkit-overflow-scrolling: auto;
+}
 .table > tbody > tr > td {
   vertical-align: middle;
 }

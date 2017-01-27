@@ -1,6 +1,6 @@
 class Delivery::DeliveryController < ApplicationController
   layout 'delivery'
-  before_action :current_cart
+  before_action :current_cart, :new_call
 
 
 private
@@ -14,5 +14,9 @@ private
     @cart = Cart.create
     session[:cart_id] = @cart.id
     @cart
+  end
+
+  def new_call
+    @call = Call.new
   end
 end

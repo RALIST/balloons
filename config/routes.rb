@@ -36,6 +36,7 @@ Rails.application.routes.draw do
     resources :users
     resources :sessions
     resources :subpositions, only: [:edit, :update, :destroy]
+    resources :calls, only: [:new, :create]
     post '/add_to_cart/:id',        to: 'carts#add_to_cart',            as: :add_to_cart
     post '/remove_from_cart/:id',   to: 'carts#remove_from_cart',       as: :remove_from_cart
     post '/add_quantity/:id',       to: 'subpositions#up_quantity',     as: :add_quantity

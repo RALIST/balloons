@@ -1,12 +1,31 @@
 .h3
   Оставьте заявку
-= form_tag root_path, method: :get do
+= form_for @call, remote: true do |f|
   .form-group
-    = label_tag '', 'Как вас зовут?', class: 'control-label'
-    = text_field_tag :name,'', class: 'form-control'
+    = f.label 'Как вас зовут?', class: 'control-label'
+    = f.text_field :username, class: 'form-control'
   .form-group
-    = label_tag '', 'Ваш телефон', class: 'control-label'
-    = text_field_tag :phone,'', class: 'form-control'
+    = f.label 'Ваш телефон', class: 'control-label'
+    = f.text_field :userphone, class: 'form-control'
   .form-group
-    .modal-footer{style: 'padding: 0;'}
-      = submit_tag 'Отправить', class: 'btn btn-info'
+    = f.label 'Как лучше с вами связаться?', class: 'control-label'
+    %br
+    .checkbox-inline
+      %label
+        = f.check_box :messangers, {multiple: true}, 'Позвонить', nil
+        Позвонить
+    .checkbox-inline
+      %label
+        = f.check_box :messangers, {multiple: true}, 'Viber', nil
+        Viber
+    .checkbox-inline
+      %label
+        = f.check_box :messangers, {multiple: true}, 'Whats App', nil
+        Whats App
+    .checkbox-inline
+      %label
+        = f.check_box :messangers, {multiple: true}, 'Telegram', nil
+        Telegram
+  .modal-footer{style: 'padding: 0;'}
+    .form-group
+      = submit_tag 'Отправить', class: 'btn btn-info', data:{disabled_with: 'Отправляю...'}

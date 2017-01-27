@@ -18,7 +18,7 @@ class Delivery::MainController < Delivery::DeliveryController
         flash[:info] = 'По запросу ' + params[:tag_name] + ' ничего не найдено!'
       end
     else
-      redirect_to delivery_root_path
+      redirect_to root_path
     end
   end
 end

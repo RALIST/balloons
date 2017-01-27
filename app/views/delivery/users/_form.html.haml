@@ -1,11 +1,11 @@
 .container
   .row
     .col-md-4.col-sm-4.hidden-xs
-      = link_to delivery_root_path do
+      = link_to root_path do
         = image_tag 'logo2.png', class: 'img-responsive pull-right'
     .col-md-4.col-xs-12.col-sm-8
       %h2 Регистрация
-      = form_for [:delivery, @user], html: {class: 'form-horizontal border-right'}  do |f|
+      = form_for @user, html: {class: 'form-horizontal border-right'}  do |f|
         .form-group
           .col-sm-10
             = f.label 'Ваше имя', class: 'lable-control'

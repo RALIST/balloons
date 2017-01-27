@@ -11,6 +11,9 @@ body {
 
 }
 
+.table > tbody > tr > td {
+  vertical-align: middle;
+}
 #flash {
   position: fixed;
   top: 10%;

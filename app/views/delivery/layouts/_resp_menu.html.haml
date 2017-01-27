@@ -5,7 +5,7 @@
         .col-xs-12.col-sm-12
       .row.display-table
         .col-xs-4.col-sm-4.display-cell
-          =link_to delivery_root_path do
+          =link_to root_path do
             =image_tag 'logo2.png', class: 'img-responsive'
         .col-sm-8.col-xs-8.display-cell
           Нужна помощь?
@@ -16,7 +16,7 @@
         .col-sm-12.col-xs-12
           %ul.nav.nav-pills
             %li.h4.text-center
-              = form_tag delivery_search_path, method: :get, class: 'form-horizontal' do
+              = form_tag search_path, method: :get, class: 'form-horizontal' do
                 .input-group
                   = text_field_tag :tag_name,'', class: 'form-control input-sm', placeholder: 'Введите событие...'
                   %span.input-group-btn
@@ -31,25 +31,25 @@
                 %span.caret
               %ul.list-unstyled.dropdown-menus
                 - Tag.composition_tags.each do |tag|
-                  %li.text-capitalize.h4= link_to tag.name, delivery_search_path(tag_name: tag.name)
+                  %li.text-capitalize.h4= link_to tag.name, search_path(tag_name: tag.name)
             %li.dropdown
               .h3
                 Кому
                 %span.caret
               %ul.list-unstyled.dropdown-menus
                 - Tag.composition_tags.each do |tag|
-                  %li.text-capitalize.h4= link_to tag.name, delivery_search_path(tag_name: tag.name)
+                  %li.text-capitalize.h4= link_to tag.name, search_path(tag_name: tag.name)
             %li.dropdown
               .h3
                 По цене
                 %span.caret
               %ul.list-unstyled.dropdown-menus
                 - Tag.composition_tags.each do |tag|
-                  %li.text-capitalize.h4= link_to tag.name, delivery_search_path(tag_name: tag.name)
+                  %li.text-capitalize.h4= link_to tag.name, search_path(tag_name: tag.name)
       - if @cart.positions.any?
         .row{style: 'margin-top: 1em; border-bottom: 1px solid #ffffff; padding-bottom: 1em;'}
           .col-xs-8
-            = link_to delivery_cart_path(@cart), class: 'btn btn-info btn-block' do
+            = link_to my_cart_path, class: 'btn btn-info btn-block' do
               Корзина
               %span.badge
                 = @cart.total_price
@@ -59,7 +59,7 @@
         .col-sm-12.col-xs-12{style: 'margin-top: 1.5em;'}
           %ul.list-unstyled.list-inline.h4
             - unless current_user
-              %li= link_to 'Войти', delivery_login_path
-              %li= link_to 'Регистрация', delivery_signin_path
+              %li= link_to 'Войти', login_path
+              %li= link_to 'Регистрация', signin_path
             - else
-              %li= link_to 'Личный кабинет', delivery_user_path(current_user)
+              %li= link_to 'Личный кабинет', user_path(current_user)

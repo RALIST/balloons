@@ -12,7 +12,7 @@ class Delivery::UsersController < Delivery::DeliveryController
       auto_login(@user, should_remember = true)
       @user.cart = @cart
       flash[:success] = 'Вы успешно зарегистрировались!'
-      redirect_to delivery_root_path
+      redirect_to root_path
     else
       flash.now[:danger] = 'Не удалось зарегистрироваться. Проверьте данные'
       render 'new'

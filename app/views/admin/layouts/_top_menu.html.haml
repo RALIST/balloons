@@ -8,6 +8,6 @@
   .col-md-4
     %ul.nav.nav-pills
       %li
-        = link_to 'Доставка', delivery_root_path
+        = link_to 'Доставка', root_path
       %li
-        = link_to 'Магазин', shop_root_path
+        = link_to 'Магазин', root_url(subdomain: 'shop')

@@ -1,11 +1,11 @@
 .container
   .row
     .col-md-4.col-sm-4.hidden-xs
-      = link_to delivery_root_path do
+      = link_to root_path do
         = image_tag 'form-logo.jpg', class: 'img-responsive pull-right'
     .col-md-8.col-xs-12.col-sm-8
       %h2 Оформление нового заказа
-      =form_for [:delivery, @order], html: {class: 'form-horizontal'} do |f|
+      =form_for @order, html: {class: 'form-horizontal'} do |f|
         .form-group
           .col-sm-10
             =f.label 'Ваше имя', class: 'lable-control'

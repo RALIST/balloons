@@ -9,7 +9,7 @@ class Delivery::SessionsController < Delivery::DeliveryController
       session[:user_id] = @user.id
       remember_me!
       @user.cart = @cart
-      redirect_to delivery_root_path
+      redirect_to root_path
     else
       flash.now[:danger] = 'Не удалось войти!'
       render 'new'
@@ -18,7 +18,7 @@ class Delivery::SessionsController < Delivery::DeliveryController
 
   def destroy
     logout
-    redirect_to delivery_root_path
+    redirect_to root_path
   end
 
 end

@@ -8,7 +8,7 @@
             .row{id: "position#{p.id}"}
               .col-md-12.col-xs-12.col-sm-12.col-lg-12
                 .thumbnail{style: 'float: left; width: 100%;'}
-                  = link_to delivery_remove_from_cart_path(p), method: :post, remote: true do
+                  = link_to remove_from_cart_path(p), method: :post, remote: true do
                     %i.fa.fa-times#del-from-cart
                   .col-md-4.col-sm-12.col-xs-12
                     = image_tag p.composition.img.url(:thumb), class: 'img-responsive'
@@ -48,7 +48,7 @@
           %h2
             В вашей корзине пока ничего нет
             %br
-            = link_to 'Добавить в корзину', delivery_root_path, class: 'btn btn-info'
+            = link_to 'Добавить в корзину', root_path, class: 'btn btn-info'
 
 %div{style: 'clear: both;'}
 

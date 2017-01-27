@@ -19,7 +19,7 @@ class Composition < ApplicationRecord
   scope :without_price, -> { with_items.where(items: {price_with_helium: nil}).distinct(:id)  }
 
   scope :availible, -> {joins(:items).merge(Item.with_price).distinct(:id)
-                        .where.not(id: Composition.without_price.map(&:id))}
+                        .where.not(id: Composition.without_price.map(&:id), deleted: true)}
 
   def comp_price
     price = self.items.map{ |i| i.price_with_helium }.reject(&:nil?).sum.round(2)

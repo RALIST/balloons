@@ -20,7 +20,7 @@ class Delivery::OrdersController < Delivery::DeliveryController
         p.update_attribute(:cart_id, nil)
       end
       @order.user.calculate_discount
-      redirect_to delivery_order_path(@order)
+      redirect_to order_path(@order)
     else
       render 'new'
     end

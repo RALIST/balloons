@@ -8,9 +8,9 @@
           .col-md-6.col-sm-6.col-xs-12
             = item.name
             .h4
-              = button_to 'Добавить', delivery_add_subposition_path(item: item.id, position: position), class: 'btn btn-info', data: {disable_with: 'Подождите...'}
+              = button_to 'Добавить', add_subposition_path(item: item.id, position: position), class: 'btn btn-info', data: {disable_with: 'Подождите...'}
   .row
     .col-md-12
       %p.text-center{style: 'font-size: 1.5em;'}
-        = link_to 'Назад', delivery_cart_path(position: position), remote:  true
+        = link_to 'Назад', my_cart_path(position: position), remote:  true
 

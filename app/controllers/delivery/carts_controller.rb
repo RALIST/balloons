@@ -29,7 +29,7 @@ class Delivery::CartsController < Delivery::DeliveryController
       flash.now[:danger] = 'Эта композиция уже в корзине!'
     end
     respond_to do |format|
-      format.html {redirect_back(fallback_location: delivery_root_path)}
+      format.html {redirect_back(fallback_location: root_path)}
       format.js
     end
 
@@ -39,7 +39,7 @@ class Delivery::CartsController < Delivery::DeliveryController
     @position = Position.find(params[:id])
     current_cart.positions.destroy(@position)
     respond_to do |format|
-      format.html {redirect_back(fallback_location: delivery_root_path)}
+      format.html {redirect_back(fallback_location: root_path)}
       format.js
     end
   end

@@ -4,7 +4,7 @@ class Delivery::SubpositionsController < Delivery::DeliveryController
     @subposition = Subposition.find(params[:id])
     @subposition.update_attribute(:quantity, @subposition.quantity + 1)
     respond_to do |format|
-      format.html{redirect_back(fallback_location: delivery_root_path)}
+      format.html{redirect_back(fallback_location: root_path)}
       format.js
     end
   end
@@ -17,7 +17,7 @@ class Delivery::SubpositionsController < Delivery::DeliveryController
       @subposition.destroy
     end
     respond_to do |format|
-      format.html{redirect_back(fallback_location: delivery_root_path)}
+      format.html{redirect_back(fallback_location: root_path)}
       format.js
     end
   end
@@ -31,7 +31,7 @@ class Delivery::SubpositionsController < Delivery::DeliveryController
       @position.subpositions.create(item: item, quantity: 1)
     end
     respond_to do |format|
-      format.html{ redirect_back(fallback_location: delivery_root_path) }
+      format.html{ redirect_back(fallback_location: root_path) }
       format.js
     end
   end

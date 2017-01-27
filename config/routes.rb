@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  constraints subdomain: 'shop' do
+    scope module: 'shop' do
+      root 'main#index'
+      resources :users
+      resources :items
+      resources :carts
+      resources :orders
+      resources :positions
+      resources :compositions
+    end
+  end
+
   root 'delivery/main#index'
   constraints subdomain: false do
     scope module: 'delivery' do
@@ -39,15 +51,5 @@ Rails.application.routes.draw do
     end
   end
 
-  constraints subdomain: 'shop' do
-    scope module: 'shop' do
-      root 'main#index'
-      resources :users
-      resources :items
-      resources :carts
-      resources :orders
-      resources :positions
-      resources :compositions
-    end
-  end
+
 end

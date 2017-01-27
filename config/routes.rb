@@ -12,41 +12,40 @@ Rails.application.routes.draw do
     end
   end
 
-  constraints subdomain: false do
-    namespace :admin, module: 'admin' do
-      root 'main#index'
-      resources :items
-      resources :compositions
-      resources :tags
-      resources :users
-      resources :orders
-      put '/delete/:id',                        to: 'compositions#delete',        as: :delete_composition
-      post 'admin/compositions/:id',            to: 'compositions#add_item',      as: :add_item
-      put 'admin/compositions/:id/remove_tag',  to: 'compositions#remove_tag',    as: :remove_tag
-      get '/update_price/:id',                  to: 'compositions#update_price',  as: :update_price
-    end
-    scope module: 'delivery' do
-      root 'main#index'
-      resources :items,         only: [:index, :show]
-      resources :compositions,  only: [:index, :show]
-      resources :tags,          only: [:index]
-      resources :carts
-      resources :orders
-      resources :positions
-      resources :users
-      resources :sessions
-      resources :subpositions, only: [:edit, :update, :destroy]
-      post '/add_to_cart/:id',        to: 'carts#add_to_cart',            as: :add_to_cart
-      post '/remove_from_cart/:id',   to: 'carts#remove_from_cart',       as: :remove_from_cart
-      post '/add_quantity/:id',       to: 'subpositions#up_quantity',     as: :add_quantity
-      post '/down_quantity/:id',      to: 'subpositions#down_quantity',   as: :down_quantity
-      post '/add_subposition',        to: 'subpositions#add_subposition', as: :add_subposition
-      get 'login',                    to: 'sessions#new',                 as: :login
-      post 'logout' ,                 to:  'sessions#destroy',            as: :logout
-      get 'signin',                   to: 'users#new',                    as: :signin
-      get '/search',                  to: 'main#search',                  as: :search
-      get '/my_cart',                 to: 'carts#show',                   as: :my_cart
-    end
+  namespace :admin, module: 'admin' do
+    root 'main#index'
+    resources :items
+    resources :compositions
+    resources :tags
+    resources :users
+    resources :orders
+    put '/delete/:id',                        to: 'compositions#delete',        as: :delete_composition
+    post 'admin/compositions/:id',            to: 'compositions#add_item',      as: :add_item
+    put 'admin/compositions/:id/remove_tag',  to: 'compositions#remove_tag',    as: :remove_tag
+    get '/update_price/:id',                  to: 'compositions#update_price',  as: :update_price
+  end
+
+  scope module: 'delivery' do
+    root 'main#index'
+    resources :items,         only: [:index, :show]
+    resources :compositions,  only: [:index, :show]
+    resources :tags,          only: [:index]
+    resources :carts
+    resources :orders
+    resources :positions
+    resources :users
+    resources :sessions
+    resources :subpositions, only: [:edit, :update, :destroy]
+    post '/add_to_cart/:id',        to: 'carts#add_to_cart',            as: :add_to_cart
+    post '/remove_from_cart/:id',   to: 'carts#remove_from_cart',       as: :remove_from_cart
+    post '/add_quantity/:id',       to: 'subpositions#up_quantity',     as: :add_quantity
+    post '/down_quantity/:id',      to: 'subpositions#down_quantity',   as: :down_quantity
+    post '/add_subposition',        to: 'subpositions#add_subposition', as: :add_subposition
+    get 'login',                    to: 'sessions#new',                 as: :login
+    post 'logout' ,                 to:  'sessions#destroy',            as: :logout
+    get 'signin',                   to: 'users#new',                    as: :signin
+    get '/search',                  to: 'main#search',                  as: :search
+    get '/my_cart',                 to: 'carts#show',                   as: :my_cart
   end
 
 

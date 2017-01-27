@@ -1,9 +1,9 @@
 class Call < ApplicationRecord
 
-after_create :send_new_call_notification
+after_commit :send_new_call_notification
 
   private
   def send_new_call_notification
-    AdminMailer.send_new_call_notify(self).deliver_now
+    AdminMailer.new_call_order_notify(self).deliver_now
   end
 end

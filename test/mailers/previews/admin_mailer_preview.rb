@@ -5,5 +5,8 @@ class AdminMailerPreview < ActionMailer::Preview
     @order = Order.last
     AdminMailer.new_order_notify(@order)
   end
-
+  def new_call_order_notify
+    @call = Call.last
+    AdminMailer.new_call_order_notify(@call)
+  end
 end

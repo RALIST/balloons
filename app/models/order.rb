@@ -38,13 +38,12 @@ class Order < ApplicationRecord
 
   private
   def send_admin_notification
-    AdminMailer.new_order_notify(self).deliver_later
+    AdminMailer.new_order_notify(self).deliver_now
   end
 
   def send_sms_notification
     message = MainsmsApi::Message.new(message:'New order',
-                                      recipients: ['89124614168'],
-                                      test: 1)
+                                      recipients: ['89124614168'])
     response = message.deliver
     print response
   end

@@ -19,7 +19,7 @@
             .input-group
               %span.input-group-addon
                 %i.fa.fa-phone{style: 'aria-hidden="true"'}
-              = text_field_tag :phone, nil, data:{ mask: '+7 (999) 999 99 99' },  class: 'form-control', required: true
+              = telephone_field_tag :phone, nil, data:{ mask: '+7 (999) 999 99 99' },  class: 'form-control', required: true
         .form-group
           .col-sm-10
             .checkbox

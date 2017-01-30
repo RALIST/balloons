@@ -6,7 +6,7 @@
     = f.text_field :username, class: 'form-control'
   .form-group
     = f.label 'Ваш телефон', class: 'control-label'
-    = f.text_field :userphone, class: 'form-control'
+    = f.telephone_field :userphone, data:{ mask: '+7 (999) 999 99 99' }, class: 'form-control'
   .form-group
     = f.label 'Как лучше с вами связаться?', class: 'control-label'
     %br

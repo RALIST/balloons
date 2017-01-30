@@ -1,7 +1,19 @@
 Rails.application.routes.draw do
 
-  constraints subdomain: 'shop' do
-    scope module: 'shop' do
+  if Rails.env == 'development'
+    constraints subdomain: 'shop' do
+      scope module: 'shop' do
+        root 'main#index'
+        resources :users
+        resources :items
+        resources :carts
+        resources :orders
+        resources :positions
+        resources :compositions
+      end
+    end
+  else
+    namespace :shop do
       root 'main#index'
       resources :users
       resources :items

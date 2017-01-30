@@ -46,5 +46,6 @@ class Order < ApplicationRecord
                                       recipients: ['89124614168'],
                                       test: 1)
     response = message.deliver
+    print response
   end
 end

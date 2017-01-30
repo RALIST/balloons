@@ -26,6 +26,7 @@
       %label
         = f.check_box :messangers, {multiple: true}, 'Telegram', nil
         Telegram
+    = f.hidden_field :url, value: request.original_url
   .modal-footer{style: 'padding: 0;'}
     .form-group
       = submit_tag 'Отправить', class: 'btn btn-info', data:{disabled_with: 'Отправляю...'}

@@ -8,7 +8,7 @@ class Order < ApplicationRecord
   validate :availible_date
 
   before_validation :normalize_date
-  after_save :send_admin_notification,  :send_sms_notification
+  after_save :send_admin_notification,  :send_sms_notification_to_admin
 
   attr_accessor :order_time
 
@@ -36,14 +36,16 @@ class Order < ApplicationRecord
     end
   end
 
-  private
   def send_admin_notification
     AdminMailer.new_order_notify(self).deliver_now
   end
 
-  def send_sms_notification
-    message = MainsmsApi::Message.new(message:'New order',
-                                      recipients: ['89124614168'])
+  def send_sms_notification_to_admin
+    new_order = 'Новый заказ' + self.order_date.in_time_zone +
+                '. Телефон клиента' +
+                self.user.phone
+    message = MainsmsApi::Message.new(message: new_order,
+                                      recipients: ['89124532598'])
     response = message.deliver
     print response
   end

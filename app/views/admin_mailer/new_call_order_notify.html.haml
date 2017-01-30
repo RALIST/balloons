@@ -1,0 +1,27 @@
+%table
+  %tr
+    %td
+      Заказали обратный звонок!
+  %tr
+    %td
+      Данные:
+  %tr
+    %td
+      Имя
+    %td
+      = @call.username
+  %tr
+    %td
+      Телефон
+    %td
+      = @call.userphone
+  %tr
+    %td
+      Можно связаться через
+    %td
+      = @call.messangers.join(',')
+  %tr
+    %td
+      Заявка поступила в
+    %td
+      = @call.created_at.in_time_zone

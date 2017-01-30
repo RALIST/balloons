@@ -19,7 +19,7 @@
             .input-group
               %span.input-group-addon
                 %i.fa.fa-phone{style: 'aria-hidden="true"'}
-              = f.text_field :phone, value: (current_user.phone if current_user), data:{ mask: '+7 (999) 999 99 99' }, class: 'form-control', required: true
+              = f.telephone_field :phone, value: (current_user.phone if current_user), data:{ mask: '+7 (999) 999 99 99' }, class: 'form-control', required: true
         .form-group
           .col-sm-10
             = f.label 'Укажите дату и время доставки'
@@ -42,11 +42,11 @@
         .form-group
           .col-sm-10
             =f.label 'Адрес доставки', class: 'lable-control'
-            = f.text_area :address, value: (current_user.address if current_user),  rows: 5, class: 'form-control', required: true
+            = f.text_area :address, value: (current_user.address if current_user),  rows: 3, class: 'form-control', required: true
         .form-group
           .col-sm-10
             =f.label 'Дополнительно', class: 'lable-control'
-            = f.text_area :desc, rows: 5, class: 'form-control'
+            = f.text_area :desc, rows: 3, class: 'form-control'
         .form-group
           .col-sm-10
             = f.submit 'Создать заказ', class: 'btn btn-info btn-block', disable_with: 'Оформляю заказ...'

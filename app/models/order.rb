@@ -43,7 +43,7 @@ class Order < ApplicationRecord
 
   def send_sms_notification
     message = MainsmsApi::Message.new(message:'New order',
-                                      recipients: ['89124614168']],
+                                      recipients: ['89124614168'],
                                       test: 1)
     response = message.deliver
   end

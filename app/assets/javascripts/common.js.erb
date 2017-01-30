@@ -78,7 +78,7 @@ $(document).ready(function(){
 
 });
 
-$(document).on('mouseenter', '[data-item-id]', function(){
+$(document).on('mouseenter touchstart', '[data-item-id]', function(){
   $('[data-item-id] a, [data-item-id] span').each(function(index, value){
     element = $(value)
     element.popover({

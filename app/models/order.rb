@@ -41,7 +41,7 @@ class Order < ApplicationRecord
   end
 
   def send_sms_notification_to_admin
-    new_order = 'Новый заказ' + self.order_date.in_time_zone +
+    new_order = 'Новый заказ' + self.order_date.in_time_zone.to_s +
                 '. Телефон клиента' +
                 self.user.phone
     message = MainsmsApi::Message.new(message: new_order,

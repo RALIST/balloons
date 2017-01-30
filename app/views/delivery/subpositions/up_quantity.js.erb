@@ -1,3 +1,6 @@
-$('#edit_subposition_<%=@subposition.id%> #subposition_quantity').val('<%= @subposition.quantity %>')
-$('.subtotal').html('<%= j(render "delivery/carts/subtotal") %>')
-$('#menu').html('<%= j(render "delivery/layouts/main_menu") %>')
+$(document).on('ajaxSuccess', function(){
+  $('#edit_subposition_<%=@subposition.id%> #subposition_quantity').val('<%= @subposition.quantity %>')
+  $('.subtotal').html('<%= j(render "delivery/carts/subtotal") %>')
+  $('#menu').html('<%= j(render "delivery/layouts/main_menu") %>')
+});
+

@@ -1,6 +1,6 @@
-$('#edit_subposition_<%= @subposition.id %>').on('ajax:success', function(){
+$(document).on('ajaxSuccess', function(){
   <% unless @subposition.destroyed? %>
-    $(this).find("input#subposition_quantity", this).first().val('<%= @subposition.quantity %>');
+    $(" #edit_subposition_<%= @subposition.id %> #subposition_quantity").val('<%= @subposition.quantity %>').blur();
   <% else %>
     $('#sub-<%= @subposition.id %>').hide();
   <% end %>

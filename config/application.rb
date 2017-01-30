@@ -25,9 +25,9 @@ module Balloons
       }
     end
     config.action_mailer.smtp_settings = {
-      address:              'smtp.mail.ru',
+      address:              'smtp.mailgun.org',
       port:                 465,
-      domain:               'mail.ru',
+      domain:               'mailgun.org',
       user_name:            ENV['MAIL_LOGIN'],
       password:             ENV['MAIL_PASSWORD'],
       authentication:       :plain,

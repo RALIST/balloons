@@ -30,22 +30,22 @@
                 Повод
                 %span.caret
               %ul.list-unstyled.dropdown-menus
-                - Tag.composition_tags.each do |tag|
-                  %li.text-capitalize.h4= link_to tag.name, search_path(tag_name: tag.name)
+                - @menu_tags.each do |tag|
+                  %li.text-capitalize.h4= link_to tag, search_path(tag_name: tag)
             %li.dropdown
               .h3
                 Кому
                 %span.caret
               %ul.list-unstyled.dropdown-menus
-                - Tag.composition_tags.each do |tag|
-                  %li.text-capitalize.h4= link_to tag.name, search_path(tag_name: tag.name)
+                - @menu_tags.each do |tag|
+                  %li.text-capitalize.h4= link_to tag, search_path(tag_name: tag)
             %li.dropdown
               .h3
                 По цене
                 %span.caret
               %ul.list-unstyled.dropdown-menus
-                - Tag.composition_tags.each do |tag|
-                  %li.text-capitalize.h4= link_to tag.name, search_path(tag_name: tag.name)
+                - @menu_tags.each do |tag|
+                  %li.text-capitalize.h4= link_to tag, search_path(tag_name: tag)
       - if @cart.positions.any?
         .row{style: 'margin-top: 1em; border-bottom: 1px solid #ffffff; padding-bottom: 1em;'}
           .col-xs-8

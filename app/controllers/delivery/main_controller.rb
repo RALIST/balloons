@@ -14,7 +14,7 @@ class Delivery::MainController < Delivery::DeliveryController
       if @compositions.any?
         @compositions
       else
-        redirect_to delivery_root_path
+        redirect_to root_path
         flash[:info] = 'По запросу ' + params[:tag_name] + ' ничего не найдено!'
       end
     else

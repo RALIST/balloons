@@ -8,8 +8,8 @@
               Повод
               %i.fa.fa-caret-down{style: 'aria-hidden="true"'}
             %ul.dropdown-menu
-              - Tag.composition_tags.each do |tag|
-                %li.text-capitalize= link_to tag.name, search_path(tag_name: tag.name)
+              - @menu_tags.each do |tag|
+                %li.text-capitalize= link_to tag, search_path(tag_name: tag)
           %li.text-uppercase.h4{role: "presentation"}
             = link_to do
               Кому

@@ -1,6 +1,6 @@
 class Delivery::DeliveryController < ApplicationController
   layout 'delivery'
-  before_action :current_cart, :new_call
+  before_action :current_cart, :new_call, :tags
 
 
 private
@@ -18,5 +18,9 @@ private
 
   def new_call
     @call = Call.new
+  end
+
+  def tags
+    @menu_tags = Tag.composition_tags.map(&:name).uniq
   end
 end

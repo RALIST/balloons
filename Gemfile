@@ -57,6 +57,7 @@ gem 'bootstrap-sass'
 gem 'unicode'
 gem 'premailer-rails'
 gem 'russian'
+gem 'mainsms_api'
 
 group :production do
   gem 'rails_12factor'

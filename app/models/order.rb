@@ -8,7 +8,7 @@ class Order < ApplicationRecord
   validate :availible_date
 
   before_validation :normalize_date
-  after_save :send_admin_notification
+  after_save :send_admin_notification,  :send_sms_notification
 
   attr_accessor :order_time
 
@@ -39,5 +39,14 @@ class Order < ApplicationRecord
   private
   def send_admin_notification
     AdminMailer.new_order_notify(self).deliver_later
+  end
+
+  def send_sms_notification
+    message = MainsmsApi::Message.new(sender: 'admin',
+                                      message:'New order',
+                                      recipients: [ENV['ADMIN_SMS']],
+                                      test: 1)
+    response = message.deliver
+    print response
   end
 end

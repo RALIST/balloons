@@ -50,8 +50,10 @@ class Order < ApplicationRecord
 
   def send_sms_to_user
     order = 'Спасибо за заказ! Мы свяжемся с вами в ближайшее время!'
+    phone = self.user.phone
     message = MainsmsApi::Message.new(message: order,
-                                      recipients: ['#{self.user.phone}'])
-    print response = message.deliver
+                                      recipients: [phone])
+    print message.recipients
+    response = message.deliver
   end
 end

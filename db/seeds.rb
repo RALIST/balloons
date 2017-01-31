@@ -10,6 +10,8 @@ require 'roo'
 require 'nokogiri'
 
 
+user = User.create(email: 'info@bigairballoons.ru', phone: '79124614168', admin: true )
+
 xls = Roo::Spreadsheet.open('./public/price.xlsm')
 start_row = 1
 end_row = 200

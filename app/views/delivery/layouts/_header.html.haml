@@ -20,7 +20,7 @@
       %ul.text-left.list-inline.list-unstyled
         %li= link_to 'Контакты'
         %li= link_to 'Доставка'
-        %li= link_to 'Админка', admin_root_path
+        %li= link_to 'Админка', admin_root_path if current_user.admin?
     .col-md-6.col-xs-12.col-sm-6.hidden-xs
       %ul.text-right.list-inline.list-unstyled
         - if current_user

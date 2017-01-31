@@ -1,0 +1,8 @@
+.container
+  .row
+    .col-md-12
+      = form_tag admin_sessions_path do
+        = email_field_tag :email
+        = password_field_tag :password
+        = submit_tag 'Войти'
+

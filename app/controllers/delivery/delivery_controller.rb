@@ -6,7 +6,13 @@ class Delivery::DeliveryController < ApplicationController
 private
   def current_cart
     if current_user
-      @cart = current_user.cart
+      unless current_user.cart.blank?
+        @cart = current_user.cart
+      else
+        @cart = Cart.create
+        session[:cart_id] = @cart.id
+        current_user.cart = @cart
+      end
     else
       @cart = Cart.find(session[:cart_id])
     end

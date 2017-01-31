@@ -55,5 +55,6 @@ class Order < ApplicationRecord
                                       recipients: [phone])
     print message.recipients
     response = message.deliver
+    print response
   end
 end

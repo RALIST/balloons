@@ -12,4 +12,9 @@ class Cart < ApplicationRecord
     end
     return total
   end
+
+  def total_with_discounts
+    total = self.total_price - (self.total_price * user.discount / 100 if user.present?)
+    return total
+  end
 end

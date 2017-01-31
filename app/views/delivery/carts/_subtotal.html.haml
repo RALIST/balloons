@@ -18,7 +18,7 @@
         Ваша скидка:
       .col-md-6.col-sm-6.col-xs-6.text-right
         - if current_user
-          #{current_user.discount}
+          #{number_to_percentage(current_user.discount, precision: 2)}
         - else
           = link_to 'Войдите', login_path
     .row
@@ -34,7 +34,7 @@
           Всего к оплате:
       .col-md-6.col-xs-5.text-right
         %strong
-          = @cart.total_price
+          = @cart.total_with_discounts
           %i.fa.fa-rub{style: 'aria-hidden="true"'}
     .row.display-table
       .col-md-12.col-sm-12.col-xs-12

@@ -6,7 +6,7 @@ class Delivery::OrdersController < Delivery::DeliveryController
 
   def create
     @order = Order.create(order_params)
-    @order.total = @cart.total_price
+    @order.total = @cart.total_with_discounts
     if current_user
       @order.user = current_user
     else

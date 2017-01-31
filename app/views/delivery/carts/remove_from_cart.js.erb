@@ -7,5 +7,5 @@ $('#menu').html('<%= j(render "delivery/layouts/main_menu") %>');
 <% else %>
   $('.icon-wrapper small .badge').hide();
   $('#responsive').html('<%= j(render "delivery/layouts/resp_menu")%>');
-
+  $('.cart').html('<h2> В вашей корзине пока ничего нет!<br><a class="btn btn-info" href="/">Добавить в корзину</a></h2>')
 <% end %>

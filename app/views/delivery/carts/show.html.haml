@@ -2,7 +2,7 @@
   .row
     .container
       - if @cart.positions.any?
-        .col-md-8.col-sm-12.col-xs-12.col-lg-7
+        .col-md-8.col-sm-12.col-xs-12.col-lg-8
           %h2.border-bot В корзине
           - @cart.positions.each do |p|
             .row{id: "position#{p.id}"}
@@ -10,10 +10,10 @@
                 .thumbnail{style: 'float: left; width: 100%;'}
                   = link_to remove_from_cart_path(p), method: :post, remote: true do
                     %i.fa.fa-times#del-from-cart
-                  .col-md-4.col-sm-12.col-xs-12
+                  .col-md-4.col-sm-12.col-xs-12{style: 'margin-top: 10px;'}
                     = image_tag p.composition.img.url(:thumb), class: 'img-responsive'
                     .h3
-                      = link_to 'Добавить в композицию', '', class: 'btn btn-info', data:{ toggle: 'modal', target: "#subposition-modal-#{p.id}"}
+                      = link_to 'Добавить в композицию', '', class: 'btn btn-info btn-block', data:{ toggle: 'modal', target: "#subposition-modal-#{p.id}"}
                     .modal.fade{id: "subposition-modal-#{p.id}",  tabindex: "-1",  role: "dialog"}
                       .modal-dialog{role: "document", style: 'float: center; width: 90%; margin: auto;'}
                         .modal-content{style: 'float: left;'}
@@ -35,12 +35,11 @@
                           .modal-body{style: 'float: left; width: 100%;'}
                             = render partial: 'category_list', locals: {p: p}
                   .col-md-8.col-sm-12.col-xs-12
-                    %strong
+                    %h4
                       В композицию входит:
-                    .subpositions
-                      %table
-                        = render p.subpositions.order(:id)
-        .col-md-4.col-sm-12.col-xs-12.pull-right
+                    .subpositions{style: 'float: left;'}
+                      = render p.subpositions.order(:id)
+        .col-md-4.col-sm-12.col-xs-12.col-lg-4.pull-right
           .subtotal
             =render 'subtotal'
       - else

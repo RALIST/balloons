@@ -79,9 +79,15 @@ body {
 
 .border-bot {
   border-bottom: 1px solid $brand-primary;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
   padding-bottom: 6px;
 }
+
+.row.border-bot:last-of-type {
+  border: none;
+}
+
+
 .bg-brand {
   background-color: $brand-primary;
   color: #ffffff;
@@ -182,14 +188,14 @@ body {
   margin-left: 1em;
   display: none;
 }
-.input-group>.input-group-addon {
+.input-group > .input-group-addon {
   background-color: $brand-primary;
   color: white;
   a {
     color: white;
-    &:hover {
-      color: $brand-secondary;
-    }
+  }
+  &:hover {
+    background-color: $brand-secondary;
   }
 }
 

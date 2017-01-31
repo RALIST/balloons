@@ -28,21 +28,21 @@
       .col-md-6.col-sm-6.col-xs-6.text-right
         = to_delivery > 0 ? 150 : 0
         %i.fa.fa-rub{style: 'aria-hidden="true"'}
-    .row
-      .col-md-6.text-left.col-xs-6.border-bot
+    .row.border-bot
+      .col-md-6.text-left.col-xs-7
         %strong
           Всего к оплате:
-      .col-md-6.col-xs-6.text-right.border-bot
+      .col-md-6.col-xs-5.text-right
         %strong
           = @cart.total_price
           %i.fa.fa-rub{style: 'aria-hidden="true"'}
-    .row
+    .row.display-table
       .col-md-12.col-sm-12.col-xs-12
         %form{style: 'margin-bottom: 14px;'}
-          .col-xs-6.col-sm-6
+          .col-xs-6.col-sm-6.display-cell
             .form-group
               = text_field_tag '', '', class: 'form-control input-sm', placeholder: 'Промо код'
-          .col-xs-6.col-sm-6
+          .col-xs-6.col-sm-6.display-cell
             .form-group.text-right
               %span= link_to 'Как получить?'
 .row

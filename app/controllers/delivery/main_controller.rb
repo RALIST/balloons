@@ -21,4 +21,14 @@ class Delivery::MainController < Delivery::DeliveryController
       redirect_to root_path
     end
   end
+
+  def price
+    @compositions = Composition.availible.price_range(params[:min], params[:max])
+    if @compositions.any?
+      @compositions
+    else
+      redirect_to root_path
+      flash[:info] = 'В этом ценовом диапазоне ничего нет!'
+    end
+  end
 end

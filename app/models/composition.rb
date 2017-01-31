@@ -48,4 +48,14 @@ class Composition < ApplicationRecord
                         .where.not(id: self.id)
   end
 
+  def self.price_range(min, max)
+    if min.blank?
+      where('compositions.price <= ?', max)
+    elsif max.blank?
+      where('compositions.price >= ?', min)
+    else
+      where(compositions: {price: min..max})
+    end
+  end
+
 end

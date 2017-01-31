@@ -4,7 +4,7 @@
       .col-md-4.col-sm-6
         %ul.nav.nav-pills
           %li.text-uppercase.dropdown.h4{role: "presentation"}
-            = link_to '#', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
+            = link_to '', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
               Повод
               %i.fa.fa-caret-down{style: 'aria-hidden="true"'}
             %ul.dropdown-menu
@@ -14,10 +14,22 @@
             = link_to do
               Кому
               %i.fa.fa-caret-down{style: 'aria-hidden="true"'}
-          %li.text-uppercase.h4{role: "presentation"}
-            = link_to do
+          %li.text-uppercase.dropdown.h4{role: "presentation"}
+            = link_to '', class: 'dropdown-toggle', data:{toggle: 'dropdown'} do
               По цене
               %i.fa.fa-caret-down{style: 'aria-hidden="true"'}
+            %ul.dropdown-menu
+              %li
+                .col-md-12
+                  = form_tag price_range_path, method: :get do
+                    .form-group
+                      = number_field_tag :min,'',  class: 'form-control input-sm', placeholder: 'От'
+                    .form-group
+                      = number_field_tag :max,'',  class: 'form-control input-sm', placeholder: 'До'
+                    .from-group
+                      = button_tag(type: 'submit', class: 'btn btn-info btn-sm btn-block') do
+                        %i.fa.fa-search
+
       .col-md-3.hidden-sm
         %ul.nav.nav-pills
           %li.h4.text-center

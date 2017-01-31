@@ -47,6 +47,7 @@ Rails.application.routes.draw do
     get 'signin',                   to: 'users#new',                    as: :signin
     get '/search',                  to: 'main#search',                  as: :search
     get '/my_cart',                 to: 'carts#show',                   as: :my_cart
+    get 'price', to: 'main#price',  as: :price_range
   end
 
 

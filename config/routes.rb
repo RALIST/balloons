@@ -21,8 +21,8 @@ Rails.application.routes.draw do
     resources :orders
     resources :sessions
     put '/delete/:id',                        to: 'compositions#delete',        as: :delete_composition
-    post 'admin/compositions/:id',            to: 'compositions#add_item',      as: :add_item
-    put 'admin/compositions/:id/remove_tag',  to: 'compositions#remove_tag',    as: :remove_tag
+    post '/admin/compositions/:id',            to: 'compositions#add_item',      as: :add_item
+    put '/admin/compositions/:id/remove_tag',  to: 'compositions#remove_tag',    as: :remove_tag
     get '/update_price/:id',                  to: 'compositions#update_price',  as: :update_price
     get '/login', to: 'sessions#new', as: :login
   end
@@ -44,12 +44,13 @@ Rails.application.routes.draw do
     post '/add_quantity/:id',       to: 'subpositions#up_quantity',     as: :add_quantity
     post '/down_quantity/:id',      to: 'subpositions#down_quantity',   as: :down_quantity
     post '/add_subposition',        to: 'subpositions#add_subposition', as: :add_subposition
-    get 'login',                    to: 'sessions#new',                 as: :login
-    post 'logout' ,                 to:  'sessions#destroy',            as: :logout
-    get 'signin',                   to: 'users#new',                    as: :signin
+    get '/login',                    to: 'sessions#new',                 as: :login
+    post '/logout' ,                 to:  'sessions#destroy',            as: :logout
+    get '/signin',                   to: 'users#new',                    as: :signin
     get '/search',                  to: 'main#search',                  as: :search
-    get '/my_cart',                 to: 'carts#show',                   as: :my_cart
-    get 'price', to: 'main#price',  as: :price_range
+    get '/cart',                 to: 'carts#show',                   as: :my_cart
+    get '/price', to: 'main#price',  as: :price_range
+    get '/account', to: 'users#show',  as: :account
   end
 
 

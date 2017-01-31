@@ -33,8 +33,7 @@ module Balloons
       authentication:       :plain,
       enable_starttls_auto: true,
       tls:                  true  }
-    config.action_mailer.default_options = { from: ENV['MAIL_BOX'] }
-    config.action_mailer.raise_delivery_errors = true
+    config.action_mailer.default_options = { from: 'orders@bigairballoons.ru' }
 
     config.time_zone = 'Samara'
     config.i18n.default_locale = :ru

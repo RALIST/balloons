@@ -48,7 +48,7 @@ gem 'jquery-ui-rails'
 gem 'paperclip'
 gem 'sorcery'
 gem 'aws-sdk'
-
+gem 'meta-tags'
 gem 'roo'
 gem 'roo-xls'
 gem 'will_paginate'

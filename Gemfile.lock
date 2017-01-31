@@ -126,6 +126,8 @@ GEM
       hashie
       httparty
       signed_parameters
+    meta-tags (2.4.0)
+      actionpack (>= 3.2.0, <= 5.1.0)
     method_source (0.8.2)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
@@ -268,6 +270,7 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails
   mainsms_api
+  meta-tags
   paperclip
   pg
   premailer-rails

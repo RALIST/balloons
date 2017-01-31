@@ -54,6 +54,7 @@ class Order < ApplicationRecord
     message = MainsmsApi::Message.new(message: order,
                                       recipients: [phone])
     print message.recipients
+    print phone
     response = message.deliver
     print response
   end

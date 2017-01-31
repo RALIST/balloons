@@ -52,6 +52,6 @@ class Order < ApplicationRecord
     order = 'Спасибо за заказ! Мы свяжемся с вами в ближайшее время!'
     message = MainsmsApi::Message.new(message: order,
                                       recipients: [user.phone])
-    response = message.deliver
+    print response = message.deliver
   end
 end

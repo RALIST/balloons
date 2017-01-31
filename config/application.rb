@@ -28,7 +28,7 @@ module Balloons
       address:              'smtp.mailgun.org',
       port:                 465,
       domain:               'mailgun.org',
-      user_name:            ENV['MAIL_LOGIN'],
+      user_name:            ENV['MAIL_BOX'],
       password:             ENV['MAIL_PASSWORD'],
       authentication:       :plain,
       enable_starttls_auto: true,

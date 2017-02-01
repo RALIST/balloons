@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170130154544) do
+ActiveRecord::Schema.define(version: 20170201084815) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -109,6 +109,13 @@ ActiveRecord::Schema.define(version: 20170130154544) do
     t.index ["composition_id"], name: "index_positions_on_composition_id", using: :btree
     t.index ["item_id"], name: "index_positions_on_item_id", using: :btree
     t.index ["order_id"], name: "index_positions_on_order_id", using: :btree
+  end
+
+  create_table "receivers", id: false, force: :cascade do |t|
+    t.text    "title"
+    t.string  "personable_type"
+    t.integer "personable_id"
+    t.index ["personable_type", "personable_id"], name: "index_receivers_on_personable_type_and_personable_id", using: :btree
   end
 
   create_table "subpositions", force: :cascade do |t|

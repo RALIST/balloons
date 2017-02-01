@@ -1,0 +1,42 @@
+.container-fluid
+  .container
+    %h2.text-center Оформление воздушными шарами #{params[:q]}
+    .row
+      - @compositions.each do |c|
+        .col-md-4.col-sm-6.col-xs-12
+          .thumbnail
+            = link_to root_path(id: c.id), data:{ toggle: 'modal', target: "#composition"}, remote: true do
+              = image_tag c.img.url(:thumb), class: 'img-responsive', style: 'height: 100%; object-fit: contain;'
+            %h3.text-center
+              %strong
+                = number_to_currency(c.price, precision: 0)
+            %p.text-center{style: 'height: 4em;'}
+              %strong Теги:
+              %br
+              - if c.tags.any?
+                - c.tags.each do |tag|
+                  = tag.name
+              - else
+                Нет тегов!
+            .text-center
+              - unless @cart.compositions.include?(c)
+                = button_to 'Добавить в корзину', add_to_cart_path(c), class: "btn btn-info btn-block add-to-cart#{c.id}", data: {disable_with: 'Добавляем...'}, remote: true
+              - else
+                .btn.btn-success.btn-block{disabled: true}
+                  Добавлено в корзину
+
+.modal.fade{id: "composition",  tabindex: "-1",  role: "dialog"}
+  .modal-dialog{role: "document", style: 'float: center; width: 90%; margin: auto;'}
+    .modal-content
+      .modal-header
+        %button{type: "button",  class: "close",  data: {dismiss: "modal"}}
+          %span
+            &times;
+        .h3.modal-title{id: "myModalLabel"}
+          Композиция
+          %br
+          %small.hidden-xs
+            Вы сможете изменить состав композиции и количество шаров просто добавив ее в корзину!
+      .modal-body
+        .text-center.h1
+          %i.fa.fa-spinner.fa-pulse.fa-3x.fa-fw

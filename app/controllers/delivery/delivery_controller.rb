@@ -1,6 +1,6 @@
 class Delivery::DeliveryController < ApplicationController
   layout 'delivery'
-  before_action :current_cart, :new_call, :tags
+  before_action :current_cart, :new_call, :tags, :receivers
 
 
 private
@@ -28,5 +28,9 @@ private
 
   def tags
     @menu_tags = Tag.composition_tags.map(&:name).uniq
+  end
+
+  def receivers
+    @menu_receivers = Receiver.all.map(&:title).uniq
   end
 end

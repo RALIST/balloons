@@ -31,4 +31,11 @@ class Delivery::MainController < Delivery::DeliveryController
       flash[:info] = 'В этом ценовом диапазоне ничего нет!'
     end
   end
+
+  def for
+    @compositions = Composition.with_receivers(params[:q]).availible
+    unless @compositions.any?
+      flash[:alert] = 'Nothing'
+    end
+  end
 end

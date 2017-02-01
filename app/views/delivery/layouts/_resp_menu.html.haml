@@ -37,15 +37,29 @@
                 Кому
                 %span.caret
               %ul.list-unstyled.dropdown-menus
-                - @menu_tags.each do |tag|
-                  %li.text-capitalize.h4= link_to tag, search_path(tag_name: tag)
+                - @menu_receivers.each do |title|
+                  %li.h4.text-capitalize
+                    = link_to title, with_receivers_path(q: title)
             %li.dropdown
               .h3
                 По цене
                 %span.caret
               %ul.list-unstyled.dropdown-menus
-                - @menu_tags.each do |tag|
-                  %li.text-capitalize.h4= link_to tag, search_path(tag_name: tag)
+                %li.h4
+                  = link_to price_range_path(max: 1000) do
+                    До 1000
+                %li.h4
+                  = link_to price_range_path(min: 1000, max: 3000) do
+                    От 1000 до 3000
+                %li.h4
+                  = link_to price_range_path(min: 3000, max: 5000) do
+                    От 3000 до 5000
+                %li.h4
+                  = link_to price_range_path(min: 5000, max: 8000) do
+                    От 5000 до 8000
+                %li.h4
+                  = link_to price_range_path(min: 8000) do
+                    От 8000
       - if @cart.positions.any?
         .row{style: 'margin-top: 1em; border-bottom: 1px solid #ffffff; padding-bottom: 1em;'}
           .col-xs-8

@@ -3,6 +3,7 @@ class Composition < ApplicationRecord
   has_many :items, through: :items_in_compositions
   has_many :tags, as: :taggable
   has_many :carts, through: :positions
+  has_many :receivers, as: :personable
 
   validates :title, :img, presence: true
   has_attached_file :img, styles: {small: 'x100',
@@ -20,6 +21,7 @@ class Composition < ApplicationRecord
 
   scope :availible, -> {joins(:items).merge(Item.with_price).distinct(:id)
                         .where.not(id: Composition.without_price.map(&:id), deleted: true)}
+  scope :with_receivers, -> (receiver) { joins(:receivers).where('receivers.title LIKE ?', "%#{receiver}%") }
 
   def comp_price
     price = self.items.map{ |i| i.price_with_helium }.reject(&:nil?).sum.round(2)
@@ -38,6 +40,16 @@ class Composition < ApplicationRecord
 
   def tag_name=(name)
     self.tags.find_or_create_by!(name: name) unless name.blank?
+  end
+
+  def receiver_title
+    persons.each do |person|
+      return person.title
+    end
+  end
+
+  def receiver_title=(title)
+    self.receivers.find_or_create_by!(title: title) unless title.blank?
   end
 
   def related

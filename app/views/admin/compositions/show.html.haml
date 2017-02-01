@@ -23,6 +23,10 @@
           = form_for [:admin, @comp] do |f|
             Add tags to composition
             = f.text_field :tag_name, value: '', id: 'tags'
+          = form_for [:admin, @comp] do |f|
+            Add persons
+            = f.text_field :receiver_title, value: ''
+            = f.submit 'Add'
       .row
         .col-md-8.text-right
           .h3.border-top

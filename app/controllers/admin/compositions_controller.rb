@@ -65,7 +65,7 @@ class Admin::CompositionsController < Admin::AdminController
   private
 
   def comp_params
-    params.require(:composition).permit(:title, :img, :price, :tag_name, :deleted)
+    params.require(:composition).permit(:title, :img, :price, :tag_name, :deleted, :receiver_title)
   end
 
   def set_comp

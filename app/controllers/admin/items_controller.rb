@@ -42,7 +42,8 @@ class Admin::ItemsController < Admin::AdminController
   private
   def item_params
     params.require(:item).permit(:name, :desc, :img, :price, :price_with_helium,
-                                  :item_type, :collection)
+                                  :item_type, :collection, :color,
+                                  :size, :quantity, :availible_in_comps)
   end
 
   def set_item

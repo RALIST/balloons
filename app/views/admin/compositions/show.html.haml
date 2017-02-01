@@ -36,6 +36,6 @@
     .col-md-12
       .h2 Статистика
       =form_tag({controller: 'compositions', action: 'add_item'}) do
-        = select_tag :item, options_for_select(Item.all.map{|i| [i.name, i.id]})
+        = select_tag :item, options_for_select(@items.map{|i| [i.name, i.id]})
         = number_field_tag :count
         = submit_tag 'Add Item'

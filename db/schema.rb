@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170201100331) do
+ActiveRecord::Schema.define(version: 20170201114712) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,8 +58,8 @@ ActiveRecord::Schema.define(version: 20170201100331) do
     t.string   "name"
     t.text     "desc"
     t.float    "price"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.string   "img_file_name"
     t.string   "img_content_type"
     t.integer  "img_file_size"
@@ -71,7 +71,11 @@ ActiveRecord::Schema.define(version: 20170201100331) do
     t.string   "collection"
     t.integer  "min_order"
     t.string   "quantity_type"
-    t.boolean  "deleted",           default: false
+    t.boolean  "deleted",            default: false
+    t.string   "color"
+    t.boolean  "availible_in_comps", default: false
+    t.string   "size"
+    t.float    "quantity",           default: 0.0
   end
 
   create_table "items_in_compositions", force: :cascade do |t|
@@ -110,6 +114,15 @@ ActiveRecord::Schema.define(version: 20170201100331) do
     t.index ["composition_id"], name: "index_positions_on_composition_id", using: :btree
     t.index ["item_id"], name: "index_positions_on_item_id", using: :btree
     t.index ["order_id"], name: "index_positions_on_order_id", using: :btree
+  end
+
+  create_table "prices", force: :cascade do |t|
+    t.string   "price_sheet_file_name"
+    t.string   "price_sheet_content_type"
+    t.integer  "price_sheet_file_size"
+    t.datetime "price_sheet_updated_at"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "receivers", id: false, force: :cascade do |t|

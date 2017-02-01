@@ -22,15 +22,4 @@ class Item < ApplicationRecord
     self.img = URI.parse(url_value)
     @img_remote_url = url_value
   end
-
-  def humanize_type
-    case item_type
-    when 'latex'
-      TYPES[0]
-    when 'foil'
-      TYPES[1]
-    else
-      TYPES[2]
-    end
-  end
 end

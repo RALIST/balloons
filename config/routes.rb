@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     resources :users
     resources :orders
     resources :sessions
+    resources :prices, only: [:new, :create]
     put '/delete/:id',                        to: 'compositions#delete',        as: :delete_composition
     post '/admin/compositions/:id',            to: 'compositions#add_item',      as: :add_item
     put '/admin/compositions/:id/remove_tag',  to: 'compositions#remove_tag',    as: :remove_tag

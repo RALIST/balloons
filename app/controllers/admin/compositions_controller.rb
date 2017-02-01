@@ -8,6 +8,7 @@ class Admin::CompositionsController < Admin::AdminController
   end
 
   def show
+    @items = Item.where(availible_in_comps: true)
   end
 
   def new

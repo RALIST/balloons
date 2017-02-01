@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  match "/404", to: "errors#not_found", :via => :all
+  match "/500", to: "errors#internal_server_error", :via => :all
+
   constraints subdomain: 'shop' do
     scope module: 'shop' do
       root 'main#index'
@@ -52,6 +55,4 @@ Rails.application.routes.draw do
     get '/price', to: 'main#price',  as: :price_range
     get '/account', to: 'users#show',  as: :account
   end
-
-
 end

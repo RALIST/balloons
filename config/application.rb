@@ -37,5 +37,6 @@ module Balloons
 
     config.time_zone = 'Samara'
     config.i18n.default_locale = :ru
+    config.exceptions_app = self.routes
   end
 end

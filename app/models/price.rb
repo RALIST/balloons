@@ -17,8 +17,6 @@ private
     xls = Roo::Spreadsheet.open(open('https:' + self.price_sheet.url(:original, false)), extension: :xlsm)
     start_row = 2
     (start_row..xls.last_row).each do |row|
-        color = xls.cell(row, 'B').split.last
-        collection = color[0...-2] + 'ая'
         Item.create(
           barcode:            xls.cell(row, 'A'),
           name:               xls.cell(row, 'B').strip,
@@ -28,8 +26,8 @@ private
           quantity_type:      xls.cell(row, 'F'),
           min_order:          xls.cell(row, 'G'),
           size:               xls.cell(row, 'H'),
-          color:              color,
-          collection:         collection,
+          color:              xls.cell(row, 'I'),
+          collection:         xls.cell(row, 'J'),
           quantity:           xls.cell(row, 'K'),
           price_with_helium:  xls.cell(row, 'L'),
           availible_in_comps: xls.cell(row, 'M'),

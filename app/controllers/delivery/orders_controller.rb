@@ -20,7 +20,7 @@ class Delivery::OrdersController < Delivery::DeliveryController
         p.update_attribute(:cart_id, nil)
       end
       @order.user.calculate_discount
-      redirect_to order_path(@order)
+      redirect_to thanks_path(order: @order)
     else
       render 'new'
     end
@@ -39,6 +39,6 @@ class Delivery::OrdersController < Delivery::DeliveryController
   private
 
   def order_params
-    params.require(:order).permit(:name, :phone, :address, :desc, :total, :order_date, :order_time)
+    params.require(:order).permit(:name, :phone, :address, :desc, :total, :order_date, :order_time, :pay_method)
   end
 end

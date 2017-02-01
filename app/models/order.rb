@@ -12,7 +12,6 @@ class Order < ApplicationRecord
 
   attr_accessor :order_time
 
-
   def save_user(params = {})
     user = User.find_by!(phone: phone)
     self.user ||= user
@@ -54,5 +53,9 @@ class Order < ApplicationRecord
     message = MainsmsApi::Message.new(message: order,
                                       recipients: [phone])
     response = message.deliver
+  end
+
+  def self.pay_methods
+    [['Наличными курьеру', 1], ['Сбербанк Онлайн', 2]]
   end
 end

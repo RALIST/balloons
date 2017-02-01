@@ -55,5 +55,6 @@ Rails.application.routes.draw do
     get '/price', to: 'main#price',  as: :price_range
     get '/account', to: 'users#show',  as: :account
     get '/for', to: 'main#for', as: :with_receivers
+    get '/thank_you', to: 'main#thanks', as: :thanks
   end
 end

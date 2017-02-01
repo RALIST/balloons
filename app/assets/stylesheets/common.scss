@@ -48,6 +48,9 @@ body {
   display: none;
 }
 
+form#new_order {
+  margin-bottom: 60px;
+}
 .as_btn {
   border: 1px solid $brand-secondary;
   padding: 4px 0;

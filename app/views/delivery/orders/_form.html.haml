@@ -7,21 +7,21 @@
       %h2 Оформление нового заказа
       =form_for @order, html: {class: 'form-horizontal'} do |f|
         .form-group
-          .col-sm-10.col-xs-12
+          .col-sm-10.col-xs-12.col-md-8
             =f.label 'Ваше имя', class: 'lable-control'
             .input-group
               %span.input-group-addon
                 %i.fa.fa-user{style: 'aria-hidden="true"'}
               = f.text_field :name, value: (current_user.first_name if current_user), class: 'form-control', required: true
         .form-group
-          .col-sm-10.col-xs-12
+          .col-sm-10.col-xs-12.col-md-8
             =f.label 'Контактный телефон', class: 'lable-control'
             .input-group
               %span.input-group-addon
                 %i.fa.fa-phone{style: 'aria-hidden="true"'}
               = f.telephone_field :phone, value: (current_user.phone if current_user), data:{ mask: '+7 (999) 999 99 99' }, class: 'form-control', required: true
         .form-group
-          .col-sm-10.col-xs-12
+          .col-sm-10.col-xs-12.col-md-8
             = f.label 'Укажите дату и время доставки'
             .row
               .col-xs-10.col-md-6
@@ -38,14 +38,22 @@
             .error
               = show_errors(@order, :order_date)
         .form-group
-          .col-sm-10.col-xs-12
+          .col-sm-10.col-xs-12.col-md-8
             .row
-              .col-xs-12.col-sm-6.col-md-6
+              .col-xs-12.col-sm-6.col-md-12
                 =f.label 'Адрес доставки', class: 'lable-control'
                 = f.text_area :address, value: (current_user.address if current_user),  rows: 3, class: 'form-control', required: true,placeholder: 'Улица, дом, подъезд, квартира, этаж и т.д.'
-              .col-xs-12.col-sm-6.col-md-6
+              .col-xs-12.col-sm-6.col-md-12
                 =f.label 'Дополнительно', class: 'lable-control'
                 = f.text_area :desc, rows: 3, class: 'form-control', placeholder: 'Информация для курьера (не звонить в домофон и т.д.)'
         .form-group
-          .col-sm-10
+          .col-sm-10.col-xs-12.col-md-8
+            = f.label :pay_method, 'Выберите способ оплаты', class: 'lable-control'
+          .col-sm-10.col-xs-12.col-md-8
+            .input-group
+              .input-group-addon
+                %i.fa.fa-rub
+              = f.select :pay_method, options_for_select(Order.pay_methods, 1),{prompt: 'Выберите способ оплаты'}, {class: 'form-control', required: true}
+        .form-group
+          .col-sm-10.col-md-8
             = f.submit 'Создать заказ', class: 'btn btn-info btn-block', disable_with: 'Оформляю заказ...'

@@ -38,4 +38,8 @@ class Delivery::MainController < Delivery::DeliveryController
       flash[:alert] = 'Nothing'
     end
   end
+
+  def thanks
+    @order = Order.find(params[:order])
+  end
 end

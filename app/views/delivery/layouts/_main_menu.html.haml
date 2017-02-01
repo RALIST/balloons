@@ -11,9 +11,10 @@
               - @menu_tags.each do |tag|
                 %li.text-capitalize= link_to tag, search_path(tag_name: tag)
           %li.text-uppercase.h4{role: "presentation"}
-            = link_to do
+            = link_to '', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
               Кому
               %i.fa.fa-caret-down{style: 'aria-hidden="true"'}
+            %ul.dropdown-menu
           %li.text-uppercase.dropdown.h4{role: "presentation"}
             = link_to '', class: 'dropdown-toggle', data:{toggle: 'dropdown'} do
               По цене

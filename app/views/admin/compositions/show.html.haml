@@ -1,7 +1,7 @@
 .container
   .row
     .col-md-4
-      = image_tag @comp.img.url, class: 'img-responsive'
+      = image_tag @comp.img.url(:thumb), class: 'img-responsive'
       = link_to 'Обновить цену', admin_update_price_path(@comp), class: 'btn btn-info btn-block'
     .col-md-8
       .row

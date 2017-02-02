@@ -10,6 +10,6 @@ require 'roo'
 require 'nokogiri'
 
 
-user = User.create(email: 'info@bigairballoons.ru', phone: '79124614168', admin: true, password: 'paduvi30' )
+user = User.create(email: 'info@bigairballoons.ru', phone: '79124614168', admin: true, password: 'paduvi30', first_name: 'admin' )
 
 

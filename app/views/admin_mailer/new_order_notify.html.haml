@@ -1,43 +1,50 @@
-.mail_container{style: 'width: 100%; margin: auto;'}
-  .bg-brand
-    %h2.text-center{style: 'padding: 6px;'}
-      Ура! Поступил новый заказ №#{@order.id}
-  .display-table
-    - @order.positions.each do |position|
-      .display-cell
-        %h3 Композиция id = #{position.composition.id}
-        = image_tag position.composition.img.url(:thumb)
-      .display-cell
-        %h3
-          Композиция состоит из:
-        - if position.subpositions.any?
-          - position.subpositions.each do |sub|
-            %ul.unstyled
-              %li
-                = link_to sub.item.name, admin_item_url(sub.item)
-                %strong
-                  = sub.quantity
-                  штук
-      .display-cell
-        %h3 Доставка:
-        Адрес:
-        %strong
-          = @order.address
-        %br
-        Время доставки:
-        %strong
-          = l(@order.order_date.localtime)
-        %br
-        Телефон для связи:
-        %strong
-          = @order.phone
-        %br
-        Сумма:
-        %strong
-          = @order.total
-        %br
-        Примечание:
-        = @order.desc
-  .display-table{style: 'padding: 0; width: 100%; text-align: right;'}
-    .display-cell{style: 'padding: 0; width: 100%;'}
-      = link_to 'На страницу заказа', admin_order_url(@order), class: 'bg-brand btn'
+%h1.bg-brand
+  Ура! Поступил новый заказ №#{@order.id}
+- @order.positions.each do |position|
+  %table
+    %tr
+      %td
+        = image_tag position.composition.img.url(:thumb), class: 'img-responsive'
+      %td{style: 'vertical-align: top;'}
+        %h2
+          Информация:
+        %table
+          %tr
+            %td
+              Заказчик:
+            %td
+              = @order.name
+              |
+              = @order.phone
+          %tr
+            %td
+              Адрес:
+            %td
+              = @order.address
+          %tr
+            %td
+              Дата доставки:
+            %td
+              = Russian::strftime(@order.order_date.in_time_zone, ' %d.%m в %H:%M')
+          %tr
+            %td
+              Примечание:
+            %td
+              = @order.desc
+          %tr
+            %td
+              Сумма:
+            %td
+              = @order.total
+              руб.
+          %tr
+            %td
+              Способ оплаты:
+            %td
+              = @order.pay_method
+          %tr
+            %td
+              Создан:
+            %td
+              = Russian::strftime(@order.created_at.in_time_zone, ' %d.%m в %H:%M')
+

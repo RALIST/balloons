@@ -8,7 +8,7 @@ class Order < ApplicationRecord
   validate :availible_date
 
   before_validation :normalize_date
-  after_save :send_admin_notification,  :send_sms_to_admin, :send_sms_to_user
+  after_commit :send_sms_to_admin, :send_sms_to_user
 
   attr_accessor :order_time
 
@@ -23,6 +23,9 @@ class Order < ApplicationRecord
     self.user = user
   end
 
+  def send_admin_notification
+    AdminMailer.new_order_notify(self).deliver_now
+  end
 
   private
   def normalize_date
@@ -33,10 +36,6 @@ class Order < ApplicationRecord
     if self.order_date - Time.current < 2.hours
       errors.add(:order_date, 'Возможно, мы не успеем привезти ваш заказ вовремя! Пожалуйста, дайте нам больше времени!')
     end
-  end
-
-  def send_admin_notification
-    AdminMailer.new_order_notify(self).deliver_now
   end
 
   def send_sms_to_admin
@@ -56,6 +55,6 @@ class Order < ApplicationRecord
   end
 
   def self.pay_methods
-    [['Наличными курьеру', 1], ['Сбербанк Онлайн', 2]]
+    ['Наличными курьеру', 'Сбербанк Онлайн']
   end
 end

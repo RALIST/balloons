@@ -26,13 +26,11 @@ module Balloons
     end
     config.action_mailer.smtp_settings = {
       address:              'smtp.mailgun.org',
-      port:                 465,
-      domain:               'mailgun.org',
+      port:                 587,
       user_name:            ENV['MAIL_BOX'],
       password:             ENV['MAIL_PASSWORD'],
       authentication:       :plain,
-      enable_starttls_auto: true,
-      tls:                  true  }
+      enable_starttls_auto: true}
     config.action_mailer.default_options = { from: 'orders@bigairballoons.ru' }
 
     config.time_zone = 'Samara'

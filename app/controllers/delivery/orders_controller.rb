@@ -14,11 +14,14 @@ class Delivery::OrdersController < Delivery::DeliveryController
       auto_login(@order.user, should_remember: true)
       @order.user.cart = @cart if @order.user.cart.blank?
     end
+    @cart.positions.each do |p|
+      @order.positions.push(p)
+    end
     if @order.save && @order.user.present?
       @cart.positions.each do |p|
-        @order.positions.push(p)
-        p.update_attribute(:cart_id, nil)
+        @cart.positions.delete(p)
       end
+      @order.send_admin_notification
       @order.user.calculate_discount
       redirect_to thanks_path(order: @order)
     else

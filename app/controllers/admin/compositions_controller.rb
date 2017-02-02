@@ -61,8 +61,7 @@ class Admin::CompositionsController < Admin::AdminController
   end
 
   def remove_receiver
-    title = Unicode::capitalize(params[:title])
-    @receiver = Receiver.find_by(title: title)
+    @receiver = Receiver.find(params[:receiver_id])
     @comp.receivers.delete(@receiver)
     redirect_back fallback_location: admin_root_path
   end

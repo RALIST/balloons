@@ -58,6 +58,7 @@ gem 'unicode'
 gem 'premailer-rails'
 gem 'russian'
 gem 'mainsms_api'
+gem 'sitemap_generator'
 
 group :production do
   gem 'rails_12factor'

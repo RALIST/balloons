@@ -218,6 +218,8 @@ GEM
     sexp_processor (4.7.0)
     signed_parameters (0.0.4)
       activesupport (>= 2.2.1)
+    sitemap_generator (5.2.0)
+      builder (~> 3.0)
     sorcery (0.10.2)
       bcrypt (~> 3.1)
       oauth (~> 0.4, >= 0.4.4)
@@ -281,6 +283,7 @@ DEPENDENCIES
   roo-xls
   russian
   sass-rails (~> 5.0)
+  sitemap_generator
   sorcery
   turbolinks (~> 5)
   tzinfo-data

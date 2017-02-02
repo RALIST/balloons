@@ -1,10 +1,4 @@
 .container
   %h2
-    Композиция #{@comp.id}
-  = render partial: 'delivery/layouts/composition', locals: {c: @comp}
-  .text-right
-    - unless @cart.compositions.include?(@comp)
-      = button_to 'Добавить в корзину', add_to_cart_path(@comp), class: "btn btn-info add-to-cart#{@comp.id}", data: {disable_with: 'Добавляем...'}
-    - else
-      .btn.btn-success{disabled: true}
-        Добавлено в корзину
+    Композиция №#{@comp.id}
+  = render @comp

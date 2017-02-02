@@ -4,3 +4,4 @@
 User-Agent: *
 Disallow: /admin
 Host: https://bigirballoons.ru
+Sitemap: https://bigirballoons.ru/sitemap.xml.gz

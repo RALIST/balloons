@@ -7,6 +7,7 @@ class Admin::CompositionsController < Admin::AdminController
     @compositions = Composition.availible.paginate(page: params[:availible_page], per_page: 12)
     @compositions_without_items = Composition.without_items.order(:id).paginate(page: params[:without_items_page], per_page: 12)
     @compositions_without_price = Composition.without_price.order(:id).paginate(page: params[:without_price_page], per_page: 12)
+    @compositions_without_tags = Composition.without_tags
   end
 
   def show

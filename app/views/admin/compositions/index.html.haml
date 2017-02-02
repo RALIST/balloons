@@ -23,5 +23,12 @@
         Не указана цена с гелием
     = render @compositions_without_price
   = will_paginate @compositions_without_price, param_name: 'without_price_page'
+
+  .row
+    %h2
+      Композиции без тегов
+      %small
+        Не указан "повод" или "кому"
+    = render @compositions_without_tags
   .clearfix
   =link_to 'Добавить композицию', new_admin_composition_path, class: 'btn btn-primary'

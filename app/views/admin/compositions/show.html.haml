@@ -12,10 +12,9 @@
         .col-md-4
           .h4.bg-brand Повод/Кому
           - @comp.tags.each do |tag|
-            %p
-              = tag.name
-              = link_to admin_remove_tag_path(tag_id: tag.id), method: :put do
-                %i.fa.fa-times-circle{style: 'aria-hidden="true"'}
+            = tag.name
+            = link_to admin_remove_tag_path(tag_id: tag.id), method: :put do
+              %i.fa.fa-times-circle{style: 'aria-hidden="true"'}
           - @comp.receivers.each do |receiver|
             = receiver.title
             = link_to admin_remove_receiver_path(receiver_id: receiver.id), method: :put do
@@ -61,7 +60,7 @@
           = form_for [:admin, @comp] do |f|
             .form-group
               =f.label :receiver_title, 'Выберите из списка'
-              = f.select :receiver_title, options_for_select(Receiver.all.map{|r| [r.title]}), {}, {class: 'form-control'}
+              = f.select :receiver_title, options_for_select(Receiver.all.map{|r| [r.title]}.uniq), {}, {class: 'form-control'}
             .form-group
               = f.submit 'Добавить', class: 'btn btn-info'
           = form_for [:admin, @comp] do |f|

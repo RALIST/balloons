@@ -14,7 +14,7 @@
       %small
         Нет ни одного товара в композиции
     = render @compositions_without_items
-    = will_paginate @compositions_without_items
+    = will_paginate @compositions_without_items, param_name: 'without_items_page'
 
   .row
     %h2
@@ -22,6 +22,6 @@
       %small
         Не указана цена с гелием
     = render @compositions_without_price
-  = will_paginate @compositions_without_price
+  = will_paginate @compositions_without_price, param_name: 'without_price_page'
   .clearfix
   =link_to 'Добавить композицию', new_admin_composition_path, class: 'btn btn-primary'

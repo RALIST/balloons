@@ -42,8 +42,8 @@ class Order < ApplicationRecord
   def send_sms_to_admin
     new_order = 'Заказ №' + self.id.to_s + ' ' + Russian::strftime(self.order_date.in_time_zone,
                   ' %d.%m в %H:%M').to_s + '. Телефон:' + ' ' + self.user.phone
-    message = MainsmsApi::Message.new(message: new_order,
-                                      recipients: ['79124614168'])
+    message = MainsmsApi::Message.new(sender: 'sendertest', message: new_order,
+                                      recipients: ['79124532598'])
     response = message.deliver
   end
 

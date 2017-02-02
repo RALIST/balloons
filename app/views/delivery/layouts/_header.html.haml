@@ -40,20 +40,19 @@
           Мы в соц.сетях
           %ul.list-unstyled.list-inline.social.text-right
             %li
-              =link_to do
+              =link_to 'https://www.instagram.com/bigairballoon_izh/', target: :_blank do
                 %i.fa.fa-instagram{"aria-hidden" => "true"}
             %li
-              =link_to do
+              =link_to 'https://www.facebook.com/bigairballoons/', target: :_blank do
                 %i.fa.fa-facebook{"aria-hidden" => "true"}
             %li
-              =link_to do
+              =link_to 'https://vk.com/bigairballoon_izh', target: :_blank do
                 %i.fa.fa-vk{"aria-hidden" => "true"}
       .row.text-right
         .col-md-12.hidden-xs
           Позвоните нам!
           %ul.list-unstyled.phones
-            %li +79124614168
-            %li +79124532598
+            %li +7(912)453-25-98
       .row
         .col-md-12.text-right.hidden-xs
           %p= link_to 'Заказать звонок','', class: 'btn btn-info', data:{ toggle: 'modal', target: '#call-modal'}

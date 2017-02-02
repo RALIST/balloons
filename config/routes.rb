@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     put '/admin/compositions/:id/remove_receiver',  to: 'compositions#remove_receiver',    as: :remove_receiver
     get '/update_price/:id',                  to: 'compositions#update_price',  as: :update_price
     get '/login', to: 'sessions#new', as: :login
+    get '/compositions/:id/remove_item', to: 'compositions#remove_item', as: :remove_item
   end
 
   scope module: 'delivery' do

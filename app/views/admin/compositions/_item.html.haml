@@ -22,7 +22,8 @@
     .col-md-2.text-center
       = @comp.items.where(id: item.id).count
     .col-md-1
-      %i.fa.fa-times-circle{style: 'aria-hidden="true"'}
+      = link_to admin_remove_item_path(item_id: item.id) do
+        %i.fa.fa-times-circle{style: 'aria-hidden="true"'}
     .popover-img{style: 'display: none;'}
       = image_tag item.img.url(:small)
 

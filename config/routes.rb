@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     put '/delete/:id',                        to: 'compositions#delete',        as: :delete_composition
     post '/admin/compositions/:id',            to: 'compositions#add_item',      as: :add_item
     put '/admin/compositions/:id/remove_tag',  to: 'compositions#remove_tag',    as: :remove_tag
+    put '/admin/compositions/:id/remove_receiver',  to: 'compositions#remove_receiver',    as: :remove_receiver
     get '/update_price/:id',                  to: 'compositions#update_price',  as: :update_price
     get '/login', to: 'sessions#new', as: :login
   end

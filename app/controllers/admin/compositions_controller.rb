@@ -1,5 +1,7 @@
 class Admin::CompositionsController < Admin::AdminController
-  before_action :set_comp, only: [:show, :edit, :update, :destroy, :add_item, :remove_tag, :update_price, :delete]
+  before_action :set_comp, only: [:show, :edit, :update, :destroy,
+                                  :add_item, :remove_tag, :remove_receiver,
+                                   :update_price, :delete]
 
   def index
     @compositions = Composition.availible.paginate(page: params[:availible_page], per_page: 12)
@@ -55,6 +57,13 @@ class Admin::CompositionsController < Admin::AdminController
   def remove_tag
     @tag = Tag.find(params[:tag_id])
     @comp.tags.delete(@tag)
+    redirect_back fallback_location: admin_root_path
+  end
+
+  def remove_receiver
+    title = Unicode::capitalize(params[:title])
+    @receiver = Receiver.find_by(title: title)
+    @comp.receivers.delete(@receiver)
     redirect_back fallback_location: admin_root_path
   end
 

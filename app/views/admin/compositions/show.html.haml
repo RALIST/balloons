@@ -10,23 +10,17 @@
           .items.text-left
             = render 'item'
         .col-md-4
-          .h4.bg-brand Теги
+          .h4.bg-brand Повод/Кому
           - @comp.tags.each do |tag|
             %p
               = tag.name
               = link_to admin_remove_tag_path(tag_id: tag.id), method: :put do
                 %i.fa.fa-times-circle{style: 'aria-hidden="true"'}
-          = form_for [:admin, @comp], class: 'form-inline' do |f|
-            = f.select :tag_name, options_for_select(Tag.all.map{|i| [i.name]}.uniq)
-            %br
-            = f.submit 'Добавить тег'
-          = form_for [:admin, @comp] do |f|
-            Add tags to composition
-            = f.text_field :tag_name, value: '', id: 'tags'
-          = form_for [:admin, @comp] do |f|
-            Add persons
-            = f.text_field :receiver_title, value: ''
-            = f.submit 'Add'
+          - @comp.receivers.each do |receiver|
+            = receiver.title
+            = link_to admin_remove_receiver_path(title: receiver.title), method: :put do
+              %i.fa.fa-times-circle{style: 'aria-hidden="true"'}
+
       .row
         .col-md-8.text-right
           .h3.border-top
@@ -34,8 +28,45 @@
 
   .row
     .col-md-12
-      .h2 Статистика
-      =form_tag({controller: 'compositions', action: 'add_item'}) do
-        = select_tag :item, options_for_select(@items.map{|i| [i.name, i.id]})
-        = number_field_tag :count
-        = submit_tag 'Add Item'
+      .row
+        %h2 Добавить параметры
+        .col-md-4.border-right
+          %h3 Товар
+          =form_tag({controller: 'compositions', action: 'add_item'}) do
+            .row
+              .col-md-8
+                .form-group
+                  = select_tag :item, options_for_select(@items.map{|i| [i.name, i.id]}), {class: 'form-control'}
+              .col-md-4
+                .form-group
+                  = number_field_tag :count,'', class: 'form-control', placeholder: 'Кол-во'
+              .col-md-12
+                .form-group
+                = submit_tag 'Добавить товар', class: 'btn btn-info'
+        .col-md-4.border-right
+          %h3 Повод
+          = form_for [:admin, @comp] do |f|
+            .form-group
+              = f.label :tag_name, 'Выберите из списка'
+              = f.select :tag_name, options_for_select(Tag.all.map{|i| [i.name]}.uniq), {}, {class: 'form-control'}
+            .form-group
+              = f.submit 'Добавить',  class: 'btn btn-info'
+          = form_for [:admin, @comp] do |f|
+            .form-group
+              = f.label :tag_name, 'или создайте свой'
+              = f.text_field :tag_name, value: '',class: 'form-control'
+            = f.submit 'Добавить', class: 'btn btn-info'
+        .col-md-4
+          %h3 Кому
+          = form_for [:admin, @comp] do |f|
+            .form-group
+              =f.label :receiver_title, 'Выберите из списка'
+              = f.select :receiver_title, options_for_select(Receiver.all.map{|r| [r.title]}), {}, {class: 'form-control'}
+            .form-group
+              = f.submit 'Добавить', class: 'btn btn-info'
+          = form_for [:admin, @comp] do |f|
+            .form-group
+              = f.label :receiver_title, 'или добавьте свой'
+              = f.text_field :receiver_title, value: '', class: 'form-control'
+            .form-group
+              = f.submit 'Добавить', class: 'btn btn-info'

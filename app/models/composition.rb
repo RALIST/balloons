@@ -39,16 +39,18 @@ class Composition < ApplicationRecord
   end
 
   def tag_name=(name)
+    name = Unicode::downcase(name.strip)
     self.tags.find_or_create_by!(name: name) unless name.blank?
   end
 
   def receiver_title
-    persons.each do |person|
-      return person.title
+    receivers.each do |r|
+      return r.title
     end
   end
 
   def receiver_title=(title)
+    title = Unicode::downcase(title.strip)
     self.receivers.find_or_create_by!(title: title) unless title.blank?
   end
 

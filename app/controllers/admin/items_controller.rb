@@ -52,6 +52,7 @@ class Admin::ItemsController < Admin::AdminController
     else
       @items = Item.all.order(:name).order(:name)
     end
+    @items_without_collection = Item.without_collection
   end
 
   private

@@ -23,5 +23,13 @@
 
   = link_to 'Добавить товар', new_admin_item_path, class: 'btn btn-info'
   .row
-    = render @items
+    %h2{data: {toggle: 'collapse', target: '#items'}}
+      Все товары
+    .collapse#items
+      = render @items
+  .row
+    %h2{data: {toggle: 'collapse', target: '#without_collection'}}
+      Без коллекции
+    .collapse#without_collection
+      = render @items_without_collection
 

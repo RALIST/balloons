@@ -12,7 +12,6 @@ class Admin::CompositionsController < Admin::AdminController
 
   def show
     @items = Item.where(availible_in_comps: true)
-    @collections = Item.all.map{|i| i.collection}
   end
 
   def new

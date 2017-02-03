@@ -35,7 +35,7 @@
             .row
               .col-md-8
                 .form-group
-                  = select_tag :item, grouped_options_for_select(Item.for_select)
+                  = select_tag :item, grouped_options_for_select(Item.for_select), class: 'form-control'
               .col-md-4
                 .form-group
                   = number_field_tag :count,'', class: 'form-control', placeholder: 'Кол-во'

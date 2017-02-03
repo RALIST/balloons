@@ -32,8 +32,12 @@ class Item < ApplicationRecord
   end
 
   def self.for_select
-    Item.all.map do |item|
-      [item.collection, [[item.name, item.id]]]
+    collections = Item.all.map(&:collection).reject(&:blank?).uniq
+    collections.map do |collection|
+      items = self.where(collection: collection).reject(&:blank?)
+      [
+        collection, items.map{|i| [i.name, i.id]}
+      ]
     end
   end
 

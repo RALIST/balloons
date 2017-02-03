@@ -6,7 +6,7 @@ class Composition < ApplicationRecord
   has_many :receivers, as: :personable
 
   validates :title, :img, presence: true
-  has_attached_file :img, styles: {small: ['x100', :png],
+  has_attached_file :img, styles: {small:  'x100',
                                     thumb: 'x300',
                                     large: 'x1080'},
                           default_url: 'http://s3-us-west-2.amazonaws.com/flashcards123/images/missing/:style/missing_:style.png'

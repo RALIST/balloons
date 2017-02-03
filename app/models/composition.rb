@@ -8,8 +8,7 @@ class Composition < ApplicationRecord
   validates :title, :img, presence: true
   has_attached_file :img, styles: {small:  'x100',
                                     thumb: 'x300',
-                                    large: 'x1080'},
-                          default_url: 'http://s3-us-west-2.amazonaws.com/flashcards123/images/missing/:style/missing_:style.png'
+                                    large: 'x1080'}
   validates_attachment_content_type :img,
                         content_type: ["image/jpeg", "image/jpg", "image/png"]
 

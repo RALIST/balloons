@@ -1,9 +1,11 @@
-.col-md-2
+.col-md-3
   .thumbnail
     .row
       .col-md-6
         =link_to admin_composition_path(composition) do
           =image_tag composition.img.url(:small), class: 'img-responsive', style: 'height: 100%; object-fit: contain;'
       .col-md-6
-        = composition.price.to_f.round(2) unless composition.price.blank?
+        ID:
+        = composition.id
+        %br
         = link_to 'Удалить', admin_delete_composition_path(composition), method: :put

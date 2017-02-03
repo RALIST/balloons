@@ -6,9 +6,9 @@ class Composition < ApplicationRecord
   has_many :receivers, as: :personable
 
   validates :title, :img, presence: true
-  has_attached_file :img, styles: {small: 'x100',
+  has_attached_file :img, styles: {small: ['x100', :png],
                                     thumb: 'x300',
-                                    large: '1080x1080'}
+                                    large: 'x1080'}
   validates_attachment_content_type :img,
                         content_type: ["image/jpeg", "image/jpg", "image/png"]
 

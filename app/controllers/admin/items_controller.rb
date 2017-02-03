@@ -27,6 +27,16 @@ class Admin::ItemsController < Admin::AdminController
   end
 
   def destroy
+    @compositions = Composition.joins(:items).where(items:{id: @item.id})
+    if @compositions.any?
+      flash[:danger] = "Товар используется в композициях #{@compositions.map(&:id).uniq}"
+      redirect_to admin_items_path
+    else
+      if @item.destroy
+        flash[:success] = 'Товар удален!'
+        redirect_back fallback_location: admin_root_path
+      end
+    end
   end
 
   def show
@@ -34,7 +44,7 @@ class Admin::ItemsController < Admin::AdminController
   end
 
   def index
-    @companies = Item.all.map{|i| i.made_by}.uniq
+    @companies = Item.all.map{|i| i.made_by}.reject(&:blank?).uniq
     @types = Item.all.map{ |i| i.item_type }.uniq
     @collections = Item.all.map{|i| i.collection}.reject(&:blank?).uniq
     @items = Item.search(params[:query]).paginate(page: params[:page], per_page: 10) unless params[:query].blank?

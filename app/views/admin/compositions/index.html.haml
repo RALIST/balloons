@@ -1,34 +1,40 @@
 .container
   .row
-    %h2
+    %h2{data: {toggle: 'collapse', target: '#availible'}, style: 'cursor: pointer;'}
       Доступные композиции
+      %br
       %small Доступные к покупке пользователям
-    = render @compositions
-    = will_paginate @compositions
+    .collapse#availible
+      = render @compositions
+      = will_paginate @compositions
   .clearfix
 
 
   .row
-    %h2
+    %h2{data: {toggle: 'collapse', target: '#without_items'}, style: 'cursor: pointer;'}
       Композиции без товаров
-      %small
-        Нет ни одного товара в композиции
-    = render @compositions_without_items
-    = will_paginate @compositions_without_items, param_name: 'without_items_page'
+      %br
+      %small Нет ни одного товара в композиции
+    .collapse#without_items
+      = render @compositions_without_items
+      = will_paginate @compositions_without_items, param_name: 'without_items_page'
 
   .row
-    %h2
+    %h2{data: {toggle: 'collapse', target: '#without_price'}, style: 'cursor: pointer;'}
       Композиции без цены
-      %small
-        Не указана цена с гелием
-    = render @compositions_without_price
-  = will_paginate @compositions_without_price, param_name: 'without_price_page'
+      %br
+      %small Не указана цена с гелием
+    .collapse#without_price
+      = render @compositions_without_price
+      = will_paginate @compositions_without_price, param_name: 'without_price_page'
 
   .row
-    %h2
+    %h2{data: {toggle: 'collapse', target: '#without_tags'}, style: 'cursor: pointer;'}
       Композиции без тегов
-      %small
-        Не указан "повод" или "кому"
-    = render @compositions_without_tags
+      %br
+      %smallНе указан "повод" или "кому"
+    .collapse#without_tags
+      = render @compositions_without_tags
+      = will_paginate @compositions_without_tags
   .clearfix
   =link_to 'Добавить композицию', new_admin_composition_path, class: 'btn btn-primary'

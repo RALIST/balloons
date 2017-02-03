@@ -17,5 +17,7 @@
             %br
             %span{style: 'font-weight: bold;'}
               = item.price
+            %br
+            = link_to 'Удалить', admin_item_path(item), method: :delete
 .clearfix
 = will_paginate @items

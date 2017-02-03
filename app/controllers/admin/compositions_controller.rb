@@ -7,7 +7,7 @@ class Admin::CompositionsController < Admin::AdminController
     @compositions = Composition.availible.paginate(page: params[:availible_page], per_page: 12)
     @compositions_without_items = Composition.without_items.order(:id).paginate(page: params[:without_items_page], per_page: 12)
     @compositions_without_price = Composition.without_price.order(:id).paginate(page: params[:without_price_page], per_page: 12)
-    @compositions_without_tags = Composition.without_tags
+    @compositions_without_tags = Composition.without_tags.order(:id).paginate(page: params[:without_price_page], per_page: 12)
   end
 
   def show
@@ -75,6 +75,7 @@ class Admin::CompositionsController < Admin::AdminController
   def remove_item
     @item = Item.find(params[:item_id])
     @comp.items.delete(@item)
+    @comp.comp_price
     redirect_back fallback_location: admin_root_path
   end
 

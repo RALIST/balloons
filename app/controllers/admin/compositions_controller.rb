@@ -4,10 +4,10 @@ class Admin::CompositionsController < Admin::AdminController
                                    :update_price, :delete, :remove_item]
 
   def index
-    @compositions = Composition.availible.paginate(page: params[:availible_page], per_page: 12)
-    @compositions_without_items = Composition.without_items.order(:id).paginate(page: params[:without_items_page], per_page: 12)
-    @compositions_without_price = Composition.without_price.order(:id).paginate(page: params[:without_price_page], per_page: 12)
-    @compositions_without_tags = Composition.without_tags.order(:id).paginate(page: params[:without_price_page], per_page: 12)
+    @compositions = Composition.availible
+    @compositions_without_items = Composition.without_items.order(:id)
+    @compositions_without_price = Composition.without_price.order(:id)
+    @compositions_without_tags = Composition.without_tags.order(:id)
   end
 
   def show

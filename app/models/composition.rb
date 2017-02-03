@@ -16,10 +16,10 @@ class Composition < ApplicationRecord
                             .where('tags.name LIKE ?', "%#{tag}%").distinct(:id) }
   scope :with_items, -> { joins(:items).distinct(:id)  }
   scope :without_items, -> {left_outer_joins(:items)
-                            .where(items_in_compositions: {id: nil})}
-  scope :without_price, -> { with_items.where(items: {price_with_helium: nil}).distinct(:id)  }
+                            .where(items_in_compositions: {id: nil}).where(deleted: false)}
+  scope :without_price, -> { with_items.where(items: {price_with_helium: nil}).where(deleted: false).distinct(:id)  }
   scope :with_tags, -> {joins(:tags).joins(:receivers)}
-  scope :without_tags, ->{ where.not(id: Composition.with_tags.map(&:id)) }
+  scope :without_tags, ->{ where.not(id: Composition.with_tags.map(&:id)).where(deleted: false) }
   scope :availible, -> {joins(:items).merge(Item.with_price).distinct(:id)
                         .where.not(id: Composition.without_price.map(&:id), deleted: true)}
   scope :with_receivers, -> (receiver) { joins(:receivers).where('receivers.title LIKE ?', "%#{receiver}%") }

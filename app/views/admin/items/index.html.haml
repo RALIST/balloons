@@ -22,5 +22,7 @@
         = link_to collection.capitalize, admin_items_path(query: collection)
 
   = link_to 'Добавить товар', new_admin_item_path, class: 'btn btn-info'
-  = render 'item' if params[:query]
+  .row
+    = render @items
+  = will_paginate @items
 

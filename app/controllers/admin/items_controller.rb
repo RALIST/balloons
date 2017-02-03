@@ -47,7 +47,13 @@ class Admin::ItemsController < Admin::AdminController
     @companies = Item.all.map{|i| i.made_by}.reject(&:blank?).uniq
     @types = Item.all.map{ |i| i.item_type }.uniq
     @collections = Item.all.map{|i| i.collection}.reject(&:blank?).uniq
-    @items = Item.search(params[:query]).paginate(page: params[:page], per_page: 10) unless params[:query].blank?
+    unless params[:query].blank?
+      @items = Item.search(params[:query]).order(:name)
+                  .paginate(page: params[:page], per_page: 9)
+    else
+      @items = Item.all.order(:name)
+                    .paginate(page: params[:page], per_page: 9)
+    end
   end
 
   private

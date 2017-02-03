@@ -1,23 +1,22 @@
-.row
-  - @items.each do |item|
-    .col-md-4
-      .thumbnail
-        .row
-          .col-md-5
-            = image_tag item.img.url(:small), class: 'img-responsive'
-          .col-md-7
-            = link_to item.name.capitalize, admin_item_path(item)
-            %br
-            Минимальная партия:
-            = item.min_order
-            = item.quantity_type
-            %br
-            Производитель:
-            = item.made_by
-            %br
-            %span{style: 'font-weight: bold;'}
-              = item.price
-            %br
-            = link_to 'Удалить', admin_item_path(item), method: :delete
-  .clearfix
-  = will_paginate @items
+
+.col-md-4
+  .thumbnail
+    .row
+      .col-md-5
+        = image_tag item.img.url(:small), class: 'img-responsive'
+      .col-md-7
+        = link_to item.name.capitalize, admin_item_path(item)
+        %br
+        Минимальная партия:
+        = item.min_order
+        = item.quantity_type
+        %br
+        Производитель:
+        = item.made_by
+        %br
+        %span{style: 'font-weight: bold;'}
+          = item.price
+        %br
+        = link_to 'Удалить', admin_item_path(item), method: :delete
+
+

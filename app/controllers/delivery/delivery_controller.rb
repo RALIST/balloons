@@ -27,10 +27,10 @@ private
   end
 
   def tags
-    @menu_tags = Tag.composition_tags.map(&:name).uniq
+    @menu_tags = Tag.composition_tags.map(&:name.capitalize).uniq
   end
 
   def receivers
-    @menu_receivers = Receiver.all.map(&:title).uniq
+    @menu_receivers = Receiver.all.map(&:title.capitalize).uniq
   end
 end

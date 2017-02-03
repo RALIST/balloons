@@ -15,7 +15,7 @@
               %br
               - if c.tags.any?
                 - c.tags.each do |tag|
-                  = tag.name
+                  = tag.name.capitalize
               - else
                 Нет тегов!
             .text-center

@@ -35,7 +35,7 @@
             - composition.tags.each do |tag|
               %span
                 = link_to search_path(tag_name: tag.name) do
-                  #{tag.name},
+                  #{tag.name.capitalize},
     .row
       .col-md-4.col-xs-12
         - unless @cart.compositions.include?(composition)

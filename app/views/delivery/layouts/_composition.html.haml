@@ -20,7 +20,7 @@
           %tr.item{data: {item_id: "#{i.id}"}}
             %td
               %span{style: 'cursor: pointer;'}
-                = i.name
+                = i.name.capitalize
             %td
               = c.items.where(id: i.id).count
               шт.
@@ -41,7 +41,7 @@
           - c.tags.each do |tag|
             %span
               = link_to search_path(tag_name: tag.name) do
-                #{tag.name},
+                #{tag.name.capitalize},
   .col-md-2.text-center
     %strong
       Похожие

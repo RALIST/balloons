@@ -50,7 +50,7 @@ class Admin::CompositionsController < Admin::AdminController
     end
     @comp.update_price
     respond_to do |format|
-      format.html { redirect_back(fallback_location: admin_root_path) }
+      format.html { redirect_to admin_composition_path(@comp) }
       format.js
     end
   end

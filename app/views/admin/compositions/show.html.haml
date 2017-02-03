@@ -31,7 +31,7 @@
         %h2 Добавить параметры
         .col-md-4.border-right
           %h3 Товар
-          =form_tag({controller: 'compositions', action: 'add_item'}) do
+          =form_tag admin_add_item_path do
             .row
               .col-md-8
                 .form-group

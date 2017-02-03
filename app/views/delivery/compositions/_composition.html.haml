@@ -12,7 +12,7 @@
           %tr.item{data: {item_id: "#{i.id}"}}
             %td
               %span{style: 'cursor: pointer;'}
-                = i.name
+                = i.name.capitalize
             %td
               = composition.items.where(id: i.id).count
               шт.

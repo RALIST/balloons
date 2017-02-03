@@ -5,21 +5,21 @@
   %ul.list-unstyled.list-inline.collapse#companies
     - @companies.each do |company|
       %li
-        = link_to company, admin_items_path(query: company) unless company.blank?
+        = link_to company.capitalize, admin_items_path(query: company) unless company.blank?
   .h3{data: {toggle: 'collapse', target: '#types'}}
     %span.btn.btn-default
       Тип
   %ul.list-unstyled.list-inline.collapse#types
     - @types.each do |type|
       %li
-        = link_to type, admin_items_path(query: type) unless type.blank?
+        = link_to type.capitalize, admin_items_path(query: type) unless type.blank?
   .h3{data: {toggle: 'collapse', target: '#collections'}}
     %span.btn.btn-default
       Коллекции
   %ul.list-unstyled.list-inline.collapse#collections
     - @collections.each do |collection|
       %li
-        = link_to collection, admin_items_path(query: collection)
+        = link_to collection.capitalize, admin_items_path(query: collection)
 
   = link_to 'Добавить товар', new_admin_item_path, class: 'btn btn-info'
   = render 'item' if params[:query]

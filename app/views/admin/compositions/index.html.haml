@@ -6,7 +6,8 @@
       %small Доступные к покупке пользователям
     .collapse#availible
       = render @compositions
-      = will_paginate @compositions
+      = will_paginate @compositions,param_name: 'availible_items_page'
+
   .clearfix
 
 

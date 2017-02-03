@@ -1,35 +1,45 @@
 %h2 Добавить товар
-.col-md-6
+.col-md-6.col-xs-12
   = form_for [:admin, @item] do |f|
-    .form-field
+    .form-group
+      = f.label :barcode, 'Штрихкод'
+      = f.text_field :barcode, class: 'form-control'
+    .form-group
       =f.label 'Название'
       =f.text_field :name, class: 'form-control'
-    .form-field
+    .form-group
       =f.label 'Описание'
       =f.text_field :desc, class: 'form-control'
-    .form-field
+    .form-group
+      = f.label :made_by, 'Производитель'
+      = f.text_field :made_by, class: 'form-control'
+    .form-group
+      = f.label :item_type, 'Тип продукции'
+      = f.text_field :item_type, class: 'form-control'
+    .form-group
       =f.label 'Коллекция'
-      =f.text_field :collection, class: 'form-control'
-    .form-field
+      = f.select :select_collection, options_for_select(@collections),{include_blank: true}, { class: 'form-control'}
+      = f.text_field :text_collection, class: 'form-control'
+    .form-group
       =f.label 'Цена'
       =f.number_field :price, class: 'form-control'
-    .form-field
+    .form-group
       =f.label 'Цена c гелием'
       =f.number_field :price_with_helium, class: 'form-control'
-    .form-field
+    .form-group
       =f.label 'Изображение'
       =f.file_field :img, class: 'form-control'
-    .from-field
+    .form-group
       = f.label 'Размер'
       = f.text_field :size, class: 'form-control'
-    .from-field
+    .from-group
       = f.label 'Цвет'
       = f.text_field :color, class: 'form-control'
-    .form-field
+    .form-group
       = f.label :quntity, 'Количество в наличии'
       = f.number_field :quantity, class: 'form-control'
-    .from-field
+    .form-group
       = f.check_box :availible_in_comps
       = f.label 'Доступно в композициях?'
-    .from-field
+    .form-group
       =f.submit class: 'btn btn-info', data: {disable_with: 'Сохраняю...'}

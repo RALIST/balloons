@@ -1,5 +1,6 @@
 class Admin::ItemsController < Admin::AdminController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :collections, only: [:new, :create, :edit, :update]
 
   def new
     @item = Item.new
@@ -43,10 +44,16 @@ class Admin::ItemsController < Admin::AdminController
   def item_params
     params.require(:item).permit(:name, :desc, :img, :price, :price_with_helium,
                                   :item_type, :collection, :color,
-                                  :size, :quantity, :availible_in_comps)
+                                  :size, :quantity, :availible_in_comps, :barcode,
+                                  :made_by, :min_order, :quantity_type,
+                                  :select_collection, :text_collection)
   end
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def collections
+    @collections = Item.all.map{|i| i.collection}.reject(&:blank?).uniq
   end
 end

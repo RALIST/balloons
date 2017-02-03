@@ -10,7 +10,8 @@ class Delivery::MainController < Delivery::DeliveryController
 
   def search
     unless params[:tag_name].blank?
-      @compositions =  Composition.availible.with_tag(params[:tag_name])
+      tag = Unicode::downcase(params[:tag_name]).strip
+      @compositions =  Composition.availible.with_tag(tag)
       if @compositions.any?
         @compositions
       else

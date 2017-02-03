@@ -1,25 +1,29 @@
 .container
-  .h3{data: {toggle: 'collapse', target: '#companies'}}
-    %span.btn.btn-default
-      Производители
-  %ul.list-unstyled.list-inline.collapse#companies
-    - @companies.each do |company|
-      %li
-        = link_to company.capitalize, admin_items_path(query: company) unless company.blank?
-  .h3{data: {toggle: 'collapse', target: '#types'}}
-    %span.btn.btn-default
-      Тип
-  %ul.list-unstyled.list-inline.collapse#types
-    - @types.each do |type|
-      %li
-        = link_to type.capitalize, admin_items_path(query: type) unless type.blank?
-  .h3{data: {toggle: 'collapse', target: '#collections'}}
-    %span.btn.btn-default
-      Коллекции
-  %ul.list-unstyled.list-inline.collapse#collections
-    - @collections.each do |collection|
-      %li
-        = link_to collection.capitalize, admin_items_path(query: collection)
+  .row
+    .col-md-3
+      .h3{data: {toggle: 'collapse', target: '#companies'}}
+        %span.btn.btn-default
+          Производители
+      %ul.list-unstyled.list-inline.collapse#companies
+        - @companies.each do |company|
+          %li
+            = link_to company.capitalize, admin_items_path(query: company) unless company.blank?
+    .col-md-3
+      .h3{data: {toggle: 'collapse', target: '#types'}}
+        %span.btn.btn-default
+          Тип
+      %ul.list-unstyled.list-inline.collapse#types
+        - @types.each do |type|
+          %li
+            = link_to type.capitalize, admin_items_path(query: type) unless type.blank?
+    .col-md-6
+      .h3{data: {toggle: 'collapse', target: '#collections'}}
+        %span.btn.btn-default
+          Коллекции
+      %ul.list-unstyled.list-inline.collapse#collections
+        - @collections.each do |collection|
+          %li
+            = link_to collection.capitalize, admin_items_path(query: collection)
 
   = link_to 'Добавить товар', new_admin_item_path, class: 'btn btn-info'
   .row
@@ -27,14 +31,16 @@
       Все товары
     .collapse#items
       = render @items
-  .row
-    %h2{data: {toggle: 'collapse', target: '#without_collection'}, style: 'cursor: pointer;'}
-      Без коллекции
-    .collapse#without_collection
-      = render @items_without_collection
-  .row
-    %h2{data: {toggle: 'collapse', target: '#without_img'},style: 'cursor: pointer;'}
-      Без картинки
-    .collapse#without_img
-      = render @items_without_img
+  - if @items_without_collection.any?
+    .row
+      %h2{data: {toggle: 'collapse', target: '#without_collection'}, style: 'cursor: pointer;'}
+        Без коллекции
+      .collapse#without_collection
+        = render @items_without_collection
+  - if  @items_without_img.any?
+    .row
+      %h2{data: {toggle: 'collapse', target: '#without_img'},style: 'cursor: pointer;'}
+        Без картинки
+      .collapse#without_img
+        = render @items_without_img
 

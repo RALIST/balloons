@@ -49,10 +49,8 @@ class Admin::ItemsController < Admin::AdminController
     @collections = Item.all.map{|i| i.collection}.reject(&:blank?).uniq
     unless params[:query].blank?
       @items = Item.search(params[:query]).order(:name)
-                  .paginate(page: params[:page], per_page: 9)
     else
-      @items = Item.all.order(:name)
-                    .paginate(page: params[:page], per_page: 9)
+      @items = Item.all.order(:name).order(:name)
     end
   end
 

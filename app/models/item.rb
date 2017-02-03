@@ -18,7 +18,7 @@ class Item < ApplicationRecord
   scope :search, -> (query) { where("made_by LIKE ? OR item_type LIKE ? OR collection LIKE ?", query, query, query )}
   scope :with_price, -> { where.not(price_with_helium: nil) }
   scope :without_collection, -> { where(collection: nil) }
-  scope :without_img, -> { where(collection: nil) }
+  scope :without_img, -> { where(img_file_name: nil) }
   scope :without_barcode, -> { where(barcode: nil) }
 
   def img_remote_url=(url_value)

@@ -53,6 +53,7 @@ class Admin::ItemsController < Admin::AdminController
       @items = Item.all.order(:name).order(:name)
     end
     @items_without_collection = Item.without_collection
+    @items_without_img = Item.without_img
   end
 
   private

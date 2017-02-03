@@ -23,13 +23,18 @@
 
   = link_to 'Добавить товар', new_admin_item_path, class: 'btn btn-info'
   .row
-    %h2{data: {toggle: 'collapse', target: '#items'}}
+    %h2{data: {toggle: 'collapse', target: '#items'}, style: 'cursor: pointer;'}
       Все товары
     .collapse#items
       = render @items
   .row
-    %h2{data: {toggle: 'collapse', target: '#without_collection'}}
+    %h2{data: {toggle: 'collapse', target: '#without_collection'}, style: 'cursor: pointer;'}
       Без коллекции
     .collapse#without_collection
       = render @items_without_collection
+  .row
+    %h2{data: {toggle: 'collapse', target: '#without_img'},style: 'cursor: pointer;'}
+      Без картинки
+    .collapse#without_img
+      = render @items_without_img
 

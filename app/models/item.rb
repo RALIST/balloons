@@ -8,8 +8,7 @@ class Item < ApplicationRecord
   before_validation :set_collection
   before_save :sanitize_params
 
-  validates :name, :price, presence: true
-  validates :barcode, uniqueness: true
+  validates :name, presence: true
   has_attached_file :img, styles: {small: 'x100', thumb: 'x300', large: '1080x1080'}
   validates_attachment_content_type :img,
                         content_type: ["image/jpeg", "image/jpg", "image/png"]
@@ -30,6 +29,12 @@ class Item < ApplicationRecord
   def set_collection
     self.collection = Unicode::downcase(select_collection) unless select_collection.blank?
     self.collection = Unicode::downcase(text_collection) unless text_collection.blank?
+  end
+
+  def self.for_select
+    Item.all.map do |item|
+      [item.collection, [[item.name, item.id]]]
+    end
   end
 
 

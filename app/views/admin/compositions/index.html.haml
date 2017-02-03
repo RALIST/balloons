@@ -10,32 +10,33 @@
 
   .clearfix
 
+  - if @compositions_without_items.any?
+    .row
+      %h2{data: {toggle: 'collapse', target: '#without_items'}, style: 'cursor: pointer;'}
+        Композиции без товаров
+        %br
+        %small Нет ни одного товара в композиции
+      .collapse#without_items
+        = render @compositions_without_items
+        = will_paginate @compositions_without_items, param_name: 'without_items_page'
 
-  .row
-    %h2{data: {toggle: 'collapse', target: '#without_items'}, style: 'cursor: pointer;'}
-      Композиции без товаров
-      %br
-      %small Нет ни одного товара в композиции
-    .collapse#without_items
-      = render @compositions_without_items
-      = will_paginate @compositions_without_items, param_name: 'without_items_page'
-
-  .row
-    %h2{data: {toggle: 'collapse', target: '#without_price'}, style: 'cursor: pointer;'}
-      Композиции без цены
-      %br
-      %small Не указана цена с гелием
-    .collapse#without_price
-      = render @compositions_without_price
-      = will_paginate @compositions_without_price, param_name: 'without_price_page'
-
-  .row
-    %h2{data: {toggle: 'collapse', target: '#without_tags'}, style: 'cursor: pointer;'}
-      Композиции без тегов
-      %br
-      %smallНе указан "повод" или "кому"
-    .collapse#without_tags
-      = render @compositions_without_tags
-      = will_paginate @compositions_without_tags
+  - if @compositions_without_price.any?
+    .row
+      %h2{data: {toggle: 'collapse', target: '#without_price'}, style: 'cursor: pointer;'}
+        Композиции без цены
+        %br
+        %small Не указана цена с гелием
+      .collapse#without_price
+        = render @compositions_without_price
+        = will_paginate @compositions_without_price, param_name: 'without_price_page'
+  - if @compositions_without_tags.any?
+    .row
+      %h2{data: {toggle: 'collapse', target: '#without_tags'}, style: 'cursor: pointer;'}
+        Композиции без тегов
+        %br
+        %smallНе указан "повод" или "кому"
+      .collapse#without_tags
+        = render @compositions_without_tags
+        = will_paginate @compositions_without_tags
   .clearfix
   =link_to 'Добавить композицию', new_admin_composition_path, class: 'btn btn-primary'

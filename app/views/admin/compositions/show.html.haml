@@ -12,7 +12,7 @@
         .col-md-4
           .h4.bg-brand Повод/Кому
           - @comp.tags.each do |tag|
-            = tag.name
+            = tag.name.capitalize
             = link_to admin_remove_tag_path(tag_id: tag.id), method: :put do
               %i.fa.fa-times-circle{style: 'aria-hidden="true"'}
           - @comp.receivers.each do |receiver|
@@ -35,7 +35,7 @@
             .row
               .col-md-8
                 .form-group
-                  = select_tag :item, options_for_select(@items.map{|i| [i.name, i.id]}), {class: 'form-control'}
+                  = select_tag :item, grouped_options_for_select(Item.for_select)
               .col-md-4
                 .form-group
                   = number_field_tag :count,'', class: 'form-control', placeholder: 'Кол-во'

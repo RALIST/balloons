@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   constraints subdomain: 'shop' do
     scope module: 'shop' do
+      mount LetsencryptPlugin::Engine, at: '/'
       root 'main#index'
       resources :users
       resources :items

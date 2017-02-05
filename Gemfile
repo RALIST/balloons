@@ -59,6 +59,7 @@ gem 'premailer-rails'
 gem 'russian'
 gem 'mainsms_api'
 gem 'sitemap_generator'
+gem 'letsencrypt_plugin'
 
 group :production do
   gem 'rails_12factor'

@@ -1,7 +1,7 @@
 #menu
   .container
     .row.hidden-xs
-      .col-md-4.col-sm-6
+      .col-md-4.col-sm-12
         %ul.nav.nav-pills
           %li.text-uppercase.dropdown.h4{role: "presentation"}
             = link_to '', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
@@ -33,7 +33,6 @@
                     .from-group
                       = button_tag(type: 'submit', class: 'btn btn-info btn-sm btn-block') do
                         %i.fa.fa-search
-
       .col-md-3.hidden-sm
         %ul.nav.nav-pills
           %li.h4.text-center
@@ -43,7 +42,7 @@
                 %span.input-group-btn
                   = button_tag(type: 'submit', class: 'btn btn-info btn-sm') do
                     %i.fa.fa-search
-      .col-md-5.col-sm-6
+      .col-md-5.col-sm-6.hidden-sm
         %ul.nav.nav-pills{style: 'float:right'}
           %li.text-uppercase.h4
             - if current_user
@@ -70,5 +69,5 @@
                     %i.fa.fa-search
     .row
       .col-md-12.col-sm-12.col-xs-12.text-uppercase.text-center.bg-brand
-        %h5
+        .h5
           =link_to 'Бесплатная доставка от 1500 рублей!'

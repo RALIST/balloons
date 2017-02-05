@@ -15,6 +15,10 @@ body {
 .table > tbody > tr > td {
   vertical-align: middle;
 }
+
+.thumbnail {
+  min-height: 460px;
+}
 #flash {
   position: fixed;
   top: 10%;

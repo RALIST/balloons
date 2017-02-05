@@ -1,11 +1,11 @@
 .container-fluid
-  .row
-    .col-md-12.col-xs-12.col-sm-12.bg-brand.text-center.hidden-xs.hidden-sm.collapse#promo
-      %h4
-        =link_to 'Сайт работает в тестовом режиме!'
+  .row.hidden-sm.hidden-xs
+    .col-md-12.col-xs-12.col-sm-12.bg-brand.text-center.collapse#promo
+      .h4
+        =link_to 'Акций пока нет!'
         = link_to '', data:{toggle: 'collapse', target: '#promo' } do
           %i.fa.fa-times
-    .col-md-12.text-center.hidden-xs
+    .col-md-12.text-center
       .uppercase.inline
         = link_to 'Акции','#', style: 'padding: 10px; border-radius: 0 0 50px 50px; font-size: 18px;' , data:{toggle: 'collapse', target: '#promo' }, class: 'bg-brand'
   .row.hidden-md.hidden-lg{style: 'width: 100%;'}
@@ -15,13 +15,13 @@
         %small
           %span.badge.on-icon= @cart.positions.count if @cart.positions.any?
 .container
-  .row.hidden-xs
-    .col-md-6.col-sm-6.hidden-xs
+  .row.hidden-xs.hidden-sm
+    .col-md-6
       %ul.text-left.list-inline.list-unstyled
         %li= link_to 'Контакты'
         %li= link_to 'Доставка'
         %li= link_to 'Админка', admin_root_path if current_user && current_user.admin?
-    .col-md-6.col-xs-12.col-sm-6.hidden-xs
+    .col-md-6
       %ul.text-right.list-inline.list-unstyled
         - if current_user
           %li Здравствуйте, #{current_user.first_name}

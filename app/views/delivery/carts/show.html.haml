@@ -14,8 +14,8 @@
                   .h3
                     = link_to 'Добавить в композицию', '', class: 'btn btn-info btn-block', data:{ toggle: 'modal', target: "#position-modal-#{p.id}"}
                   .modal.fade{id: "position-modal-#{p.id}",  tabindex: "-1",  role: "dialog", class: 'position-modal'}
-                    .modal-dialog{role: "document", style: 'float: center; width: 90%; margin: auto;'}
-                      .modal-content{style: 'float: left;'}
+                    .modal-dialog{role: "document", style: 'width: 90%; margin: auto;'}
+                      .modal-content{style: 'width: 90%; margin: auto;'}
                         .modal-header
                           %button{type: "button",  class: "close",  data: {dismiss: "modal"}}
                             %span
@@ -25,13 +25,14 @@
                             %br
                             %small
                               Выберите категорию
-                          .col-md-6.col-sm-6.col-xs-12.col-sm-12
-                            .input-group
-                              = text_field_tag :search,'', class: 'form-control', placeholder: 'Начните вводить название категории...'
-                              %span.input-group-btn
-                                = button_tag(class: 'btn btn-info', id: 'clear-search') do
-                                  %i.fa.fa-times
-                        .modal-body{style: 'float: left; width: 100%;'}
+                          .row
+                            .col-md-6.col-sm-6.col-xs-12.col-sm-12
+                              .input-group
+                                = text_field_tag :search,'', class: 'form-control', placeholder: 'Начните вводить название категории...'
+                                %span.input-group-btn
+                                  = button_tag(class: 'btn btn-info', id: 'clear-search') do
+                                    %i.fa.fa-times
+                        .modal-body{style: 'width: 100%;'}
                           = render partial: 'category_list', locals: {p: p}
                 .col-md-8.col-sm-12.col-xs-12
                   %h4

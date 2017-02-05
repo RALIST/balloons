@@ -5,5 +5,6 @@ User-Agent: *
 Disallow: /admin
 Disallow: /cart
 Disallow: /orders
+Disallow: /thank_you
 Host: https://bigirballoons.ru
 Sitemap: https://bigairballoons.ru/sitemap.xml.gz

@@ -9,7 +9,7 @@
         .col-md-4.col-sm-6.col-xs-12
           .thumbnail
             = link_to root_path(id: c.id), data:{ toggle: 'modal', target: "#composition"}, remote: true do
-              = image_tag c.img.url(:thumb), class: 'img-responsive', style: 'height: 100%; object-fit: contain;'
+              = image_tag c.img.url(:thumb), class: 'img-responsive', style: 'height: 300px; object-fit: contain;'
             %h3.text-center
               %strong
                 = number_to_currency(c.price, precision: 0)

@@ -3,9 +3,10 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
-    %meta{property: 'og:image', content: "#{image_tag 'logo2.png', alt: 'Шариковая фея'}"}
+    %meta{property: 'og:image', content: "#{image_url 'logo2.png', alt: 'Шариковая фея'}"}
     %meta{name: "google-site-verification", content:"7YdqoinSILjL2WHYMwi8xu3uUDgshmVKYp6GKfoBavo"}
-    %title Шариковая фея
+    %meta{name: 'description', content: 'Самые красивые шарики с доставкой по Ижевску! Оформление праздников воздушными шарами.'}
+    %title Шариковая фея | Оформление и доставка воздушных шаров!
     = favicon_link_tag 'favicons/favicon-32.png'
     = favicon_link_tag 'favicons/favicon-120.png', rel: 'apple-touch-icon'
     = csrf_meta_tags

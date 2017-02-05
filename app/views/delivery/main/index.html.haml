@@ -1,6 +1,9 @@
 .container-fluid
   .container
-    %h2.text-center Лучшие композиции
+    %h2.text-center
+      Оформление воздушными шарами вашего праздника
+      %br
+      %small Лучшие композиции
     .row
       - @compositions.each do |c|
         .col-md-4.col-sm-6.col-xs-12
@@ -11,19 +14,22 @@
               %strong
                 = number_to_currency(c.price, precision: 0)
             %p.text-center{style: 'height: 4em;'}
-              %strong Теги:
+              Воздушные шары на
               %br
               - if c.tags.any?
-                - c.tags.each do |tag|
-                  = tag.name.capitalize
+                = c.tags.map{ |t| t.name.capitalize}.join(', ')
               - else
-                Нет тегов!
+                ваш праздник
             .text-center
               - unless @cart.compositions.include?(c)
                 = button_to 'Добавить в корзину', add_to_cart_path(c), class: "btn btn-info btn-block add-to-cart#{c.id}", data: {disable_with: 'Добавляем...'}, remote: true
+                .small
+                  В корзине вы сможете изменить состав композиции
               - else
                 .btn.btn-success.btn-block{disabled: true}
                   Добавлено в корзину
+                .small
+                  Зайдите в корзину, чтобы изменить композицию
 
 .modal.fade{id: "composition",  tabindex: "-1",  role: "dialog"}
   .modal-dialog{role: "document", style: 'float: center; width: 90%; margin: auto;'}

@@ -1,9 +1,9 @@
 .container-fluid
   .row.hidden-sm.hidden-xs
     .col-md-12.col-xs-12.col-sm-12.bg-brand.text-center.collapse#promo
-      .h4
-        =link_to 'Акций пока нет!'
-        = link_to '', data:{toggle: 'collapse', target: '#promo' } do
+      .h4{style: 'color: white;'}
+        Акций пока нет!
+        = link_to '#', data:{toggle: 'collapse', target: '#promo' } do
           %i.fa.fa-times
     .col-md-12.text-center
       .uppercase.inline

@@ -5,8 +5,8 @@ class Delivery::CartsController < Delivery::DeliveryController
 
   def show
     @cart = current_cart
-    @collections = Item.where(availible_in_comps: true).map{|i| i.collection.capitalize}.uniq.reject(&:blank?)
-    @items_in_collection = Item.all.where(collection: params[:collection])
+    @collections = Item.comp_availible.map{|i| i.collection}.uniq.reject(&:blank?)
+    @items_in_collection = Item.comp_availible.where(collection: params[:collection])
     @position = Position.find(params[:position]) if params[:position]
     respond_to do |format|
       format.html

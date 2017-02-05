@@ -2,3 +2,7 @@ ru:
   activerecord:
     models:
       item: 'товар'
+      composition: 'композиция'
+      cart: 'корзина'
+      order: 'заказ'
+      user: 'пользователь'

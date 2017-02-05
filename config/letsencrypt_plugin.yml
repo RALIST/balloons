@@ -1,7 +1,7 @@
 default: &default
   endpoint: 'https://acme-v01.api.letsencrypt.org/'
   email: 'danilov@ralist.ru'
-  domain: bigairballoons.ru shop.bigairballoons.ru
+  domain: bigairballoons.ru shop.bigairballoons.ru www.bigairballoons.ru
 
   # in Rails.root, path to private key
   private_key: 'key/keyfile.pem'

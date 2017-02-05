@@ -16,8 +16,9 @@ body {
   vertical-align: middle;
 }
 
-.thumbnail {
-  min-height: 460px;
+.thumbnail > a {
+  height: 300px;
+  display: block;
 }
 #flash {
   position: fixed;

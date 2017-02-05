@@ -42,7 +42,7 @@ $(document).on('click','.resp-menu  .dropdown li', function(){
 
 $(document).ready(function(){
 
-  $('input[name="search"]').on('keyup', function(e){
+  $('input[name="search"]').on('keyup', function(event){
     var search = $(this).val();
     var key = event.which || event.keyCode || event.charCode;
     if(search == ''){

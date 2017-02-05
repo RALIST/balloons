@@ -6,5 +6,5 @@ Disallow: /admin
 Disallow: /cart
 Disallow: /orders
 Disallow: /thank_you
-Host: https://bigirballoons.ru
+Host: https://bigairballoons.ru
 Sitemap: https://bigairballoons.ru/sitemap.xml.gz

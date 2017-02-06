@@ -57,13 +57,7 @@ $(document).ready(function(){
     $('.modal div').show();
   });
 
-  $('#subposition_quantity').keypress(function (e) {
-    if (e.which == 13) {
-      $(this).blur();
-      $(this).closest('form').submit();
-      return false;
-    }
-  });
+
   $('[data-mask]').each(function(index, value){
     element = $(value)
     element.mask($(value).data('mask'), {placeholder: '-'})
@@ -77,6 +71,16 @@ $(document).ready(function(){
 
 
 });
+
+$(document).on('keyup','#subposition_quantity', function (e) {
+  var input = this;
+  setTimeout(function(){
+    if ($(input).val()){
+      $(input).closest('form').submit();
+    }
+  }, 500)
+  return false;
+  });
 
 $(document).on('mouseenter touchstart', '[data-item-id]', function(){
   $('[data-item-id] a, [data-item-id] span').each(function(index, value){

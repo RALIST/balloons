@@ -40,8 +40,6 @@ class Delivery::SubpositionsController < Delivery::DeliveryController
     @subposition = Subposition.find(params[:id])
     if params[:subposition][:quantity].to_i > 0
       @subposition.update(sub_params)
-    else
-      @subposition.destroy
     end
     respond_to do |format|
       format.html

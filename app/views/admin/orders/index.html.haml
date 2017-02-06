@@ -1,26 +1,28 @@
 .container
+  %h2 Заказы
   .row.border-bot
-    .col-md-1
+    .col-md-1.col-xs-1
       №
-    .col-md-3
+    .col-md-3.col-xs-6
       Заказчик
-    .col-md-2
+    .col-md-2.hidden-xs
       Сумма
-    .col-md-2
+    .col-md-2.col-xs-3
       Дата заказа
   - @orders.order(:order_date).each do |order|
     .row
-      .col-md-1
+      .col-md-1.col-xs-1
         %strong
           = order.id
-      .col-md-3
-        = order.name
-        |
+      .col-md-3.col-xs-6
+        %span.hidden-xs
+          = order.name
+          |
         = order.phone
-      .col-md-2
+      .col-md-2.hidden-xs
         = order.total.round(2)
-      .col-md-2
+      .col-md-2.col-xs-4
         = Russian::strftime(order.order_date.in_time_zone, ' %d %B в %H:%M')
-      .col-md-2
+      .col-md-2.col-xs-1
         = link_to 'Подробнее', admin_order_path(order)
 

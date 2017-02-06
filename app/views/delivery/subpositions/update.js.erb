@@ -2,10 +2,9 @@ $(document).on('ajaxSuccess', function(){
   <% unless @subposition.destroyed? %>
     $(" #edit_subposition_<%= @subposition.id %> #subposition_quantity").val('<%= @subposition.quantity %>').blur();
   <% else %>
-    $('#sub-<%= @subposition.id %>').hide();
+    $('#<%= @subposition.id %>').hide();
   <% end %>
   $('.subtotal').html('<%= j(render "delivery/carts/subtotal") %>');
   $('#menu').html('<%= j(render "delivery/layouts/main_menu") %>');
-  $('#flash').html('<div class="alert alert-success alert-dismissible fade in text-center"> Количество изменено! <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> </div>')
 });
 

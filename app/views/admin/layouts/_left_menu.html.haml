@@ -1,24 +1,24 @@
-.left-menu.bg-brand.col-md-2.toggled
+.left-menu.bg-brand.toggled
   %ul.nav.nav-pills.nav-stacked
     .nav-header
       123
     %li
       = link_to admin_users_path do
         %i.fa.fa-user
-        %span Пользователи
+        %span.hidden-xs Пользователи
     %li
       = link_to admin_items_path do
         %i.fa.fa-user
-        %span Товары
+        %span.hidden-xs Товары
     %li
       = link_to admin_compositions_path do
         %i.fa.fa-user
-        %span Композиции
+        %span.hidden-xs Композиции
     %li
       = link_to admin_orders_path do
         %i.fa.fa-user
-        %span Заказы
+        %span.hidden-xs Заказы
     %li
       = link_to new_admin_price_path do
-        %span Загрузить прайс
+        %span.hidden-xs Загрузить прайс
 

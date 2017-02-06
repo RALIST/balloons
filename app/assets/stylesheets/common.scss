@@ -28,6 +28,18 @@ body {
   font-size: 1.2em;
   font-family: $font-family-serif;
 }
+.nav-pills > li > a {
+  font-weight: 700;
+}
+
+.bg-brand > ul > li > a {
+  color: #ffffff;
+}
+
+.bg-brand > div > ul > li > a {
+  color: #ffffff;
+}
+
 .nav-pills>li>a:hover{
   color: #ffffff;
 }
@@ -100,15 +112,18 @@ form#new_order {
   background-color: $brand-primary;
   color: #ffffff;
   text-decoration: none;
-  a {
+  .h5 > a {
     color: #ffffff;
-    &:hover {
-      color: #ffffff;
-    }
-    &:visited {
-      color: #ffffff;
-    }
+    font-weight: 700;
   }
+}
+
+.bg-brand > a {
+  color: #ffffff;
+  &:hover, &:focus {
+    color: #ffffff;
+  }
+
 }
 
 .bg-secondary {

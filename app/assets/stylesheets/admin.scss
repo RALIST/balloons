@@ -2,7 +2,10 @@
   padding-top: 5%;
 }
 
-
+.left-menu{
+  @include make-xs-column(2);
+  @include make-md-column(2);
+}
 .left-menu {
   min-height: 100%;
   position: absolute;
@@ -19,7 +22,9 @@
 }
 
 .left-menu.toggled + .container {
-  padding-left: 200px;
+  @include make-md-column-offset(2);
+  @include make-xs-column-offset(2);
+  padding-left: 40px;
 }
 
 .top-menu {

@@ -1,11 +1,11 @@
 .top-menu.bg-brand
-  .col-md-2{style: 'padding-right: 0;'}
+  .col-md-2.col-xs-2{style: 'padding-right: 0;'}
     %ul.nav.nav-pills
       %li
         = link_to '#', id: 'admin-collapse' do
           %i.fa.fa-bars{style: 'aria-hidden="true"'}
-  .col-md-6
-  .col-md-4
+  .col-md-6.hidden-xs
+  .col-md-4.col-xs-10
     %ul.nav.nav-pills
       %li
         = link_to 'Доставка', root_url(subdomain: false)

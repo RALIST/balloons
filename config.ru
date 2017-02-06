@@ -2,5 +2,7 @@
 
 require_relative 'config/environment'
 
-use Rack::CanonicalHost, 'bigairballoons.ru', ignore: ['shop.bigairballoons.ru']
+if ENV['CANONICAL_HOST']
+  use Rack::CanonicalHost, ENV['CANONICAL_HOST'], ignore: ['shop.bigairballoons.ru']
+end
 run Rails.application

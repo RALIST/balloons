@@ -7,9 +7,6 @@
     .collapse#availible
       = render @compositions
 
-
-  .clearfix
-
   - if @compositions_without_items.any?
     .row
       %h2{data: {toggle: 'collapse', target: '#without_items'}, style: 'cursor: pointer;'}
@@ -18,7 +15,6 @@
         %small Нет ни одного товара в композиции
       .collapse#without_items
         = render @compositions_without_items
-
 
   - if @compositions_without_price.any?
     .row
@@ -37,5 +33,5 @@
         %smallНе указан "повод" или "кому"
       .collapse#without_tags
         = render @compositions_without_tags
-  .clearfix
-  =link_to 'Добавить композицию', new_admin_composition_path, class: 'btn btn-primary'
+  .row
+    =link_to 'Добавить композицию', new_admin_composition_path, class: 'btn btn-info'

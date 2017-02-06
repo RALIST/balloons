@@ -3,15 +3,18 @@
 }
 
 .left-menu{
-  @include make-xs-column(2);
+  @include make-xs-column(1);
   @include make-md-column(2);
+  @include make-sm-column(1);
 }
 .left-menu {
   min-height: 100%;
   position: absolute;
   z-index: 998;
+  padding: 0px;
   ul {
     list-style-type: none;
+    text-align: center;
   }
   .nav-header {
     min-height: 100px;
@@ -23,7 +26,8 @@
 
 .left-menu.toggled + .container {
   @include make-md-column-offset(2);
-  @include make-xs-column-offset(2);
+  @include make-xs-column-offset(1);
+  @include make-sm-column-offset(2);
   padding-left: 40px;
 }
 

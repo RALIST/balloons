@@ -16,6 +16,9 @@ body {
   vertical-align: middle;
 }
 
+li > h3, h4 {
+  font-weight: 700;
+}
 
 .thumbnail .small {
   color: darken($brand-secondary, 10%);
@@ -182,7 +185,7 @@ form#new_order {
   height: 100%;
   overflow: scroll;
   z-index: 998;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.85);
   color: white;
   a {
     color: white;

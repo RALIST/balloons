@@ -24,7 +24,7 @@ class Delivery::MainController < Delivery::DeliveryController
   end
 
   def price
-    @compositions = Composition.availible.price_range(params[:min], params[:max])
+    @compositions = Composition.availible.price_range(params[:min].to_i - 100, params[:max].to_i + 100)
     if @compositions.any?
       @compositions
     else

@@ -1,11 +1,13 @@
-.col-md-3
-  .thumbnail
-    .row
-      .col-md-6
-        =link_to admin_composition_path(composition) do
-          =image_tag composition.img.url(:small), class: 'img-responsive', style: 'height: 100%; object-fit: contain;'
-      .col-md-6
-        ID:
-        = composition.id
-        %br
-        = link_to 'Удалить', admin_delete_composition_path(composition), method: :put
+.col-md-10
+  .row
+    .col-md-3
+      .thumbnail
+        .row
+          .col-md-6
+            =link_to admin_composition_path(composition) do
+              =image_tag composition.img.url(:small), class: 'img-responsive', style: 'height: 100%; object-fit: contain;'
+          .col-md-6
+            ID:
+            = composition.id
+            %br
+            = link_to 'Удалить', admin_delete_composition_path(composition), method: :put

@@ -15,7 +15,7 @@ class Item < ApplicationRecord
   attr_reader :img_remote_url
   attr_accessor :select_collection, :text_collection
 
-  scope :search, -> (query) { where("made_by LIKE ? OR item_type LIKE ? OR collection LIKE ?", query, query, query )}
+  scope :search, -> (query) { where("made_by LIKE ? OR item_type LIKE ? OR collection LIKE ? OR name LIKE ?", "%#{query}%", "%#{query}%", "%#{query}%", "%#{query}%" )}
   scope :with_price, -> { where.not(price_with_helium: nil) }
   scope :without_collection, -> { where(collection: nil) }
   scope :without_img, -> { where(img_file_name: nil) }

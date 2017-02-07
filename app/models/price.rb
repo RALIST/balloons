@@ -18,9 +18,9 @@ private
     start_row = 2
     count = 1
     (start_row..xls.last_row).each do |row|
-        Item.find_or_create_by(name: xls.cell(row, 'B').strip.downcase) do |item|
+        Item.create(name: xls.cell(row, 'B').strip.downcase) do |item|
           item.barcode =            xls.cell(row, 'A')
-          item.name =               xls.cell(row, 'B').strip
+          item.name =               xls.cell(row, 'B').strip.downcase
           item.made_by =            xls.cell(row, 'C')
           item.item_type =          xls.cell(row, 'D')
           item.price =              xls.cell(row, 'E')

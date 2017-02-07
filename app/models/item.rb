@@ -42,6 +42,14 @@ class Item < ApplicationRecord
     end
   end
 
+  def self.destroy_duplicates
+    grouped = all.group_by{|item| [item.name, item.barcode]}
+    grouped.values.each do |duplicates|
+      first = duplicates.shift
+      duplicates.each{|double| double.destroy}
+    end
+  end
+
 
   private
   def sanitize_params

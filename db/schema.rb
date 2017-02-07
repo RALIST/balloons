@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170205101117) do
+ActiveRecord::Schema.define(version: 20170207103735) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 20170205101117) do
     t.boolean  "availible_in_comps", default: false
     t.string   "size"
     t.float    "quantity",           default: 0.0
+    t.string   "code"
   end
 
   create_table "items_in_compositions", force: :cascade do |t|

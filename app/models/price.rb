@@ -18,20 +18,20 @@ private
     start_row = 2
     count = 1
     (start_row..xls.last_row).each do |row|
-        Item.create(name: xls.cell(row, 'B').strip.downcase) do |item|
-          item.barcode =            xls.cell(row, 'A')
-          item.name =               xls.cell(row, 'B').strip.downcase
-          item.made_by =            xls.cell(row, 'C')
-          item.item_type =          xls.cell(row, 'D')
-          item.price =              xls.cell(row, 'E')
-          item.size =               xls.cell(row, 'H')
-          item.color =              xls.cell(row, 'I')
-          item.collection =         xls.cell(row, 'J')
-          item.quantity =           xls.cell(row, 'K')
-          item.price_with_helium =  xls.cell(row, 'L')
-          item.availible_in_comps = xls.cell(row, 'M')
-          item.img =                xls.cell(row, 'N')
-        end
+      begin
+        item = Item.find_by!(name: xls.cell(row, 'B').strip.downcase)
+        item.update(barcode: xls.cell(row, 'C')) if item.barcode.blank? && !xls.cell(row, 'C').blank?
+        item.update(code: xls.cell(row, 'D'))
+        # if item.code.blank? && !xls.cell(row, 'N').blank?
+        item.update(price: xls.cell(row, 'E')) if !xls.cell(row, 'E').blank?
+      rescue ActiveRecord::RecordNotFound
+        Item.create(
+          barcode:            xls.cell(row, 'C'),
+          name:               xls.cell(row, 'B').strip.downcase,
+          code:               xls.cell(row, 'D'),
+          price:              xls.cell(row, 'E')
+          )
       end
     end
+  end
 end

@@ -37,6 +37,7 @@
                 = link_to collection.capitalize, admin_items_path(query: collection)
 
       = link_to 'Добавить товар', new_admin_item_path, class: 'btn btn-info'
+      = link_to 'Загрузить картинки', admin_get_images_path, class: 'btn btn-info'
       .row
         %h2{data: {toggle: 'collapse', target: '#items'}, style: 'cursor: pointer;'}
           Все товары

@@ -8,8 +8,8 @@ class Item < ApplicationRecord
   before_validation :set_collection
   before_save :sanitize_params
 
-  validates :name, presence: true
-  has_attached_file :img, styles: {small: 'x100', thumb: 'x300', large: '1080x1080'}
+  validates :name, presence: true, uniqueness: true
+  has_attached_file :img, styles: {small: 'x100', thumb: 'x300'}
   validates_attachment_content_type :img,
                         content_type: ["image/jpeg", "image/jpg", "image/png"]
   attr_reader :img_remote_url
@@ -22,9 +22,9 @@ class Item < ApplicationRecord
   scope :without_barcode, -> { where(barcode: nil) }
   scope :comp_availible, -> { where(availible_in_comps: true) }
 
-  def img_remote_url=(url_value)
-    self.img = URI.parse(url_value)
-    @img_remote_url = url_value
+  def img_remote_url=(url)
+    self.img = URI.parse(url)
+    @img_remote_url = url
   end
 
   def set_collection
@@ -50,6 +50,17 @@ class Item < ApplicationRecord
     end
   end
 
+  def self.get_images
+    Item.all.where(img_file_name: nil).each do |item|
+      begin
+        item.img_remote_url = "http://sharik.ru/images/elements_big/#{item.code}_m1.jpg" unless item.code.blank?
+        item.save
+      rescue URI::InvalidURIError
+        item.update_attribute(:code, nil)
+        next
+      end
+    end
+  end
 
   private
   def sanitize_params

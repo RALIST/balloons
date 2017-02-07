@@ -56,6 +56,12 @@ class Admin::ItemsController < Admin::AdminController
     @items_without_img = Item.without_img
   end
 
+  def get_images
+    if Item.get_images
+      redirect_to admin_items_path
+    end
+  end
+
   private
   def item_params
     params.require(:item).permit(:name, :desc, :img, :price, :price_with_helium,

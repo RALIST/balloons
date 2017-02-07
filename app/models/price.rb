@@ -14,7 +14,7 @@ class Price < ApplicationRecord
 private
 
   def upload_price
-    xls = Roo::Spreadsheet.open(open('https:' + self.price_sheet.url(:original, false)), extension: :xlsm)
+    xls = Roo::Spreadsheet.open(open('https:' + self.price_sheet.url(:original, false)), extension: :xls)
     start_row = 2
     count = 1
     (start_row..xls.last_row).each do |row|
@@ -25,12 +25,13 @@ private
         # if item.code.blank? && !xls.cell(row, 'N').blank?
         item.update(price: xls.cell(row, 'E')) if !xls.cell(row, 'E').blank?
       rescue ActiveRecord::RecordNotFound
-        Item.create(
-          barcode:            xls.cell(row, 'C'),
-          name:               xls.cell(row, 'B').strip.downcase,
-          code:               xls.cell(row, 'D'),
-          price:              xls.cell(row, 'E')
-          )
+        # Item.create(
+        #   barcode:            xls.cell(row, 'C'),
+        #   name:               xls.cell(row, 'B').strip.downcase,
+        #   code:               xls.cell(row, 'D'),
+        #   price:              xls.cell(row, 'E')
+        #   )
+        next
       end
     end
   end

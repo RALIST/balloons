@@ -14,7 +14,7 @@ class Price < ApplicationRecord
 private
 
   def upload_price
-    xls = Roo::Spreadsheet.open(open('https:' + self.price_sheet.url(:original, false)), extension: :xls)
+    xls = Roo::Spreadsheet.open(open('https:' + self.price_sheet.url(:original, false)), extension: :xlsm)
     start_row = 2
     count = 1
     (start_row..xls.last_row).each do |row|

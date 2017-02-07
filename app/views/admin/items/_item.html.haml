@@ -7,9 +7,8 @@
       .col-md-7
         = link_to item.name.capitalize, admin_item_path(item)
         %br
-        Минимальная партия:
-        = item.min_order
-        = item.quantity_type
+        Штрихкод:
+        = item.barcode
         %br
         Производитель:
         = item.made_by

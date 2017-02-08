@@ -2,9 +2,11 @@
 #
 # To ban all spiders from the entire site uncomment the next two lines:
 User-Agent: *
-Disallow: /admin
+Disallow: /admin/
+Disallow: /tmp/
+Disallow: /public/
 Disallow: /cart
-Disallow: /orders
+Disallow: /orders/
 Disallow: /thank_you
 Host: https://bigairballoons.ru
 Sitemap: https://bigairballoons.ru/sitemap.xml.gz

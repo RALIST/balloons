@@ -1,0 +1,14 @@
+
+$(document).on('ready', function(){
+  $('[data-toggle="tooltip"]').tooltip();
+});
+
+$(document).on('click', '#toggle-search-bar', function(){
+  $('.search-bar').toggle('drop').toggleClass('toggled');
+});
+
+$(document).on('ready', function(){
+  $('#size-slider').slider();
+});
+
+

@@ -1,0 +1,154 @@
+// <---------- Header ---------->
+.top-bar {
+  @include make-row(1);
+  margin-top: 10px;
+  .top-bar-left {
+    @include make-md-column(6);
+    text-align: left;
+  }
+  .top-bar-middle {
+    @include make-md-column(4);
+    text-align: center;
+  }
+
+  .top-bar-right {
+    @include make-md-column(2);
+    text-align: right;
+  }
+}
+
+
+
+.middle-bar {
+  @include make-row(1);
+  margin-top: 20px;
+  .logo-shop {
+    @include make-md-column(6);
+  }
+  .contacts {
+    @include make-md-column(4);
+    @include make-md-column-offset(2);
+    font-size: 1.1em;
+  }
+}
+
+.menu-bar {
+  margin-top: 10px;
+  @include make-row(2);
+  .search {
+    @include make-md-column(12);
+    form {
+      width: 80%;
+      margin: auto;
+      padding: 4px 0;
+      button {
+        border: 0;
+        background-color: transparent;
+        padding: 0;
+      }
+    }
+  }
+  .menu-options {
+    @include make-md-column(12);
+  }
+}
+
+#toggle-search-bar{
+  cursor: pointer;
+}
+
+
+// <------------ Main ----------->
+
+.info-header {
+  @include make-md-column(12);
+  @include make-row(1);
+  .search-header {
+    @include make-md-column(2);
+  }
+  .main-content-header {
+    @include make-md-column(10)
+  }
+}
+.search-bar {
+  @include make-md-column(2);
+  height: 100%;
+  position: absolute;
+  display: none;
+  ul > li {
+    color: $brand-primary;
+    font-weight: 400;
+    ul#colors {
+      padding: 4px;
+      margin: auto;
+      li {
+        width: 25px;
+        height: 25px;
+        border-radius: 4px;
+        border: 1px solid #000;
+      }
+    }
+  }
+
+  #size-slider {
+    height: 50px;
+  }
+
+// <--------- colors picker ----------->
+.black{
+  background-color: #000000;
+}
+.white{
+  background-color: #FFFFFF;
+}
+.red{
+  background-color: #FF0000;
+}
+.orange{
+  background-color: #FF4500;
+}
+.yellow{
+  background-color: #FFD700;
+}
+.green{
+  background-color: #228B22;
+}
+.blue{
+  background-color: #00BFFF;
+}
+.dark-blue{
+  background-color: #00008B;
+}
+.violet{
+  background-color: #9400D3;
+}
+.fuchia{
+  background-color: #FF1493;
+}
+.pink{
+  background-color: #FFC0CB;
+}
+.brown{
+  background-color: #A0522D;
+}
+.grey{
+  background-color: #808080;
+}
+.golden{
+  background-color: #DAA520;
+}
+.silver{
+  background-color: #C0C0C0;
+}
+
+}
+.main-content {
+  @include make-md-column(12);
+  transition: 800ms;
+}
+
+.search-bar.toggled + .main-content {
+  @include make-md-column(10);
+  @include make-md-column-offset(2);
+  transition: 500ms;
+}

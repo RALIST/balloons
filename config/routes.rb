@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       resources :orders
       resources :positions
       resources :compositions
+      get '/find', to: 'main#search', as: :find
     end
   end
 

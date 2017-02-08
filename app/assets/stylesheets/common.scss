@@ -221,7 +221,7 @@ form#new_order {
     color: white;
   }
   &:hover {
-    background-color: $brand-secondary;
+    background-color: darken($brand-secondary, 10);
   }
 }
 

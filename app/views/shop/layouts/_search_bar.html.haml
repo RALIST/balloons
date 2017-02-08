@@ -1,0 +1,69 @@
+.row
+  .info-header
+    .row
+      .search-header
+        %h3#toggle-search-bar
+          %span
+            %i.fa.fa-bars
+          Категории
+      .main-content-header
+.row
+  .search-bar
+    .thumbnail
+      %ul.list-unstyled
+        %li.border-bot
+          Цвета
+          %ul.list-unstyled.list-inline#colors
+            %li.black{data:{toggle: 'tooltip'}, title: 'чёрный'}
+            %li.white{data:{toggle: 'tooltip'}, title: 'белый'}
+            %li.red{data:{toggle: 'tooltip'}, title: 'красный'}
+            %li.orange{data:{toggle: 'tooltip'}, title: 'оранжевый'}
+            %li.yellow{data:{toggle: 'tooltip'}, title: 'желтый'}
+            %li.green{data:{toggle: 'tooltip'}, title: 'зеленый'}
+            %li.blue{data:{toggle: 'tooltip'}, title: 'голубой'}
+            %li.dark-blue{data:{toggle: 'tooltip'}, title: 'синий'}
+            %li.violet{data:{toggle: 'tooltip'}, title: 'фиолетовый'}
+            %li.fuchia{data:{toggle: 'tooltip'}, title: 'фуксия'}
+            %li.pink{data:{toggle: 'tooltip'}, title: 'розовый'}
+            %li.brown{data:{toggle: 'tooltip'}, title: 'коричневый'}
+            %li.grey{data:{toggle: 'tooltip'}, title: 'серый'}
+            %li.golden{data:{toggle: 'tooltip'}, title: 'золотой'}
+            %li.silver{data:{toggle: 'tooltip'}, title: 'серебряный'}
+        %li.border-bot
+          Фактура
+          %ul.list-unstyled
+            %li.checkbox
+              %label
+                = check_box_tag :color
+                Пастель
+            %li.checkbox
+              %label
+                = check_box_tag :color
+                Металлик
+            %li.checkbox
+              %label
+                = check_box_tag :color
+                Кристал
+            %li.checkbox
+              %label
+                = check_box_tag :color
+                Перламутр
+            %li.checkbox
+              %label
+                = check_box_tag :color
+                Неон
+        %li
+          Размеры
+          %div
+
+        %li Форма
+        %li Коллекция
+        %li Праздник
+        %li Производитель
+      = link_to '', class: 'btn btn-info btn-block' do
+        Показать
+        %i.fa.fa-search
+      .text-center
+        = link_to 'Сбросить'
+  .main-content
+    = yield

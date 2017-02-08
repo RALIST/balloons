@@ -17,7 +17,7 @@ private
     xls = Roo::Spreadsheet.open(open('https:' + self.price_sheet.url(:original, false)), extension: :xlsm)
     start_row = 2
     count = 1
-    (start_row..xls.last_row).each do |row|
+    (start_row..xls.last_row).find_each(batch_size: 500) do |row|
       begin
         item = Item.find_by!(name: xls.cell(row, 'B').strip.downcase)
         item.update(barcode: xls.cell(row, 'C')) if item.barcode.blank? && !xls.cell(row, 'C').blank?

@@ -51,7 +51,7 @@ class Item < ApplicationRecord
   end
 
   def self.get_images
-    Item.all.where(img_file_name: nil).each do |item|
+    Item.where(img_file_name: nil).find_each(batch_size: 500) do |item|
       begin
         item.img_remote_url = "http://sharik.ru/images/elements_big/#{item.code}_m1.jpg" unless item.code.blank?
         item.save

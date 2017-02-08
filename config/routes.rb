@@ -62,5 +62,9 @@ Rails.application.routes.draw do
     get '/account', to: 'users#show',  as: :account
     get '/for', to: 'main#for', as: :with_receivers
     get '/thank_you', to: 'main#thanks', as: :thanks
+    constraints(format: /[a-z]+(\.[a-z]+)?/) do
+      resources :sitemaps, only: :show
+      get '/sitemap.:format' => 'sitemaps#show'
+    end
   end
 end

@@ -57,6 +57,7 @@ li > h3, h4 {
 .display-table {
   display: table;
   table-layout: fixed;
+  border-collapse: separate;
 }
 
 .display-cell {

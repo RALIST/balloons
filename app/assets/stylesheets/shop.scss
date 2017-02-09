@@ -273,33 +273,60 @@
 
 
 // <--------------------- main --------------------------->
+.thumbnail > .row#items {
+  display: -webkit-flexbox;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
 
 .item {
   @include make-lg-column(6);
   @include make-md-column(6);
   @include make-xs-column(12);
+  label {
+    font-size: 12px;
+  }
 
   .item-img {
     @include make-lg-column(4);
-    @include make-md-column(4);
+    @include make-md-column(3);
     @include make-xs-column(4);
-
+    padding-right: 0;
   }
   .item-info {
-    @include make-lg-column(5);
-    @include make-md-column(5);
+    @include make-lg-column(8);
+    @include make-md-column(9);
     @include make-xs-column(8);
-  }
-  .item-to-cart {
-    @include make-lg-column(3);
-    @include make-md-column(3);
-    // @include make-xs-column(10);
-    // @include make-xs-column-offset(1);
-    .input-group{
+    .item-to-cart {
+      @include make-lg-column(12);
       @include make-md-column(12);
-      .input-group-addon {
-        padding: 6px 8px;
+      // @include make-xs-column(10);
+      // @include make-xs-column-offset(1);
+      .input-group{
+        @include make-md-column(12);
+        .input-group-addon {
+          padding: 4px 6px;
+        }
+      }
+      .item-size, .item-size-label {
+        @include make-md-column(2);
+        padding-right: 0;
+        select {
+          padding: 0;
+        }
+      }
+      .item-price, .item-price-label {
+        @include make-md-column(6)
+      }
+      .item-count, .item-count-label {
+        @include make-md-column(4)
       }
     }
   }
 }
+

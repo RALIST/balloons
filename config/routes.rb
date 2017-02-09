@@ -1,20 +1,26 @@
+require 'ShopSubdomain'
+require 'NoneSubdomain'
+
 Rails.application.routes.draw do
   if Rails.env == 'production'
     mount LetsencryptPlugin::Engine, at: '/'
   end
+
   match "/404", to: "errors#not_found", :via => :all
   match "/500", to: "errors#internal_server_error", :via => :all
 
-  scope module: 'shop', constraints: {subdomain: 'shop'} do
-    root 'main#index'
-    resources :users
-    resources :items
-    resources :carts
-    resources :orders
-    resources :positions
-    resources :compositions
-    get '/find', to: 'main#search', as: :find
-  end
+    constraints ShopSubdomain do
+      scope module: 'shop' do
+        root 'main#index'
+        resources :users
+        resources :items
+        resources :carts
+        resources :orders
+        resources :positions
+        resources :compositions
+        get '/find', to: 'main#search', as: :find
+      end
+    end
 
   namespace :admin, module: 'admin' do
     root 'main#index'
@@ -34,36 +40,37 @@ Rails.application.routes.draw do
     get '/login', to: 'sessions#new', as: :login
     get '/compositions/:id/remove_item', to: 'compositions#remove_item', as: :remove_item
   end
-
-  scope module: 'delivery' do
-    root 'main#index'
-    resources :items,         only: [:index, :show]
-    resources :compositions,  only: [:index, :show]
-    resources :tags,          only: [:index]
-    resources :carts
-    resources :orders
-    resources :positions
-    resources :users
-    resources :sessions
-    resources :subpositions, only: [:edit, :update, :destroy]
-    resources :calls, only: [:new, :create]
-    post '/add_to_cart/:id',        to: 'carts#add_to_cart',            as: :add_to_cart
-    post '/remove_from_cart/:id',   to: 'carts#remove_from_cart',       as: :remove_from_cart
-    post '/add_quantity/:id',       to: 'subpositions#up_quantity',     as: :add_quantity
-    post '/down_quantity/:id',      to: 'subpositions#down_quantity',   as: :down_quantity
-    post '/add_subposition',        to: 'subpositions#add_subposition', as: :add_subposition
-    get '/login',                    to: 'sessions#new',                 as: :login
-    post '/logout' ,                 to:  'sessions#destroy',            as: :logout
-    get '/signin',                   to: 'users#new',                    as: :signin
-    get '/search',                  to: 'main#search',                  as: :search
-    get '/cart',                 to: 'carts#show',                   as: :my_cart
-    get '/price', to: 'main#price',  as: :price_range
-    get '/account', to: 'users#show',  as: :account
-    get '/for', to: 'main#for', as: :with_receivers
-    get '/thank_you', to: 'main#thanks', as: :thanks
-    constraints(format: /[a-z]+(\.[a-z]+)?/) do
-      resources :sitemaps, only: :show
-      get '/sitemap.:format' => 'sitemaps#show'
+  constraints NoneSubdomain do
+    scope module: 'delivery' do
+      root 'main#index'
+      resources :items,         only: [:index, :show]
+      resources :compositions,  only: [:index, :show]
+      resources :tags,          only: [:index]
+      resources :carts
+      resources :orders
+      resources :positions
+      resources :users
+      resources :sessions
+      resources :subpositions, only: [:edit, :update, :destroy]
+      resources :calls, only: [:new, :create]
+      post '/add_to_cart/:id',          to: 'carts#add_to_cart',            as: :add_to_cart
+      post '/remove_from_cart/:id',     to: 'carts#remove_from_cart',       as: :remove_from_cart
+      post '/add_quantity/:id',         to: 'subpositions#up_quantity',     as: :add_quantity
+      post '/down_quantity/:id',        to: 'subpositions#down_quantity',   as: :down_quantity
+      post '/add_subposition',          to: 'subpositions#add_subposition', as: :add_subposition
+      get '/login',                     to: 'sessions#new',                 as: :login
+      post '/logout' ,                  to:  'sessions#destroy',            as: :logout
+      get '/signin',                    to: 'users#new',                    as: :signin
+      get '/search',                    to: 'main#search',                  as: :search
+      get '/cart',                      to: 'carts#show',                   as: :my_cart
+      get '/price',                     to: 'main#price',  as: :price_range
+      get '/account',                   to: 'users#show',  as: :account
+      get '/for',                       to: 'main#for', as: :with_receivers
+      get '/thank_you',                 to: 'main#thanks', as: :thanks
+      constraints(format: /[a-z]+(\.[a-z]+)?/) do
+        resources :sitemaps, only: :show
+        get '/sitemap.:format',  to:  'sitemaps#show'
+      end
     end
   end
 end

@@ -314,17 +314,17 @@
         }
       }
       .item-size, .item-size-label {
-        @include make-md-column(2);
+        @include make-md-column(3);
         padding-right: 0;
         select {
           padding: 0;
         }
       }
       .item-price, .item-price-label {
-        @include make-md-column(6)
+        @include make-md-column(5);
       }
       .item-count, .item-count-label {
-        @include make-md-column(4)
+        @include make-md-column(4);
       }
     }
   }

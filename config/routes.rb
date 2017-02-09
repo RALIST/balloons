@@ -69,7 +69,7 @@ Rails.application.routes.draw do
       get '/thank_you',                 to: 'main#thanks', as: :thanks
       constraints(format: /[a-z]+(\.[a-z]+)?/) do
         resources :sitemaps, only: :show
-        get '/sitemap.:format',  to:  'sitemaps#show'
+        get '/sitemap',  to:  'sitemaps#show'
       end
     end
   end

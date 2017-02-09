@@ -15,16 +15,19 @@
               .row
                 .item-size-label
                   = label_tag :size, 'Размер'
-                .item-price-label
-                  %label Цена
-                  %label В уп.
-                .item-count-label
+                .item-price-label.hidden-xs
+                  .row
+                    .col-md-6
+                      %label Цена
+                    .col-md-6
+                      %label В уп.
+                .item-count-label.hidden-xs
                   = label_tag :count, 'Количество'
               .row
                 .item-size
                   = select_tag :size, options_for_select(['14"', '16"', '18"']), class: 'form-control input-sm'
-                .item-price
-                .item-count
+                .item-price.hidden-xs
+                .item-count.hidden-xs
                   .form-horizontal
                     .form-group
                       .input-group

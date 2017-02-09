@@ -5,17 +5,15 @@ Rails.application.routes.draw do
   match "/404", to: "errors#not_found", :via => :all
   match "/500", to: "errors#internal_server_error", :via => :all
 
-  constraints subdomain: 'shop' do
-    scope module: 'shop' do
-      root 'main#index'
-      resources :users
-      resources :items
-      resources :carts
-      resources :orders
-      resources :positions
-      resources :compositions
-      get '/find', to: 'main#search', as: :find
-    end
+  scope module: 'shop', constraints: {subdomain: 'shop'} do
+    root 'main#index'
+    resources :users
+    resources :items
+    resources :carts
+    resources :orders
+    resources :positions
+    resources :compositions
+    get '/find', to: 'main#search', as: :find
   end
 
   namespace :admin, module: 'admin' do

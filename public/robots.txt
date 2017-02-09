@@ -9,4 +9,4 @@ Disallow: /cart
 Disallow: /orders/
 Disallow: /thank_you
 Host: https://bigairballoons.ru
-Sitemap: http://s3.amazonaws.com/sitemaps/sitemap.xml.gz
+Sitemap: http://s3.amazonaws.com/flashcards123/sitemaps/sitemap.xml.gz

@@ -16,5 +16,6 @@
 //= require jquery_ujs
 //= require jquery.maskedinput
 //= require clockpicker
+//= require jquery.ui.touch-punch
 //= require_tree .
 

@@ -21,6 +21,7 @@ class Item < ApplicationRecord
   scope :without_img, -> { where(img_file_name: nil) }
   scope :without_barcode, -> { where(barcode: nil) }
   scope :comp_availible, -> { where(availible_in_comps: true) }
+  scope :with_img, -> { where.not(img_file_name: nil)}
 
   def img_remote_url=(url)
     self.img = URI.parse(url)

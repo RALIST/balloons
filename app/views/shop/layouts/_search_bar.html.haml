@@ -2,10 +2,10 @@
   .info-header
     .row
       .search-header
-        %h3#toggle-search-bar
+        .btn.btn-info#toggle-search-bar
           %span
-            %i.fa.fa-bars
-          Категории
+            %i.fa.fa-filter
+          Фильтр
       .main-content-header
 .row
   .search-bar
@@ -30,36 +30,46 @@
             %li.golden{data:{toggle: 'tooltip'}, title: 'золотой'}
             %li.silver{data:{toggle: 'tooltip'}, title: 'серебряный'}
         %li.border-bot
-          Фактура
+          Оттенок
           %ul.list-unstyled
             %li.checkbox
-              %label
-                = check_box_tag :color
-                Пастель
+              = check_box_tag :color_past
+              %label{for: 'color_past'}
+                %span Пастель
             %li.checkbox
-              %label
-                = check_box_tag :color
-                Металлик
+              = check_box_tag :color_met
+              %label{for: 'color_met'}
+                %span Металлик
             %li.checkbox
-              %label
-                = check_box_tag :color
-                Кристал
+              = check_box_tag :color_cryst
+              %label{for: 'color_cryst'}
+                %span Кристал
             %li.checkbox
-              %label
-                = check_box_tag :color
-                Перламутр
+              = check_box_tag :color_pearl
+              %label{for: 'color_pearl'}
+                %span Перламутр
             %li.checkbox
-              %label
-                = check_box_tag :color
-                Неон
-        %li
+              = check_box_tag :color_neon
+              %label{for: 'color_neon'}
+                %span Неон
+        %li.border-bot
           Размеры
-          %div
+          .form-inline.display-table.text-center{style: 'padding-top: 10px;'}
+            .display-cell
+              %span От
+              .form-group
+                = number_field_tag :min,'', class: 'form-control input-sm'
+              %span до
+              .form-group
+                = number_field_tag :max,'', class: 'form-control input-sm'
+              %span "
+          .slider#size-slider
 
         %li Форма
         %li Коллекция
         %li Праздник
         %li Производитель
+        %li Акции
       = link_to '', class: 'btn btn-info btn-block' do
         Показать
         %i.fa.fa-search

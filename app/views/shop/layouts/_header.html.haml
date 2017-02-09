@@ -1,49 +1,50 @@
-.container-fluid
-  .container
-    .top-bar
-      .top-bar-left
-        %ul.list-unstyled.list-inline
-          %li= link_to 'О нас'
-          %li= link_to 'Доставка и оплата'
-          %li= link_to 'Помощь'
-          %li= link_to 'Контакты'
-      .top-bar-middle
-      .top-bar-right
-        %ul.list-unstyled.list-inline
-          - if current_user
-            %li= link_to 'Личный кабинет'
-          - else
-            %li= link_to 'Войти'
-            %li= link_to 'Регистрация'
+.container
+  .top-bar.hidden-xs
+    .top-bar-left
+      %ul.list-unstyled.list-inline
+        %li= link_to 'О нас'
+        %li= link_to 'Доставка и оплата'
+        %li= link_to 'Помощь'
+        %li= link_to 'Контакты'
+    .top-bar-middle
+    .top-bar-right
+      %ul.list-unstyled.list-inline
+        - if current_user
+          %li= link_to 'Личный кабинет'
+        - else
+          %li= link_to 'Войти'
+          %li= link_to 'Регистрация'
 
-    .middle-bar.display-table
-      .logo-shop.display-cell
-        = link_to root_path do
-          = image_tag 'logo-shop.png', class: 'img-responsive'
-      .contacts.display-cell.text-right
-        Нужна помощь?
-        %p
-          %strong
-            +7 (3412) 644-204
-            %br
-            %small
-              с 8:00 до 20:00 МСК
-        %p
-          = link_to 'Заказать звонок', '', class: 'btn btn-info'
+  .middle-bar.display-table
+    .logo-shop.display-cell
+      = link_to root_path do
+        = image_tag 'logo-shop.png', class: 'img-responsive'
+    .contacts.display-cell.text-right.hidden-xs
+      Нужна помощь?
+      %p
+        %strong
+          +7 (3412) 644-204
+          %br
+          %small
+            с 8:00 до 20:00 МСК
+      %p
+        = link_to 'Заказать звонок', '', class: 'btn btn-info'
 
-    .menu-bar
-      .search.bg-brand
-        = form_tag find_path, method: :get do
-          .input-group.col-md-12
-            = text_field_tag :q, '',  class: 'form-control', placeholder: 'Найдите любой товар за 1 секунду'
-            %span.input-group-addon
-              = button_tag(type: 'submit', name: nil) do
-                %i.fa.fa-search
-      .menu-options.bg-brand
-        %ul.list-unstyled.list-inline.nav.nav-pills.nav-justified
-          %li= link_to 'Латексные шары'
-          %li= link_to 'Фольгированные шары'
-          %li= link_to 'Аксессуары для шаров'
-          %li= link_to 'Все для праздника'
-          %li= link_to 'Карнавальная продукция'
+  .menu-bar.bg-brand
+    .search
+      = form_tag find_path, method: :get do
+        .input-group
+          = text_field_tag :q, '',  class: 'form-control', placeholder: 'Найдите любой товар за 1 секунду'
+          %span.input-group-addon
+            = button_tag(type: 'submit', name: nil) do
+              %i.fa.fa-search
+      %span.hidden-md.hidden-lg#menu-collapse{data:{toggle: 'collapse', target: '.menu-options'}}
+        %i.fa.fa-bars.fa-lg
+    .menu-options.bg-brand.collapse.navbar-collapse{ style:'border-radius: 0;' ,role: 'navigation' }
+      %ul.list-unstyled.list-inline.nav.nav-pills.nav-justified
+        %li= link_to 'Латексные шары'
+        %li= link_to 'Фольгированные шары'
+        %li= link_to 'Аксессуары для шаров'
+        %li= link_to 'Все для праздника'
+        %li= link_to 'Карнавальная продукция'
 

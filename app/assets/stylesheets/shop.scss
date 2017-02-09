@@ -24,6 +24,7 @@
   margin-top: 20px;
   .logo-shop {
     @include make-md-column(6);
+    @include make-xs-column(12);
   }
   .contacts {
     @include make-md-column(4);
@@ -37,8 +38,15 @@
   @include make-row(2);
   .search {
     @include make-md-column(12);
+    @include make-xs-column(12);
+    #menu-collapse {
+      @include make-xs-column(2);
+      font-size: 2em;
+    }
     form {
-      width: 80%;
+      @include make-md-column(8);
+      @include make-md-column-offset(2);
+      @include make-xs-column(10);
       margin: auto;
       padding: 4px 0;
       button {
@@ -49,7 +57,9 @@
     }
   }
   .menu-options {
+    @include make-row(1);
     @include make-md-column(12);
+    @include make-xs-column(12);
   }
 }
 
@@ -65,6 +75,7 @@
   @include make-row(1);
   .search-header {
     @include make-md-column(2);
+    margin: 10px 0;
   }
   .main-content-header {
     @include make-md-column(10)
@@ -72,12 +83,43 @@
 }
 .search-bar {
   @include make-md-column(2);
+  @include make-xs-column(12);
   height: 100%;
   position: absolute;
   display: none;
+  background-color: #ffffff;
+  z-index: 999;
+  input[type="checkbox"] {
+    display: none;
+  }
+  input[type="checkbox"] ~ label >  span {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  input[type="checkbox"] + label {
+    padding: 0;
+    display: table;
+  }
+  input[type="checkbox"] + label:before {
+    font-family: FontAwesome;
+    display: inline-block;
+    letter-spacing: 10px;
+    font-size: 2em;
+    color: $brand-secondary;
+  }
+  input[type="checkbox"] + label:before {
+    content: '\f204';
+  }
+
+  input[type="checkbox"]:checked + label:before {
+    content: '\f205';
+    color: darken($brand-secondary, 10);
+  }
+
   ul > li {
     color: $brand-primary;
-    font-weight: 400;
+    font-weight: 700;
     ul#colors {
       padding: 4px;
       margin: auto;
@@ -86,13 +128,19 @@
         height: 25px;
         border-radius: 4px;
         border: 1px solid #000;
+        cursor: pointer;
+      }
+    }
+    .form-group {
+      width: 25%;
+      display: inline-block;
+      .form-control {
+        width: 100%;
       }
     }
   }
 
-  #size-slider {
-    height: 50px;
-  }
+
 
 // <--------- colors picker ----------->
 .black{
@@ -143,12 +191,115 @@
 
 }
 .main-content {
+  @include make-lg-column(12);
   @include make-md-column(12);
+  @include make-xs-column(12);
   transition: 800ms;
 }
 
 .search-bar.toggled + .main-content {
+  @include make-lg-column(12);
   @include make-md-column(10);
   @include make-md-column-offset(2);
   transition: 500ms;
+}
+
+
+
+
+
+/* Контейнер слайдера */
+.slider {
+  width: 90%;
+  margin: 10px auto;
+}
+.ui-slider {
+  position: relative;
+}
+/* Ползунок */
+.ui-slider .ui-slider-handle {
+  position: absolute;
+  z-index: 2;
+  width: 16px;   /* Задаем нужную ширину */
+  height: 16px;  /* и высоту */
+  background: $brand-primary no-repeat; /* картинка изображающая ползунок. Или можно залить цветом, задать бордюр и скругления */
+  cursor: pointer
+}
+.ui-slider .ui-slider-range {
+  position: absolute;
+  z-index: 1;
+  font-size: .7em;
+  display: block;
+  border: 0;
+  overflow: hidden;
+}
+/* горизонтальный слайдер (сама полоса по которой бегает ползунок) */
+.ui-slider-horizontal {
+   height: 8px; /* задаем высоту согласно дизайна */
+}
+/* позиционируем ползунки */
+.ui-slider-horizontal .ui-slider-handle {
+  top: -5px;
+  margin-left: -6px;
+}
+.ui-slider-horizontal .ui-slider-range {
+  top: 0;
+  height: 100%;
+}
+.ui-slider-horizontal .ui-slider-range-min {
+  left: 0;
+}
+.ui-slider-horizontal .ui-slider-range-max {
+  right: 0;
+}
+/* оформление полосы по которой ходит ползунок */
+.ui-widget-content {
+  border: 1px solid #D4D4D4;
+  background: lighten($brand-secondary, 10);
+}
+/* оформление активного участка (между двумя ползунками) */
+.ui-widget-header {
+  border: 1px solid darken($brand-secondary, 10);
+  background: #f00;
+}
+/* скругление для полосы слайдера */
+.ui-corner-all {
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+
+
+
+
+// <--------------------- main --------------------------->
+
+.item {
+  @include make-lg-column(6);
+  @include make-md-column(6);
+  @include make-xs-column(12);
+
+  .item-img {
+    @include make-lg-column(4);
+    @include make-md-column(4);
+    @include make-xs-column(4);
+
+  }
+  .item-info {
+    @include make-lg-column(5);
+    @include make-md-column(5);
+    @include make-xs-column(8);
+  }
+  .item-to-cart {
+    @include make-lg-column(3);
+    @include make-md-column(3);
+    // @include make-xs-column(10);
+    // @include make-xs-column-offset(1);
+    .input-group{
+      @include make-md-column(12);
+      .input-group-addon {
+        padding: 6px 8px;
+      }
+    }
+  }
 }

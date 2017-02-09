@@ -1,5 +1,29 @@
-%h3
-  Лучшие товары!
-%div#size-slider
+- Item.with_img.each do |item|
+  .item
+    .thumbnail
+      .row
+        .item-img
+          = image_tag item.img.url(:small), class: 'img-responsive'
+        .item-info
+          %label
+            =link_to item.name.capitalize, admin_item_path(item)
+          %br
+          %small
+            = item.price
+            руб. за штуку
+          = item.made_by.upcase unless item.made_by.blank?
+        .item-to-cart.hidden-xs
+          %strong
+            = item.price * 50 if item.price
+            руб. за уп.
+          .form-horizontal
+            .form-group
+              .input-group
+                .input-group-addon
+                  %i.fa.fa-plus
+                = number_field_tag :count, '', class: 'form-control input-sm text-center'
+                .input-group-addon
+                  %i.fa.fa-minus
+
 
 

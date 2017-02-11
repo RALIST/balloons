@@ -4,6 +4,7 @@ class Item < ApplicationRecord
   has_many :tags, as: :taggable, dependent: :destroy
   has_many :positions, through: :subpositions, dependent: :delete_all
   has_many :subpositions, dependent: :delete_all
+  belongs_to :vendor
 
   before_validation :set_collection
   before_save :sanitize_params
@@ -57,7 +58,6 @@ class Item < ApplicationRecord
         item.img_remote_url = "http://sharik.ru/images/elements_big/#{item.code}_m1.jpg" unless item.code.blank?
         item.save
       rescue URI::InvalidURIError
-        item.update_attribute(:code, nil)
         next
       end
     end

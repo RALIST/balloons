@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170207103735) do
+ActiveRecord::Schema.define(version: 20170210091856) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,8 @@ ActiveRecord::Schema.define(version: 20170207103735) do
     t.string   "size"
     t.float    "quantity",           default: 0.0
     t.string   "code"
+    t.integer  "vendor_id"
+    t.index ["vendor_id"], name: "index_items_on_vendor_id", using: :btree
   end
 
   create_table "items_in_compositions", force: :cascade do |t|
@@ -182,7 +184,20 @@ ActiveRecord::Schema.define(version: 20170207103735) do
     t.index ["remember_me_token"], name: "index_users_on_remember_me_token", using: :btree
   end
 
+  create_table "vendors", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "country"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
   add_foreign_key "carts", "users"
+  add_foreign_key "items", "vendors"
   add_foreign_key "items_in_compositions", "compositions"
   add_foreign_key "items_in_compositions", "items"
   add_foreign_key "orders", "users"

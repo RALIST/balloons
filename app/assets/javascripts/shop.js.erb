@@ -3,7 +3,7 @@ $(document).on('ready', function(){
   $('[data-toggle="tooltip"]').tooltip();
 });
 
-$(document).on('click', '#toggle-search-bar', function(){
+$(document).on('click touch', '#toggle-search-bar, #close-bar', function(){
   $('.search-bar').toggle('drop').toggleClass('toggled');
 });
 

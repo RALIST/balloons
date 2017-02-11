@@ -6,10 +6,12 @@
           = link_to item_path(item) do
             = image_tag item.img.url(:small), class: 'img-responsive'
         .item-info
-          %label
-            =link_to item.name.capitalize, item_path(item)
-          %span.made.text-right
-            = item.made_by.upcase unless item.made_by.blank?
+          .row
+            .item-name
+              %label
+                =link_to item.name.capitalize, item_path(item)
+            .item-vendor
+              = item.made_by.upcase unless item.made_by.blank?
           .row
             .item-to-cart
               .row
@@ -36,6 +38,8 @@
                         = number_field_tag :count, '', class: 'form-control input-sm text-center'
                         .input-group-addon
                           %i.fa.fa-minus
-
+          .row
+            .cart-button
+              = link_to 'В корзину', '', class: 'btn btn-info btn-block'
 
 

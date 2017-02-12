@@ -1,4 +1,4 @@
-class Foil < item
+class Foil < Item
   default_scope -> { where(type_id: 2)}
   before_save :set_type
 

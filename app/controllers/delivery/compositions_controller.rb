@@ -7,7 +7,11 @@ class Delivery::CompositionsController < Delivery::DeliveryController
   end
 
   def show
-    @comp = Composition.find(params[:id])
+  @comp = Composition.find(params[:id])
+  tags = @comp.tags.map(&:name)
+  set_meta_tags title: "Композиция № #{@comp.id}",
+                reverse: true,
+                description: "Композиция из воздушных шаров на #{tags.join(', ')}"
   end
 
 end

@@ -1,45 +1,61 @@
 .container
+  .row.border-bot
+    .col-md-12
+      Поиск
+      = form_tag admin_items_path, method: :get do
+        .form-group
+          = text_field_tag :query, '', class: 'form-control'
+        .form-group
+          = submit_tag 'Найти', class: 'btn btn-info'
+  .row.border-bot
+    .col-md-12
+      %h5 Цвета
+      - Color.all.each do |color|
+        = color.name
+      %p
+        = link_to 'Добавить цвет', new_admin_color_path, class: 'btn btn-info btn-sm'
+  .row.border-bot
+    .col-md-12
+      %h5 Тип продукции
+      - Type.all.each do |type|
+        = type.name
+      %p
+        = link_to 'Добавить тип', new_admin_type_path, class: 'btn btn-info btn-sm'
+  .row.border-bot
+    .col-md-12
+      %h5 Текстура
+      - Texture.all.each do |texture|
+        = texture.name
+      %p
+        = link_to 'Добавить текстуру', new_admin_texture_path, class: 'btn btn-info btn-sm'
+  .row.border-bot
+    .col-md-12
+      %h5 Оттенок
+      - Tone.all.each do |tone|
+        = tone.name
+      %p
+        = link_to 'Добавить оттенок', new_admin_tone_path, class: 'btn btn-info btn-sm'
+  .row.border-bot
+    .col-md-12
+      %h5 Производитель
+      - Vendor.all.each do |vendor|
+        = vendor.name
+      %p
+        = link_to 'Добавить производителя', new_admin_vendor_path, class: 'btn btn-info btn-sm'
+  .row.border-bot
+    .col-md-12
+      %h5 Категории
+      - Category.all.each do |category|
+        = category.title
+      %p
+        = link_to 'Добавить категорию', new_admin_category_path, class: 'btn btn-info btn-sm'
   .row
-    .col-md-10
-      .row
-        .col-md-12
-          Поиск
-          = form_tag admin_items_path, method: :get do
-            .form-group
-              = text_field_tag :query, '', class: 'form-control'
-            .form-group
-              = submit_tag 'Найти', class: 'btn btn-info'
-
-      .row
-        .col-md-3
-          .h3{data: {toggle: 'collapse', target: '#companies'}}
-            %span.btn.btn-default
-              Производители
-          %ul.list-unstyled.list-inline.collapse#companies
-            - @companies.each do |company|
-              %li
-                = link_to company.capitalize, admin_items_path(query: company) unless company.blank?
-        .col-md-3
-          .h3{data: {toggle: 'collapse', target: '#types'}}
-            %span.btn.btn-default
-              Тип
-          %ul.list-unstyled.list-inline.collapse#types
-            - @types.each do |type|
-              %li
-                = link_to type.capitalize, admin_items_path(query: type) unless type.blank?
-        .col-md-6
-          .h3{data: {toggle: 'collapse', target: '#collections'}}
-            %span.btn.btn-default
-              Коллекции
-          %ul.list-unstyled.list-inline.collapse#collections
-            - @collections.each do |collection|
-              %li
-                = link_to collection.capitalize, admin_items_path(query: collection)
-
-      = link_to 'Добавить товар', new_admin_item_path, class: 'btn btn-info'
+    .col-md-12
+      = link_to 'Добавить товар', new_admin_item_path, class: 'btn btn-info '
       = link_to 'Загрузить картинки', admin_get_images_path, class: 'btn btn-info'
-      .row
-        %h2{data: {toggle: 'collapse', target: '#items'}, style: 'cursor: pointer;'}
-          Все товары
-        -if params[:query]
-          = render @items
+  .row
+    .col-md-12
+      %h2{data: {toggle: 'collapse', target: '#items'}, style: 'cursor: pointer;'}
+        Все товары
+      -if params[:query]
+        = render @items

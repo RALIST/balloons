@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170210091856) do
+ActiveRecord::Schema.define(version: 20170212070436) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,12 @@ ActiveRecord::Schema.define(version: 20170210091856) do
     t.datetime "updated_at",       null: false
   end
 
+  create_table "colors", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "compositions", force: :cascade do |t|
     t.string   "title"
     t.string   "img_file_name"
@@ -52,6 +58,19 @@ ActiveRecord::Schema.define(version: 20170210091856) do
     t.datetime "updated_at",                       null: false
     t.boolean  "deleted",          default: false
     t.float    "price",            default: 0.0
+  end
+
+  create_table "item_sizes", force: :cascade do |t|
+    t.integer  "item_id"
+    t.integer  "size_id"
+    t.integer  "quantity"
+    t.float    "price"
+    t.integer  "in_box"
+    t.integer  "min_order"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_item_sizes_on_item_id", using: :btree
+    t.index ["size_id"], name: "index_item_sizes_on_size_id", using: :btree
   end
 
   create_table "items", force: :cascade do |t|
@@ -78,6 +97,14 @@ ActiveRecord::Schema.define(version: 20170210091856) do
     t.float    "quantity",           default: 0.0
     t.string   "code"
     t.integer  "vendor_id"
+    t.integer  "tone_id"
+    t.integer  "texture_id"
+    t.integer  "category_id"
+    t.integer  "type_id"
+    t.index ["category_id"], name: "index_items_on_category_id", using: :btree
+    t.index ["texture_id"], name: "index_items_on_texture_id", using: :btree
+    t.index ["tone_id"], name: "index_items_on_tone_id", using: :btree
+    t.index ["type_id"], name: "index_items_on_type_id", using: :btree
     t.index ["vendor_id"], name: "index_items_on_vendor_id", using: :btree
   end
 
@@ -147,6 +174,14 @@ ActiveRecord::Schema.define(version: 20170210091856) do
     t.index ["personable_type", "personable_id"], name: "index_receivers_on_personable_type_and_personable_id", using: :btree
   end
 
+  create_table "sizes", force: :cascade do |t|
+    t.string   "in_cm"
+    t.string   "in_inch"
+    t.string   "belbal"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "subpositions", force: :cascade do |t|
     t.integer  "position_id"
     t.integer  "item_id"
@@ -164,6 +199,28 @@ ActiveRecord::Schema.define(version: 20170210091856) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.index ["taggable_type", "taggable_id"], name: "index_tags_on_taggable_type_and_taggable_id", using: :btree
+  end
+
+  create_table "textures", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tones", force: :cascade do |t|
+    t.string   "name"
+    t.string   "eng_name"
+    t.integer  "color_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["color_id"], name: "index_tones_on_color_id", using: :btree
+  end
+
+  create_table "types", force: :cascade do |t|
+    t.string   "name"
+    t.string   "eng_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -197,6 +254,12 @@ ActiveRecord::Schema.define(version: 20170210091856) do
   end
 
   add_foreign_key "carts", "users"
+  add_foreign_key "item_sizes", "items"
+  add_foreign_key "item_sizes", "sizes"
+  add_foreign_key "items", "categories"
+  add_foreign_key "items", "textures"
+  add_foreign_key "items", "tones"
+  add_foreign_key "items", "types"
   add_foreign_key "items", "vendors"
   add_foreign_key "items_in_compositions", "compositions"
   add_foreign_key "items_in_compositions", "items"
@@ -206,4 +269,5 @@ ActiveRecord::Schema.define(version: 20170210091856) do
   add_foreign_key "positions", "orders"
   add_foreign_key "subpositions", "items"
   add_foreign_key "subpositions", "positions"
+  add_foreign_key "tones", "colors"
 end

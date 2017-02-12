@@ -1,0 +1,7 @@
+.container
+  = form_for [:admin, @color] do |f|
+    .form-group
+      = f.label :name, 'Цвет'
+      = f.text_field :name, class: 'form-control'
+    .form-group
+      = f.submit 'Создать цвет', class: 'btn btn-info'

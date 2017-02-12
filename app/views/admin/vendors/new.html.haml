@@ -1,0 +1,16 @@
+.container
+  = form_for [:admin, @vendor] do |f|
+    .form-group
+      = f.label :name, 'Название'
+      = f.text_field :name, class: 'form-control'
+    .form-group
+      = f.label :description, 'Описание'
+      = f.text_field :description, class: 'form-control'
+    .form-group
+      = f.label :country, 'Страна'
+      = f.text_field :country, class: 'form-control'
+    .form-group
+      = f.label :logo, 'Логотип'
+      = f.file_field :logo, class: 'form-control'
+    .form-group
+      = f.submit 'Создать производителя', class: 'btn btn-info'

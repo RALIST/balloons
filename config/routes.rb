@@ -31,6 +31,13 @@ Rails.application.routes.draw do
     resources :orders
     resources :sessions
     resources :prices, only: [:new, :create]
+    resources :types, only: [:new, :create]
+    resources :colors, only: [:new, :create]
+    resources :categories, only: [:new, :create]
+    resources :tones, only: [:new, :create]
+    resources :vendors, only: [:new, :create]
+    resources :textures, only: [:new, :create]
+    resources :sizes, only: [:new, :create]
     get '/get_images', to: 'items#get_images', as: :get_images
     put '/delete/:id',                        to: 'compositions#delete',        as: :delete_composition
     post '/admin/compositions/:id',            to: 'compositions#add_item',      as: :add_item
@@ -53,6 +60,7 @@ Rails.application.routes.draw do
       resources :sessions
       resources :subpositions, only: [:edit, :update, :destroy]
       resources :calls, only: [:new, :create]
+
       post '/add_to_cart/:id',          to: 'carts#add_to_cart',            as: :add_to_cart
       post '/remove_from_cart/:id',     to: 'carts#remove_from_cart',       as: :remove_from_cart
       post '/add_quantity/:id',         to: 'subpositions#up_quantity',     as: :add_quantity

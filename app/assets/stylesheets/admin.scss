@@ -26,11 +26,12 @@
 }
 
 .left-menu.toggled + .container {
+  @include make-md-column(10);
   @include make-xs-column-offset(2);
   @include make-sm-column-offset(2);
   @include make-md-column-offset(3);
   @include make-lg-column-offset(2);
-  padding-left: 40px;
+  padding-left: 20px;
 }
 
 .top-menu {
@@ -43,5 +44,5 @@
 }
 
 .top-menu + .container {
-  padding-top: 60px;
+  margin-top: 80px;
 }

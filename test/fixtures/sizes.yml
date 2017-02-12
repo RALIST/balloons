@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  in_cm: MyString
+  in_inch: 
+  belbal: MyString
+
+two:
+  in_cm: MyString
+  in_inch: 
+  belbal: MyString

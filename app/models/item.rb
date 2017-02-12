@@ -5,6 +5,12 @@ class Item < ApplicationRecord
   has_many :positions, through: :subpositions, dependent: :delete_all
   has_many :subpositions, dependent: :delete_all
   belongs_to :vendor
+  belongs_to :type
+  belongs_to :tone
+  belongs_to :category
+  belongs_to :texture
+  has_many :sizes, through: :item_sizes
+
 
   before_validation :set_collection
   before_save :sanitize_params

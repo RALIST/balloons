@@ -1,5 +1,8 @@
 class Delivery::SessionsController < Delivery::DeliveryController
   def new
+    set_meta_tags title: 'Войти',
+                  reverse: true,
+                  description: 'Авторизируйтесь на сайте'
     @user = User.new
   end
 

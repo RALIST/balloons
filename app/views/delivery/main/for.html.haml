@@ -1,6 +1,6 @@
 .container-fluid
   .container
-    %h2.text-center Оформление воздушными шарами #{params[:q]}
+    %h2.text-center Оформление воздушными шарами #{params[:q].capitalize}
     .row
       - @compositions.each do |c|
         .col-md-4.col-sm-6.col-xs-12

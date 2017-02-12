@@ -1,6 +1,9 @@
 class Delivery::UsersController < Delivery::DeliveryController
 
   def new
+    set_meta_tags title: 'Регистрация',
+                  reverse: true,
+                  description: 'Зарегистрируйтесь на сайте'
     @user = User.new
     @hide_header = true
     @hide_footer = true
@@ -20,6 +23,9 @@ class Delivery::UsersController < Delivery::DeliveryController
   end
 
   def show
+    set_meta_tags title: 'Личный кабинет',
+                  reverse: true,
+                  description: 'Личный кабинет пользователя'
     @user = current_user
   end
 

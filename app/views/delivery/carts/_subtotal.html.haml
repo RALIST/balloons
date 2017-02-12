@@ -23,7 +23,7 @@
           = link_to 'Войдите', login_path
     .row
       .col-md-6.col-sm-6.col-xs-6.text-left
-        - to_delivery = 1500 - @cart.total_price
+        - to_delivery = 1000 - @cart.total_price
         Доставка
       .col-md-6.col-sm-6.col-xs-6.text-right
         = to_delivery > 0 ? 150 : 0

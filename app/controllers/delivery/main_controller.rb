@@ -14,8 +14,9 @@ class Delivery::MainController < Delivery::DeliveryController
   end
 
   def search
-    set_meta_tags title: "Воздушные шары на #{params[:tag_name]} с доставкой!",
+    set_meta_tags title: "#{params[:tag_name].capitalize}",
                   description: "Воздушные шары на #{params[:tag_name]}",
+                  reverse: true,
                   keywords: "воздушные шары на #{params[:tag_name]}, заказать воздушные шары на #{params[:tag_name]}, шарики с доставкой на #{params[:tag_name]}, доставка шариков на #{params[:tag_name]}"
     unless params[:tag_name].blank?
       tag = Unicode::downcase(params[:tag_name]).strip
@@ -34,7 +35,8 @@ class Delivery::MainController < Delivery::DeliveryController
   def price
       set_meta_tags title: "Воздушные шары на #{params[:tag_name]} с доставкой!",
                     description: "Воздушные шары на #{params[:tag_name]}",
-                    keywords: ""
+                    reverse: true,
+                    keywords: "композиции из воздушных шары от #{params[:min]} до #{params[:max]}, заказать композиции из воздушных шары от #{params[:min]} до #{params[:max]}, шарики с доставкой от #{params[:min]} до #{params[:max]}, доставка шариков композиции из воздушных шары от #{params[:min]} до #{params[:max]}"
     @compositions = Composition.availible.price_range(params[:min].to_i - 100, params[:max].to_i + 100)
     if @compositions.any?
       @compositions
@@ -45,8 +47,9 @@ class Delivery::MainController < Delivery::DeliveryController
   end
 
   def for
-    set_meta_tags title: "Воздушные шары #{params[:q]} с доставкой!",
+    set_meta_tags title: "#{params[:q].capitalize}",
                   description: "Воздушные шары #{params[:q]}",
+                  reverse: true,
                   keywords: "воздушные шары от #{params[:min]} до #{params[:max]} руб., гелиевые шары от #{params[:min]} до #{params[:max]} руб., гелиевые шарики от #{params[:min]} до #{params[:max]} руб., заказать воздушные шары от #{params[:min]} до #{params[:max]} руб., шарики с доставкой от #{params[:min]} до #{params[:max]} руб., доставка шариков от #{params[:min]} до #{params[:max]} руб., купить воздушные шары от #{params[:min]} до #{params[:max]} руб., купить шарики от #{params[:min]} до #{params[:max]} руб."
     @compositions = Composition.with_receivers(params[:q]).availible
     unless @compositions.any?

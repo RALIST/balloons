@@ -19,7 +19,7 @@ SitemapGenerator::Sitemap.create do
   end
 
   Receiver.find_each do |r|
-    add with_receivers_path(q: r.title)
+    add person_path(r.title)
   end
 
 

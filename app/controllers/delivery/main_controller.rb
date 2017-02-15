@@ -68,10 +68,10 @@ class Delivery::MainController < Delivery::DeliveryController
   end
 
   def by_person
-    set_meta_tags title: "#{params[:q].capitalize}",
-                  description: "Воздушные шары #{params[:q]}",
+    set_meta_tags title: "#{params[:title].capitalize}",
+                  description: "Воздушные шары #{params[:title]}",
                   reverse: true,
-                  keywords: "воздушные шары от #{params[:min]} до #{params[:max]} руб., гелиевые шары от #{params[:min]} до #{params[:max]} руб., гелиевые шарики от #{params[:min]} до #{params[:max]} руб., заказать воздушные шары от #{params[:min]} до #{params[:max]} руб., шарики с доставкой от #{params[:min]} до #{params[:max]} руб., доставка шариков от #{params[:min]} до #{params[:max]} руб., купить воздушные шары от #{params[:min]} до #{params[:max]} руб., купить шарики от #{params[:min]} до #{params[:max]} руб."
+                  keywords: "воздушные шары #{params[:title]}, гелиевые шары #{params[:title]}, гелиевые шарики #{params[:title]}, заказать воздушные шары#{params[:title]}, шарики с доставкой #{params[:title]}, доставка шариков #{params[:title]}, купить воздушные шары #{params[:title]}, купить шарики #{params[:title]}"
     @compositions = Composition.with_receivers(params[:q]).availible
     unless @compositions.any?
       flash[:alert] = 'Nothing'

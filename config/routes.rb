@@ -69,14 +69,14 @@ Rails.application.routes.draw do
       post '/down_quantity/:id',        to: 'subpositions#down_quantity',   as: :down_quantity
       post '/add_subposition',          to: 'subpositions#add_subposition', as: :add_subposition
       get '/login',                     to: 'sessions#new',                 as: :login
-      post '/logout' ,                  to:  'sessions#destroy',            as: :logout
+      post '/logout' ,                  to: 'sessions#destroy',             as: :logout
       get '/signin',                    to: 'users#new',                    as: :signin
       get '/search',                    to: 'main#search',                  as: :search
       get '/cart',                      to: 'carts#show',                   as: :my_cart
-      get '/price',                     to: 'main#price',  as: :price_range
-      get '/account',                   to: 'users#show',  as: :account
-      get '/for',                       to: 'main#for', as: :with_receivers
-      get '/thank_you',                 to: 'main#thanks', as: :thanks
+      get '/by_price',                  to: 'main#by_price',                as: :price_range
+      get '/account',                   to: 'users#show',                   as: :account
+      get '/person/:title',             to: 'main#by_person',               as: :person
+      get '/thank_you',                 to: 'main#thanks',                  as: :thanks
       constraints(format: /[a-z]+(\.[a-z]+)?/) do
         resources :sitemaps, only: :show
         get '/sitemap',  to:  'sitemaps#show'

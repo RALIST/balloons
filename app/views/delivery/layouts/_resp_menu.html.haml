@@ -30,8 +30,8 @@
                 Повод
                 %span.caret
               %ul.list-unstyled.dropdown-menus
-                - @menu_tags.each do |tag|
-                  %li.text-capitalize.h4= link_to tag, search_path(tag_name: tag)
+                - @menu_tags.each do |tag_name|
+                  %li.text-capitalize.h4= link_to tag_name, by_tag_path(tag_name)
             %li.dropdown
               .h3
                 Кому
@@ -39,7 +39,7 @@
               %ul.list-unstyled.dropdown-menus
                 - @menu_receivers.each do |title|
                   %li.h4.text-capitalize
-                    = link_to title, with_receivers_path(q: title)
+                    = link_to title, person_path(title)
             %li.dropdown
               .h3
                 По цене

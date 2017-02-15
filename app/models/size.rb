@@ -1,5 +1,6 @@
 class Size < ApplicationRecord
-  has_many :items, through: :item_sizes
+  has_many :items, through: :products
+  has_many :products
   validates :in_cm, :in_inch, :belbal, presence: true, uniqueness: true
   before_save :sanitize
 

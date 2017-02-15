@@ -47,12 +47,14 @@ Rails.application.routes.draw do
     get '/login', to: 'sessions#new', as: :login
     get '/compositions/:id/remove_item', to: 'compositions#remove_item', as: :remove_item
   end
+
   constraints NoneSubdomain do
     scope module: 'delivery' do
       root 'main#index'
       resources :items,         only: [:index, :show]
       resources :compositions,  only: [:index, :show]
-      resources :tags,          only: [:index]
+      get 'events/:tag_name', to: 'main#by_tag', as: :by_tag
+      resources :tags,          only: [:index], path: 'events'
       resources :carts
       resources :orders
       resources :positions

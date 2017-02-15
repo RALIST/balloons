@@ -3,4 +3,5 @@ class Tag < ApplicationRecord
   validates :name, presence:  true
 
   scope :composition_tags, -> { where(taggable_type: 'Composition').distinct(:name)}
+
 end

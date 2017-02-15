@@ -9,7 +9,8 @@ class Item < ApplicationRecord
   belongs_to :tone
   belongs_to :category
   belongs_to :texture
-  has_many :sizes, through: :item_sizes
+  has_many :sizes, through: :products
+  has_many :products
 
 
   before_validation :set_collection
@@ -59,12 +60,31 @@ class Item < ApplicationRecord
   end
 
   def self.get_images
-    Item.where(img_file_name: nil).find_each(batch_size: 500) do |item|
+    Item.where(img_file_name: nil).find_each do |item|
       begin
         item.img_remote_url = "http://sharik.ru/images/elements_big/#{item.code}_m1.jpg" unless item.code.blank?
         item.save
       rescue URI::InvalidURIError
         next
+      end
+    end
+  end
+
+  def fill_by_name(string)
+    string = string.strip.downcase
+    arr = string.split(/\W+/)
+    arr.each do |word|
+      color = Color.where('name LIKE ?', "%#{word}%").first
+      if color.present?
+        self.color = color
+      end
+      size = Size.where('in_cm LIKE ? OR in_inch LIKE ?', "%#{word}%", "%#{word}%")
+      if size.present?
+        self.sizes << size
+      end
+      texture = Texture.where('name LIKE ?', "%#{word}%").first
+      if texture.present?
+        self.texture = texture
       end
     end
   end

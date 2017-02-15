@@ -8,8 +8,8 @@
               Повод
               %i.fa.fa-caret-down{style: 'aria-hidden="true"'}
             %ul.dropdown-menu
-              - @menu_tags.each do |tag|
-                %li.text-capitalize= link_to tag, search_path(tag_name: tag)
+              - @menu_tags.each do |tag_name|
+                %li.text-capitalize= link_to tag_name, by_tag_path(tag_name)
           %li.text-uppercase.h4{role: "presentation"}
             = link_to '', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
               Кому
@@ -17,7 +17,7 @@
             %ul.dropdown-menu
               - @menu_receivers.each do |title|
                 %li.text-capitalize
-                  = link_to title, with_receivers_path(q: title)
+                  = link_to title, person_path(title)
           %li.text-uppercase.dropdown.h4{role: "presentation"}
             = link_to '', class: 'dropdown-toggle', data:{toggle: 'dropdown'} do
               По цене

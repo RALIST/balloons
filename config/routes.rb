@@ -47,12 +47,14 @@ Rails.application.routes.draw do
     get '/login', to: 'sessions#new', as: :login
     get '/compositions/:id/remove_item', to: 'compositions#remove_item', as: :remove_item
   end
+
   constraints NoneSubdomain do
     scope module: 'delivery' do
       root 'main#index'
       resources :items,         only: [:index, :show]
       resources :compositions,  only: [:index, :show]
-      resources :tags,          only: [:index]
+      get 'events/:tag_name', to: 'main#by_tag', as: :by_tag
+      resources :tags,          only: [:index], path: 'events'
       resources :carts
       resources :orders
       resources :positions
@@ -67,14 +69,14 @@ Rails.application.routes.draw do
       post '/down_quantity/:id',        to: 'subpositions#down_quantity',   as: :down_quantity
       post '/add_subposition',          to: 'subpositions#add_subposition', as: :add_subposition
       get '/login',                     to: 'sessions#new',                 as: :login
-      post '/logout' ,                  to:  'sessions#destroy',            as: :logout
+      post '/logout' ,                  to: 'sessions#destroy',             as: :logout
       get '/signin',                    to: 'users#new',                    as: :signin
       get '/search',                    to: 'main#search',                  as: :search
       get '/cart',                      to: 'carts#show',                   as: :my_cart
-      get '/price',                     to: 'main#price',  as: :price_range
-      get '/account',                   to: 'users#show',  as: :account
-      get '/for',                       to: 'main#for', as: :with_receivers
-      get '/thank_you',                 to: 'main#thanks', as: :thanks
+      get '/by_price',                  to: 'main#by_price',                as: :price_range
+      get '/account',                   to: 'users#show',                   as: :account
+      get '/person/:title',             to: 'main#by_person',               as: :person
+      get '/thank_you',                 to: 'main#thanks',                  as: :thanks
       constraints(format: /[a-z]+(\.[a-z]+)?/) do
         resources :sitemaps, only: :show
         get '/sitemap',  to:  'sitemaps#show'

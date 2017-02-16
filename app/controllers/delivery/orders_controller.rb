@@ -1,5 +1,7 @@
 class Delivery::OrdersController < Delivery::DeliveryController
 
+  before_action :positions_in_cart, only: [:new, :create]
+
   def new
     @order = Order.new
   end
@@ -40,6 +42,12 @@ class Delivery::OrdersController < Delivery::DeliveryController
 
 
   private
+    def positions_in_cart
+      unless current_cart.positions.any?
+        redirect_to root_path
+        flash[:alert] = 'Ваша корзина пуста'
+      end
+    end
 
   def order_params
     params.require(:order).permit(:name, :phone, :address, :desc, :total, :order_date, :order_time, :pay_method)

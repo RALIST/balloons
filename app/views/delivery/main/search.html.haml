@@ -11,6 +11,8 @@
               %strong
                 = number_to_currency(c.price, precision: 0)
             %p.text-center{style: 'height: 4em;'}
+              Воздушные шары на
+              %br
               - if c.tags.any?
                 - c.tags.map(&:name).each do |tag|
                   = link_to tag, by_tag_path(tag)

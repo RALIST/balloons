@@ -21,7 +21,6 @@ private
     session[:cart_id] = @cart.id
     @cart
   end
-
   def new_call
     @call = Call.new
   end

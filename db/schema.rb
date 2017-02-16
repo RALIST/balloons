@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170215092708) do
+ActiveRecord::Schema.define(version: 20170216075553) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -167,6 +167,7 @@ ActiveRecord::Schema.define(version: 20170215092708) do
     t.datetime "updated_at", null: false
     t.bigint   "barcode"
     t.string   "code"
+    t.string   "name"
     t.index ["item_id"], name: "index_products_on_item_id", using: :btree
     t.index ["size_id"], name: "index_products_on_size_id", using: :btree
   end
@@ -220,7 +221,7 @@ ActiveRecord::Schema.define(version: 20170215092708) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "vendor_id"
-    t.string   "code"
+    t.integer  "code"
     t.index ["color_id"], name: "index_tones_on_color_id", using: :btree
     t.index ["vendor_id"], name: "index_tones_on_vendor_id", using: :btree
   end

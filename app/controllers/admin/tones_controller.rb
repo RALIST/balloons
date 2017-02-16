@@ -11,6 +11,6 @@ class Admin::TonesController < Admin::AdminController
 
   private
   def tone_params
-    params.require(:tone).permit(:name, :eng_name)
+    params.require(:tone).permit(:name, :eng_name, :code, :color)
   end
 end

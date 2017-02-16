@@ -13,7 +13,7 @@ class Item < ApplicationRecord
   has_many :sizes, through: :products
   has_many :products
 
-
+  validates :vendor_id, presence: true
   before_validation :set_collection
   before_save :sanitize_params
 
@@ -30,6 +30,7 @@ class Item < ApplicationRecord
   scope :without_barcode, -> { where(barcode: nil) }
   scope :comp_availible, -> { where(availible_in_comps: true) }
   scope :with_img, -> { where.not(img_file_name: nil)}
+
 
   def img_remote_url=(url)
     self.img = URI.parse(url)
@@ -66,25 +67,6 @@ class Item < ApplicationRecord
         item.save
       rescue URI::InvalidURIError
         next
-      end
-    end
-  end
-
-  def fill_by_name(string)
-    string = string.strip.downcase
-    arr = string.split(/\W+/)
-    arr.each do |word|
-      color = Color.where('name LIKE ?', "%#{word}%").first
-      if color.present?
-        self.color = color
-      end
-      size = Size.where('in_cm LIKE ? OR in_inch LIKE ?', "%#{word}%", "%#{word}%")
-      if size.present?
-        self.sizes << size
-      end
-      texture = Texture.where('name LIKE ?', "%#{word}%").first
-      if texture.present?
-        self.texture = texture
       end
     end
   end

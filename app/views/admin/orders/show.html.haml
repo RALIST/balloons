@@ -1,5 +1,5 @@
 .container
-  .order-info
+  .order-info.col-md-10.col-xs-10
     - @order.positions.each do |position|
       .col-md-5.col-xs-5
         = image_tag position.composition.img(:thumb), class: 'img-responsive'
@@ -9,7 +9,7 @@
             .col-md-4.col-xs-5
               = image_tag s.item.img(:small), class: 'img-responsive'
             .col-md-8.col-xs-7
-            %strong
-              = s.item.name
-              = s.quantity
-              шт.
+              %strong
+                = s.item.name
+                = s.quantity
+                шт.

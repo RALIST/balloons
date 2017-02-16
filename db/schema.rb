@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170216075553) do
+ActiveRecord::Schema.define(version: 20170216133453) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -163,11 +163,12 @@ ActiveRecord::Schema.define(version: 20170216075553) do
     t.float    "price"
     t.integer  "in_box"
     t.integer  "min_order"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.bigint   "barcode"
     t.string   "code"
     t.string   "name"
+    t.float    "price_with_helium"
     t.index ["item_id"], name: "index_products_on_item_id", using: :btree
     t.index ["size_id"], name: "index_products_on_size_id", using: :btree
   end

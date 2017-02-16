@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170214173402) do
+ActiveRecord::Schema.define(version: 20170215092708) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -165,7 +165,7 @@ ActiveRecord::Schema.define(version: 20170214173402) do
     t.integer  "min_order"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "barcode"
+    t.bigint   "barcode"
     t.string   "code"
     t.index ["item_id"], name: "index_products_on_item_id", using: :btree
     t.index ["size_id"], name: "index_products_on_size_id", using: :btree

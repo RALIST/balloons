@@ -7,38 +7,48 @@ class Price < ApplicationRecord
                    ]
                    },
                    message: ' Only EXCEL files are allowed.'
-
+  validates :vendor, presence: true
+  attr_accessor :vendor, :type
   after_commit :upload_price
 
 
 private
 
   def upload_price
-    xls = Roo::Spreadsheet.open(open('https:' + self.price_sheet.url(:original, false)), extension: :xlsm)
-    start_row = 2
-    count = 1
-    (start_row..xls.last_row).each do |row|
-      product = Product.find_or_create_by!(barcode: xls.cell(row, 'B').to_i) do |p|
-        p.barcode = xls.cell(row, 'C').to_i
-        p.code = xls.cell(row, 'D')
-        p.price = xls.cell(row, 'E')
-        p.quantity = xls.cell(row, 'G')
+    unless vendor.blank?
+      xls = Roo::Spreadsheet.open(open('https:' + self.price_sheet.url(:original, false)), extension: :xlsm)
+      start_row = 2
+      price_vendor = Vendor.find(vendor) if !vendor.blank?
+      price_type = Type.find(type) if !type.blank?
+      (start_row..xls.last_row).each do |row|
         name = xls.cell(row, 'B').strip.downcase
-        arr = name.split(/\W+/)
-        arr.each do |word|
-          vendor = Vendor.where('abbr LIKE ?', "%#{word}%").first
-          size = vendor.sizes.where('in_cm LIKE ? OR in_inch LIKE ? OR belbal LIKE ?', "%#{word}%", "%#{word}%", "%#{word}%").first
-          tone = vendor.tones.where('code LIKE ?', "%#{word}%").first
-          texture = Texture.where('name LIKE ?', "%#{word}%").first
-          color = Color.where('name LIKE ? OR eng_name LIKE ?', "%#{word}%","%#{word}%").first
+        arr = name.encode("UTF-8").split(/[^а-яА-Я0-9_]/)
+          arr.each do |word|
+            @size = Size.where('in_cm = ? OR in_inch = ? OR belbal = ?', word.to_i, word.to_i, word.to_i).first
+            @tone = price_vendor.tones.where('code LIKE ?', "%#{word}%").first
+            @texture = Texture.where('name LIKE ?', "%#{word}%").first
+            @color = Color.where('name LIKE ?', "%#{word}%").first
+          end
+
+          if !@texture.blank? && !@color.blank?
+            @item = Item.where(vendor_id: price_vendor.id,
+                               texture_id: @texture.id,
+                               color_id: @color.id).first_or_create do |item|
+              item.vendor = price_vendor
+              item.color = @color
+              item.texture = @texture
+            end
+          end
+        unless @item.blank?
+          product = Product.where(barcode: xls.cell(row, 'B').to_i).first_or_create do |p|
+            p.barcode = xls.cell(row, 'C').to_i
+            p.code = xls.cell(row, 'D')
+            p.price = xls.cell(row, 'E')
+            p.quantity = xls.cell(row, 'G')
+            p.size = @size
+            p.item = @item
+          end
         end
-        p.size = size
-        item = Item.find_or_create_by!(vendor_id: vendor.id,
-                                        tone_id: tone.id,
-                                        color_id: color.id,
-                                        texture_id: texture.id) do |item|
-        end
-        p.item = item
       end
       # begin
       #   item = Item.find_by!(name: xls.cell(row, 'B').strip.downcase)

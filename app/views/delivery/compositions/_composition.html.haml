@@ -34,7 +34,7 @@
             Композиция на
             - composition.tags.each do |tag|
               %span
-                = link_to search_path(tag_name: tag.name) do
+                = link_to by_tag_path(tag.name) do
                   #{tag.name.capitalize},
     .row
       .col-md-4.col-xs-12

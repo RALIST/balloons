@@ -9,6 +9,7 @@ class Item < ApplicationRecord
   belongs_to :tone
   belongs_to :category
   belongs_to :texture
+  belongs_to :color
   has_many :sizes, through: :products
   has_many :products
 
@@ -16,7 +17,6 @@ class Item < ApplicationRecord
   before_validation :set_collection
   before_save :sanitize_params
 
-  validates :name, presence: true, uniqueness: true
   has_attached_file :img, styles: {small: 'x100', thumb: 'x300'}
   validates_attachment_content_type :img,
                         content_type: ["image/jpeg", "image/jpg", "image/png"]

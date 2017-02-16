@@ -30,14 +30,14 @@ Rails.application.routes.draw do
     resources :users
     resources :orders
     resources :sessions
-    resources :prices, only: [:new, :create]
-    resources :types, only: [:new, :create]
-    resources :colors, only: [:new, :create]
-    resources :categories, only: [:new, :create]
-    resources :tones, only: [:new, :create]
-    resources :vendors, only: [:new, :create]
-    resources :textures, only: [:new, :create]
-    resources :sizes, only: [:new, :create]
+    resources :prices
+    resources :types
+    resources :colors
+    resources :categories
+    resources :tones
+    resources :vendors
+    resources :textures
+    resources :sizes
     get '/get_images', to: 'items#get_images', as: :get_images
     put '/delete/:id',                        to: 'compositions#delete',        as: :delete_composition
     post '/admin/compositions/:id',            to: 'compositions#add_item',      as: :add_item
@@ -51,9 +51,10 @@ Rails.application.routes.draw do
   constraints NoneSubdomain do
     scope module: 'delivery' do
       root 'main#index'
+      get '/?id=:id', to: redirect('compositions/:id'), via: :all
       resources :items,         only: [:index, :show]
       resources :compositions,  only: [:index, :show]
-      get 'events/:tag_name', to: 'main#by_tag', as: :by_tag
+      get 'events/:tag_name',   to: 'main#by_tag', as: :by_tag
       resources :tags,          only: [:index], path: 'events'
       resources :carts
       resources :orders

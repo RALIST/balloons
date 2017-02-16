@@ -1,0 +1,10 @@
+.container
+  .order-info
+    - @order.positions.each do |position|
+      .col-md-5.col-xs-5
+        = image_tag position.composition.img(:thumb), class: 'img-responsive'
+      .col-md-7.col-xs-7
+        - position.subpositions.each do |s|
+          = image_tag s.item.img(:small), class: 'img-responsive'
+          = s.item.name
+          = s.quantity

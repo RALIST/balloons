@@ -18,7 +18,7 @@
               %br
               - if c.tags.any?
                 - c.tags.map(&:name).each do |tag|
-                  = link_to tag, by_tag_path(tag)
+                  = link_to tag.capitalize, by_tag_path(tag)
               - else
                 ваш праздник
             .text-center

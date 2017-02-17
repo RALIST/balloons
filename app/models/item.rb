@@ -42,16 +42,6 @@ class Item < ApplicationRecord
     self.collection = Unicode::downcase(text_collection) unless text_collection.blank?
   end
 
-  def self.for_select
-    collections = Item.all.map(&:collection).reject(&:blank?).uniq
-    collections.map do |collection|
-      items = self.where(collection: collection).reject(&:blank?)
-      [
-        collection, items.map{|i| [i.name, i.id]}
-      ]
-    end
-  end
-
   def self.destroy_duplicates
     grouped = all.group_by{|item| [item.name, item.barcode]}
     grouped.values.each do |duplicates|

@@ -222,7 +222,7 @@ ActiveRecord::Schema.define(version: 20170216133453) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "vendor_id"
-    t.integer  "code"
+    t.string   "code"
     t.index ["color_id"], name: "index_tones_on_color_id", using: :btree
     t.index ["vendor_id"], name: "index_tones_on_vendor_id", using: :btree
   end

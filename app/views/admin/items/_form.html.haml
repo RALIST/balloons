@@ -12,7 +12,7 @@
       =f.text_field :desc, class: 'form-control'
     .form-group
       = f.label :made_by, 'Производитель'
-      = f.text_field :made_by, class: 'form-control'
+      = f.select :vendor_id, Vendor.all.map{|v| [v.name, v.id]},{}, class: 'form-control'
     .form-group
       = f.label :item_type, 'Тип продукции'
       = f.text_field :item_type, class: 'form-control'
@@ -34,7 +34,7 @@
       = f.text_field :size, class: 'form-control'
     .from-group
       = f.label 'Цвет'
-      = f.text_field :color, class: 'form-control'
+      = f.select :color_id, Color.all.map{|c| [c.name, c.id]}, class: 'form-control'
     .form-group
       = f.label :quntity, 'Количество в наличии'
       = f.number_field :quantity, class: 'form-control'

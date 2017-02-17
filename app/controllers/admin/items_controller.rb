@@ -68,7 +68,7 @@ class Admin::ItemsController < Admin::AdminController
                                   :item_type, :collection, :color,
                                   :size, :quantity, :availible_in_comps, :barcode,
                                   :made_by, :min_order, :quantity_type,
-                                  :select_collection, :text_collection)
+                                  :select_collection, :text_collection, :vendor_id, :color_id)
   end
 
   def set_item

@@ -64,9 +64,8 @@ class Price < ApplicationRecord
         end
       end
     end
-    puts arr
     arr.each do |word|
-      @tone = vendor.tones.find_by(code: word.to_i)
+      @tone = vendor.tones.find_by(code: word)
       break if @tone.present?
     end
 
@@ -99,14 +98,13 @@ class Price < ApplicationRecord
       product.item = item
       product.code = @code
       product.price = @price
+      product.name = @product_name
       product.save
     end
   end
 
   def get_tone(str, vendor)
-    unless str.to_i == 0
-      tone = vendor.tones.find_by(code: str.to_i)
-    end
+    tone = vendor.tones.find_by(code: str)
   end
 
   def get_color(str)

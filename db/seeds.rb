@@ -20,7 +20,7 @@ xls = Roo::Spreadsheet.open('public/Цвета.xlsm', extension: :xlsm)
 start_row = 2
 (start_row..xls.last_row).each do |row|
   vendor = Vendor.find_by(name: xls.cell(row, 'A').strip.downcase)
-  code = xls.cell(row, 'B')
+  code = '%03d' % xls.cell(row, 'B')
   name = xls.cell(row, 'C')
   color = Color.find_or_create_by!(name: xls.cell(row, 'E'))
   if vendor.present? && code.present? && name.present?

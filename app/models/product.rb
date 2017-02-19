@@ -5,8 +5,11 @@ class Product < ApplicationRecord
   # has_many :items_in_compositions, dependent: :destroy
   has_many :tones, through: :items
   validates :item_id, presence: true
+  has_attached_file :img, styles: {small: 'x100', thumb: 'x300'}
+  validates_attachment_content_type :img,
+                        content_type: ["image/jpeg", "image/jpg", "image/png"]
 
-
+  attr_reader :img_remote_url
 
 
   def self.for_select
@@ -27,4 +30,24 @@ class Product < ApplicationRecord
     return arr
   end
 
+  def img_remote_url=(url)
+    self.img = URI.parse(url)
+    @img_remote_url = url
+  end
+
+  def get_image_from_web
+    begin
+      self.img_remote_url = "http://sharik.ru/images/elements_big/#{self.code}_m1.jpg" unless self.code.blank?
+    rescue URI::InvalidURIError
+      self.img = nil
+    end
+  end
+
+  def set_image
+    unless code.blank?
+      if File.exists?("#{Rails.root}/public/300/#{self.code + '_m1.jpg'}")
+        self.img = File.open("#{Rails.root}/public/300/#{self.code + '_m1.jpg'}")
+      end
+    end
+  end
 end

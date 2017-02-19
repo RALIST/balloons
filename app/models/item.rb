@@ -20,7 +20,6 @@ class Item < ApplicationRecord
   has_attached_file :img, styles: {small: 'x100', thumb: 'x300'}
   validates_attachment_content_type :img,
                         content_type: ["image/jpeg", "image/jpg", "image/png"]
-  attr_reader :img_remote_url
   attr_accessor :select_collection, :text_collection
 
   scope :search, -> (query) { where("made_by LIKE ? OR item_type LIKE ? OR collection LIKE ? OR name LIKE ?", "%#{query}%", "%#{query}%", "%#{query}%", "%#{query}%" )}
@@ -32,34 +31,13 @@ class Item < ApplicationRecord
   scope :with_img, -> { where.not(img_file_name: nil)}
 
 
-  def img_remote_url=(url)
-    self.img = URI.parse(url)
-    @img_remote_url = url
-  end
+
 
   def set_collection
     self.collection = Unicode::downcase(select_collection) unless select_collection.blank?
     self.collection = Unicode::downcase(text_collection) unless text_collection.blank?
   end
 
-  def self.destroy_duplicates
-    grouped = all.group_by{|item| [item.name, item.barcode]}
-    grouped.values.each do |duplicates|
-      first = duplicates.shift
-      duplicates.each{|double| double.destroy}
-    end
-  end
-
-  def self.get_images
-    Item.where(img_file_name: nil).find_each do |item|
-      begin
-        item.img_remote_url = "http://sharik.ru/images/elements_big/#{item.code}_m1.jpg" unless item.code.blank?
-        item.save
-      rescue URI::InvalidURIError
-        next
-      end
-    end
-  end
 
   private
   def sanitize_params

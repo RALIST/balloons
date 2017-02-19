@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170216133453) do
+ActiveRecord::Schema.define(version: 20170218065251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -169,6 +169,10 @@ ActiveRecord::Schema.define(version: 20170216133453) do
     t.string   "code"
     t.string   "name"
     t.float    "price_with_helium"
+    t.string   "img_file_name"
+    t.string   "img_content_type"
+    t.integer  "img_file_size"
+    t.datetime "img_updated_at"
     t.index ["item_id"], name: "index_products_on_item_id", using: :btree
     t.index ["size_id"], name: "index_products_on_size_id", using: :btree
   end
@@ -219,10 +223,14 @@ ActiveRecord::Schema.define(version: 20170216133453) do
     t.string   "name"
     t.string   "eng_name"
     t.integer  "color_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.integer  "vendor_id"
     t.string   "code"
+    t.string   "img_file_name"
+    t.string   "img_content_type"
+    t.integer  "img_file_size"
+    t.datetime "img_updated_at"
     t.index ["color_id"], name: "index_tones_on_color_id", using: :btree
     t.index ["vendor_id"], name: "index_tones_on_vendor_id", using: :btree
   end

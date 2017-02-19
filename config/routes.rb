@@ -38,6 +38,7 @@ Rails.application.routes.draw do
     resources :vendors
     resources :textures
     resources :sizes
+    resources :products
     get '/get_images', to: 'items#get_images', as: :get_images
     put '/delete/:id',                        to: 'compositions#delete',        as: :delete_composition
     post '/admin/compositions/:id',            to: 'compositions#add_item',      as: :add_item

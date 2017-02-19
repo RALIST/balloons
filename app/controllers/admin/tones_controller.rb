@@ -4,6 +4,10 @@ class Admin::TonesController < Admin::AdminController
     @tone = Tone.new
   end
 
+  def index
+    @tones = Tone.all.order(:vendor_id)
+  end
+
   def create
     @tone = Tone.create(tone_params)
     redirect_to admin_items_path

@@ -60,36 +60,51 @@
       -if params[:query]
         = render @items
     - Item.all.each do |item|
-      .border-bot
-        %strong.text-capitalize
-          = item.vendor.name
-          = item.texture.name if item.texture
-          - if item.tone
-            = item.tone.name
-            = item.tone.code
-            = item.tone.color.name
-        %table.table
-          %thead
-            %th
-              Шрихкод
-            %th
-              Размер
-            %th
-              Цена
-            %th
-              Количество
-            %th
-              Название
-          - item.products.order(:size_id).each do |product|
-            %tr
-              %td
-                = product.barcode
-              %td
-                = product.size.belbal if product.size
-              %td
-                = product.price
-              %td
-                = product.quantity
-              %td
-                %small
-                  = product.name
+      - if item.tone.present?
+        .border-bot
+          %h4.text-capitalize
+            = item.vendor.name
+            = item.texture.name if item.texture
+            - if item.tone
+              = item.tone.name
+              = item.tone.code
+              = item.tone.color.name
+            %small
+              = link_to 'Редактировать', edit_admin_item_path(item), target: '_blank'
+          %table.table
+            %thead
+              %th
+                Изображение
+              %th
+                Шрихкод
+              %th
+                Акртикул
+              %th
+                Размер
+              %th
+                Цена
+              %th
+                Количество
+              %th
+                Название
+            - item.products.order(:size_id).each do |product|
+              %tr
+                %td
+                  - if item.tone && product.size.belbal != 350
+                    = image_tag item.tone.img.url(:small)
+                  -else
+                    = image_tag product.img.url(:small)
+                %td
+                  = product.barcode
+                %td
+                  = product.code
+                %td
+                  = product.size.belbal if product.size
+                %td
+                  = product.price
+                %td
+                  = product.quantity
+                %td
+                  %small
+                    = product.name
+                  = link_to 'Редактировать', edit_admin_product_path(product), target: '_blank'

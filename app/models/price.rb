@@ -31,6 +31,7 @@ class Price < ApplicationRecord
             when 'латексные шары'
               get_latex(@product_name, price_vendor, product)
             when 'фольгированные шары'
+              get_foil
             end
           end
         end
@@ -42,7 +43,8 @@ class Price < ApplicationRecord
 
   def get_latex(name, vendor, product)
     arr = @product_name.encode("UTF-8").split(/[^а-яА-Я0-9_]/)
-    if vendor.name == 'belbal'
+    case vendor.name
+    when 'belbal' || 'gemar'
       @size = Size.find_by(belbal: arr[1].to_i)
       if @size.present?
         arr.delete(arr[1])
@@ -86,25 +88,42 @@ class Price < ApplicationRecord
         product.code = @code
         product.price = @price
         product.name = @product_name
+        if product.size.belbal == 350
+          product.set_image
+        end
         product.save
       end
     else
-      item = Latex.find_or_create_by!(name: @product_name) do |i|
-        i.category = Category.find_or_create_by!(title: 'с рисунком')
-        i.vendor = vendor
-        i.texture = @texture if @texture.present?
+      if @size.present?
+        item = Latex.find_or_create_by!(name: @product_name) do |i|
+          i.category = Category.find_or_create_by!(title: 'с рисунком')
+          i.vendor = vendor
+          i.texture = @texture if @texture.present?
+        end
+        product.size = @size
+        product.item = item
+        product.code = @code
+        product.price = @price
+        product.name = @product_name
+        unless product.set_image
+          product.get_image_from_web
+        end
+        product.save
       end
-      product.size = @size
-      product.item = item
-      product.code = @code
-      product.price = @price
-      product.name = @product_name
-      product.save
     end
   end
 
+  def get_foil(vendor, form, product)
+
+  end
+
   def get_tone(str, vendor)
-    tone = vendor.tones.find_by(code: str)
+    case vendor.name
+    when 'belbal'
+      tone = vendor.tones.find_by(code: '%03d' % str)
+    when 'gemar'
+      tone = vendor.tones.find_by(code: '%02d' % str)
+    end
   end
 
   def get_color(str)

@@ -1,0 +1,23 @@
+%table.table
+  %thead
+    %th
+      Производитель
+    %th
+      Код
+    %th
+      Название
+    %th
+      Изображение
+    %th
+      Действия
+  %tr
+    %td
+      = tone.vendor.name
+    %td
+      = tone.code
+    %td
+      = tone.name
+    %td
+      = image_tag tone.img.url(:small)
+    %td
+      = link_to 'Редактировать', edit_admin_tone_path(tone)

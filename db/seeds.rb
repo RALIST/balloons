@@ -20,11 +20,16 @@ xls = Roo::Spreadsheet.open('public/Цвета.xlsm', extension: :xlsm)
 start_row = 2
 (start_row..xls.last_row).each do |row|
   vendor = Vendor.find_by(name: xls.cell(row, 'A').strip.downcase)
-  code = '%03d' % xls.cell(row, 'B')
+  case vendor.name
+  when 'belbal' || 'sempertex'
+    code = '%03d' % xls.cell(row, 'B')
+  when 'gemar'
+    code = '%02d' % xls.cell(row, 'B')
+  end
   name = xls.cell(row, 'C')
   color = Color.find_or_create_by!(name: xls.cell(row, 'E'))
   if vendor.present? && code.present? && name.present?
-    tone = Tone.create(vendor: vendor, name: name, color: color, code: code)
+    tone = Tone.find_or_create_by(vendor: vendor, name: name, color: color, code: code)
   end
 end
 
@@ -34,5 +39,5 @@ start_row = 2
   in_cm = xls.cell(row, 'A')
   in_inch = xls.cell(row, 'B')
   belbal = xls.cell(row, 'C')
-  size = Size.create(in_cm: in_cm, in_inch: in_inch, belbal: belbal)
+  size = Size.find_or_create_by(in_cm: in_cm, in_inch: in_inch, belbal: belbal)
 end

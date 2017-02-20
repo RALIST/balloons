@@ -8,32 +8,10 @@
         до #{params[:max]}
       рублей
     .row
-      - @compositions.each do |c|
-        .col-md-4.col-sm-6.col-xs-12
-          .thumbnail
-            = link_to root_path(id: c.id), data:{ toggle: 'modal', target: "#composition"}, remote: true do
-              = image_tag c.img.url(:thumb), class: 'img-responsive', style: 'height: 300px; object-fit: contain;'
-            %h3.text-center
-              %strong
-                = number_to_currency(c.price, precision: 0)
-            %p.text-center{style: 'height: 4em;'}
-              Воздушные шары на
-              %br
-              - if c.tags.any?
-                - c.tags.map(&:name).each do |tag|
-                  = link_to tag, by_tag_path(tag)
-              - else
-                ваш праздник
-            .text-center
-              - unless @cart.compositions.include?(c)
-                = button_to 'Добавить в корзину', add_to_cart_path(c), class: "btn btn-info btn-block add-to-cart#{c.id}", data: {disable_with: 'Добавляем...'}, remote: true
-                .small
-                  В корзине вы сможете изменить состав композиции
-              - else
-                .btn.btn-success.btn-block{disabled: true}
-                  Добавлено в корзину
-                .small
-                  Зайдите в корзину, чтобы изменить композицию
+      .compositions
+        = render partial: 'thumb_composition', collection: @compositions, as: :c
+    .row.text-center
+      = will_paginate @compositions
 
 .modal.fade{id: "composition",  tabindex: "-1",  role: "dialog"}
   .modal-dialog{role: "document", style: 'float: center; width: 90%; margin: auto;'}

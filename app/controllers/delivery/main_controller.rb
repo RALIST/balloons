@@ -3,7 +3,7 @@ class Delivery::MainController < Delivery::DeliveryController
   def index
     set_meta_tags title: 'Воздушные шары с доставкой, лучшие композиции',
                   keywords: 'воздушные шары, гелиевые шары, гелиевые шарики, заказать воздушные шары, шарики с доставкой, доставка шариков, купить воздушные шары, купить шарики'
-    @compositions = Composition.paginate(page: params[:page], per_page: 6)
+    @compositions = Composition.availible.paginate(page: params[:page], per_page: 6)
     @composition  = Composition.find(params[:id]) if params[:id]
     respond_to do |format|
       format.html
@@ -18,7 +18,7 @@ class Delivery::MainController < Delivery::DeliveryController
                   keywords: "воздушные шары на #{params[:tag_name]}, заказать воздушные шары на #{params[:tag_name]}, шарики с доставкой на #{params[:tag_name]}, доставка шариков на #{params[:tag_name]}"
     unless params[:tag_name].blank?
       tag = Unicode::downcase(params[:tag_name]).strip
-      @compositions =  Composition.with_tag(tag).paginate(page: params[:page], per_page: 6)
+      @compositions =  Composition.availible.with_tag(tag).paginate(page: params[:page], per_page: 6)
       if @compositions.any?
         @compositions
       else
@@ -37,7 +37,7 @@ class Delivery::MainController < Delivery::DeliveryController
                   keywords: "воздушные шары на #{params[:tag_name]}, заказать воздушные шары на #{params[:tag_name]}, шарики с доставкой на #{params[:tag_name]}, доставка шариков на #{params[:tag_name]}"
     unless params[:tag_name].blank?
       tag = Unicode::downcase(params[:tag_name]).strip
-      @compositions =  Composition.with_tag(tag).paginate(page: params[:page], per_page: 6)
+      @compositions =  Composition.availible.with_tag(tag).paginate(page: params[:page], per_page: 6)
       if @compositions.any?
         @compositions
       else
@@ -59,7 +59,7 @@ class Delivery::MainController < Delivery::DeliveryController
                     description: "Воздушные шары на #{params[:tag_name]}",
                     reverse: true,
                     keywords: "композиции из воздушных шары от #{params[:min]} до #{params[:max]}, заказать композиции из воздушных шары от #{params[:min]} до #{params[:max]}, шарики с доставкой от #{params[:min]} до #{params[:max]}, доставка шариков композиции из воздушных шары от #{params[:min]} до #{params[:max]}"
-    @compositions = Composition.price_range(params[:min].to_i - 100, params[:max].to_i + 100).paginate(page: params[:page], per_page: 6)
+    @compositions = Composition.availible.price_range(params[:min].to_i - 100, params[:max].to_i + 100).paginate(page: params[:page], per_page: 6)
     if @compositions.any?
       @compositions
     else
@@ -77,7 +77,7 @@ class Delivery::MainController < Delivery::DeliveryController
                   description: "Воздушные шары #{params[:title]}",
                   reverse: true,
                   keywords: "воздушные шары #{params[:title]}, гелиевые шары #{params[:title]}, гелиевые шарики #{params[:title]}, заказать воздушные шары#{params[:title]}, шарики с доставкой #{params[:title]}, доставка шариков #{params[:title]}, купить воздушные шары #{params[:title]}, купить шарики #{params[:title]}"
-    @compositions = Composition.with_receivers(params[:q]).paginate(page: params[:page], per_page: 6)
+    @compositions = Composition.availible.with_receivers(params[:q]).paginate(page: params[:page], per_page: 6)
     unless @compositions.any?
       flash[:alert] = 'Nothing'
     end

@@ -8,9 +8,12 @@
     = stylesheet_link_tag    'application'
     = javascript_include_tag 'application'
   %body
+    %a#return-to-top
+      %i.fa.fa-chevron-up
     %header
       = render 'shop/layouts/header'
     .wrapper
       .container
         = render 'shop/layouts/search_bar'
     %footer
+

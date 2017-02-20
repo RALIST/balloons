@@ -5,5 +5,5 @@ $(document).on('ajaxStart', function(){
 $(document).on('ajaxSuccess', function(){
   $('#composition .modal-title').html('Композиция №<%= @composition.id %> <br> <small class = "hidden-xs">Вы сможете изменить состав композиции и количество шаров просто добавив ее в корзину!</small');
   $('#composition .modal-body').html('<%= j( render @composition) %>');
-})
+});
 

@@ -62,6 +62,7 @@ gem 'mainsms_api'
 gem 'sitemap_generator'
 gem 'letsencrypt_plugin'
 gem 'rack-canonical-host'
+gem 'bootstrap-will_paginate'
 
 group :production do
   gem 'rails_12factor'

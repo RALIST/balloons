@@ -1,8 +1,8 @@
 class Product < ApplicationRecord
   belongs_to :item
   belongs_to :size
-  # has_many :compositions, through: :items_in_compositions
-  # has_many :items_in_compositions, dependent: :destroy
+  has_many :compositions, through: :items_in_compositions
+  has_many :items_in_compositions, dependent: :destroy
   has_many :tones, through: :items
   validates :item_id, presence: true
   has_attached_file :img, styles: {small: 'x100', thumb: 'x300'}
@@ -19,7 +19,7 @@ class Product < ApplicationRecord
       products_arr = []
       if items.any?
         items.map do |item|
-          products = item.products.joins(:size).where(sizes: {in_inch: 14})
+          products = item.products.joins(:size).where(sizes: {in_inch: [14, 18, 36]})
           products.each do |p|
             products_arr.push([p.name, p.id])
           end
@@ -48,6 +48,19 @@ class Product < ApplicationRecord
       if File.exists?("#{Rails.root}/public/300/#{self.code + '_m1.jpg'}")
         self.img = File.open("#{Rails.root}/public/300/#{self.code + '_m1.jpg'}")
       end
+    end
+  end
+
+  def set_price_with_helium
+    case self.size.in_inch
+    when 12
+      self.price_with_helium = 50
+    when 14
+      self.price_with_helium = 60
+    when 18
+      self.price_with_helium = 250
+    when 36
+      self.price_with_helium = 1000
     end
   end
 end

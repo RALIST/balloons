@@ -81,6 +81,7 @@ class Price < ApplicationRecord
                                       tone: @tone,
                                       texture: @texture) do |i|
         i.category = Category.find_or_create_by!(title: 'без рисунка')
+        i.name = arr.join(" ")
       end
       if item.present?
         product.item = item
@@ -88,8 +89,10 @@ class Price < ApplicationRecord
         product.code = @code
         product.price = @price
         product.name = @product_name
-        if product.size.belbal == 350
-          product.set_image
+        if product.size.belbal == 350 || item.tone.img.blank?
+          unless product.set_image
+            product.get_image_from_web
+          end
         end
         product.save
       end
@@ -99,6 +102,7 @@ class Price < ApplicationRecord
           i.category = Category.find_or_create_by!(title: 'с рисунком')
           i.vendor = vendor
           i.texture = @texture if @texture.present?
+          i.name = @product_name
         end
         product.size = @size
         product.item = item

@@ -1,0 +1,27 @@
+$(document).ready(function() {
+  if ($('.pagination').length > 0) {
+    $(window).scroll(function() {
+      var url = $('.pagination .next_page a').attr('href');
+      if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 150) {
+        $('.pagination').html('<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>');
+        return $.getScript(url);
+      }
+    });
+    return $(window).scroll();
+  }
+});
+
+$(document).on('ready', function(){
+  $(window).scroll(function() {
+    if ($(this).scrollTop() >= 50) {        // If page is scrolled more than 50px
+        $('#return-to-top').fadeIn(200);    // Fade in the arrow
+    } else {
+        $('#return-to-top').fadeOut(200);   // Else fade out the arrow
+    }
+  });
+  $('#return-to-top').on('click', function() {      // When arrow is clicked
+    $('body,html').animate({
+        scrollTop : 0                       // Scroll to top of body
+    }, 500);
+  });
+});

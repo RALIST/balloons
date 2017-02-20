@@ -12,6 +12,7 @@ class Admin::CompositionsController < Admin::AdminController
 
   def show
     @items = Item.where(availible_in_comps: true)
+    @products = @comp.products.uniq
   end
 
   def new
@@ -44,9 +45,9 @@ class Admin::CompositionsController < Admin::AdminController
   end
 
   def add_item
-    @item = Item.find(params[:item])
+    @product = Product.find(params[:item])
     params[:count].to_i.times do
-      @comp.items.push(@item)
+      @comp.products.push(@product)
     end
     @comp.update_price
     respond_to do |format|
@@ -73,8 +74,8 @@ class Admin::CompositionsController < Admin::AdminController
   end
 
   def remove_item
-    @item = Item.find(params[:item_id])
-    @comp.items.delete(@item)
+    @product = Product.find(params[:product_id])
+    @comp.products.delete(@product)
     @comp.comp_price
     redirect_back fallback_location: admin_root_path
   end

@@ -1,14 +1,36 @@
 .container
   .row
     .col-md-4
-      = image_tag @comp.img.url(:thumb), class: 'img-responsive'
+      = image_tag @comp.img.url(:thumb), class: 'img-responsive', style: 'margin: auto;'
       = link_to 'Обновить цену', admin_update_price_path(@comp), class: 'btn btn-info btn-block'
     .col-md-8
       .row
         .col-md-8
           .h4.bg-brand Товары в композиции
           .items.text-left
-            = render 'item'
+            %table.table
+              %thead
+                %th
+                %th
+                %th
+                  Кол-во
+              - @products.each do |product|
+                %tr.item{data: {product_id: "#{product.id}"}}
+                  %td
+                    -if product.item.tone
+                      = image_tag product.item.tone.img.url(:small)
+                    - else
+                      = image_tag product.img.url(:small)
+                  %td
+                    = link_to do
+                      = "#{product.size.in_inch.to_i}'' #{product.item.texture.name} #{product.item.tone.name} " if product.item.texture && product.item.tone
+                  %td
+                    = @comp.products.where(id: product.id).count
+                  %td
+                    = link_to admin_remove_item_path(product_id: product.id) do
+                      %i.fa.fa-times-circle{style: 'aria-hidden="true"'}
+                  %td.popover-img{style: 'display: none;'}
+                    = image_tag product.item.tone.img.url(:small) if product.item.tone
         .col-md-4
           .h4.bg-brand Повод/Кому
           - @comp.tags.each do |tag|

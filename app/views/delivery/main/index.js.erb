@@ -1,9 +1,20 @@
-$(document).on('ajaxStart', function(){
-  $('#composition .modal-title').html('Загрузка...');
-  $('#composition .modal-body').html('<div class="text-center h1"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i></div>');
-});
-$(document).on('ajaxSuccess', function(){
-  $('#composition .modal-title').html('Композиция №<%= @composition.id %> <br> <small class = "hidden-xs">Вы сможете изменить состав композиции и количество шаров просто добавив ее в корзину!</small');
-  $('#composition .modal-body').html('<%= j( render @composition) %>');
-});
+<% unless params[:page] %>
+  $(document).on('ajaxStart', function(){
+    $('#composition .modal-title').html('Загрузка...');
+    $('#composition .modal-body').html('<div class="text-center h1"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i></div>');
+  });
+  $(document).on('ajaxSuccess', function(){
+    $('#composition .modal-title').html('Композиция №<%= @composition.id %> <br> <small class = "hidden-xs">Вы сможете изменить состав композиции и количество шаров просто добавив ее в корзину!</small');
+    $('#composition .modal-body').html('<%= j( render @composition) %>');
+  });
+<% end %>
 
+<% if params[:page] %>
+  $('.compositions').append('<%= j(render partial: "thumb_composition", collection: @compositions, as: :c) %>');
+  <% if @compositions.next_page %>
+    $('.pagination').replaceWith('<%= j(will_paginate @compositions) %>');
+  <% else %>
+    $(window).off('scroll');
+    $('.pagination').remove();
+  <% end %>
+<% end %>

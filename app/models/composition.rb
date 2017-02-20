@@ -1,7 +1,7 @@
 class Composition < ApplicationRecord
   has_many :items_in_compositions,  dependent: :destroy
   has_many :items, through: :items_in_compositions
-
+  has_many :products, through: :items_in_compositions
   has_many :tags, as: :taggable
   has_many :carts, through: :positions
   has_many :receivers, as: :personable
@@ -27,7 +27,7 @@ class Composition < ApplicationRecord
 
 
   def comp_price
-    price = self.items.map{ |i| i.price_with_helium }.reject(&:nil?).sum.round(2)
+    price = self.products.map{ |i| i.price_with_helium }.reject(&:nil?).sum.round(2)
     self.update(price: price)
   end
 

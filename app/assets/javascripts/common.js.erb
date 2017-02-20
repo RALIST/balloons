@@ -86,8 +86,8 @@ $(document).on('keyup','#subposition_quantity', function (e) {
   return false;
   });
 
-$(document).on('mouseenter touchstart', '[data-item-id]', function(){
-  $('[data-item-id] a, [data-item-id] span').each(function(index, value){
+$(document).on('mouseenter touchstart', '[data-product-id], [data-item-id]' , function(){
+  $('[data-item-id] a, [data-item-id] span, [data-product-id] a, [data-product-id] span').each(function(index, value){
     element = $(value)
     element.popover({
       trigger: 'hover',

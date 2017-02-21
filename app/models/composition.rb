@@ -23,7 +23,7 @@ class Composition < ApplicationRecord
   scope :without_tags, ->{ where.not(id: Composition.with_tags.map(&:id)).where(deleted: false) }
   scope :availible, -> {joins(:items).merge(Item.with_price).distinct(:id)
                         .where.not(id: Composition.without_price.map(&:id), deleted: true)}
-  scope :with_receivers, -> (receiver) { joins(:receivers).where('receivers.title LIKE ?', "%#{receiver}%") }
+  scope :with_receivers, -> (receiver) { joins(:receivers).where(receivers: {title: receiver})}
 
 
   def comp_price

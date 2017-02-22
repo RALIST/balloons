@@ -4,22 +4,22 @@ class Admin::ItemsController < Admin::AdminController
 
   def new
     @item = Item.new
+    @product = @item.products.build
   end
 
   def create
-    @item = Item.create(item_params)
-    if @item.save
-      redirect_to admin_items_path
-    else
-      render 'new'
-    end
+    @item = Item.where(vendor_id: item_params[:vendor_id],
+                        texture_id: item_params[:texture_id],
+                        tone_id: item_params[:tone_id]).first_or_create!
+    @item.products.create!(item_params[:products_attributes][:"#{0}"])
+    redirect_to admin_items_path
   end
 
   def edit
   end
 
   def update
-    if @item.update(item_params)
+    if @item.update!(item_params)
       redirect_to admin_item_path(@item)
     else
       render 'edit'
@@ -64,11 +64,19 @@ class Admin::ItemsController < Admin::AdminController
 
   private
   def item_params
-    params.require(:item).permit(:name, :desc, :img, :price, :price_with_helium,
-                                  :item_type, :collection, :color,
-                                  :size, :quantity, :availible_in_comps, :barcode,
-                                  :made_by, :min_order, :quantity_type,
-                                  :select_collection, :text_collection, :vendor_id, :color_id)
+    params.require(:item).permit(:name, :desc, :type_id, :category_id,
+      :select_collection, :text_collection, :vendor_id,
+      :color_id, :texture_id, :tone_id,
+      products_attributes: [
+        :size_id,
+        :quantity,
+        :price,
+        :price_with_helium,
+        :id,
+        :barcode,
+        :code,
+        :quantity,
+        :name])
   end
 
   def set_item

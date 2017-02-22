@@ -1,0 +1,47 @@
+- if item.products.any?
+  .product
+    .thumbnail
+      .row#items
+        .item-img
+          = link_to item_path(item) do
+            - if item.tone
+              = image_tag item.tone.img.url(:small), class: 'img-responsive'
+            - else
+              = image_tag item.products.first.img(:small)
+        .item-info
+          .row
+            .item-name
+              %label
+                - unless item.tone
+                  = link_to item.name.capitalize, item_path(item)
+                - else
+                  = link_to "#{item.vendor.name.capitalize} #{item.texture.name.capitalize} #{item.tone.name.capitalize}(#{item.tone.code})", item_path(item)
+          .row
+            .item-to-cart
+              .row
+                .item-size-label
+                  = label_tag :size, 'Размер'
+                .item-price-label.hidden-xs
+                  .row
+                    .col-md-6
+                      %label Цена
+                    .col-md-6
+                      %label В уп.
+                .item-count-label.hidden-xs
+                  = label_tag :count, 'Количество'
+              .row
+                .item-size
+                  = select_tag :size, options_for_select(item.products.order(:size_id).map{|p| ["#{p.size.in_inch.to_i}''(#{p.size.in_cm.to_i}см)", p.id]}), class: 'form-control input-sm' if item.sizes.any?
+                .item-price.hidden-xs
+                .item-count.hidden-xs
+                  .form-horizontal
+                    .form-group
+                      .input-group
+                        .input-group-addon
+                          %i.fa.fa-plus
+                        = number_field_tag :count, '', class: 'form-control input-sm text-center'
+                        .input-group-addon
+                          %i.fa.fa-minus
+          .row
+            .cart-button
+              = link_to 'В корзину', '', class: 'btn btn-info btn-block'

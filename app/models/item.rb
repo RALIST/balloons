@@ -4,12 +4,14 @@ class Item < ApplicationRecord
   has_many :tags, as: :taggable, dependent: :destroy
   has_many :positions, through: :subpositions, dependent: :delete_all
   has_many :subpositions, dependent: :delete_all
+  has_and_belongs_to_many :subcategories
   belongs_to :vendor
   belongs_to :type
   belongs_to :tone
   belongs_to :category
   belongs_to :texture
   belongs_to :color
+  belongs_to :foil_form
   has_many :sizes, through: :products
   has_many :products
 
@@ -21,6 +23,7 @@ class Item < ApplicationRecord
   validates_attachment_content_type :img,
                         content_type: ["image/jpeg", "image/jpg", "image/png"]
   attr_accessor :select_collection, :text_collection
+  accepts_nested_attributes_for :products, reject_if: :blank?
 
   scope :search, -> (query) { where("made_by LIKE ? OR item_type LIKE ? OR collection LIKE ? OR name LIKE ?", "%#{query}%", "%#{query}%", "%#{query}%", "%#{query}%" )}
   scope :with_price, -> { where.not(price_with_helium: nil) }

@@ -4,13 +4,13 @@ class Product < ApplicationRecord
   has_many :compositions, through: :items_in_compositions
   has_many :items_in_compositions, dependent: :destroy
   has_many :tones, through: :items
-  validates :item_id, presence: true
+  validates :item_id, :barcode, presence: true
   has_attached_file :img, styles: {small: 'x100', thumb: 'x300'}
   validates_attachment_content_type :img,
                         content_type: ["image/jpeg", "image/jpg", "image/png"]
 
   attr_reader :img_remote_url
-
+  before_save :set_price_with_helium
 
   def self.for_select
     arr = []
@@ -52,15 +52,17 @@ class Product < ApplicationRecord
   end
 
   def set_price_with_helium
-    case self.size.in_inch
-    when 12
-      self.price_with_helium = 50
-    when 14
-      self.price_with_helium = 60
-    when 18
-      self.price_with_helium = 250
-    when 36
-      self.price_with_helium = 1000
+    if self.size.present?
+      case self.size.in_inch
+      when 12
+        self.price_with_helium = 50
+      when 14
+        self.price_with_helium = 60
+      when 18
+        self.price_with_helium = 250
+      when 36
+        self.price_with_helium = 1000
+      end
     end
   end
 end

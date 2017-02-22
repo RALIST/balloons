@@ -21,17 +21,23 @@ class Price < ApplicationRecord
       price_vendor = Vendor.find(vendor)
       price_type = Type.find(type) unless type.blank?
       (start_row..xls.last_row).each do |row|
-        @product_name = xls.cell(row, 'B').strip.downcase
-        @barcode = xls.cell(row, 'C')
-        @code = xls.cell(row, 'D')
-        @price = xls.cell(row, 'E')
-        unless @barcode.blank?
+        @product_name = xls.cell(row, 'B').strip.downcase unless xls.cell(row, 'B').blank?
+        @barcode = xls.cell(row, 'C') unless xls.cell(row, 'C').blank?
+        @code = xls.cell(row, 'D') unless xls.cell(row, 'D').blank?
+        @price = xls.cell(row, 'E') unless xls.cell(row, 'E').blank?
+        unless @barcode.blank? && @product_name.blank?
           product = Product.where(barcode: xls.cell(row, 'C').to_i).first_or_initialize do |product|
             case price_type.name
             when 'латексные шары'
               get_latex(@product_name, price_vendor, product)
             when 'фольгированные шары'
-              get_foil
+              vendor_name = xls.cell(row, 'A').strip.downcase unless xls.cell(row, 'A').blank?
+              if vendor_name.present?
+                @vendor = Vendor.find_or_create_by!(name: vendor_name) do |vendor|
+                  vendor.name = vendor_name
+                end
+                get_foil(@product_name, product, @vendor)
+              end
             end
           end
         end
@@ -76,6 +82,11 @@ class Price < ApplicationRecord
       break if @texture.present?
     end
 
+    arr.each do |word|
+      @color = get_color(word)
+      break if @color.present?
+    end
+
     if @tone.present? && @texture.present? && @size.present?
       item = Latex.find_or_create_by!(vendor: vendor,
                                       tone: @tone,
@@ -103,6 +114,7 @@ class Price < ApplicationRecord
           i.vendor = vendor
           i.texture = @texture if @texture.present?
           i.name = @product_name
+          i.color = @color
         end
         product.size = @size
         product.item = item
@@ -117,8 +129,58 @@ class Price < ApplicationRecord
     end
   end
 
-  def get_foil(vendor, form, product)
+  def get_foil(name, product, vendor)
+    arr = name.encode("UTF-8").split(/[^а-яА-Я0-9_]/)
 
+    arr.each do |word|
+      if word == 'рис'
+        @category = Category.find_by(title: 'без рисунка')
+        break
+      else
+        @category = Category.find_by(title: 'c рисунком')
+        break
+      end
+    end
+
+    arr.each do |word|
+      @size = get_size(word, vendor)
+      break if @size.present?
+    end
+
+    arr.each do |word|
+      @form = get_form(word)
+      break if @form.present?
+    end
+
+    arr.each do |word|
+      @texture = get_texture(word)
+      break if @texture.present?
+    end
+
+    arr.each do |word|
+      @color = get_color(word)
+      break if @color.present?
+    end
+
+    item = Foil.find_or_create_by!(name: name) do |item|
+      item.vendor = vendor
+      item.foil_form = @form
+      item.texture = @texture
+      item.category = @category
+      item.name = name
+    end
+    if item
+      product.item = item
+      product.size = @size if @size.present?
+      product.name = name
+      product.barcode = @barcode
+      product.code = @code
+      product.price = @price
+      unless product.set_image
+        product.get_image_from_web
+      end
+      product.save
+    end
   end
 
   def get_tone(str, vendor)
@@ -131,7 +193,7 @@ class Price < ApplicationRecord
   end
 
   def get_color(str)
-    color = Color.where('name LIKE ?', "%#{str}%").first
+    color = Color.find_by(name: str)
   end
 
   def get_texture(str)
@@ -142,5 +204,9 @@ class Price < ApplicationRecord
     unless str.to_i == 0
       size = Size.find_by(in_inch: str.to_i)
     end
+  end
+
+  def get_form(str)
+    form = FoilForm.find_by(name: str)
   end
 end

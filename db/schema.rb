@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170220055458) do
+ActiveRecord::Schema.define(version: 20170222140752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,12 @@ ActiveRecord::Schema.define(version: 20170220055458) do
     t.float    "price",            default: 0.0
   end
 
+  create_table "foil_forms", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "items", force: :cascade do |t|
     t.string   "name"
     t.text     "desc"
@@ -89,8 +95,10 @@ ActiveRecord::Schema.define(version: 20170220055458) do
     t.integer  "category_id"
     t.integer  "type_id"
     t.integer  "color_id"
+    t.integer  "foil_form_id"
     t.index ["category_id"], name: "index_items_on_category_id", using: :btree
     t.index ["color_id"], name: "index_items_on_color_id", using: :btree
+    t.index ["foil_form_id"], name: "index_items_on_foil_form_id", using: :btree
     t.index ["texture_id"], name: "index_items_on_texture_id", using: :btree
     t.index ["tone_id"], name: "index_items_on_tone_id", using: :btree
     t.index ["type_id"], name: "index_items_on_type_id", using: :btree
@@ -107,6 +115,12 @@ ActiveRecord::Schema.define(version: 20170220055458) do
     t.index ["composition_id"], name: "index_items_in_compositions_on_composition_id", using: :btree
     t.index ["item_id"], name: "index_items_in_compositions_on_item_id", using: :btree
     t.index ["product_id"], name: "index_items_in_compositions_on_product_id", using: :btree
+  end
+
+  create_table "items_subcategories", id: false, force: :cascade do |t|
+    t.integer "item_id"
+    t.integer "subcategory_id"
+    t.index ["item_id", "subcategory_id"], name: "index_items_subcategories_on_item_id_and_subcategory_id", using: :btree
   end
 
   create_table "letsencrypt_plugin_challenges", force: :cascade do |t|
@@ -196,6 +210,12 @@ ActiveRecord::Schema.define(version: 20170220055458) do
     t.index ["vendor_id"], name: "index_sizes_on_vendor_id", using: :btree
   end
 
+  create_table "subcategories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "subpositions", force: :cascade do |t|
     t.integer  "position_id"
     t.integer  "item_id"
@@ -278,6 +298,7 @@ ActiveRecord::Schema.define(version: 20170220055458) do
   add_foreign_key "carts", "users"
   add_foreign_key "items", "categories"
   add_foreign_key "items", "colors"
+  add_foreign_key "items", "foil_forms"
   add_foreign_key "items", "textures"
   add_foreign_key "items", "tones"
   add_foreign_key "items", "types"

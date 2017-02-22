@@ -13,7 +13,7 @@ class Item < ApplicationRecord
   belongs_to :color
   belongs_to :foil_form
   has_many :sizes, through: :products
-  has_many :products
+  has_many :products, dependent: :destroy
 
   validates :vendor_id, presence: true
   before_validation :set_collection
@@ -36,7 +36,9 @@ class Item < ApplicationRecord
   scope :without_compositions, -> {where.not(id: Item.with_compositions.map(&:id))}
 
 
-
+  def self.destroy_without_compositions
+    self.without_compositions.destroy_all
+  end
 
   def set_collection
     self.collection = Unicode::downcase(select_collection) unless select_collection.blank?

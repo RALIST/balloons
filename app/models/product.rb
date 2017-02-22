@@ -15,7 +15,10 @@ class Product < ApplicationRecord
   def self.for_select
     arr = []
     Color.all.each do |color|
-      items = Item.joins(:vendor).where(vendors:{name: ['belbal', 'sempertex']}).joins(:tone).joins(:category).where(tones: {color: color})
+      items = Item.joins(:vendor).where(vendors:{name: ['belbal', 'sempertex', 'anagram']}).joins(:tone).joins(:category).where(tones: {color: color})
+      unless items.any?
+        items = Item.all.includes(:vendor, :sizes, :products)
+      end
       products_arr = []
       if items.any?
         items.map do |item|

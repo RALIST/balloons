@@ -32,6 +32,8 @@ class Item < ApplicationRecord
   scope :without_barcode, -> { where(barcode: nil) }
   scope :comp_availible, -> { where(availible_in_comps: true) }
   scope :with_img, -> { where.not(img_file_name: nil)}
+  scope :with_compositions, -> {joins(:compositions)}
+  scope :without_compositions, -> {where.not(id: Item.with_compositions.map(&:id))}
 
 
 

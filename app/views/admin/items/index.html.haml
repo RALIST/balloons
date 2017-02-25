@@ -49,6 +49,13 @@
         = category.title
       %p
         = link_to 'Добавить категорию', new_admin_category_path, class: 'btn btn-info btn-sm'
+  .row.border-bot
+    .col-md-12
+      %h5 Размеры
+      - Size.all.each do |size|
+        = size.in_inch
+      %p
+        = link_to 'Добавить размер', new_admin_size_path, class: 'btn btn-info btn-sm'
   .row
     .col-md-12
       = link_to 'Добавить товар', new_admin_item_path, class: 'btn btn-info '
@@ -67,8 +74,10 @@
           - if item.tone
             = "#{item.tone.code}/#{item.tone.name}"
           - else
-            = item.color if item.color
+            = item.color.name if item.color
+          %br
           %small
+            = item.type.name
             = link_to 'Редактировать', edit_admin_item_path(item), target: '_blank'
             = link_to 'Удалить', admin_item_path(item), method: :delete
         -if item.products.any?
@@ -85,6 +94,8 @@
               %th
                 Цена
               %th
+                Цена с гелием
+              %th
                 Количество
               %th
                 Название
@@ -100,9 +111,11 @@
                 %td
                   = product.code
                 %td
-                  = product.size.belbal if product.size
+                  = product.size.in_inch if product.size
                 %td
                   = product.price
+                %td
+                  = product.price_with_helium if product.price_with_helium
                 %td
                   = product.quantity
                 %td

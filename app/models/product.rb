@@ -3,7 +3,9 @@ class Product < ApplicationRecord
   belongs_to :size
   has_many :compositions, through: :items_in_compositions
   has_many :items_in_compositions, dependent: :destroy
-  has_many :tones, through: :items
+  has_many :subpositions, dependent: :delete_all
+  has_one :tone, through: :item
+  has_one :color, through: :tone
   validates :item_id, :barcode, presence: true
   has_attached_file :img, styles: {small: 'x100', thumb: 'x300'}
   validates_attachment_content_type :img,
@@ -22,7 +24,7 @@ class Product < ApplicationRecord
       products_arr = []
       if items.any?
         items.map do |item|
-          products = item.products.joins(:size).where(sizes: {in_inch: [14, 18, 36]})
+          products = item.products.joins(:size).where('sizes.in_inch >= ? ', 12)
           products.each do |p|
             products_arr.push([p.name, p.id])
           end
@@ -67,5 +69,11 @@ class Product < ApplicationRecord
         self.price_with_helium = 1000
       end
     end
+  end
+
+
+  def self.availible_in_compositions
+    joins(:item).where(items: {type: 2})
+    # joins(:item).joins(:size).where('sizes.in_inch >= ?', 12).merge(Foil.all)
   end
 end

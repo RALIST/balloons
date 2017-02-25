@@ -1,6 +1,6 @@
 .row
-  - @collections.sort!.each do |collection|
+  - @collections.each do |collection|
     .col-md-4.col-xs-6.col-sm-3
       - position = p || @position
-      = link_to my_cart_path(collection: collection, position: position), remote: true do
-        %span.as_btn= collection.capitalize
+      = link_to my_cart_path(collection_id: collection.id, position: position), remote: true do
+        %span.as_btn= collection.name.capitalize

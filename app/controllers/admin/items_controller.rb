@@ -44,16 +44,7 @@ class Admin::ItemsController < Admin::AdminController
   end
 
   def index
-    @companies = Item.all.map{|i| i.made_by}.reject(&:blank?).uniq
-    @types = Item.all.map{ |i| i.item_type }.uniq
-    @collections = Item.all.map{|i| i.collection}.reject(&:blank?).uniq
-    unless params[:query].blank?
-      @items = Item.search(params[:query]).order(:name)
-    else
-      @items = Item.all.order(:name).order(:name)
-    end
-    @items_without_collection = Item.without_collection
-    @items_without_img = Item.without_img
+    @items = Item.all
   end
 
 

@@ -36,8 +36,8 @@ end
 xls = Roo::Spreadsheet.open('public/Размеры.xlsm', extension: :xlsm)
 start_row = 2
 (start_row..xls.last_row).each do |row|
-  in_cm = xls.cell(row, 'A')
+  in_cm = xls.cell(row, 'A') unless xls.cell(row, 'A').blank?
   in_inch = xls.cell(row, 'B')
-  belbal = xls.cell(row, 'C')
-  size = Size.find_or_create_by(in_cm: in_cm, in_inch: in_inch, belbal: belbal)
+  belbal = xls.cell(row, 'C') unless xls.cell(row, 'C').blank?
+  size = Size.find_or_create_by(in_inch: in_inch)
 end

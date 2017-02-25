@@ -5,8 +5,8 @@ class Delivery::CartsController < Delivery::DeliveryController
 
   def show
     @cart = current_cart
-    @collections = Item.comp_availible.map{|i| i.collection}.uniq.reject(&:blank?)
-    @items_in_collection = Item.comp_availible.where(collection: params[:collection])
+    @collections = Color.all
+    @items_in_collection = Product.availible_in_compositions.joins(:color).where(colors: {id: params[:collection_id]})
     @position = Position.find(params[:position]) if params[:position]
     respond_to do |format|
       format.html
@@ -18,11 +18,11 @@ class Delivery::CartsController < Delivery::DeliveryController
 
   def add_to_cart
     @composition = Composition.find(params[:id])
-    if !current_cart.compositions.include?(@composition)
+    unless current_cart.compositions.include?(@composition)
       current_cart.positions.create(composition: @composition)
-      @composition.items.uniq.each do |item|
-        quantity = @composition.items.where(id: item.id).count
-        current_cart.positions.where(composition: @composition).last.subpositions.create(item: item, quantity: quantity)
+      @composition.products.uniq.each do |product|
+        quantity = @composition.products.where(id: product.id).count
+        current_cart.positions.where(composition: @composition).last.subpositions.create(product: product, quantity: quantity)
       end
       flash.now[:success] = 'Композиция добавлена в корзину!'
     else

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170222140752) do
+ActiveRecord::Schema.define(version: 20170225114755) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,26 +69,10 @@ ActiveRecord::Schema.define(version: 20170222140752) do
   create_table "items", force: :cascade do |t|
     t.string   "name"
     t.text     "desc"
-    t.float    "price"
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
-    t.string   "img_file_name"
-    t.string   "img_content_type"
-    t.integer  "img_file_size"
-    t.datetime "img_updated_at"
-    t.integer  "price_with_helium"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.string   "item_type"
-    t.string   "made_by"
-    t.string   "barcode"
-    t.string   "collection"
-    t.integer  "min_order"
-    t.string   "quantity_type"
-    t.boolean  "deleted",            default: false
-    t.string   "color"
-    t.boolean  "availible_in_comps", default: false
-    t.string   "size"
-    t.float    "quantity",           default: 0.0
-    t.string   "code"
+    t.boolean  "deleted",      default: false
     t.integer  "vendor_id"
     t.integer  "tone_id"
     t.integer  "texture_id"
@@ -218,12 +202,12 @@ ActiveRecord::Schema.define(version: 20170222140752) do
 
   create_table "subpositions", force: :cascade do |t|
     t.integer  "position_id"
-    t.integer  "item_id"
     t.integer  "quantity"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["item_id"], name: "index_subpositions_on_item_id", using: :btree
+    t.integer  "product_id"
     t.index ["position_id"], name: "index_subpositions_on_position_id", using: :btree
+    t.index ["product_id"], name: "index_subpositions_on_product_id", using: :btree
   end
 
   create_table "tags", force: :cascade do |t|
@@ -312,8 +296,8 @@ ActiveRecord::Schema.define(version: 20170222140752) do
   add_foreign_key "positions", "orders"
   add_foreign_key "products", "items"
   add_foreign_key "products", "sizes"
-  add_foreign_key "subpositions", "items"
   add_foreign_key "subpositions", "positions"
+  add_foreign_key "subpositions", "products"
   add_foreign_key "tones", "colors"
   add_foreign_key "tones", "vendors"
 end

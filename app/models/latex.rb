@@ -1,5 +1,5 @@
 class Latex < Item
-  default_scope -> { joins(:type).where(types: {name: 'латексные шары'}) }
+  default_scope -> { where(type: Type.find_by(name: 'латексные шары').id) }
   before_save :set_type
 private
   def set_type

@@ -73,6 +73,7 @@
           = item.texture.name if item.texture
           - if item.tone
             = "#{item.tone.code}/#{item.tone.name}"
+            = item.tone.color.name
           - else
             = item.color.name if item.color
           %br

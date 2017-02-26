@@ -1,5 +1,7 @@
 class Product < ApplicationRecord
   belongs_to :item
+  belongs_to :latex, foreign_key: :item_id
+  belongs_to :foil, foreign_key: :item_id
   belongs_to :size
   has_many :compositions, through: :items_in_compositions
   has_many :items_in_compositions, dependent: :destroy
@@ -14,9 +16,9 @@ class Product < ApplicationRecord
   attr_reader :img_remote_url
   before_save :set_price_with_helium
 
-  def self.for_select
+  def self.plain_latex_for_select
     arr = []
-    Color.all.each do |color|
+    Color.all.find_each do |color|
       items = Item.joins(:vendor).where(vendors:{name: ['belbal', 'sempertex', 'anagram']}).joins(:tone).joins(:category).where(tones: {color: color})
       unless items.any?
         items = Item.all.includes(:vendor, :sizes, :products)
@@ -24,7 +26,7 @@ class Product < ApplicationRecord
       products_arr = []
       if items.any?
         items.map do |item|
-          products = item.products.joins(:size).where('sizes.in_inch >= ? ', 12)
+          products = item.products.latex_in_compositions
           products.each do |p|
             products_arr.push([p.name, p.id])
           end
@@ -72,8 +74,11 @@ class Product < ApplicationRecord
   end
 
 
-  def self.availible_in_compositions
-    joins(:item).where(items: {type: 2})
-    # joins(:item).joins(:size).where('sizes.in_inch >= ?', 12).merge(Foil.all)
+  def self.latex_in_compositions
+    joins(latex: :type).joins(:size).where('sizes.in_inch >= ?', 12)
+  end
+
+  def foil_in_compositions
+    joins(foil: :type)
   end
 end

@@ -57,7 +57,7 @@
             .row
               .col-md-8
                 .form-group
-                  = select_tag :item, grouped_options_for_select(Product.for_select), class: 'form-control'
+                  = select_tag :item, grouped_options_for_select(Product.plain_latex_for_select), class: 'form-control'
               .col-md-4
                 .form-group
                   = number_field_tag :count,'', class: 'form-control', placeholder: 'Кол-во'

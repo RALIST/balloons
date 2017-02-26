@@ -1,6 +1,5 @@
 class Admin::ItemsController < Admin::AdminController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-  before_action :collections, only: [:new, :create, :edit, :update]
 
   def new
     @item = Item.new
@@ -71,9 +70,5 @@ class Admin::ItemsController < Admin::AdminController
 
   def set_item
     @item = Item.find(params[:id])
-  end
-
-  def collections
-    @collections = Item.all.map{|i| i.collection}.reject(&:blank?).uniq
   end
 end

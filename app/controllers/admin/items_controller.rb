@@ -43,7 +43,28 @@ class Admin::ItemsController < Admin::AdminController
   end
 
   def index
-    @items = Item.all
+    case
+    when params[:type]
+      type = Type.find(params[:type])
+      @items = Item.where(type: type).paginate(page: params[:page], per_page: 20)
+    when params[:vendor]
+      vendor = Vendor.find(params[:vendor])
+      @items = Item.where(vendor:  vendor).paginate(page: params[:page], per_page: 20)
+    when params[:category]
+      category = Category.find(params[:category])
+      @items = Item.where(category: category).paginate(page: params[:page], per_page: 20)
+    when params[:tone]
+      tone = Tone.find(params[:tone])
+      @items = Item.where(tone: tone).paginate(page: params[:page], per_page: 20)
+    when params[:form]
+      form = FoilForm.find(params[:form])
+      @items = Item.where(foil_form: form).paginate(page: params[:page], per_page: 20)
+    when params[:color]
+      color = Color.find(params[:color])
+      @items = Item.joins(:tone).where(tones: {color: color}).paginate(page: params[:page], per_page: 20)
+    else
+      @items = Item.all.paginate(page: params[:page], per_page: 20)
+    end
   end
 
 
@@ -54,8 +75,7 @@ class Admin::ItemsController < Admin::AdminController
   private
   def item_params
     params.require(:item).permit(:name, :desc, :type_id, :category_id,
-      :select_collection, :text_collection, :vendor_id,
-      :color_id, :texture_id, :tone_id,
+      :vendor_id, :color_id, :texture_id, :tone_id,
       products_attributes: [
         :size_id,
         :quantity,

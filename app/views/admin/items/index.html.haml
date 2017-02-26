@@ -11,35 +11,35 @@
     .col-md-12
       %h5 Цвета
       - Color.all.each do |color|
-        = color.name
+        = link_to color.name.capitalize, admin_items_path(color: color.id)
       %p
         = link_to 'Добавить цвет', new_admin_color_path, class: 'btn btn-info btn-sm'
   .row.border-bot
     .col-md-12
       %h5 Тип продукции
       - Type.all.each do |type|
-        = type.name
+        = link_to type.name.capitalize, admin_items_path(type: type.id)
       %p
         = link_to 'Добавить тип', new_admin_type_path, class: 'btn btn-info btn-sm'
   .row.border-bot
     .col-md-12
       %h5 Текстура
       - Texture.all.each do |texture|
-        = texture.name
+        = link_to texture.name.capitalize, admin_items_path(texture: texture.id)
       %p
         = link_to 'Добавить текстуру', new_admin_texture_path, class: 'btn btn-info btn-sm'
   .row.border-bot
     .col-md-12
       %h5 Оттенок
       - Tone.all.each do |tone|
-        = tone.name
+        = link_to tone.name.capitalize, admin_items_path(tone: tone.id)
       %p
         = link_to 'Добавить оттенок', new_admin_tone_path, class: 'btn btn-info btn-sm'
   .row.border-bot
     .col-md-12
       %h5 Форма
       - FoilForm.find_each do |form|
-        = form.name
+        = link_to form.name.capitalize, admin_items_path(form: form.id)
       %p
         = link_to 'Добавить форму', new_admin_foil_form_path, class: 'btn btn-info btn-sm'
   .row.border-bot
@@ -73,7 +73,7 @@
         Все товары
       -if params[:query]
         = render @items
-    - Item.all.includes(:vendor, :texture, :tone, :products, :color, :category, :sizes).each do |item|
+    - @items.all.includes(:vendor, :texture, :tone, :products, :color, :category, :sizes).each do |item|
       .border-bot
         %h4.text-capitalize
           = item.vendor.name if item.vendor
@@ -139,3 +139,5 @@
                     = product.name
                     = link_to 'Редактировать', edit_admin_product_path(product), target: '_blank'
                     = link_to 'Удалить', admin_product_path(product), method: :delete
+  %ul.pag.list-inline
+    = will_paginate @items, container: false

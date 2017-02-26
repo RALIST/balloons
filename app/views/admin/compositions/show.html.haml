@@ -46,48 +46,34 @@
         .col-md-8.text-right
           .h3.border-top
             = @comp.price
-
   .row
     .col-md-12
-      .row
-        %h2 Добавить параметры
-        .col-md-4.border-right
-          %h3 Товар
-          =form_tag admin_add_item_path do
-            .row
-              .col-md-8
-                .form-group
-                  = select_tag :item, grouped_options_for_select(Product.plain_latex_for_select), class: 'form-control'
-              .col-md-4
-                .form-group
-                  = number_field_tag :count,'', class: 'form-control', placeholder: 'Кол-во'
-              .col-md-12
-                .form-group
-                = submit_tag 'Добавить товар', class: 'btn btn-info'
-        .col-md-4.border-right
-          %h3 Повод
-          = form_for [:admin, @comp] do |f|
-            .form-group
-              = f.label :tag_name, 'Выберите из списка'
-              = f.select :tag_name, options_for_select(Tag.all.map{|i| [i.name]}.uniq), {}, {class: 'form-control'}
-            .form-group
-              = f.submit 'Добавить',  class: 'btn btn-info'
-          = form_for [:admin, @comp] do |f|
-            .form-group
-              = f.label :tag_name, 'или создайте свой'
-              = f.text_field :tag_name, value: '',class: 'form-control'
-            = f.submit 'Добавить', class: 'btn btn-info'
-        .col-md-4
-          %h3 Кому
-          = form_for [:admin, @comp] do |f|
-            .form-group
-              =f.label :receiver_title, 'Выберите из списка'
-              = f.select :receiver_title, options_for_select(Receiver.all.map{|r| [r.title]}.uniq), {}, {class: 'form-control'}
-            .form-group
-              = f.submit 'Добавить', class: 'btn btn-info'
-          = form_for [:admin, @comp] do |f|
-            .form-group
-              = f.label :receiver_title, 'или добавьте свой'
-              = f.text_field :receiver_title, value: '', class: 'form-control'
-            .form-group
-              = f.submit 'Добавить', class: 'btn btn-info'
+      %h2 Добавить параметры
+    = render 'admin/items/add_products'
+    .col-md-4.border-right
+      %h3 Повод
+      = form_for [:admin, @comp] do |f|
+        .form-group
+          = f.label :tag_name, 'Выберите из списка'
+          = f.select :tag_name, options_for_select(Tag.all.map{|i| [i.name]}.uniq), {}, {class: 'form-control'}
+        .form-group
+          = f.submit 'Добавить',  class: 'btn btn-info'
+      = form_for [:admin, @comp] do |f|
+        .form-group
+          = f.label :tag_name, 'или создайте свой'
+          = f.text_field :tag_name, value: '',class: 'form-control'
+        = f.submit 'Добавить', class: 'btn btn-info'
+    .col-md-4
+      %h3 Кому
+      = form_for [:admin, @comp] do |f|
+        .form-group
+          =f.label :receiver_title, 'Выберите из списка'
+          = f.select :receiver_title, options_for_select(Receiver.all.map{|r| [r.title]}.uniq), {}, {class: 'form-control'}
+        .form-group
+          = f.submit 'Добавить', class: 'btn btn-info'
+      = form_for [:admin, @comp] do |f|
+        .form-group
+          = f.label :receiver_title, 'или добавьте свой'
+          = f.text_field :receiver_title, value: '', class: 'form-control'
+        .form-group
+          = f.submit 'Добавить', class: 'btn btn-info'

@@ -1,0 +1,4 @@
+.container
+  = form_for [:admin, @form] do |f|
+    = f.text_field :name
+    = f.submit 'Создать форму'

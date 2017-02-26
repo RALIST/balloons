@@ -109,7 +109,7 @@ class Price < ApplicationRecord
       end
     else
       if @size.present?
-        item = Latex.find_or_create_by!(name: @product_name) do |i|
+        item = Latex.find_or_create_by!(name: arr.split(" ")) do |i|
           i.category = Category.find_or_create_by!(title: 'с рисунком')
           i.vendor = vendor
           i.texture = @texture if @texture.present?
@@ -130,21 +130,22 @@ class Price < ApplicationRecord
   end
 
   def get_foil(name, product, vendor)
-    arr = name.encode("UTF-8").split(/[^а-яА-Я0-9_]/)
+    arr = name.encode("UTF-8").split(/[^a-zA-Zа-яА-Я0-9_]/)
 
     arr.each do |word|
-      if word == 'рис'
-        @category = Category.find_by(title: 'без рисунка')
-        break
-      else
-        @category = Category.find_by(title: 'c рисунком')
+      @size = get_size(word, vendor)
+      if @size.present?
+        arr.delete(word)
         break
       end
     end
 
     arr.each do |word|
-      @size = get_size(word, vendor)
-      break if @size.present?
+      @tone = get_tone_by_name(word)
+      if @tone.present?
+        puts @tone.name
+        break
+      end
     end
 
     arr.each do |word|
@@ -162,25 +163,57 @@ class Price < ApplicationRecord
       break if @color.present?
     end
 
-    item = Foil.find_or_create_by!(name: name) do |item|
-      item.vendor = vendor
-      item.foil_form = @form
-      item.texture = @texture
-      item.category = @category
-      item.name = name
-    end
-    if item
-      product.item = item
-      product.size = @size if @size.present?
-      product.name = name
-      product.barcode = @barcode
-      product.code = @code
-      product.price = @price
-      unless product.set_image
-        product.get_image_from_web
+    if @tone.present? && @texture.present? && @form.present?
+      item = Foil.find_or_create_by!(name: arr.join(" ")) do |item|
+        item.vendor = vendor
+        item.foil_form = @form
+        item.texture = @texture
+        item.name = arr.join(" ")
+        item.tone = @tone
+        item.category = Category.find_or_create_by(title: 'без рисунка')
       end
-      product.save
+      if item.present?
+        product.item = item
+        product.size = @size if @size.present?
+        product.name = name
+        product.barcode = @barcode
+        product.code = @code
+        product.price = @price
+        unless product.set_image
+          product.get_image_from_web
+        end
+        product.save
+      end
+    else
+      item = Foil.find_or_create_by!(name: arr.join(" ")) do |item|
+        item.vendor = vendor
+        item.foil_form = @form if @form
+        item.texture = @texture if @texture
+        item.name = arr.join(" ")
+        if @tone
+          item.tone = @tone
+          item.category = Category.find_or_create_by(title: 'без рисунка')
+        else
+          item.category = Category.find_or_create_by(title: 'с рисунком')
+        end
+      end
+      if item.present?
+        product.item = item
+        product.size = @size if @size.present?
+        product.name = name
+        product.barcode = @barcode
+        product.code = @code
+        product.price = @price
+        unless product.set_image
+          product.get_image_from_web
+        end
+        product.save
+      end
     end
+  end
+
+  def get_tone_by_name(str)
+    tone = Tone.find_by(name: str)
   end
 
   def get_tone(str, vendor)

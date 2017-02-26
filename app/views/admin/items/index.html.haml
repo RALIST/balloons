@@ -37,6 +37,13 @@
         = link_to 'Добавить оттенок', new_admin_tone_path, class: 'btn btn-info btn-sm'
   .row.border-bot
     .col-md-12
+      %h5 Форма
+      - FoilForm.find_each do |form|
+        = form.name
+      %p
+        = link_to 'Добавить форму', new_admin_foil_form_path, class: 'btn btn-info btn-sm'
+  .row.border-bot
+    .col-md-12
       %h5 Производитель
       - Vendor.all.each do |vendor|
         = vendor.name
@@ -71,14 +78,21 @@
         %h4.text-capitalize
           = item.vendor.name if item.vendor
           = item.texture.name if item.texture
+          = item.foil_form.name if item.foil_form
           - if item.tone
-            = "#{item.tone.code}/#{item.tone.name}"
-            = item.tone.color.name
+            - case item.type.name
+            - when 'латексные шары'
+              = "#{item.tone.code}/#{item.tone.name}"
+              = item.tone.color.name
+            - when 'фольгированные шары'
+              = item.tone.name
           - else
             = item.color.name if item.color
           %br
           %small
             = item.type.name
+            = item.category.title
+            %br
             = link_to 'Редактировать', edit_admin_item_path(item), target: '_blank'
             = link_to 'Удалить', admin_item_path(item), method: :delete
         -if item.products.any?
@@ -103,8 +117,9 @@
             - item.products.order(:size_id).each do |product|
               %tr
                 %td
-                  - if item.tone && product.size.belbal != 350
+                  - if item.tone && product.size.belbal != 350 && item.type.name == 'латексные шары'
                     = image_tag item.tone.img.url(:small)
+
                   -else
                     = image_tag product.img.url(:small)
                 %td

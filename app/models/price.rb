@@ -18,8 +18,8 @@ class Price < ApplicationRecord
     unless vendor.blank?
       xls = Roo::Spreadsheet.open(open('https:' + self.price_sheet.url(:original, false)), extension: :xlsm)
       start_row = 2
-      price_vendor = Vendor.find_by(name: vendor)
-      price_type = Type.find_by(name: type) unless type.blank?
+      price_vendor = Vendor.find_by!(name: vendor)
+      price_type = Type.find_by!(name: type) unless type.blank?
       (start_row..xls.last_row).each do |row|
         @product_name = xls.cell(row, 'B').strip.downcase unless xls.cell(row, 'B').blank?
         @barcode = xls.cell(row, 'C') unless xls.cell(row, 'C').blank?
@@ -48,7 +48,7 @@ class Price < ApplicationRecord
 
 
   def get_latex(name, vendor, product)
-    arr = @product_name.encode("UTF-8").split(/[^а-яА-Я0-9_]/)
+    arr = name.encode("UTF-8").split(/[^a-zA-Zа-яА-Я0-9_]/)
     case vendor.name
     when 'belbal' || 'gemar'
       @size = Size.find_by(belbal: arr[1].to_i)
@@ -73,7 +73,7 @@ class Price < ApplicationRecord
       end
     end
     arr.each do |word|
-      @tone = vendor.tones.find_by(code: word)
+      @tone = Tone.find_by(code: word, vendor: vendor)
       break if @tone.present?
     end
 
@@ -109,7 +109,7 @@ class Price < ApplicationRecord
       end
     else
       if @size.present?
-        item = Latex.find_or_create_by!(name: arr.split(" ")) do |i|
+        item = Latex.find_or_create_by!(name: arr.join(" ")) do |i|
           i.category = Category.find_or_create_by!(title: 'с рисунком')
           i.vendor = vendor
           i.texture = @texture if @texture.present?

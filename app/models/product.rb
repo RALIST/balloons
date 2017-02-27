@@ -96,7 +96,7 @@ class Product < ApplicationRecord
   end
 
   def set_price_with_helium
-    if self.size.present?
+    if self.size.present? && self.price_with_helium.blank?
       case self.size.in_inch
       when 12
         self.price_with_helium = 50

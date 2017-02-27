@@ -16,6 +16,42 @@ user = User.create(email: 'info@bigairballoons.ru',
                     password: 'paduvi30',
                     first_name: 'admin' )
 
+vendors = ['belbal', 'gemar', 'sempertex', 'anagram', 'flex metal']
+types = ['латексные шары', 'фольгированные шары']
+forms = ['звезда', 'круг', 'сердце', 'цифра', 'месяц', 'фигура']
+categories = ['с рисунком', 'без рисунка']
+textures = ['пастель', 'металлик', 'кристалл', 'перламутр', 'супер', 'фэшн']
+
+forms.each do |form|
+  FoilForm.find_or_create_by!(name: form)
+end
+
+vendors.each do |vendor|
+  Vendor.find_or_create_by!(name: vendor)
+end
+
+types.each do |type|
+  Type.find_or_create_by!(name: type)
+end
+
+categories.each do |category|
+  Category.find_or_create_by!(title: category)
+end
+
+textures.each do |texture|
+  Texture.find_or_create_by!(name: texture)
+end
+
+xls = Roo::Spreadsheet.open('public/Размеры.xlsm', extension: :xlsm)
+start_row = 2
+(start_row..xls.last_row).each do |row|
+  size = Size.find_or_create_by(in_inch: xls.cell(row, 'B')) do |size|
+    size.in_cm = xls.cell(row, 'A') unless xls.cell(row, 'A').blank?
+    size.in_inch = xls.cell(row, 'B')
+    size.belbal = xls.cell(row, 'C') unless xls.cell(row, 'C').blank?
+  end
+end
+
 xls = Roo::Spreadsheet.open('public/Цвета.xlsm', extension: :xlsm)
 start_row = 2
 (start_row..xls.last_row).each do |row|
@@ -31,13 +67,4 @@ start_row = 2
   if vendor.present? && code.present? && name.present?
     tone = Tone.find_or_create_by(vendor: vendor, name: name, color: color, code: code)
   end
-end
-
-xls = Roo::Spreadsheet.open('public/Размеры.xlsm', extension: :xlsm)
-start_row = 2
-(start_row..xls.last_row).each do |row|
-  in_cm = xls.cell(row, 'A') unless xls.cell(row, 'A').blank?
-  in_inch = xls.cell(row, 'B')
-  belbal = xls.cell(row, 'C') unless xls.cell(row, 'C').blank?
-  size = Size.find_or_create_by(in_inch: in_inch)
 end

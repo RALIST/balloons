@@ -6,10 +6,10 @@
       = form_for [:admin, @price] do |f|
         .form-group
           = f.label :vendor, 'Производитель'
-          = f.select :vendor, Vendor.all.map{ |v| [v.name, v.id] }, {}, class: 'form-control'
+          = f.select :vendor, Vendor.all.map{ |v| [v.name, v.name] }, {}, class: 'form-control'
         .form-group
           = f.label :type, 'Тип продукции'
-          = f.select :type, Type.all.map{|t| [t.name, t.id] }, {}, class: 'form-control'
+          = f.select :type, Type.all.map{|t| [t.name, t.name] }, {}, class: 'form-control'
         .form-group
           = f.file_field :price_sheet, class: 'form-control'
         .form-group

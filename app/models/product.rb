@@ -16,6 +16,9 @@ class Product < ApplicationRecord
   attr_reader :img_remote_url
   before_save :set_price_with_helium
 
+
+  scope :availible_in_compositions, -> {latex_in_compositions.foil_in_compositions}
+
   def self.plain_latex_for_select
     arr = []
     Color.all.find_each do |color|
@@ -109,10 +112,10 @@ class Product < ApplicationRecord
 
 
   def self.latex_in_compositions
-    joins(latex: :type).joins(:size).where('sizes.in_inch >= ?', 12)
+    joins(:latex).joins(:size).where('sizes.in_inch >= ?', 12)
   end
 
-  def foil_in_compositions
-    joins(foil: :type)
+  def self.foil_in_compositions
+    includes(:foil)
   end
 end

@@ -9,9 +9,12 @@
             - position.subpositions.each do |s|
               .row
                 .col-md-4.col-xs-5
-                  = image_tag s.item.img(:small), class: 'img-responsive'
+                  - if s.product.tone
+                    = image_tag s.product.tone.img(:small), class: 'img-responsive'
+                  - else
+                    = image_tag s.product.img(:small), class: 'img-responsive'
                 .col-md-8.col-xs-7
                   %strong
-                    = s.item.name
+                    = s.product.name
                   = s.quantity
                   шт.

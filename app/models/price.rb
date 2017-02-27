@@ -18,8 +18,8 @@ class Price < ApplicationRecord
     unless vendor.blank?
       xls = Roo::Spreadsheet.open(open('https:' + self.price_sheet.url(:original, false)), extension: :xlsm)
       start_row = 2
-      price_vendor = Vendor.find(vendor)
-      price_type = Type.find(type) unless type.blank?
+      price_vendor = Vendor.find_by(name: vendor)
+      price_type = Type.find_by(name: type) unless type.blank?
       (start_row..xls.last_row).each do |row|
         @product_name = xls.cell(row, 'B').strip.downcase unless xls.cell(row, 'B').blank?
         @barcode = xls.cell(row, 'C') unless xls.cell(row, 'C').blank?

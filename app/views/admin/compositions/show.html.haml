@@ -17,7 +17,10 @@
               - @products.each do |product|
                 %tr.item{data: {product_id: "#{product.id}"}}
                   %td
-                    = image_tag product.img.url(:small)
+                    -if product.item.tone && product.type.name != 'фольгированные шары'
+                      = image_tag product.img.url(:small)
+                    - else
+                      = image_tag product.img.url(:small)
                   %td
                     = link_to do
                       = "#{product.size.in_inch.to_i}'' #{product.item.texture.name} #{product.item.tone.name} " if product.item.texture && product.item.tone

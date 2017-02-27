@@ -119,11 +119,4 @@ class Product < ApplicationRecord
   def self.foil_in_compositions
     includes(:foil)
   end
-
-  def img
-    if tone.present? && type.name != 'фольгированные шары'
-      tone.img
-    else
-      self.img
-    end
 end

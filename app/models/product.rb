@@ -8,6 +8,7 @@ class Product < ApplicationRecord
   has_many :subpositions, dependent: :delete_all
   has_one :tone, through: :item
   has_one :color, through: :tone
+  has_one :type, through: :item
   validates :item_id, :barcode, presence: true
   has_attached_file :img, styles: {small: 'x100', thumb: 'x300'}
   validates_attachment_content_type :img,

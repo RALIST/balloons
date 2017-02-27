@@ -25,7 +25,7 @@
               шт.
             %td= number_to_currency(product.price_with_helium, precision: 0)
             %td.popover-img{style: 'display: none;'}
-              - if product.item.tone
+              - if product.item.tone && product.type.name != 'фольгированные шары'
                 = image_tag product.item.tone.img(:small)
               - else
                 = image_tag product.img.url(:small)

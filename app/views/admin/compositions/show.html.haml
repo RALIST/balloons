@@ -17,7 +17,7 @@
               - @products.each do |product|
                 %tr.item{data: {product_id: "#{product.id}"}}
                   %td
-                    -if product.item.tone
+                    -if product.item.tone && product.type.name != 'фольгированные шары'
                       = image_tag product.item.tone.img.url(:small)
                     - else
                       = image_tag product.img.url(:small)

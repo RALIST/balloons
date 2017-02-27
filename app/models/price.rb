@@ -113,7 +113,7 @@ class Price < ApplicationRecord
           i.category = Category.find_or_create_by!(title: 'с рисунком')
           i.vendor = vendor
           i.texture = @texture if @texture.present?
-          i.name = arr.split(" ")
+          i.name = arr.join(" ")
           i.color = @color
         end
         product.size = @size

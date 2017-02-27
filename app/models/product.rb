@@ -99,8 +99,8 @@ class Product < ApplicationRecord
         self.price_with_helium = 50
       when 14
         self.price_with_helium = 60
-      when 18
-        self.price_with_helium = 250
+      when 18 || 19 || 20
+        self.price_with_helium = 180
       when 36
         self.price_with_helium = 1000
       end

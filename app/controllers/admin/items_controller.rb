@@ -62,6 +62,9 @@ class Admin::ItemsController < Admin::AdminController
     when params[:color]
       color = Color.find(params[:color])
       @items = Item.joins(:tone).where(tones: {color: color}).paginate(page: params[:page], per_page: 20)
+    when params[:texture]
+      texture = Texture.find(params[:texture])
+      @items = Item.where(texture: texture).paginate(page: params[:page], per_page: 20)
     else
       @items = Item.all.paginate(page: params[:page], per_page: 20)
     end

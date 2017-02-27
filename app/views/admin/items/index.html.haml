@@ -117,9 +117,8 @@
             - item.products.order(:size_id).each do |product|
               %tr
                 %td
-                  - if item.tone && product.size.belbal != 350 && item.type.name == 'латексные шары'
+                  - if item.tone && item.type.name == 'латексные шары'
                     = image_tag item.tone.img.url(:small)
-
                   -else
                     = image_tag product.img.url(:small)
                 %td

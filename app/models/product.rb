@@ -1,9 +1,13 @@
 class Product < ApplicationRecord
   belongs_to :item
+  belongs_to :latex, foreign_key: :item_id
+  belongs_to :foil, foreign_key: :item_id
   belongs_to :size
   has_many :compositions, through: :items_in_compositions
   has_many :items_in_compositions, dependent: :destroy
-  has_many :tones, through: :items
+  has_many :subpositions, dependent: :delete_all
+  has_one :tone, through: :item
+  has_one :color, through: :tone
   validates :item_id, :barcode, presence: true
   has_attached_file :img, styles: {small: 'x100', thumb: 'x300'}
   validates_attachment_content_type :img,
@@ -12,23 +16,57 @@ class Product < ApplicationRecord
   attr_reader :img_remote_url
   before_save :set_price_with_helium
 
-  def self.for_select
+  def self.plain_latex_for_select
     arr = []
-    Color.all.each do |color|
-      items = Item.joins(:vendor).where(vendors:{name: ['belbal', 'sempertex', 'anagram']}).joins(:tone).joins(:category).where(tones: {color: color})
-      unless items.any?
-        items = Item.all.includes(:vendor, :sizes, :products)
-      end
-      products_arr = []
+    Color.all.find_each do |color|
+      items = Latex.joins(:vendor).where(vendors:{name: ['belbal', 'sempertex', 'anagram']}).joins(:tone).joins(:category).where(tones: {color: color})
       if items.any?
-        items.map do |item|
-          products = item.products.joins(:size).where(sizes: {in_inch: [14, 18, 36]})
-          products.each do |p|
-            products_arr.push([p.name, p.id])
+        products_arr = []
+        if items.any?
+          items.map do |item|
+            products = item.products.latex_in_compositions
+            products.each do |p|
+              products_arr.push([p.name, p.id])
+            end
           end
         end
+        arr.push([color.name, products_arr])
       end
-      arr.push([color.name, products_arr])
+    end
+    return arr
+  end
+
+  def self.plain_foil_for_select
+    arr = []
+    FoilForm.all.each do |form|
+      items = Foil.where(foil_form: form).joins(:category).where(categories: {title: 'без рисунка'})
+      if items.any?
+        products_arr = []
+        items.map do |item|
+          products = item.products.all
+          products.each do |product|
+            products_arr.push([product.name, product.id])
+          end
+        end
+        arr.push([form.name, products_arr])
+      end
+    end
+    return arr
+  end
+  def self.printed_foil_for_select
+    arr = []
+    FoilForm.all.each do |form|
+      items = Foil.where(foil_form: form).joins(:category).where(categories: {title: 'с рисунком'})
+      if items.any?
+        products_arr = []
+        items.map do |item|
+          products = item.products.all
+          products.each do |product|
+            products_arr.push([product.name, product.id])
+          end
+        end
+        arr.push([form.name, products_arr])
+      end
     end
     return arr
   end
@@ -61,11 +99,20 @@ class Product < ApplicationRecord
         self.price_with_helium = 50
       when 14
         self.price_with_helium = 60
-      when 18
-        self.price_with_helium = 250
+      when 18 || 19 || 20
+        self.price_with_helium = 180
       when 36
         self.price_with_helium = 1000
       end
     end
+  end
+
+
+  def self.latex_in_compositions
+    joins(latex: :type).joins(:size).where('sizes.in_inch >= ?', 12)
+  end
+
+  def foil_in_compositions
+    joins(foil: :type)
   end
 end

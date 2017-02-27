@@ -3,7 +3,7 @@ class Delivery::MainController < Delivery::DeliveryController
   def index
     set_meta_tags title: 'Воздушные шары с доставкой, лучшие композиции',
                   keywords: 'воздушные шары, гелиевые шары, гелиевые шарики, заказать воздушные шары, шарики с доставкой, доставка шариков, купить воздушные шары, купить шарики'
-    @compositions = Composition.availible.paginate(page: params[:page], per_page: 6)
+    @compositions = Composition.availible.limit(6).paginate(page: params[:page], per_page: 6)
     @composition  = Composition.find(params[:id]) if params[:id]
     respond_to do |format|
       format.html

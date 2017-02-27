@@ -1,16 +1,19 @@
 .container-fluid
   .row
-    - @items_in_collection.each do |item|
+    - @items_in_collection.each do |product|
       .col-md-4.col-sm-6-col-xs-12
         .thumbnail
           .row
             .col-md-6.col-sm-6.col-xs-12
-              = image_tag item.img.url(:small), class: 'img-responsive'
+              - if product.tone
+                = image_tag product.tone.img.url(:small), class: 'img-responsive'
+              - else
+                = image_tag product.img.url(:small)
             .col-md-6.col-sm-6.col-xs-12
-              = item.name.capitalize
+              = product.name.capitalize
               %br
-              = number_to_currency(item.price_with_helium, precision: 0)
-              = button_to 'Добавить', add_subposition_path(item: item.id, position: position), class: 'btn btn-info', data: {disable_with: 'Подождите...'}
+              = number_to_currency(product.price_with_helium, precision: 0)
+              = button_to 'Добавить', add_subposition_path(item: product.id, position: position), class: 'btn btn-info', data: {disable_with: 'Подождите...'}
   %div{style: 'clear: both;'}
   .row
     .col-md-12

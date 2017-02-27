@@ -1,9 +1,12 @@
 .row.display-table.hidden-xs.hidden-sm.border-bot{id: "#{subposition.id}", style: 'float: left;'}
-  .col-md-7.item.display-cell{data: {item_id: "#{subposition.item.id}"}}
+  .col-md-7.item.display-cell{data: {product_id: "#{subposition.product.id}"}}
     %span{style: 'cursor: pointer;'}
-      = subposition.item.name.capitalize
+      = subposition.product.name.capitalize
     .popover-img{style: 'display: none;'}
-      = image_tag subposition.item.img.url(:small)
+      - if subposition.product.tone
+        = image_tag subposition.product.tone.img.url(:small)
+      - else
+        = image_tag subposition.product.img.url(:small)
   .col-md-4.display-cell
     = form_for subposition, class: 'form-inline', remote: true do |f|
       .input-group
@@ -23,11 +26,14 @@
 .row.hidden-lg.hidden-md.border-bot{id: "#{subposition.id}", style: 'float: left;'}
   .col-xs-12
     .row
-      .col-xs-10.item{data: {item_id: "#{subposition.item.id}"}}
+      .col-xs-10.item{data: {product_id: "#{subposition.product.id}"}}
         %span{style: 'cursor: pointer;'}
-          = subposition.item.name.capitalize
+          = subposition.product.name.capitalize
         .popover-img{style: 'display: none;'}
-          = image_tag subposition.item.img.url(:small)
+          - if subposition.product.tone
+            = image_tag subposition.product.tone.img.url(:small)
+          - else
+            = image_tag subposition.product.img.url(:small)
       .col-xs-2{style: 'font-size: 1.5em;'}
         =link_to subposition_path(subposition), method: :delete, remote: true do
           %i.fa.fa-times

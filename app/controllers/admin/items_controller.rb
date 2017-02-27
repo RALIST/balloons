@@ -1,6 +1,5 @@
 class Admin::ItemsController < Admin::AdminController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-  before_action :collections, only: [:new, :create, :edit, :update]
 
   def new
     @item = Item.new
@@ -44,16 +43,31 @@ class Admin::ItemsController < Admin::AdminController
   end
 
   def index
-    @companies = Item.all.map{|i| i.made_by}.reject(&:blank?).uniq
-    @types = Item.all.map{ |i| i.item_type }.uniq
-    @collections = Item.all.map{|i| i.collection}.reject(&:blank?).uniq
-    unless params[:query].blank?
-      @items = Item.search(params[:query]).order(:name)
+    case
+    when params[:type]
+      type = Type.find(params[:type])
+      @items = Item.where(type: type).paginate(page: params[:page], per_page: 20)
+    when params[:vendor]
+      vendor = Vendor.find(params[:vendor])
+      @items = Item.where(vendor:  vendor).paginate(page: params[:page], per_page: 20)
+    when params[:category]
+      category = Category.find(params[:category])
+      @items = Item.where(category: category).paginate(page: params[:page], per_page: 20)
+    when params[:tone]
+      tone = Tone.find(params[:tone])
+      @items = Item.where(tone: tone).paginate(page: params[:page], per_page: 20)
+    when params[:form]
+      form = FoilForm.find(params[:form])
+      @items = Item.where(foil_form: form).paginate(page: params[:page], per_page: 20)
+    when params[:color]
+      color = Color.find(params[:color])
+      @items = Item.joins(:tone).where(tones: {color: color}).paginate(page: params[:page], per_page: 20)
+    when params[:texture]
+      texture = Texture.find(params[:texture])
+      @items = Item.where(texture: texture).paginate(page: params[:page], per_page: 20)
     else
-      @items = Item.all.order(:name).order(:name)
+      @items = Item.all.paginate(page: params[:page], per_page: 20)
     end
-    @items_without_collection = Item.without_collection
-    @items_without_img = Item.without_img
   end
 
 
@@ -64,8 +78,7 @@ class Admin::ItemsController < Admin::AdminController
   private
   def item_params
     params.require(:item).permit(:name, :desc, :type_id, :category_id,
-      :select_collection, :text_collection, :vendor_id,
-      :color_id, :texture_id, :tone_id,
+      :vendor_id, :color_id, :texture_id, :tone_id,
       products_attributes: [
         :size_id,
         :quantity,
@@ -80,9 +93,5 @@ class Admin::ItemsController < Admin::AdminController
 
   def set_item
     @item = Item.find(params[:id])
-  end
-
-  def collections
-    @collections = Item.all.map{|i| i.collection}.reject(&:blank?).uniq
   end
 end

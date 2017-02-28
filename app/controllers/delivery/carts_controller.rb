@@ -6,7 +6,19 @@ class Delivery::CartsController < Delivery::DeliveryController
   def show
     @cart = current_cart
     @collections = Color.all
-    @items_in_collection = Product.availible_in_compositions.joins(:color).where(colors: {id: params[:collection_id]})
+    @categories = Subcategory.all
+    case
+    when params[:collection_id]
+      latex = Product.latex_in_compositions.includes(:color).where(colors: {id: params[:collection_id]})
+      foil = Product.foil_in_compositions.includes(:color).where(colors: {id: params[:collection_id]})
+      @items_in_collection = latex + foil
+    when params[:category_id]
+      category = Subcategory.find(params[:category_id])
+      latex = category.products.latex_in_compositions
+      foil = category.products.foil_in_compositions
+      @items_in_collection = latex + foil
+      puts @items_in_collection
+    end
     @position = Position.find(params[:position]) if params[:position]
     respond_to do |format|
       format.html

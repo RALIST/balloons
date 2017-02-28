@@ -12,19 +12,6 @@ module Balloons
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.serve_static_assets = true
-    unless Rails.env.test?
-      config.paperclip_defaults = {
-        default_url: 'http://s3-us-west-2.amazonaws.com/flashcards123/images/missing/:style/missing_:style.png',
-        storage: :s3,
-          s3_region: ENV['AWS_REGION'],
-          s3_host_name: "s3-us-west-2.amazonaws.com",
-          s3_credentials: {
-            bucket: ENV['AWS_BUCKET'],
-            access_key_id: ENV['AWS_ACCESS_KEY'],
-            secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
-          }
-      }
-    end
     config.action_mailer.smtp_settings = {
       address:              'smtp.mailgun.org',
       port:                 587,
@@ -37,5 +24,6 @@ module Balloons
     config.time_zone = 'Samara'
     config.i18n.default_locale = :ru
     config.exceptions_app = self.routes
+    Rack::Utils.multipart_part_limit = 512
   end
 end

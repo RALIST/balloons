@@ -9,16 +9,23 @@ class Product < ApplicationRecord
   has_one :tone, through: :item
   has_one :color, through: :tone
   has_one :type, through: :item
+  has_one :category, through: :item
+  has_one :texture,  through: :item
+  has_one :foil_form, through: :item
+  has_one :vendor, through: :item
+  has_many :subcategories, through: :item
   validates :item_id, :barcode, presence: true
+
   has_attached_file :img, styles: {small: 'x100', thumb: 'x300'}
   validates_attachment_content_type :img,
                         content_type: ["image/jpeg", "image/jpg", "image/png"]
 
   attr_reader :img_remote_url
   before_save :set_price_with_helium
+  after_save :set_image
 
 
-  scope :availible_in_compositions, -> {latex_in_compositions.foil_in_compositions}
+  # scope :availible_in_compositions, -> {latex_in_compositions}
 
   def self.plain_latex_for_select
     arr = []
@@ -28,7 +35,7 @@ class Product < ApplicationRecord
         products_arr = []
         if items.any?
           items.map do |item|
-            products = item.products.latex_in_compositions
+            products = item.products.latex_in_compositions.order(:size_id)
             products.each do |p|
               products_arr.push([p.name, p.id])
             end
@@ -89,34 +96,52 @@ class Product < ApplicationRecord
   end
 
   def set_image
-    unless code.blank?
+    unless code.blank? && img.present?
       if File.exists?("#{Rails.root}/public/300/#{self.code + '_m1.jpg'}")
         self.img = File.open("#{Rails.root}/public/300/#{self.code + '_m1.jpg'}")
+      else
+        self.get_image_from_web
       end
+      self.save
     end
   end
 
   def set_price_with_helium
-    if self.size.present? && self.price_with_helium.blank?
-      case self.size.in_inch
-      when 12
-        self.price_with_helium = 50
-      when 14
-        self.price_with_helium = 60
-      when 18 || 19 || 20
-        self.price_with_helium = 180
-      when 36
-        self.price_with_helium = 1000
+    if self.price_with_helium.blank?
+      if self.size.present?
+        case self.size.in_inch
+        when 12
+          self.price_with_helium = 50
+        when 14
+          self.price_with_helium = 60
+        when 18 || 19 || 20
+          self.price_with_helium = 180
+        when 36 || 40
+          self.price_with_helium = 700
+        end
+      else
+        if self.type.name == 'фольгированные шары'
+          case self.foil_form.name
+          when 'звезда' || 'сердце' || 'круг'
+            self.price_with_helium = 180
+          when 'цифра'
+            self.price_with_helium = 700
+          end
+        end
       end
     end
   end
 
 
   def self.latex_in_compositions
-    joins(:latex).joins(:size).where('sizes.in_inch >= ?', 12)
+    joins(:latex).includes(:size, :tone, :type, :texture, :color, :subcategories).where(sizes: {in_inch: [14,36]})
   end
 
   def self.foil_in_compositions
-    includes(:foil)
+    joins(:foil).includes(:size, :tone, :type, :texture, :color, :subcategories).where.not(price_with_helium: nil)
+  end
+
+  def self.availible_in_compositions
+    foil_in_compositions.merge(latex_in_compositions)
   end
 end

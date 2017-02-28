@@ -14,10 +14,6 @@ class Item < ApplicationRecord
   has_many :products, dependent: :destroy
 
   validates :vendor_id, presence: true
+  validates :name, uniqueness: true
   accepts_nested_attributes_for :products, reject_if: :blank?
-
-
-  def self.destroy_without_compositions
-    self.without_compositions.destroy_all
-  end
 end

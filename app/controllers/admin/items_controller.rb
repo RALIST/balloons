@@ -18,10 +18,13 @@ class Admin::ItemsController < Admin::AdminController
   end
 
   def update
-    if @item.update!(item_params)
-      redirect_to admin_item_path(@item)
-    else
-      render 'edit'
+    begin
+      @item = Item.find_by!(vendor_id: item_params[:vendor_id],
+                        texture_id: item_params[:texture_id],
+                        tone_id: item_params[:tone_id])
+    rescue ActiveRecord::RecordNotFound
+      @item.products.create!(item_params[:products_attributes][:"#{0}"])
+      redirect_to admin_items_path
     end
   end
 
@@ -39,7 +42,6 @@ class Admin::ItemsController < Admin::AdminController
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   def index
@@ -49,7 +51,7 @@ class Admin::ItemsController < Admin::AdminController
       @items = Item.where(type: type).paginate(page: params[:page], per_page: 20)
     when params[:vendor]
       vendor = Vendor.find(params[:vendor])
-      @items = Item.where(vendor:  vendor).paginate(page: params[:page], per_page: 20)
+      @items = Item.where(vendor: vendor).paginate(page: params[:page], per_page: 20)
     when params[:category]
       category = Category.find(params[:category])
       @items = Item.where(category: category).paginate(page: params[:page], per_page: 20)
@@ -65,15 +67,14 @@ class Admin::ItemsController < Admin::AdminController
     when params[:texture]
       texture = Texture.find(params[:texture])
       @items = Item.where(texture: texture).paginate(page: params[:page], per_page: 20)
+    when params[:subcategory]
+      subcategory = Subcategory.find(params[:subcategory])
+      @items = subcategory.items.paginate(page: params[:page], per_page: 20)
     else
       @items = Item.all.paginate(page: params[:page], per_page: 20)
     end
   end
 
-
-  def destroy_items
-    Item.destroy_without_compositions
-  end
 
   private
   def item_params

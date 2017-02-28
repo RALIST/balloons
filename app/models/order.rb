@@ -3,6 +3,7 @@ class Order < ApplicationRecord
   has_many :items, through: :positions
   has_many :compositions, through: :positions
   has_many :items, through: :subspositions
+  has_many :products, through: :subpositions
   has_many :positions
   validates :user_id, :order_date, :phone, :address, :name, :total, presence: true
   validate :availible_date

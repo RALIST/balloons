@@ -10,14 +10,18 @@ class Price < ApplicationRecord
 
   attr_accessor :vendor, :type
   validates :vendor, :type, presence: true
-  after_commit :upload_price
+  after_save :upload_price
 
 
 
   def upload_price
     unless vendor.blank?
-      xls = Roo::Spreadsheet.open(open('https:' + self.price_sheet.url(:original, false)), extension: :xlsm)
-      start_row = 2
+      unless Rails.env.development?
+        xls = Roo::Spreadsheet.open(open('https:' + self.price_sheet.url(:original, false)), extension: :xlsm)
+      else
+        xls = Roo::Spreadsheet.open('public'+self.price_sheet.url(:original, false), extension: :xlsm)
+      end
+      start_row = 1
       price_vendor = Vendor.find_by!(name: vendor)
       price_type = Type.find_by!(name: type) unless type.blank?
       (start_row..xls.last_row).each do |row|
@@ -25,7 +29,9 @@ class Price < ApplicationRecord
         @barcode = xls.cell(row, 'C') unless xls.cell(row, 'C').blank?
         @code = xls.cell(row, 'D') unless xls.cell(row, 'D').blank?
         @price = xls.cell(row, 'E') unless xls.cell(row, 'E').blank?
-        unless @barcode.blank? && @product_name.blank?
+        @min_order = xls.cell(row, 'F') unless xls.cell(row, 'F').blank?
+        @subcategory = xls.cell(row, 'G') unless xls.cell(row, 'G').blank?
+        unless @barcode.blank?
           product = Product.where(barcode: xls.cell(row, 'C').to_i).first_or_initialize do |product|
             case price_type.name
             when 'латексные шары'
@@ -74,12 +80,18 @@ class Price < ApplicationRecord
     end
     arr.each do |word|
       @tone = Tone.find_by(code: word, vendor: vendor)
-      break if @tone.present?
+      if @tone.present?
+        arr.delete(word)
+        break
+      end
     end
 
     arr.each do |word|
       @texture = get_texture(word)
-      break if @texture.present?
+      if @texture.present?
+        arr.delete(word)
+        break
+      end
     end
 
     arr.each do |word|
@@ -88,50 +100,42 @@ class Price < ApplicationRecord
     end
 
     if @tone.present? && @texture.present? && @size.present?
-      item = Latex.find_or_create_by!(vendor: vendor,
+      @item = Latex.find_or_create_by!(vendor: vendor,
                                       tone: @tone,
-                                      texture: @texture) do |i|
-        i.category = Category.find_or_create_by!(title: 'без рисунка')
-        i.name = arr.join(" ")
-      end
-      if item.present?
-        product.item = item
-        product.size = @size
-        product.code = @code
-        product.price = @price
-        product.name = @product_name
-        if product.size.belbal == 350 || item.tone.img.blank?
-          unless product.set_image
-            product.get_image_from_web
-          end
-        end
-        product.save
+                                      texture: @texture) do |item|
+        item.category = Category.find_or_create_by!(title: 'без рисунка')
+        item.name = arr.join(" ")
+        item.subcategories.push(Subcategory.find_or_create_by!(name: @subcategory))
       end
     else
-      if @size.present?
-        item = Latex.find_or_create_by!(name: arr.join(" ")) do |i|
-          i.category = Category.find_or_create_by!(title: 'с рисунком')
-          i.vendor = vendor
-          i.texture = @texture if @texture.present?
-          i.name = arr.join(" ")
-          i.color = @color
-        end
-        product.size = @size
-        product.item = item
-        product.code = @code
-        product.price = @price
-        product.name = @product_name
-        unless product.set_image
-          product.get_image_from_web
-        end
+      @item = Latex.find_or_create_by!(name: arr.join(" ")) do |i|
+        i.category = Category.find_or_create_by!(title: 'с рисунком')
+        i.vendor = vendor
+        i.texture = @texture if @texture.present?
+        i.name = arr.join(" ")
+        i.color = @color
+        i.subcategories.push(Subcategory.find_or_create_by!(name: @subcategory))
+      end
+    end
+    if @item.present?
+      product.item = @item
+      product.size = @size
+      product.code = @code
+      product.price = @price
+      product.name = @product_name
+      product.min_order = @min_order
+      unless @item.tone
+        product.set_image
+      else
         product.save
       end
+
     end
   end
 
   def get_foil(name, product, vendor)
     arr = name.encode("UTF-8").split(/[^a-zA-Zа-яА-Я0-9_]/)
-
+    arr.delete[0]
     arr.each do |word|
       @size = get_size(word, vendor)
       if @size.present?
@@ -143,14 +147,17 @@ class Price < ApplicationRecord
     arr.each do |word|
       @tone = get_tone_by_name(word)
       if @tone.present?
-        puts @tone.name
+        arr.delete(word)
         break
       end
     end
 
     arr.each do |word|
       @form = get_form(word)
-      break if @form.present?
+      if @form.present?
+        arr.delete(word)
+        break
+      end
     end
 
     arr.each do |word|
@@ -164,32 +171,22 @@ class Price < ApplicationRecord
     end
 
     if @tone.present? && @texture.present? && @form.present?
-      item = Foil.find_or_create_by!(name: arr.join(" ")) do |item|
+      @item = Foil.find_or_create_by!(name: arr.join(" ")) do |item|
         item.vendor = vendor
         item.foil_form = @form
         item.texture = @texture
         item.name = arr.join(" ")
         item.tone = @tone
         item.category = Category.find_or_create_by(title: 'без рисунка')
-      end
-      if item.present?
-        product.item = item
-        product.size = @size if @size.present?
-        product.name = name
-        product.barcode = @barcode
-        product.code = @code
-        product.price = @price
-        unless product.set_image
-          product.get_image_from_web
-        end
-        product.save
+        item.subcategories.push(Subcategory.find_or_create_by!(name: @subcategory))
       end
     else
-      item = Foil.find_or_create_by!(name: arr.join(" ")) do |item|
+      @item = Foil.find_or_create_by!(name: arr.join(" ")) do |item|
         item.vendor = vendor
         item.foil_form = @form if @form
         item.texture = @texture if @texture
         item.name = arr.join(" ")
+        item.subcategories.push(Subcategory.find_or_create_by!(name: @subcategory))
         if @tone
           item.tone = @tone
           item.category = Category.find_or_create_by(title: 'без рисунка')
@@ -197,16 +194,16 @@ class Price < ApplicationRecord
           item.category = Category.find_or_create_by(title: 'с рисунком')
         end
       end
-      if item.present?
-        product.item = item
-        product.size = @size if @size.present?
-        product.name = name
-        product.barcode = @barcode
-        product.code = @code
-        product.price = @price
-        unless product.set_image
-          product.get_image_from_web
-        end
+    end
+    if @item.present?
+      product.item = @item
+      product.size = @size if @size.present?
+      product.name = name
+      product.barcode = @barcode
+      product.code = @code
+      product.price = @price
+      product.min_order = @min_order
+      unless product.set_image
         product.save
       end
     end

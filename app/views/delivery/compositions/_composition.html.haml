@@ -5,38 +5,44 @@
     %p.bg-brand
       %strong
         В композицию входит:
-    .table-responsive
-      %table.table.table-bordered.table-condensed
-        %tbody
-          %thead
-            %th
-              Название
-            %th
-              Количество
-            %th
-              За штуку
-        - composition.products.uniq.each do |product|
-          %tr.item{data: {item_id: "#{product.id}"}}
-            %td
-              %span{style: 'cursor: pointer;'}
-                = product.name.capitalize
-            %td
-              = composition.products.where(id: product.id).count
-              шт.
-            %td= number_to_currency(product.price_with_helium, precision: 0)
-            %td.popover-img{style: 'display: none;'}
-              - if product.item.tone && product.type.name != 'фольгированные шары'
-                = image_tag product.item.tone.img(:small)
-              - else
-                = image_tag product.img.url(:small)
-        %tr.text-right
+    %table.table.table-bordered.table-condensed
+      %tbody
+        %thead
+          %th
+            Название
+          %th
+            Кол-во
+          %th
+            Цена
+      - composition.products.uniq.each do |product|
+        %tr.item{data: {item_id: "#{product.id}"}}
           %td
+            %span{style: 'cursor: pointer;'}
+              - case product.type.name
+              - when 'латексные шары'
+                = "#{product.size.in_inch.to_i}''(#{product.size.in_cm.to_i}см) #{product.texture.name} #{product.tone.name}"
+              - when 'фольгированные шары'
+                = "#{product.size.in_inch.to_i}''(#{product.size.in_cm.to_i}см)" if product.size
+                = "#{product.foil_form.name}" if product.foil_form
+                = "#{product.tone.name}" if product.tone
+                = product.item.name
           %td
-            %strong
-              Итого:
-          %td
-            %strong
-              = number_to_currency(composition.price, precision: 0)
+            = composition.products.where(id: product.id).count
+            шт.
+          %td= number_to_currency(product.price_with_helium, precision: 0)
+          %td.popover-img{style: 'display: none;'}
+            - if product.item.tone && product.type.name != 'фольгированные шары'
+              = image_tag product.item.tone.img(:small)
+            - else
+              = image_tag product.img.url(:small)
+      %tr.text-right
+        %td
+        %td
+          %strong
+            Итого:
+        %td
+          %strong
+            = number_to_currency(composition.price, precision: 0)
 
     .row
       .col-md-12.col-xs-12

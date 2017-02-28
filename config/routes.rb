@@ -43,6 +43,8 @@ Rails.application.routes.draw do
     resources :sizes
     resources :products
     resources :foil_forms
+    resources :subcategories
+    resources :promotions
     post '/destroy_items', to: 'items#destroy_items', as: :destroy_items
     get '/get_images', to: 'items#get_images', as: :get_images
     put '/delete/:id',                        to: 'compositions#delete',        as: :delete_composition

@@ -1,19 +1,45 @@
 .container-fluid
   .row
     - @items_in_collection.each do |product|
-      .col-md-4.col-sm-6-col-xs-12
-        .thumbnail
+      .col-md-6.col-sm-6.col-xs-12
+        .thumbnail{style: 'min-height: 140px;'}
           .row
-            .col-md-6.col-sm-6.col-xs-12
-              - if product.tone
-                = image_tag product.tone.img.url(:small), class: 'img-responsive'
+            .col-md-4.col-sm-6.col-xs-12{style: 'margin: auto'}
+              - if product.size && product.type.name != 'фольгированные шары'
+                - if product.tone && product.size.in_inch != 36
+                  = image_tag product.tone.img.url(:small), class: 'img-responsive', style: 'margin:auto'
+                - else
+                  - unless product.img.blank?
+                    = image_tag product.img.url(:small), class: 'img-responsive'
+                  - else
+                    - if product.set_image
+                      = image_tag product.img.url(:small), class: 'img-responsive'
               - else
-                = image_tag product.img.url(:small)
-            .col-md-6.col-sm-6.col-xs-12
-              = product.name.capitalize
-              %br
+                - unless product.img.blank?
+                  = image_tag product.img.url(:small), class: 'img-responsive'
+                - else
+                  - if product.set_image
+                    = image_tag product.img.url(:small), class: 'img-responsive'
+            .col-md-8.col-sm-6.col-xs-12
+              - case product.type.name
+              - when 'латексные шары'
+                .h4
+                  = "#{product.size.in_inch.to_i}''(#{product.size.in_cm.to_i}см)" if product.size
+                  - if product.tone
+                    = "#{product.texture.name} #{product.tone.name}"
+                  - else
+                    = product.item.name
+              - when 'фольгированные шары'
+                .h4
+                  = "#{product.size.in_inch.to_i}''(#{product.size.in_cm.to_i}см)" if product.size
+                  = "#{product.foil_form.name}" if product.foil_form
+                  = "#{product.tone.name}" if product.tone
+                  = product.item.name
+              %strong
+                Цена:
               = number_to_currency(product.price_with_helium, precision: 0)
-              = button_to 'Добавить', add_subposition_path(item: product.id, position: position), class: 'btn btn-info', data: {disable_with: 'Подождите...'}
+              %p
+                = button_to 'Добавить', add_subposition_path(item: product.id, position: position), class: 'btn btn-info', data: {disable_with: 'Подождите...'}
   %div{style: 'clear: both;'}
   .row
     .col-md-12

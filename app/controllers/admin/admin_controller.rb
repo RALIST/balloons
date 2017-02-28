@@ -7,7 +7,6 @@ class Admin::AdminController < ApplicationController
     if current_user && current_user.admin?
       true
     else
-      flash[:danger] = 'Вход запрещен! Только для администратора!'
       redirect_to admin_login_path
     end
   end

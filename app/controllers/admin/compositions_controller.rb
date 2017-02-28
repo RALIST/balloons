@@ -11,7 +11,6 @@ class Admin::CompositionsController < Admin::AdminController
   end
 
   def show
-    @items = Item.where(availible_in_comps: true)
     @products = @comp.products.uniq
   end
 
@@ -20,11 +19,17 @@ class Admin::CompositionsController < Admin::AdminController
   end
 
   def create
-    @comp = Composition.create(comp_params)
-    if @comp.save
-      redirect_to admin_compositions_path
+    if params[:imgs]
+      params[:imgs].each do |img|
+        @comp = Composition.create(img: img)
+      end
     else
-      render 'new'
+      @comp = Composition.create(comp_params)
+      if @comp.save
+        redirect_to admin_compositions_path
+      else
+        render 'new'
+      end
     end
   end
 

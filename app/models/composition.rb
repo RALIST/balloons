@@ -6,7 +6,7 @@ class Composition < ApplicationRecord
   has_many :carts, through: :positions
   has_many :receivers, as: :personable
 
-  validates :title, :img, presence: true
+  validates :img, presence: true
   has_attached_file :img, styles: {small:  'x100',
                                     thumb: 'x300',
                                     large: 'x1080'}
@@ -23,7 +23,6 @@ class Composition < ApplicationRecord
   scope :without_tags, ->{ where.not(id: Composition.with_tags.map(&:id)).where(deleted: false) }
   scope :availible, -> {joins(:products).distinct(:id).where.not(id: Composition.without_price.map(&:id), deleted: true)}
   scope :with_receivers, -> (receiver) { joins(:receivers).where(receivers: {title: receiver})}
-
 
   def comp_price
     price = self.products.map{ |i| i.price_with_helium }.reject(&:nil?).sum.round(2)

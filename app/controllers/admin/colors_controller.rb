@@ -11,6 +11,6 @@ class Admin::ColorsController < Admin::AdminController
 
   private
   def color_params
-    params.require(:color).permit(:name)
+    params.require(:color).permit(:name, :eng_name)
   end
 end

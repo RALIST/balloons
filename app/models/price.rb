@@ -135,7 +135,7 @@ class Price < ApplicationRecord
 
   def get_foil(name, product, vendor)
     arr = name.encode("UTF-8").split(/[^a-zA-Zа-яА-Я0-9_]/)
-    arr.delete[0]
+    arr.delete(arr[0])
     arr.each do |word|
       @size = get_size(word, vendor)
       if @size.present?

@@ -31,4 +31,5 @@ class Admin::PromotionsController < Admin::AdminController
 
   def promo_params
     params.require(:promotion).permit(:name, :code, :desc, :img, :start_date, :end_date)
+  end
 end

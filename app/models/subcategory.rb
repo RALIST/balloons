@@ -5,5 +5,6 @@ class Subcategory < ApplicationRecord
 
   private
   def sanitize
+    self.name = name.downcase.strip
   end
 end

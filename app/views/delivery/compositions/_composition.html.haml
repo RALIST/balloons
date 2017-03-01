@@ -23,8 +23,6 @@
                 = "#{product.size.in_inch.to_i}''(#{product.size.in_cm.to_i}см) #{product.texture.name} #{product.tone.name}"
               - when 'фольгированные шары'
                 = "#{product.size.in_inch.to_i}''(#{product.size.in_cm.to_i}см)" if product.size
-                = "#{product.foil_form.name}" if product.foil_form
-                = "#{product.tone.name}" if product.tone
                 = product.item.name
           %td
             = composition.products.where(id: product.id).count

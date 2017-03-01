@@ -7,8 +7,6 @@
     .row
       .compositions
         = render partial: 'thumb_composition', collection: @compositions, as: :c
-    .row.text-center
-      = will_paginate @compositions
 
 .modal.fade{id: "composition",  tabindex: "-1",  role: "dialog"}
   .modal-dialog{role: "document", style: 'float: center; width: 90%; margin: auto;'}

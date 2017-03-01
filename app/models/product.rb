@@ -52,9 +52,9 @@ class Product < ApplicationRecord
       if items.any?
         products_arr = []
         items.map do |item|
-          products = item.products.all
+          products = item.products.foil_in_compositions
           products.each do |product|
-            products_arr.push([product.name, product.id])
+            products_arr.push(["#{product.size.in_inch.to_i}'' #{product.item.name}", product.id])
           end
         end
         arr.push([form.name, products_arr])
@@ -126,6 +126,8 @@ class Product < ApplicationRecord
           case self.size.in_inch
           when 18
             self.price_with_helium = 180
+          when 19
+            self.price_with_helium = 180
           when 30
             self.price_with_helium = 450
           when 32
@@ -147,9 +149,5 @@ class Product < ApplicationRecord
 
   def self.foil_in_compositions
     joins(:foil).includes(:size, :tone, :type, :texture, :color, :subcategories).where.not(price_with_helium: nil)
-  end
-
-  def self.availible_in_compositions
-    foil_in_compositions.merge(latex_in_compositions)
   end
 end

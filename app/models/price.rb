@@ -10,7 +10,7 @@ class Price < ApplicationRecord
 
   attr_accessor :vendor, :type
   validates :vendor, :type, presence: true
-  after_save :upload_price
+  after_commit :upload_price
 
 
 
@@ -19,7 +19,7 @@ class Price < ApplicationRecord
       unless Rails.env.development?
         xls = Roo::Spreadsheet.open(open('https:' + self.price_sheet.url(:original, false)), extension: :xlsm)
       else
-        xls = Roo::Spreadsheet.open('public'+self.price_sheet.url(:original, false), extension: :xlsm)
+        xls = Roo::Spreadsheet.open('public' + self.price_sheet.url(:original, false), extension: :xlsm)
       end
       start_row = 1
       price_vendor = Vendor.find_by!(name: vendor)
@@ -28,9 +28,9 @@ class Price < ApplicationRecord
         @product_name = xls.cell(row, 'B').strip.downcase unless xls.cell(row, 'B').blank?
         @barcode = xls.cell(row, 'C') unless xls.cell(row, 'C').blank?
         @code = xls.cell(row, 'D') unless xls.cell(row, 'D').blank?
-        @price = xls.cell(row, 'E') unless xls.cell(row, 'E').blank?
+        @product_price = xls.cell(row, 'E') unless xls.cell(row, 'E').blank?
         @min_order = xls.cell(row, 'F') unless xls.cell(row, 'F').blank?
-        @subcategory = xls.cell(row, 'G') unless xls.cell(row, 'G').blank?
+        @subcategory = xls.cell(row, 'G').strip.downcase unless xls.cell(row, 'G').blank?
         unless @barcode.blank?
           product = Product.where(barcode: xls.cell(row, 'C').to_i).first_or_initialize do |product|
             case price_type.name
@@ -60,11 +60,13 @@ class Price < ApplicationRecord
       @size = Size.find_by(belbal: arr[1].to_i)
       if @size.present?
         arr.delete(arr[1])
+        arr.delete(arr[0])
       else
         arr.each do |word|
           @size = get_size(word, vendor)
           if @size.present?
             arr.delete(word)
+            arr.delete(arr[0])
             break
           end
         end
@@ -121,7 +123,7 @@ class Price < ApplicationRecord
       product.item = @item
       product.size = @size
       product.code = @code
-      product.price = @price
+      product.price = @product_price
       product.name = @product_name
       product.min_order = @min_order
       unless @item.tone
@@ -129,7 +131,6 @@ class Price < ApplicationRecord
       else
         product.save
       end
-
     end
   end
 
@@ -201,11 +202,10 @@ class Price < ApplicationRecord
       product.name = name
       product.barcode = @barcode
       product.code = @code
-      product.price = @price
+      product.price = @product_price
       product.min_order = @min_order
-      unless product.set_image
-        product.save
-      end
+      product.set_image
+      product.save
     end
   end
 

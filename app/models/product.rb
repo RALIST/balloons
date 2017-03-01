@@ -21,8 +21,7 @@ class Product < ApplicationRecord
                         content_type: ["image/jpeg", "image/jpg", "image/png"]
 
   attr_reader :img_remote_url
-  before_save :set_price_with_helium
-  after_save :set_image
+  # before_save :set_price_with_helium
 
 
   # scope :availible_in_compositions, -> {latex_in_compositions}
@@ -91,12 +90,12 @@ class Product < ApplicationRecord
     begin
       self.img_remote_url = "http://sharik.ru/images/elements_big/#{self.code}_m1.jpg" unless self.code.blank?
     rescue URI::InvalidURIError
-      self.img = nil
+      false
     end
   end
 
   def set_image
-    unless code.blank? && img.present?
+    if !code.blank? && img.blank?
       if File.exists?("#{Rails.root}/public/300/#{self.code + '_m1.jpg'}")
         self.img = File.open("#{Rails.root}/public/300/#{self.code + '_m1.jpg'}")
       else
@@ -120,7 +119,7 @@ class Product < ApplicationRecord
           self.price_with_helium = 700
         end
       else
-        if self.type.name == 'фольгированные шары'
+        if self.type.name == 'фольгированные шары' && self.foil_form.present?
           case self.foil_form.name
           when 'звезда' || 'сердце' || 'круг'
             self.price_with_helium = 180

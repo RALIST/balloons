@@ -17,7 +17,7 @@
               - @products.each do |product|
                 %tr.item{data: {product_id: "#{product.id}"}}
                   %td
-                    -if product.item.tone && product.type.name != 'фольгированные шары'
+                    -if product.item.tone && product.type.name != 'фольгированные шары' && product.type.name != 'товары для композиций'
                       = image_tag product.tone.img.url(:small)
                     - else
                       = image_tag product.img.url(:small)
@@ -30,14 +30,17 @@
                         - if product.size
                           = "#{product.size.in_inch.to_i}''(#{product.size.in_cm.to_i}см)"
                         = "#{product.foil_form.name} #{product.tone.name}"
+                      - when 'товары для композиций'
+                        = "#{product.size.in_inch.to_i}''"
+                        = product.name
 
                   %td
                     = @comp.products.where(id: product.id).count
                   %td
-                    = link_to admin_remove_item_path(product_id: product.id) do
-                      %i.fa.fa-times-circle{style: 'aria-hidden="true"'}
-                  %td.popover-img{style: 'display: none;'}
-                    = image_tag product.item.tone.img.url(:small) if product.item.tone
+                    -if product.item.tone && product.type.name != 'фольгированные шары' && product.type.name != 'товары для композиций'
+                      = image_tag product.tone.img.url(:small)
+                    - else
+                      = image_tag product.img.url(:small)
         .col-md-4
           .h4.bg-brand Повод/Кому
           - @comp.tags.each do |tag|

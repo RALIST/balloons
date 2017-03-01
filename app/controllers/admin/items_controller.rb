@@ -9,23 +9,25 @@ class Admin::ItemsController < Admin::AdminController
   def create
     @item = Item.where(vendor_id: item_params[:vendor_id],
                         texture_id: item_params[:texture_id],
-                        tone_id: item_params[:tone_id]).first_or_create!
-    @item.products.create!(item_params[:products_attributes][:"#{0}"])
-    redirect_to admin_items_path
+                        tone_id: item_params[:tone_id],
+                        type_id: params[:type_id]).first_or_create! do |item|
+      item.vendor_id = item_params[:vendor_id]
+      item.tone_id = item_params[:tone_id]
+      item.texture_id = item_params[:texture_id]
+      item.type_id = item_params[:type_id]
+      item.category_id = item_params[:category_id]
+    end
+    if @item.save
+      @item.products.create!(item_params[:products_attributes][:"#{0}"])
+      redirect_to admin_items_path
+    end
   end
 
   def edit
   end
 
   def update
-    begin
-      @item = Item.find_by!(vendor_id: item_params[:vendor_id],
-                        texture_id: item_params[:texture_id],
-                        tone_id: item_params[:tone_id])
-    rescue ActiveRecord::RecordNotFound
-      @item.products.create!(item_params[:products_attributes][:"#{0}"])
-      redirect_to admin_items_path
-    end
+    @item.update(item_params)
   end
 
   def destroy

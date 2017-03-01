@@ -32,3 +32,14 @@
           = number_field_tag :count,'', class: 'form-control', placeholder: 'Кол-во'
       .col-md-12.text-right
         = submit_tag 'Добавить товар', class: 'btn btn-info'
+  %h4 Товары для композиций
+  = form_tag admin_add_item_path do
+    .row
+      .col-md-8
+        .form-group
+          = select_tag :item, options_for_select(Product.special_products), class: 'form-control'
+      .col-md-4
+        .form-group
+          = number_field_tag :count,'', class: 'form-control', placeholder: 'Кол-во'
+      .col-md-12.text-right
+        = submit_tag 'Добавить товар', class: 'btn btn-info'

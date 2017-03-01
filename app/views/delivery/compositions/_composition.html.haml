@@ -24,12 +24,15 @@
               - when 'фольгированные шары'
                 = "#{product.size.in_inch.to_i}''(#{product.size.in_cm.to_i}см)" if product.size
                 = product.item.name
+              - when 'товары для композиций'
+                = "#{product.size.in_inch.to_i}''(#{product.size.in_cm.to_i}см)" if product.size
+                = product.name
           %td
             = composition.products.where(id: product.id).count
             шт.
           %td= number_to_currency(product.price_with_helium, precision: 0)
           %td.popover-img{style: 'display: none;'}
-            - if product.item.tone && product.type.name != 'фольгированные шары'
+            - if product.item.tone && product.type.name != 'фольгированные шары' && product.type.name != 'товары для композиций'
               = image_tag product.item.tone.img(:small)
             - else
               = image_tag product.img.url(:small)

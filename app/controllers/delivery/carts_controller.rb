@@ -6,7 +6,7 @@ class Delivery::CartsController < Delivery::DeliveryController
   def show
     @cart = current_cart
     @collections = Color.all
-    @categories = Subcategory.all
+    @categories = Subcategory.joins(:products).distinct
     case
     when params[:collection_id]
       latex = Product.latex_in_compositions.includes(:color).where(colors: {id: params[:collection_id]})
@@ -17,7 +17,6 @@ class Delivery::CartsController < Delivery::DeliveryController
       latex = category.products.latex_in_compositions
       foil = category.products.foil_in_compositions
       @items_in_collection = latex + foil
-      puts @items_in_collection
     end
     @position = Position.find(params[:position]) if params[:position]
     respond_to do |format|

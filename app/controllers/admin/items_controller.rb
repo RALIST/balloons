@@ -46,6 +46,8 @@ class Admin::ItemsController < Admin::AdminController
 
   def index
     case
+    when params[:q]
+      @items = Item.search(params[:q]).paginate(page: params[:page], per_page: 20)
     when params[:type]
       type = Type.find(params[:type])
       @items = Item.where(type: type).paginate(page: params[:page], per_page: 20)

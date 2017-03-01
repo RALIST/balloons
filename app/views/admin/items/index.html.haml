@@ -4,7 +4,7 @@
       Поиск
       = form_tag admin_items_path, method: :get do
         .form-group
-          = text_field_tag :query, '', class: 'form-control'
+          = text_field_tag :q, '', class: 'form-control'
         .form-group
           = submit_tag 'Найти', class: 'btn btn-info'
   .row.border-bot
@@ -59,7 +59,7 @@
   .row.border-bot
     .col-md-12
       %h5 Категории
-      - Subcategory.all.each do |category|
+      - Subcategory.joins(:products).distinct.each do |category|
         = link_to category.name,  admin_items_path(subcategory: category.id)
       %p
         = link_to 'Добавить категорию', new_admin_subcategory_path, class: 'btn btn-info btn-sm'
@@ -80,8 +80,8 @@
         Все товары
       - @items.all.includes(:vendor, :texture, :tone, :products, :color, :category, :sizes).each do |item|
         .border-bot
-          %h4.text-capitalize
-            = item.vendor.name if item.vendor
+          %h4
+            = item.vendor.name.capitalize if item.vendor
             = item.texture.name if item.texture
             = item.foil_form.name if item.foil_form
             - if item.tone
@@ -95,7 +95,10 @@
               = item.color.name if item.color
             %br
             %small
-              = item.type.name
+              Каталог:
+              = item.name
+              %br
+              = item.type.name.capitalize
               = item.category.title
               %br
               = link_to 'Редактировать', edit_admin_item_path(item), target: '_blank'

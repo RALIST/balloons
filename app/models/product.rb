@@ -15,16 +15,15 @@ class Product < ApplicationRecord
   has_one :vendor, through: :item
   has_many :subcategories, through: :item
   validates :item_id, :barcode, presence: true
+  validates :barcode, uniqueness: true
 
   has_attached_file :img, styles: {small: 'x100', thumb: 'x300'}
   validates_attachment_content_type :img,
                         content_type: ["image/jpeg", "image/jpg", "image/png"]
 
   attr_reader :img_remote_url
-  # before_save :set_price_with_helium
+  before_save :set_price_with_helium
 
-
-  # scope :availible_in_compositions, -> {latex_in_compositions}
 
   def self.plain_latex_for_select
     arr = []
@@ -107,23 +106,33 @@ class Product < ApplicationRecord
 
   def set_price_with_helium
     if self.price_with_helium.blank?
-      if self.size.present?
+      if self.type.name == 'латексные шары' && self.size.present?
         case self.size.in_inch
         when 12
           self.price_with_helium = 50
         when 14
           self.price_with_helium = 60
-        when 18 || 19 || 20
-          self.price_with_helium = 180
-        when 36 || 40
-          self.price_with_helium = 700
+        when 16
+          self.price_with_helium = 80
+        when 18
+          self.price_with_helium = 120
+        when 24
+          self.price_with_helium = 400
+        when 36
+          self.price_with_helium = 900
         end
       else
-        if self.type.name == 'фольгированные шары' && self.foil_form.present?
-          case self.foil_form.name
-          when 'звезда' || 'сердце' || 'круг'
+        if self.type.name == 'фольгированные шары' && self.size.present?
+          case self.size.in_inch
+          when 18
             self.price_with_helium = 180
-          when 'цифра'
+          when 30
+            self.price_with_helium = 450
+          when 32
+            self.price_with_helium = 450
+          when 36
+            self.price_with_helium = 700
+          when 40
             self.price_with_helium = 700
           end
         end

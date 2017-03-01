@@ -22,7 +22,7 @@ class Price < ApplicationRecord
         xls = Roo::Spreadsheet.open('public' + self.price_sheet.url(:original, false), extension: :xlsm)
       end
       start_row = 1
-      price_vendor = Vendor.find_by!(name: vendor)
+      price_vendor = Vendor.find_by(name: vendor)
       price_type = Type.find_by!(name: type) unless type.blank?
       (start_row..xls.last_row).each do |row|
         @product_name = xls.cell(row, 'B').strip.downcase unless xls.cell(row, 'B').blank?
@@ -32,7 +32,7 @@ class Price < ApplicationRecord
         @min_order = xls.cell(row, 'F') unless xls.cell(row, 'F').blank?
         @subcategory = xls.cell(row, 'G').strip.downcase unless xls.cell(row, 'G').blank?
         unless @barcode.blank?
-          product = Product.where(barcode: xls.cell(row, 'C').to_i).first_or_initialize do |product|
+          Product.where(barcode: xls.cell(row, 'C').to_i).first_or_create do |product|
             case price_type.name
             when 'латексные шары'
               get_latex(@product_name, price_vendor, product)
@@ -60,13 +60,11 @@ class Price < ApplicationRecord
       @size = Size.find_by(belbal: arr[1].to_i)
       if @size.present?
         arr.delete(arr[1])
-        arr.delete(arr[0])
       else
         arr.each do |word|
           @size = get_size(word, vendor)
           if @size.present?
             arr.delete(word)
-            arr.delete(arr[0])
             break
           end
         end
@@ -83,7 +81,6 @@ class Price < ApplicationRecord
     arr.each do |word|
       @tone = Tone.find_by(code: word, vendor: vendor)
       if @tone.present?
-        arr.delete(word)
         break
       end
     end
@@ -91,7 +88,6 @@ class Price < ApplicationRecord
     arr.each do |word|
       @texture = get_texture(word)
       if @texture.present?
-        arr.delete(word)
         break
       end
     end
@@ -100,21 +96,21 @@ class Price < ApplicationRecord
       @color = get_color(word)
       break if @color.present?
     end
-
+    arr.delete(arr[0])
     if @tone.present? && @texture.present? && @size.present?
       @item = Latex.find_or_create_by!(vendor: vendor,
                                       tone: @tone,
                                       texture: @texture) do |item|
         item.category = Category.find_or_create_by!(title: 'без рисунка')
-        item.name = arr.join(" ")
+        item.name = arr.join(" ").encode("UTF-8")
         item.subcategories.push(Subcategory.find_or_create_by!(name: @subcategory))
       end
     else
-      @item = Latex.find_or_create_by!(name: arr.join(" ")) do |i|
+      @item = Latex.find_or_create_by!(name: arr.join(" ").encode("UTF-8")) do |i|
         i.category = Category.find_or_create_by!(title: 'с рисунком')
         i.vendor = vendor
         i.texture = @texture if @texture.present?
-        i.name = arr.join(" ")
+        i.name = arr.join(" ").encode("UTF-8")
         i.color = @color
         i.subcategories.push(Subcategory.find_or_create_by!(name: @subcategory))
       end
@@ -123,40 +119,45 @@ class Price < ApplicationRecord
       product.item = @item
       product.size = @size
       product.code = @code
+      product.barcode = @barcode
       product.price = @product_price
       product.name = @product_name
       product.min_order = @min_order
       unless @item.tone
         product.set_image
-      else
-        product.save
       end
     end
   end
 
   def get_foil(name, product, vendor)
+
     arr = name.encode("UTF-8").split(/[^a-zA-Zа-яА-Я0-9_]/)
-    arr.delete(arr[0])
+
     arr.each do |word|
-      @size = get_size(word, vendor)
-      if @size.present?
-        arr.delete(word)
+      @form = get_form(word)
+      if @form.present?
         break
+      end
+    end
+    arr.each do |word|
+      if @form && @form.name == 'цифра'
+        @size = Size.where('in_inch >= ?', 14).find_by(in_inch: word.to_i)
+        if @size.present?
+          arr.delete(word)
+          break
+        end
+      else
+        @size = get_size(word, vendor)
+        if @size.present?
+          arr.delete(word)
+          break
+        end
       end
     end
 
     arr.each do |word|
       @tone = get_tone_by_name(word)
       if @tone.present?
-        arr.delete(word)
-        break
-      end
-    end
-
-    arr.each do |word|
-      @form = get_form(word)
-      if @form.present?
-        arr.delete(word)
         break
       end
     end
@@ -170,9 +171,9 @@ class Price < ApplicationRecord
       @color = get_color(word)
       break if @color.present?
     end
-
+    arr.delete(arr[0])
     if @tone.present? && @texture.present? && @form.present?
-      @item = Foil.find_or_create_by!(name: arr.join(" ")) do |item|
+      @item = Foil.find_or_create_by!(name: arr.join(" ").encode("UTF-8")) do |item|
         item.vendor = vendor
         item.foil_form = @form
         item.texture = @texture
@@ -182,11 +183,11 @@ class Price < ApplicationRecord
         item.subcategories.push(Subcategory.find_or_create_by!(name: @subcategory))
       end
     else
-      @item = Foil.find_or_create_by!(name: arr.join(" ")) do |item|
+      @item = Foil.find_or_create_by!(name: arr.join(" ").encode("UTF-8")) do |item|
         item.vendor = vendor
         item.foil_form = @form if @form
         item.texture = @texture if @texture
-        item.name = arr.join(" ")
+        item.name = arr.join(" ").encode("UTF-8")
         item.subcategories.push(Subcategory.find_or_create_by!(name: @subcategory))
         if @tone
           item.tone = @tone
@@ -199,13 +200,15 @@ class Price < ApplicationRecord
     if @item.present?
       product.item = @item
       product.size = @size if @size.present?
+      if @form.present? && @form.name == 'цифра' && @size.blank?
+        product.size = Size.find_by(in_inch: 40)
+      end
       product.name = name
       product.barcode = @barcode
       product.code = @code
       product.price = @product_price
       product.min_order = @min_order
       product.set_image
-      product.save
     end
   end
 

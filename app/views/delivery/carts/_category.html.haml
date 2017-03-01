@@ -32,8 +32,6 @@
               - when 'фольгированные шары'
                 .h4
                   = "#{product.size.in_inch.to_i}''(#{product.size.in_cm.to_i}см)" if product.size
-                  = "#{product.foil_form.name}" if product.foil_form
-                  = "#{product.tone.name}" if product.tone
                   = product.item.name
               %strong
                 Цена:

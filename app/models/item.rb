@@ -14,5 +14,8 @@ class Item < ApplicationRecord
   has_many :products, dependent: :destroy
 
   validates :vendor_id, presence: true
+  validates :name, uniqueness: true
   accepts_nested_attributes_for :products, reject_if: :blank?
+
+  scope :search, -> (word){where('name LIKE ? ', "%#{word}%").distinct}
 end

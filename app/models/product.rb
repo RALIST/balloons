@@ -27,15 +27,13 @@ class Product < ApplicationRecord
 
   def self.plain_latex_for_select
     arr = []
-    Color.all.find_each do |color|
-      items = Latex.joins(:vendor).where(vendors:{name: ['belbal', 'sempertex', 'anagram']})
-                    .joins(:tone).joins(:category)
-                    .where(tones: {color: color})
+    Color.all.select(:id, :name).find_each do |color|
+      items = Latex.joins(:tone, :products).where(tones: {color_id: color.id}).select(:id)
       if items.any?
         products_arr = []
         if items.any?
-          items.map do |item|
-            products = item.products.latex_in_compositions.order(:size_id)
+          items.each do |item|
+            products = latex_in_compositions.where(item_id: item.id).select(:id, :name, :size_id).order(:size_id)
             products.each do |p|
               products_arr.push([p.name, p.id])
             end
@@ -49,12 +47,12 @@ class Product < ApplicationRecord
 
   def self.plain_foil_for_select
     arr = []
-    FoilForm.all.each do |form|
-      items = Foil.where(foil_form: form).joins(:category).where(categories: {title: 'без рисунка'})
+    FoilForm.all.select(:id, :name).find_each do |form|
+      items = Foil.joins(:category, :products).where(categories: {title: 'без рисунка'}, foil_form: form).select(:id)
       if items.any?
         products_arr = []
-        items.map do |item|
-          products = item.products.foil_in_compositions
+        items.each do |item|
+          products = foil_in_compositions.where(item_id: item.id).select(:id, :name, :size_id, :item_id)
           products.each do |product|
             if product.size
               products_arr.push(["#{product.vendor.name.capitalize} #{product.size.in_inch.to_i}'' #{product.item.name}", product.id])
@@ -69,12 +67,12 @@ class Product < ApplicationRecord
 
   def self.printed_foil_for_select
     arr = []
-    FoilForm.all.each do |form|
-      items = Foil.where(foil_form: form).joins(:category).where(categories: {title: 'с рисунком'})
+    FoilForm.all.select(:id, :name).find_each do |form|
+      items = Foil.joins(:category, :products).where(categories: {title: 'с рисунком'}, foil_form_id: form.id).select(:id)
       if items.any?
         products_arr = []
-        items.map do |item|
-          products = item.products.foil_in_compositions
+        items.each do |item|
+          products = foil_in_compositions.where(item_id: item.id).select(:id, :name, :size_id, :item_id)
           products.each do |product|
             if product.size
               products_arr.push(["#{product.vendor.name.capitalize} #{product.size.in_inch.to_i}'' #{product.item.name}", product.id])
@@ -89,7 +87,7 @@ class Product < ApplicationRecord
 
   def self.special_products
     arr = []
-    includes(:type).where(types: {name: 'товары для композиций'}).each do |p|
+    joins(:type).where(types: {name: 'товары для композиций'}).each do |p|
       arr.push([p.name, p.id])
     end
     return arr
@@ -159,10 +157,10 @@ class Product < ApplicationRecord
 
 
   def self.latex_in_compositions
-    joins(:latex).includes(:size, :tone, :type, :texture, :color, :subcategories).where(sizes: {in_inch: [14,36]})
+    joins(:latex, :size, :vendor).where(sizes: { in_inch: [14,36] }, vendors: { name: ['belbal', 'sempertex', 'anagram'] })
   end
 
   def self.foil_in_compositions
-    joins(:foil).includes(:size, :tone, :type, :texture, :color, :subcategories).where.not(price_with_helium: nil, sizes: {in_inch: nil}).order(:size_id)
+    joins(:foil, :size, :vendor).where.not(price_with_helium: nil, sizes: {in_inch: nil}).order(:size_id)
   end
 end

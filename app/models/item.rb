@@ -18,5 +18,5 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :products, reject_if: :blank?
 
   scope :search, -> (word){where('name LIKE ? ', "%#{word}%").distinct}
-  scope :special, -> {includes(:type).where(types:{name: 'товары для композиций'})}
+  scope :special, -> {joins(:type).where(types:{name: 'товары для композиций'})}
 end

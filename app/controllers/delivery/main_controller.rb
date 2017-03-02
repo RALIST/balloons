@@ -28,6 +28,10 @@ class Delivery::MainController < Delivery::DeliveryController
     else
       redirect_to root_path
     end
+    respond_to do |format|
+      format.html
+      format.js {render 'index'} if params[:page]
+    end
   end
 
   def by_tag

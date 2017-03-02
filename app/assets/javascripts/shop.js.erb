@@ -29,7 +29,7 @@ $(document).on('ready', function(){
     },
   });
 
-  $('input#min').on('change', function(){
+  $('input#min_size').on('change', function(){
     var min_value = $(this).val();
     var max_value = $('#max_size').val();
     if(parseInt(min_value) > parseInt(max_value)){
@@ -39,7 +39,7 @@ $(document).on('ready', function(){
     $('#size-slider').slider('values', 0, min_value)
   });
 
-  $('input#max').on('change', function(){
+  $('input#max_size').on('change', function(){
     var max_value = $(this).val();
     var min_value = $('#min_size').val();
     if(parseInt(max_value) > 90){max_value = 90; $(this).val(max_value)}

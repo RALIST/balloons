@@ -56,7 +56,9 @@ class Product < ApplicationRecord
         items.map do |item|
           products = item.products.foil_in_compositions
           products.each do |product|
-            products_arr.push(["#{product.vendor.name.capitalize} #{product.size.in_inch.to_i}'' #{product.item.name}", product.id])
+            if product.size
+              products_arr.push(["#{product.vendor.name.capitalize} #{product.size.in_inch.to_i}'' #{product.item.name}", product.id])
+            end
           end
         end
         arr.push([form.name, products_arr])
@@ -74,7 +76,9 @@ class Product < ApplicationRecord
         items.map do |item|
           products = item.products.foil_in_compositions
           products.each do |product|
-            products_arr.push(["#{product.vendor.name.capitalize} #{product.size.in_inch.to_i}'' #{product.item.name}", product.id])
+            if product.size
+              products_arr.push(["#{product.vendor.name.capitalize} #{product.size.in_inch.to_i}'' #{product.item.name}", product.id])
+            end
           end
         end
         arr.push([form.name, products_arr])

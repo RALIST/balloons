@@ -14,7 +14,7 @@ class Product < ApplicationRecord
   has_one :foil_form, through: :item
   has_one :vendor, through: :item
   has_many :subcategories, through: :item
-  validates :item_id, :barcode, presence: true
+  validates :item_id, :barcode, presence: true, unless: :special?
   validates :barcode, uniqueness: true
 
   has_attached_file :img, styles: {small: 'x100', thumb: 'x300'}
@@ -167,5 +167,9 @@ class Product < ApplicationRecord
 
   def self.foil_in_compositions
     joins(:foil, :size).where.not(price_with_helium: nil, sizes: {in_inch: nil}).order(:size_id)
+  end
+
+  def special?
+    self.item.special?
   end
 end

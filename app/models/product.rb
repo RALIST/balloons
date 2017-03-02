@@ -15,7 +15,7 @@ class Product < ApplicationRecord
   has_one :vendor, through: :item
   has_many :subcategories, through: :item
   validates :item_id, :barcode, presence: true, unless: :special?
-  validates :barcode, uniqueness: true
+  validates :barcode, uniqueness: true, unless: :special?
 
   has_attached_file :img, styles: {small: 'x100', thumb: 'x300'}
   validates_attachment_content_type :img,

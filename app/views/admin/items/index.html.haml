@@ -74,77 +74,78 @@
   .row
     .col-md-12
       = link_to 'Добавить товар', new_admin_item_path, class: 'btn btn-info '
-  .row
-    .col-md-12
-      %h2{data: {toggle: 'collapse', target: '#items'}, style: 'cursor: pointer;'}
-        Все товары
-      - @items.all.includes(:vendor, :texture, :tone, :products, :color, :category, :sizes).each do |item|
-        .border-bot
-          %h4
-            = item.vendor.name.capitalize if item.vendor
-            = item.texture.name if item.texture
-            = item.foil_form.name if item.foil_form
-            - if item.tone
-              - case item.type.name
-              - when 'латексные шары'
-                = "#{item.tone.code}/#{item.tone.name}"
-                = item.tone.color.name
-              - when 'фольгированные шары'
-                = item.tone.name
-            - else
-              = item.color.name if item.color
-            %br
-            %small
-              Каталог:
-              = item.name
+  - if params
+    .row
+      .col-md-12
+        %h2{data: {toggle: 'collapse', target: '#items'}, style: 'cursor: pointer;'}
+          Все товары
+        - @items.all.includes(:vendor, :texture, :tone, :products, :color, :category, :sizes).each do |item|
+          .border-bot
+            %h4
+              = item.vendor.name.capitalize if item.vendor
+              = item.texture.name if item.texture
+              = item.foil_form.name if item.foil_form
+              - if item.tone
+                - case item.type.name
+                - when 'латексные шары'
+                  = "#{item.tone.code}/#{item.tone.name}"
+                  = item.tone.color.name
+                - when 'фольгированные шары'
+                  = item.tone.name
+              - else
+                = item.color.name if item.color
               %br
-              = item.type.name.capitalize
-              = item.category.title
-              %br
-              = link_to 'Редактировать', edit_admin_item_path(item), target: '_blank'
-              = link_to 'Удалить', admin_item_path(item), method: :delete
-          -if item.products.any?
-            %table.table
-              %thead
-                %th
-                  Изображение
-                %th
-                  Шрихкод
-                %th
-                  Акртикул
-                %th
-                  Размер
-                %th
-                  Цена
-                %th
-                  Цена с гелием
-                %th
-                  Количество
-                %th
-                  Название
-              - item.products.order(:size_id).each do |product|
-                %tr
-                  %td
-                    - if item.tone && item.type.name == 'латексные шары'
-                      = image_tag item.tone.img.url(:small)
-                    -else
-                      = image_tag product.img.url(:small)
-                  %td
-                    = product.barcode
-                  %td
-                    = product.code
-                  %td
-                    = product.size.in_inch if product.size
-                  %td
-                    = product.price
-                  %td
-                    = product.price_with_helium if product.price_with_helium
-                  %td
-                    = product.quantity
-                  %td
-                    %small
-                      = product.name
-                      = link_to 'Редактировать', edit_admin_product_path(product), target: '_blank'
-                      = link_to 'Удалить', admin_product_path(product), method: :delete
-  %ul.pag.list-inline
-    = will_paginate @items, container: false
+              %small
+                Каталог:
+                = item.name
+                %br
+                = item.type.name.capitalize
+                = item.category.title
+                %br
+                = link_to 'Редактировать', edit_admin_item_path(item), target: '_blank'
+                = link_to 'Удалить', admin_item_path(item), method: :delete
+            -if item.products.any?
+              %table.table
+                %thead
+                  %th
+                    Изображение
+                  %th
+                    Шрихкод
+                  %th
+                    Акртикул
+                  %th
+                    Размер
+                  %th
+                    Цена
+                  %th
+                    Цена с гелием
+                  %th
+                    Количество
+                  %th
+                    Название
+                - item.products.order(:size_id).each do |product|
+                  %tr
+                    %td
+                      - if item.tone && item.type.name == 'латексные шары'
+                        = image_tag item.tone.img.url(:small)
+                      -else
+                        = image_tag product.img.url(:small)
+                    %td
+                      = product.barcode
+                    %td
+                      = product.code
+                    %td
+                      = product.size.in_inch if product.size
+                    %td
+                      = product.price
+                    %td
+                      = product.price_with_helium if product.price_with_helium
+                    %td
+                      = product.quantity
+                    %td
+                      %small
+                        = product.name
+                        = link_to 'Редактировать', edit_admin_product_path(product), target: '_blank'
+                        = link_to 'Удалить', admin_product_path(product), method: :delete
+    %ul.pag.list-inline
+      = will_paginate @items, container: false

@@ -31,7 +31,7 @@ $(document).on('ready', function(){
 
   $('input#min').on('change', function(){
     var min_value = $(this).val();
-    var max_value = $('#max').val();
+    var max_value = $('#max_size').val();
     if(parseInt(min_value) > parseInt(max_value)){
       min_value = max_value;
       $(this).val(min_value)
@@ -41,7 +41,7 @@ $(document).on('ready', function(){
 
   $('input#max').on('change', function(){
     var max_value = $(this).val();
-    var min_value = $('#min').val();
+    var min_value = $('#min_size').val();
     if(parseInt(max_value) > 90){max_value = 90; $(this).val(max_value)}
     if(parseInt(min_value) > parseInt(max_value)) {
       max_value = min_value;

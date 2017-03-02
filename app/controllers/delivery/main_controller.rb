@@ -19,17 +19,9 @@ class Delivery::MainController < Delivery::DeliveryController
     unless params[:tag_name].blank?
       tag = Unicode::downcase(params[:tag_name]).strip
       @compositions =  Composition.availible.with_tag(tag).paginate(page: params[:page], per_page: 6)
-      if @compositions.any?
-        @compositions
-      else
-        redirect_to root_path
-        flash[:info] = 'По запросу ' + params[:tag_name] + ' ничего не найдено!'
-      end
-    else
-      redirect_to root_path
     end
     respond_to do |format|
-      format.html
+      format.html{redirect_to root_path, flash: {danger: 'По запросу ' + params[:tag_name] + ' ничего не найдено!'} unless @compositions.any?}
       format.js {render 'index'} if params[:page]
     end
   end
@@ -42,17 +34,9 @@ class Delivery::MainController < Delivery::DeliveryController
     unless params[:tag_name].blank?
       tag = params[:tag_name].downcase.strip
       @compositions =  Composition.availible.with_tag(tag).paginate(page: params[:page], per_page: 6)
-      if @compositions.any?
-        @compositions
-      else
-        redirect_to root_path
-        flash[:info] = 'По запросу ' + params[:tag_name] + ' ничего не найдено!'
-      end
-    else
-      redirect_to root_path
     end
     respond_to do |format|
-      format.html
+      format.html {redirect_to root_path, flash: {danger: 'По запросу ' + params[:tag_name] + ' ничего не найдено!'} unless @compositions.any?}
       format.js {render 'index'} if params[:page]
     end
   end
@@ -63,15 +47,9 @@ class Delivery::MainController < Delivery::DeliveryController
                     description: "Воздушные шары на #{params[:tag_name]}",
                     reverse: true,
                     keywords: "композиции из воздушных шары от #{params[:min]} до #{params[:max]}, заказать композиции из воздушных шары от #{params[:min]} до #{params[:max]}, шарики с доставкой от #{params[:min]} до #{params[:max]}, доставка шариков композиции из воздушных шары от #{params[:min]} до #{params[:max]}"
-    @compositions = Composition.availible.price_range(params[:min].to_i - 100, params[:max].to_i + 100).paginate(page: params[:page], per_page: 6)
-    if @compositions.any?
-      @compositions
-    else
-      redirect_to root_path
-      flash[:info] = 'В этом ценовом диапазоне ничего нет!'
-    end
+    @compositions = Composition.availible.price_range(params[:min], params[:max]).paginate(page: params[:page], per_page: 6)
     respond_to do |format|
-      format.html
+      format.html {redirect_to root_path, flash: {danger: 'Нет композиций в этом диапазоне!'} unless @compositions.any?}
       format.js {render 'index'} if params[:page]
     end
   end
@@ -82,9 +60,6 @@ class Delivery::MainController < Delivery::DeliveryController
                   reverse: true,
                   keywords: "воздушные шары #{params[:title]}, гелиевые шары #{params[:title]}, гелиевые шарики #{params[:title]}, заказать воздушные шары#{params[:title]}, шарики с доставкой #{params[:title]}, доставка шариков #{params[:title]}, купить воздушные шары #{params[:title]}, купить шарики #{params[:title]}"
     @compositions = Composition.with_receivers(params[:title]).availible.paginate(page: params[:page], per_page: 6)
-    unless @compositions.any?
-      flash[:alert] = 'Nothing'
-    end
     respond_to do |format|
       format.html
       format.js {render 'index'} if params[:page]

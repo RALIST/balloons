@@ -159,6 +159,6 @@ class Product < ApplicationRecord
   end
 
   def self.foil_in_compositions
-    joins(:foil).includes(:size, :tone, :type, :texture, :color, :subcategories).where.not(price_with_helium: nil).order(:size_id)
+    joins(:foil).includes(:size, :tone, :type, :texture, :color, :subcategories).where.not(price_with_helium: nil, sizes: {in_inch: nil}).order(:size_id)
   end
 end

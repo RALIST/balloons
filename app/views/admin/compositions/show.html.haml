@@ -37,10 +37,7 @@
                   %td
                     = @comp.products.where(id: product.id).count
                   %td
-                    -if product.item.tone && product.type.name != 'фольгированные шары' && product.type.name != 'товары для композиций'
-                      = image_tag product.tone.img.url(:small)
-                    - else
-                      = image_tag product.img.url(:small)
+                    = link_to 'Удалить', admin_remove_item_path(@comp, product_id: product.id)
         .col-md-4
           .h4.bg-brand Повод/Кому
           - @comp.tags.each do |tag|

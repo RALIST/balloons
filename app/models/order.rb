@@ -4,7 +4,7 @@ class Order < ApplicationRecord
   has_many :compositions, through: :positions
   has_many :items, through: :subspositions
   has_many :products, through: :subpositions
-  has_many :positions
+  has_many :positions, dependent: :destroy
   validates :user_id, :order_date, :phone, :address, :name, :total, presence: true
   validate :availible_date
 

@@ -25,4 +25,5 @@
         = Russian::strftime(order.order_date.in_time_zone, ' %d %B в %H:%M')
       .col-md-2.col-xs-1
         = link_to 'Подробнее', admin_order_path(order)
+        = link_to 'Удалить', admin_order_path(order), method: :delete
 

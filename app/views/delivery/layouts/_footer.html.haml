@@ -1,3 +1,30 @@
-.container-fluid.bg-primary
+.footer.container-fluid.bg-primary
   .container
-    %h1
+    .row
+      .footer-menu.text-center
+        %ul.list-unstyled.list-inline.nav.nav-tabs.nav-justified
+          %li= link_to 'Доставка'
+          %li= link_to 'Способы оплаты'
+          %li= link_to 'Возврат товаров'
+          %li= link_to 'Партнерская программа'
+          %li= link_to 'Контакты'
+          %li= link_to 'О нас'
+    .row
+      .social-buttons
+        %ul.list-unstyled.list-inline.text-center
+          %li
+            =link_to 'https://www.instagram.com/bigairballoon_izh/', target: :_blank do
+              %i.fa.fa-instagram.fa-3x.fa-inverse{"aria-hidden":  "true"}
+          %li
+            =link_to 'https://www.facebook.com/bigairballoons/', target: :_blank do
+              %i.fa.fa-facebook.fa-3x.fa-inverse{"aria-hidden": "true"}
+          %li
+            =link_to 'https://vk.com/bigairballoon_izh', target: :_blank do
+              %i.fa.fa-vk.fa-3x.fa-inverse{"aria-hidden": "true"}
+    .row
+      .company.text-center
+        / .footer-logo
+        /   = image_tag 'logo2.png', class: 'img-responsive'
+    .row.text-center
+      %p
+        Шариковая фея™, привозим радость с 2015 года

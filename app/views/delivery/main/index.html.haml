@@ -1,12 +1,13 @@
-.container-fluid
-  .container
-    %h2.text-center
+.container
+  = render 'delivery/layouts/offer'
+  %h2.text-center
+    Хиты продаж
+    %br
+    %small
       Оформление воздушными шарами вашего праздника
-      %br
-      %small Лучшие композиции
-    .row
-      .compositions
-        = render partial: 'thumb_composition', collection: @compositions, as: :c
+  .row
+    .compositions
+      = render partial: 'thumb_composition', collection: @compositions, as: :c
 
 .modal.fade{id: "composition",  tabindex: "-1",  role: "dialog"}
   .modal-dialog{role: "document", style: 'float: center; width: 90%; margin: auto;'}

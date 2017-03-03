@@ -24,6 +24,34 @@ class Product < ApplicationRecord
   attr_reader :img_remote_url
   before_save :set_price_with_helium
 
+  def image(size)
+    if self.item.tone && self.type.name != 'фольгированные шары' && self.type.name != 'товары для композиций'
+        self.item.tone.img.url(size)
+    else
+      unless self.img.blank?
+        self.img.url(size)
+      else
+        set_image
+        return self.image(size)
+      end
+    end
+  end
+
+  def complex_name
+    case type.name
+    when 'латексные шары'
+      size_name = "#{size.in_inch.to_i}''(#{size.in_cm.to_i}см) " if size
+      tone_name = " #{texture.name} #{tone.name}" if tone
+      if size_name && tone_name
+        size_name + tone_name
+      else
+        size_name + item.name
+      end
+    when 'фольгированные шары'
+      size_name = "#{size.in_inch.to_i}''(#{size.in_cm.to_i}см) " if size
+      size_name + item.name
+    end
+  end
 
   def self.plain_latex_for_select
     arr = []

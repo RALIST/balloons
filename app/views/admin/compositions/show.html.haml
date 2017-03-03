@@ -17,10 +17,8 @@
               - @products.each do |product|
                 %tr.item{data: {product_id: "#{product.id}"}}
                   %td
-                    -if product.item.tone && product.type.name != 'фольгированные шары' && product.type.name != 'товары для композиций'
-                      = image_tag product.tone.img.url(:small)
-                    - else
-                      = image_tag product.img.url(:small)
+                    .popover-img{style: 'display: none;'}
+                      = image_tag product.image(:small)
                   %td
                     = link_to admin_product_path(product) do
                       - case product.type.name

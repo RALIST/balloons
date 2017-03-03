@@ -2,25 +2,9 @@
   - product = subposition.product
   .col-md-7.item.display-cell{data: {product_id: "#{subposition.product.id}"}}
     %span{style: 'cursor: pointer;'}
-      - case product.type.name
-      - when 'латексные шары'
-        = "#{product.size.in_inch.to_i}''(#{product.size.in_cm.to_i}см)"
-        - if product.tone
-          = " #{product.texture.name} #{product.tone.name}"
-        - else
-          = product.item.name
-      - when 'фольгированные шары'
-        = "#{product.size.in_inch.to_i}''(#{product.size.in_cm.to_i}см)" if product.size
-        = product.item.name
+      = product.complex_name
     .popover-img{style: 'display: none;'}
-      - if product.tone && product.size.in_inch != 36 && product.type.name != 'фольгированные шары'
-        = image_tag product.tone.img.url(:small), class: 'img-responsive', style: 'margin:auto'
-      - else
-        - unless product.img.blank?
-          = image_tag product.img.url(:small), class: 'img-responsive'
-        - else
-          - if product.set_image
-            = image_tag product.img.url(:small), class: 'img-responsive'
+      = image_tag product.image(:small)
   .col-md-4.display-cell
     = form_for subposition, class: 'form-inline', remote: true do |f|
       .input-group

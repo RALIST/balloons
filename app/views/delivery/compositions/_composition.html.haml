@@ -17,7 +17,7 @@
       - composition.products.uniq.each do |product|
         %tr.item{data: {item_id: "#{product.id}"}}
           %td
-            %span{style: 'cursor: pointer;'}
+            %span{style: 'cursor: pointer; border-bottom: 1px dashed black;'}
               - case product.type.name
               - when 'латексные шары'
                 = "#{product.size.in_inch.to_i}''(#{product.size.in_cm.to_i}см) #{product.texture.name} #{product.tone.name}"

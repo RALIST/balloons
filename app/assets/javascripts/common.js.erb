@@ -8,13 +8,13 @@ $.extend($.expr[':'], {
 
 
 
-$(document).on('click', '.fa-bars', function(){
-  $('.resp-menu').toggle('slide','slow', function(){
-    $('.on-icon').toggleClass('hidden');
-  });
-  $('.fixed .fa').toggleClass('fa-bars fa-times', 'slow');
-  $('.fixed').toggleClass('bg-brand', 'slow');
+$(document).on('click', '.fixed-top .fa-bars, .fixed-top .fa-times', function(){
+  $('.resp-menu').toggle('slide', 500);
+  $('.fixed-top .fa-bars, .fixed-top .fa-times').toggle(500);
+  $('.fixed-top .badge').toggleClass('hidden', 150);
+  $('.fixed-top').toggleClass('bg-brand', 500);
 });
+
 
 $(document).on('click', '#admin-collapse', function(){
   $('.left-menu').toggle('slide', 'slow', function(){
@@ -22,13 +22,7 @@ $(document).on('click', '#admin-collapse', function(){
   });
 });
 
-$(document).on('click', '.fixed .fa-times', function(){
-  $('.resp-menu').toggle('slide','slow', function(){
-    $('.on-icon').toggleClass('hidden');
-  });
-  $('.fixed .fa').toggleClass('fa-bars fa-times', 'slow');
-  $('.fixed').toggleClass('bg-brand', 'slow');
-});
+
 
 $(document).on('click','.position-modal .as_btn', function(){
   $('.modal-body').html('<div class="text-center h1"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i></div>');

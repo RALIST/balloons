@@ -13,17 +13,18 @@
  */
  @import 'variables';
  @import "jquery-ui";
- @import "bootstrap-sprockets";
- @import "bootstrap";
+ @import "bootstrap/bootstrap";
  @import "font-awesome-sprockets";
  @import "font-awesome";
  @import url('https://fonts.googleapis.com/css?family=Lora:400,700|Open+Sans:700,400');
  @import 'common';
+ @import 'header';
  @import 'clockpicker';
  @import 'admin';
  @import 'shop';
  @import 'offer';
  @import 'footer';
+ @import 'resp_menu';
 
 #return-to-top {
   z-index: 999;
@@ -65,4 +66,8 @@
 #return-to-top:hover i {
     color: #fff;
     top: 5px;
+}
+
+.hidden {
+  display: none !important;
 }

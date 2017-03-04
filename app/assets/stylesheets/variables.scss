@@ -16,3 +16,41 @@ $headings-color: darken($brand-primary, 10%);
 $font-family-serif: 'Lora', serif;
 $font-family-sans-serif: 'Open Sans', sans-serif;
 $font-family-base: $font-family-sans-serif;
+
+
+// The rest
+@mixin make-col-xs( $cols ) {
+  @include make-col-ready();
+  @media (min-width: #{map-get( $grid-breakpoints, xs )}) {
+    @include make-col( $cols );
+  }
+}
+
+@mixin make-col-sm( $cols ) {
+  @include make-col-ready();
+  @media (min-width: #{map-get( $grid-breakpoints, sm )}) {
+    @include make-col( $cols );
+  }
+}
+
+@mixin make-col-md( $cols ) {
+  @include make-col-ready();
+  @media (min-width: #{map-get( $grid-breakpoints, md )}) {
+    @include make-col( $cols );
+  }
+}
+
+@mixin make-col-lg( $cols ) {
+  @include make-col-ready();
+  @media (min-width: #{map-get( $grid-breakpoints, lg )}) {
+    @include make-col( $cols );
+  }
+}
+
+@mixin make-col-xl( $cols ) {
+  @include make-col-ready();
+  @media (min-width: #{map-get( $grid-breakpoints, xl )}) {
+    @include make-col( $cols );
+  }
+}
+

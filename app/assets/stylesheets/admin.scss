@@ -1,12 +1,9 @@
-.admin>.container {
+.admin > .container {
   padding-top: 5%;
 }
 
 .left-menu{
-  @include make-xs-column(2);
-  @include make-sm-column(1);
-  @include make-md-column(3);
-  @include make-lg-column(2);
+  @include make-col(2);
 }
 .left-menu {
   min-height: 100%;
@@ -26,11 +23,8 @@
 }
 
 .left-menu.toggled + .container {
-  @include make-md-column(10);
-  @include make-xs-column-offset(2);
-  @include make-sm-column-offset(2);
-  @include make-md-column-offset(3);
-  @include make-lg-column-offset(2);
+  @include make-col(10);
+  @include make-col-offset(2);
   padding-left: 20px;
 }
 

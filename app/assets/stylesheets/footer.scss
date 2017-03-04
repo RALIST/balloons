@@ -4,7 +4,7 @@
 
 .footer-menu {
 
-  @include make-md-column(12);
+  @include make-col(12);
   margin: 2em 0;
   // border-bottom: 1px solid #ffffff;
 
@@ -16,7 +16,7 @@
   }
 }
 .social-buttons {
-  @include make-md-column(12);
+  @include make-col(12);
   margin-bottom: 20px;
   ul {
     display: -webkit-box;
@@ -28,12 +28,10 @@
   }
 }
 .company {
-  @include make-md-column(12);
+  @include make-col(12);
 }
 
 .footer-logo{
-  @include make-md-column(2);
-  @include make-xs-column(6);
-  @include make-md-column-offset(5);
-  @include make-xs-column-offset(3);
+  @include make-col(2);
+  @include make-col-offset(5);
 }

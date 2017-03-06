@@ -1,0 +1,12 @@
+.modal {
+  -webkit-overflow-scrolling: hidden;
+  .modal-dialog {
+    max-width: 90%;
+  }
+  #call {
+    max-width: 50%;
+  }
+}
+.close {
+  font-size: 2.5rem;
+}

@@ -1,0 +1,14 @@
+.modal.fade{id: "composition",  tabindex: "-1",  role: "dialog"}
+  .modal-dialog#main-composition{role: "document"}
+    .modal-content
+      .modal-header.align-items-start
+        .h3.modal-title{id: "myModalLabel"}
+          Загрузка...
+          %small.text-center.text-muted
+            Вы сможете изменить состав композиции и количество шаров просто добавив ее в корзину!
+        = link_to '',class: "close",  data: {dismiss: "modal"}, style: 'aria-label: "Close"' do
+          %span
+            &times;
+      .modal-body
+        .text-center.h1
+          %i.fa.fa-spinner.fa-pulse.fa-3x.fa-fw

@@ -13,7 +13,8 @@
  */
  @import 'variables';
  @import "jquery-ui";
- @import "bootstrap/bootstrap";
+ @import "bootstrap";
+ @import 'bootstrap/mixins';
  @import "font-awesome-sprockets";
  @import "font-awesome";
  @import url('https://fonts.googleapis.com/css?family=Lora:400,700|Open+Sans:700,400');
@@ -25,6 +26,8 @@
  @import 'offer';
  @import 'footer';
  @import 'resp_menu';
+ @import 'main';
+ @import 'modal';
 
 #return-to-top {
   z-index: 999;
@@ -70,4 +73,17 @@
 
 .hidden {
   display: none !important;
+}
+
+small, .small {
+  font-size: 60%;
+}
+
+#flash {
+  position: fixed;
+  top: 10%;
+  right: 0;
+  z-index: 999;
+  font-size: 1.2em;
+  font-family: $font-family-serif;
 }

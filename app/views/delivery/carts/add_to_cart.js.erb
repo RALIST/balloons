@@ -1,7 +1,7 @@
 $(document).on('ajaxComplete', function(){
-  $(".add-to-cart<%=@composition.id%>").fadeOut().closest('div').html('<button class= "btn btn-success btn-block" disabled > Добавлено в корзину!</button><div class="small"> Зайдите в корзину, чтобы изменить композицию </div>')
+  $("a.add-to-cart<%=@composition.id%>").fadeOut().closest('.card-footer').html('<div class= "btn btn-success btn-block" disabled > Добавлено в корзину</div>')
   $('#menu').html('<%= j(render "delivery/layouts/main_menu") %>');
-  $('.icon-wrapper small .badge').html('<%= @cart.positions.count %>');
+  $('.icon-wrapper .badge').html('<%= @cart.positions.count %>');
   $('#responsive').html('<%= j(render "delivery/layouts/resp_menu")%>');
 });
 

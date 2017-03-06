@@ -1,25 +1,25 @@
-.col-md-4.col-sm-6.col-xs-12
-  .thumbnail
-    = link_to root_path(id: c.id), data:{ toggle: 'modal', target: "#composition"}, remote: true do
-      = image_tag c.img.url(:thumb), class: 'img-responsive', style: 'height: 300px; object-fit: contain;'
-    %h3.text-center
-      %strong
-        = number_to_currency(c.price, precision: 0)
-    %p.text-center{style: 'height: 4em;'}
-      Воздушные шары на
-      %br
-      - if c.tags.any?
-        - c.tags.map(&:name).each do |tag|
-          = link_to tag.capitalize, by_tag_path(tag)
-      - else
-        ваш праздник
-    .text-center
+.composition
+  .card.align-self-end.justify-content-center.align-items-center
+    .card-img-top
+      .link-to-modal.hidden-sm-down
+        = link_to root_path(id: c.id), data:{ toggle: 'modal', target: "#composition"}, remote: true do
+          = image_tag c.img.url(:thumb), class: 'img-fluid'
+      .link-to-page.hidden-md-up
+        = link_to composition_path(c) do
+          = image_tag c.img.url(:thumb), class: 'img-fluid'
+
+    .card-block.align-content-end
+      .h4.text-center.card-title
+        %strong
+          = number_to_currency(c.price, precision: 0)
+      .text-center{style: 'height: 4em;'}
+        - if c.tags.any?
+          Воздушные шары на
+          %br
+          = c.tags.map{ |t| link_to t.name.capitalize, by_tag_path(t) }.join(', ').html_safe
+    / TODO: Go to cart link instead of disabled button
+    .card-footer
       - unless @cart.compositions.include?(c)
-        = button_to 'Добавить в корзину', add_to_cart_path(c), class: "btn btn-info btn-block add-to-cart#{c.id}", data: {disable_with: 'Добавляем...'}, remote: true
-        .small
-          В корзине вы сможете изменить состав композиции
+        = link_to 'Добавить в корзину', add_to_cart_path(c), class: "btn btn-info btn-block add-to-cart#{c.id}", data: {disable_with: 'Добавляем...'}, remote: true, method: :post
       - else
-        .btn.btn-success.btn-block{disabled: true}
-          Добавлено в корзину
-        .small
-          Зайдите в корзину, чтобы изменить композицию
+        = link_to 'Перейти в корзину', cart_path(@cart), class: 'btn btn-success btn-block'

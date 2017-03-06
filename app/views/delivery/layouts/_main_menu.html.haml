@@ -1,73 +1,44 @@
-#menu.hidden-lg-down
+#menu.hidden-md-down
   .container
-    .row.hidden-xs
-      .col-md-4.col-sm-12
-        %ul.nav.nav-pills
-          %li.text-uppercase.dropdown.h4{role: "presentation"}
-            = link_to '', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
+    .row
+      .menu-options
+        %ul.nav.nav-pills.nav-tabs.d-flex.justify-content-between
+          %li.text-uppercase.dropdown.nav-item{role: "presentation"}
+            = link_to '', class: 'nav-link dropdown-toggle', data: {toggle: 'dropdown'} do
               Повод
-              %i.fa.fa-caret-down{style: 'aria-hidden="true"'}
-            %ul.dropdown-menu
+            %ul.dropdown-menu{style: 'aria-labelledby="dropdownMenuButton"'}
               - @menu_tags.each do |tag_name|
-                %li.text-capitalize= link_to tag_name, by_tag_path(tag_name)
-          %li.text-uppercase.h4{role: "presentation"}
-            = link_to '', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
+                %li.text-capitalize.dropdown-item= link_to tag_name, by_tag_path(tag_name)
+          %li.text-uppercase.dropdown.nav-item{role: "presentation"}
+            = link_to '', class: 'nav-link dropdown-toggle', data: {toggle: 'dropdown'} do
               Кому
-              %i.fa.fa-caret-down{style: 'aria-hidden="true"'}
             %ul.dropdown-menu
               - @menu_receivers.each do |title|
-                %li.text-capitalize
+                %li.text-capitalize.dropdown-item
                   = link_to title, person_path(title)
-          %li.text-uppercase.dropdown.h4{role: "presentation"}
-            = link_to '', class: 'dropdown-toggle', data:{toggle: 'dropdown'} do
+          %li.text-uppercase.dropdown.nav-item{role: "presentation"}
+            = link_to '', class: ' nav-link dropdown-toggle', data:{toggle: 'dropdown'} do
               По цене
-              %i.fa.fa-caret-down{style: 'aria-hidden="true"'}
             %ul.dropdown-menu
               %li
-                .col-md-12
-                  = form_tag price_range_path, method: :get do
-                    .form-group
-                      = number_field_tag :min,'',  class: 'form-control input-sm', placeholder: 'От'
-                    .form-group
-                      = number_field_tag :max,'',  class: 'form-control input-sm', placeholder: 'До'
-                    .from-group
-                      = button_tag(type: 'submit', class: 'btn btn-info btn-sm btn-block') do
-                        %i.fa.fa-search
-      .col-md-3.hidden-sm
-        %ul.nav.nav-pills
-          %li.h4.text-center
-            = form_tag search_path, method: :get, class: 'form-horizontal' do
-              .input-group
-                = text_field_tag :tag_name,'', class: 'form-control input-sm', placeholder: 'Введите событие...'
-                %span.input-group-btn
-                  = button_tag(type: 'submit', class: 'btn btn-info btn-sm') do
-                    %i.fa.fa-search
-      .col-md-5.col-sm-6.hidden-sm
-        %ul.nav.nav-pills{style: 'float:right'}
-          %li.text-uppercase.h4
+                = form_tag price_range_path, class: 'form', method: :get do
+                  .form-group{style: 'width: 90%; margin:auto;'}
+                    = number_field_tag :min,'',  class: ' form-control form-control-sm', placeholder: 'От'
+                  .form-group{style: 'width: 90%; margin:auto;'}
+                    = number_field_tag :max,'',  class: 'form-control form-control-sm', placeholder: 'До'
+                  .from-group{style: 'width: 90%; margin:auto;'}
+                    = button_tag(type: 'submit', class: 'btn btn-info btn-sm btn-block') do
+                      %i.fa.fa-search
+          %li.text-uppercase.nav-item
             - if current_user
-              = link_to account_path do
+              = link_to account_path, class: 'nav-link' do
                 %i.fa.fa-user{style: 'aria-hidden="true"'}
                 Личный кабинет
-          %li.text-uppercase.h4
-            = link_to my_cart_path do
-              %i.fa.fa-shopping-cart{style: 'aria-hidden="true"'}
+          %li.text-uppercase.nav-item
+            = link_to my_cart_path, class: 'nav-link' do
               - if @cart.positions.any?
-                %span.badge.on-icon{style: 'margin-left: 5em; margin-top: -1.3em; font-weight: normal'}
+                .badge.badge-success
                   = @cart.total_price
                   %i.fa.fa-rub
+              %i.fa.fa-shopping-cart{style: 'aria-hidden="true"'}
               Корзина
-    .row.hidden-md.hidden-lg
-      .col-sm-10.col-xs-10.col-sm-offset-1.col-xs-offset-1
-        %ul.nav.nav-pills
-          %li.h4.text-center{style: 'width: 100%;'}
-            = form_tag search_path, method: :get, class: 'form-horizontal' do
-              .input-group
-                = search_field_tag :tag_name,'', class: 'form-control input-sm', placeholder: 'Введите событие...'
-                %span.input-group-btn
-                  = button_tag(type: 'submit', class: 'btn btn-info btn-sm') do
-                    %i.fa.fa-search
-    .row
-      .col-md-12.col-sm-12.col-xs-12.text-uppercase.text-center.bg-brand
-        .h5
-          =link_to 'Бесплатная доставка и оформление заказов от 1000 рублей!'

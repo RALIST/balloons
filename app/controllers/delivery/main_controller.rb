@@ -61,7 +61,7 @@ class Delivery::MainController < Delivery::DeliveryController
                   keywords: "воздушные шары #{params[:title]}, гелиевые шары #{params[:title]}, гелиевые шарики #{params[:title]}, заказать воздушные шары#{params[:title]}, шарики с доставкой #{params[:title]}, доставка шариков #{params[:title]}, купить воздушные шары #{params[:title]}, купить шарики #{params[:title]}"
     @compositions = Composition.with_receivers(params[:title]).availible.order(:price).paginate(page: params[:page], per_page: 6)
     respond_to do |format|
-      format.html
+      format.html  {redirect_to root_path, flash: {danger: 'Нет композиций!'} unless @compositions.any?}
       format.js {render 'index'} if params[:page]
     end
   end

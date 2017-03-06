@@ -10,19 +10,19 @@
   .form-group
     = f.label 'Как лучше с вами связаться?', class: 'control-label'
     %br
-    .checkbox-inline
+    .form-check.form-check-inline
       %label
         = f.check_box :messangers, {multiple: true}, 'Позвонить', nil
         Позвонить
-    .checkbox-inline
+    .form-check.form-check-inline
       %label
         = f.check_box :messangers, {multiple: true}, 'Viber', nil
         Viber
-    .checkbox-inline
+    .form-check.form-check-inline
       %label
         = f.check_box :messangers, {multiple: true}, 'Whats App', nil
         Whats App
-    .checkbox-inline
+    .form-check.form-check-inline
       %label
         = f.check_box :messangers, {multiple: true}, 'Telegram', nil
         Telegram

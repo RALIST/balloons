@@ -8,11 +8,11 @@ $.extend($.expr[':'], {
 
 
 
-$(document).on('click', '.fixed-top .fa-bars, .fixed-top .fa-times', function(){
+$(document).on('click', '.icon-wrapper .fa-bars, .icon-wrapper .fa-times', function(){
   $('.resp-menu').toggle('slide', 500);
-  $('.fixed-top .fa-bars, .fixed-top .fa-times').toggle(500);
-  $('.fixed-top .badge').toggleClass('hidden', 150);
-  $('.fixed-top').toggleClass('bg-brand', 500);
+  $('.icon-wrapper .fa-bars, .icon-wrapper .fa-times').toggle(500);
+  // $('.icon-wrapper .badge').toggleClass('hidden', 150);
+  $('.resp-menu-bar').toggleClass('bg-brand', 500);
 });
 
 
@@ -87,7 +87,8 @@ $(document).on('mouseenter touchstart', '[data-product-id], [data-item-id]' , fu
       trigger: 'hover',
       placement: 'bottom',
       container: 'body',
-      html: 'true',
+      animation: false,
+      html: true,
       content: function(){
         var imgSrc = $(this).closest('.item').find('.popover-img img').attr('src');
         return '<img src ="' + imgSrc + '" />'

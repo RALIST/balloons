@@ -1,0 +1,55 @@
+.composition {
+  @include make-row();
+  @include make-col-xl(4);
+  @include make-col-lg(4);
+  @include make-col-md(4);
+  @include make-col-sm(6);
+  @include make-col-xs(6);
+  margin-bottom: 10px;
+  .card {
+    min-width: 100%;
+    .card-block {
+      padding-bottom: 0;
+    }
+    .card-footer {
+      width: 100%;
+     a {
+        font-family: $font-family-sans-serif;
+      }
+    }
+  }
+  padding: 0;
+  img {
+    object-fit: cover;
+  }
+}
+
+#menu {
+  .menu-options {
+    @include make-col-lg(12);
+    @include make-col-xl(12);
+    margin: 1em 0;
+    font-size: 1.1rem;
+  }
+  .delimeter {
+    @include make-col-xl(12);
+    @include make-col-lg(12);
+  }
+  .nav-pills .nav-link.active,
+  .nav-pills .nav-item.show .nav-link {
+    background-color: $nav-link-hover-bg;
+    &:hover {
+      background-color: $nav-link-hover-bg;
+    }
+  }
+  .dropdown-item a {
+    color: $nav-link-hover-bg;
+  }
+
+  .dropdown-item:active a{
+    color: white;
+  }
+  .nav-link {
+    font-weight: 700;
+  }
+}

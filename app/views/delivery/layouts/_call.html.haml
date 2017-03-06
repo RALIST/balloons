@@ -1,17 +1,16 @@
 .modal.fade{id: "call-modal",  tabindex: "-1",  role: "dialog"}
-  .modal-dialog{role: "document"}
+  .modal-dialog#call{role: "document"}
     .modal-content
-      .modal-header
-        %button{type: "button",  class: "close",  data: {dismiss: "modal"}}
-          %span
-            &times;
+      .modal-header.align-items-start
         .h3.modal-title{id: "myModalLabel"}
           Нужна помощь?
-          %br
-          %small
+          %p.small.text-muted
             Оставьте заявку на обратный звонок или напишите нам в чате!
             %br
             Мы отвечаем на заявки ежедневно с 8:00 до 21:00
+        = link_to '',class: "close",  data: {dismiss: "modal"}, style: 'aria-label: "Close"' do
+          %span
+            &times;
       .modal-body
         = render 'delivery/layouts/form_to_call'
         .h3.text-center.border-top.bg-brand

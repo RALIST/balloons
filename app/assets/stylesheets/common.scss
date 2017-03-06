@@ -10,31 +10,8 @@ body {
   }
 }
 
-.modal {
-  -webkit-overflow-scrolling: hidden;
-}
-.table > tbody > tr > td {
-  vertical-align: middle;
-}
 
-li > h3, h4 {
-  font-weight: 700;
-}
 
-.thumbnail .small {
-  color: darken($brand-secondary, 10%);
-}
-#flash {
-  position: fixed;
-  top: 10%;
-  right: 0;
-  z-index: 999;
-  font-size: 1.2em;
-  font-family: $font-family-serif;
-}
-.nav-pills > li > a {
-  font-weight: 700;
-}
 
 .bg-brand > ul > li > a {
   color: #ffffff;
@@ -44,16 +21,6 @@ li > h3, h4 {
   color: #ffffff;
 }
 
-.nav-pills>li>a:hover{
-  color: #ffffff;
-}
-.nav-pills>li.open>a{
-  color:#ffffff;
-}
-
-.nav-pills>li>a:focus{
-  color: #ffffff;
-}
 
 .display-table {
   display: table;
@@ -66,9 +33,7 @@ li > h3, h4 {
   vertical-align: middle;
   float: none;
 }
-.hidden {
-  display: none;
-}
+
 
 form#new_order {
   margin-bottom: 60px;
@@ -201,6 +166,3 @@ input::-webkit-inner-spin-button {
   border: 1px solid red;
 }
 
-.close {
-  font-size: 3em;
-}

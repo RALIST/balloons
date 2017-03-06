@@ -6,28 +6,44 @@
   @include make-col(12);
   .promotion {
     @include make-col(12);
+
   }
   .promo-toggle {
-    padding: 1px 10px 12px;
-    border-radius: 0 0 50px 50px;
-    font-size: 18px;
+    width: 2rem;
+    // padding: 1px 5px 5px;
+    border-radius: 0 0 1rem 1rem;
     display: inline;
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
   }
 }
 
-.top-menu-right, .top-menu-left {
-  @include make-col(6);
+.top-menu-right, .top-menu-left, .top-menu-middle {
+  @include make-col-lg(4);
+  @include make-col-xl(4);
+  margin-bottom: 0.5rem;
+  ul {
+    margin-bottom: 0;
+  }
 }
 
 
 
 .header-logo {
-  @include make-col(9);
+  @include make-col-xl(8);
+  @include make-col-lg(8);
   @include make-col-offset(1);
   margin-bottom: 20px;
 }
+
+.header-logo-responsive {
+  @include make-col-md(5);
+  @include make-col-sm(7);
+  @include make-col-xs(7);
+}
 .header-contacts {
-  @include make-col(2);
+  @include make-col-xl(3);
+  @include make-col-lg(3);
   text-align: right;
   .social {
     font-size: 2em;
@@ -62,8 +78,8 @@
   }
   .badge {
     position: absolute;
-    margin-top: 0.5em;
-    margin-left: -1em;
+    margin-top: -2.5rem;
+    margin-left: -1rem;
     font-size: 0.4em;
     background-color: $brand-secondary;
   }

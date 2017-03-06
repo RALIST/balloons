@@ -4,6 +4,7 @@ class Position < ApplicationRecord
   belongs_to :composition
   belongs_to :order
   has_many :items, through: :subpositions
+  has_many :products, through: :subpositions
   has_many :subpositions, dependent: :destroy
 
 

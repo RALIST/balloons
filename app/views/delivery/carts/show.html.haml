@@ -3,7 +3,7 @@
     - if @cart.positions.any?
       .col-md-8.col-sm-12.col-xs-12.col-lg-8
         %h2.border-bot В корзине
-        - @cart.positions.each do |p|
+        - @cart.positions.includes(:subpositions, :composition).each do |p|
           .row{id: "position#{p.id}"}
             .col-md-12.col-xs-12.col-sm-12.col-lg-12
               .thumbnail{style: 'float: left; width: 100%;'}
@@ -38,7 +38,7 @@
                   %h4
                     В композицию входит:
                   .subpositions{style: 'float: left;'}
-                    = render p.subpositions.order(:id)
+                    = render p.subpositions.includes(product: [:size,  :item, :tone]).order(:id)
       .col-md-4.col-sm-12.col-xs-12.col-lg-4.pull-right
         .subtotal
           =render 'subtotal'

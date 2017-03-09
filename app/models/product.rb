@@ -34,7 +34,7 @@ class Product < ApplicationRecord
         if set_image
           return self.image(size)
         else
-          self.img = nil
+          return self.img
         end
       end
     end

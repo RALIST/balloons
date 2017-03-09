@@ -120,3 +120,7 @@ input, select, textarea {
 label {
   font-weight: 700;
 }
+
+.card {
+  border: 1px solid rgba(darken($brand-secondary, 10%), 0.3);
+}

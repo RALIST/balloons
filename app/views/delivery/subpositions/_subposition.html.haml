@@ -15,6 +15,6 @@
         .input-group-addon
           = link_to down_quantity_path(subposition), method: :post, remote: true, class: "sub-#{subposition.id}" do
             %i.fa.fa-minus
-  .col-2.text-center
+  .remove-subposition.text-center
     = link_to subposition_path(subposition), method: :delete, remote: true do
       %i.fa.fa-times

@@ -48,9 +48,9 @@
 .product-name {
   @include make-col-xl(6);
   @include make-col-lg(6);
-  @include make-col-md(6);
-  @include make-col-sm(6);
-  @include make-col-xs(6);
+  @include make-col-md(5);
+  @include make-col-sm(5);
+  @include make-col-xs(5);
   span {
     border-bottom: 1px dashed black;
   }
@@ -60,10 +60,18 @@
 .product-quantity {
   @include make-col-xl(4);
   @include make-col-lg(4);
-  @include make-col-md(4);
-  @include make-col-sm(4);
-  @include make-col-xs(4);
+  @include make-col-md(5);
+  @include make-col-sm(5);
+  @include make-col-xs(5);
   text-align: center;
+}
+
+.remove-subposition {
+  @include make-col-xl(2);
+  @include make-col-lg(2);
+  @include make-col-md(2);
+  @include make-col-sm(2);
+  @include make-col-xs(2);
 }
 
 #del-from-cart {

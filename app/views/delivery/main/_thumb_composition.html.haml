@@ -16,8 +16,7 @@
         - if c.tags.any?
           Воздушные шары на
           %br
-          = c.tags.map{ |t| link_to t.name.capitalize, by_tag_path(t) }.join(', ').html_safe
-    / TODO: Go to cart link instead of disabled button
+          = c.tags.map{ |t| link_to t.name.capitalize, by_tag_path(t.name) }.join(', ').html_safe
     .card-footer
       - unless @cart.compositions.include?(c)
         = link_to 'Добавить в корзину', add_to_cart_path(c), class: "btn btn-info btn-block add-to-cart#{c.id}", data: {disable_with: 'Добавляем...'}, remote: true, method: :post

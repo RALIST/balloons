@@ -7,9 +7,9 @@
             = link_to root_path do
               = image_tag 'logo-resp.png', class: 'img-fluid'
           .icon-wrapper
-            %i.fa.fa-bars{style: 'aria-hidden="true"; '}
+            %i.fa.fa-bars{style: 'aria-hidden="true"; cursor: pointer; '}
               %span.badge= @cart.positions.count if @cart.positions.any?
-            %i.fa.fa-times{style: 'aria-hidden="true"; display: none;'}
+            %i.fa.fa-times{style: 'aria-hidden="true"; display: none; cursor: pointer;'}
 
   .header
     .promotion-bar.hidden-md-down.container-fluid

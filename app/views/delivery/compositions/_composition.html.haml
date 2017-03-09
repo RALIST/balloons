@@ -1,7 +1,7 @@
 .row
-  .col-md-4.col-xs-12.text-center
-    = image_tag composition.img.url(:thumb), class: 'img-responsive', style: 'margin: 0 auto 2em;'
-  .col-md-6.col-xs-12
+  .comp-image
+    = image_tag composition.img.url(:large), class: 'img-fluid'
+  .comp-desc
     %p.bg-brand
       %strong
         В композицию входит:
@@ -17,16 +17,8 @@
       - composition.products.uniq.each do |product|
         %tr.item{data: {item_id: "#{product.id}"}}
           %td
-            %span{style: 'cursor: pointer; border-bottom: 1px dashed black;'}
-              - case product.type.name
-              - when 'латексные шары'
-                = "#{product.size.in_inch.to_i}''(#{product.size.in_cm.to_i}см) #{product.texture.name} #{product.tone.name}"
-              - when 'фольгированные шары'
-                = "#{product.size.in_inch.to_i}''(#{product.size.in_cm.to_i}см)" if product.size
-                = product.item.name
-              - when 'товары для композиций'
-                = "#{product.size.in_inch.to_i}''(#{product.size.in_cm.to_i}см)" if product.size
-                = product.name
+            %span{style: 'border-bottom: 1px dashed black; cursor: pointer;'}
+              = product.complex_name
           %td
             = composition.products.where(id: product.id).count
             шт.
@@ -43,7 +35,7 @@
             = number_to_currency(composition.price, precision: 0)
 
     .row
-      .col-md-12.col-xs-12
+      .col-12
         - if composition.tags.any?
           %p
             Композиция на
@@ -52,13 +44,12 @@
                 = link_to by_tag_path(tag.name) do
                   #{tag.name.capitalize},
     .row
-      .col-md-4.col-xs-12
+      .col-12
         - unless @cart.compositions.include?(composition)
-          = button_to 'Добавить в корзину', add_to_cart_path(composition), class: "btn btn-info btn-block add-to-cart#{composition.id}", data: {disable_with: 'Добавляем...'}, remote: true
+          = link_to 'Добавить в корзину', add_to_cart_path(composition), class: "btn btn-info btn-block add-to-cart#{composition.id}", data: {disable_with: 'Добавляем...'}, remote: true, method: :post
         - else
-          .btn.btn-success{disabled: true}
-            Добавлено в корзину
-  .col-md-2.col-xs-12.text-center
+          = link_to 'Перейти в корзину', cart_path(@cart), class: 'btn btn-success btn-block'
+  .comp-related.text-center
     %p
       %strong
         Похожие

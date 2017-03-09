@@ -1,0 +1,38 @@
+.form-wrapper {
+  min-height: 100%;
+  min-width: 100%;
+  h2 {
+    padding-bottom: 1em;
+    margin-top: 1em;
+  }
+}
+
+
+.form-img{
+  @include make-col-md(4);
+  @include make-col-lg(4);
+  @include make-col-xl(4);
+}
+
+.form-container {
+  @include make-col-xl(6);
+  @include make-col-lg(6);
+  @include make-col-md(12);
+  @include make-col-sm(12);
+  @include make-col-xs(12);
+  margin: auto;
+  position: relative;
+}
+
+.date-field, .time-field, .add-field, .address-field {
+  @include make-col-xl(6);
+  @include make-col-lg(6);
+  @include make-col-md(6);
+  @include make-col-sm(12);
+  @include make-col-xs(12);
+  input[type="date"] {
+    flex-direction: row;
+
+  }
+  margin-bottom: 1em;
+}

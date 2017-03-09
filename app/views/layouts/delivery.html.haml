@@ -21,18 +21,11 @@
       %header
         #responsive
           = render 'delivery/layouts/resp_menu'
-        = render 'delivery/layouts/header'
-
-        #flash.col-md-6.col-xs-12.col-sm-12
-          - flash.each do |key, message|
-            %div{class: "alert alert-#{key} alert-dismissible fade in text-center"}
-              = message
-              %button{type: "button",  class: "close", style: 'font-size: 2em;' ,  data:{dismiss: "alert"} }
-                %span
-                  &times;
-      =render 'delivery/layouts/main_menu'
+        - unless @disable_header
+          = render 'delivery/layouts/header'
+          = render 'delivery/layouts/main_menu'
+        = render 'delivery/layouts/flash'
       = yield
-      / = render 'delivery/layouts/'
     %footer
       =render 'delivery/layouts/footer'
 

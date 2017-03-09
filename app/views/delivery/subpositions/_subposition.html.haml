@@ -1,47 +1,20 @@
-.row.display-table.hidden-xs.hidden-sm.border-bot{id: "#{subposition.id}", style: 'float: left;'}
+.row.align-items-center.cart-subposition{id: "#{subposition.id}"}
   - product = subposition.product
-  .col-md-7.item.display-cell{data: {product_id: "#{subposition.product.id}"}}
+  .product-name.item.text-center{data: {product_id: "#{subposition.product.id}"}}
     %span{style: 'cursor: pointer;'}
       = product.complex_name
     .popover-img{style: 'display: none;'}
       = image_tag product.image(:small)
-  .col-md-4.display-cell
+  .product-quantity
     = form_for subposition, class: 'form-inline', remote: true do |f|
       .input-group
         .input-group-addon
           = link_to add_quantity_path(subposition), method: :post, remote: true, class: "sub-#{subposition.id}" do
             %i.fa.fa-plus
-        = f.number_field :quantity, class: 'form-control input-sm', style: 'text-align: center; font-weight: bold; font-size: 1.1em;'
+        = f.number_field :quantity, class: 'form-control form-control-sm text-center'
         .input-group-addon
           = link_to down_quantity_path(subposition), method: :post, remote: true, class: "sub-#{subposition.id}" do
             %i.fa.fa-minus
-  .col-md-1.display-cell
-    =link_to subposition_path(subposition), method: :delete, remote: true do
+  .col-2.text-center
+    = link_to subposition_path(subposition), method: :delete, remote: true do
       %i.fa.fa-times
-
-
-
-.row.hidden-lg.hidden-md.border-bot{id: "#{subposition.id}", style: 'float: left;'}
-  .col-xs-12
-    .row
-      .col-xs-10.item{data: {product_id: "#{subposition.product.id}"}}
-        %span{style: 'cursor: pointer;'}
-          = subposition.product.name.capitalize
-        .popover-img{style: 'display: none;'}
-          - if subposition.product.tone
-            = image_tag subposition.product.tone.img.url(:small)
-          - else
-            = image_tag subposition.product.img.url(:small)
-      .col-xs-2{style: 'font-size: 1.5em;'}
-        =link_to subposition_path(subposition), method: :delete, remote: true do
-          %i.fa.fa-times
-  .col-xs-12
-    = form_for subposition, class: 'form-inline', remote: true do |f|
-      .input-group
-        .input-group-addon
-          = link_to add_quantity_path(subposition), method: :post, remote: true, class: "sub-#{subposition.id}" do
-            %i.fa.fa-plus
-        = f.number_field :quantity, class: 'form-control input-sm', style: 'text-align: center; font-weight: bold; font-size: 1.2em;'
-        .input-group-addon
-          = link_to down_quantity_path(subposition), method: :post, remote: true, class: "sub-#{subposition.id}" do
-            %i.fa.fa-minus

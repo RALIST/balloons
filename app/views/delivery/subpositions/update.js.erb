@@ -5,6 +5,6 @@ $(document).on('ajaxSuccess', function(){
     $('#<%= @subposition.id %>').hide();
   <% end %>
   $('.subtotal').html('<%= j(render "delivery/carts/subtotal") %>');
-  $('#menu').html('<%= j(render "delivery/layouts/main_menu") %>');
+  $('.cart-link .badge span').html('<%= @cart.total_price %>');
 });
 

@@ -1,10 +1,10 @@
 .footer {
-  // padding-top: 40px;
+  margin-top: 4rem;
 }
 
 .footer-menu {
 
-  @include make-md-column(12);
+  @include make-col(12);
   margin: 2em 0;
   // border-bottom: 1px solid #ffffff;
 
@@ -16,8 +16,7 @@
   }
 }
 .social-buttons {
-  @include make-md-column(12);
-  margin-bottom: 20px;
+  @include make-col(12);
   ul {
     display: -webkit-box;
     display: -moz-box;
@@ -25,15 +24,15 @@
     display: -webkit-flex;
     display: flex;
     justify-content: space-around;
+    margin: 1rem 0;
   }
 }
 .company {
-  @include make-md-column(12);
+  @include make-col(12);
+  color: #ffffff;
 }
 
 .footer-logo{
-  @include make-md-column(2);
-  @include make-xs-column(6);
-  @include make-md-column-offset(5);
-  @include make-xs-column-offset(3);
+  @include make-col(2);
+  @include make-col-offset(5);
 }

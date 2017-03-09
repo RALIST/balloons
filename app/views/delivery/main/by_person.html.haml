@@ -1,24 +1,9 @@
 .container-fluid
   .container
     %h2.text-center Оформление воздушными шарами #{params[:title].capitalize}
-    .row
-      .compositions
-        = render partial: 'thumb_composition', collection: @compositions, as: :c
+    .row.justify-content-around.card-deck
+      = render partial: 'thumb_composition', collection: @compositions, as: :c
     .row.text-center
       = will_paginate @compositions
 
-.modal.fade{id: "composition",  tabindex: "-1",  role: "dialog"}
-  .modal-dialog{role: "document", style: 'float: center; width: 90%; margin: auto;'}
-    .modal-content
-      .modal-header
-        %button{type: "button",  class: "close",  data: {dismiss: "modal"}}
-          %span
-            &times;
-        .h3.modal-title{id: "myModalLabel"}
-          Загрузка...
-          %br
-          %small.text-center.hidden-xs
-            Вы сможете изменить состав композиции и количество шаров просто добавив ее в корзину!
-      .modal-body
-        .text-center.h1
-          %i.fa.fa-spinner.fa-pulse.fa-3x.fa-fw
+= render 'delivery/main/modal_composition'

@@ -1,0 +1,85 @@
+.header {
+  @include make-row();
+}
+
+.promotion-bar {
+  @include make-col(12);
+  .promotion {
+    @include make-col(12);
+
+  }
+  .promo-toggle {
+    width: 2rem;
+    border-radius: 0 0 1rem 1rem;
+    display: inline;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.top-menu-right, .top-menu-left, .top-menu-middle {
+  @include make-col-lg(4);
+  @include make-col-xl(4);
+  margin-bottom: 0.5rem;
+  ul {
+    margin-bottom: 0;
+  }
+}
+
+
+
+.header-logo {
+  @include make-col-xl(8);
+  @include make-col-lg(8);
+  @include make-col-offset(1);
+  margin-bottom: 20px;
+}
+
+.header-logo-responsive {
+  @include make-col-md(5);
+  @include make-col-sm(7);
+  @include make-col-xs(7);
+}
+.header-contacts {
+  @include make-col-xl(3);
+  @include make-col-lg(3);
+  text-align: right;
+  .social {
+    font-size: 2em;
+    width: 100%;
+    a {
+      color: $brand-secondary;
+      &:hover {
+        color: darken($brand-secondary, 15%)
+      }
+    }
+  }
+  .order-call {
+    button {
+      cursor: pointer;
+    }
+  }
+}
+
+
+// <---------------------- responsive-menu ---------------------->
+
+.resp-menu-bar {
+  width: 100%;
+  z-index: 900;
+  .icon-wrapper {
+    margin-right: 0.5em;
+    font-size: 2.5em;
+    i {
+      color: #ffffff;
+      z-index: 999;
+    }
+  }
+  .badge {
+    position: absolute;
+    margin-top: -2.5rem;
+    margin-left: -1rem;
+    font-size: 0.4em;
+    background-color: $brand-secondary;
+  }
+}
+

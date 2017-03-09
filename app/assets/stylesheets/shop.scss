@@ -1,18 +1,18 @@
 // <---------- Header ---------->
 .top-bar {
-  @include make-row(1);
+  @include make-row();
   margin-top: 10px;
   .top-bar-left {
-    @include make-md-column(6);
+    @include make-col(6);
     text-align: left;
   }
   .top-bar-middle {
-    @include make-md-column(4);
+    @include make-col(4);
     text-align: center;
   }
 
   .top-bar-right {
-    @include make-md-column(2);
+    @include make-col(2);
     text-align: right;
   }
 }
@@ -20,33 +20,30 @@
 
 
 .middle-bar {
-  @include make-row(1);
+  @include make-row();
   margin-top: 20px;
   .logo-shop {
-    @include make-md-column(6);
-    @include make-xs-column(12);
+    @include make-col(6);
   }
   .contacts {
-    @include make-md-column(4);
-    @include make-md-column-offset(2);
+    @include make-col(4);
+    @include make-col-offset(2);
     font-size: 1.1em;
   }
 }
 
 .menu-bar {
   margin-top: 10px;
-  @include make-row(2);
+  @include make-row();
   .search {
-    @include make-md-column(12);
-    @include make-xs-column(12);
+    @include make-col(12);
     #menu-collapse {
-      @include make-xs-column(2);
+      @include make-col(2);
       font-size: 2em;
     }
     form {
-      @include make-md-column(8);
-      @include make-md-column-offset(2);
-      @include make-xs-column(10);
+      @include make-col(8);
+      @include make-col-offset(2);
       margin: auto;
       padding: 4px 0;
       button {
@@ -57,9 +54,8 @@
     }
   }
   .menu-options {
-    @include make-row(1);
-    @include make-md-column(12);
-    @include make-xs-column(12);
+    @include make-row();
+    @include make-col(12);
   }
 }
 
@@ -68,13 +64,10 @@
 }
 
 .bar-header {
-  @include make-xs-column(12);
-  @include make-md-column(12);
+  @include make-col(12);
   #close-bar {
-    @include make-xs-column(2);
-    @include make-xs-column-offset(10);
-    @include make-md-column(4);
-    @include make-md-column-offset(8);
+    @include make-col(2);
+    @include make-col-offset(10);
     font-size: 1.4em;
     text-align: right;
     cursor: pointer;
@@ -91,19 +84,19 @@
 // <------------ Main ----------->
 
 .info-header {
-  @include make-md-column(12);
-  @include make-row(1);
+  @include make-col(12);
+  @include make-row();
   .search-header {
-    @include make-md-column(2);
+    @include make-col(2);
     margin: 10px 0;
   }
   .main-content-header {
-    @include make-md-column(10)
+    @include make-col(10)
   }
 }
 .search-bar {
-  @include make-md-column(2);
-  @include make-xs-column(12);
+  @include make-col(2);
+  @include make-col(12);
   height: 100%;
   position: absolute;
   display: none;
@@ -211,16 +204,12 @@
 
 }
 .main-content {
-  @include make-lg-column(12);
-  @include make-md-column(12);
-  @include make-xs-column(12);
+  @include make-col(12);
   transition: 800ms;
 }
 
 .search-bar.toggled + .main-content {
-  @include make-lg-column(12);
-  @include make-md-column(10);
-  @include make-md-column-offset(2);
+  @include make-col(12);
   transition: 500ms;
 }
 
@@ -305,9 +294,7 @@
 }
 
 .product {
-  @include make-lg-column(6);
-  @include make-md-column(6);
-  @include make-xs-column(12);
+  @include make-col(6);
   .thumbnail{
       min-height: 110px;
     }
@@ -316,55 +303,46 @@
   }
 
   .item-img {
-    @include make-lg-column(4);
-    @include make-md-column(3);
-    @include make-xs-column(4);
+    @include make-col(4);
     padding-right: 0;
   }
   .item-info {
-    @include make-lg-column(8);
-    @include make-md-column(9);
-    @include make-xs-column(8);
+    @include make-col(8);
     .item-name {
-      @include make-md-column(8);
-      @include make-xs-column(8);
+      @include make-col(8);
       font-size: 1.2em;
     }
     .item-vendor {
-      @include make-md-column(4);
-      @include make-xs-column(4);
+      @include make-col(4);
     }
     .item-to-cart {
-      @include make-lg-column(12);
-      @include make-md-column(12);
+      @include make-col(12);
       // @include make-xs-column(10);
       // @include make-xs-column-offset(1);
       .input-group{
-        @include make-md-column(12);
+        @include make-col(12);
         .input-group-addon {
           padding: 4px 6px;
         }
       }
       .item-size, .item-size-label {
-        @include make-md-column(3);
-        @include make-xs-column(8);
+        @include make-col(3);
         padding-right: 0;
         select {
           padding: 0;
         }
       }
       .item-price, .item-price-label {
-        @include make-md-column(5);
+        @include make-col(5);
       }
       .item-count, .item-count-label {
-        @include make-md-column(4);
+        @include make-col(4);
       }
     }
   }
   .cart-button {
-    @include make-md-column(4);
-    @include make-md-column-offset(8);
-    @include make-xs-column(8);
+    @include make-col(4);
+    @include make-col-offset(8);
     margin: 0.5em 0;
   }
 }

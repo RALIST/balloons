@@ -1,19 +1,18 @@
 .container-fluid
-  .row
+  .row.align-items-end.card-group
+    %h2
     - @items_in_collection.each do |product|
-      .col-md-6.col-sm-6.col-xs-12
-        .thumbnail{style: 'min-height: 140px;'}
-          .row
-            .col-md-4.col-sm-6.col-xs-12{style: 'margin: auto'}
-              = image_tag product.image(:small)
-            .col-md-8.col-sm-6.col-xs-12
-              .h4
-                = product.complex_name
+      .item-in-collection
+        .card
+          .card-header
+            = product.complex_name
+          .card-block.text-center
+            = image_tag product.image(:small), class: 'img-fluid card-img-top mx-auto'
+            %p.card-text.text-center
               %strong
-                Цена:
-              = number_to_currency(product.price_with_helium, precision: 0)
-              %p
-                = button_to 'Добавить', add_subposition_path(item: product.id, position: position), class: 'btn btn-info', data: {disable_with: 'Подождите...'}
+                = number_to_currency(product.price_with_helium, precision: 0)
+          .card-footer.text-right
+            = button_to 'Добавить', add_subposition_path(item: product.id, position: position), class: 'btn btn-info', data: {disable_with: 'Подождите...'}
   %div{style: 'clear: both;'}
   .row
     .col-md-12

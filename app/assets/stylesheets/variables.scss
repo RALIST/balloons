@@ -1,3 +1,4 @@
+
 // Colors
  $brand-primary: #54b5a1;
  // #68c4af;
@@ -16,3 +17,56 @@ $headings-color: darken($brand-primary, 10%);
 $font-family-serif: 'Lora', serif;
 $font-family-sans-serif: 'Open Sans', sans-serif;
 $font-family-base: $font-family-sans-serif;
+
+
+@import 'bootstrap/variables';
+@import 'bootstrap/mixins';
+
+
+@mixin make-col-xs( $cols ) {
+  @include make-col-ready();
+  @include media-breakpoint-only(xs) {
+    @include make-col($cols);
+  }
+}
+
+@mixin make-col-sm( $cols ) {
+  @include make-col-ready();
+  @include media-breakpoint-only(sm) {
+    @include make-col($cols);
+  }
+}
+
+@mixin make-col-md( $cols ) {
+  @include make-col-ready();
+  @include media-breakpoint-only(md) {
+    @include make-col($cols);
+  }
+}
+
+@mixin make-col-lg( $cols ) {
+  @include make-col-ready();
+  @include media-breakpoint-only(lg) {
+    @include make-col($cols);
+  }
+}
+
+@mixin make-col-xl( $cols ) {
+  @include make-col-ready();
+  @include media-breakpoint-only(xl) {
+    @include make-col($cols);
+  }
+}
+
+
+@include media-breakpoint-down(md) {
+  html {
+    font-size: 0.9rem;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  html {
+    font-size: 0.7rem;
+  }
+}

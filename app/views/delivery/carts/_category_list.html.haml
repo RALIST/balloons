@@ -1,16 +1,16 @@
 .row
-  .col-md-12
-    %h2 По цветам
-    - @collections.each do |collection|
-      .col-md-4.col-xs-12.col-sm-3
-        - position = p || @position
-        = link_to my_cart_path(collection_id: collection.id, position: position), remote: true do
-          %span.as_btn= collection.name.capitalize
+  .col-12
+    %h2.border-bot По цветам
+  - @collections.each do |collection|
+    .category-item
+      - position = p || @position
+      = link_to my_cart_path(collection_id: collection.id, position: position), remote: true do
+        %span.as_btn= collection.name.capitalize
 .row
-  .col-md-12
-    %h2 По коллекциям
-    - @categories.each do |category|
-      .col-md-4.col-xs-12.col-sm-3
-        - position = p || @position
-        = link_to my_cart_path(category_id: category.id, position: position), remote: true do
-          %span.as_btn= category.name.capitalize
+  .col-12
+    %h2.border-bot По коллекциям
+  - @categories.each do |category|
+    .category-item
+      - position = p || @position
+      = link_to my_cart_path(category_id: category.id, position: position), remote: true do
+        %span.as_btn= category.name.capitalize

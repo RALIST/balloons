@@ -8,13 +8,13 @@ $.extend($.expr[':'], {
 
 
 
-$(document).on('click', '.fa-bars', function(){
-  $('.resp-menu').toggle('slide','slow', function(){
-    $('.on-icon').toggleClass('hidden');
-  });
-  $('.fixed .fa').toggleClass('fa-bars fa-times', 'slow');
-  $('.fixed').toggleClass('bg-brand', 'slow');
+$(document).on('click', '.icon-wrapper .fa-bars, .icon-wrapper .fa-times', function(){
+  $('.resp-menu').toggle('slide', 500);
+  $('.icon-wrapper .fa-bars, .icon-wrapper .fa-times').toggle(500);
+  // $('.icon-wrapper .badge').toggleClass('hidden', 150);
+  $('.resp-menu-bar').toggleClass('bg-brand', 500);
 });
+
 
 $(document).on('click', '#admin-collapse', function(){
   $('.left-menu').toggle('slide', 'slow', function(){
@@ -22,13 +22,7 @@ $(document).on('click', '#admin-collapse', function(){
   });
 });
 
-$(document).on('click', '.fixed .fa-times', function(){
-  $('.resp-menu').toggle('slide','slow', function(){
-    $('.on-icon').toggleClass('hidden');
-  });
-  $('.fixed .fa').toggleClass('fa-bars fa-times', 'slow');
-  $('.fixed').toggleClass('bg-brand', 'slow');
-});
+
 
 $(document).on('click','.position-modal .as_btn', function(){
   $('.modal-body').html('<div class="text-center h1"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i></div>');
@@ -82,7 +76,7 @@ $(document).on('keyup','#subposition_quantity', function (e) {
     if ($(input).val()){
       $(input).closest('form').submit();
     }
-  }, 1000)
+  }, 1100)
   return false;
   });
 
@@ -93,7 +87,8 @@ $(document).on('mouseenter touchstart', '[data-product-id], [data-item-id]' , fu
       trigger: 'hover',
       placement: 'bottom',
       container: 'body',
-      html: 'true',
+      animation: false,
+      html: true,
       content: function(){
         var imgSrc = $(this).closest('.item').find('.popover-img img').attr('src');
         return '<img src ="' + imgSrc + '" />'

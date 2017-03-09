@@ -1,12 +1,6 @@
 .offer {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  @include make-md-column(12);
-  @include make-xs-column(12);
-  @include make-row(1);
+  @include make-col-lg(12);
+  @include make-col-xl(12);
   margin-top: 10px;
   background: image-url('offer.jpg') center no-repeat;
   background-size: 100%;
@@ -14,8 +8,9 @@
 }
 
 .jumbotron > h1.offer-text {
-  @include make-md-column(5);
-  @include make-md-column-offset(1);
+  @include make-col-lg(5);
+  @include make-col-xl(5);
+  @include make-col-offset(1);
   background-color: transparentize(darken($brand-secondary, 10%), 0.1);
   color: white;
   font-variant: small-caps;
@@ -27,18 +22,20 @@
   span.italic {
     display: block;
     font-style: italic;
+    font-size: 80%;
   }
-  span.big {
-    display: block;
-    font-size: 1.2em;
-  }
+  // span.big {
+  //   display: block;
+  //   font-size: 1.2em;
+  // }
   p {
     margin-top: 10px;
   }
 }
 
 .offer-details {
-  @include make-md-column(12);
+  @include make-col-lg(12);
+  @include make-col-xl(12);
   span {
     // font-size: 4em;
     color: $brand-primary;
@@ -50,7 +47,8 @@
 }
 
 .detail{
-  @include make-md-column(4);
+  @include make-col-lg(4);
+  @include make-col-xl(4);
 }
 
 .text-secondary {

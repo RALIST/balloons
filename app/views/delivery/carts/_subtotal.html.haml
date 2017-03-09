@@ -3,59 +3,52 @@
 .row
   .col-md-12.col-xs-12.col-sm-12
     .row
-      .col-md-6.col-sm-6.col-xs-6.text-left
+      .subtotal-col.text-left
         Всего в корзине
-      .col-md-6.col-sm-6.col-xs-6.text-right
+      .subtotal-col.text-right
         = pluralize(@cart.positions.count, 'товар', 'товара')
     .row
-      .col-md-6.col-sm-6.col-xs-6.text-left
+      .subtotal-col.text-left
         Сумма
-      .col-md-6.col-sm-6.col-xs-6.text-right
+      .subtotal-col.text-right
         = @cart.total_price
         %i.fa.fa-rub{style: 'aria-hidden="true"'}
     .row
-      .col-md-6.col-sm-6.col-xs-6.text-left
+      .subtotal-col.text-left
         Ваша скидка:
-      .col-md-6.col-sm-6.col-xs-6.text-right
+      .subtotal-col.text-right
         - if current_user
           #{number_to_percentage(current_user.discount, precision: 2)}
         - else
           = link_to 'Войдите', login_path
     .row
-      .col-md-6.col-sm-6.col-xs-6.text-left
+      .subtotal-col.text-left
         - to_delivery = 1000 - @cart.total_price
         Доставка
-      .col-md-6.col-sm-6.col-xs-6.text-right
+      .subtotal-col.text-right
         = to_delivery > 0 ? 150 : 0
         %i.fa.fa-rub{style: 'aria-hidden="true"'}
     .row.border-bot
-      .col-md-6.text-left.col-xs-7
+      .subtotal-col.text-left
         %strong
           Всего к оплате:
-      .col-md-6.col-xs-5.text-right
+      .subtotal-col.text-right
         %strong
           = @cart.total_with_discounts
           %i.fa.fa-rub{style: 'aria-hidden="true"'}
-    .row.display-table
-      .col-md-12.col-sm-12.col-xs-12
-        %form{style: 'margin-bottom: 14px;'}
-          .col-xs-6.col-sm-6.display-cell
-            .form-group
-              = text_field_tag '', '', class: 'form-control input-sm', placeholder: 'Промо код'
-          .col-xs-6.col-sm-6.display-cell
-            .form-group.text-right
-              %span= link_to 'Как получить?'
+    .row.align-items-center
+      .subtotal-col.text-left
+        = text_field_tag '', '', class: 'form-control input-sm', placeholder: 'Промо код'
+      .subtotal-col.text-right
+        %span= link_to 'Как получить?'
 .row
-  .col-md-12.col-sm-12.col-xs-12
+  .col-12.text-center
     = link_to 'Оформить заказ', new_order_path, class: 'btn btn-info btn-block'
-.row
-  .col-md-12.col-sm-12.text-center
-    %small
-      - if to_delivery > 0
-        Вам осталось
-        %strong
-          #{to_delivery.round(2)}
-          %i.fa.fa-rub{style: 'aria-hidden="true"'}
-        до бесплатной доставки
-      -else
-        Бесплатная доставка в любой конец города!
+    - if to_delivery > 0
+      Ещё
+      %strong
+        #{to_delivery.round(2)}
+        %i.fa.fa-rub{style: 'aria-hidden="true"'}
+      до бесплатной доставки
+    -else
+      Бесплатная доставка в любой конец города!

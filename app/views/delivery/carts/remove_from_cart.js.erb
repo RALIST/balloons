@@ -2,10 +2,10 @@ $('#position<%=@position.id %>').fadeOut();
 $('.subtotal').html('<%= j(render "subtotal") %>');
 $('.cart-link .badge span').html('<%= @cart.total_price %>');
 <% if @cart.positions.any? %>
-  $('.icon-wrapper small .badge').html('<%= @cart.positions.count %>');
+  $('.icon-wrapper .badge').html('<%= @cart.positions.count %>');
   $('#responsive').html('<%= j(render "delivery/layouts/resp_menu")%>');
 <% else %>
-  $('.icon-wrapper small .badge').hide();
+  $('.icon-wrapper .badge').hide();
   $('#responsive').html('<%= j(render "delivery/layouts/resp_menu")%>');
   $('.cart').html('<h2> В вашей корзине пока ничего нет!<br><a class="btn btn-info" href="/">Добавить в корзину</a></h2>')
 <% end %>

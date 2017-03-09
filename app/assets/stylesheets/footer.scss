@@ -17,7 +17,6 @@
 }
 .social-buttons {
   @include make-col(12);
-  margin-bottom: 20px;
   ul {
     display: -webkit-box;
     display: -moz-box;
@@ -25,10 +24,12 @@
     display: -webkit-flex;
     display: flex;
     justify-content: space-around;
+    margin: 1rem 0;
   }
 }
 .company {
   @include make-col(12);
+  color: #ffffff;
 }
 
 .footer-logo{

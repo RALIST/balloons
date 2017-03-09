@@ -21,3 +21,12 @@
   @include make-col-sm(12);
   @include make-col-xs(12);
 }
+
+.related-comps {
+  @include make-col-lg(12);
+  @include make-col-xl(12);
+  @include make-col-lg(12);
+  @include make-col-md(4);
+  @include make-col-sm(4);
+  @include make-col-xs(4);
+}

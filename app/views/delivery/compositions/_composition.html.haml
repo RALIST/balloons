@@ -55,7 +55,7 @@
         Похожие
     .row
       - composition.related.limit(3).each do |related|
-        .col-4
+        .related-comps
           = link_to root_path(id: related.id), remote: true  do
             = image_tag related.img.url(:small), class: 'img-responsive', style: 'margin: auto;'
 .modal-footer

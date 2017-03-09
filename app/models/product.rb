@@ -31,8 +31,9 @@ class Product < ApplicationRecord
       unless self.img.blank?
         self.img.url(size)
       else
-        set_image
-        return self.image(size)
+        if set_image
+          return self.image(size)
+        end
       end
     end
   end
@@ -50,6 +51,8 @@ class Product < ApplicationRecord
     when 'фольгированные шары'
       size_name = "#{size.in_inch.to_i}''(#{size.in_cm.to_i}см) " if size
       size_name + item.name
+    when 'товары для композиций'
+      self.name
     end
   end
 

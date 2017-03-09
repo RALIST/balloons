@@ -2,7 +2,7 @@
   $(document).on('ajaxSuccess', function(){
     $('#edit_subposition_<%=@subposition.id%> #subposition_quantity').val('<%= @subposition.quantity %>')
     $('.subtotal').html('<%= j(render "delivery/carts/subtotal") %>')
-    $('#menu').html('<%= j(render "delivery/layouts/main_menu") %>')
+    $('.cart-link .badge span').html('<%= @cart.total_price %>');
   });
 <% else %>
   $('#edit_subposition_<%=@subposition.id%>').closest('tr', '.thumbnail').fadeOut();

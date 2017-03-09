@@ -3,7 +3,7 @@ class Delivery::MainController < Delivery::DeliveryController
   def index
     set_meta_tags title: 'Воздушные шары с доставкой, лучшие композиции',
                   keywords: 'воздушные шары, гелиевые шары, гелиевые шарики, заказать воздушные шары, шарики с доставкой, доставка шариков, купить воздушные шары, купить шарики'
-    @compositions = Composition.availible.limit(6).paginate(page: params[:page], per_page: 6)
+    @compositions = Composition.availible.paginate(page: params[:page], per_page: 6)
     @composition  = Composition.find(params[:id]) if params[:id]
     respond_to do |format|
       format.html
@@ -19,10 +19,12 @@ class Delivery::MainController < Delivery::DeliveryController
     unless params[:tag_name].blank?
       tag = Unicode::downcase(params[:tag_name]).strip
       @compositions =  Composition.availible.with_tag(tag).order(:price).paginate(page: params[:page], per_page: 6)
-    end
-    respond_to do |format|
-      format.html{redirect_to root_path, flash: {danger: 'По запросу ' + params[:tag_name] + ' ничего не найдено!'} unless @compositions.any?}
-      format.js {render 'index'} if params[:page]
+      respond_to do |format|
+        format.html{redirect_to root_path, flash: {danger: 'По запросу ' + params[:tag_name] + ' ничего не найдено!'} unless @compositions.any?}
+        format.js {render 'index'} if params[:page]
+      end
+    else
+      redirect_back fallback_location: root_path, flash: {danger: 'Ничего не найдено!' }
     end
   end
 

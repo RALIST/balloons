@@ -10,7 +10,7 @@
   background: rgba(0, 0, 0, 0.85);
   color: white;
   padding-bottom: 3em;
-  padding-top: 3rem;
+  padding-top: 3em;
   a {
     color: white;
   }
@@ -41,8 +41,19 @@
 }
 
 .resp-search {
-  @include make-col-xs(10);
-  @include make-col-sm(10);
+  @include make-col-xs(12);
+  @include make-col-sm(12);
+  @include make-col-md(12);
   margin-bottom: 2em;
 }
 
+.resp-cart {
+  @include make-col-xs(12);
+  @include make-col-sm(12);
+  @include make-col-md(12);
+  margin: 1rem auto;
+  h3 {
+    color: #ffffff;
+  }
+
+}

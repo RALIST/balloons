@@ -1,59 +1,54 @@
-.container
-  .row
-    .col-md-4.col-sm-4.hidden-xs
-      = link_to root_path do
-        = image_tag 'logo2.png', class: 'img-responsive pull-right'
-    .col-md-8.col-xs-12.col-sm-8
-      %h2 Оформление нового заказа
-      =form_for @order, html: {class: 'form-horizontal'} do |f|
-        .form-group
-          .col-sm-10.col-xs-12.col-md-8
+.form-wrapper.d-flex.align-items-center.justify-content-around
+  .container
+    .row.text-center
+      .col-md-12.col-sm-12.col-xs-12
+        %h2 Оформление нового заказа
+    .row.align-items-center
+      .form-img.hidden-lg-down
+        = link_to root_path do
+          = image_tag 'logo2.png', class: 'img-fluid'
+      .form-container
+        =form_for @order, html: {class: 'form-horizontal'} do |f|
+          .form-group
             =f.label 'Ваше имя', class: 'lable-control'
             .input-group
               %span.input-group-addon
                 %i.fa.fa-user{style: 'aria-hidden="true"'}
               = f.text_field :name, value: (current_user.first_name if current_user), class: 'form-control', required: true
-        .form-group
-          .col-sm-10.col-xs-12.col-md-8
+          .form-group
             =f.label 'Контактный телефон', class: 'lable-control'
             .input-group
               %span.input-group-addon
                 %i.fa.fa-phone{style: 'aria-hidden="true"'}
               = f.telephone_field :phone, value: (current_user.phone if current_user), data:{ mask: '+7 (999) 999 99 99' }, class: 'form-control', required: true
-        .form-group
-          .col-sm-10.col-xs-12.col-md-8
+          .form-group
             = f.label 'Укажите дату и время доставки'
             .row
-              .col-xs-10.col-md-6
-                .input-group{style: 'margin-top: 10px;'}
-                  .input-group-addon
+              .date-field
+                .input-group
+                  %span.input-group-addon
                     %i.fa.fa-calendar
                   = f.date_field :order_date, class: 'form-control', required: true, min: Date.today
-
-              .col-xs-10.col-md-6
-                .input-group.clockpicker{style: 'margin-top: 10px;'}
+              .time-field
+                .input-group.clockpicker
                   .input-group-addon
                     %i.fa.fa-clock-o
                   = f.text_field :order_time, value: Time.current.to_s(:time), class: 'form-control', data:{mask: '99:99'}, required: true, readonly: true
             .error
               = show_errors(@order, :order_date)
-        .form-group
-          .col-sm-10.col-xs-12.col-md-8
+          .form-group
             .row
-              .col-xs-12.col-sm-6.col-md-12
+              .address-field
                 =f.label 'Адрес доставки', class: 'lable-control'
                 = f.text_area :address, value: (current_user.address if current_user),  rows: 3, class: 'form-control', required: true,placeholder: 'Улица, дом, подъезд, квартира, этаж и т.д.'
-              .col-xs-12.col-sm-6.col-md-12
+              .add-field
                 =f.label 'Дополнительно', class: 'lable-control'
                 = f.text_area :desc, rows: 3, class: 'form-control', placeholder: 'Информация для курьера (не звонить в домофон и т.д.)'
-        .form-group
-          .col-sm-10.col-xs-12.col-md-8
+          .form-group
             = f.label :pay_method, 'Выберите способ оплаты', class: 'lable-control'
-          .col-sm-10.col-xs-12.col-md-8
             .input-group
               .input-group-addon
                 %i.fa.fa-rub
               = f.select :pay_method, options_for_select(Order.pay_methods),{prompt: 'Выберите способ оплаты'}, {class: 'form-control', required: true}
-        .form-group
-          .col-sm-10.col-md-8
+          .form-group
             = f.submit 'Создать заказ', class: 'btn btn-info btn-block', disable_with: 'Оформляю заказ...'

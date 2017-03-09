@@ -5,8 +5,7 @@ class Delivery::UsersController < Delivery::DeliveryController
                   reverse: true,
                   description: 'Зарегистрируйтесь на сайте'
     @user = User.new
-    @hide_header = true
-    @hide_footer = true
+    @disable_header = true
   end
 
   def create

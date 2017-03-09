@@ -53,14 +53,15 @@
               %li.h5
                 = link_to price_range_path(min: 8000), class: 'nav-link' do
                   От 8000
-    / - if @cart.positions.any?
-    /   .row
-    /     .col-xs-8
-    /       = link_to my_cart_path, class: 'btn btn-info btn-block' do
-    /         Корзина
-    /         %span.badge
-    /           = @cart.total_price
-    /           %i.fa.fa-rub{style: 'aria-hidden="true"'}
+    .row
+      - if @cart.positions.any?
+        .resp-cart
+          = link_to my_cart_path, class: 'btn btn-primary btn-block' do
+            %h3
+              Корзина
+              %span.badge
+                = @cart.total_price
+                %i.fa.fa-rub{style: 'aria-hidden="true"'}
 
     .row
       .col-sm-12.col-xs-12{style: 'margin-top: 1.5em;'}

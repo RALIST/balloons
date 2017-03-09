@@ -1,6 +1,6 @@
 .container
   .hidden-md-down
-    / = render 'delivery/layouts/offer'
+    = render 'delivery/layouts/offer'
   %h2.text-center
     Хиты продаж
     %br
@@ -8,6 +8,7 @@
       Оформление воздушными шарами
   .row.justify-content-around.card-deck
     = render partial: 'thumb_composition', collection: @compositions, as: :c
-
+  .row.text-center
+    = will_paginate @compositions
 = render 'delivery/main/modal_composition'
 

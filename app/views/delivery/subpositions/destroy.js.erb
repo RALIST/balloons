@@ -1,3 +1,3 @@
 $("row#<%= @subposition.id%>, div#<%= @subposition.id%>").fadeOut();
 $('.subtotal').html('<%= j(render "delivery/carts/subtotal") %>');
-$('#menu').html('<%= j(render "delivery/layouts/main_menu") %>');
+$('.cart-link .badge span').html('<%= @cart.total_price %>');

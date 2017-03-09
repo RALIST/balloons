@@ -4,6 +4,7 @@ class Delivery::OrdersController < Delivery::DeliveryController
 
   def new
     @order = Order.new
+    @disable_header = true
   end
 
   def create

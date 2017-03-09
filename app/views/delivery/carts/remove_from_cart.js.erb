@@ -1,6 +1,6 @@
 $('#position<%=@position.id %>').fadeOut();
 $('.subtotal').html('<%= j(render "subtotal") %>');
-$('#menu').html('<%= j(render "delivery/layouts/main_menu") %>');
+$('.cart-link .badge span').html('<%= @cart.total_price %>');
 <% if @cart.positions.any? %>
   $('.icon-wrapper small .badge').html('<%= @cart.positions.count %>');
   $('#responsive').html('<%= j(render "delivery/layouts/resp_menu")%>');

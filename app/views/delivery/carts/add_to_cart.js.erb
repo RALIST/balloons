@@ -1,6 +1,6 @@
 $(document).on('ajaxComplete', function(){
   $("a.add-to-cart<%=@composition.id%>").fadeOut().closest('.card-footer').html('<div class= "btn btn-success btn-block" disabled > Добавлено в корзину</div>')
-  $('#menu').html('<%= j(render "delivery/layouts/main_menu") %>');
+  $('.cart-link .badge span').html('<%= @cart.total_price %>');
   $('.icon-wrapper .badge').html('<%= @cart.positions.count %>');
   $('#responsive').html('<%= j(render "delivery/layouts/resp_menu")%>');
 });

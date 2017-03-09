@@ -22,12 +22,12 @@
             %ul.dropdown-menu
               %li
                 = form_tag price_range_path, class: 'form', method: :get do
-                  .form-group{style: 'width: 90%; margin:auto;'}
+                  .form-group
                     = number_field_tag :min,'',  class: ' form-control form-control-sm', placeholder: 'От'
-                  .form-group{style: 'width: 90%; margin:auto;'}
+                  .form-group
                     = number_field_tag :max,'',  class: 'form-control form-control-sm', placeholder: 'До'
-                  .from-group{style: 'width: 90%; margin:auto;'}
-                    = button_tag(type: 'submit', class: 'btn btn-info btn-sm btn-block') do
+                  .from-group.mx-auto
+                    = button_tag(type: 'submit', class: 'btn btn-info btn-block btn-sm') do
                       %i.fa.fa-search
           %li.text-uppercase.nav-item
             - if current_user
@@ -35,10 +35,15 @@
                 %i.fa.fa-user{style: 'aria-hidden="true"'}
                 Личный кабинет
           %li.text-uppercase.nav-item
-            = link_to my_cart_path, class: 'nav-link' do
-              - if @cart.positions.any?
-                .badge.badge-success
-                  = @cart.total_price
-                  %i.fa.fa-rub
+            = link_to my_cart_path, class: 'nav-link cart-link' do
+              .badge.badge-success
+                %span
+                  = @cart.total_price if @cart.positions.any?
+                %i.fa.fa-rub
               %i.fa.fa-shopping-cart{style: 'aria-hidden="true"'}
               Корзина
+
+.container-fluid
+  .row
+    .col-12.bg-brand.text-center.h4.offer-2
+      Бесплатная доставка и оформление заказов от 1000 рублей!

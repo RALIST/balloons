@@ -1,24 +1,21 @@
 .composition
-  .card.align-self-end.justify-content-center.align-items-center
-    .card-img-top
-      .link-to-modal.hidden-sm-down
-        = link_to root_path(id: c.id), data:{ toggle: 'modal', target: "#composition"}, remote: true do
-          = image_tag c.img.url(:thumb), class: 'img-fluid'
-      .link-to-page.hidden-md-up
-        = link_to composition_path(c) do
-          = image_tag c.img.url(:thumb), class: 'img-fluid'
+  .card.justify-content-around.align-items-center
+    = link_to root_path(id: c.id), data:{ toggle: 'modal', target: "#composition"}, remote: true, class: 'link-to-modal hidden-sm-down' do
+      = image_tag c.img.url(:thumb), class: 'img-fluid'
+    = link_to composition_path(c), class: 'link-to-page hidden-md-up' do
+      = image_tag c.img.url(:thumb), class: 'img-fluid'
 
-    .card-block.align-content-end
-      .h4.text-center.card-title
-        %strong
-          = number_to_currency(c.price, precision: 0)
-      .text-center{style: 'height: 4em;'}
+    .card-block
+      .text-center
         - if c.tags.any?
           Воздушные шары на
           %br
           = c.tags.map{ |t| link_to t.name.capitalize, by_tag_path(t.name) }.join(', ').html_safe
     .card-footer
       - unless @cart.compositions.include?(c)
+        .h4.text-center.card-title
+          %strong
+            = number_to_currency(c.price, precision: 0)
         = link_to 'Добавить в корзину', add_to_cart_path(c), class: "btn btn-info btn-block add-to-cart#{c.id}", data: {disable_with: 'Добавляем...'}, remote: true, method: :post
       - else
         = link_to 'Перейти в корзину', cart_path(@cart), class: 'btn btn-success btn-block'

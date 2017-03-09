@@ -16,26 +16,27 @@
                 .row
                   .position-img.text-center
                     = image_tag p.composition.img.url(:thumb), class: 'img-fluid'
-                    .modal.fade{id: "position-modal-#{p.id}",  tabindex: "-1",  role: "dialog", class: 'position-modal'}
-                      .modal-dialog{role: "document"}
-                        .modal-content
-                          .modal-header
-                            .h3.modal-title
-                              Добавьте в композицию шары
-                              %br
-                              %small
-                                Выберите категорию
-                            %button{type: "button",  class: "close",  data: {dismiss: "modal"}}
-                              %span
-                                &times;
-                          .col-12
-                            .input-group
-                              = text_field_tag :search,'', class: 'form-control', placeholder: 'Начните вводить название категории...'
-                              %span.input-group-btn
-                                = button_tag(class: 'btn btn-info', id: 'clear-search') do
-                                  %i.fa.fa-times
-                          .modal-body
-                            = render partial: 'category_list', locals: {p: p}
+                .modal.fade{id: "position-modal-#{p.id}",  tabindex: "-1",  role: "dialog", class: 'position-modal'}
+                  .modal-dialog{role: "document"}
+                    .modal-content
+                      .modal-header
+                        .h3.modal-title
+                          Добавьте в композицию шары
+                          %br
+                          %small
+                            Выберите категорию
+                        %button{type: "button",  class: "close",  data: {dismiss: "modal"}}
+                          %span
+                            &times;
+                      .col-12
+                        .input-group
+                          = text_field_tag :search,'', class: 'form-control', placeholder: 'Начните вводить название категории...'
+                          %span.input-group-btn
+                            = button_tag(class: 'btn btn-info', id: 'clear-search') do
+                              %i.fa.fa-times
+                      %br
+                      .modal-body
+                        = render partial: 'category_list', locals: {p: p}
                   .cart-subpositions.card-block
                     .subpositions
                       = render p.subpositions.includes(product: [:size,  :item, :tone]).order(:id)

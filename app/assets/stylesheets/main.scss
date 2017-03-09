@@ -8,6 +8,7 @@
   margin-bottom: 10px;
   .card {
     min-width: 100%;
+    min-height: 100%;
     .card-block {
       padding-bottom: 0;
     }
@@ -19,9 +20,6 @@
     }
   }
   padding: 0;
-  img {
-    object-fit: cover;
-  }
 }
 
 #menu {

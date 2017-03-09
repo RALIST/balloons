@@ -51,6 +51,7 @@
   @include make-col-md(5);
   @include make-col-sm(5);
   @include make-col-xs(5);
+  text-align: center;
   span {
     border-bottom: 1px dashed black;
   }

@@ -56,7 +56,11 @@
     .row
       - composition.related.limit(3).each do |related|
         .related-comps
-          = link_to root_path(id: related.id), remote: true  do
-            = image_tag related.img.url(:small), class: 'img-responsive', style: 'margin: auto;'
+          .hidden-lg-down
+            = link_to root_path(id: related.id), remote: true  do
+              = image_tag related.img.url(:small), class: 'img-fluid', style: 'margin: auto;'
+          .hidden-md-up
+            = link_to composition_path(related) do
+              = image_tag related.img.url(:small), class: 'img-fluid', style: 'margin: auto;'
 .modal-footer
 

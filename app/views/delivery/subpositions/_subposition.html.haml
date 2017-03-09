@@ -1,6 +1,6 @@
 .row.align-items-center.cart-subposition{id: "#{subposition.id}"}
   - product = subposition.product
-  .product-name.item.text-center{data: {product_id: "#{subposition.product.id}"}}
+  .product-name.item{data: {product_id: "#{subposition.product.id}"}}
     %span{style: 'cursor: pointer;'}
       = product.complex_name
     .popover-img{style: 'display: none;'}

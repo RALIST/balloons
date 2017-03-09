@@ -54,7 +54,7 @@ class Product < ApplicationRecord
       size_name = "#{size.in_inch.to_i}''(#{size.in_cm.to_i}см) " if size
       size_name + item.name
     when 'товары для композиций'
-      self.name
+      self.name.capitalize
     end
   end
 

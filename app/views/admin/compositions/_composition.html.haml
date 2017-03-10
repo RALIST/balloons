@@ -1,10 +1,10 @@
-.col-md-3
-  .thumbnail
+.composition.text-center
+  .card
     .row
-      .col-md-6
+      .col-6
         =link_to admin_composition_path(composition) do
-          =image_tag composition.img.url(:small), class: 'img-responsive', style: 'height: 100%; object-fit: contain;'
-      .col-md-6
+          =image_tag composition.img.url(:small), class: 'img-fluid'
+      .col-6
         ID:
         = composition.id
         %br

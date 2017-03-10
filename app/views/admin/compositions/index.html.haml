@@ -1,39 +1,39 @@
 .container
   .row
-    .col-md-10
-      .row
-        %h2{data: {toggle: 'collapse', target: '#availible'}, style: 'cursor: pointer;'}
-          Доступные композиции
-          %br
-          %small Доступные к покупке пользователям
-        .collapse#availible
+    .col-10
+      %h2{data: {toggle: 'collapse', target: '#availible'}, style: 'cursor: pointer;'}
+        Доступные композиции
+        %br
+        %small Доступные к покупке пользователям
+      .collapse#availible
+        .card-deck
           = render @compositions
 
       - if @compositions_without_items.any?
-        .row
-          %h2{data: {toggle: 'collapse', target: '#without_items'}, style: 'cursor: pointer;'}
-            Композиции без товаров
-            %br
-            %small Нет ни одного товара в композиции
-          .collapse#without_items
+        %h2{data: {toggle: 'collapse', target: '#without_items'}, style: 'cursor: pointer;'}
+          Композиции без товаров
+          %br
+          .small Нет ни одного товара в композиции
+        .collapse#without_items
+          .card-deck
             = render @compositions_without_items
 
       - if @compositions_without_price.any?
-        .row
-          %h2{data: {toggle: 'collapse', target: '#without_price'}, style: 'cursor: pointer;'}
-            Композиции без цены
-            %br
-            %small Не указана цена с гелием
-          .collapse#without_price
+        %h2{data: {toggle: 'collapse', target: '#without_price'}, style: 'cursor: pointer;'}
+          Композиции без цены
+          %br
+          %small Не указана цена с гелием
+        .collapse#without_price
+          .card-deck
             = render @compositions_without_price
 
       - if @compositions_without_tags.any?
-        .row
-          %h2{data: {toggle: 'collapse', target: '#without_tags'}, style: 'cursor: pointer;'}
-            Композиции без тегов
-            %br
-            %smallНе указан "повод" или "кому"
-          .collapse#without_tags
+        %h2{data: {toggle: 'collapse', target: '#without_tags'}, style: 'cursor: pointer;'}
+          Композиции без тегов
+          %br
+          %smallНе указан "повод" или "кому"
+        .collapse#without_tags
+          .card-deck
             = render @compositions_without_tags
-      .row
-        =link_to 'Добавить композицию', new_admin_composition_path, class: 'btn btn-info'
+
+      =link_to 'Добавить композицию', new_admin_composition_path, class: 'btn btn-info'

@@ -1,6 +1,6 @@
 .container
   .row.border-bot
-    .col-md-12
+    .col-12
       Поиск
       = form_tag admin_items_path, method: :get do
         .form-group
@@ -8,75 +8,93 @@
         .form-group
           = submit_tag 'Найти', class: 'btn btn-info'
   .row.border-bot
-    .col-md-12
-      %h5 Цвета
-      - Color.all.each do |color|
-        = link_to color.name.capitalize, admin_items_path(color: color.id)
-      %p
-        = link_to 'Добавить цвет', new_admin_color_path, class: 'btn btn-info btn-sm'
+    .col-12
+      %h5{data: {toggle: 'collapse', target: '#colors'}, style: 'cursor: pointer;'}
+        Цвета
+      .collapse#colors
+        - Color.all.each do |color|
+          = link_to "#{color.name.capitalize} |",admin_items_path(color: color.id)
+        %p
+          = link_to 'Добавить цвет', new_admin_color_path, class: 'btn btn-info btn-sm'
   .row.border-bot
-    .col-md-12
-      %h5 Тип продукции
-      - Type.all.each do |type|
-        = link_to type.name.capitalize, admin_items_path(type: type.id)
-      %p
-        = link_to 'Добавить тип', new_admin_type_path, class: 'btn btn-info btn-sm'
+    .col-12
+      %h5{data: {toggle: 'collapse', target: '#types'}, style: 'cursor: pointer;'}
+        Тип продукции
+      .collapse#types
+        - Type.all.each do |type|
+          = link_to "#{type.name.capitalize} |", admin_items_path(type: type.id)
+        %p
+          = link_to 'Добавить тип', new_admin_type_path, class: 'btn btn-info btn-sm'
   .row.border-bot
-    .col-md-12
-      %h5 Текстура
-      - Texture.all.each do |texture|
-        = link_to texture.name.capitalize, admin_items_path(texture: texture.id)
-      %p
-        = link_to 'Добавить текстуру', new_admin_texture_path, class: 'btn btn-info btn-sm'
+    .col-12
+      %h5{data: {toggle: 'collapse', target: '#textures'}, style: 'cursor: pointer;'}
+        Текстура
+      .collapse#textures
+        - Texture.all.each do |texture|
+          = link_to texture.name.capitalize, admin_items_path(texture: texture.id)
+        %p
+          = link_to 'Добавить текстуру', new_admin_texture_path, class: 'btn btn-info btn-sm'
   .row.border-bot
-    .col-md-12
-      %h5 Оттенок
-      - Tone.all.each do |tone|
-        = link_to tone.name.capitalize, admin_items_path(tone: tone.id)
-      %p
-        = link_to 'Добавить оттенок', new_admin_tone_path, class: 'btn btn-info btn-sm'
+    .col-12
+      %h5{data: {toggle: 'collapse', target: '#tones'}, style: 'cursor: pointer;'}
+        Оттенок
+      .collapse#tones
+        - Tone.all.each do |tone|
+          = link_to tone.name.capitalize, admin_items_path(tone: tone.id)
+        %p
+          = link_to 'Добавить оттенок', new_admin_tone_path, class: 'btn btn-info btn-sm'
   .row.border-bot
-    .col-md-12
-      %h5 Форма
-      - FoilForm.find_each do |form|
-        = link_to form.name.capitalize, admin_items_path(form: form.id)
-      %p
-        = link_to 'Добавить форму', new_admin_foil_form_path, class: 'btn btn-info btn-sm'
+    .col-12
+      %h5{data: {toggle: 'collapse', target: '#forms'}, style: 'cursor: pointer;'}
+        Форма
+      .collapse#forms
+        - FoilForm.find_each do |form|
+          = link_to form.name.capitalize, admin_items_path(form: form.id)
+        %p
+          = link_to 'Добавить форму', new_admin_foil_form_path, class: 'btn btn-info btn-sm'
   .row.border-bot
-    .col-md-12
-      %h5 Производитель
-      - Vendor.all.each do |vendor|
-        = vendor.name
-      %p
-        = link_to 'Добавить производителя', new_admin_vendor_path, class: 'btn btn-info btn-sm'
+    .col-12
+      %h5{data: {toggle: 'collapse', target: '#vendors'}, style: 'cursor: pointer;'}
+        Производитель
+      .collapse#vendors
+        - Vendor.all.each do |vendor|
+          = vendor.name
+        %p
+          = link_to 'Добавить производителя', new_admin_vendor_path, class: 'btn btn-info btn-sm'
   .row.border-bot
-    .col-md-12
-      %h5 Категории
-      - Category.all.each do |category|
-        = category.title
-      %p
-        = link_to 'Добавить категорию', new_admin_category_path, class: 'btn btn-info btn-sm'
+    .col-12
+      %h5{data: {toggle: 'collapse', target: '#categories'}, style: 'cursor: pointer;'}
+        Категории
+      .collapse#categories
+        - Category.all.each do |category|
+          = category.title
+        %p
+          = link_to 'Добавить категорию', new_admin_category_path, class: 'btn btn-info btn-sm'
   .row.border-bot
-    .col-md-12
-      %h5 Категории
-      - Subcategory.joins(:products).distinct.each do |category|
-        = link_to category.name,  admin_items_path(subcategory: category.id)
-      %p
-        = link_to 'Добавить категорию', new_admin_subcategory_path, class: 'btn btn-info btn-sm'
+    .col-12
+      %h5{data: {toggle: 'collapse', target: '#subcategories'}, style: 'cursor: pointer;'}
+        Категории
+      .collapse#subcategories
+        - Subcategory.joins(:products).distinct.each do |category|
+          = link_to category.name.capitalize,  admin_items_path(subcategory: category.id)
+        %p
+          = link_to 'Добавить категорию', new_admin_subcategory_path, class: 'btn btn-info btn-sm'
 
   .row.border-bot
-    .col-md-12
-      %h5 Размеры
-      - Size.all.each do |size|
-        = size.in_inch
-      %p
-        = link_to 'Добавить размер', new_admin_size_path, class: 'btn btn-info btn-sm'
+    .col-12
+      %h5{data: {toggle: 'collapse', target: '#sizes'}, style: 'cursor: pointer;'}
+        Размеры
+      .collapse#sizes
+        - Size.all.each do |size|
+          = size.in_inch
+        %p
+          = link_to 'Добавить размер', new_admin_size_path, class: 'btn btn-info btn-sm'
   .row
-    .col-md-12
+    .col-12
       = link_to 'Добавить товар', new_admin_item_path, class: 'btn btn-info '
-  - if params
+  - if @items
     .row
-      .col-md-12
+      .col-12
         %h2{data: {toggle: 'collapse', target: '#items'}, style: 'cursor: pointer;'}
           Все товары
         - @items.all.includes(:vendor, :texture, :tone, :products, :color, :category, :sizes).each do |item|

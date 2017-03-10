@@ -3,21 +3,21 @@
     .row
       .col-md-8.col-sm-8
         %ul.nav.nav-pills
-          %li.text-uppercase.dropdown.h4{role: "presentation"}
+          %li.text-uppercase.dropdown.h4.nav-item{role: "presentation"}
             = link_to '#', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
               Композиции
               %i.fa.fa-caret-down{style: 'aria-hidden="true"'}
             %ul.dropdown-menu
               %li.text-capitalize= link_to 'Добавить композицию', new_admin_composition_path
               %li.text-capitalize= link_to 'Все композиции', admin_compositions_path
-          %li.text-uppercase.dropdown.h4{role: "presentation"}
+          %li.text-uppercase.dropdown.h4.nav-item{role: "presentation"}
             = link_to '#', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
               Товары
               %i.fa.fa-caret-down{style: 'aria-hidden="true"'}
             %ul.dropdown-menu
               %li.text-capitalize= link_to 'Добавить товар', new_admin_item_path
               %li.text-capitalize= link_to 'Все товары', admin_items_path
-          %li.text-uppercase.dropdown.h4{role: "presentation"}
+          %li.text-uppercase.dropdown.h4.nav-item{role: "presentation"}
             = link_to '#', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
               Заказы
               %i.fa.fa-caret-down{style: 'aria-hidden="true"'}

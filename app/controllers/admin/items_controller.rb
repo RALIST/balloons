@@ -74,8 +74,6 @@ class Admin::ItemsController < Admin::AdminController
     when params[:subcategory]
       subcategory = Subcategory.find(params[:subcategory])
       @items = subcategory.items.paginate(page: params[:page], per_page: 20)
-    else
-      @items = Item.all.paginate(page: params[:page], per_page: 20)
     end
   end
 

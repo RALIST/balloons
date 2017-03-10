@@ -1,25 +1,25 @@
 .left-menu.bg-brand.toggled
-  %ul.nav.nav-pills.nav-stacked
+  %ul.nav.nav-tabs.flex-column.nav-fill
     .nav-header
       123
-    %li
-      = link_to admin_users_path do
+    %li.nav-item
+      = link_to admin_users_path, class: 'nav-link' do
         %i.fa.fa-user
         %span.hidden-sm.hidden-xs Пользователи
-    %li
-      = link_to admin_items_path do
+    %li.nav-item
+      = link_to admin_items_path, class: 'nav-link'  do
         %i.fa.fa-product-hunt
         %span.hidden-xs.hidden-sm Товары
-    %li
-      = link_to admin_compositions_path do
+    %li.nav-item
+      = link_to admin_compositions_path, class: 'nav-link'  do
         %i.fa.fa-picture-o
         %span.hidden-xs.hidden-sm Композиции
-    %li
-      = link_to admin_orders_path do
+    %li.nav-item
+      = link_to admin_orders_path, class: 'nav-link'  do
         %i.fa.fa-rub
         %span.hidden-xs.hidden-sm Заказы
-    %li
-      = link_to new_admin_price_path do
+    %li.nav-item
+      = link_to new_admin_price_path, class: 'nav-link'  do
         %i.fa.fa-file
         %span.hidden-xs.hidden-sm Загрузить прайс
 

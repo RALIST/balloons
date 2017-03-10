@@ -1,5 +1,5 @@
 .container-fluid
-  .row.align-items-end.card-group
+  .row.align-items-end.card-group.card-deck
     %h2
     - @items_in_collection.each do |product|
       .item-in-collection
@@ -8,14 +8,16 @@
             = product.complex_name
           .card-block.text-center
             = image_tag product.image(:small), class: 'img-fluid card-img-top mx-auto'
-            %p.card-text.text-center
-              %strong
-                = number_to_currency(product.price_with_helium, precision: 0)
-          .card-footer.text-right
-            = button_to 'Добавить', add_subposition_path(item: product.id, position: position), class: 'btn btn-info', data: {disable_with: 'Подождите...'}
+          .card-footer
+            .row.align-items-center
+              .col-6.text-center
+                %h3.strong
+                  = number_to_currency(product.price_with_helium, precision: 0)
+              .col-6
+                = button_to 'Добавить', add_subposition_path(item: product.id, position: position), class: 'btn btn-info', data: {disable_with: 'Подождите...'}
   %div{style: 'clear: both;'}
   .row
     .col-md-12
-      %p.text-center{style: 'font-size: 1.5em;'}
+      %p.text-center{style: 'font-size: 2em; margin: 2em 0;'}
         = link_to 'Назад', my_cart_path(position: position), remote:  true
 

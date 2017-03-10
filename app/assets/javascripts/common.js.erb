@@ -8,16 +8,15 @@ $.extend($.expr[':'], {
 
 
 
-$(document).on('click', '.icon-wrapper .fa-bars, .icon-wrapper .fa-times', function(){
-  $('.resp-menu').toggle('slide', 500);
-  $('.icon-wrapper .fa-bars, .icon-wrapper .fa-times').toggle(500);
-  // $('.icon-wrapper .badge').toggleClass('hidden', 150);
-  $('.resp-menu-bar').toggleClass('bg-brand', 500);
+$(document).on('click', '#icon-wrapper', function(){
+  $('.resp-menu').toggle(300);
+  $('#icon-wrapper .fa-bars, #icon-wrapper .fa-times').toggle(300);
+  $('.resp-menu-bar').toggleClass('bg-brand bg-transparent', 300);
 });
 
 
 $(document).on('click', '#admin-collapse', function(){
-  $('.left-menu').toggle('slide', 'slow', function(){
+  $('.left-menu').toggle('slow', function(){
     $(this).toggleClass('toggled');
   });
 });

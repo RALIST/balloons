@@ -41,6 +41,12 @@
   padding: 0.2em 0.2em;
 }
 
+.bg-transparent {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.2em 0.2em;
+}
+
 .bg-brand > a {
   color: #ffffff;
   &:hover, &:focus {

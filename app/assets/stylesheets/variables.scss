@@ -67,6 +67,12 @@ $font-family-base: $font-family-sans-serif;
 
 @include media-breakpoint-down(sm) {
   html {
+    font-size: 0.8rem;
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  html {
     font-size: 0.7rem;
   }
 }

@@ -1,15 +1,14 @@
-.container-fluid
-  .container
-    %h2.text-center
-      Лучшие композиции по цене
-      -if params[:min].present?
-        от #{params[:min]}
-      -if params[:max].present?
-        до #{params[:max]}
-      рублей
-    .row.justify-content-around.card-deck.compositions
-      = render partial: 'thumb_composition', collection: @compositions, as: :c
-    .row.text-center
-      = will_paginate @compositions
+.container
+  %h2.text-center
+    Лучшие композиции по цене
+    -if params[:min].present?
+      от #{params[:min]}
+    -if params[:max].present?
+      до #{params[:max]}
+    рублей
+  .row.justify-content-around.card-deck.compositions
+    = render partial: 'thumb_composition', collection: @compositions, as: :c
+  .row.text-center
+    = will_paginate @compositions
 
 = render 'delivery/main/modal_composition'

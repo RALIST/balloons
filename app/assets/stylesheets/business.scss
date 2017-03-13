@@ -1,0 +1,102 @@
+.jumbotron#offer {
+    margin-top: 47px;
+    background: image-url('offer.jpg') no-repeat;
+    background-size: cover;
+    background-position: top;
+    @include make-col-lg(12);
+    @include make-col-xl(12);
+    @include make-col-md(12);
+    @include make-col-sm(12);
+    @include make-col-xs(12);
+  }
+
+
+
+.navbar-brand {
+  img {
+    max-height: 40px;
+    max-width: 100%;
+  }
+
+}
+
+.business-call {
+  @include make-col-lg(2);
+  @include make-col-xl(2);
+  text-align: right;
+  ul {
+    margin: 0;
+  }
+}
+
+.head-text {
+  @include make-col-lg(6);
+  @include make-col-xl(6);
+  font-size: 1.8rem;
+}
+
+.business-offer {
+  @include make-col-lg(8);
+  @include make-col-xl(8);
+  @include make-col-md(12);
+  @include make-col-sm(12);
+  @include make-col-xs(12);
+  margin-top: 2rem;
+  color: #ffffff;
+  background-color: transparentize(#000000, 0.4);
+  padding: 0.5rem;
+  border-radius: 6px;
+  h1, p{
+    color: #ffffff;
+  }
+  hr {
+    border-top: 1px solid #ffffff;
+  }
+}
+
+#business-menu {
+  @include make-col-lg(12);
+  @include make-col-xl(12);
+  @include make-col-md(12);
+  @include make-col-sm(12);
+  @include make-col-xs(12);
+  .nav-item:hover {
+    background-color: $brand-secondary;
+    border-radius: 4px;
+  }
+  @include media-breakpoint-up(md) {
+    .nav-item{
+      font-size: 0.9rem;
+    }
+  }
+  @include media-breakpoint-down(md) {
+    .nav-item{
+      font-size: 1.5rem;
+    }
+  }
+
+}
+
+.navbar-toggler > i {
+  font-size: 2em;
+  color: #ffffff;
+}
+
+#companies {
+  margin-bottom: 2rem;
+  color: darken($brand-secondary, 10);
+}
+
+#company {
+  @include make-col-lg(3);
+  @include make-col-xl(3);
+  @include make-col-md(4);
+  @include make-col-sm(4);
+  @include make-col-xs(4);
+  border: none;
+  margin: 1rem 0;
+  img {
+    object-fit: contain;
+  }
+}
+

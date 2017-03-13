@@ -11,7 +11,7 @@
           .card-footer
             .row.align-items-center
               .col-6.text-center
-                %h3.strong
+                %h5
                   = number_to_currency(product.price_with_helium, precision: 0)
               .col-6
                 = button_to 'Добавить', add_subposition_path(item: product.id, position: position), class: 'btn btn-info', data: {disable_with: 'Подождите...'}

@@ -1,4 +1,4 @@
-.container-fluid
+.container-fluid#header
   .row
     .resp-menu-bar.bg-brand.hidden-lg-up.text-right
       .container
@@ -40,6 +40,7 @@
             - if current_user
               %li.list-inline-item Здравствуйте, #{current_user.first_name}
               %li.list-inline-item= link_to 'Выйти', logout_path, method: :post
+              %li.list-inline-item= link_to 'Личный кабинет', account_path
             - else
               %li.list-inline-item= link_to 'Войти', login_path
               %li.list-inline-item= link_to 'Регистрация', signin_path

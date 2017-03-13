@@ -2,7 +2,7 @@
   -webkit-overflow-scrolling: hidden;
   .modal-dialog {
     max-width: 90%;
-    margin: auto;
+    margin: 30px auto;
   }
   #call {
     max-width: 50%;
@@ -10,4 +10,14 @@
 }
 .close {
   font-size: 2.5rem;
+}
+
+.modal-open {
+  padding-right: 17px !important;
+}
+
+@include media-breakpoint-only(lg) {
+  .modal-open {
+    padding-right: 0 !important;
+  }
 }

@@ -99,29 +99,30 @@
           Все товары
         - @items.all.includes(:vendor, :texture, :tone, :products, :color, :category, :sizes).each do |item|
           .border-bot
-            %h4
-              = item.vendor.name.capitalize if item.vendor
-              = item.texture.name if item.texture
-              = item.foil_form.name if item.foil_form
-              - if item.tone
-                - case item.type.name
-                - when 'латексные шары'
+            %h5
+              - case item.type.name
+              - when 'латексные шары', 'фольгированные шары'
+                = item.vendor.name.capitalize if item.vendor
+                = item.texture.name if item.texture
+                = item.foil_form.name if item.foil_form
+                - if item.tone
                   = "#{item.tone.code}/#{item.tone.name}"
                   = item.tone.color.name
-                - when 'фольгированные шары'
-                  = item.tone.name
+              -when 'товары для композиций'
+                = item.products.first.name.capitalize
               - else
                 = item.color.name if item.color
-              %br
               %small
+                = link_to 'Редактировать', edit_admin_item_path(item), target: '_blank'
+                = link_to 'Удалить', admin_item_path(item), method: :delete
+              %br
+              .small.text-right
                 Каталог:
                 = item.name
                 %br
                 = item.type.name.capitalize
                 = item.category.title
                 %br
-                = link_to 'Редактировать', edit_admin_item_path(item), target: '_blank'
-                = link_to 'Удалить', admin_item_path(item), method: :delete
             -if item.products.any?
               %table.table
                 %thead
@@ -161,9 +162,9 @@
                     %td
                       = product.quantity
                     %td
-                      %small
-                        = product.name
-                        = link_to 'Редактировать', edit_admin_product_path(product), target: '_blank'
-                        = link_to 'Удалить', admin_product_path(product), method: :delete
-    %ul.pag.list-inline
+                      = product.name
+                      %br
+                      = link_to 'Редактировать', edit_admin_product_path(product), target: '_blank'
+                      = link_to 'Удалить', admin_product_path(product), method: :delete
+    %ul.pag.d-flex.flex-row.list-unstyled.justify-content-between
       = will_paginate @items, container: false

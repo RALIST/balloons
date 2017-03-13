@@ -162,7 +162,11 @@ class Product < ApplicationRecord
         when 12
           self.price_with_helium = 50
         when 14
-          self.price_with_helium = 60
+          if self.category.name == 'без рисунка'
+            self.price_with_helium = 60
+          else
+            self.price.price_with_helium = 80
+          end
         when 16
           self.price_with_helium = 80
         when 18

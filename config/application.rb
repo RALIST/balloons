@@ -26,4 +26,5 @@ module Balloons
     config.exceptions_app = self.routes
     Rack::Utils.multipart_part_limit = 512
   end
+
 end

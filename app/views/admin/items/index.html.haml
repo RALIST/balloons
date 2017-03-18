@@ -109,7 +109,7 @@
                   = "#{item.tone.code}/#{item.tone.name}"
                   = item.tone.color.name
               - when 'товары для композиций'
-                = item.products.first.complex_name if item.products
+                = item.products.first.complex_name if item && item.products
               - else
                 = item.color.name if item.color
               %small

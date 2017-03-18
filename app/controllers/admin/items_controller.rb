@@ -91,7 +91,8 @@ class Admin::ItemsController < Admin::AdminController
         :barcode,
         :code,
         :quantity,
-        :name])
+        :name,
+        :img])
   end
 
   def set_item

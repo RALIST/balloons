@@ -11,7 +11,7 @@ class Item < ApplicationRecord
   belongs_to :color
   belongs_to :foil_form
   has_many :sizes, through: :products
-  has_many :products, dependent: :destroy
+  has_many :products, dependent: :destroy, autosave: true
 
   validates :vendor_id, :type_id, presence: true
   validates :name, uniqueness: true, unless: :special?

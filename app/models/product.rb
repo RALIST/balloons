@@ -31,7 +31,7 @@ class Product < ApplicationRecord
       unless self.img.blank?
         self.img.url(size)
       else
-        return nil
+        return self.img = nil
       end
     end
   end

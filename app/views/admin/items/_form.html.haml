@@ -16,7 +16,7 @@
     .form-group
       = f.label :category_id, 'Категория'
       = f.select :category_id, Category.all.map{|c| [c.title, c.id]},{} ,class: 'form-control'
-    = f.fields_for :products do |nf|
+    = f.fields_for :products, @product do |nf|
       = render partial: 'product_fields', locals: {nf: nf}
     .form-group
       = f.submit class: 'btn btn-info', data: {disable_with: 'Сохраняю...'}

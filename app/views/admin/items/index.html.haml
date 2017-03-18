@@ -109,7 +109,7 @@
                   = "#{item.tone.code}/#{item.tone.name}"
                   = item.tone.color.name
               -when 'товары для композиций'
-                = item.products.first.name.capitalize
+                = item.products.first.complex_name
               - else
                 = item.color.name if item.color
               %small

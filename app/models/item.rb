@@ -15,7 +15,7 @@ class Item < ApplicationRecord
 
   validates :vendor_id, :type_id, presence: true
   validates :name, uniqueness: true, unless: :special?
-  accepts_nested_attributes_for :products, reject_if: :blank?
+  accepts_nested_attributes_for :products
 
   scope :search, -> (word){where('name LIKE ? ', "%#{word}%").distinct}
   scope :special, -> {joins(:type).where(types:{name: 'товары для композиций'})}

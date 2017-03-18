@@ -145,7 +145,7 @@
                 - item.products.order(:size_id).each do |product|
                   %tr
                     %td
-                      = product.image(:small)
+                      = image_tag product.image(:small)
                     %td
                       = product.barcode
                     %td

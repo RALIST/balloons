@@ -71,4 +71,8 @@ class Delivery::MainController < Delivery::DeliveryController
   def thanks
     @order = Order.find(params[:order])
   end
+
+
+  def contacts
+  end
 end

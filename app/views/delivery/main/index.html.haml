@@ -7,7 +7,7 @@
     %small.text-muted
       Оформление воздушными шарами
   .row.justify-content-around.card-deck.compositions.card-group
-    = render partial: 'thumb_composition', collection: @compositions, as: :c
+    = render partial: 'thumb_composition', collection: @compositions, as: :c, cached: true
   .row.text-center
     = will_paginate @compositions
 = render 'delivery/main/modal_composition'

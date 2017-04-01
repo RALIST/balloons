@@ -114,7 +114,7 @@
     padding: 0;
     display: table;
   }
-  input[type="checkbox"] + label:before {
+  input[type="checkbox"] + label {
     font-family: FontAwesome;
     display: inline-block;
     letter-spacing: 10px;

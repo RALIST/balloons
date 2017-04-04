@@ -13,10 +13,9 @@
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
   %body
+    = render 'delivery/yacounter'
     %a#return-to-top
       %i.fa.fa-chevron-up
-    %div
-      %img{src: "https://mc.yandex.ru/watch/37371855", style: "position:absolute; left:-9999px;", alt: ""}
     .wrapper
       %header
         #responsive

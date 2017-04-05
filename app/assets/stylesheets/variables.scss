@@ -63,6 +63,12 @@ $font-family-base: $font-family-sans-serif;
   html {
     font-size: 0.9rem;
   }
+  .modal-dialog {
+    min-width: 95% !important;
+  }
+  .modal-open {
+    padding-right: 0px !important;
+  }
 }
 
 @include media-breakpoint-down(sm) {

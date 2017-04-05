@@ -18,5 +18,12 @@
 //= require clockpicker
 //= require jquery-ui
 //= require jquery.ui.touch-punch
+//= require cookies
 //= require_tree .
 
+setTimeout(function(){
+  if(!Cookies.get('popup')){
+    $('#call-modal').modal('show');
+    Cookies.set('popup', 'true')
+  }
+}, 70000)

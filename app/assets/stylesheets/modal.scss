@@ -11,10 +11,12 @@
 .close {
   font-size: 2.5rem;
 }
-
-.modal-open {
-  padding-right: 17px !important;
+@include media-breakpoint-up(md){
+  .modal-open {
+    padding-right: 17px !important;
+  }
 }
+
 
 @include media-breakpoint-only(lg) {
   .modal-open {

@@ -49,4 +49,5 @@ gem 'bootstrap-will_paginate'
 
 group :production do
   gem 'rails_12factor'
+  gem 'heroku-deflater'
 end

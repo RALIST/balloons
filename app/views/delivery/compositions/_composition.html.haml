@@ -1,6 +1,6 @@
 .row
   .comp-image
-    = image_tag composition.img.url(:large), class: 'img-fluid'
+    = image_tag composition.img.url(:large), class: 'img-fluid', itemprop: 'image'
   .comp-desc
     %p.bg-brand
       %strong
@@ -31,13 +31,13 @@
           %strong
             Итого:
         %td
-          %strong
+          %strong{itemprop: 'price'}
             = number_to_currency(composition.price, precision: 0)
 
     .row
       .col-12
         - if composition.tags.any?
-          %p
+          %p{itemprop: 'description'}
             Композиция на
             - composition.tags.each do |tag|
               %span

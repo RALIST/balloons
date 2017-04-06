@@ -2,7 +2,8 @@
   %h2
     = link_to root_path do
       %i.fa.fa-long-arrow-left
-    Композиция №#{@comp.id}
+    %span{itemprop: "name"}
+      Композиция №#{@comp.id}
     .small
       В корзине вы сможете изменить состав композиции
 

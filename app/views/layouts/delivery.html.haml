@@ -11,7 +11,7 @@
     = favicon_link_tag 'favicons/favicon-120.png', rel: 'apple-touch-icon'
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all'
-    = javascript_include_tag 'application'
+    = javascript_include_tag 'application', async: Rails.env.production?
   %body
     = render 'delivery/yacounter'
     %a#return-to-top

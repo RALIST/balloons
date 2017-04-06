@@ -20,7 +20,7 @@
             = link_to '', class: ' nav-link dropdown-toggle', data:{toggle: 'dropdown'} do
               По цене
             %ul.dropdown-menu
-              %li
+              %li.px-2
                 = form_tag price_range_path, class: 'form', method: :get do
                   .form-group
                     = number_field_tag :min,'',  class: ' form-control form-control-sm', placeholder: 'От'

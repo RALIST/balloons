@@ -98,9 +98,10 @@ Rails.application.configure do
       # default_url: 'http://s3-us-west-2.amazonaws.com/flashcards123/images/missing/:style/missing_:style.png',
       storage: :s3,
         s3_region: ENV['AWS_REGION'],
-        # s3_host_name: "s3-us-west-2.amazonaws.com",
+        s3_host_name: "s3-us-west-2.amazonaws.com",
         s3_host_alias: 'd18psmjp7qnrxg.cloudfront.net',
         url: ":s3_alias_url",
+        path: '/:class/:attachment/:style/:filename',
         s3_headers: { 'Expires': 1.year.from_now.httpdate },
         s3_credentials: {
           bucket: ENV['AWS_BUCKET'],

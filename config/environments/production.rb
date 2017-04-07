@@ -99,7 +99,7 @@ Rails.application.configure do
       storage: :s3,
         s3_region: ENV['AWS_REGION'],
         s3_host_name: "s3-us-west-2.amazonaws.com",
-        s3_host_alias: 'd3605nnx1xhip8.cloudfront.net',
+        s3_host_alias: 'd18psmjp7qnrxg.cloudfront.net',
         s3_headers: { 'Expires': 1.year.from_now.httpdate },
         s3_credentials: {
           bucket: ENV['AWS_BUCKET'],

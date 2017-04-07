@@ -109,4 +109,8 @@ Rails.application.configure do
         }
     }
   end
+  config.action_dispatch.default_headers = {
+    'Access-Control-Allow-Origin' => 'https://bigairballoons.ru',
+    'Access-Control-Request-Method' => %w{GET POST OPTIONS}.join(",")
+  }
 end

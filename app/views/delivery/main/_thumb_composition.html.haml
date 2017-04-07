@@ -1,9 +1,9 @@
 .composition
   .card.justify-content-around.align-items-center
     = link_to root_path(id: c.id), data:{ toggle: 'modal', target: "#composition"}, remote: true, class: 'link-to-modal hidden-sm-down' do
-      = image_tag c.img.url(:thumb), class: 'img-fluid'
+      = image_tag c.img(:thumb), class: 'img-fluid'
     = link_to composition_path(c), class: 'link-to-page hidden-md-up' do
-      = image_tag c.img.url(:thumb), class: 'img-fluid'
+      = image_tag c.img(:thumb), class: 'img-fluid'
 
     .card-block
       .text-center

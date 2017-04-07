@@ -47,6 +47,7 @@ gem 'letsencrypt_plugin'
 gem 'rack-canonical-host'
 gem 'bootstrap-will_paginate'
 gem 'paperclip-compression'
+gem 'font_assets'
 
 
 group :production do

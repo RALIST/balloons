@@ -29,6 +29,7 @@ Rails.application.configure do
     "Expires" => "#{1.year.from_now.to_formatted_s(:rfc822)}"
   }
   config.action_controller.asset_host = ENV['ASSET_HOST']
+  config.font_assets.origin = 'https://bigairballoons.ru'
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 

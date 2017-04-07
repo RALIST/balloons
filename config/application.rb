@@ -25,6 +25,7 @@ module Balloons
     config.i18n.default_locale = :ru
     config.exceptions_app = self.routes
     Rack::Utils.multipart_part_limit = 512
+    config.action_controller.asset_host = ENV['ASSET_HOST']
   end
 
 end

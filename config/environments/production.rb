@@ -104,6 +104,7 @@ Rails.application.configure do
           access_key_id: ENV['AWS_ACCESS_KEY'],
           secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
         }
+        s3_host_alias: 'd3605nnx1xhip8.cloudfront.net'
     }
   end
 end

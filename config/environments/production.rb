@@ -26,7 +26,8 @@ Rails.application.configure do
   config.assets.compile = false
   config.public_file_server.headers = {
     "Cache-Control" => "public, s-maxage=31536000, maxage=31,536,000",
-    "Expires" => "#{1.year.from_now.to_formatted_s(:rfc822)}"
+    "Expires" => "#{1.year.from_now.to_formatted_s(:rfc822)}",
+    "Access-Control-Allow-Origin" => '*'
   }
   config.action_controller.asset_host = ENV['ASSET_HOST']
   config.font_assets.origin = 'https://bigairballoons.ru'

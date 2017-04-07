@@ -99,7 +99,7 @@ Rails.application.configure do
       storage: :s3,
         s3_region: ENV['AWS_REGION'],
         s3_host_name: "s3-us-west-2.amazonaws.com",
-        s3_host_alias: 'd18psmjp7qnrxg.cloudfront.net',
+        s3_host_alias: 'http://d18psmjp7qnrxg.cloudfront.net',
         url: ":s3_alias_url",
         path: ':class/:attachment/:id_partition/:id/:style/:filename',
         s3_headers: { 'Expires': 1.year.from_now.httpdate },

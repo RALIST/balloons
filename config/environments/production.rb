@@ -95,7 +95,7 @@ Rails.application.configure do
   config.force_ssl = true
   unless Rails.env.test?
     config.paperclip_defaults = {
-      default_url: 'http://s3-us-west-2.amazonaws.com/flashcards123/images/missing/:style/missing_:style.png',
+      # default_url: 'http://s3-us-west-2.amazonaws.com/flashcards123/images/missing/:style/missing_:style.png',
       storage: :s3,
         s3_region: ENV['AWS_REGION'],
         s3_host_name: "s3-us-west-2.amazonaws.com",

@@ -9,7 +9,8 @@ class Composition < ApplicationRecord
   validates :img, presence: true
   has_attached_file :img, styles: {small:  ['x100', :png],
                                     thumb: ['x300', :png],
-                                    large: ['x1080', :png]}
+                                    large: ['x1080', :png]},
+                          processors: [:thumbnail, :compression]
   validates_attachment_content_type :img,
                         content_type: ["image/jpeg", "image/jpg", "image/png"]
 

@@ -7,7 +7,7 @@
       до #{params[:max]}
     рублей
   .row.justify-content-around.card-deck.compositions
-    = render partial: 'thumb_composition', collection: @compositions, as: :c
+    = render partial: 'thumb_composition', collection: @compositions, as: :c, cached: true
   .row.text-center
     = will_paginate @compositions
 

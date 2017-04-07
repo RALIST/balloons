@@ -46,8 +46,12 @@ gem 'sitemap_generator'
 gem 'letsencrypt_plugin'
 gem 'rack-canonical-host'
 gem 'bootstrap-will_paginate'
+gem 'paperclip-compression'
+
 
 group :production do
   gem 'rails_12factor'
   gem 'heroku-deflater'
+  gem 'image_optim_rails'
+  gem 'image_optim_pack'
 end

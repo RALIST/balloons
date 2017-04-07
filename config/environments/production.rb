@@ -25,7 +25,7 @@ Rails.application.configure do
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
   config.public_file_server.headers = {
-    "Cache-Control" => "public, s-maxage=#{1.year.from_now.to_formatted_s(:rfc822)}, maxage=#{1.year.from_now.to_formatted_s(:rfc822)}",
+    "Cache-Control" => "public, s-maxage=31536000, maxage=31,536,000",
     "Expires" => "#{1.year.from_now.to_formatted_s(:rfc822)}"
   }
 

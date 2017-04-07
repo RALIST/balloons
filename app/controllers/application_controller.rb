@@ -5,4 +5,8 @@ class ApplicationController < ActionController::Base
   def new_call
     @call = Call.new
   end
+
+  def set_headers
+    headers["Content-Type"]
+  end
 end

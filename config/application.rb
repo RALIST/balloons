@@ -32,6 +32,7 @@ module Balloons
         resource '*',
           headers: :any,
           methods: :any,
+          credentials: false
       end
     end
 

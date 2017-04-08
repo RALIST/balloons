@@ -1,7 +1,6 @@
 require_relative 'boot'
 
 require 'rails/all'
-require 'rack/cors'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -26,17 +25,6 @@ module Balloons
     config.i18n.default_locale = :ru
     config.exceptions_app = self.routes
     Rack::Utils.multipart_part_limit = 512
-
-    config.middleware.insert_before 0, Rack::Cors do
-      allow do
-        origins 'https://bigairballoons.ru'
-        resource '*',
-          headers: :any,
-          methods: :any,
-          credentials: false
-      end
-    end
-
   end
 
 end

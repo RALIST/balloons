@@ -11,7 +11,7 @@ run Rails.application
 
 use Rack::Cors do
   allow do
-    origins '*'
+    origins 'https://bigairballoons.ru'
     resource '*',
       :headers => :any,
       :methods => :any,

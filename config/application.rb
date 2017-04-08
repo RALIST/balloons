@@ -27,9 +27,9 @@ module Balloons
     config.exceptions_app = self.routes
     Rack::Utils.multipart_part_limit = 512
 
-    config.middleware.insert_before ActionDispatch::Static, Rack::Cors do
+    config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins '*'
+        origins 'https://bigairballoons.ru'
         resource '*',
           headers: :any,
           methods: :any,

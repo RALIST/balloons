@@ -25,15 +25,16 @@ module Balloons
     config.i18n.default_locale = :ru
     config.exceptions_app = self.routes
     Rack::Utils.multipart_part_limit = 512
-    config.middleware.insert_before 0, Rack::Cors do
+
+    config.middleware.insert_before ActionDispatch::Static, Rack::Cors do
       allow do
         origins '*'
-        resource '/assets/font/*',
+        resource '*',
           headers: :any,
           methods: :any,
-          expose: ['Access-Control-Allow-Origin']
       end
     end
+
   end
 
 end

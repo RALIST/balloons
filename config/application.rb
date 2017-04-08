@@ -28,7 +28,10 @@ module Balloons
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins '*'
-        resource '/assets/font/*', :headers => :any, :methods => [:get, :post, :options]
+        resource '/assets/font/*',
+          headers: :any,
+          methods: :any,
+          expose: ['Access-Control-Allow-Origin']
       end
     end
   end

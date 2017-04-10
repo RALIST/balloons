@@ -19,7 +19,7 @@
     %td
       Можно связаться через
     %td
-      = @call.messangers.join(',')
+      = @call.messangers.join(',') if @call.messangers
   %tr
     %td
       Заявка поступила в

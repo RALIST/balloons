@@ -48,6 +48,7 @@ gem 'rack-canonical-host'
 gem 'bootstrap-will_paginate'
 gem 'paperclip-compression'
 gem 'font_assets'
+gem "jquery-slick-rails"
 
 
 group :production do

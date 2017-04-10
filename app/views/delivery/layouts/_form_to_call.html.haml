@@ -1,6 +1,6 @@
 .h3
   Оставьте заявку
-= form_for @call, remote: true do |f|
+= form_for @call do |f|
   .form-group
     = f.label 'Как вас зовут?', class: 'control-label'
     = f.text_field :username, class: 'form-control', required: true

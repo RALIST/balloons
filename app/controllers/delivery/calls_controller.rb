@@ -2,6 +2,10 @@ class Delivery::CallsController < Delivery::DeliveryController
 
   def create
     @call = Call.create(call_params)
+    if @call.save
+      redirect_to root_path
+      flash[:success] = 'Спасибо за заявку! Мы свяжемся с вами в ближайшее время!'
+    end
   end
 
   private

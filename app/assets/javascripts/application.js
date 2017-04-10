@@ -19,6 +19,7 @@
 //= require jquery-ui
 //= require jquery.ui.touch-punch
 //= require cookies
+//= require jquery.slick
 //= require_tree .
 
 setTimeout(function(){

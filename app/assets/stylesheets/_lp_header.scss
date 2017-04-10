@@ -1,0 +1,42 @@
+#lp_header {
+
+}
+
+.slider-img {
+  @include make-col-lg(6);
+  img {
+    max-height: 500px;
+  }
+  border-radius: 6px;
+
+}
+
+.slider-nav {
+  i {
+    font-size: 2rem;
+    padding: 0 1rem;
+    cursor: pointer;
+    &:hover{
+      color: $brand-secondary;
+    }
+  }
+  img {
+    cursor: pointer;
+  }
+}
+
+#insta-slider {
+  i {
+    font-size: 2em;
+    cursor: pointer;
+    &:hover{
+      color: $brand-secondary;
+    }
+  }
+  .fa-chevron-left {
+    padding-right: 0.5em;
+  }
+  .fa-chevron-right {
+    padding-left: 0.5em;
+  }
+}

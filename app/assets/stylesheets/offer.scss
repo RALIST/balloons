@@ -1,24 +1,35 @@
 .offer {
   @include make-col-lg(12);
   @include make-col-xl(12);
-  margin-top: 10px;
-  background: image-url('offer.jpg') center no-repeat;
-  background-size: 100%;
   align-items: stretch;
+  background: none;
+}
+.jumb{
+  background: image-url("offer.jpg") center no-repeat;
+  background-size: cover;
 }
 
-.jumbotron > h1.offer-text {
-  @include make-col-lg(5);
-  @include make-col-xl(5);
-  @include make-col-offset(1);
-  background-color: transparentize(darken($brand-secondary, 10%), 0.1);
+h1.offer-text {
+  @include make-col-lg(6);
+  @include make-col-xl(6);
+  @include make-col-md(6);
+  @include make-col-sm(12);
+  @include make-col-xs(12);
+  @include media-breakpoint-up(md){
+    @include make-col-offset(2);
+  }
+
+  @include media-breakpoint-down(md){
+    font-size: 2.5em;
+  }
+  background-color: transparentize(darken($brand-secondary, 10%), 0.3);
   color: white;
   font-variant: small-caps;
   font-weight: bold;
   font-size: 3em;
   font-family: $font-family-serif;
   border-radius: 6px;
-  padding: 1em 0;
+  padding: 0.7em 0;
   span.italic {
     display: block;
     font-style: italic;
@@ -31,11 +42,22 @@
   p {
     margin-top: 10px;
   }
+  .btn {
+    font-variant: caps;
+  }
+
+  .suboffer {
+    font-size: 0.5em;
+    font-weight: 500;
+  }
 }
 
 .offer-details {
   @include make-col-lg(12);
   @include make-col-xl(12);
+  @include make-col-md(12);
+  @include make-col-sm(12);
+  @include make-col-xs(12);
   span {
     // font-size: 4em;
     color: $brand-primary;

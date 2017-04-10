@@ -1,14 +1,11 @@
+= render 'delivery/layouts/offer'
 .container
-  .hidden-md-down
-    = render 'delivery/layouts/offer'
   %h2.text-center
-    Хиты продаж
+    Популярные композиции
     %br
     %small.text-muted
       Оформление воздушными шарами
   .row.justify-content-around.card-deck.compositions.card-group
     = render partial: 'thumb_composition', collection: @compositions, as: :c, cached: true
-  .row.text-center
-    = will_paginate @compositions
 = render 'delivery/main/modal_composition'
 

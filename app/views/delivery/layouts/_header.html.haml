@@ -1,12 +1,15 @@
 .container-fluid#header
-  .row
+  .row#resp-fixed
     .resp-menu-bar.bg-brand.hidden-lg-up.text-right
       .container
         .row.justify-content-between.align-items-center
           .header-logo-responsive
             = link_to root_path do
               = image_tag 'logo-resp.png', class: 'img-fluid'
+
           #icon-wrapper
+            .small
+              Меню
             %i.fa.fa-bars{style: 'aria-hidden="true"; cursor: pointer; '}
               %span.badge= @cart.positions.count if @cart.positions.any?
             %i.fa.fa-times{style: 'aria-hidden="true"; display: none; cursor: pointer;'}
@@ -66,6 +69,6 @@
             Позвоните нам!
             %ul.list-unstyled.phones
               %li +7(912)453-25-98
-            = button_tag 'Заказать звонок', class: 'btn btn-info', data:{ toggle: 'modal', target: '#call-modal'}
+            = button_tag 'Нужна консультация', class: 'btn btn-info', data:{ toggle: 'modal', target: '#call-modal'}
 
 = render 'delivery/layouts/call'

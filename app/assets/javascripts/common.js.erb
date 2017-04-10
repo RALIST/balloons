@@ -96,3 +96,82 @@ $(document).on('mouseenter touchstart', '[data-product-id], [data-item-id]' , fu
   });
 });
 
+$(document).ready(function(){
+  $('.slider-for').slick({
+    slidesToShow: 1,
+    arrows: false,
+    fade: true,
+    asNavFor: '.slider-nav',
+    lazyLoad: 'progressive'
+  })
+  $('.slider-nav').slick({
+    slidesToShow: 5,
+    slidesToScroll: 3,
+    asNavFor: '.slider-for',
+    focusOnSelect: true,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    adaptiveHeight: true,
+    arrows: true,
+    prevArrow: '<i class="fa fa-chevron-left"></i>',
+    nextArrow: '<i class="fa fa-chevron-right"></i>',
+    variableWidth: true,
+    lazyLoad: 'progressive'
+  });
+  $('#insta-slider').slick({
+    slidesToShow: 3,
+    autoplay: true,
+    autoplaySpeed: 7000,
+    slidesToScroll: 3,
+    arrows: true,
+    adaptiveHeight: true,
+    prevArrow: '<i class="fa fa-chevron-left"></i>',
+    nextArrow: '<i class="fa fa-chevron-right"></i>',
+    responsive: [{
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }]
+  })
+})
+
+$(document).ready(function(){
+  $('#menu').addClass('original').clone().insertAfter('#menu').addClass('cloned').css('position', 'fixed').css('background', '#ffffff').css('width', '100%').css('top', '0').css('z-index', '1000').removeClass('original').hide();
+});
+
+$(window).scroll(function(){
+  var orgPos = $('#menu').offset();
+  var orgPosTop = orgPos.top;
+  var orgPosLeft = orgPos.left;
+  if ($(this).scrollTop() >= (orgPosTop+1)){
+    $('.cloned').show();
+    $('.cloned a.nav-link').removeClass('text-white');
+    $('.original').css('visibility', 'hidden')
+  }else{
+    $('.cloned').hide();
+    $('.original').css('visibility', 'visible')
+  }
+})
+
+$(document).ready(function(){
+  $('#resp-fixed').addClass('resp-original').clone().insertAfter('#resp-fixed').addClass('resp-cloned').css('position', 'fixed').css('width', '100%').css('top', '0').css('z-index', '1000').removeClass('resp-original').hide();
+});
+
+$(window).scroll(function(){
+  if ($('#resp-fixed').length){
+    var orgPos = $('#resp-fixed').offset();
+    var orgPosTop = orgPos.top;
+    var orgPosLeft = orgPos.left;
+    if ($(this).scrollTop() >= (orgPosTop)){
+      $('.resp-cloned').show();
+      $('.resp-original').css('visibility', 'hidden')
+    }else{
+      $('.resp-cloned').hide();
+      $('.resp-original').css('visibility', 'visible')
+    }
+  }
+});
+
+

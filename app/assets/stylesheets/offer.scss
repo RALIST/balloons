@@ -24,7 +24,6 @@ h1.offer-text {
   }
   background-color: transparentize(darken($brand-secondary, 10%), 0.3);
   color: white;
-  font-variant: small-caps;
   font-weight: bold;
   font-size: 3em;
   font-family: $font-family-serif;
@@ -42,9 +41,7 @@ h1.offer-text {
   p {
     margin-top: 10px;
   }
-  .btn {
-    font-variant: caps;
-  }
+
 
   .suboffer {
     font-size: 0.5em;

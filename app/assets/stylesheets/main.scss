@@ -60,3 +60,9 @@
 .offer-2 {
   margin-bottom: 1em;
 }
+
+#help {
+  @include media-breakpoint-up(md) {
+    @include make-col-offset(3);
+  }
+}

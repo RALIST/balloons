@@ -61,6 +61,7 @@
 }
 
 .insta {
+  padding: 0 !important;
   margin: 0 0.5em;
   @include make-col-xl(4);
   @include make-col-lg(4);
@@ -69,8 +70,6 @@
   @include make-col-xs(12);
   @include media-breakpoint-down(md){
     margin: 0;
-    i{
-      font-size: 4rem;
-    }
+    width: 100%;
   }
 }

@@ -53,6 +53,11 @@
     top: 50%;
     color: darken($brand-secondary, 10%)
   }
+    @include media-breakpoint-down(md){
+    i{
+      font-size: 4rem;
+    }
+  }
 }
 
 .insta {
@@ -62,4 +67,10 @@
   @include make-col-md(6);
   @include make-col-sm(12);
   @include make-col-xs(12);
+  @include media-breakpoint-down(md){
+    margin: 0;
+    i{
+      font-size: 4rem;
+    }
+  }
 }

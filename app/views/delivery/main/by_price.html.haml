@@ -10,5 +10,9 @@
     = render partial: 'thumb_composition', collection: @compositions, as: :c, cached: true
   .row.text-center
     = will_paginate @compositions
-
+  .row.text-center
+    %h4.col-12.mt-3
+      Ничего не нашли? Давайте мы поможем!
+    .col-lg-6.col-sm-12
+      = button_tag 'Оставить заявку', class: 'btn btn-success btn-lg btn-block', data:{ toggle: 'modal', target: '#call-modal'}
 = render 'delivery/main/modal_composition'

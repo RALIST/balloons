@@ -43,12 +43,14 @@
     position: absolute;
     left: 10px;
     z-index: 1010;
+    top: 50%;
     color: darken($brand-secondary, 10%)
   }
   .fa-chevron-right {
     position: absolute;
     right: 10px;
     z-index: 1010;
+    top: 50%;
     color: darken($brand-secondary, 10%)
   }
 }

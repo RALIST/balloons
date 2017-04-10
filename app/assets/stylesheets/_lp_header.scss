@@ -33,20 +33,31 @@
 
 #insta-slider {
   i {
-    font-size: 2em;
+    font-size: 2.5em;
     cursor: pointer;
     &:hover{
       color: $brand-secondary;
     }
   }
   .fa-chevron-left {
-    padding-right: 0.5em;
+    position: absolute;
+    left: 10px;
+    z-index: 1010;
+    color: darken($brand-secondary, 10%)
   }
   .fa-chevron-right {
-    padding-left: 0.5em;
+    position: absolute;
+    right: 10px;
+    z-index: 1010;
+    color: darken($brand-secondary, 10%)
   }
 }
 
 .insta {
-  padding: 1em;
+  margin: 0 0.5em;
+  @include make-col-xl(4);
+  @include make-col-lg(4);
+  @include make-col-md(6);
+  @include make-col-sm(12);
+  @include make-col-xs(12);
 }

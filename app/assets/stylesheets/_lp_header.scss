@@ -44,14 +44,16 @@
     left: 10px;
     z-index: 1010;
     top: 50%;
-    color: darken($brand-secondary, 10%)
+    color: darken($brand-secondary, 10%);
+    padding: 1rem;
   }
   .fa-chevron-right {
     position: absolute;
     right: 10px;
     z-index: 1010;
     top: 50%;
-    color: darken($brand-secondary, 10%)
+    color: darken($brand-secondary, 10%);
+    padding: 1rem;
   }
     @include media-breakpoint-down(md){
     i{
@@ -68,8 +70,13 @@
   @include make-col-md(6);
   @include make-col-sm(12);
   @include make-col-xs(12);
+  height: 100%;
   @include media-breakpoint-down(md){
     margin: 0;
     width: 100%;
   }
+}
+
+.EmbedFooter, .EmbedHeader {
+  visibility: visible !important;
 }

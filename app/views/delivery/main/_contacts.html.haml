@@ -1,0 +1,25 @@
+.container-fluid
+  .row#contacts.my-4
+    %h2.text-center{style: 'width: 100%;'}
+      Приезжайте в гости!
+    .col-12
+      = javascript_include_tag "https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A14c90a9f5898798c7138c231992b812157614231ed60a0c7b45dee0553b4843e&amp;height=400&amp;lang=ru_RU&amp;scroll=true"
+.container
+  .col-12.card
+    %h3.mb-3 Шариковая фея™
+    .card-block
+      .lead
+        %i.fa.fa-mobile
+        + 7 (912) 453 25 98
+        %br
+        %i.fa.fa-map-marker
+        ул. Николая Островского, 25,
+        офис 6
+      %p.mt-3
+        ООО "ДЕЛИРИУМ"
+        %br
+        ИНН: 1832110279
+        %br
+        КПП: 183201001
+        %br
+        ОГРН: 1131832004831

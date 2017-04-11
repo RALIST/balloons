@@ -2,6 +2,8 @@
   .container
     #lp-header
       %nav.navbar.navbar-toggleable-sm
+        %button.navbar-toggler.navbar-toggler-right{data: {toggle: 'collapse', target: '#lp-navbar'}}
+          %i.fa.fa-bars{style: 'cursor: pointer;'}
         .navbar-brand
           = image_tag 'logo-resp.png', class: 'img-fluid'
         .collapse.navbar-collapse#lp-navbar
@@ -13,6 +15,6 @@
             %li.nav-item
               = link_to 'Готовые композиции', root_path, class: 'nav-link text-white'
             %li.nav-item
-              = link_to 'Контакты', contacts_path, class: 'nav-link text-white'
+              = link_to 'Контакты',{anchor: 'contacts'}, class: 'nav-link text-white'
 
 

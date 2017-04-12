@@ -2,7 +2,7 @@ class Cart < ApplicationRecord
   belongs_to :user
   has_many :items, through: :positions
   has_many :compositions, through: :positions
-  has_many :positions
+  has_many :positions, dependent: :destroy
   has_many :subpositions
 
   def total_price

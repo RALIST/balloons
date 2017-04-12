@@ -49,6 +49,7 @@ gem 'bootstrap-will_paginate'
 gem 'paperclip-compression'
 gem 'font_assets'
 gem "jquery-slick-rails"
+gem "paperclip-optimizer"
 
 
 group :production do

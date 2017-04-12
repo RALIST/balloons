@@ -11,7 +11,10 @@ class Composition < ApplicationRecord
   has_attached_file :img, styles: {small:  ['x100', :png],
                                     thumb: ['x300', :png],
                                     large: ['x1080', :png]},
-                          processors: [:thumbnail, :compression]
+                          processors: [:thumbnail, :paperclip_optimizer],
+                          paperclip_optimizer: {
+                            optipng: {level: 6}
+                          }
   validates_attachment_content_type :img,
                         content_type: ["image/jpeg", "image/jpg", "image/png"]
 

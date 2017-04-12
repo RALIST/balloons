@@ -218,6 +218,9 @@ GEM
     paperclip-compression (0.3.16)
       os (~> 0.9.6)
       paperclip (>= 4.3.6)
+    paperclip-optimizer (2.0.0)
+      image_optim (~> 0.19)
+      paperclip (>= 3.4)
     pg (0.20.0-x86-mingw32)
     premailer (1.10.2)
       addressable
@@ -357,6 +360,7 @@ DEPENDENCIES
   meta-tags
   paperclip
   paperclip-compression
+  paperclip-optimizer
   pg
   premailer-rails
   puma (~> 3.0)

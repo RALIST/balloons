@@ -16,7 +16,8 @@
 //= require bootstrap
 //= require jquery.maskedinput
 //= require clockpicker
-//= require jquery-ui
+//= require jquery-ui/widgets/slider
+//= require jquery-ui/effect.all
 //= require jquery.ui.touch-punch
 //= require cookies
 //= require jquery.slick

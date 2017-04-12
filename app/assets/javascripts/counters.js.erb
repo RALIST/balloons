@@ -1,6 +1,13 @@
+<% if Rails.env.production? %>
+  (window.Image ? (new Image()) : document.createElement('img')).src = location.protocol + '//vk.com/rtrg?r=VDk2X3ZdR9E*K1K43ZJxAOsIQpaAH*uG5yTx9uv/Bzr1Kk3QPgvfm9I0P7dqVmM1N4q6Mq*dfHk30XcZHe5R04pKHQ2keQOEt9s/e4JdtYEjNQr6GjlrV5vCJE*fUe3ZDusLcHKwoE3U17jqFR5UKe9K94m4Q7ETly9xxqaxnX4-&pixel_id=1000010867';
 
-(window.Image ? (new Image()) : document.createElement('img')).src = location.protocol + '//vk.com/rtrg?r=VDk2X3ZdR9E*K1K43ZJxAOsIQpaAH*uG5yTx9uv/Bzr1Kk3QPgvfm9I0P7dqVmM1N4q6Mq*dfHk30XcZHe5R04pKHQ2keQOEt9s/e4JdtYEjNQr6GjlrV5vCJE*fUe3ZDusLcHKwoE3U17jqFR5UKe9K94m4Q7ETly9xxqaxnX4-&pixel_id=1000010867';
+  $(document).on('submit', '#new_call', function(){
+    yaCounter37371855.reachGoal('order_call');
+    ga('send','event', 'order', 'call')
+  })
 
-$(document).on('submit', '#new_call', function(){
-  yaCounter37371855.reachGoal('order_call');
-})
+  $(document).on('click', '#ga-add-to-cart', function(){
+    yaCounter37371855.reachGoal('to_cart');
+    ga('send', 'event', 'cart', 'add');
+  })
+  <% end %>

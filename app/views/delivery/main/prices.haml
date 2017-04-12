@@ -57,14 +57,24 @@
                 65 руб.
             %tr
               %td.hidden-md-down
-                = image_tag Composition.includes(:items, :sizes).where(items: {sizes: {in_inch: 36}}).first.img(:small), class: 'img-fluid', style: 'min-width: 100px'
+                = image_tag Composition.find(182).img(:small), class: 'img-fluid', style: 'min-width: 100px' if Rails.env.production?
               %td.text-left{style: 'max-width: 40%;'}
                 .lead
-                  Латексные шары без рисунка 12''(30см)
+                  Латексный шар без рисунка 36''(96см)
                   %blockquote.blockquote.small
-                    Бюджетный вариант шаров, меньше стандартного размера, соотвественно и время полета у них меньше. Для тех, кому цена важнее.
+                    Огромный метровый шар! Выбрав его на свой праздник вы никогда не прогадаете, эффект производит потрясающий. Можно добавить кисти тассел для усиления эффекта.
               %td
-                50 руб.
+                800 руб.
+            %tr
+              %td.hidden-md-down
+                = image_tag Composition.find(182).img(:small), class: 'img-fluid', style: 'min-width: 100px' if Rails.env.production?
+              %td.text-left{style: 'max-width: 40%;'}
+                .lead
+                  Прозрачный шар с конфетти
+                  %blockquote.blockquote.small
+                    Прозрачные шары с конфетти всегда производят wow-эффект, на любом празднике и мероприятии!
+              %td
+                100 руб.
             %tr
               %td.hidden-md-down
                 = image_tag Latex.where.not(tone_id: nil).last.products.last.image(:small), class: 'img-fluid', style: 'min-width: 100px'
@@ -120,7 +130,7 @@
                   %blockquote.blockquote.small
                     Огромный ассортимент шаров-фигур позволяет подобрать оформление на любой повод. Начиная от принцесс Диснея и заканчивая Звездными войнами и свинкой Пеппой.
               %td
-                Уточняйте по телефону.{style: 'max-width: 40%;'}
+                Уточняйте по телефону.
     .col-12
       %h3.bg-inverse.text-white.p-3{data: {toggle: 'collapse', target: '#products'}, style: 'cursor: pointer'}
         Товары для праздника

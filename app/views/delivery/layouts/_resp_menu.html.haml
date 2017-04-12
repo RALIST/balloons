@@ -53,6 +53,9 @@
               %li.h5
                 = link_to price_range_path(min: 8000), class: 'nav-link' do
                   От 8000
+          %li.nav-item
+            .h2
+              = link_to 'Прайс', '/prices', class: 'nav-link'
     .row
       - if @cart.positions.any?
         .resp-cart

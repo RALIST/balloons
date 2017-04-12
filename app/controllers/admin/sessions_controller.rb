@@ -10,7 +10,7 @@ class Admin::SessionsController < Admin::AdminController
     @user = User.find_by!(email: params[:email])
     if @user.admin?
       if @user = login(params[:email], params[:password])
-        session[:user_id] = @user.id
+        cookies.permanent[:user_id] = @user.id
         remember_me!
         redirect_to admin_root_path
       end

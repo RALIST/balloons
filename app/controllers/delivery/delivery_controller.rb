@@ -10,15 +10,15 @@ private
         @cart = current_user.cart
       else
         @cart = Cart.create
-        session[:cart_id] = @cart.id
+        cookies.permanent[:cart_id] = @cart.id
         current_user.cart = @cart
       end
     else
-      @cart = Cart.find(session[:cart_id])
+      @cart = Cart.find(cookies[:cart_id])
     end
   rescue ActiveRecord::RecordNotFound
     @cart = Cart.create
-    session[:cart_id] = @cart.id
+    cookies.permanent[:cart_id] = @cart.id
     @cart
   end
   def new_call

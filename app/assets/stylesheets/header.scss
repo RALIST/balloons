@@ -2,6 +2,9 @@
   @include make-row();
 }
 
+#top {
+  border-bottom: 1px solid $brand-primary;
+}
 .promotion-bar {
   position: absolute;
   top: 0;

@@ -5,7 +5,8 @@
         %button.navbar-toggler.navbar-toggler-right{data: {toggle: 'collapse', target: '#lp-navbar'}}
           %i.fa.fa-bars{style: 'cursor: pointer;'}
         .navbar-brand
-          = image_tag 'logo-resp.png', class: 'img-fluid'
+          = link_to root_path do
+            = image_tag 'logo-resp.png', class: 'img-fluid'
         .collapse.navbar-collapse#lp-navbar
           %ul.navbar-nav.nav-pills
             %li.nav-item

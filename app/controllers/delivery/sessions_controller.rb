@@ -10,7 +10,7 @@ class Delivery::SessionsController < Delivery::DeliveryController
   def create
     password = Unicode.downcase(params[:password])
     if @user = login(params[:phone], password)
-      session[:user_id] = @user.id
+      cookies.permanent[:user_id] = @user.id
       remember_me!
       @user.cart = @cart
       redirect_to root_path

@@ -28,22 +28,28 @@
 }
 
 #menu {
+  margin: 1rem 0 1rem 0;
+  border-top: 1px solid $brand-secondary;
+  border-bottom: 1px solid $brand-secondary;
   .menu-options {
     @include make-col-lg(12);
     @include make-col-xl(12);
-    margin: 1em 0;
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
   .delimeter {
     @include make-col-xl(12);
     @include make-col-lg(12);
   }
-  .nav-pills .nav-link.active,
-  .nav-pills .nav-item.show .nav-link {
+  .nav-link.active,
+  .nav-item.show .nav-link {
     background-color: $nav-link-hover-bg;
+    color: white;
     &:hover {
       background-color: $nav-link-hover-bg;
     }
+  }
+  .nav-link {
+    color: $brand-secondary;
   }
   .dropdown-item a {
     color: $nav-link-hover-bg;
@@ -57,9 +63,9 @@
   }
 }
 
-.offer-2 {
-  margin-bottom: 1em;
-}
+// .offer-2 {
+//   margin-bottom: 1em;
+// }
 
 #help {
   @include media-breakpoint-up(lg) {

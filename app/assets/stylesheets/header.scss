@@ -6,15 +6,16 @@
   position: absolute;
   top: 0;
   width: 100%;
-  z-index: 999;
   @include make-col(12);
   .promotion {
     @include make-col(12);
+    z-index: 999;
   }
   .promo-toggle {
     width: 2rem;
     border-radius: 0 0 1rem 1rem;
     display: inline;
+    z-index: 999;
   }
 }
 
@@ -37,20 +38,18 @@
 }
 
 .header-logo {
-  @include make-col-xl(6);
-  @include make-col-lg(6);
-  @include make-col-offset(3);
-  margin-bottom: 20px;
+  @include make-col-xl(4);
+  @include make-col-lg(4);
 }
 
 .header-logo-responsive {
   @include make-col-md(5);
-  @include make-col-sm(5);
-  @include make-col-xs(5);
+  @include make-col-sm(6);
+  @include make-col-xs(6);
 }
 .header-contacts {
-  @include make-col-xl(3);
-  @include make-col-lg(3);
+  @include make-col-xl(8);
+  @include make-col-lg(8);
   text-align: right;
   .social {
     font-size: 2em;

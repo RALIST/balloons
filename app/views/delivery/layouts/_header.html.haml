@@ -24,11 +24,12 @@
           = link_to '', data:{toggle: 'collapse', target: '#promo' } do
             %i.fa.fa-gift
     .container
-      .row.hidden-md-down.align-items-center
+      .row.hidden-md-down.align-items-center.mt-2
         .top-menu-left.text-left
           %ul.text-left.list-inline.list-unstyled
             %li.list-inline-item= link_to 'Контакты', contacts_path
             %li.list-inline-item= link_to 'Доставка'
+            %li.list-inline-item= link_to 'Прайс', '/prices'
             %li.list-inline-item= link_to 'Админка', admin_root_path if current_user && current_user.admin?
         / .top-menu-middle
         /   .menu-search
@@ -47,28 +48,33 @@
             - else
               %li.list-inline-item= link_to 'Войти', login_path
               %li.list-inline-item= link_to 'Регистрация', signin_path
-      .row
+      .row.align-items-center
         .header-logo.hidden-md-down
           = link_to root_path do
             = image_tag 'logo1.png', class: 'img-fluid'
         .header-contacts.hidden-md-down
-          Мы в соц.сетях
-          .social
-            %ul.list-unstyled.list-inline
-              %li.list-inline-item
-                =link_to 'https://www.instagram.com/bigairballoon_izh/', target: :_blank do
-                  %i.fa.fa-instagram{"aria-hidden":  "true"}
-              %li.list-inline-item
-                =link_to 'https://www.facebook.com/bigairballoons/', target: :_blank do
-                  %i.fa.fa-facebook{"aria-hidden": "true"}
-              %li.list-inline-item
-                =link_to 'https://vk.com/bigairballoon_izh', target: :_blank do
-                  %i.fa.fa-vk{"aria-hidden": "true"}
-
-          .order-call
-            Позвоните нам!
-            %ul.list-unstyled.phones
-              %li +7(912)453-25-98
-            = button_tag 'Нужна консультация', class: 'btn btn-info', data:{ toggle: 'modal', target: '#call-modal'}
+          .row.align-items-center
+            .col-6.text-center
+              Подписывайтесь!
+              .social
+                %ul.list-unstyled.list-inline.d-flex.justify-content-center
+                  %li.list-inline-item.px-3
+                    =link_to 'https://www.instagram.com/bigairballoon_izh/', target: :_blank do
+                      %i.fa.fa-instagram{"aria-hidden":  "true"}
+                  %li.list-inline-item.px-3
+                    =link_to 'https://www.facebook.com/bigairballoons/', target: :_blank do
+                      %i.fa.fa-facebook{"aria-hidden": "true"}
+                  %li.list-inline-item.px-3
+                    =link_to 'https://vk.com/bigairballoon_izh', target: :_blank do
+                      %i.fa.fa-vk{"aria-hidden": "true"}
+            .col-6
+              .order-call
+                Позвоните нам!
+                %ul.list-unstyled.phones.m-0
+                  %li.mb-1
+                    +7(912)453-25-98
+                    .small
+                      WhatsApp Viber Telegram
+                / = button_tag 'Нужна консультация', class: 'btn btn-info', data:{ toggle: 'modal', target: '#call-modal'}
 
 = render 'delivery/layouts/call'

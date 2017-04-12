@@ -2,7 +2,7 @@
   .container
     .row
       .menu-options
-        %ul.nav.nav-pills.nav-tabs.d-flex.justify-content-between
+        %ul.nav.nav-pills.nav-justified.align-items-center
           %li.text-uppercase.dropdown.nav-item{role: "presentation"}
             = link_to '', class: 'nav-link dropdown-toggle', data: {toggle: 'dropdown'} do
               Повод
@@ -32,8 +32,6 @@
           %li.text-uppercase.nav-item
             = link_to 'Для бизнеса', business_index_path, class: 'nav-link'
           %li.text-uppercase.nav-item
-            = link_to 'Прайс', '/prices', class: 'nav-link'
-          %li.text-uppercase.nav-item
             = link_to my_cart_path, class: 'nav-link cart-link' do
               .badge.badge-success
                 %span
@@ -41,8 +39,10 @@
                 %i.fa.fa-rub
               %i.fa.fa-shopping-cart{style: 'aria-hidden="true"'}
               Корзина
+          %li
+            = button_tag 'Нужна консультация', class: 'btn btn-info', data:{ toggle: 'modal', target: '#call-modal'}, style: 'height: 100%;'
 
 .container-fluid
-  .row
-    .col-12.bg-brand.text-center.h4.offer-2
+  .row.bg-brand
+    .col-12.text-center.h4.offer-2.m-0.text-white.py-2
       Бесплатная доставка по городу от 1000 рублей!

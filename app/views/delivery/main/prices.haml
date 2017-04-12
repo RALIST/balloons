@@ -1,4 +1,5 @@
-.container
+.container.mt-4.text-center
+  %h1 Цены на гелиевые шары
   .row
     .col-12
       %h3.bg-inverse.text-white.p-3{data: {toggle: 'collapse', target: '#latex'}, style: 'cursor: pointer'}
@@ -133,6 +134,39 @@
                 Уточняйте по телефону.
     .col-12
       %h3.bg-inverse.text-white.p-3{data: {toggle: 'collapse', target: '#products'}, style: 'cursor: pointer'}
-        Товары для праздника
+        Дополнительные услуги
         %i.fa.fa-chevron-down
       .container.collapse#products
+        %table.table.table-bordered.table-hover.text-center
+          %thead
+            %tr
+              %th.hidden-md-down
+              %th
+                Название
+              %th
+                Цена
+          %tbody
+            %tr
+              %td.hidden-md-down
+                %i.fa.fa-bars
+              %td.text-left{style: 'max-width: 40%;'}
+                .lead
+                  Доставка воздушных шаров по Ижевску
+                  %blockquote.blockquote.small
+                    Крулосуточная доставка воздушных шариков в пределах Ижевска
+              %td
+                150 руб.
+                %br
+                При заказе от 1000 руб. - бесплатно
+            %tr
+              %td.hidden-md-down
+                %i.fa.fa-bars
+              %td.text-left{style: 'max-width: 40%;'}
+                .lead
+                  Оформление праздника воздушными шарами
+                  %blockquote.blockquote.small
+                    Подберем оформление и создадим красоту на вашем празднике
+              %td
+                500 руб.
+                %br
+                При заказе от 1000 руб. - бесплатно

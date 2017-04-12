@@ -53,9 +53,7 @@
               %li.h5
                 = link_to price_range_path(min: 8000), class: 'nav-link' do
                   От 8000
-          %li.nav-item
-            .h2
-              = link_to 'Прайс', '/prices', class: 'nav-link'
+
     .row
       - if @cart.positions.any?
         .resp-cart
@@ -70,7 +68,8 @@
       .col-sm-12.col-xs-12{style: 'margin-top: 1.5em;'}
         %ul.list-unstyled.list-inline.h4
           - unless current_user
-            %li= link_to 'Войти', login_path
-            %li= link_to 'Регистрация', signin_path
+            %li.nav-item= link_to 'Войти', login_path
+            %li.nav-item= link_to 'Регистрация', signin_path
           - else
-            %li= link_to 'Личный кабинет', user_path(current_user)
+            %li.nav-item= link_to 'Личный кабинет', user_path(current_user)
+          %li.nav-item= link_to 'Прайс', '/prices'

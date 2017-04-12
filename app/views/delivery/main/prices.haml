@@ -1,0 +1,128 @@
+.container
+  .row
+    .col-12
+      %h3.bg-inverse.text-white.p-3{data: {toggle: 'collapse', target: '#latex'}, style: 'cursor: pointer'}
+        Латексные шары
+        %i.fa.fa-chevron-down
+      .container.collapse#latex
+        %table.table.table-bordered.table-hover.text-center
+          %thead
+            %tr
+              %th.hidden-md-down
+              %th
+                Название
+              %th
+                Цена шара с гелием
+          %tbody
+            %tr
+              %td.hidden-md-down
+                = image_tag Latex.first.products.last.image(:small), class: 'img-fluid', style: 'min-width: 100px'
+              %td.text-left{style: 'max-width: 40%;'}
+                .lead
+                  Латексные шары без рисунка 12''(30см)
+                  %blockquote.blockquote.small
+                    Бюджетный вариант шаров, меньше стандартного размера, соотвественно и время полета у них меньше. Для тех, кому цена важнее.
+              %td
+                50 руб.
+            %tr
+              %td.hidden-md-down
+                = image_tag Latex.first.products.first.image(:small), class: 'img-fluid', style: 'min-width: 100px'
+              %td.text-left{style: 'max-width: 40%;'}
+                .lead
+                  Латексные шары без рисунка 14''(36см)
+                  %blockquote.blockquote.small
+                    Стандартный и самый ходовой размер шара с гелием,
+                    подойдет практически на любой праздник и событие.
+              %td
+                60 руб.
+            %tr
+              %td.hidden-md-down
+                = image_tag Latex.where(tone_id: nil).last.products.last.image(:small), class: 'img-fluid', style: 'min-width: 100px'
+              %td.text-left{style: 'max-width: 40%;'}
+                .lead
+                  Латексные шары c рисунком 12''(30см)
+                  %blockquote.blockquote.small
+                    Различные тематические шары с рисунком практически на любой повод: на день рождения, выписку, юбилей. Большой выбор шариков с героями мультфильмов. Некоторые виды шаров доступны только в этом размере.
+              %td
+                55 руб.
+            %tr
+              %td.hidden-md-down
+                = image_tag Latex.where(tone_id: nil).last.products.last.image(:small), class: 'img-fluid', style: 'min-width: 100px'
+              %td.text-left{style: 'max-width: 40%;'}
+                .lead
+                  Латексные шары c рисунком 14''(30см)
+                  %blockquote.blockquote.small
+                    Шарики с рисунком - отличная возможность оформления под тематику вашего торжества. Огромный выбор различных рисунков, как абстрактных, так и с персонажами мультфильмов.
+              %td
+                65 руб.
+            %tr
+              %td.hidden-md-down
+                = image_tag Composition.includes(:items, :sizes).where(items: {sizes: {in_inch: 36}}).first.img(:small), class: 'img-fluid', style: 'min-width: 100px'
+              %td.text-left{style: 'max-width: 40%;'}
+                .lead
+                  Латексные шары без рисунка 12''(30см)
+                  %blockquote.blockquote.small
+                    Бюджетный вариант шаров, меньше стандартного размера, соотвественно и время полета у них меньше. Для тех, кому цена важнее.
+              %td
+                50 руб.
+            %tr
+              %td.hidden-md-down
+                = image_tag Latex.where.not(tone_id: nil).last.products.last.image(:small), class: 'img-fluid', style: 'min-width: 100px'
+              %td.text-left{style: 'max-width: 40%;'}
+                .lead
+                  Шары на запуск
+                  %blockquote.blockquote.small
+                    На сегодняшний день очень популярная традиция: на празднике отправлять множество шаров в небо. Мы предлагаем бюджетный вариант шариков на запуск.
+              %td
+                45 руб.
+
+    .col-12
+      %h3.bg-inverse.text-white.p-3{data: {toggle: 'collapse', target: '#foil'}, style: 'cursor: pointer'}
+        Фольгированные шары
+        %i.fa.fa-chevron-down
+      .container.collapse#foil
+        %table.table.table-bordered.table-hover.text-center
+          %thead
+            %tr
+              %th.hidden-md-down
+              %th
+                Название
+              %th
+                Цена шара с гелием
+          %tbody
+            %tr
+              %td.hidden-md-down
+                = image_tag Foil.where.not(foil_form_id: nil).last.products.last.image(:small), class: 'img-fluid', style: 'min-width: 100px'
+              %td.text-left{style: 'max-width: 40%;'}
+                .lead
+                  Фольгированный шар: сердце, звезда, круг 18''(45см)
+                  %blockquote.blockquote.small
+                    Фольгированные шары просто созданы для великоплепных оформлений! Букет из фольгированных шаров будет отличным подарком и впишется в любой интерьер. Если вы хотите, чтобы ваш праздник запомнился, заказывайте фольгированные шары.
+                    Богатая цветовая гамма.
+              %td
+                180 руб.
+            %tr
+              %td.hidden-md-down
+                = image_tag Foil.joins(:foil_form).where(foil_forms:{name: 'цифра'}).first.products.first.image(:small), class: 'img-fluid', style: 'min-width: 100px'
+              %td.text-left{style: 'max-width: 40%;'}
+                .lead
+                  Фольгированный шар-цифра (103см)
+                  %blockquote.blockquote.small
+                    Этот метровый шар-цифра просто идеальный вариант на День рождения или любую другую значимую дату в вашей жизни. Богатая цветовая гамма повзолит подобрать шар-цифру под вашу тематику.
+              %td
+                700 руб.
+            %tr
+              %td.hidden-md-down
+                = image_tag Foil.joins(:foil_form).where(foil_forms:{name: 'фигура'}, tone_id: nil).last.products.last.image(:small), class: 'img-fluid', style: 'min-width: 100px'
+              %td.text-left{style: 'max-width: 40%;'}
+                .lead
+                  Фольгированный шар-фигура
+                  %blockquote.blockquote.small
+                    Огромный ассортимент шаров-фигур позволяет подобрать оформление на любой повод. Начиная от принцесс Диснея и заканчивая Звездными войнами и свинкой Пеппой.
+              %td
+                Уточняйте по телефону.{style: 'max-width: 40%;'}
+    .col-12
+      %h3.bg-inverse.text-white.p-3{data: {toggle: 'collapse', target: '#products'}, style: 'cursor: pointer'}
+        Товары для праздника
+        %i.fa.fa-chevron-down
+      .container.collapse#products

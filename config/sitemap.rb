@@ -10,7 +10,8 @@ SitemapGenerator::Sitemap.sitemaps_host = "https://s3-us-west-2.amazonaws.com/fl
 SitemapGenerator::Sitemap.sitemaps_path = 'sitemaps/'
 
 SitemapGenerator::Sitemap.create do
-  Composition.find_each do |c|
+
+  Composition.availible.find_each do |c|
     add composition_path(c)
   end
 
@@ -22,5 +23,22 @@ SitemapGenerator::Sitemap.create do
     add person_path(r.title)
   end
 
+  prices = Composition.availible.pluck(:price)
+  prices.length.times do
+    min = prices[rand(prices.length)]
+    max = prices[rand(prices.length)]
+    if min < max
+      add price_range_path(min: min, max: max)
+    end
+  end
+
+  prices.each do |p|
+    add price_range_path(min: p)
+    add price_range_path(max: p)
+  end
+
+  add '/prices'
+  add '/contacts'
+  add '/lp'
 
 end

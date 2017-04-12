@@ -79,4 +79,7 @@ class Delivery::MainController < Delivery::DeliveryController
   def lp
     @disable_header = true
   end
+
+  def prices
+  end
 end

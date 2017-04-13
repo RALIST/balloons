@@ -7,7 +7,7 @@
       .slider-for.d-flex.align-items-end
         - Composition.availible.limit(10).each do |c|
           .slider-img.bg-inverse.text-white.d-flex.align-items-end.justify-content-center
-            = image_tag c.img.url(:large), class: 'img-fluid'
+            = image_tag c.img.url(:preview), class: 'img-fluid'
       .slider-nav.d-flex.align-items-center
         - Composition.availible.limit(10).each do |c|
           .slider-img-small.p-2

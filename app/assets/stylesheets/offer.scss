@@ -7,6 +7,9 @@
 .jumb{
   background: image-url("offer.jpg") center no-repeat;
   background-size: cover;
+  @include media-breakpoint-up(lg){
+    padding-top: 80px;
+  }
 }
 
 h1.offer-text {
@@ -15,10 +18,6 @@ h1.offer-text {
   @include make-col-md(6);
   @include make-col-sm(12);
   @include make-col-xs(12);
-  @include media-breakpoint-up(md){
-    @include make-col-offset(2);
-  }
-
   @include media-breakpoint-down(md){
     font-size: 2.5em;
   }
@@ -50,19 +49,20 @@ h1.offer-text {
 }
 
 .offer-details {
-  @include make-col-lg(12);
-  @include make-col-xl(12);
-  @include make-col-md(12);
-  @include make-col-sm(12);
-  @include make-col-xs(12);
+  // @include make-col-lg(12);
+  // @include make-col-xl(12);
+  // @include make-col-md(12);
+  // @include make-col-sm(12);
+  // @include make-col-xs(12);
+  background-color: transparentize(#000000, 0.4);
   span {
     // font-size: 4em;
-    color: $brand-primary;
+    color: darken($brand-secondary, 10%);
     .fa-stack > .fa-inverse {
       color: #ffffff;
     }
   }
-  font-size: 1.3em;
+  font-size: 1.1em;
 }
 
 .detail{

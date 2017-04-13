@@ -1,4 +1,4 @@
-.container
+.container.my-3
   %h2.text-center
     Лучшие композиции по цене
     -if params[:min].present?
@@ -13,6 +13,6 @@
   .row.text-center
     %h4.col-12.mt-3
       Ничего не нашли? Давайте мы поможем!
-    .col-lg-6.col-sm-12
+    .col-lg-6.col-sm-12#help
       = button_tag 'Оставить заявку', class: 'btn btn-success btn-lg btn-block', data:{ toggle: 'modal', target: '#call-modal'}
 = render 'delivery/main/modal_composition'

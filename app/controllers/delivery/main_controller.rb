@@ -78,6 +78,7 @@ class Delivery::MainController < Delivery::DeliveryController
 
   def lp
     @disable_header = true
+    cookies.permanent[:landing] = true
   end
 
   def prices

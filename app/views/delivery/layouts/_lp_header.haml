@@ -1,21 +1,20 @@
-.container-fluid.bg-brand.text-white
+.container-fluid#lp-header
   .container
-    #lp-header
-      %nav.navbar.navbar-toggleable-sm
-        %button.navbar-toggler.navbar-toggler-right{data: {toggle: 'collapse', target: '#lp-navbar'}}
-          %i.fa.fa-bars{style: 'cursor: pointer;'}
-        .navbar-brand
-          = link_to root_path do
-            = image_tag 'logo-resp.png', class: 'img-fluid'
-        .collapse.navbar-collapse#lp-navbar
-          %ul.navbar-nav.nav-pills
-            %li.nav-item
-              = link_to 'Портфолио',{anchor: 'examples'}, class: 'nav-link text-white'
-            %li.nav-item
-              = link_to 'Отзывы',{anchor: 'recommends'}, class: 'nav-link text-white'
-            %li.nav-item
-              = link_to 'Готовые композиции', root_path, class: 'nav-link text-white'
-            %li.nav-item
-              = link_to 'Контакты',{anchor: 'contacts'}, class: 'nav-link text-white'
+    %nav.navbar.navbar-toggleable-sm
+      %button.navbar-toggler.navbar-toggler-right{data: {toggle: 'collapse', target: '#lp-navbar'}}
+        %i.fa.fa-bars{style: 'cursor: pointer;'}
+      .collapse.navbar-collapse#lp-navbar
+        %ul.navbar-nav.nav-pills.d-flex.justify-content-between
+          %li.nav-item
+            = link_to 'Портфолио',{anchor: 'examples'}, class: 'nav-link text-secondary'
+          %li.nav-item
+            = link_to 'Отзывы',{anchor: 'recommends'}, class: 'nav-link text-secondary'
+          %li.nav-item
+            = link_to root_path do
+              = image_tag 'logo-resp.png', class: 'img-fluid'
+          %li.nav-item
+            = link_to 'Готовые композиции', root_path, class: 'nav-link text-secondary'
+          %li.nav-item
+            = link_to 'Контакты',{anchor: 'contacts'}, class: 'nav-link text-secondary'
 
 

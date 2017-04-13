@@ -11,6 +11,7 @@
     = favicon_link_tag 'favicons/favicon-32.png'
     = favicon_link_tag 'favicons/favicon-120.png', rel: 'apple-touch-icon'
     = csrf_meta_tags
+    = javascript_include_tag 'https://api-maps.yandex.ru/2.1/?lang=ru_RU'
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application', async: Rails.env.production?
   %body

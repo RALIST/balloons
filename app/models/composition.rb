@@ -10,7 +10,7 @@ class Composition < ApplicationRecord
   validates :img, presence: true
   has_attached_file :img, styles: {small:  ['x100', :png],
                                     thumb: ['x300', :png],
-                                    preview: ['x600', :png]
+                                    preview: ['x600', :png],
                                     large: ['x1080', :png]},
                           processors: [:thumbnail, :paperclip_optimizer],
                           paperclip_optimizer: {

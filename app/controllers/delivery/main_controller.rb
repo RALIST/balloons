@@ -79,6 +79,7 @@ class Delivery::MainController < Delivery::DeliveryController
   def lp
     @disable_header = true
     cookies.permanent[:landing] = true
+    @compositions = Composition.availible.offset(rand(Composition.availible.count)).limit(10)
   end
 
   def prices

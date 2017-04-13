@@ -108,6 +108,7 @@ Rails.application.configure do
           access_key_id: ENV['AWS_ACCESS_KEY'],
           secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
         }
+        config.paperclip_defaults = { :compression => { :png => '-0 7', :jpeg => '-optimize' } }
     }
   end
   config.action_dispatch.default_headers = {

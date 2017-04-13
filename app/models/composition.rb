@@ -12,10 +12,11 @@ class Composition < ApplicationRecord
                                     thumb: ['x300', :png],
                                     preview: ['x600', :png],
                                     large: ['x1080', :png]},
-                          processors: [:thumbnail, :paperclip_optimizer],
-                          paperclip_optimizer: {
-                            optipng: {level: 7}
-                          }
+                          convert_options: {
+                                            large: "-quality 75 -strip",
+                                            thumb: "-quality 75 -strip",
+                                            preview: "-quality 75 -strip"},
+                          processors: [:thumbnail, :compression]
   validates_attachment_content_type :img,
                         content_type: ["image/jpeg", "image/jpg", "image/png"]
 

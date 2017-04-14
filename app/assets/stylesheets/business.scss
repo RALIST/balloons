@@ -1,6 +1,5 @@
 .jumbotron#offer {
-    margin-top: 47px;
-    background: image-url('offer.jpg') no-repeat;
+    background: image-url('business.jpg') no-repeat;
     background-size: cover;
     background-position: top;
     @include make-col-lg(12);
@@ -8,6 +7,11 @@
     @include make-col-md(12);
     @include make-col-sm(12);
     @include make-col-xs(12);
+    i {
+      font-size: 2rem;
+      color: #ffffff;
+      cursor: pointer;
+    }
   }
 
 
@@ -43,7 +47,7 @@
   @include make-col-xs(12);
   margin-top: 2rem;
   color: #ffffff;
-  background-color: transparentize(#000000, 0.4);
+  background-color: transparentize(#000000, 0.2);
   padding: 0.5rem;
   border-radius: 6px;
   h1, p{
@@ -51,6 +55,9 @@
   }
   hr {
     border-top: 1px solid #ffffff;
+  }
+  .btn {
+    margin-bottom: 1rem;
   }
 }
 
@@ -100,3 +107,32 @@
   }
 }
 
+.slider-outdoor{
+  img{
+    width: auto;
+    height: 400px;
+  }
+  .slick-dots {
+    li {
+      button:before {
+        color: white;
+      }
+    }
+  }
+  @include media-breakpoint-down(lg){
+    .slick-next {
+      right: -5px;
+      z-index: 800;
+    }
+    .slick-prev {
+      left: -5px;
+      z-index: 800;
+    }
+  }
+
+  .slick-prev:before, .slick-next:before {
+    font-size: 30px;
+    color: darken($brand-secondary, 10%);
+  }
+
+}

@@ -1,4 +1,4 @@
-.bisuness{data: {spy: 'scroll', target: '#business-menu'}}
+.business
   .container-fluid.fixed-top
     .row.align-items-center
       %nav.navbar.navbar-toggleable-md.bg-brand.justify-content-between#business-menu
@@ -22,53 +22,81 @@
               = link_to 'На главную', root_path, class: 'nav-link'
           .business-call.hidden-md-down.align-self-center
             = button_tag 'Заказать звонок', class: 'btn btn-info btn-sm', data:{ toggle: 'modal', target: '#call-modal'}
-
-
-  .jumbotron.jumbotron-fluid#offer
+#offer-wrapper
+  .jumbotron.jumbotron-fluid#offer.d-flex.align-items-center
     .container
-      .business-offer
-        %h1
-          Профессиональное оформление
-          %br
-          воздушными шарами
-        %p.lead
-          Оформим открытие магазина, распродажу, презентацию и любое другое корпоративное мероприятие!
-        %hr.my-4
-        %p.text-center.hidden-md-down
-          Оставьте заявку, мы перезвоним и проконсультируем вас по всем вопросам!
-        .lead.text-center.hidden-md-down
-          = button_tag 'Оставить заявку', class: 'btn btn-primary btn-lg', data:{ toggle: 'modal', target: '#call-modal'}
-  .container
-    %h1.text-center#companies
-      C нами работают
-    .row.card-group.justify-content-around.align-items-center
-      .card#company
-        = image_tag 'bote.jpg', class: 'img-fluid'
-      .card#company
-        = image_tag 'maximum.jpg', class: 'img-fluid'
-      .card#company
-        = image_tag 'ziess.png', class: 'img-fluid '
-      .card#company
-        = image_tag 'flagman.png', class: 'img-fluid'
-      .card#company
-        = image_tag 'plus.png', class: 'img-fluid'
-      .card#company
-        = image_tag 'da4a.png', class: 'img-fluid'
-      .card#company
-        = image_tag 'vibery.png', class: 'img-fluid'
-      .card#company
-        = image_tag 'shmotka.jpg', class: 'img-fluid'
-      .card#company
-        = image_tag 'annaliza.png', class: 'img-fluid'
-      .card#company
-        = image_tag 'like.jpg', class: 'img-fluid'
-      .card#company
-        = image_tag 'balobanov.jpg', class: 'img-fluid'
-    .row#outdoor
-    .row#indoor
-    .row#holidays
-    .row#prints
-    .row#contacts
+      .row
+        .business-offer
+          %h1
+            Профессиональное оформление
+            %br
+            воздушными шарами
+          %p.lead
+            Оформим открытие магазина, распродажу, презентацию и любое другое корпоративное мероприятие!
+          %hr.my-4
+          %p.text-center.hidden-md-down
+            Оставьте заявку, мы перезвоним и проконсультируем вас по всем вопросам!
+          .lead.text-center.hidden-md-down
+            = button_tag 'Оставить заявку', class: 'btn btn-info btn-lg', data:{ toggle: 'modal', target: '#call-modal'}
+      .row.justify-content-center.mt-4
+        %h2.text-white Наши работы
+      .row.justify-content-center
+        %i.fa.fa-chevron-down#more
+
+.container
+  %h1.text-center#companies
+    C нами работают
+  .row.card-group.justify-content-around.align-items-center
+    .card#company
+      = image_tag 'bote.jpg', class: 'img-fluid'
+    .card#company
+      = image_tag 'maximum.jpg', class: 'img-fluid'
+    .card#company
+      = image_tag 'ziess.png', class: 'img-fluid '
+    .card#company
+      = image_tag 'flagman.png', class: 'img-fluid'
+    .card#company
+      = image_tag 'plus.png', class: 'img-fluid'
+    .card#company
+      = image_tag 'da4a.png', class: 'img-fluid'
+    .card#company
+      = image_tag 'vibery.png', class: 'img-fluid'
+    .card#company
+      = image_tag 'shmotka.jpg', class: 'img-fluid'
+    .card#company
+      = image_tag 'annaliza.png', class: 'img-fluid'
+    .card#company
+      = image_tag 'like.jpg', class: 'img-fluid'
+    .card#company
+      = image_tag 'balobanov.jpg', class: 'img-fluid'
+.container-fluid.bg-inverse
+  .row#outdoor.py-4
+    .col-lg-5.col-sm-12.mt-1
+      %h2.text-white Оформление входных групп
+      %ul.text-white.lead.mb-5
+        %li
+          Гирлянда из шаров от 400 руб.\метр
+        %li
+          Монтаж и демонтаж в подарок
+        %li
+          Работа по договору
+      .text-white
+        %em Если вы планируете открытие, распродажу или любой другой праздник, то оформление входной группы воздушными шарами гарантировано привлечет внимание  к вашему мероприятию.
+      .lead.text-center.text-white.mt-5
+        Подберем варианты оформления бесплатно!
+        = button_tag 'Оставить заявку', class: 'btn btn-info btn-block btn-lg', data:{ toggle: 'modal', target: '#call-modal'}
+
+    .col-lg-6.col-sm-12.mt-1
+      .slider-outdoor
+        =image_tag 'carl.jpeg', class: 'img-fluid px-3'
+        =image_tag 'ecomarket.jpeg', class: 'img-fluid px-3'
+        =image_tag 'coffee.jpeg', class: 'img-fluid px-3'
+        =image_tag 'maximum1.jpeg', class: 'img-fluid px-3'
+
+  .row#indoor
+  .row#holidays
+  .row#prints
+  .row#contacts
 
 
 = render 'delivery/layouts/call'

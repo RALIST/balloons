@@ -1,0 +1,22 @@
+$(document).ready(function(){
+  var height = $(window).height();
+  $('.jumbotron').css('height', height);
+})
+
+$(document).on('click', '.fa#more', function(){
+  $('body').animate({
+    scrollTop: $('#outdoor').offset().top }, 'slow')
+});
+
+$(document).ready(function(){
+  $('.slider-outdoor').slick({
+    slidesToShow: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    variableWidth: true,
+    dots: true,
+    slidesToScroll: 1,
+    focusOnSelect: true
+  })
+})
+

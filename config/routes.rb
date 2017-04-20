@@ -94,6 +94,7 @@ Rails.application.routes.draw do
         resources :sitemaps, only: :show
         get '/sitemap',  to:  'sitemaps#show'
       end
+      get '/wmail_8a207e840240fa656dd60c5e3d164964.html', :to => redirect('/wmail_8a207e840240fa656dd60c5e3d164964.html')
     end
   end
 end

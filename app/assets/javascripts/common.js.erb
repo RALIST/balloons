@@ -161,7 +161,7 @@ $(document).ready(function(){
   $('#resp-fixed').addClass('resp-original').clone().insertAfter('#resp-fixed').addClass('resp-cloned').css('position', 'fixed').css('width', '100%').css('top', '0').css('z-index', '1000').removeClass('resp-original').hide();
 });
 
-$(window).scroll(function(){
+$(window).on('scroll', function(){
   if ($('#resp-fixed').length){
     var orgPos = $('#resp-fixed').offset();
     var orgPosTop = orgPos.top;
@@ -181,7 +181,7 @@ $(document).ready(function(){
   $('#lp-header').addClass('original').clone().insertAfter('#lp-header').addClass('cloned').css('position', 'fixed').css('background', '#ffffff').css('width', '100%').css('top', '0').css('z-index', '1000').removeClass('original').hide();
 });
 
-$(window).scroll(function(){
+$(window).on('scroll', function(){
   if ($('#lp-header').length){
     var orgPos = $('#lp-header').offset();
     var orgPosTop = orgPos.top;

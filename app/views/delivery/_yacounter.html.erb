@@ -1,4 +1,4 @@
-<% if Rails.env.production? %>
+<% unless Rails.env.development? || Rails.env.test? %>
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
         (function (d, w, c) {

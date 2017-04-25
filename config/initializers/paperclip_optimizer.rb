@@ -15,7 +15,7 @@ Paperclip::PaperclipOptimizer.default_options = {
   jpegoptim: false,
   jpegrecompress: false,
   jpegtran: false,
-  optipng: true,
+  optipng: false,
   pngcrush: false,
   pngout: false,
   pngquant: false,

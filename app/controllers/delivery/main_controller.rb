@@ -1,7 +1,7 @@
 class Delivery::MainController < Delivery::DeliveryController
 
   def index
-    set_meta_tags title: 'Воздушные шары с доставкой, лучшие композиции',
+    set_meta_tags title: 'Воздушные шары с доставкой в Ижевске',
                   keywords: 'воздушные шары, гелиевые шары, гелиевые шарики, заказать воздушные шары, шарики с доставкой, доставка шариков, купить воздушные шары, купить шарики'
     @compositions = Composition.availible.limit(6).offset(rand(Composition.availible.count)).order(:price)
     @composition  = Composition.find(params[:id]) if params[:id]
@@ -12,8 +12,8 @@ class Delivery::MainController < Delivery::DeliveryController
   end
 
   def search
-    set_meta_tags title: "#{params[:tag_name].capitalize}",
-                  description: "Воздушные шары на #{params[:tag_name]}",
+    set_meta_tags title: "Заказать воздушные шары на #{params[:tag_name]} в Ижевске в компании Шариковая Фея",
+                  description: "Закажите оформление воздушными шарами на #{params[:tag_name]} в Ижевске по недорогой цене в компании Шариковая Фея",
                   reverse: true,
                   keywords: "воздушные шары на #{params[:tag_name]}, заказать воздушные шары на #{params[:tag_name]}, шарики с доставкой на #{params[:tag_name]}, доставка шариков на #{params[:tag_name]}"
     unless params[:tag_name].blank?
@@ -29,8 +29,8 @@ class Delivery::MainController < Delivery::DeliveryController
   end
 
   def by_tag
-    set_meta_tags title: "#{params[:tag_name].capitalize}",
-                  description: "Воздушные шары на #{params[:tag_name]}",
+    set_meta_tags title: "Заказать воздушные шары на #{params[:tag_name]} в Ижевске в компании Шариковая Фея",
+                  description: "Закажите оформление воздушными шарами на #{params[:tag_name]} в Ижевске по недорогой цене в компании Шариковая Фея",
                   reverse: true,
                   keywords: "воздушные шары на #{params[:tag_name]}, заказать воздушные шары на #{params[:tag_name]}, шарики с доставкой на #{params[:tag_name]}, доставка шариков на #{params[:tag_name]}"
     unless params[:tag_name].blank?

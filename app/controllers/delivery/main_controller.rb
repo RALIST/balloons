@@ -1,7 +1,8 @@
 class Delivery::MainController < Delivery::DeliveryController
 
   def index
-    set_meta_tags title: 'Воздушные шары с доставкой в Ижевске',
+    set_meta_tags title: 'Заказать оформление воздушными шарами недорого с бесплатной доставкой по Ижевску в компании Шариковая Фея',
+                  description: "Доставка на дом и оформление воздушными шарами с гелием круглосуточно по недорогой цене в Ижевске в компании Шариковая Фея"
                   keywords: 'воздушные шары, гелиевые шары, гелиевые шарики, заказать воздушные шары, шарики с доставкой, доставка шариков, купить воздушные шары, купить шарики'
     @compositions = Composition.availible.limit(6).offset(rand(Composition.availible.count)).order(:price)
     @composition  = Composition.find(params[:id]) if params[:id]

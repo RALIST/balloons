@@ -22,9 +22,9 @@
               Повод
               %i.fa.fa-caret-down
             %ul.list-unstyled.dropdown-menus
-              - @menu_tags.each do |tag_name|
+              - @menu_tags.each do |tag|
                 %li.h4
-                  = link_to tag_name.capitalize, by_tag_path(tag_name), class: 'nav-link'
+                  = link_to tag.name.capitalize, tag_path(tag), class: 'nav-link'
           %li.dropdown.nav-item
             .h2.d-flex.justify-content-between
               Кому

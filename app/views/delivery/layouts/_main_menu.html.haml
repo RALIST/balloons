@@ -7,8 +7,8 @@
             = link_to '', class: 'nav-link dropdown-toggle', data: {toggle: 'dropdown'} do
               Повод
             %ul.dropdown-menu{style: 'aria-labelledby="dropdownMenuButton"'}
-              - @menu_tags.each do |tag_name|
-                %li.text-capitalize.dropdown-item= link_to tag_name, by_tag_path(tag_name)
+              - @menu_tags.each do |tag|
+                %li.text-capitalize.dropdown-item= link_to tag.name, tag_path(tag)
           %li.text-uppercase.dropdown.nav-item{role: "presentation"}
             = link_to '', class: 'nav-link dropdown-toggle', data: {toggle: 'dropdown'} do
               Кому
@@ -29,10 +29,19 @@
                   .from-group.mx-auto
                     = button_tag(type: 'submit', class: 'btn btn-info btn-block btn-sm') do
                       %i.fa.fa-search
+          %li.text-uppercase.dropdown.nav-item{role: "presentation"}
+            = link_to '', class: 'nav-link dropdown-toggle', data: {toggle: 'dropdown'} do
+              Выпускные
+            %ul.dropdown-menu
+              %li.text-capitalize.dropdown-item
+                = link_to 'Из садика', kg_path
+              %li.text-capitalize.dropdown-item
+                = link_to 'Из школы', school_path
+              %li.text-capitalize.dropdown-item
+                = link_to 'Из университета', univ_path
+
           %li.text-uppercase.nav-item
             = link_to 'Для бизнеса', business_index_path, class: 'nav-link'
-          %li.text-uppercase.nav-item
-            = link_to 'Выпускные', business_index_path, class: 'nav-link'
           %li.text-uppercase.nav-item
             = link_to my_cart_path, class: 'nav-link cart-link' do
               .badge.badge-success
@@ -41,8 +50,7 @@
                 %i.fa.fa-rub
               %i.fa.fa-shopping-cart{style: 'aria-hidden="true"'}
               Корзина
-          %li
-            = button_tag 'Нужна консультация', class: 'btn btn-info', data:{ toggle: 'modal', target: '#call-modal'}, style: 'height: 100%;'
+
 
 .container-fluid
   .row.bg-brand

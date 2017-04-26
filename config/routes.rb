@@ -60,11 +60,9 @@ Rails.application.routes.draw do
   constraints NoneSubdomain do
     scope module: 'delivery' do
       root 'main#index'
-      get '/?id=:id', to: redirect('compositions/:id'), via: :all
       resources :items,         only: [:index, :show]
       resources :compositions,  only: [:index, :show]
-      get 'events/:tag_name',   to: 'main#by_tag', as: :by_tag
-      resources :tags,          only: [:index], path: 'events'
+      resources :tags,          only: [:index, :show], path: 'events'
       resources :carts
       resources :orders
       resources :positions
@@ -73,6 +71,12 @@ Rails.application.routes.draw do
       resources :subpositions, only: [:edit, :update, :destroy]
       resources :calls, only: [:new, :create]
       resources :business, only: :index
+      resources :graduations, only: :index
+      scope '/graduations' do
+        get 'садик', to: 'graduations#kg', as: :kg
+        get 'школа', to: 'graduations#school', as: :school
+        get 'университет', to: 'graduations#univ', as: :univ
+      end
       post '/add_to_cart/:id',          to: 'carts#add_to_cart',            as: :add_to_cart
       post '/remove_from_cart/:id',     to: 'carts#remove_from_cart',       as: :remove_from_cart
       post '/add_quantity/:id',         to: 'subpositions#up_quantity',     as: :add_quantity

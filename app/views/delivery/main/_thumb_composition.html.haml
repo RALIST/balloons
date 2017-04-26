@@ -8,7 +8,7 @@
         - if c.tags.any?
           Воздушные шары на
           %br
-          = c.tags.map{ |t| link_to t.name.capitalize, by_tag_path(t.name) }.join(', ').html_safe
+          = c.tags.map{ |t| link_to t.name.capitalize, tag_path(t) }.join(', ').html_safe
     .card-footer
       - unless @cart.compositions.include?(c)
         .h4.text-center.card-title

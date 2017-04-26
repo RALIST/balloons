@@ -16,7 +16,7 @@ class Delivery::TagsController < Delivery::DeliveryController
       @compositions =  Composition.availible.with_tag(@tag.name).order(:price).paginate(page: params[:page], per_page: 6)
     respond_to do |format|
       format.html {redirect_to root_path, flash: {danger: 'По запросу ' + @tag.name + ' ничего не найдено!'} unless @compositions.any?}
-      format.js {render 'delivery/main/index'} if params[:page]
+      format.js if params[:page]
     end
   end
 

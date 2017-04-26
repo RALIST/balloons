@@ -16,7 +16,7 @@ SitemapGenerator::Sitemap.create do
   end
 
   Tag.find_each do |tag|
-    add by_tag_path(tag.name)
+    add tag_path(tag)
   end
 
   Receiver.find_each do |r|

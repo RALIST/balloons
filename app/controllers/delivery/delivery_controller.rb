@@ -26,7 +26,7 @@ private
   end
 
   def tags
-    @menu_tags = Tag.composition_tags.distinct(:name)
+    @menu_tags = Tag.composition_tags
   end
 
   def receivers

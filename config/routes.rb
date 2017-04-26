@@ -72,6 +72,7 @@ Rails.application.routes.draw do
       resources :calls, only: [:new, :create]
       resources :business, only: :index
       resources :graduations, only: :index
+
       scope '/graduations' do
         get 'садик', to: 'graduations#kg', as: :kg
         get 'школа', to: 'graduations#school', as: :school

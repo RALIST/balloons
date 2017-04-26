@@ -7,6 +7,7 @@ class Delivery::TagsController < Delivery::DeliveryController
   def show
     if params[:id].to_i == 0
       @tag = Tag.find_by!(name: params[:id])
+      redirect_to tag_path(@tag), status: 301
     else
       @tag = Tag.find(params[:id])
     end
@@ -16,7 +17,7 @@ class Delivery::TagsController < Delivery::DeliveryController
       @compositions =  Composition.availible.with_tag(@tag.name).order(:price).paginate(page: params[:page], per_page: 6)
     respond_to do |format|
       format.html {redirect_to root_path, flash: {danger: 'По запросу ' + @tag.name + ' ничего не найдено!'} unless @compositions.any?}
-      format.js if params[:page]
+      format.js {render 'delivery/main/index'} if params[:page]
     end
   end
 

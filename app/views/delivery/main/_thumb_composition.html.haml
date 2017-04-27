@@ -1,7 +1,14 @@
 .composition
   .card.justify-content-around.align-items-center
-    = link_to composition_path(c), class: 'link-to-page' do
-      = image_tag c.img(:thumb), class: 'img-fluid'
+    - if @person
+      = link_to receiver_composition_path(@person, c), class: 'link-to-page' do
+        = image_tag c.img(:thumb), class: 'img-fluid'
+    - elsif @tag
+      = link_to tag_composition_path(@tag, c), class: 'link-to-page' do
+        = image_tag c.img(:thumb), class: 'img-fluid'
+    - else
+      = link_to composition_path(c), class: 'link-to-page' do
+        = image_tag c.img(:thumb), class: 'img-fluid'
 
     .card-block
       .text-center

@@ -25,6 +25,8 @@
           = render 'delivery/layouts/header'
           = render 'delivery/layouts/main_menu'
         = render 'delivery/layouts/flash'
+      .container
+        = breadcrumbs separator: " &rsaquo; ", style: :bootstrap, semantic: true, fragment_tag: 'breadcrumb'
       = yield
     %footer
       =render 'delivery/layouts/footer'

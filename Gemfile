@@ -50,6 +50,7 @@ gem 'paperclip-compression'
 gem 'font_assets'
 gem "jquery-slick-rails"
 gem "paperclip-optimizer"
+gem "gretel"
 
 
 group :production do

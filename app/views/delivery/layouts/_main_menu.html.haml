@@ -13,9 +13,9 @@
             = link_to '', class: 'nav-link dropdown-toggle', data: {toggle: 'dropdown'} do
               Кому
             %ul.dropdown-menu
-              - @menu_receivers.each do |title|
+              - @menu_receivers.each do |p|
                 %li.text-capitalize.dropdown-item
-                  = link_to title, person_path(title)
+                  = link_to p.title, receiver_path(p)
           %li.text-uppercase.dropdown.nav-item{role: "presentation"}
             = link_to '', class: ' nav-link dropdown-toggle', data:{toggle: 'dropdown'} do
               По цене

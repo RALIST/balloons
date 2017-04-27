@@ -1,4 +1,5 @@
 .container.my-3
+  - breadcrumb @tag
   %h2.text-center Оформление воздушными шарами на #{@tag.name.capitalize}
   .row.justify-content-around.card-deck.compositions
     = render partial: 'delivery/main/thumb_composition', collection: @compositions, as: :c, cached: true

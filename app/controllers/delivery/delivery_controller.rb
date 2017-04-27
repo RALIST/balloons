@@ -30,6 +30,6 @@ private
   end
 
   def receivers
-    @menu_receivers = Receiver.all.map(&:title).uniq
+    @menu_receivers = Receiver.all.select("distinct on (title) *")
   end
 end

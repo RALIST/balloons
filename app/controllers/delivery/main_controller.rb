@@ -40,17 +40,6 @@ class Delivery::MainController < Delivery::DeliveryController
     end
   end
 
-  def by_person
-    set_meta_tags title: "#{params[:title].capitalize}",
-                  description: "Воздушные шары #{params[:title]}",
-                  reverse: true
-    @compositions = Composition.with_receivers(params[:title]).availible.order(:price).paginate(page: params[:page], per_page: 6)
-    respond_to do |format|
-      format.html  {redirect_to root_path, flash: {danger: 'Нет композиций!'} unless @compositions.any?}
-      format.js {render 'index'} if params[:page]
-    end
-  end
-
   def thanks
     @order = Order.find(params[:order])
   end

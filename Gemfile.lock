@@ -118,6 +118,8 @@ GEM
     fspath (3.1.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    gretel (3.0.9)
+      rails (>= 3.1.0)
     haml (4.0.7)
       tilt
     haml-rails (0.9.0)
@@ -347,6 +349,7 @@ DEPENDENCIES
   fog-aws
   font-awesome-sass
   font_assets
+  gretel
   haml-rails
   heroku-deflater
   image_optim_pack

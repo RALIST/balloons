@@ -10,21 +10,21 @@ Rails.application.routes.draw do
   match "/404", to: "errors#not_found", :via => :all
   match "/500", to: "errors#internal_server_error", :via => :all
 
-    constraints ShopSubdomain do
-      scope module: 'shop' do
-        root 'main#index'
-        resources :users
-        resources :items
-        resources :carts
-        resources :orders
-        resources :positions
-        resources :compositions
-        resources :products
-        resources :tones
-        resources :sizes
-        get '/find', to: 'main#search', as: :find
-      end
+  constraints ShopSubdomain do
+    scope module: 'shop' do
+      root 'main#index'
+      resources :users
+      resources :items
+      resources :carts
+      resources :orders
+      resources :positions
+      resources :compositions
+      resources :products
+      resources :tones
+      resources :sizes
+      get '/find', to: 'main#search', as: :find
     end
+  end
 
   namespace :admin, module: 'admin' do
     root 'main#index'
@@ -62,7 +62,9 @@ Rails.application.routes.draw do
       root 'main#index'
       resources :items,         only: [:index, :show]
       resources :compositions,  only: [:index, :show]
-      resources :tags,          only: [:index, :show], path: 'events'
+      resources :tags, only: :show, path: 'events' do
+        resources :compositions, only: :show, path: ''
+      end
       resources :carts
       resources :orders
       resources :positions
@@ -72,7 +74,9 @@ Rails.application.routes.draw do
       resources :calls, only: [:new, :create]
       resources :business, only: :index
       resources :graduations, only: :index
-
+      resources :receivers, only: :show, path: 'persons' do
+        resources :compositions, only: :show, path: ''
+      end
       scope '/graduations' do
         get 'садик', to: 'graduations#kg', as: :kg
         get 'школа', to: 'graduations#school', as: :school
@@ -90,7 +94,6 @@ Rails.application.routes.draw do
       get '/cart',                      to: 'carts#show',                   as: :my_cart
       get '/by_price',                  to: 'main#by_price',                as: :price_range
       get '/account',                   to: 'users#show',                   as: :account
-      get '/person/:title',             to: 'main#by_person',               as: :person
       get '/thank_you',                 to: 'main#thanks',                  as: :thanks
       get '/contacts', to: 'main#contacts', as: :contacts
       get '/lp', to: 'main#lp', as: :lp

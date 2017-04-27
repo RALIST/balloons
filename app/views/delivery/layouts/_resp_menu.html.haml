@@ -30,9 +30,9 @@
               Кому
               %i.fa.fa-caret-down.align-self-end
             %ul.list-unstyled.dropdown-menus
-              - @menu_receivers.each do |title|
+              - @menu_receivers.each do |p|
                 %li.h4
-                  = link_to title.capitalize, person_path(title), class: 'nav-link'
+                  = link_to p.title.capitalize, receiver_path(p), class: 'nav-link'
           %li.dropdown.nav-item
             .h2.d-flex.justify-content-between
               По цене

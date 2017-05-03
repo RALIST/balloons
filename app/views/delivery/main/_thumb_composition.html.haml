@@ -1,12 +1,13 @@
 .composition
   .card.justify-content-around.align-items-center
-    - if controller.controller_name == 'receivers'
+    - case controller.controller_name
+    - when 'receivers'
       = link_to receiver_composition_path(@person, c), class: 'link-to-page' do
         = image_tag c.img(:thumb), class: 'img-fluid'
-    - elsif controller.controller_name == 'tags'
+    - when'tags'
       = link_to tag_composition_path(@tag, c), class: 'link-to-page' do
         = image_tag c.img(:thumb), class: 'img-fluid'
-    - else
+    - when 'main'
       = link_to composition_path(c), class: 'link-to-page' do
         = image_tag c.img(:thumb), class: 'img-fluid'
 

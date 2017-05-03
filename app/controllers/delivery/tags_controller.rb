@@ -5,13 +5,13 @@ class Delivery::TagsController < Delivery::DeliveryController
   end
 
   def show
-    if params[:id].to_i == 0
+    if params[:id].to_i == 0 || params[:id] == '8 марта' || params[:id] == '14 февраля'
       @tag = Tag.find_by!(name: params[:id])
       redirect_to tag_path(@tag), status: 301
     else
       @tag = Tag.find(params[:id])
     end
-    set_meta_tags title: "Заказать воздушные шары на #{@tag.name} в Ижевске в компании Шариковая Фея",
+    set_meta_tags title: "Оформление воздушными шарами на #{@tag.name} в Ижевске в компании Шариковая Фея",
                   description: "Закажите оформление воздушными шарами на #{params[:tag_name]} в Ижевске по недорогой цене в компании Шариковая Фея",
                   reverse: true
       @compositions =  Composition.availible.with_tag(@tag.name).order(:price).paginate(page: params[:page], per_page: 6)

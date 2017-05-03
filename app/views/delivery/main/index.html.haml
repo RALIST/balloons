@@ -2,10 +2,10 @@
   = render 'delivery/layouts/offer' unless cookies[:landing]
 .container.my-3
   %h2.text-center
-    Популярные композиции
+    Оформление воздушными шарами в Ижевске
     %br
     %small.text-muted
-      Оформление воздушными шарами
+      Популярные композиции
   .row.justify-content-around.card-deck.compositions.card-group
     = render partial: 'thumb_composition', collection: @compositions, as: :c, cached: true
   .row.text-center

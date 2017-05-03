@@ -33,6 +33,7 @@ class Delivery::TagsController < Delivery::DeliveryController
       set_meta_tags title: "Оформление воздушными шарами на #{@tag.name} в Ижевске в компании Шариковая Фея",
                     description: "Закажите оформление воздушными шарами на #{params[:tag_name]} в Ижевске по недорогой цене в компании Шариковая Фея",
                     reverse: true
+    end
 
     @compositions =  Composition.availible.with_tag(@tag.name).order(:price).paginate(page: params[:page], per_page: 6)
     respond_to do |format|

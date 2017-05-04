@@ -5,7 +5,7 @@ $(document).ready(function() {
       var text = $('#seo-text').offset();
       var textTop = text.top;
       if($('#seo-text').length){
-        if (url && $(window).scrollTop() > textTop + 150) {
+        if (url && $(window).scrollTop() > textTop - 800) {
           $('.pagination').html('<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>');
           return $.getScript(url);
         };

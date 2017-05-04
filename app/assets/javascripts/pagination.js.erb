@@ -4,10 +4,17 @@ $(document).ready(function() {
       var url = $('.pagination .next_page a').attr('href');
       var text = $('#seo-text').offset();
       var textTop = text.top;
-      if (url && $(window).scrollTop() > textTop - 10) {
+      if($('#seo-text').length){
+        if (url && $(window).scrollTop() > textTop - 150) {
+        $('.pagination').html('<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>');
+        return $.getScript(url);
+        }
+      }else{
+        if (url && $(window).scrollTop() > $(window).height() - $('.wrapper').height() - 150) {
         $('.pagination').html('<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>');
         return $.getScript(url);
       }
+
     });
     return $(window).scroll();
   }

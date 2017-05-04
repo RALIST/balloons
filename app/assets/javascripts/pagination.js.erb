@@ -8,16 +8,15 @@ $(document).ready(function() {
         if (url && $(window).scrollTop() > textTop - 150) {
           $('.pagination').html('<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>');
           return $.getScript(url);
-          return $(window).scroll();
         };
       } else {
-        if (url && $(window).scrollTop() > $('.wrapper').height() - 150) {
+        if (url && $(window).scrollTop() > $(window).height() -  $('.wrapper').height() - 50) {
           $('.pagination').html('<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>');
           return $.getScript(url);
-          return $(window).scroll();
         };
       }
     });
+    return $(window).scroll();
   };
 });
 

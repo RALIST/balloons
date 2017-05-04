@@ -2,9 +2,9 @@ $(document).ready(function() {
   if ($('.pagination').length) {
     $(window).scroll(function() {
       var url = $('.pagination .next_page a').attr('href');
-      var text = $('#seo-text').offset();
-      var textTop = text.top;
       if($('#seo-text').length){
+        var text = $('#seo-text').offset();
+        var textTop = text.top;
         if (url && $(window).scrollTop() > textTop - 800) {
           $('.pagination').html('<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>');
           return $.getScript(url);

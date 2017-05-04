@@ -10,7 +10,7 @@ $(document).ready(function() {
           return $.getScript(url);
         };
       } else {
-          if (url && $(window).scrollTop() > $(window).height() - 50) {
+        if (url && $(window).scrollTop() > $('.wrapper').height() - 150) {
           $('.pagination').html('<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>');
           return $.getScript(url);
         };

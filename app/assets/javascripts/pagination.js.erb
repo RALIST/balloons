@@ -6,18 +6,18 @@ $(document).ready(function() {
       var textTop = text.top;
       if($('#seo-text').length){
         if (url && $(window).scrollTop() > textTop - 150) {
-        $('.pagination').html('<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>');
-        return $.getScript(url);
-        }
-      }else{
-        if (url && $(window).scrollTop() > $(window).height() - $('.wrapper').height() - 150) {
-        $('.pagination').html('<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>');
-        return $.getScript(url);
+          $('.pagination').html('<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>');
+          return $.getScript(url);
+        };
+      } else {
+          if (url && $(window).scrollTop() > $(window).height() - $('.wrapper').height()) {
+          $('.pagination').html('<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>');
+          return $.getScript(url);
+        };
       }
-
+      return $(window).scroll();
     });
-    return $(window).scroll();
-  }
+  };
 });
 
 $(document).on('ready', function(){

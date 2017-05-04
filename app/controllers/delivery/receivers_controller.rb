@@ -1,7 +1,7 @@
 class Delivery::ReceiversController < Delivery::DeliveryController
 
   def show
-    if params[:id].to_i == 0 || params[:id] == 'для неё'
+    if params[:id].to_i == 0 || params[:id] == 'для неё'.downcase
       @person = Receiver.find_by!(title: params[:id])
       redirect_to receiver_path(@person), status: 301
     else

@@ -6,7 +6,18 @@ class Tag < ApplicationRecord
 
   scope :composition_tags, -> { where(taggable_type: 'Composition').select("distinct on (name) * ")}
 
+  def resolve_friendly_id_conflict(candidates)
+    candidates.first + friendly_id_config.sequence_separator
+  end
 
+# Sets the slug.
+  def set_slug(normalized_slug = nil)
+    if should_generate_new_friendly_id?
+      candidates = FriendlyId::Candidates.new(self, normalized_slug || send(friendly_id_config.base))
+      slug = slug_generator.generate(candidates) || resolve_friendly_id_conflict(candidates)
+      send "#{friendly_id_config.slug_column}=", slug
+    end
+  end
   # def to_param
   #   name = Russian::transliterate(self.name)
   #   [id, name.downcase.split(' ')].join('-')

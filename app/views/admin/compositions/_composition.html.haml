@@ -8,4 +8,4 @@
         ID:
         = composition.id
         %br
-        = link_to 'Удалить', admin_delete_composition_path(composition), method: :put
+        = link_to 'Удалить', admin_composition_path(composition), method: :delete, remote: true, class: 'destroy'

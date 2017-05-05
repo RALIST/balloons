@@ -43,9 +43,12 @@ class Admin::CompositionsController < Admin::AdminController
     redirect_back fallback_location: admin_root_path
   end
 
-  def delete
-    if @comp.update_attributes(deleted: true)
-      redirect_back fallback_location: admin_root_path
+  def destroy
+    if @comp.destroy
+      respond_to do |format|
+        format.html
+        format.js
+      end
     end
   end
 

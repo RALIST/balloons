@@ -15,7 +15,7 @@
           %br
           .small Нет ни одного товара в композиции
         .collapse#without_items
-          .card-deck
+          .card-deck#admin-comp
             = render @compositions_without_items
 
       - if @compositions_without_price.any?

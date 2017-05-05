@@ -7,7 +7,7 @@ class Tag < ApplicationRecord
   scope :composition_tags, -> { where(taggable_type: 'Composition').select("distinct on (name) * ")}
 
   def resolve_friendly_id_conflict(candidates)
-    candidates.first + friendly_id_config.sequence_separator
+    candidates.first
   end
 
 # Sets the slug.

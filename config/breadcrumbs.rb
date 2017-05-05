@@ -5,10 +5,10 @@ end
 crumb :composition do |c|
   if params[:tag_id]
     link "Композиция №#{c.id}", tag_composition_path(c)
-    parent :tag, Tag.find(params[:tag_id])
+    parent :tag, Tag.frienldy.find(params[:tag_id])
   elsif params[:receiver_id]
     link "Композиция №#{c.id}", receiver_composition_path(c)
-    parent :receiver, Receiver.find(params[:receiver_id])
+    parent :receiver, Receiver.frienldy.find(params[:receiver_id])
   end
 end
 

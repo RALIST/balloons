@@ -51,6 +51,7 @@ gem 'font_assets'
 gem "jquery-slick-rails"
 gem "paperclip-optimizer"
 gem "gretel"
+gem 'friendly_id', '~> 5.1.0'
 
 
 group :production do

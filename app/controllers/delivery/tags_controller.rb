@@ -5,11 +5,16 @@ class Delivery::TagsController < Delivery::DeliveryController
   end
 
   def show
-    if params[:id].to_i == 0 || params[:id] == '8 марта' || params[:id] == '14 февраля'
-      @tag = Tag.find_by!(name: params[:id])
-      redirect_to tag_path(@tag), status: 301
-    else
-      @tag = Tag.find(params[:id])
+    begin
+      @tag = Tag.friendly.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      if params[:id].to_i == 0 || params[:id] == '8 марта' || params[:id] == '14 февраля'
+        @tag = Tag.find_by!(name: params[:id])
+        redirect_to tag_path(@tag), status: 301
+      else
+        @tag = Tag.find(params[:id])
+        redirect_to tag_path(@tag), status: 301
+      end
     end
 
     case @tag.name

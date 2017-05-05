@@ -10,6 +10,9 @@
       Ничего не нашли? Давайте мы поможем!
     .col-lg-6.col-sm-12#help
       = button_tag 'Оставить заявку', class: 'btn btn-success btn-lg btn-block', data:{ toggle: 'modal', target: '#call-modal'}
-  - if @tag.name == 'день рождения'
+  - case @tag.name
+  - when 'день рождения'
     = render 'text_bithday'
+  - when 'свадьба'
+    = render 'text_wedding'
 = render 'delivery/main/modal_composition'

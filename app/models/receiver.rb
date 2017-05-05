@@ -1,9 +1,6 @@
 class Receiver < ApplicationRecord
+  extend FriendlyId
+  friendly_id :title, use: [:slugged, :history]
   belongs_to :personable, polymorphic: true
   validates :title, presence: true
-
-  def to_param
-    name = Russian::transliterate(self.title)
-    [id, name.downcase.split(' ')].join('-')
-  end
 end

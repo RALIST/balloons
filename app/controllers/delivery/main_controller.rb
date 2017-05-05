@@ -30,7 +30,7 @@ class Delivery::MainController < Delivery::DeliveryController
 
 
   def by_price
-      set_meta_tags title: "Воздушные шары на #{params[:tag_name]} с доставкой!",
+      set_meta_tags title: "Оформление воздушными шарами до #{params[:max]} рублей",
                     description: "Воздушные шары на #{params[:tag_name]}",
                     reverse: true
     @compositions = Composition.availible.price_range(params[:min], params[:max]).order(:price).paginate(page: params[:page], per_page: 6)

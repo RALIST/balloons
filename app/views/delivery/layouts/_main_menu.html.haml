@@ -21,14 +21,13 @@
               По цене
             %ul.dropdown-menu
               %li.px-2
-                = form_tag price_range_path, class: 'form', method: :get do
+                = form_tag price_range_path, class: 'form' do
                   .form-group
-                    = number_field_tag :min,'',  class: ' form-control form-control-sm', placeholder: 'От'
+                    = number_field_tag :min,'', class: ' form-control form-control-sm', placeholder: 'От'
                   .form-group
-                    = number_field_tag :max,'',  class: 'form-control form-control-sm', placeholder: 'До'
+                    = number_field_tag :max,'', class: 'form-control form-control-sm', placeholder: 'До'
                   .from-group.mx-auto
-                    = button_tag(type: 'submit', class: 'btn btn-info btn-block btn-sm') do
-                      %i.fa.fa-search
+                    = submit_tag 'Показать', class: 'btn btn-info btn-block btn-sm'
           %li.text-uppercase.dropdown.nav-item{role: "presentation"}
             = link_to '', class: 'nav-link dropdown-toggle', data: {toggle: 'dropdown'} do
               Выпускные

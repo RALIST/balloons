@@ -12,8 +12,8 @@ class Delivery::CompositionsController < Delivery::DeliveryController
   set_meta_tags title: "Композиция № #{@comp.id}",
                 reverse: true,
                 description: "Композиция из воздушных шаров на #{tags.join(', ')}"
-  @tag = Tag.find(params[:tag_id]) if params[:tag_id]
-  @receiver = Receiver.find(params[:receiver_id]) if params[:receiver_id]
+  @tag = Tag.friendly.find(params[:tag_id]) if params[:tag_id]
+  @receiver = Receiver.friendly.find(params[:receiver_id]) if params[:receiver_id]
   end
 
 end

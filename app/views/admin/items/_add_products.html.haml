@@ -1,6 +1,6 @@
 .col-md-4.border-right
   %h4 Латексные шары без рисунка
-  = form_tag admin_add_item_path do
+  = form_tag admin_add_item_path, remote: true do
     .row
       .col-md-8
         .form-group
@@ -11,7 +11,7 @@
       .col-md-12.text-right
         = submit_tag 'Добавить товар', class: 'btn btn-info'
   %h4 Фольгированые шары без рисунка
-  = form_tag admin_add_item_path do
+  = form_tag admin_add_item_path, remote: true do
     .row
       .col-md-8
         .form-group
@@ -33,7 +33,7 @@
   /     .col-md-12.text-right
   /       = submit_tag 'Добавить товар', class: 'btn btn-info'
   %h4 Товары для композиций
-  = form_tag admin_add_item_path do
+  = form_tag admin_add_item_path, remote: true do
     .row
       .col-md-8
         .form-group

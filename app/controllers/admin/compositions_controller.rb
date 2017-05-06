@@ -53,6 +53,7 @@ class Admin::CompositionsController < Admin::AdminController
   end
 
   def add_item
+    @products = @comp.products.uniq
     @product = Product.find(params[:item])
     params[:count].to_i.times do
       @comp.products.push(@product)

@@ -2,40 +2,18 @@
   .row
     .col-md-4
       = image_tag @comp.img.url(:thumb), class: 'img-responsive', style: 'margin: auto;'
-      = link_to 'Обновить цену', admin_update_price_path(@comp), class: 'btn btn-info btn-block'
     .col-md-8
       .row
         .col-md-8
           .h4.bg-brand Товары в композиции
           .items.text-left
-            %table.table
-              %thead
-                %th
-                %th
-                %th
-                  Кол-во
-              - @products.each do |product|
-                %tr.item{data: {product_id: "#{product.id}"}}
-                  %td
-                    .popover-img{style: 'display: none;'}
-                      = image_tag product.image(:small)
-                  %td
-                    = link_to admin_product_path(product) do
-                      - case product.type.name
-                      - when 'латексные шары'
-                        = "#{product.size.in_inch.to_i}''(#{product.size.in_cm.to_i}см) #{product.texture.name} #{product.tone.name}"
-                      - when 'фольгированные шары'
-                        - if product.size
-                          = "#{product.size.in_inch.to_i}''(#{product.size.in_cm.to_i}см)"
-                        = "#{product.foil_form.name} #{product.tone.name}"
-                      - when 'товары для композиций'
-                        = "#{product.size.in_inch.to_i}''"
-                        = product.name
-
-                  %td
-                    = @comp.products.where(id: product.id).count
-                  %td
-                    = link_to 'Удалить', admin_remove_item_path(@comp, product_id: product.id)
+          %table.table
+            %thead
+              %th
+              %th
+              %th
+            %tbody#products
+              = render @products,  partial: "admin/products/product", locals: {product: @product}
         .col-md-4
           .h4.bg-brand Повод/Кому
           - @comp.tags.each do |tag|
@@ -49,9 +27,9 @@
 
       .row
         .col-md-8.text-right
-          .h3.border-top
+          .h3.border-top.price
             = @comp.price
-  .row
+  .row.my-5
     .col-md-12
       %h2 Добавить параметры
     = render 'admin/items/add_products'

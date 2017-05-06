@@ -1,2 +1,4 @@
-$('.items').html('<%= j(render "admin/compositions/item")%>');
+
+$('#products').append('<%= j(render @product)%>');
 $('.price').html('<%= @comp.price %>');
+

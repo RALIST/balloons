@@ -18,7 +18,7 @@ class Admin::ProductsController < Admin::AdminController
 
 
   def show
-
+    @product = Product.find(params[:item])
   end
 
   def edit

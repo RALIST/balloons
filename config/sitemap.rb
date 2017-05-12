@@ -40,5 +40,6 @@ SitemapGenerator::Sitemap.create do
   add '/prices'
   add '/contacts'
   add '/lp'
-
+  add 'graduations/sadik'
+  add 'graduations/shkola'
 end

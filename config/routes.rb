@@ -78,9 +78,9 @@ Rails.application.routes.draw do
         resources :compositions, only: :show, path: ''
       end
       scope '/graduations' do
-        get 'садик', to: 'graduations#kg', as: :kg
-        get 'школа', to: 'graduations#school', as: :school
-        get 'университет', to: 'graduations#univ', as: :univ
+        get 'sadik', to: 'graduations#kg', as: :kg
+        get 'shkola', to: 'graduations#school', as: :school
+        get 'universitet', to: 'graduations#univ', as: :univ
       end
       post '/add_to_cart/:id',          to: 'carts#add_to_cart',            as: :add_to_cart
       post '/remove_from_cart/:id',     to: 'carts#remove_from_cart',       as: :remove_from_cart

@@ -6,7 +6,7 @@
     %meta{property: 'og:image', content: "#{image_url 'logo2.png'}"}
     %meta{name: "google-site-verification", content:"7YdqoinSILjL2WHYMwi8xu3uUDgshmVKYp6GKfoBavo"}
     %meta{name: "yandex-verification", content: "55c1242f77b26454"}
-    = render 'delivery/yacounter'
+    = render 'delivery/ga'
     = display_meta_tags
     = favicon_link_tag 'favicons/favicon-32.png'
     = favicon_link_tag 'favicons/favicon-120.png', rel: 'apple-touch-icon'
@@ -30,4 +30,5 @@
       = yield
     %footer
       =render 'delivery/layouts/footer'
+  = render 'delivery/ym'
 

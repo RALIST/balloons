@@ -53,7 +53,15 @@
               %li.h5
                 = link_to price_range_path(min: 8000), class: 'nav-link' do
                   От 8000
-
+          %li.dropdown.nav-item
+            .h2.d-flex.justify-content-between
+              Выпускные
+              %i.fa.fa-caret-down
+            %ul.list-unstyled.dropdown-menus
+              %li.h4
+                = link_to 'из садика', kg_path, class: 'nav-link'
+              %li.h4
+                = link_to 'из школы', school_path, class: 'nav-link'
     .row
       - if @cart.positions.any?
         .resp-cart

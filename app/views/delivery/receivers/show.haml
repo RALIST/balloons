@@ -1,6 +1,7 @@
 .container.my-3
   - breadcrumb @person
-  %h1.h2.text-center Оформление воздушными шарами #{@person.title.capitalize}
+  %h1.h2.text-center
+    Оформление воздушными шарами #{@person.title.capitalize}
   .row.justify-content-around.card-deck.compositions
     = render partial: 'delivery/main/thumb_composition', collection: @compositions, as: :c
   .row.text-center

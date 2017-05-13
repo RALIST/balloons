@@ -1,6 +1,7 @@
 .container.my-3
   - breadcrumb @tag
-  %h1.h2.text-center Оформление воздушными шарами на #{@tag.name}
+  %h1.h2.text-center
+    Оформление воздушными шарами на #{@tag.name}
     .small
       Найдено #{@compositions.count} композиций
   .row.justify-content-around.card-deck.compositions

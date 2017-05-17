@@ -16,7 +16,7 @@ SitemapGenerator::Sitemap.create do
     add composition_path(c)
   end
 
-  Tag.composition_tags.find_each do |tag|
+  Tag.composition_tags.each do |tag|
     add tag_path(tag)
   end
 

@@ -20,7 +20,7 @@ SitemapGenerator::Sitemap.create do
     add tag_path(tag)
   end
 
-  Receiver.find_each do |r|
+  Receiver.all.select("distinct on (title) *").each do |r|
     add receiver_path(r)
   end
 

@@ -21,7 +21,7 @@ SitemapGenerator::Sitemap.create do
   end
 
   Receiver.find_each do |r|
-    add person_path(r.title)
+    add receiver_path(r)
   end
 
   prices = Composition.availible.pluck(:price)

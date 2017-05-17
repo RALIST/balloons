@@ -16,7 +16,7 @@ SitemapGenerator::Sitemap.create do
     add composition_path(c)
   end
 
-  Tag.find_each do |tag|
+  Tag.select("distinct on (name) * ").find_each do |tag|
     add tag_path(tag)
   end
 

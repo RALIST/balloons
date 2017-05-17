@@ -8,6 +8,7 @@ SitemapGenerator::Sitemap.adapter = SitemapGenerator::S3Adapter.new(fog_provider
 SitemapGenerator::Sitemap.public_path = 'tmp/'
 SitemapGenerator::Sitemap.sitemaps_host = "https://s3-us-west-2.amazonaws.com/flashcards123"
 SitemapGenerator::Sitemap.sitemaps_path = 'sitemaps/'
+SitemapGenerator::Sitemap.compress = false
 
 SitemapGenerator::Sitemap.create do
 

@@ -93,7 +93,7 @@ Rails.application.routes.draw do
       get '/search',                    to: 'main#search',                  as: :search
       get '/cart',                      to: 'carts#show',                   as: :my_cart
       post '/by_price',                 to: 'main#by_price'
-      get '/by_price',                 to: 'main#by_price',                as: :price_range
+      get '/by_price',                  to: 'main#by_price',                as: :price_range
       get '/account',                   to: 'users#show',                   as: :account
       get '/thank_you',                 to: 'main#thanks',                  as: :thanks
       get '/contacts', to: 'main#contacts', as: :contacts

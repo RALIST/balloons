@@ -7,13 +7,14 @@ class Delivery::CompositionsController < Delivery::DeliveryController
   end
 
   def show
-  @comp = Composition.find(params[:id])
-  tags = @comp.tags.map(&:name)
-  set_meta_tags title: "Композиция № #{@comp.id}",
-                reverse: true,
-                description: "Композиция из воздушных шаров на #{tags.join(', ')}"
-  @tag = Tag.friendly.find(params[:tag_id]) if params[:tag_id]
-  @receiver = Receiver.friendly.find(params[:receiver_id]) if params[:receiver_id]
+    @comp = Composition.find(params[:id])
+    @comp.update_attributes(views: @comp.views + 1)
+    tags = @comp.tags.map(&:name)
+    set_meta_tags title: "Композиция № #{@comp.id}",
+                  reverse: true,
+                  description: "Композиция из воздушных шаров на #{tags.join(', ')}"
+    @tag = Tag.friendly.find(params[:tag_id]) if params[:tag_id]
+    @receiver = Receiver.friendly.find(params[:receiver_id]) if params[:receiver_id]
   end
 
 end

@@ -7,8 +7,6 @@ Rails.application.routes.draw do
     mount LetsencryptPlugin::Engine, at: '/'
   end
 
-  match "/404", to: "errors#not_found", :via => :all
-  match "/500", to: "errors#internal_server_error", :via => :all
 
   constraints ShopSubdomain do
     scope module: 'shop' do
@@ -99,6 +97,8 @@ Rails.application.routes.draw do
       get '/contacts', to: 'main#contacts', as: :contacts
       get '/lp', to: 'main#lp', as: :lp
       get '/prices', to: 'main#prices'
+      match "/404", to: "errors#not_found", :via => :all
+      match "/500", to: "errors#internal_server_error", :via => :all
       constraints(format: /[a-z]+(\.[a-z]+)?/) do
         resources :sitemaps, only: :show
         get '/sitemap',  to:  'sitemaps#show'

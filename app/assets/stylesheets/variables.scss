@@ -1,8 +1,9 @@
 
 // Colors
- $brand-primary: #54b5a1;
+ $brand-primary: #000000;
  // #68c4af;
- $brand-secondary: #F68294;
+ $brand-secondary: #ff4ba9;
+ $brand-info: #9555bd;
  // Dropdowns
  $dropdown-link-color: $brand-secondary;
  // Navs
@@ -14,13 +15,16 @@ $btn-info-bg: $brand-secondary;
 $input-border-focus: $brand-secondary;
 $headings-color: darken($brand-primary, 10%);
 // Fonts
-$font-family-serif: 'Lora', serif;
-$font-family-sans-serif: 'Open Sans', sans-serif;
-$font-family-base: $font-family-sans-serif;
+$font-family-serif: 'Roboto Slab', serif;
+$font-family-sans-serif: 'Roboto', sans-serif;;
+$font-family-base: $font-family-serif;
+
 
 
 @import 'bootstrap/variables';
 @import 'bootstrap/mixins';
+
+
 
 
 @mixin make-col-xs( $cols ) {

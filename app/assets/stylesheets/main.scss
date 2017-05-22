@@ -27,45 +27,7 @@
   padding: 0;
 }
 
-#menu {
-  margin: 1rem 0 1rem 0;
-  border-top: 1px solid $brand-secondary;
-  border-bottom: 1px solid $brand-secondary;
-  .menu-options {
-    @include make-col-lg(12);
-    @include make-col-xl(12);
-    font-size: 1rem;
-  }
-  .delimeter {
-    @include make-col-xl(12);
-    @include make-col-lg(12);
-  }
-  .nav-link.active,
-  .nav-item.show .nav-link {
-    background-color: $nav-link-hover-bg;
-    color: white;
-    &:hover {
-      background-color: $nav-link-hover-bg;
-    }
-  }
-  .nav-link {
-    color: $brand-secondary;
-  }
-  .dropdown-item a {
-    color: $nav-link-hover-bg;
-  }
 
-  .dropdown-item:active a{
-    color: white;
-  }
-  .nav-link {
-    font-weight: 700;
-  }
-}
-
-// .offer-2 {
-//   margin-bottom: 1em;
-// }
 
 #help {
   @include media-breakpoint-up(lg) {
@@ -80,4 +42,20 @@
 
 #map {
   height: 400px;
+}
+
+.btn-info {
+  border-radius: 20px;
+}
+
+.text-secondary{
+  color: $brand-secondary;
+}
+
+.bg-info {
+  background: $brand-info;
+}
+
+.bread{
+  margin-top: 100px !important;
 }

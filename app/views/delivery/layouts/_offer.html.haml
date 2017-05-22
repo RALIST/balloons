@@ -1,46 +1,31 @@
-.row.jumb
-  .offer.jumbotron.jumbotron-fluid.mb-0
-    .container
-      %h1.offer-text.text-center.col-6.px-4
-        %span.italic
-          Мы делаем
-        %span.italic
-          \~уникальное~
-        %span.italic
-          оформление воздушными шарами
-        .mt-4
-          = button_tag 'Оставить заявку', class: 'btn btn-success btn-lg btn-block', data:{ toggle: 'modal', target: '#call-modal'}
-        .suboffer
-          Оставьте заявку, и мы бесплатно подберем варианты оформления под ваш праздник и бюджет
-  .offer-details.px-2
-    .row.no-gutters
-      .detail.text-center
-        %span.fa-stack.fa-3x
-          %i.fa.fa-circle.fa-stack-2x
-          %i.fa.fa-motorcycle.fa-stack-1x.fa-inverse
-        %h4.text-white
-          Бесплатная доставка
-          %br
-          %small.text-white
-            Доставляем бесплатно при заказе от 1000 руб. в пределах Ижевска
-            с 8:00 до 21:00
-      .detail.text-center
-        %span.fa-stack.fa-3x
-          %i.fa.fa-circle.fa-stack-2x
-          %i.fa.fa-birthday-cake.fa-stack-1x.fa-inverse
-        %h4.text-white
-          Бесплатное оформление
-          %br
-          %small.text-white
-            Оформим в любом месте и в любое время совершенно бесплатно!
-      .detail.text-center
-        %span.fa-stack.fa-3x
-          %i.fa.fa-circle.fa-stack-2x
-          %i.fa.fa-thumbs-up.fa-stack-1x.fa-inverse
-        %h4.text-white
-          Качественные материалы
-          %br
-          %small.text-white
-            Мы гарантируем минимум 3 дня полета проклеенных шаров!
+.container-fluid#offer
+  .container.offer-text.p-0
+    .row
+      %h1.offer.font-weight-bold
+        = image_tag 'hat.png'
+        .display-1.strong.text-uppercase
+          Авторское
+        оформление праздников воздушными шарами
+    .row.mt-3
+      .offer-details
+        %ul.list-unstyled.list-inline.text-white.d-flex.align-items-center
+          %li.list-inline-item.d-flex.align-items-center
+            %i.fa.fa-check-circle-o.fa-3x.mr-2
+            %span.align-self-center
+              Уникальный дизайн
+          %li.list-inline-item.d-flex.align-items-center
+            %i.fa.fa-check-circle-o.fa-3x.mr-2
+            %span.align-self-center
+              Любой бюджет
+          %li.list-inline-item.d-flex.align-items-center
+            %i.fa.fa-check-circle-o.fa-3x.mr-2
+            %span.align-self-center
+              Бесплатная доставка
+    .row#button
+      .col-12.my-4
+        = button_tag 'Оставить заявку', class: 'btn btn-info btn-lg strong', data:{ toggle: 'modal', target: '#call-modal'}
+    .row.hidden-lg-down
+      .col-6.text-white.detail.text-justify
+        У нас не самые низкие цены в городе, и мы это признаем. Но мы принципиально не работаем с некачественными материалами и по принципу «и так сойдет». Поэтому, если вам не важно, где, как и из чего сделаны шарики и какие воспоминания останутся у вас после праздника, то вам не стоит обращаться к Шариковой фее.
 
 

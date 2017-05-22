@@ -25,50 +25,21 @@
 
 }
 
-.slider-nav {
-  i {
-    font-size: 2rem;
-    padding: 0 1rem;
-    cursor: pointer;
-    &:hover{
-      color: $brand-secondary;
-    }
-  }
-  img {
-    cursor: pointer;
-  }
-}
+// .slider {
+//   i {
+//     font-size: 2rem;
+//     padding: 0 1rem;
+//     cursor: pointer;
+//     &:hover{
+//       color: $brand-secondary;
+//     }
+//   }
+//   img {
+//     cursor: pointer;
+//   }
+// }
 
-#insta-slider {
-  i {
-    font-size: 2.5em;
-    cursor: pointer;
-    &:hover{
-      color: $brand-secondary;
-    }
-  }
-  .fa-chevron-left {
-    position: absolute;
-    left: 10px;
-    z-index: 1010;
-    top: 50%;
-    color: darken($brand-secondary, 10%);
-    padding: 1rem;
-  }
-  .fa-chevron-right {
-    position: absolute;
-    right: 10px;
-    z-index: 1010;
-    top: 50%;
-    color: darken($brand-secondary, 10%);
-    padding: 1rem;
-  }
-    @include media-breakpoint-down(md){
-    i{
-      font-size: 4rem;
-    }
-  }
-}
+
 
 .insta {
   padding: 0 !important;

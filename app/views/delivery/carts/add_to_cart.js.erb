@@ -1,6 +1,7 @@
 $(document).on('ajaxComplete', function(){
   $("a.add-to-cart<%=@composition.id%>").hide().closest('div').html("<%=j link_to 'Перейти в корзину', cart_path(@cart), class: 'btn btn-success btn-block'%>")
-  $('.cart-link .badge span').html('<%= @cart.total_price %>');
+  $('#cart #count').html("<%= pluralize(@cart.positions.count, 'товар', 'товара') %>");
+  $('#cart #sum').html('<%= @cart.total_price.round(0) %>')
   $('.icon-wrapper .badge').html('<%= @cart.positions.count %>');
   $('#responsive').html('<%= j(render "delivery/layouts/resp_menu")%>');
 });

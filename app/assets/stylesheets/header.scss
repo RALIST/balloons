@@ -1,5 +1,8 @@
-.header {
-  @include make-row();
+#header {
+  z-index: 900;
+  @include media-breakpoint-up(md){
+    margin-top: 2rem;
+  }
 }
 
 #top {
@@ -41,8 +44,11 @@
 }
 
 .header-logo {
-  @include make-col-xl(4);
-  @include make-col-lg(4);
+  @include make-col-xl(3);
+  @include make-col-lg(3);
+  #logo{
+    position: absolute;
+  }
 }
 
 .header-logo-responsive {
@@ -51,12 +57,10 @@
   @include make-col-xs(6);
 }
 .header-contacts {
-  @include make-col-xl(8);
-  @include make-col-lg(8);
-  text-align: right;
+  @include make-col-xl(9);
+  @include make-col-lg(9);
   .social {
-    font-size: 2em;
-    width: 100%;
+    font-size: 1.5em;
     a {
       color: $brand-secondary;
       &:hover {
@@ -73,6 +77,40 @@
     }
   }
 }
+
+#menu {
+  .menu-options {
+    width: 100%;
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+  // .delimeter {
+  //   @include make-col-xl(12);
+  //   @include make-col-lg(12);
+  // }
+  // .nav-link.active,
+  // .nav-item.show .nav-link {
+  //   background-color: $nav-link-hover-bg;
+  //   color: white;
+  //   &:hover {
+  //     background-color: $nav-link-hover-bg;
+  //   }
+  // }
+  // .nav-link {
+  //   color: $brand-secondary;
+  // }
+  // .dropdown-item a {
+  //   color: $nav-link-hover-bg;
+  // }
+
+  // .dropdown-item:active a{
+  //   color: white;
+  // }
+  // .nav-link {
+  //   font-weight: 700;
+  // }
+}
+
 
 
 // <---------------------- responsive-menu ---------------------->

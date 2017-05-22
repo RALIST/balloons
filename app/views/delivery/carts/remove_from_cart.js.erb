@@ -9,3 +9,10 @@ $('.cart-link .badge span').html('<%= @cart.total_price %>');
   $('#responsive').html('<%= j(render "delivery/layouts/resp_menu")%>');
   $('.cart').html('<h2> В вашей корзине пока ничего нет!<br><a class="btn btn-info" href="/">Добавить в корзину</a></h2>')
 <% end %>
+
+$(document).on('ajaxComplete', function(){
+  $('#cart #count').html("<%= pluralize(@cart.positions.count, 'товар', 'товара') %>");
+  $('#cart #sum').html('<%= @cart.total_price.round(0) %>')
+  $('.icon-wrapper .badge').html('<%= @cart.positions.count %>');
+  $('#responsive').html('<%= j(render "delivery/layouts/resp_menu")%>');
+});

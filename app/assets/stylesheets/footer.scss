@@ -1,38 +1,52 @@
 .footer {
-  margin-top: 4rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
-.footer-menu {
-
-  @include make-col(12);
-  margin: 2em 0;
-  // border-bottom: 1px solid #ffffff;
-
-  ul {
-    width: 100%;
-    li > a {
-      color: white;
+.footer-logo {
+  @include make-col-xl(2);
+  @include make-col-lg(2);
+}
+.footer-contacts {
+  @include make-col-xl(10);
+  @include make-col-lg(10);
+  .social {
+    i {
+      color: $brand-secondary;
     }
+
   }
-}
-.social-buttons {
-  @include make-col(12);
-  ul {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    justify-content: space-around;
-    margin: 1rem 0;
-  }
-}
-.company {
-  @include make-col(12);
-  color: #ffffff;
 }
 
-.footer-logo{
-  @include make-col(2);
-  @include make-col-offset(5);
-}
+// .footer-menu {
+//   @include make-col(12);
+//   margin: 2em 0;
+
+//   ul {
+//     width: 100%;
+//     li > a {
+//       color: white;
+//     }
+//   }
+// }
+// .social-buttons {
+//   @include make-col(12);
+//   ul {
+//     display: -webkit-box;
+//     display: -moz-box;
+//     display: -ms-flexbox;
+//     display: -webkit-flex;
+//     display: flex;
+//     justify-content: space-around;
+//     margin: 1rem 0;
+//   }
+// }
+// .company {
+//   @include make-col(12);
+//   color: #ffffff;
+// }
+
+// .footer-logo{
+//   @include make-col(2);
+//   @include make-col-offset(5);
+// }

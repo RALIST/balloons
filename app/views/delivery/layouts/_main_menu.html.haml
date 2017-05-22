@@ -2,22 +2,22 @@
   .container
     .row
       .menu-options
-        %ul.nav.nav-pills.nav-justified.align-items-center
-          %li.text-uppercase.dropdown.nav-item{role: "presentation"}
-            = link_to '', class: 'nav-link dropdown-toggle', data: {toggle: 'dropdown'} do
+        %ul.list-unstyled.nav.justify-content-between
+          %li.text-uppercase.dropdown{role: "presentation"}
+            = link_to '', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
               Повод
             %ul.dropdown-menu{style: 'aria-labelledby="dropdownMenuButton"'}
               - @menu_tags.each do |tag|
                 %li.text-capitalize.dropdown-item= link_to tag.name, tag_path(tag)
-          %li.text-uppercase.dropdown.nav-item{role: "presentation"}
-            = link_to '', class: 'nav-link dropdown-toggle', data: {toggle: 'dropdown'} do
+          %li.text-uppercase.dropdown{role: "presentation"}
+            = link_to '', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
               Кому
             %ul.dropdown-menu
               - @menu_receivers.each do |p|
                 %li.text-capitalize.dropdown-item
                   = link_to p.title, receiver_path(p)
-          %li.text-uppercase.dropdown.nav-item{role: "presentation"}
-            = link_to '', class: ' nav-link dropdown-toggle', data:{toggle: 'dropdown'} do
+          %li.text-uppercase.dropdown{role: "presentation"}
+            = link_to '', class: 'dropdown-toggle', data:{toggle: 'dropdown'} do
               По цене
             %ul.dropdown-menu
               %li.px-2
@@ -28,28 +28,17 @@
                     = number_field_tag :max,'', class: 'form-control form-control-sm', placeholder: 'До'
                   .from-group.mx-auto
                     = submit_tag 'Показать', class: 'btn btn-info btn-block btn-sm'
-          %li.text-uppercase.dropdown.nav-item{role: "presentation"}
-            = link_to '', class: 'nav-link dropdown-toggle', data: {toggle: 'dropdown'} do
+          %li.text-uppercase.dropdown{role: "presentation"}
+            = link_to '', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
               Выпускные
             %ul.dropdown-menu
               %li.text-capitalize.dropdown-item
                 = link_to 'Из садика', kg_path
               %li.text-capitalize.dropdown-item
                 = link_to 'Из школы', school_path
-
           %li.text-uppercase.nav-item
-            = link_to 'Для бизнеса', business_index_path, class: 'nav-link'
+            = link_to 'Для бизнеса', business_index_path
           %li.text-uppercase.nav-item
-            = link_to my_cart_path, class: 'nav-link cart-link' do
-              .badge.badge-success
-                %span
-                  = @cart.total_price if @cart.positions.any?
-                %i.fa.fa-rub
-              %i.fa.fa-shopping-cart{style: 'aria-hidden="true"'}
-              Корзина
-
-
-.container-fluid
-  .row.bg-brand
-    .col-12.text-center.h4.offer-2.m-0.text-white.py-2
-      Бесплатная доставка по городу от 1000 рублей!
+            = link_to 'Контакты', contacts_path
+          %li.text-uppercase.nav-item
+            = link_to 'Отзывы', root_path

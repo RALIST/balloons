@@ -49,9 +49,11 @@ class Delivery::MainController < Delivery::DeliveryController
   end
 
   def lp
+    set_meta_tags title: 'Заказать оформление воздушными шарами недорого с бесплатной доставкой по Ижевску в компании Шариковая Фея',
+                  description: "Доставка на дом и оформление воздушными шарами с гелием круглосуточно по недорогой цене в Ижевске в компании Шариковая Фея"
     @disable_header = true
     cookies.permanent[:landing] = true
-    @compositions = Composition.availible.offset(rand(Composition.availible.count)).limit(10)
+    @compositions = Composition.availible
   end
 
   def prices

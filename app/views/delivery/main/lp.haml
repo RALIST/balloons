@@ -1,39 +1,105 @@
-= render 'delivery/layouts/lp_header'
-.container-fluid
-  = render 'delivery/layouts/offer'
-  %h1.text-center.mt-3#examples Примеры наших оформлений
+= render 'delivery/layouts/header'
+= render 'delivery/layouts/offer'
+.container-fluid.mt-4
+  %h2.text-center
+    Примеры наших оформлений
+    .small
+      Более 1000 клиентов доверили нам оформление своих праздников
   .row
-    .col-12.bg-inverse.text-white.p-3
-      .slider-for.d-flex.align-items-end
-        - @compositions.availible.limit(10).each do |c|
-          .slider-img.bg-inverse.text-white.d-flex.align-items-end.justify-content-center
-            = image_tag c.img.url(:preview), class: 'img-fluid'
-      .slider-nav.d-flex.align-items-center
-        - @compositions.availible.limit(10).each do |c|
-          .slider-img-small.p-2
-            = image_tag c.img.url(:small), class: 'img-fluid'
-      .mt-4.text-center
-        = link_to 'Больше наших работ', root_path, class: 'btn btn-info btn-lg'
-  #recommends
-    %h1.text-center.mt-5
-      Отзывы о наc
-.container
-  .row
-    #insta-slider.col-12.p-0
-      .insta.card.text-center
-        <iframe src="https://www.instagram.com/p/BInfQNtBejD/embed/captioned" width="320" height="550" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
-      .insta.card.text-center
-        <iframe src="https://www.instagram.com/p/BDldnaSrNiv/embed/captioned" width="320" height="550" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
-      .insta.card.text-center
-        <iframe src="https://www.instagram.com/p/BJR3M4ZAO5h/embed/captioned" width="320" height="500" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
-      .insta.card.text-center
-        <iframe src="https://www.instagram.com/p/BIuPso8BgZI/embed/captioned" width="320" height="500" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
-      .insta.card.text-center
-        <iframe src="https://www.instagram.com/p/BMJGVt8DyXd/embed/captioned" width="320" height="500" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
-      .insta.card.text-center
-        <iframe src="https://www.instagram.com/p/BMLqxG0Bly3/embed/captioned" width="320" height="500" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
-  .mt-4
-    = button_tag 'Оставить заявку', class: 'btn btn-success btn-lg btn-block', data:{ toggle: 'modal', target: '#call-modal'}
+    .slider
+      - @compositions.each do |c|
+        = image_tag c.img(:thumb)
+.container.mt-4
+  .row.align-items-center
+    .lead.col-6
+      Вы можете выбрать более чем из 300 готовых композиций для Вашего праздника!
+    .col-6
+      = link_to 'В каталог', root_path, class: 'btn btn-info btn-lg'
+.container-fluid.mt-4.bg-grey.hidden-lg-down
+  .row.line-inverse
+  #screen2
+    %h2.text-center.text-white.display-5
+      %strong
+        Почему
+        %br
+        мы?
+    .row
+      .col-5.pr-5
+        %ul.list-unstyled.text-right
+          %li.mb-5
+            %i.fa.fa-calendar.fa-2x
+            %br
+            %strong
+              Доступность:
+            %p
+              в любой день недели и в любое время суток.
+              %br
+              Мы работаем всегда.
+          %li.mb-5
+            %i.fa.fa-certificate.fa-2x
+            %br
+            %strong
+              Профессионализм:
+            %p
+              у нас в штате профессиональные оформители и аэродизайнеры с дипломами.
+          %li.mb-5
+            %i.fa.fa-briefcase.fa-2x
+            %br
+            %strong
+              Серьезность:
+            %p
+              для нас это не хобби и не развлечение, а полноценная работа, за которую мы отвечаем деньгами и репутацией.
+      .col-2
+      .col-5.pl-5
+        %ul.list-unstyled.text-left
+          %li.mt-5
+            %i.fa.fa-tachometer.fa-2x
+            %br
+            %strong
+              Скорость:
+            %p
+              от заявки до готового оформления
+              %br
+              в среднем 2 часа.
+          %li.mt-5
+            %i.fa.fa-diamond.fa-2x
+            %br
+            %strong
+              Уникальность:
+            %p
+              мы постоянно в поиске уникальных и инновационных дизайнерских решений и не боимся применять их на практике.
+          %li.mt-5
+            %i.fa.fa-percent.fa-2x
+            %br
+            %strong
+              Выгода:
+            %p
+              для всех наших постоянных клиентов у нас специальная скидка и приятные подарки.
+  .row.line
+.container-fluid.my-5
+  %h2.text-center
+    Отзывы наших клиентов
+  = render 'delivery/layouts/lp_insta'
 
+.container-fluid.my-4.bg-brown
+  .line-inverse
+  .container
+    %h2.text-center.mt-3.mb-5.display-5
+      Гарантии
+    .row
+      .col-6
+        %h3
+          Качество
+        %P.text-justify
+          Если наши шары продержаться менее 3 дней, то мы привезем новые за свой счет. Если вам попался бракованный шар, то мы его обменяем в тот же день.
+      .col-6
+        %h3
+          Красота
+        %p.text-justify
+          В отличии от других, мы не стараемся объять все направления, связанные с праздниками (цветы, подарки, кенди-бары). Мы целенаправленно развиваемся в одном направлении, что позволяет нам всегда быть в курсе последних трендов аэродизайна и инноваций.
+    .row.text-center
+      .col-12.my-4
+        = button_tag 'Оставить заявку', class: 'btn btn-info btn-lg strong', data:{ toggle: 'modal', target: '#call-modal'}
+  .line
 = render 'delivery/main/contacts'
 = render 'delivery/layouts/call'

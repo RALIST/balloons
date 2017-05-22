@@ -1,28 +1,31 @@
-.container-fluid
-  .row#contacts.my-4
-    %h2.text-center{style: 'width: 100%;'}
-      Контакты
+.container-fluid.mt-5
+  %h2.text-center
+    Контакты
+  .row#contacts
     .col-12.p-0#map
-
-.container
-  .col-12.card
-    %h3.mb-3 Шариковая фея™
-    .card-block
-      .lead
-        %i.fa.fa-mobile
-        + 7 (912) 453 25 98
-        %br
-        %i.fa.fa-map-marker
-        ул. Николая Островского, 25,
-        офис 6
-      %p.mt-3
-        ООО "ДЕЛИРИУМ"
-        %br
-        ИНН: 1832110279
-        %br
-        КПП: 183201001
-        %br
-        ОГРН: 1131832004831
+    .map-block
+      = image_tag 'map-block.png', class: 'img-fluid'
+      #text-contacts
+        %h3.text-white
+          Шариковая фея™
+        %ul.list-unstyled
+          %li.text-white.d-flex.align-items-center.my-1
+            %i.fa.fa-phone-square.fa-2x.pr-3
+            +7 (912) 453-25-98
+          %li.text-white.d-flex.align-items-center.my-1
+            %i.fa.fa-map-marker.fa-2x.pr-4
+            ул. Н. Островского, 25, офис 6
+        .small
+          .mt-3.text-white
+            ООО "ДЕЛИРИУМ"
+            %br
+            ИНН: 1832110279
+            %br
+            КПП: 183201001
+            %br
+            ОГРН: 1131832004831
+    #balloons
+      = image_tag 'balloon-contacts.png',class: 'img-fluid'
 :javascript
   window.onload =  function(){
     yandex_map();

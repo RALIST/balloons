@@ -19,7 +19,7 @@
     color: #ffffff;
     .display-1 {
       font-family: $font-family-sans-serif;
-      background: -webkit-linear-gradient(transparent, transparent), image-url('word.png') no-repeat center;
+      background: image-url('word.png') no-repeat center;
       background: -o-linear-gradient(transparent, transparent);
       background-size: contain;
       background-position: center;

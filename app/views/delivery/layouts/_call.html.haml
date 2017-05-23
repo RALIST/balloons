@@ -1,22 +1,26 @@
 .modal.fade{id: "call-modal",  tabindex: "-1",  role: "dialog"}
   .modal-dialog#call{role: "document"}
     .modal-content
-      .modal-header.align-items-start
-        .h3.modal-title{id: "myModalLabel"}
-          Нужна помощь?
-          %p.small.text-muted
-            Оставьте заявку на обратный звонок или напишите нам в чате!
-            %br
-            Мы отвечаем на заявки ежедневно с 8:00 до 21:00
-        = link_to '',class: "close",  data: {dismiss: "modal"}, style: 'aria-label: "Close"' do
-          %span
-            &times;
+      .modal-header.text-right
+        .row.align-items-end{style:'width:100%;'}
+          .col-12.p-0
+            = link_to '',class: "close",  data: {dismiss: "modal"}, style: 'aria-label: "Close"' do
+              %span
+                &times;
       .modal-body
+        .h2.text-center.text-uppercase
+          Нужна помощь?
+        %p.text-muted.text-center
+          Оставьте заявку на обратный звонок или напишите нам в чате!
+          %br
+          Мы отвечаем на заявки ежедневно с 8:00 до 21:00
         = render 'delivery/layouts/form_to_call'
-        .h4.text-center.bg-info.text-white.py-2
-          Мы доступны в
-          %br
-          WhatsApp Viber Telegram
-          %br
-          +7 912 453 25 98
+        .row
+          #form-call
+            .h4.text-center.bg-info.text-white.py-2
+              Мы доступны в
+              %br
+              WhatsApp Viber Telegram
+              %br
+              +7 912 453 25 98
 

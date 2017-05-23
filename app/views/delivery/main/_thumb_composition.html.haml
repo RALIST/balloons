@@ -1,29 +1,37 @@
-.composition
+.composition.my-3
   .card.justify-content-around.align-items-center
-    - case controller.controller_name
-    - when 'receivers'
-      = link_to receiver_composition_path(@person, c), class: 'link-to-page' do
-        = image_tag c.img(:thumb), class: 'img-fluid'
-    - when'tags'
-      = link_to tag_composition_path(@tag, c), class: 'link-to-page' do
-        = image_tag c.img(:thumb), class: 'img-fluid'
-    - when 'main'
-      = link_to composition_path(c), class: 'link-to-page' do
-        = image_tag c.img(:thumb), class: 'img-fluid'
+    .card-image
+      - case controller.controller_name
+      - when 'receivers'
+        = link_to receiver_composition_path(@person, c), class: 'link-to-page' do
+          = image_tag c.img(:thumb), class: 'img-fluid'
+      - when'tags'
+        = link_to tag_composition_path(@tag, c), class: 'link-to-page' do
+          = image_tag c.img(:thumb), class: 'img-fluid'
+      - when 'main'
+        = link_to composition_path(c), class: 'link-to-page' do
+          = image_tag c.img(:thumb), class: 'img-fluid'
+      .line
 
-    .card-block
+    .card-block.py-2
       .text-center
         - if c.tags.any?
           Воздушные шары на
           %br
-          = c.tags.map{ |t| link_to t.name.capitalize, tag_path(t) }.join(', ').html_safe
-    .card-footer
+          = c.tags.map{ |t| link_to t.name.capitalize, tag_path(t), class: 'text-info' }.join(', ').html_safe
+    .row.align-items-center.my-3#price
       - unless @cart.compositions.include?(c)
-        .h4.text-center.card-title
-          .small
-            Цена как на фото
-          %strong
-            = number_to_currency(c.price, precision: 0)
-        = link_to 'Добавить в корзину', add_to_cart_path(c), class: "btn btn-info btn-block add-to-cart#{c.id}", id: 'ga-add-to-cart', data: {disable_with: 'Добавляем...'}, remote: true, method: :post
+        .col-6.text-left
+          .row.align-items-center
+            .small.font-weight-bold.col-6.p-0.text-right
+              Цена как
+              %br
+              на фото
+            .h4.col-6.pr-0.m-0
+              %strong
+                = c.price.round(0)
+                %i.fa.fa-ruble
+        .col-6.text-right
+          = link_to 'В корзину', add_to_cart_path(c), class: "btn btn-info btn-block add-to-cart#{c.id}", id: 'ga-add-to-cart', data: {disable_with: 'Добавляем...'}, remote: true, method: :post
       - else
         = link_to 'Перейти в корзину', cart_path(@cart), class: 'btn btn-success btn-block'

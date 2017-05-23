@@ -1,11 +1,14 @@
 .modal {
   -webkit-overflow-scrolling: hidden;
   .modal-dialog {
-    max-width: 90%;
-    margin: 30px auto;
+    min-width: 100%;
+    margin: 0;
   }
   #call {
-    max-width: 50%;
+    // max-width: 50%;
+  }
+  .modal-title{
+    width: 100%;
   }
 }
 .close {
@@ -22,4 +25,28 @@
   .modal-open {
     padding-right: 0 !important;
   }
+}
+#form-call{
+  @include make-col-xl(6);
+  @include make-col-lg(6);
+  @include make-col-md(12);
+  @include make-col-sm(12);
+  @include make-col-xs(12);
+  @include make-col-offset(3);
+  @include media-breakpoint-down(lg){
+    @include make-col-offset(0);
+  }
+}
+
+.modal-content, .modal-body, .modal-header, .modal-dialog{
+  background-color: transparent !important;
+  border: 0;
+}
+
+.modal-header{
+  border: none;
+}
+
+.modal-backdrop, .modal{
+  background-color: transparentize(#ffffff, 0.1);
 }

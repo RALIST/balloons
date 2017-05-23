@@ -1,8 +1,8 @@
-.container.my-3.bread
-  - breadcrumb @tag
-  %h1.h2.text-center
+- breadcrumb @tag
+.container.my-5
+  %h1.h2.text-center.mb-4
     Оформление воздушными шарами на #{@tag.name}
-    .small
+    .small.text-muted.mt-1
       Найдено #{@compositions.count} композиций
   .row.justify-content-around.card-deck.compositions
     = render partial: 'delivery/main/thumb_composition', collection: @compositions, as: :c

@@ -53,7 +53,7 @@ class Delivery::MainController < Delivery::DeliveryController
                   description: "Доставка на дом и оформление воздушными шарами с гелием круглосуточно по недорогой цене в Ижевске в компании Шариковая Фея"
     @disable_header = true
     cookies.permanent[:landing] = true
-    @compositions = Composition.availible
+    @compositions = Composition.availible.limit(10)
   end
 
   def prices

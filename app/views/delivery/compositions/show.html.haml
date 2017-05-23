@@ -1,9 +1,3 @@
-.container
+.container.mt-3
   - breadcrumb @comp
-  %h2
-    %span{itemprop: "name"}
-      Композиция №#{@comp.id}
-    .small
-      В корзине вы сможете изменить состав композиции
-
   = render @comp

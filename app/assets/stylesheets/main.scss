@@ -9,10 +9,21 @@
   .card {
     min-width: 100%;
     min-height: 100%;
+
+    .line {
+      position: relative;
+      bottom: 11px;
+    }
     .img-fluid {
-      max-width: 100%;
+      min-width: 100%;
       height: 100%;
       object-fit: cover;
+      border-radius: 20px 20px 0 0;
+    }
+    .card-image{
+      width: 100%;
+      height: 350px;
+      overflow: hidden;
     }
     .card-block {
       padding-bottom: 0;
@@ -44,8 +55,24 @@
   height: 400px;
 }
 
-.btn-info {
+.btn {
   border-radius: 20px;
+}
+
+.btn-info {
+  background: $brand-info;
+  border: $brand-info;
+}
+
+.btn-secondary{
+  background: $brand-secondary;
+  border: $brand-secondary;
+  color: #ffffff;
+  &:hover{
+    background: $brand-info;
+    border: $brand-info;
+    color: #ffffff;
+  }
 }
 
 .text-secondary{
@@ -56,6 +83,39 @@
   background: $brand-info;
 }
 
-.bread{
-  margin-top: 100px !important;
+.text-info{
+  color: $brand-info;
+}
+
+.bread {
+  background: image-url('bg-tags.png') no-repeat center top;
+  background-size: cover;
+  border-radius: 20px 20px 0 0;
+  .breadcrumb {
+    background: transparent;
+    // @include make-col-offset(3);
+    margin-bottom: 0;
+    padding-top: 2em;
+    padding-bottom: 0;
+    font-size: 80%;
+  }
+  .current{
+    padding-bottom: 2em;
+    .h2{
+      font-family: $font-family-sans-serif !important;
+    }
+
+  }
+}
+
+#price{
+  width: 100%;
+  .small{
+    font-size: 0.8rem;
+    line-height: 0.8rem;
+  }
+}
+
+.card {
+  border-radius: 20px !important;
 }

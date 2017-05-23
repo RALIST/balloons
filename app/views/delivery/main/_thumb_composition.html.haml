@@ -23,11 +23,11 @@
       - unless @cart.compositions.include?(c)
         .col-6.text-left.pr-0
           .row.align-items-center
-            .small.font-weight-bold.col-6.p-0.text-right
+            .small.font-weight-bold.col-5.pr-0.text-left
               Цена как
               %br
               на фото
-            .h4.col-6.pr-0.pl-2.m-0
+            .h4.col-7.pr-0.pl-2.m-0
               %strong
                 = c.price.round(0)
                 %i.fa.fa-ruble

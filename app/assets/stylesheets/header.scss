@@ -1,47 +1,10 @@
 #header {
   z-index: 900;
   @include media-breakpoint-up(md){
-    margin-top: 2rem;
+    margin-top: 1.5rem;
   }
 }
 
-#top {
-  border-bottom: 1px solid $brand-primary;
-}
-.promotion-bar {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  @include make-col(12);
-  .promotion {
-    @include make-col(12);
-    z-index: 999;
-  }
-  .promo-toggle {
-    width: 2rem;
-    border-radius: 0 0 1rem 1rem;
-    display: inline;
-    z-index: 999;
-  }
-}
-
-.top-menu-right, .top-menu-left {
-  @include make-col-lg(6);
-  @include make-col-xl(6);
-  margin-bottom: 0.5rem;
-  ul {
-    margin-bottom: 0;
-  }
-}
-
-.top-menu-middle {
-  @include make-col-lg(3);
-  @include make-col-xl(3);
-  margin-bottom: 0.5rem;
-  ul {
-    margin-bottom: 0;
-  }
-}
 
 .header-logo {
   @include make-col-xl(3);

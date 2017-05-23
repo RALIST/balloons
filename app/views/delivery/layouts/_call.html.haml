@@ -17,10 +17,17 @@
         = render 'delivery/layouts/form_to_call'
         .row
           #form-call
-            .h4.text-center.bg-info.text-white.py-2
-              Мы доступны в
-              %br
-              WhatsApp Viber Telegram
-              %br
-              +7 912 453 25 98
+            .row.align-items-center
+              .col-3
+                =image_tag 'telegram.png', class: 'img-fluid', style: 'width: 32px'
+                =image_tag 'whatsapp.png', class: 'img-fluid', style: 'width: 36px'
+                =image_tag 'viber.png', class: 'img-fluid', style: 'width: 36px'
+              .col-5
+                Мы доступны в
+                %br
+                WhatsApp Viber Telegram
+              .col-4
+                .lead
+                  %strong
+                    +7 912 453 25 98
 

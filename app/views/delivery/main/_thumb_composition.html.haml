@@ -21,13 +21,13 @@
           = c.tags.map{ |t| link_to t.name.capitalize, tag_path(t), class: 'text-info' }.join(', ').html_safe
     .row.align-items-center.my-3#price
       - unless @cart.compositions.include?(c)
-        .col-6.text-left
+        .col-6.text-left.pr-0
           .row.align-items-center
             .small.font-weight-bold.col-6.p-0.text-right
               Цена как
               %br
               на фото
-            .h4.col-6.pr-0.m-0
+            .h4.col-6.pr-0.pl-2.m-0
               %strong
                 = c.price.round(0)
                 %i.fa.fa-ruble

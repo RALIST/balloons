@@ -19,9 +19,9 @@
         = link_to root_path do
           = image_tag 'logo-round.png', class: 'img-fluid'
     .header-contacts.hidden-md-down
-      .row.align-content-start
+      .row
         .col-4
-          .row
+          .row.align-items-start
             .col-2
               .social
                 %ul.list-unstyled
@@ -34,20 +34,27 @@
                   %li
                     =link_to 'https://vk.com/bigairballoon_izh', target: :_blank do
                       %i.fa.fa-vk{"aria-hidden": "true"}
-            .col-10
-              %strong
-                Бесплатная доставка
-              %br
-              по городу от 1000 руб.
-        .col-4.text-center
-          .lead.strong
-            +7 (912) 453-25-98
-            .small.text-center
-              WhatsApp Viber Telegram
-          .mt-1
-            = button_tag 'Нужна консультация', class: 'btn btn-secondary text-uppercase strong btn-sm', data:{ toggle: 'modal', target: '#call-modal'}
+            .col-10.text-center
+              .lead.strong
+                +7 (912) 453-25-98
+                .small.text-center
+                  WhatsApp Viber Telegram
+              .mt-1
+                = button_tag 'Нужна консультация', class: 'btn btn-secondary text-uppercase strong btn-sm', data:{ toggle: 'modal', target: '#call-modal'}
         .col-4
-          .row.mt-1
+          .row.align-items-center.justify-content-center
+            .col-2.p-0
+              = image_tag 'balloon-contacts.png', class: 'img-fluid d-inline-block'
+            .col-8.pl-2.pr-0
+              .h6.text-uppercase.p-0.strong
+                Бесплатная
+                %br
+                доставка
+              .m-0
+                по городу от 1000р.
+
+        .col-4
+          .row
             .col-12.text-right
               - unless current_user
                 .text-uppercase

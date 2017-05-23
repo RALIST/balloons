@@ -20,7 +20,7 @@ class Cart < ApplicationRecord
         total += 150
       end
     else
-      total = self.total_price + 150
+      total = self.total_price
       if total < 1000
         total += 150
       end

@@ -44,13 +44,17 @@
   width: 100%;
   height: 100%;
   .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h5, h4, a {
-  font-family: $font-family-serif;
-    .color-red {
-      color: darken($brand-secondary, 10%);
-    }
+    font-family: $font-family-serif ;
   }
 }
 
+body, p, span, .lead,.btn {
+  font-family: $font-family-sans-serif !important;
+}
+
+.lead{
+  font-weight: 700;
+}
 .wrapper {
   position: relative;
   width: 100%;

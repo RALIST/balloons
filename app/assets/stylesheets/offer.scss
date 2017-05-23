@@ -171,9 +171,9 @@
 .instapost {
   @include make-col-lg(3);
   @include make-col-xl(3);
-  @include make-col-md(12);
-  @include make-col-sm(12);
-  @include make-col-xs(12);
+  @include make-col-md(10);
+  @include make-col-sm(10);
+  @include make-col-xs(10);
 }
 
 .map-block {

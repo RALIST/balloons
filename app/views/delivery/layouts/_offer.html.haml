@@ -2,25 +2,33 @@
   .container.offer-text.p-0
     .row
       %h1.offer.font-weight-bold
-        = image_tag 'hat.png'
+        = image_tag 'hat.png', class: 'hat'
         .display-1.strong.text-uppercase
+          = image_tag 'word.png', class: 'img-fluid'
           Авторское
         оформление праздников воздушными шарами
-    .row.mt-3
+    .row
       .offer-details
-        %ul.list-unstyled.list-inline.text-white.d-flex.align-items-center
-          %li.list-inline-item.d-flex.align-items-center
-            %i.fa.fa-check-circle-o.fa-3x.mr-2
-            %span.align-self-center
-              Уникальный дизайн
-          %li.list-inline-item.d-flex.align-items-center
-            %i.fa.fa-check-circle-o.fa-3x.mr-2
-            %span.align-self-center
-              Любой бюджет
-          %li.list-inline-item.d-flex.align-items-center
-            %i.fa.fa-check-circle-o.fa-3x.mr-2
-            %span.align-self-center
-              Бесплатная доставка
+        %ul.list-unstyled.list-inline.text-white
+          .row.align-items-center
+            %li.list-inline-item.m-0
+              .row.align-items-center
+                .col-3.pr-0
+                  %i.fa.fa-check-circle-o.fa-3x
+                .lead.col-9.pl-1
+                  Уникальный дизайн
+            %li.list-inline-item.m-0
+              .row.align-items-center
+                .col-3.pr-0
+                  %i.fa.fa-check-circle-o.fa-3x
+                .lead.col-9.pl-1
+                  Любой бюджет
+            %li.list-inline-item.m-0
+              .row.align-items-center
+                .col-3.pr-0
+                  %i.fa.fa-check-circle-o.fa-3x.d-inline
+                .lead.col-9.pl-1
+                  Бесплатная доставка
     .row#button
       .col-12.my-4
         = button_tag 'Оставить заявку', class: 'btn btn-secondary btn-lg strong', data:{ toggle: 'modal', target: '#call-modal'}

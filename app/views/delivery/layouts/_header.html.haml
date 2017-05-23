@@ -42,11 +42,12 @@
               .mt-1
                 = button_tag 'Нужна консультация', class: 'btn btn-secondary text-uppercase strong btn-sm', data:{ toggle: 'modal', target: '#call-modal'}
         .col-4
-          .row.align-items-center.justify-content-center
+          .row.align-items-start.justify-content-center
+            .col-1
             .col-2.p-0
               = image_tag 'balloon-contacts.png', class: 'img-fluid d-inline-block'
             .col-8.pl-2.pr-0
-              .h6.text-uppercase.p-0.strong
+              .h6.text-uppercase.p-0.strong.m-0
                 Бесплатная
                 %br
                 доставка

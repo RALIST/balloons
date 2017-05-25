@@ -82,7 +82,8 @@
                     = @cart.total_price.round(0)
                   %span.text-primary
                     руб.
-              = link_to 'В корзину', my_cart_path if @cart.positions.any?
+              #to-cart
+                = link_to 'В корзину', my_cart_path if @cart.positions.any?
       .row.mt-3.mb-4
         .col-12
           = render 'delivery/layouts/main_menu'

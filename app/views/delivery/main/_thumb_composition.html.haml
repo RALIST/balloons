@@ -4,13 +4,13 @@
       - case controller.controller_name
       - when 'receivers'
         = link_to receiver_composition_path(@person, c), class: 'link-to-page' do
-          = image_tag c.img(:thumb), class: 'img-fluid'
+          = image_tag c.img(:preview), class: 'img-fluid'
       - when'tags'
         = link_to tag_composition_path(@tag, c), class: 'link-to-page' do
-          = image_tag c.img(:thumb), class: 'img-fluid'
+          = image_tag c.img(:preview), class: 'img-fluid'
       - when 'main','compositions'
         = link_to composition_path(c), class: 'link-to-page' do
-          = image_tag c.img(:thumb), class: 'img-fluid'
+          = image_tag c.img(:preview), class: 'img-fluid'
       .line
 
     .card-block.py-2

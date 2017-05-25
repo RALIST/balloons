@@ -33,7 +33,7 @@ class Composition < ApplicationRecord
 
   def comp_price
     price = self.products.map{ |i| i.price_with_helium }.reject(&:nil?).sum.round(2)
-    self.update(price: price)
+    # self.update(price: price)
   end
 
   def update_price

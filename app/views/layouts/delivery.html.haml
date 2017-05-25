@@ -23,13 +23,7 @@
         - unless @disable_header
           = render 'delivery/layouts/header'
         = render 'delivery/layouts/flash'
-      .container-fluid.bread.text-center
-        = breadcrumbs separator: " / ", style: :bootstrap, semantic: true, fragment_tag: 'breadcrumb'
-        - breadcrumbs do |links|
-          - links.each do |link|
-            - if link.current?
-              .current
-                .h2.text-uppercase= link.text
+        = render 'delivery/layouts/breadcrumbs'
       = yield
     %footer
       =render 'delivery/layouts/footer'

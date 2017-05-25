@@ -1,9 +1,15 @@
+
+
 .comp-image {
-  @include make-col-xl(4);
-  @include make-col-lg(4);
+  @include make-col-xl(6);
+  @include make-col-lg(6);
   @include make-col-md(12);
   @include make-col-sm(12);
   @include make-col-xs(12);
+  @include media-breakpoint-up(md){
+    margin-top: -220px;
+  }
+
 }
 
 .comp-desc {
@@ -29,4 +35,40 @@
   @include make-col-md(4);
   @include make-col-sm(4);
   @include make-col-xs(4);
+}
+
+.bread-comp {
+  border-radius: 20px 20px 0 0;
+  background: #eceeef;
+  .breadcrumb {
+    background: transparent;
+    margin-bottom: 0;
+    padding-top: 120px;
+    padding-left: 0;
+    padding-bottom: 0;
+    font-size: 80%;
+    @include media-breakpoint-down(lg){
+      padding-top: 2rem;
+      border-radius: 0;
+    }
+  }
+  .current{
+    padding-bottom: 2em;
+    font-weight: bold !important;
+  }
+}
+
+#products {
+  border-radius: 20px;
+  border: 2px solid #eceeef;
+  padding: 1.5rem;
+  table, tr, td, tbody {
+    border: 0;
+    margin: 0;
+  }
+}
+
+#total{
+  background: #eceeef;
+  border-radius: 20px;
 }

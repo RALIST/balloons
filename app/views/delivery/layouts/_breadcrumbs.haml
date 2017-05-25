@@ -1,0 +1,17 @@
+- unless controller.controller_name == 'compositions'
+  .container-fluid.bread.text-center
+    = breadcrumbs separator: " / ", style: :bootstrap, semantic: true, fragment_tag: 'breadcrumb'
+    - breadcrumbs.tap do |links|
+      - links.each do |link|
+        - if link.current?
+          .current
+            .h2.text-uppercase= link.text
+- else
+  .container-fluid.bread-comp
+    .container
+      = breadcrumbs separator: " / ", style: :bootstrap, semantic: true, fragment_tag: 'breadcrumb'
+      - breadcrumbs.tap do |links|
+        - links.each do |link|
+          - if link.current?
+            .current
+              .h2.text-uppercase= link.text

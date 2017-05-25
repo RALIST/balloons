@@ -3,12 +3,16 @@ crumb :root do
 end
 
 crumb :composition do |c|
-  if params[:tag_id]
+  case
+  when params[:tag_id]
     link "Композиция №#{c.id}", tag_composition_path(c)
     parent :tag, Tag.friendly.find(params[:tag_id])
-  elsif params[:receiver_id]
+  when params[:receiver_id]
     link "Композиция №#{c.id}", receiver_composition_path(c)
     parent :receiver, Receiver.friendly.find(params[:receiver_id])
+  else
+    link "Композиция №#{c.id}", composition_path(c)
+    parent :root
   end
 end
 

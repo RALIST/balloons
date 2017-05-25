@@ -6,10 +6,8 @@
           - if composition.tags.any?
             %p{itemprop: 'description'}
               Композиция на
-              - composition.tags.each do |tag|
-                %span.text-secondary
-                  = link_to tag_path(tag), class: 'text-info' do
-                    #{tag.name.capitalize},
+              %span.text-info
+                = composition.tags.map{ |t| link_to t.name.capitalize, tag_path(t), class: 'text-info' }.join(', ').html_safe
 
       %p.strong.text-uppercase.mb-1
         В композицию входит:
@@ -31,6 +29,8 @@
                   руб.
               %td.popover-img{style: 'display: none;'}
                 = image_tag product.image(:small)
+      .strong.pl-3.mt-2.text-danger
+        Вы cможете изменить состав композиции в корзине
       .row.my-5.align-items-center
         .h6.col-4.text-uppercase
           Способы оплаты
@@ -53,11 +53,11 @@
       .row#total.mt-5.p-2.align-items-center
         .col-6
           .row
-            .col-3.pr-4.pl-3.text-uppercase
+            .t1.pl-3.text-uppercase.strong.p-0
               Итого
-            .col-4.strong.h1.p-0.pl-3.text-secondary.m-0.text-right
+            .t2.strong.h1.p-0.pl-3.text-secondary.m-0.text-right
               = composition.comp_price.round(0)
-            .col-3.pl-2.strong
+            .strong.pl-1
               руб.
         .col-6
           - unless @cart.compositions.include?(composition)

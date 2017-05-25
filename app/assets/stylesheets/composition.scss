@@ -1,4 +1,6 @@
-
+#reverse{
+  flex-wrap: wrap-reverse;
+}
 
 .comp-image {
   @include make-col-xl(6);

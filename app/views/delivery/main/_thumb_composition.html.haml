@@ -8,7 +8,7 @@
       - when'tags'
         = link_to tag_composition_path(@tag, c), class: 'link-to-page' do
           = image_tag c.img(:thumb), class: 'img-fluid'
-      - when 'main'
+      - when 'main','compositions'
         = link_to composition_path(c), class: 'link-to-page' do
           = image_tag c.img(:thumb), class: 'img-fluid'
       .line

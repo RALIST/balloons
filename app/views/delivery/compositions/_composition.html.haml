@@ -1,5 +1,5 @@
 - cache composition do
-  .row
+  .row#reverse
     .comp-desc
       .row.mt-2.mb-4
         .col-12
@@ -69,14 +69,9 @@
         %i.fa.fa-chevron-left
         Вернуться в каталог
       = image_tag composition.img.url(:preview), class: 'img-fluid', itemprop: 'image'
-
-    / .comp-related.text-center
-    /   %p
-    /     %strong
-    /       Похожие
-    /   .row
-    /     - composition.related.limit(3).each do |related|
-    /       .related-comps
-    /         = link_to composition_path(related) do
-    /           = image_tag related.img.url(:small), class: 'img-fluid', style: 'margin: auto;'
+  %h3.col-12.text-center.strong.my-5
+    Похожие композиции
+  .container
+    .row.justify-content-around.card-deck.compositions.card-group
+      = render partial: 'delivery/main/thumb_composition', collection: composition.related.limit(3), as: :c
 

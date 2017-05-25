@@ -59,7 +59,7 @@
               = composition.comp_price.round(0)
             .strong.pl-1
               руб.
-        .col-6
+        .col-6#price
           - unless @cart.compositions.include?(composition)
             = link_to 'Добавить в корзину', add_to_cart_path(composition), class: "btn btn-info btn-block add-to-cart#{composition.id}", id: 'ga-add-to-cart', data: {disable_with: 'Добавляем...'}, remote: true, method: :post
           - else

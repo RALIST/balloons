@@ -1,5 +1,6 @@
+- breadcrumb :contacts
 .container-fluid.mt-5
-  %h2.text-center
+  %h1.text-center
     Контакты
   .row#contacts
     .col-12.p-0#map
@@ -16,15 +17,21 @@
             %li.text-white.d-flex.align-items-center.my-1
               %i.fa.fa-map-marker.fa-2x.pr-4
               ул. Н. Островского, 25, офис 6
+            %li.text-white.d-flex.align-items-center.my-1
+              %i.fa.fa-envelope.fa-2x.pr-4
+              info@bigairballoons.ru
+            %li.text-white.d-flex.align-items-center.my-1
+              %i.fa.fa-clock-o.fa-2x.pr-4
+              %small
+                Заявки: с 8:00 до 22:00, без выходных
+                %br
+                Доставка: круглосуточно, без выходных
           .small
             .mt-3.text-white
               ООО "ДЕЛИРИУМ"
-              %br
-              ИНН: 1832110279
-              %br
-              КПП: 183201001
-              %br
-              ОГРН: 1131832004831
+              ИНН 1832110279
+              КПП 183201001
+              ОГРН 1131832004831
     #balloons
       = image_tag 'balloon-contacts.png',class: 'img-fluid'
 :javascript

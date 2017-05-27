@@ -1,5 +1,6 @@
-.container.mt-4.text-center
-  %h1 Цены на гелиевые шары
+- breadcrumb :prices
+.container.mt-5.text-center
+  %h1 Цены на гелиевые шары c доставкой.
   .row
     .col-12
       %h3.bg-inverse.text-white.p-3{data: {toggle: 'collapse', target: '#latex'}, style: 'cursor: pointer'}
@@ -170,3 +171,6 @@
                 500 руб.
                 %br
                 При заказе от 1000 руб. - бесплатно
+  .row.mt-3
+    .col-12
+      = render 'prices_text'

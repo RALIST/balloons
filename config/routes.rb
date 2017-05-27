@@ -3,6 +3,7 @@ require 'NoneSubdomain'
 
 Rails.application.routes.draw do
 
+
   if Rails.env == 'production'
     mount LetsencryptPlugin::Engine, at: '/'
   end
@@ -75,6 +76,7 @@ Rails.application.routes.draw do
       resources :receivers, only: :show, path: 'persons' do
         resources :compositions, only: :show, path: ''
       end
+      resources :feedbacks, only: [:index, :new, :create], path: 'otzivy'
       scope '/graduations' do
         get 'sadik', to: 'graduations#kg', as: :kg
         get 'shkola', to: 'graduations#school', as: :school
@@ -96,7 +98,10 @@ Rails.application.routes.draw do
       get '/thank_you',                 to: 'main#thanks',                  as: :thanks
       get '/contacts', to: 'main#contacts', as: :contacts
       get '/lp', to: 'main#lp', as: :lp
-      get '/prices', to: 'main#prices'
+      get '/prices', to: 'main#prices', as: :prices
+      get '/o-nas', to: 'main#about', as: :about
+      get '/dostavka', to: 'main#info', as: :info
+      get '/garantee',to: 'main#garant', as: :garant
       match "/404", to: "errors#not_found", :via => :all
       match "/500", to: "errors#internal_server_error", :via => :all
       constraints(format: /[a-z]+(\.[a-z]+)?/) do

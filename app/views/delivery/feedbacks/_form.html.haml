@@ -1,0 +1,17 @@
+.h4.text-center.mb-5.text-uppercase
+  Оставьте отзыв!
+.row
+  #form-call
+    = form_for @feedback do |f|
+      .form-group.row.align-items-center
+        = f.label 'Как вас зовут?', class: 'control-label col-5 text-uppercase'
+        = f.text_field :name, class: 'form-control col-6', required: true
+      .form-group.row.align-items-center
+        = f.label 'Ваш отзыв', class: 'control-label col-5 text-uppercase'
+        = f.text_area :body, class: 'form-control col-6', required: true, rows: 5
+      .form-group.row.align-items-center
+        = f.label 'Фото', class: 'control-label col-5 text-uppercase'
+        = f.file_field :img, class: 'form-control col-6', required: true
+
+      .form-group.text-center.my-4
+        = f.submit'Отправить', class: 'btn btn-info col-6 text-uppercase', data:{disable_with: 'Отправляю...'}

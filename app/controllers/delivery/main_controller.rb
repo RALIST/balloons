@@ -57,5 +57,17 @@ class Delivery::MainController < Delivery::DeliveryController
   end
 
   def prices
+    set_meta_tags title: "Доставка воздушных шаров в Ижевске",
+                  description: "Доставка воздушных шаров в Ижевске"
   end
+
+  def about
+  end
+
+  def info
+  end
+
+  def garant
+  end
+
 end

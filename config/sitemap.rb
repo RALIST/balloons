@@ -38,9 +38,15 @@ SitemapGenerator::Sitemap.create do
     add price_range_path(max: p)
   end
 
-  add '/prices'
-  add '/contacts'
+  add prices_path
+  add contacts_path
+  add info_path
+  add garant_path
+  add about_path
+  add business_index_path
+  add feedbacks_path
   add '/lp'
   add 'graduations/sadik'
   add 'graduations/shkola'
+
 end

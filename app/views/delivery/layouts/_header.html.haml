@@ -13,6 +13,19 @@
             %i.fa.fa-bars{style: 'aria-hidden="true"; cursor: pointer; '}
               %span.badge= @cart.positions.count if @cart.positions.any?
             %i.fa.fa-times{style: 'aria-hidden="true"; display: none; cursor: pointer;'}
+  .row.hidden-md-down
+    .col-12.small
+      %ul.list-inline.text-right.mb-2
+        %li.list-inline-item.pl-3
+          = link_to 'О нас', about_path
+        %li.list-inline-item.pl-3
+          = link_to 'Гарантии', garant_path
+        %li.list-inline-item.pl-3
+          =link_to 'Доставка и оплата', info_path
+        %li.list-inline-item.pl-3
+          =link_to 'Цены', prices_path
+        %li.list-inline-item.pl-3
+          =link_to 'Контакты', contacts_path
   .row
     .header-logo.hidden-md-down
       #logo
@@ -39,6 +52,8 @@
                 +7 (912) 453-25-98
                 .small.text-center
                   WhatsApp Viber Telegram
+                  %br
+                  Ежедневно с 8:00 до 21:00
               .mt-1
                 = button_tag 'Нужна консультация', class: 'btn btn-secondary text-uppercase strong btn-sm', data:{ toggle: 'modal', target: '#call-modal'}
         .col-4

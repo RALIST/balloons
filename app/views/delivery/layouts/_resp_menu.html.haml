@@ -80,4 +80,5 @@
             %li.nav-item= link_to 'Регистрация', signin_path
           - else
             %li.nav-item= link_to 'Личный кабинет', user_path(current_user)
-          %li.nav-item= link_to 'Прайс', '/prices'
+          %li.nav-item= link_to 'Прайс', prices_path
+          %li.nav-item= link_to 'Отзывы', feedbacks_path

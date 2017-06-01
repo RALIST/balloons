@@ -11,7 +11,7 @@
         = f.text_area :body, class: 'form-control col-6', required: true, rows: 5
       .form-group.row.align-items-center
         = f.label 'Фото', class: 'control-label col-5 text-uppercase'
-        = f.file_field :img, class: 'form-control col-6', required: true
+        = f.file_field :img, class: 'form-control col-6'
 
       .form-group.text-center.my-4
         = f.submit'Отправить', class: 'btn btn-info col-6 text-uppercase', data:{disable_with: 'Отправляю...'}

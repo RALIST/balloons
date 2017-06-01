@@ -18,10 +18,16 @@ SitemapGenerator::Sitemap.create do
 
   Tag.composition_tags.each do |tag|
     add tag_path(tag)
+    Composition.availible.with_tag(tag).each do |c|
+      add tag_composition_path(tag, c)
+    end
   end
 
   Receiver.all.select("distinct on (title) *").each do |r|
     add receiver_path(r)
+    Composition.with_receivers(r).availible.each do |c|
+      add receiver_composition_path(r, c)
+    end
   end
 
   prices = Composition.availible.pluck(:price)

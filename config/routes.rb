@@ -91,7 +91,7 @@ Rails.application.routes.draw do
       post '/logout' ,                  to: 'sessions#destroy',             as: :logout
       get '/signin',                    to: 'users#new',                    as: :signin
       get '/search',                    to: 'main#search',                  as: :search
-      get '/cart',                      to: 'carts#show',                   as: :my_cart
+      get '/my_cart',                   to: 'carts#show',                   as: :my_cart
       post '/by_price',                 to: 'main#by_price'
       get '/by_price',                  to: 'main#by_price',                as: :price_range
       get '/account',                   to: 'users#show',                   as: :account

@@ -16,8 +16,7 @@ crumb :composition do |c|
   end
 end
 
-crumb :tag_composition do |tag, c|
-end
+
 
 crumb :tag do |tag|
   link tag.name.capitalize, tag_path(tag)
@@ -54,5 +53,20 @@ end
 
 crumb :feedbacks do
   link 'Отзывы', feedbacks_path
+  parent :root
+end
+
+crumb :kg do
+  link 'Выпускной из садика', kg_path
+  parent :root
+end
+
+crumb :school do
+  link 'Выпускной из школы', school_path
+  parent :root
+end
+
+crumb :cart do
+  link 'Корзина', my_cart_path
   parent :root
 end

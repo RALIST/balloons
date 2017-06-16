@@ -1,7 +1,7 @@
 #header {
   z-index: 900;
   @include media-breakpoint-up(md){
-    margin-top: 0.5rem;
+    // margin-top: 0.5rem;
   }
 }
 
@@ -98,3 +98,6 @@
   }
 }
 
+.fs-80 {
+  font-size: 80%;
+}

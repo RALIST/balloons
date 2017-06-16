@@ -1,12 +1,8 @@
-
-.container-fluid
-  = render 'delivery/layouts/offer' unless cookies[:landing]
+.container-fluid.p-0#main-screen
+  = render 'delivery/layouts/offer'
 .container.my-3
-  %h1.h2.text-center
-    Оформление воздушными шарами в Ижевске
-    %br
-    %small.text-muted
-      Популярные композиции
+  %h2.font-weight-bold.text-white
+    Популярные композиции
   .row.justify-content-around.card-deck.compositions.card-group
     = render partial: 'thumb_composition', collection: @compositions, as: :c
   .row.text-center

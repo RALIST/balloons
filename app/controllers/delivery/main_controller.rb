@@ -9,6 +9,7 @@ class Delivery::MainController < Delivery::DeliveryController
       format.html
       format.js
     end
+    @offer = true
   end
 
   def search

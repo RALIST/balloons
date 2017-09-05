@@ -58,6 +58,7 @@ group :production do
   gem 'rails_12factor'
   gem 'heroku-deflater'
   gem 'image_optim_rails'
+  gem 'image_optim'
   gem 'image_optim_pack'
   gem 'rack-cors', :require => 'rack/cors'
 end

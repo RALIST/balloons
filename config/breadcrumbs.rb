@@ -16,6 +16,10 @@ crumb :composition do |c|
   end
 end
 
+crumb :compositions do
+  link 'Все композиции',compositions_path
+  parent :root
+end
 
 
 crumb :tag do |tag|

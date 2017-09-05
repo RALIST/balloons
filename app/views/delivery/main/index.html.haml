@@ -7,8 +7,8 @@
     = render partial: 'thumb_composition', collection: @compositions, as: :c
   .row.text-center
     %h4.col-12.mt-3
-      Ничего не нашли? Давайте мы поможем!
+      Ничего не нашли? Посмотрите все композиции!
     .col-lg-6.col-sm-12#help
-      = button_tag 'Оставить заявку', class: 'btn btn-success btn-lg btn-block', data:{ toggle: 'modal', target: '#call-modal'}
+      = link_to 'Все композиции', compositions_path, class: 'btn btn-success btn-lg btn-block'
 = render 'delivery/main/modal_composition'
 

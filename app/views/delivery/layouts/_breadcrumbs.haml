@@ -1,4 +1,4 @@
-- unless controller.controller_name == 'compositions'
+- unless controller.controller_name == 'compositions' && action_name == 'show'
   .container-fluid.bread.text-center
     = breadcrumbs separator: " / ", style: :bootstrap, semantic: true, fragment_tag: 'breadcrumb'
     - breadcrumbs.tap do |links|

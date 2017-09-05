@@ -1,13 +1,6 @@
 - cache composition do
   .row#reverse
     .comp-desc
-      .row.mt-2.mb-4
-        .col-12
-          - if composition.tags.any?
-            %p{itemprop: 'description'}
-              Композиция на
-              %span.text-info
-                = composition.tags.map{ |t| link_to t.name.capitalize, tag_path(t), class: 'text-info' }.join(', ').html_safe
 
       %p.strong.text-uppercase.mb-1
         В композицию входит:
@@ -29,28 +22,14 @@
                   руб.
               %td.popover-img{style: 'display: none;'}
                 = image_tag product.image(:small)
-      .strong.pl-3.mt-2.text-danger
-        Вы cможете изменить состав композиции в корзине
-      .row.my-5.align-items-center
-        .h6.col-4.text-uppercase
-          Способы оплаты
-        .col-4
-          .row.align-items-center
-            .col-2.p-0
-              %i.fa.fa-money.fa-2x
-            .col-10.p-0.pl-3.lh-1
-              Наличными
-              %br
-              курьеру
-        .col-4
-          .row.align-items-center
-            .col-2.p-0
-              %i.fa.fa-credit-card.fa-2x
-            .col-10.p-0.pl-3.lh-1
-              Банковской
-              %br
-              картой
-      .row#total.mt-5.p-2.align-items-center
+      / .row.mt-2
+      /   .col-12
+      /     - if composition.tags.any?
+      /       %p{itemprop: 'description'}
+      /         Композиция на
+      /         %span.text-info
+      /           = composition.tags.map{ |t| link_to t.name.capitalize, tag_path(t), class: 'text-info' }.join(', ').html_safe
+      .row#total.mt-2.py-2.align-items-center
         .col-6
           .row
             .t1.pl-3.text-uppercase.strong.p-0
@@ -64,6 +43,27 @@
             = link_to 'Добавить в корзину', add_to_cart_path(composition), class: "btn btn-info btn-block add-to-cart#{composition.id}", id: 'ga-add-to-cart', data: {disable_with: 'Добавляем...'}, remote: true, method: :post
           - else
             = link_to 'Перейти в корзину', my_cart_path, class: 'btn btn-success btn-block'
+          .small.text-center.text-danger
+            Вы cможете изменить состав композиции в корзине
+      .row.mt-5.align-items-center.justify-content-around
+        .h6.col-4.text-uppercase
+          Можно оплатить
+        .col-4.text-info
+          .row.align-items-center
+            .col-2.p-0
+              %i.fa.fa-money.fa-2x
+            .col-10.p-0.pl-3.lh-1
+              Наличными
+              %br
+              курьеру
+        .col-4.text-info
+          .row.align-items-center
+            .col-2.p-0
+              %i.fa.fa-credit-card.fa-2x
+            .col-10.p-0.pl-3.lh-1
+              Банковской
+              %br
+              картой
     .comp-image.text-right
       = link_to root_path, class: 'btn btn-outline-info btn-sm mb-2' do
         %i.fa.fa-chevron-left

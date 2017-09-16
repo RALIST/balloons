@@ -1,13 +1,13 @@
 .container-fluid
-  .row.align-items-end.card-group.card-deck
+  .row.align-items-end.card-deck
     %h2
     - @items_in_collection.each do |product|
       .item-in-collection
         .card
           .card-header
             = product.complex_name
-          .card-block.text-center
-            = image_tag product.image(:small), class: 'img-fluid card-img-top mx-auto'
+          .card-body.text-center
+            = image_tag product.image(:small), class: 'img-fluid'
           .card-footer
             .row.align-items-center
               .col-6.text-center

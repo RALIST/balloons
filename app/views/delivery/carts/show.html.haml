@@ -6,17 +6,17 @@
       .cart-positions
         %h2.border-bot В корзине
         - @cart.positions.includes(:subpositions, :composition).each do |p|
-          .row{id: "position#{p.id}"}
+          %div{id: "position#{p.id}"}
             .cart-position
               .card
                 .card-header
-                  .row
-                    %h5.col-8 В композицию входит
-                    .col-4.text-right
+                  .row.justify-content-between.px-3
+                    %h5 В композицию входит
+                    .text-right
                       = link_to remove_from_cart_path(p), method: :post, remote: true do
                         %i.fa.fa-times#del-from-cart
-                .row
-                  .position-img.text-center
+                .row.m-0
+                  .position-img.text-center.card-body
                     = image_tag p.composition.img.url(:thumb), class: 'img-fluid'
                   .modal.fade{id: "position-modal-#{p.id}",  tabindex: "-1",  role: "dialog", class: 'position-modal'}
                     .modal-dialog{role: "document"}
@@ -39,13 +39,14 @@
                         %br
                         .modal-body
                           = render partial: 'category_list', locals: {p: p}
-                  .cart-subpositions.card-block
+
+                  .cart-subpositions.card-body
                     .subpositions
                       = render p.subpositions.includes(product: [:size,  :item, :tone]).order(:id)
                 .card-footer
                   = link_to 'Добавить в композицию', '', class: 'btn btn-info btn-block', data:{ toggle: 'modal', target: "#position-modal-#{p.id}"}
       .subtotal
-        =render 'subtotal'
+        = render 'subtotal'
     - else
       .col-md-12
         %h2

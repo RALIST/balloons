@@ -1,54 +1,53 @@
-
-%h2.border-bot Итог:
-.row
-  .col-md-12.col-xs-12.col-sm-12
-    .row
-      .subtotal-col.text-left
-        Всего в корзине
-      .subtotal-col.text-right
-        = pluralize(@cart.positions.count, 'товар', 'товара')
-    .row
-      .subtotal-col.text-left
-        Сумма
-      .subtotal-col.text-right
-        = @cart.total_price
-        %i.fa.fa-rub{style: 'aria-hidden="true"'}
-    .row
-      .subtotal-col.text-left
-        Ваша скидка:
-      .subtotal-col.text-right
-        - if current_user
-          #{number_to_percentage(current_user.discount, precision: 2)}
-        - else
-          = link_to 'Войдите', login_path
-    .row
-      .subtotal-col.text-left
-        - to_delivery = 1000 - @cart.total_price
-        Доставка
-      .subtotal-col.text-right
-        = to_delivery > 0 ? 150 : 0
-        %i.fa.fa-rub{style: 'aria-hidden="true"'}
-    .row.border-bot
-      .subtotal-col.text-left
-        %strong
-          Всего к оплате:
-      .subtotal-col.text-right
-        %strong
-          = @cart.total_with_discounts
-          %i.fa.fa-rub{style: 'aria-hidden="true"'}
-    .row.align-items-center
-      .subtotal-col.text-left
-        = text_field_tag '', '', class: 'form-control input-sm', placeholder: 'Промо код'
-      .subtotal-col.text-right
-        %span= link_to 'Как получить?'
-.row
-  .col-12.text-center
-    = link_to 'Оформить заказ', new_order_path, class: 'btn btn-info btn-block'
-    - if to_delivery > 0
-      Ещё
+.container
+  %h2.border-bot Итог:
+  .d-flex.px-3
+    .subtotal-col.text-left
+      Всего в корзине
+    .subtotal-col.text-right
+      = pluralize(@cart.positions.count, 'товар', 'товара')
+  .d-flex.px-3
+    .subtotal-col.text-left
+      Сумма
+    .subtotal-col.text-right
+      = @cart.total_price
+      %i.fa.fa-rub{style: 'aria-hidden="true"'}
+  .d-flex.px-3
+    .subtotal-col.text-left
+      Ваша скидка:
+    .subtotal-col.text-right
+      - if current_user
+        #{number_to_percentage(current_user.discount, precision: 2)}
+      - else
+        = link_to 'Войдите', login_path
+  .d-flex.px-3
+    .subtotal-col.text-left
+      - to_delivery = 1000 - @cart.total_price
+      Доставка
+    .subtotal-col.text-right
+      = to_delivery > 0 ? 150 : 0
+      %i.fa.fa-rub{style: 'aria-hidden="true"'}
+  .d-flex.border-bot.px-3
+    .subtotal-col.text-left
       %strong
-        #{to_delivery.round(2)}
+        Всего к оплате:
+    .subtotal-col.text-right
+      %strong
+        = @cart.total_with_discounts
         %i.fa.fa-rub{style: 'aria-hidden="true"'}
-      до бесплатной доставки
-    -else
-      Бесплатная доставка в любой конец города!
+  .d-flex.align-items-center.px-3
+    .subtotal-col.text-left
+      = text_field_tag '', '', class: 'form-control input-sm', placeholder: 'Промо код'
+    .subtotal-col.text-right
+      %span= link_to 'Как получить?'
+  .d-flex
+    .col-12.text-center
+      = link_to 'Оформить заказ', new_order_path, class: 'btn btn-info btn-block'
+      .small
+        - if to_delivery > 0
+          Ещё
+          %strong
+            #{to_delivery.round(2)}
+            %i.fa.fa-rub{style: 'aria-hidden="true"'}
+          до бесплатной доставки
+        -else
+          Бесплатная доставка в любой конец города!

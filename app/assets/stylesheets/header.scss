@@ -1,27 +1,28 @@
 #header {
   z-index: 900;
   @include media-breakpoint-up(md){
-    // margin-top: 0.5rem;
+    margin-top: 0.5rem;
   }
 }
 
 
 .header-logo {
-  @include make-col-xl(3);
-  @include make-col-lg(3);
+  @include make-col(3);
   #logo{
     position: absolute;
   }
 }
 
 .header-logo-responsive {
-  @include make-col-md(5);
-  @include make-col-sm(6);
-  @include make-col-xs(6);
+  @include media-breakpoint-only(md){
+    @include make-col(5);
+  }
+  @include media-breakpoint-down(md){
+    @include make-col(6);
+  }
 }
 .header-contacts {
-  @include make-col-xl(9);
-  @include make-col-lg(9);
+  @include make-col(9);
   .social {
     font-size: 1.5em;
     a {

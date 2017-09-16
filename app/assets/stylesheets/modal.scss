@@ -32,9 +32,9 @@
   @include make-col-md(12);
   @include make-col-sm(12);
   @include make-col-xs(12);
-  @include make-col-offset(3);
+  // @include make-col-offset(3);
   @include media-breakpoint-down(lg){
-    @include make-col-offset(0);
+    // @include make-col-offset(0);
   }
 }
 

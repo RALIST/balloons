@@ -11,8 +11,8 @@
   .row.text-center
     %h4.col-12.mt-3
       Ничего не нашли? Давайте мы поможем!
-    .col-lg-6.col-sm-12#help
-      = button_tag 'Оставить заявку', class: 'btn btn-success btn-lg btn-block', data:{ toggle: 'modal', target: '#call-modal'}
+    .col-12#help
+      = button_tag 'Оставить заявку', class: 'btn btn-success btn-lg btn-block col-lg-6 m-auto', data:{ toggle: 'modal', target: '#call-modal'}
   - case @tag.name
   - when 'день рождения'
     = render 'text_bithday'

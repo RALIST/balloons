@@ -1,14 +1,15 @@
-.container-fluid.p-0#main-screen
-  = render 'delivery/layouts/offer'
-.container.my-3
-  %h2.font-weight-bold.text-white
+.container.my-5
+  .row
+
+.container.my-5
+  %h2.font-weight-bold.text-center
     Популярные композиции
-  .row.justify-content-around.card-deck.compositions.card-group
+  .row.justify-content-around.card-deck.compositions
     = render partial: 'thumb_composition', collection: @compositions, as: :c
   .row.text-center
     %h4.col-12.mt-3
       Ничего не нашли? Посмотрите все композиции!
-    .col-lg-6.col-sm-12#help
-      = link_to 'Все композиции', compositions_path, class: 'btn btn-success btn-lg btn-block'
+    .col-12.col-sm-12#help.text-center
+      = link_to 'Все композиции', compositions_path, class: 'btn btn-success btn-lg btn-block col-lg-6 m-auto'
 = render 'delivery/main/modal_composition'
 

@@ -1,44 +1,39 @@
 .subtotal-col {
-  @include make-col-lg(6);
-  @include make-col-xl(6);
-  @include make-col-md(6);
-  @include make-col-sm(6);
-  @include make-col-xs(6);
+  @include make-col(6);
   margin: 0.3em 0;
 }
 
 .cart-positions {
-  @include make-col-xl(8);
-  @include make-col-lg(8);
-  @include make-col-md(12);
-  @include make-col-sm(12);
-  @include make-col-xs(12);
+  @include media-breakpoint-up(lg){
+    @include make-col(8);
+  }
+  @include media-breakpoint-down(lg){
+    @include make-col(12);
+  }
 }
 
 .cart-position {
-  @include make-col-xl(12);
-  @include make-col-lg(12);
-  @include make-col-md(12);
-  @include make-col-sm(12);
-  @include make-col-xs(12);
+  @include make-col(12);
   margin: 1rem 0;
 }
 
 .position-img {
-  @include make-col-xl(3);
-  @include make-col-lg(3);
-  @include make-col-md(12);
-  @include make-col-sm(12);
-  @include make-col-xs(12);
+  @include media-breakpoint-up(lg){
+    @include make-col(3);
+  }
+  @include media-breakpoint-down(lg){
+    @include make-col(12);
+  }
 
 }
 
 .cart-subpositions {
-  @include make-col-xl(9);
-  @include make-col-lg(9);
-  @include make-col-md(12);
-  @include make-col-sm(12);
-  @include make-col-xs(12);
+  @include media-breakpoint-up(lg){
+    @include make-col(9);
+  }
+  @include media-breakpoint-down(lg){
+    @include make-col(12);
+  }
 }
 
 .cart-subposition {
@@ -46,11 +41,12 @@
 }
 
 .product-name {
-  @include make-col-xl(6);
-  @include make-col-lg(6);
-  @include make-col-md(5);
-  @include make-col-sm(5);
-  @include make-col-xs(5);
+  @include media-breakpoint-up(lg){
+    @include make-col(6);
+  }
+  @include media-breakpoint-down(lg){
+    @include make-col(5);
+  }
   text-align: center;
   span {
     border-bottom: 1px dashed black;
@@ -59,20 +55,17 @@
 }
 
 .product-quantity {
-  @include make-col-xl(4);
-  @include make-col-lg(4);
-  @include make-col-md(5);
-  @include make-col-sm(5);
-  @include make-col-xs(5);
+  @include media-breakpoint-up(lg){
+    @include make-col(4);
+  }
+  @include media-breakpoint-down(lg){
+    @include make-col(5);
+  }
   text-align: center;
 }
 
 .remove-subposition {
-  @include make-col-xl(2);
-  @include make-col-lg(2);
-  @include make-col-md(2);
-  @include make-col-sm(2);
-  @include make-col-xs(2);
+  @include make-col(2);
 }
 
 #del-from-cart {
@@ -82,26 +75,35 @@
 }
 
 .subtotal {
-  @include make-col-xl(4);
-  @include make-col-lg(4);
-  @include make-col-md(12);
-  @include make-col-sm(12);
-  @include make-col-xs(12);
+  @include media-breakpoint-up(lg){
+    @include make-col(4);
+  }
+  @include media-breakpoint-down(lg){
+    @include make-col(12);
+  }
 }
 
 .category-item {
-  @include make-col-xl(3);
-  @include make-col-lg(3);
-  @include make-col-md(4);
-  @include make-col-sm(6);
-  @include make-col-xs(6);
+  @include media-breakpoint-up(lg){
+    @include make-col(3);
+  }
+  @include media-breakpoint-down(lg){
+    @include make-col(6);
+  }
+  @include media-breakpoint-down(sm){
+    @include make-col(12);
+  }
 }
 
 .item-in-collection {
-  @include make-col-xl(3);
-  @include make-col-lg(3);
-  @include make-col-md(4);
-  @include make-col-sm(6);
-  @include make-col-xs(12);
+  @include media-breakpoint-up(lg){
+    @include make-col(3);
+  }
+  @include media-breakpoint-down(lg){
+    @include make-col(6);
+  }
+  @include media-breakpoint-down(sm){
+    @include make-col(12);
+  }
   margin-bottom: 0.5em;
 }

@@ -1,10 +1,11 @@
 .composition {
   @include make-row();
-  @include make-col-xl(4);
-  @include make-col-lg(4);
-  @include make-col-md(6);
-  @include make-col-sm(12);
-  @include make-col-xs(12);
+  @include media-breakpoint-up(lg){
+    @include make-col(4);
+  }
+  @include media-breakpoint-down(lg){
+    @include make-col(12);
+  }
   margin-bottom: 10px;
   .card {
     min-width: 100%;
@@ -42,7 +43,7 @@
 
 #help {
   @include media-breakpoint-up(lg) {
-    @include make-col-offset(3);
+    // @include make-col-offset(3);
   }
 
 }

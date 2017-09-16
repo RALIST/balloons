@@ -30,7 +30,6 @@ gem 'font-awesome-sass'
 gem 'jquery-ui-rails'
 gem 'paperclip'
 gem 'sorcery'
-gem 'aws-sdk'
 gem 'meta-tags'
 gem 'roo'
 gem 'roo-xls'
@@ -52,9 +51,13 @@ gem "jquery-slick-rails"
 gem "paperclip-optimizer"
 gem "gretel"
 gem 'friendly_id', '~> 5.1.0'
+gem 'popper_js'
 
 
 group :production do
+  gem 'aws-sdk-v1'
+  gem 'aws-sdk', '~> 1'
+  gem 'aws-sdk-resources', '~> 2'
   gem 'rails_12factor'
   gem 'heroku-deflater'
   gem 'rack-cors', :require => 'rack/cors'

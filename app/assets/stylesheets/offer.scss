@@ -1,15 +1,16 @@
 .offer {
-  @include make-col-xl(7);
-  @include make-col-lg(7);
-  @include make-col-md(12);
-  @include make-col-sm(12);
-  @include make-col-xs(12);
+  @include media-breakpoint-up(lg){
+    @include make-col(7);
+  }
+  @include media-breakpoint-down(lg){
+    @include make-col(12);
+  }
   margin-top: 180px;
 }
 
 #offer {
   height: 85vh;
-  min-height: 550px;
+  min-height: 700px;
   background: image-url("offer.png") no-repeat right center scroll;
   background-size: cover;
 
@@ -62,17 +63,20 @@
 }
 
 .offer-details {
-  @include make-col-xl(7);
-  @include make-col-lg(7);
-  @include make-col-md(12);
-  @include make-col-sm(12);
-  @include make-col-xs(12);
-  li {
-    @include make-col-xl(4);
-    @include make-col-lg(4);
-    @include make-col-sm(12);
-    @include make-col-xs(12);
-    @include make-col-md(12);
+  @include media-breakpoint-up(lg){
+    @include make-col(7);
+  }
+  @include media-breakpoint-down(lg){
+    @include make-col(12);
+  }
+
+  .d-flex {
+    // @include media-breakpoint-up(lg){
+    //   @include make-col(4);
+    // }
+    @include media-breakpoint-down(lg){
+      @include make-col(12);
+    }
     @include media-breakpoint-down(lg){
       display: block;
       padding-left: 50%;
@@ -169,19 +173,21 @@
 }
 
 .instapost {
-  @include make-col-lg(3);
-  @include make-col-xl(3);
-  @include make-col-md(10);
-  @include make-col-sm(10);
-  @include make-col-xs(10);
+  @include media-breakpoint-up(lg){
+    @include make-col(3);
+  }
+  @include media-breakpoint-down(lg){
+    @include make-col(10);
+  }
 }
 
 .map-block {
   position: absolute;
-  top: 0;
+  top: -44px;
   left: 0;
+  z-index: 10000;
   @include make-col(4);
-  @include make-col-offset(1);
+  // @include make-col-offset(1);
   @include media-breakpoint-down(lg){
     @include make-col(11);
     font-size: 1.5em;
@@ -202,13 +208,21 @@
     font-size: 0.8rem;
     font-weight: 100;
   }
+  @include media-breakpoint-down(lg){
+    position: relative;
+    color: black !important;
+    background: $brand-info;
+    .small {
+      font-size: 1rem;
+    }
+  }
 }
 
 #balloons {
   position:absolute;
   top: -70px;
   width: 120px;
-  left: 8%;
+  right: 8%;
 }
 
 .slick-slide {

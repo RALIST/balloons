@@ -8,14 +8,22 @@
   margin-top: 180px;
 }
 
+#main-offer {
+  background: image-url("offer.jpg") no-repeat right center scroll;
+  background-size: cover;
+  @include media-breakpoint-down(lg){
+    .mt-5 {
+      margin-top: 0 !important;
+    }
+  }
+}
+
+
 #offer {
   height: 85vh;
   min-height: 700px;
   background: image-url("offer.png") no-repeat right center scroll;
   background-size: cover;
-
-
-
   h1{
     color: #ffffff;
     .display-1 {

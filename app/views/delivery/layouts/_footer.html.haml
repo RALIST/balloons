@@ -1,13 +1,13 @@
 .container-fluid.bg-grey.footer
   .container
     .row
-      .footer-logo.hidden-md-down
+      .footer-logo.d-none.d-lg-block
         #logo
           = link_to root_path do
             = image_tag 'logo-footer.png', class: 'img-fluid'
       .footer-contacts
         .container
-          .row.mt-2.mb-4
+          .row.mt-2.mb-4.d-none.d-lg-block
             .col-12
               = render 'delivery/layouts/main_menu'
           .row
@@ -31,7 +31,7 @@
               .lead.strong
                 +7 (912) 453-25-98
                 .small
-                  WhatsApp Viber Telegram
+                  WhatsApp | Viber | Telegram
 
 
 

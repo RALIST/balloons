@@ -4,12 +4,21 @@
 }
 
 .footer-logo {
-  @include make-col-xl(2);
-  @include make-col-lg(2);
+  @include make-col(2);
 }
 .footer-contacts {
-  @include make-col-xl(10);
-  @include make-col-lg(10);
+  @include media-breakpoint-up(lg){
+    @include make-col(10);
+  }
+  @include media-breakpoint-down(lg){
+    @include make-col(12);
+    .lead {
+      font-size: 90%;
+      .small {
+        font-size: 0.8rem;
+      }
+    }
+  }
   .social {
     i {
       color: $brand-secondary;

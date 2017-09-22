@@ -1,20 +1,23 @@
 .container
   .row
     .order-info.col-md-10.col-xs-10
-      - @order.positions.each do |position|
-        .row
-          .col-md-5.col-xs-12
-            = image_tag position.composition.img(:thumb), class: 'img-responsive'
-          .col-md-7.col-xs-12
-            - position.subpositions.each do |s|
-              .row
-                .col-md-4.col-xs-5
-                  - if s.product.tone
-                    = image_tag s.product.tone.img(:small), class: 'img-responsive'
-                  - else
-                    = image_tag s.product.img(:small), class: 'img-responsive'
-                .col-md-8.col-xs-7
-                  %strong
-                    = s.product.name
-                  = s.quantity
-                  шт.
+      - if @order.positions.any?
+        - @order.positions.each do |position|
+          .row
+            .col-md-5.col-xs-12
+              = image_tag position.composition.img(:thumb), class: 'img-fluid'
+            .col-md-7.col-xs-12
+              - position.subpositions.each do |s|
+                .row
+                  .col-md-4.col-xs-5
+                    - if s.product.tone
+                      = image_tag s.product.tone.img(:small), class: 'img-fluid'
+                    - else
+                      = image_tag s.product.img(:small), class: 'img-fluid'
+                  .col-md-8.col-xs-7
+                    %strong
+                      = s.product.name
+                    = s.quantity
+                    шт.
+      -else
+        Ничего нет

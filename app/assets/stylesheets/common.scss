@@ -42,9 +42,7 @@
 }
 
 .bg-transparent {
-  color: #ffffff;
-  text-decoration: none;
-  padding: 0.2em 0.2em;
+  opacity: 0.1;
 }
 
 .bg-brand > a {
@@ -125,3 +123,14 @@ input::-webkit-inner-spin-button {
   border: 1px solid red;
 }
 
+#grad {
+  background: black; /* For browsers that do not support gradients */
+  /* For Safari 5.1 to 6.0 */
+  background: -webkit-linear-gradient($blue,$indigo,$purple,$pink,$red,$orange,$yellow,$green,$teal,$cyan);
+  /* For Opera 11.1 to 12.0 */
+  background: -o-linear-gradient(left,$blue,$indigo,$purple,$pink,$red,$orange,$yellow,$green,$teal,$cyan);
+  /* For Fx 3.6 to 15 */
+  background: -moz-linear-gradient(left,$blue,$indigo,$purple,$pink,$red,$orange,$yellow,$green,$teal,$cyan);
+  /* Standard syntax */
+  background: linear-gradient(to right, $blue,$indigo,$purple,$pink,$red,$orange,$yellow,$green,$teal,$cyan);
+}

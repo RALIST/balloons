@@ -103,8 +103,7 @@
 
 .slider-outdoor{
   img{
-    width: auto;
-    height: 400px;
+    max-height: 400px;
   }
   .slick-dots {
     li {

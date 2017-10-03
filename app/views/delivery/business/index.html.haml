@@ -1,13 +1,13 @@
 .business
   .container-fluid.fixed-top
     .row.align-items-center
-      %nav.navbar.navbar-toggleable-md.bg-brand.justify-content-between#business-menu
+      %nav.navbar.navbar-expand-md.bg-brand.justify-content-between#business-menu
         %button.navbar-toggler.collapsed.navbar-toggler-right{data: {toggle: 'collapse', target: '#b-menu'}}
           %i.fa.fa-bars
         = link_to root_path, class: 'navbar-brand' do
           = image_tag 'logo-resp.png'
         .collapse.navbar-collapse#b-menu
-          %ul.navbar-nav.nav-pills.text-center
+          %ul.navbar-nav.nav-pills.text-center.align-items-center
             %li.nav-item
               = link_to 'Оформление входных групп', business_index_path(anchor: 'outdoor'), class: 'nav-link'
             %li.nav-item
@@ -16,12 +16,10 @@
               = link_to 'Праздничное оформление', business_index_path(anchor: 'holydays'), class: 'nav-link'
             %li.nav-item
               = link_to 'Печать на шарах', business_index_path(anchor: 'prints'), class: 'nav-link'
-            %li.nav-item.hidden-md-up
+            %li.nav-item
               = link_to 'Контакты', business_index_path(anchor: 'contacts'), class: 'nav-link'
-            %li.nav-item.hidden-md-up
-              = link_to 'На главную', root_path, class: 'nav-link'
-          .business-call.hidden-md-down.align-self-center
-            = button_tag 'Заказать звонок', class: 'btn btn-info btn-sm', data:{ toggle: 'modal', target: '#call-modal'}
+          .business-call.align-self-center.d-none.d-lg-block
+            = button_tag 'Заказать звонок', class: 'btn btn-info', data:{ toggle: 'modal', target: '#call-modal'}
 #offer-wrapper
   .jumbotron.jumbotron-fluid#offer.d-flex.align-items-center.jumb-business
     .container
@@ -69,7 +67,7 @@
       = image_tag 'like.jpg', class: 'img-fluid'
     .card#company
       = image_tag 'balobanov.jpg', class: 'img-fluid'
-.container-fluid.bg-inverse
+.container-fluid.bg-dark
   .row#outdoor.py-4
     .col-lg-5.col-sm-12.mt-1
       %h2.text-white Оформление входных групп

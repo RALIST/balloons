@@ -2,11 +2,6 @@
     background: image-url('business.jpg') no-repeat;
     background-size: cover;
     background-position: top;
-    @include make-col-lg(12);
-    @include make-col-xl(12);
-    @include make-col-md(12);
-    @include make-col-sm(12);
-    @include make-col-xs(12);
     i {
       font-size: 2rem;
       color: #ffffff;
@@ -25,8 +20,7 @@
 }
 
 .business-call {
-  @include make-col-lg(2);
-  @include make-col-xl(2);
+  @include make-col(2);
   text-align: right;
   ul {
     margin: 0;
@@ -95,11 +89,11 @@
 }
 
 #company {
-  @include make-col-lg(3);
-  @include make-col-xl(3);
-  @include make-col-md(4);
-  @include make-col-sm(4);
-  @include make-col-xs(4);
+
+  @include make-col(3);
+  @include media-breakpoint-down(lg){
+     @include make-col(4);
+  }
   border: none;
   margin: 1rem 0;
   img {

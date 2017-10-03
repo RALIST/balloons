@@ -87,7 +87,8 @@
                     = link_to 'Выйти', logout_path, method: :post
           .row.mt-1.align-items-center
             .col-6.text-right
-              %i.fa.fa-shopping-basket.fa-2x.text-secondary
+              = link_to my_cart_path do
+                %i.fa.fa-shopping-basket.fa-2x.text-secondary
             .col-6.text-left#cart
               .small
                 %span#count

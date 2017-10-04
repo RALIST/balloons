@@ -131,3 +131,10 @@
 #main-screen {
   margin-bottom: -16%;
 }
+
+#feeds {
+  @include make-col(4);
+  @include media-breakpoint-down(lg){
+    @include make-col(6);
+  }
+}

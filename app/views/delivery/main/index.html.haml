@@ -62,7 +62,7 @@
         = link_to tag.name, tag_path(tag), class: 'btn btn-outline-secondary btn-lg mb-3 mx-2'
 
 .mt-2.py-3.bg-info
-  .container.text-white
+  .container
     %h3.font-weight-bold.text-center.mb-3.text-white
       Популярные композиции
     .row.justify-content-around.card-deck.compositions
@@ -72,5 +72,14 @@
         Ничего не нашли? Посмотрите все композиции!
       .col-12.col-sm-12#help.text-center
         = link_to 'Все наши оформления', compositions_path, class: 'btn btn-success btn-lg btn-block col-lg-6 m-auto'
+.mt-2.py-3
+  .container
+    %h3.text-center.font-weight-bold
+      Отзывы о нас!
+    .mt-3.row.justify-content-between
+      - @feeds.each do |feed|
+        #feeds.my-2
+          = render feed
+
 = render 'delivery/main/modal_composition'
 

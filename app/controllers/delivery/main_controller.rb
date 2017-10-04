@@ -5,6 +5,7 @@ class Delivery::MainController < Delivery::DeliveryController
                   description: "Доставка на дом и оформление воздушными шарами с гелием круглосуточно по недорогой цене в Ижевске в компании Шариковая Фея"
     @compositions =  Composition.availible.with_tag('день рождения').order(:price).offset(5).limit(3)
     @composition  = Composition.find(params[:id]) if params[:id]
+    @feeds = Feedback.all
     respond_to do |format|
       format.html
       format.js

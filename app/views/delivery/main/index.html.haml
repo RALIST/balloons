@@ -57,7 +57,7 @@
   %h3.font-weight-bold.mb-3
     Посмотрите готовые оформления на ваш праздник!
   .row.justify-content-between
-    .col-12.text-capitalize.justify-content-between.text-justify
+    .col-12.text-capitalize.justify-content-between.text-left
       - @menu_tags.each do |tag|
         = link_to tag.name, tag_path(tag), class: 'btn btn-outline-secondary btn-lg mb-3 mx-2'
 
@@ -71,6 +71,6 @@
       %h4.col-12.mt-3.text-white
         Ничего не нашли? Посмотрите все композиции!
       .col-12.col-sm-12#help.text-center
-        = link_to 'Все оформления', compositions_path, class: 'btn btn-success btn-lg btn-block col-lg-6 m-auto'
+        = link_to 'Все наши оформления', compositions_path, class: 'btn btn-success btn-lg btn-block col-lg-6 m-auto'
 = render 'delivery/main/modal_composition'
 

@@ -3,7 +3,7 @@ class Delivery::MainController < Delivery::DeliveryController
   def index
     set_meta_tags title: 'Заказать оформление воздушными шарами недорого с бесплатной доставкой по Ижевску в компании Шариковая Фея',
                   description: "Доставка на дом и оформление воздушными шарами с гелием круглосуточно по недорогой цене в Ижевске в компании Шариковая Фея"
-    @compositions =  Composition.availible.with_tag('день рождения').order(:price).offset(5).limit(6)
+    @compositions =  Composition.availible.with_tag('день рождения').order(:price).offset(5).limit(3)
     @composition  = Composition.find(params[:id]) if params[:id]
     respond_to do |format|
       format.html

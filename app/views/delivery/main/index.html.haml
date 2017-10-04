@@ -76,9 +76,9 @@
   .container
     %h3.text-center.font-weight-bold
       Отзывы о нас!
-    .mt-3.row.justify-content-between
+    .row.mt-3.justify-content-between
       - @feeds.each do |feed|
-        #feeds.my-2.p-0
+        #feeds.my-2.py-2.border.border-info
           = render feed
 
 = render 'delivery/main/modal_composition'

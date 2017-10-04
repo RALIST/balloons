@@ -1,13 +1,10 @@
 #feedback {
   border-radius: 20px;
+  @include make-row();
 }
 
 .feed-img{
-  @include make-col-xl(3);
-  @include make-col-lg(3);
-  @include make-col-md(4);
-  @include make-col-sm(4);
-  @include make-col-xs(4);
+  @include make-col(4);
   img{
     max-height: 200px;
     object-fit: cover;
@@ -15,11 +12,7 @@
 }
 
 .feed-text{
-  @include make-col-xl(9);
-  @include make-col-lg(9);
-  @include make-col-md(8);
-  @include make-col-sm(8);
-  @include make-col-xs(8);
+  @include make-col(8);
 }
 
 .feed {

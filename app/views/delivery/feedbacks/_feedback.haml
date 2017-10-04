@@ -1,11 +1,11 @@
 #feedback
   .feed-img
     = image_tag feedback.img(:preview), class: 'img-fluid'
-  .feed-text
-    %em.mb-2.d-block
-      = Russian::strftime(feedback.created_at, '%d %b %Y')
+  .feed-text.pl-2
     .lead
       = feedback.name
+      %em.mb-2.d-block.small
+        = Russian::strftime(feedback.created_at, '%d %b %Y')
     %span
       = feedback.body
 

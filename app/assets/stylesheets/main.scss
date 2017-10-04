@@ -135,6 +135,6 @@
 #feeds {
   @include make-col(6);
   @include media-breakpoint-down(lg){
-    @include make-col(6);
+    @include make-col(12);
   }
 }

@@ -57,15 +57,13 @@
   %h3.font-weight-bold.mb-3
     Посмотрите готовые оформления на ваш праздник!
   .row.justify-content-between
-    .col-12.text-capitalize.justify-content-between
+    .col-12.text-capitalize.justify-content-between.text-justify
       - @menu_tags.each do |tag|
         = link_to tag.name, tag_path(tag), class: 'btn btn-outline-secondary btn-lg mb-3 mx-2'
 
 .container.my-5
   %h3.font-weight-bold.text-center.mb-3
     Популярные композиции
-    .small
-      на День рождения
   .row.justify-content-around.card-deck.compositions
     = render partial: 'thumb_composition', collection: @compositions, as: :c
   .row.text-center

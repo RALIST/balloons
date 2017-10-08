@@ -15,7 +15,7 @@ class Composition < ApplicationRecord
                           convert_options: {
                                             large: "-quality 75 -strip",
                                             thumb: "-quality 75 -strip",
-                                            preview: "-quality 75 -strip"},
+                                            preview: "-quality 30 -strip"},
                           processors: [:thumbnail, :compression]
   validates_attachment_content_type :img,
                         content_type: ["image/jpeg", "image/jpg", "image/png"]

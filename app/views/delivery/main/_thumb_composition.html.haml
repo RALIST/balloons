@@ -32,6 +32,13 @@
                 = c.price.round(0)
                 %i.fa.fa-ruble
         .col-6.text-right
-          = link_to 'В корзину', add_to_cart_path(c), class: "btn btn-info btn-block add-to-cart#{c.id}", id: 'ga-add-to-cart', data: {disable_with: 'Добавляем...'}, remote: true, method: :post
+          - case controller.controller_name
+          - when 'receivers'
+            = link_to 'Подробнее', receiver_composition_path(@person, c), class: 'btn btn-info btn-block'
+          - when'tags'
+            = link_to 'Подробнее', tag_composition_path(@tag, c), class: 'btn btn-info btn-block'
+          - when 'main','compositions'
+            = link_to 'Подробнее', composition_path(c), class: 'btn btn-info btn-block'
+
       - else
         = link_to 'Перейти в корзину', my_cart_path, class: 'btn btn-success btn-block'

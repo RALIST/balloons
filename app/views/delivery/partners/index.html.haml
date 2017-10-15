@@ -28,25 +28,26 @@
           Все очень просто
     .col-12.mb-5
       .row.align-items-center.text-center.justify-content-around.mb-3
-        .col-3
+        .col-lg-3
           %h3.text-secondary
             Получаете заказ
             .small.text-white
               Вы придумываете уникальное оформление для клиента
-        .col-1
+        .col-lg-1
           %i.fa.fa-chevron-circle-right.fa-5x
-        .col-3
+        .col-lg-3
           %h3.text-secondary
             Отправляете нам
             .small.text-white
               Готовим все материалы, если чего-то нет в наличии - докупаем.
-        .col-1
+        .col-lg-1
           %i.fa.fa-chevron-circle-right.fa-5x
-        .col-3
+        .col-lg-3
           %h3.text-secondary
             Мы привозим
             .small.text-white
               Доставляем по Ижевску и оформляем по вашему эскизу
+    .line.w-100{style:'position: relative;'}
 .container-fluid
   %h2.text-center.my-5
     У нас уже все готово
@@ -99,12 +100,44 @@
         Обучение
         .small
           Расскажем, как и где искать клиентов. Как сделать так, чтобы они снова заказали у вас.
-  .row
-    %h4.text-white.text-center.bg-dark.w-100.py-4
+  .row.mb-3
+    %h4.text-white.text-center.bg-dark.w-100.py-4.mb-0
       Вы занимаетесь только творчеством!
       %br
       Всю неинтересную работу мы берем на себя.
-
+  .row.align-items-center.bg-info.pb-5
+    .line-inverse.w-100{style:'position: relative;'}
+    %h2.text-center.w-100.mb-5.text-white.mt-5
+      Сколько можно заработать
+    .col-2.text-center.text-white.d-none.d-lg-block.display-2
+      %i.fa.fa-calculator.fa-2x
+    .col-lg-10.col-sm-12
+      .row.h3.text-white.my-5
+        .col-6
+          У вас заказали:
+        .col-6
+          100 шаров
+      .row.h3.text-white.my-5
+        .col-6
+          Цена шара:
+        .col-6
+          60 рублей
+      .row.h3.text-white.my-5
+        .col-6
+          Выручка:
+        .col-6
+          6000 рублей
+      .row.h3.text-white.my-5
+        .col-6
+          Себестоимость шара + наша комиссия (30%):
+        .col-6
+          32.5 рубля
+      %hr
+      .row.h3.text-white.my-5
+        .col-6.text-white
+          Ваша прибыль:
+        .col-6.text-white
+          2750 рублей
 
 
 

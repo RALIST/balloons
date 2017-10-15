@@ -1,0 +1,79 @@
+.container-fluid.p-0
+  #offer-wrapper
+    .jumbotron.jumbotron-fluid#offer.d-flex.align-items-center.jumb-business.mb-0
+      .container
+        .row
+          .business-offer.text-center
+            %h1.text-center.display-4.font-weight-bold
+              Начните свой шариковый бизнес
+              %br
+              без вложений
+            %em.lead.text-center
+              Занимайтесь творчеством и зарабатывайте деньги, а мы возьмем на себя все остальное!
+            %hr.my-4
+            %p.text-center.hidden-md-down
+              Оставьте заявку, мы перезвоним и проконсультируем вас по всем вопросам!
+            .lead.text-center.hidden-md-down
+              = button_tag 'Оставить заявку', class: 'btn btn-info btn-lg', data:{ toggle: 'modal', target: '#call-modal'}
+        .row.justify-content-center.mt-4
+          %h2.text-white Узнайте больше
+        .row.justify-content-center
+          %i.fa.fa-chevron-down#more
+.container-fluid
+  .row.bg-info.text-white
+    .col-12
+      %h2.text-center.display-4.text-white.my-5 Как это работает:
+    .col-12.mb-5
+      .row.align-items-center.text-center.justify-content-around
+        .col-3
+          %h3.text-secondary
+            Получаете заказ
+            .small.text-white
+              Вы придумываете уникальное оформление для клиента
+        .col-1
+          %i.fa.fa-chevron-circle-right.fa-5x
+        .col-3
+          %h3.text-secondary
+            Отправляете нам
+            .small.text-white
+              Готовим все материалы, если чего-то нет в наличии - докупаем.
+        .col-1
+          %i.fa.fa-chevron-circle-right.fa-5x
+        .col-3
+          %h3.text-secondary
+            Мы привозим
+            .small.text-white
+              Доставляем по Ижевску и оформляем по вашему эскизу
+.container-fluid
+  %h2.text-center.my-5
+    Почему выгодно сотрудничать с нами
+  .row.align-items-center.my-3
+    .col-2.text-center
+      %i.fa.fa-chevron-circle-right.fa-5x
+    .col-10
+      %h3.text-left
+        Гелий в наличии
+        .small
+          Мы держим минимум 4 полных баллона на запас. Вам не нужно мучаться с тяжелыми баллонам и срочно искать, если он внезапно закончился.
+  .row.align-items-center.my-3
+    .col-2.text-center
+      %i.fa.fa-chevron-circle-right.fa-5x
+    .col-10
+      %h3.text-left
+        Большой склад
+        .small
+          У нас большой запас шаров на все случаи жизни.
+          Мы плотно сортрудничаем с оптовыми поставщиками, поэтому у нас минимальная цена. Вы сможете предлагать своим клиентам конкурентную цену.
+  .row.align-items-center.my-3
+    .col-2.text-center
+      %i.fa.fa-chevron-circle-right.fa-5x
+    .col-10
+      %h3.text-left
+        Свои курьеры
+        .small
+          Наши курьеры-оформители крулосуточно готовы отвезти ваш заказ в любую точку Ижевска и Удмуртии точно в назначенное время. Мы знаем, как и в чем правильно транспортироватся шары.
+
+
+
+
+

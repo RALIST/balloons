@@ -104,6 +104,7 @@ Rails.application.routes.draw do
       get '/garantee',to: 'main#garant', as: :garant
       match "/404", to: "errors#not_found", :via => :all
       match "/500", to: "errors#internal_server_error", :via => :all
+      get '/partners', to: 'partners#index', as: :partners
       constraints(format: /[a-z]+(\.[a-z]+)?/) do
         resources :sitemaps, only: :show
         get '/sitemap',  to:  'sitemaps#show'

@@ -41,7 +41,7 @@
   @include make-col-xs(12);
   margin-top: 2rem;
   color: #ffffff;
-  background-color: transparentize(#000000, 0.2);
+  background-color: transparentize($teal, 0.2);
   padding: 0.5rem;
   border-radius: 6px;
   h1, p{

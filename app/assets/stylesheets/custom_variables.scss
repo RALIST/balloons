@@ -92,7 +92,8 @@ $theme-colors: map-merge((
   danger: $red,
   light: $gray-100,
   dark: $gray-800,
-  teal: $teal
+  teal: #20c997,
+  indigo: #6610f2
 ), $theme-colors);
 
 // Set a specific jump point for requesting color jumps

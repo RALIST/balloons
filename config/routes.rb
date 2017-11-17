@@ -10,19 +10,20 @@ Rails.application.routes.draw do
 
 
   constraints ShopSubdomain do
-    scope module: 'shop' do
-      root 'main#index'
-      resources :users
-      resources :items
-      resources :carts
-      resources :orders
-      resources :positions
-      resources :compositions
-      resources :products
-      resources :tones
-      resources :sizes
-      get '/find', to: 'main#search', as: :find
-    end
+    match "/(*path)" => redirect { |params, req| "http://#{ENV['CANONICAL_HOST']}/#{params[:path]}" },  via: :all
+    # scope module: 'shop' do
+    #   root 'main#index'
+    #   resources :users
+    #   resources :items
+    #   resources :carts
+    #   resources :orders
+    #   resources :positions
+    #   resources :compositions
+    #   resources :products
+    #   resources :tones
+    #   resources :sizes
+    #   get '/find', to: 'main#search', as: :find
+    # end
   end
 
   namespace :admin, module: 'admin' do

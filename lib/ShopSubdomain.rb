@@ -1,5 +1,5 @@
 class ShopSubdomain
   def self.matches?(request)
-    request.subdomain.present? && request.subdomain == 'shop'
+    request.subdomain.present?
   end
 end

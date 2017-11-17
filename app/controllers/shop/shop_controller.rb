@@ -1,6 +1,6 @@
 class Shop::ShopController < ApplicationController
   layout 'shop'
-  before_action :current_cart
+  # before_action :current_cart
 
 
 private
@@ -15,4 +15,5 @@ private
     session[:cart_id] = @cart.id
     @cart
   end
+
 end

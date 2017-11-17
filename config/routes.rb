@@ -110,6 +110,8 @@ Rails.application.routes.draw do
         get '/sitemap',  to:  'sitemaps#show'
       end
       get '/wmail_8a207e840240fa656dd60c5e3d164964.html', :to => redirect('/wmail_8a207e840240fa656dd60c5e3d164964.html')
+      get '/yandex_889bff755caf54ec.html', :to => redirect('/yandex_889bff755caf54ec.html')
+      get '/google6c964074640a2edf.html', :to => redirect('/google6c964074640a2edf.html')
     end
   end
 end

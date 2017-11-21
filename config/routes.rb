@@ -10,7 +10,9 @@ Rails.application.routes.draw do
 
 
   constraints ShopSubdomain do
-    match "/(*path)" => redirect { |params, req| "http://#{ENV['CANONICAL_HOST']}/#{params[:path]}" },  via: :all
+    if ENV['CANONICAL_HOST']
+      match "/(*path)" => redirect { |params, req| "https://#{ENV['CANONICAL_HOST']}/#{params[:path]}"},  via: :all
+    end
     # scope module: 'shop' do
     #   root 'main#index'
     #   resources :users

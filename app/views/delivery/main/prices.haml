@@ -3,7 +3,7 @@
   %h1 Цены на гелиевые шары c доставкой.
   .row
     .col-12
-      %h3.bg-inverse.text-white.p-3{data: {toggle: 'collapse', target: '#latex'}, style: 'cursor: pointer'}
+      %h3.bg-teal.text-white.p-3{data: {toggle: 'collapse', target: '#latex'}, style: 'cursor: pointer'}
         Латексные шары
         %i.fa.fa-chevron-down
       .container.collapse#latex
@@ -89,7 +89,7 @@
                 45 руб.
 
     .col-12
-      %h3.bg-inverse.text-white.p-3{data: {toggle: 'collapse', target: '#foil'}, style: 'cursor: pointer'}
+      %h3.bg-teal.text-white.p-3{data: {toggle: 'collapse', target: '#foil'}, style: 'cursor: pointer'}
         Фольгированные шары
         %i.fa.fa-chevron-down
       .container.collapse#foil
@@ -134,7 +134,7 @@
               %td
                 Уточняйте по телефону.
     .col-12
-      %h3.bg-inverse.text-white.p-3{data: {toggle: 'collapse', target: '#products'}, style: 'cursor: pointer'}
+      %h3.bg-teal.text-white.p-3{data: {toggle: 'collapse', target: '#products'}, style: 'cursor: pointer'}
         Дополнительные услуги
         %i.fa.fa-chevron-down
       .container.collapse#products
@@ -149,7 +149,7 @@
           %tbody
             %tr
               %td.hidden-md-down
-                %i.fa.fa-bars
+                / %i.fa.fa-bars
               %td.text-left{style: 'max-width: 40%;'}
                 .lead
                   Доставка воздушных шаров по Ижевску
@@ -158,10 +158,11 @@
               %td
                 150 руб.
                 %br
-                При заказе от 1000 руб. - бесплатно
+                .text-danger
+                  При заказе от 1000 руб. - бесплатно
             %tr
               %td.hidden-md-down
-                %i.fa.fa-bars
+                / %i.fa.fa-bars
               %td.text-left{style: 'max-width: 40%;'}
                 .lead
                   Оформление праздника воздушными шарами
@@ -169,8 +170,8 @@
                     Подберем оформление и создадим красоту на вашем празднике
               %td
                 500 руб.
-                %br
-                При заказе от 1000 руб. - бесплатно
+                .text-danger
+                  При заказе от 1000 руб. - бесплатно
   .row.mt-3
     .col-12
       = render 'prices_text'

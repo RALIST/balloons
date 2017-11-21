@@ -2,39 +2,39 @@
   .container
     .row.menu-help.align-items-end
       .menu-contacts
-        .h3 Нужна помощь?
-        .help
-          +7(912)453-25-98
-        WhatsApp Viber Telegram
+        / .h3 Нужна помощь?
+        / .help
+        /   +7(912)453-25-98
+        / WhatsApp Viber Telegram
+    / .row
+    /   .resp-search
+    /     = form_tag search_path, method: :get, class: 'form-horizontal' do
+    /       .input-group
+    /         = text_field_tag :tag_name,'', class: 'form-control', placeholder: 'Поиск по событию'
+    /         %span.input-group-btn
+    /           = button_tag(type: 'submit', class: 'btn btn-info') do
+    /             %i.fa.fa-search
     .row
-      .resp-search
-        = form_tag search_path, method: :get, class: 'form-horizontal' do
-          .input-group
-            = text_field_tag :tag_name,'', class: 'form-control', placeholder: 'Поиск по событию'
-            %span.input-group-btn
-              = button_tag(type: 'submit', class: 'btn btn-info') do
-                %i.fa.fa-search
-    .row
-      .col-sm-12.col-xs-12.col-md-12
+      .col-12.p-0
         %ul.list-unstyled.dropdown.nav.nav-pills.flex-column
           %li.dropdown.nav-item
-            .h2.d-flex.justify-content-between
+            .h4.d-flex.justify-content-between.align-items-center
               Повод
               %i.fa.fa-caret-down
             %ul.list-unstyled.dropdown-menus
               - @menu_tags.each do |tag|
-                %li.h4
+                %li.h5
                   = link_to tag.name.capitalize, tag_path(tag), class: 'nav-link'
           %li.dropdown.nav-item
-            .h2.d-flex.justify-content-between
+            .h4.d-flex.justify-content-between
               Кому
-              %i.fa.fa-caret-down.align-self-end
+              %i.fa.fa-caret-down
             %ul.list-unstyled.dropdown-menus
               - @menu_receivers.each do |p|
-                %li.h4
+                %li.h5
                   = link_to p.title.capitalize, receiver_path(p), class: 'nav-link'
           %li.dropdown.nav-item
-            .h2.d-flex.justify-content-between
+            .h4.d-flex.justify-content-between
               По цене
               %i.fa.fa-caret-down
             %ul.list-unstyled.dropdown-menus
@@ -54,13 +54,13 @@
                 = link_to price_range_path(min: 8000), class: 'nav-link' do
                   От 8000
           %li.dropdown.nav-item
-            .h2.d-flex.justify-content-between
+            .h4.d-flex.justify-content-between
               Выпускные
               %i.fa.fa-caret-down
             %ul.list-unstyled.dropdown-menus
-              %li.h4
+              %li.h5
                 = link_to 'из садика', kg_path, class: 'nav-link'
-              %li.h4
+              %li.h5
                 = link_to 'из школы', school_path, class: 'nav-link'
     .row
       - if @cart.positions.any?
@@ -73,12 +73,20 @@
                 %i.fa.fa-rub{style: 'aria-hidden="true"'}
 
     .row
-      .col-sm-12.col-xs-12{style: 'margin-top: 1.5em;'}
-        %ul.list-unstyled.list-inline.h4
+      .col-12.p-0
+        %ul.list-unstyled
+          = link_to contacts_path do
+            %li.nav-item.nav-item-secondary
+              Контакты
+          = link_to feedbacks_path do
+            %li.nav-item.nav-item-secondary
+              Отзывы
           - unless current_user
-            %li.nav-item= link_to 'Войти', login_path
-            %li.nav-item= link_to 'Регистрация', signin_path
+            = link_to login_path do
+              %li.nav-item.nav-item-secondary
+                Войти
+            = link_to signin_path do
+              %li.nav-item.nav-item-secondary
+                Регистрация
           - else
-            %li.nav-item= link_to 'Личный кабинет', user_path(current_user)
-          %li.nav-item= link_to 'Прайс', prices_path
-          %li.nav-item= link_to 'Отзывы', feedbacks_path
+            %li.nav-item.nav-item-secondary= link_to 'Личный кабинет', user_path(current_user)

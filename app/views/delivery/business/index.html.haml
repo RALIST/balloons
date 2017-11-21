@@ -24,7 +24,7 @@
   .jumbotron.jumbotron-fluid#offer.d-flex.align-items-center.jumb-business
     .container
       .row
-        .business-offer
+        .business-offer.w-100.text-center
           %h1
             Профессиональное оформление
             %br
@@ -95,7 +95,8 @@
   .row#holidays
   .row#prints
   .row#contacts
-
+.container-fluid#contacts
+  = render 'delivery/main/contacts'
 
 = render 'delivery/layouts/call'
 

@@ -1,5 +1,5 @@
 - cache composition do
-  .row#reverse
+  .d-flex#reverse
     .comp-desc
       %p.strong.text-uppercase.mb-1
         В композицию входит:
@@ -36,25 +36,17 @@
             = link_to 'Перейти в корзину', my_cart_path, class: 'btn btn-success btn-block'
           / .small.text-center.text-danger.d-flex
           /   Вы cможете изменить состав композиции в корзине
-      .row.mt-5.align-items-center.justify-content-around
-        .h6.col-4.text-uppercase
-          Можно оплатить
-        .col-4.text-info
-          .row.align-items-center
-            .col-2.p-0
-              %i.fa.fa-money.fa-2x
-            .col-10.p-0.pl-3.lh-1
-              Наличными
-              %br
-              курьеру
-        .col-4.text-info
-          .row.align-items-center
-            .col-2.p-0
-              %i.fa.fa-credit-card.fa-2x
-            .col-10.p-0.pl-3.lh-1
-              Банковской
-              %br
-              картой
+      .row.mt-3
+        .h6.w-100.text-center
+          Способы оплаты:
+        .col-6.text-info.align-items-center.d-flex.lh-1
+          %i.fa.fa-money.fa-2x.pr-1
+          Наличными
+          курьеру
+        .col-6.text-info.align-items-center.d-flex.lh-1
+          %i.fa.fa-credit-card.fa-2x.pr-1
+          Банковской
+          картой
     .comp-image.text-right
       = link_to root_path, class: 'btn btn-outline-info btn-sm mb-2' do
         %i.fa.fa-chevron-left

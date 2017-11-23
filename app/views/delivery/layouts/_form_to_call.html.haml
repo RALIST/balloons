@@ -8,7 +8,7 @@
   = form_for @call do |f|
     .form-group.row.align-items-center
       = f.label 'Как вас зовут?', class: 'control-label col-5 text-uppercase pr-0'
-      = f.text_field :username, class: 'form-control col-7', required: true
+      = f.text_field :username, class: 'form-control col-7', required: true, autofocus: true
     .form-group.row.align-items-center
       = f.label 'Ваш телефон', class: 'control-label col-5 text-uppercase'
       = f.telephone_field :userphone, data:{ mask: '+7 (999) 999 99 99' }, class: 'form-control col-7', required: true

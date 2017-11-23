@@ -22,16 +22,16 @@
               %td.popover-img{style: 'display: none;'}
                 = image_tag product.image(:small)
       .row#total.mt-2.py-2.align-items-center.m-0
-        .w-50.d-inline-flex
+        .col-8.d-inline-flex
           .t1.pl-3.text-uppercase.strong.p-0
             Итого
           .t2.strong.h1.p-0.pl-3.text-secondary.m-0.text-right
             = composition.comp_price.round(0)
           .strong.pl-1
             руб.
-        .w-50.d-inline-flex.px-2
+        .col-4.d-inline-flex.px-2
           - unless @cart.compositions.include?(composition)
-            = link_to 'Добавить в корзину', add_to_cart_path(composition), class: "btn btn-info btn-block add-to-cart#{composition.id}", id: 'ga-add-to-cart', data: {disable_with: 'Добавляем...'}, remote: true, method: :post
+            = link_to 'В корзину', add_to_cart_path(composition), class: "btn btn-info btn-block add-to-cart#{composition.id}", id: 'ga-add-to-cart', data: {disable_with: 'Добавляем...'}, remote: true, method: :post
           - else
             = link_to 'Перейти в корзину', my_cart_path, class: 'btn btn-success btn-block'
           / .small.text-center.text-danger.d-flex
@@ -55,6 +55,6 @@
   %h3.col-12.text-center.strong.my-5
     Похожие композиции
   .container
-    .row.justify-content-around.card-deck.compositions.card-group
+    .row.justify-content-around.compositions
       = render partial: 'delivery/main/thumb_composition', collection: composition.related.limit(3), as: :c
 

@@ -77,16 +77,20 @@
         %ul.list-unstyled
           = link_to contacts_path do
             %li.nav-item.nav-item-secondary
-              Контакты
+              .ml-3
+                Контакты
           = link_to feedbacks_path do
             %li.nav-item.nav-item-secondary
-              Отзывы
+              .ml-3
+                Отзывы
           - unless current_user
             = link_to login_path do
               %li.nav-item.nav-item-secondary
-                Войти
+                .ml-3
+                  Войти
             = link_to signin_path do
               %li.nav-item.nav-item-secondary
-                Регистрация
+                .ml-3
+                  Регистрация
           - else
             %li.nav-item.nav-item-secondary= link_to 'Личный кабинет', user_path(current_user)

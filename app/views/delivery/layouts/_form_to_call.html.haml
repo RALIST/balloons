@@ -9,26 +9,27 @@
       .form-group.row.align-items-center
         = f.label 'Ваш телефон', class: 'control-label col-5 text-uppercase'
         = f.telephone_field :userphone, data:{ mask: '+7 (999) 999 99 99' }, class: 'form-control col-7', required: true
-      .form-group
-        = f.label 'Как лучше с вами связаться?', class: 'control-label text-uppercase'
-        %br
-        .form-check.form-check-inline
-          %label
-            = f.check_box :messangers, {multiple: true}, 'Позвонить', nil
-            Позвонить
-        .form-check.form-check-inline
-          %label
-            = f.check_box :messangers, {multiple: true}, 'Viber', nil
-            Viber
-        .form-check.form-check-inline
-          %label
-            = f.check_box :messangers, {multiple: true}, 'Whats App', nil
-            Whats App
-        .form-check.form-check-inline
-          %label
-            = f.check_box :messangers, {multiple: true}, 'Telegram', nil
-            Telegram
-        = f.hidden_field :url, value: request.original_url
-        .form-group.text-center.my-4
+      .form-group.row
+        .col-12
+          = f.label 'Как лучше с вами связаться?', class: 'control-label text-uppercase'
+        .col-12.pr-0
+          .form-check.form-check-inline
+            %label
+              = f.check_box :messangers, {multiple: true}, 'Позвонить', nil
+              Позвонить
+          .form-check.form-check-inline
+            %label
+              = f.check_box :messangers, {multiple: true}, 'Viber', nil
+              Viber
+          .form-check.form-check-inline
+            %label
+              = f.check_box :messangers, {multiple: true}, 'Whats App', nil
+              Whats App
+          .form-check.form-check-inline
+            %label
+              = f.check_box :messangers, {multiple: true}, 'Telegram', nil
+              Telegram
+          = f.hidden_field :url, value: request.original_url
+        .form-group.text-center.my-4.w-100
           = submit_tag 'Отправить', class: 'btn btn-info col-6 text-uppercase', data:{disable_with: 'Отправляю...'}
 

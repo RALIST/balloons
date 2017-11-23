@@ -3,7 +3,7 @@ $(document).on('ajaxComplete', function(){
   $('#cart #count').html("<%= pluralize(@cart.positions.count, 'товар', 'товара') %>");
   $('#cart #sum').html('<%= @cart.total_price.round(0) %>');
   $('#cart #to-cart').html("<%=j link_to 'В корзину', my_cart_path %>");
-  $('.icon-wrapper .badge').html('<%= @cart.positions.count %>');
+  $('#icon-wrapper .badge').html('<%= @cart.positions.count %>');
   $('#responsive').html('<%= j(render "delivery/layouts/resp_menu")%>');
 });
 

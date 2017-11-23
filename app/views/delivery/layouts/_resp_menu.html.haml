@@ -19,6 +19,7 @@
         %ul.list-unstyled.dropdown.nav.nav-pills.flex-column
           %li.dropdown.nav-item
             .h4.d-flex.justify-content-between.align-items-center
+              %i.fa.fa-birthday-cake
               Повод
               %i.fa.fa-caret-down
             %ul.list-unstyled.dropdown-menus
@@ -26,7 +27,8 @@
                 %li.h5
                   = link_to tag.name.capitalize, tag_path(tag), class: 'nav-link'
           %li.dropdown.nav-item
-            .h4.d-flex.justify-content-between
+            .h4.d-flex.justify-content-between.align-items-center
+              %i.fa.fa-venus-mars
               Кому
               %i.fa.fa-caret-down
             %ul.list-unstyled.dropdown-menus
@@ -34,7 +36,8 @@
                 %li.h5
                   = link_to p.title.capitalize, receiver_path(p), class: 'nav-link'
           %li.dropdown.nav-item
-            .h4.d-flex.justify-content-between
+            .h4.d-flex.justify-content-between.align-items-center
+              %i.fa.fa-rub
               По цене
               %i.fa.fa-caret-down
             %ul.list-unstyled.dropdown-menus
@@ -54,7 +57,8 @@
                 = link_to price_range_path(min: 8000), class: 'nav-link' do
                   От 8000
           %li.dropdown.nav-item
-            .h4.d-flex.justify-content-between
+            .h4.d-flex.justify-content-between.align-items-center
+              %i.fa.fa-graduation-cap
               Выпускные
               %i.fa.fa-caret-down
             %ul.list-unstyled.dropdown-menus
@@ -65,8 +69,8 @@
     .row
       - if @cart.positions.any?
         .resp-cart
-          = link_to my_cart_path, class: 'btn btn-primary btn-block' do
-            %h3
+          = link_to my_cart_path, class: 'btn btn-secondary btn-block' do
+            .h3.mb-0.text-white
               Корзина
               %span.badge
                 = @cart.total_price
@@ -83,6 +87,18 @@
             %li.nav-item.nav-item-secondary
               .ml-3
                 Отзывы
+          = link_to prices_path do
+            %li.nav-item.nav-item-secondary
+              .ml-3
+                Цены
+          = link_to info_path do
+            %li.nav-item.nav-item-secondary
+              .ml-3
+                Доставка и оплата
+          = link_to about_path do
+            %li.nav-item.nav-item-secondary
+              .ml-3
+                О нас
           - unless current_user
             = link_to login_path do
               %li.nav-item.nav-item-secondary
@@ -93,4 +109,7 @@
                 .ml-3
                   Регистрация
           - else
-            %li.nav-item.nav-item-secondary= link_to 'Личный кабинет', user_path(current_user)
+            = link_to user_path(current_user) do
+              %li.nav-item.nav-item-secondary
+                .ml-3
+                  Личный кабинет

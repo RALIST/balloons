@@ -54,7 +54,6 @@
       = image_tag composition.img.url(:preview), class: 'img-fluid img-thumbnail', itemprop: 'image'
   %h3.col-12.text-center.strong.my-5
     Похожие композиции
-  .container
-    .row.justify-content-around.compositions
-      = render partial: 'delivery/main/thumb_composition', collection: composition.related.limit(3), as: :c
+  .row.justify-content-around.compositions
+    = render partial: 'delivery/main/thumb_composition', collection: composition.related.limit(3), as: :c
 

@@ -1,15 +1,14 @@
 .modal.fade{id: "call-modal",  tabindex: "-1",  role: "dialog"}
   .modal-dialog#call{role: "document"}
     .modal-content
-      .modal-header.text-right
-        .row.align-items-end{style:'width:100%;'}
-          .col-12.p-0
-            = link_to '',class: "close",  data: {dismiss: "modal"}, style: 'aria-label: "Close"' do
-              %span
-                &times;
-      .modal-body
-        .h2.text-center.text-uppercase
+      .modal-header
+        %h3.modal-title.text-uppercase
           Нужна помощь?
+        %button.close{data: {dismiss: "modal"}, style: 'aria-label: "Close"'}
+          %span
+            &times;
+
+      .modal-body.pt-0
         %p.text-muted.text-center
           Оставьте заявку на обратный звонок или напишите нам в чате!
           %br

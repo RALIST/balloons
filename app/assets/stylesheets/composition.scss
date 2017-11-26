@@ -6,7 +6,7 @@
   @include media-breakpoint-up(lg){
     @include make-col(6);
   }
-  @include media-breakpoint-down(lg){
+  @include media-breakpoint-down(md){
     @include make-col(12);
   }
   @include media-breakpoint-up(lg){
@@ -19,7 +19,7 @@
   @include media-breakpoint-up(lg){
     @include make-col(6);
   }
-  @include media-breakpoint-down(lg){
+  @include media-breakpoint-down(md){
     @include make-col(12);
   }
 }
@@ -28,7 +28,7 @@
   @include media-breakpoint-up(lg){
     @include make-col(2);
   }
-  @include media-breakpoint-down(lg){
+  @include media-breakpoint-down(md){
     @include make-col(12);
   }
 }
@@ -37,7 +37,7 @@
   @include media-breakpoint-up(lg){
     @include make-col(6);
   }
-  @include media-breakpoint-down(lg){
+  @include media-breakpoint-down(md){
     @include make-col(4);
   }
 }
@@ -52,7 +52,7 @@
     padding-left: 0;
     padding-bottom: 0;
     font-size: 80%;
-    @include media-breakpoint-down(lg){
+    @include media-breakpoint-down(md){
       padding-top: 2rem;
       border-radius: 0;
     }

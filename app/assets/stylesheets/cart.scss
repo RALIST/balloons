@@ -19,7 +19,7 @@
 
 .position-img {
   @include media-breakpoint-up(lg){
-    @include make-col(3);
+    @include make-col(4);
   }
   @include media-breakpoint-down(lg){
     @include make-col(12);
@@ -29,7 +29,7 @@
 
 .cart-subpositions {
   @include media-breakpoint-up(lg){
-    @include make-col(9);
+    @include make-col(8);
   }
   @include media-breakpoint-down(lg){
     @include make-col(12);
@@ -42,10 +42,10 @@
 
 .product-name {
   @include media-breakpoint-up(lg){
-    @include make-col(6);
+    @include make-col(4);
   }
   @include media-breakpoint-down(lg){
-    @include make-col(5);
+    @include make-col(4);
   }
   text-align: center;
   span {
@@ -59,13 +59,27 @@
     @include make-col(4);
   }
   @include media-breakpoint-down(lg){
-    @include make-col(5);
+    @include make-col(4);
   }
   text-align: center;
 }
 
 .remove-subposition {
-  @include make-col(2);
+  @include media-breakpoint-up(lg){
+    @include make-col(1);
+  }
+  @include media-breakpoint-down(lg){
+    @include make-col(1);
+  }
+}
+
+.product-price {
+  @include media-breakpoint-up(lg){
+    @include make-col(3);
+  }
+  @include media-breakpoint-down(lg){
+    @include make-col(3);
+  }
 }
 
 #del-from-cart {

@@ -80,17 +80,16 @@ $(document).on('keyup','#subposition_quantity', function (e) {
   });
 
 $(document).on('mouseenter touchstart', '[data-product-id], [data-item-id]' , function(){
-  $('[data-item-id] a, [data-item-id] span, [data-product-id] a, [data-product-id] span').each(function(index, value){
+  $('[data-item-id] img, [data-product-id] img').each(function(index, value){
     element = $(value)
     element.popover({
       trigger: 'hover',
-      placement: 'bottom',
+      placement: 'top',
       container: 'body',
       animation: false,
-      html: true,
       content: function(){
-        var imgSrc = $(this).closest('.item').find('.popover-img img').attr('src');
-        return '<img src ="' + imgSrc + '" />'
+        var name = $(this).closest('.item').data('content');
+        return name;
       }
     });
   });
@@ -168,4 +167,9 @@ $(window).on('scroll', function(){
       $('.original').css('visibility', 'visible')
     }
   }
+})
+
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
 })

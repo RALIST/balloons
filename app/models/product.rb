@@ -25,7 +25,7 @@ class Product < ApplicationRecord
   before_save :set_price_with_helium
 
   def image(size)
-    if self.item.tone && self.type.name != 'фольгированные шары' && self.type.name != 'товары для композиций' && self.size.in_inch != 36
+    if self.item.tone && self.type.name != 'фольгированные шары' && self.size.in_inch != 36
         self.item.tone.img.url(size)
     else
       unless self.img.blank?

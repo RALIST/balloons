@@ -1,7 +1,7 @@
 -breadcrumb :cart
 
 .container
-  .row.cart
+  .row.cart.my-5
     - if @cart.positions.any?
       .cart-positions
         %h2.border-bot В корзине
@@ -13,7 +13,7 @@
                   .row.justify-content-between.px-3
                     %h5 В композицию входит
                     .text-right
-                      = link_to remove_from_cart_path(p), method: :post, remote: true do
+                      = link_to remove_from_cart_path(p), method: :post, remote: true, data: {toggle: 'tooltip'}, title: 'Удалить из корзины' do
                         %i.fa.fa-times#del-from-cart
                 .row.m-0
                   .position-img.text-center.card-body

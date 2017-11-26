@@ -1,9 +1,7 @@
 .row.align-items-center.cart-subposition{id: "#{subposition.id}"}
   - product = subposition.product
-  .product-name.item{data: {product_id: "#{subposition.product.id}"}}
+  .product-name.item{data: {product_id: "#{subposition.product.id}", content: "#{subposition.product.complex_name}"}}
     %span{style: 'cursor: pointer;'}
-      = product.complex_name
-    .popover-img{style: 'display: none;'}
       = image_tag product.image(:small)
   .product-quantity
     = form_for subposition, class: 'form-inline', remote: true do |f|
@@ -15,6 +13,10 @@
         .input-group-addon
           = link_to down_quantity_path(subposition), method: :post, remote: true, class: "sub-#{subposition.id}" do
             %i.fa.fa-minus
+  .product-price.text-center
+    по
+    = product.price_with_helium.round(0)
+    руб.
   .remove-subposition.text-center
-    = link_to subposition_path(subposition), method: :delete, remote: true do
+    = link_to subposition_path(subposition), method: :delete, remote: true, data: {toggle: 'tooltip'}, title: 'Удалить из композиции' do
       %i.fa.fa-times

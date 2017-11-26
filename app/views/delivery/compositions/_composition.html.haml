@@ -1,31 +1,37 @@
 - cache composition do
   .d-flex#reverse
     .comp-desc
-      %p.strong.text-uppercase.mb-1
+      %p.strong.text-uppercase.mb-0
         В композицию входит:
       #products
         %table.table
           %tbody
+            %thead
+              %tr
+                %th.text-center
+                  Шар
+                %th.text-center
+                  Цена
+                %th.text-center
+                  Количество
           - composition.products.uniq.each do |product|
-            %tr.item{data: {item_id: "#{product.id}"}}
-              %td
+            %tr.item.text-center{data: {item_id: "#{product.id}", content: "#{product.complex_name}" }}
+              %td.text-center
                 %span{style: 'border-bottom: 1px dashed black; cursor: pointer;'}
-                  = product.complex_name
-              %td.h5.strong
-                = composition.products.where(id: product.id).count
-                %small
-                  шт.
+                  = image_tag product.image(:small), alt: product.complex_name
               %td.h5.strong
                 = product.price_with_helium.round(0)
                 %small
                   руб.
-              %td.popover-img{style: 'display: none;'}
-                = image_tag product.image(:small)
+              %td.h5.strong
+                = composition.products.where(id: product.id).count
+                %small
+                  шт.
       .row#total.mt-2.py-2.align-items-center.m-0
         .col-8.d-inline-flex
-          .t1.pl-3.text-uppercase.strong.p-0
+          .t1.pl-3.text-uppercase.strong.p-0.lead
             Итого
-          .t2.strong.h1.p-0.pl-3.text-secondary.m-0.text-right
+          .t2.strong.h2.p-0.pl-3.text-secondary.m-0.text-right
             = composition.comp_price.round(0)
           .strong.pl-1
             руб.
@@ -47,8 +53,8 @@
           %i.fa.fa-credit-card.fa-2x.pr-1
           Банковской
           картой
-    .comp-image.text-right
-      = link_to root_path, class: 'btn btn-outline-info btn-sm mb-2' do
+    .comp-image
+      = link_to root_path, class: 'btn btn-outline-info btn-sm my-3 d-none d-lg-inline-block' do
         %i.fa.fa-chevron-left
         Вернуться в каталог
       = image_tag composition.img.url(:preview), class: 'img-fluid img-thumbnail', itemprop: 'image'

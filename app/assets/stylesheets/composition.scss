@@ -5,14 +5,13 @@
 .comp-image {
   @include media-breakpoint-up(lg){
     @include make-col(6);
+    margin-top: -220px;
+    text-align: right;
   }
   @include media-breakpoint-down(md){
     @include make-col(12);
+    text-align: center;
   }
-  @include media-breakpoint-up(lg){
-    margin-top: -220px;
-  }
-
 }
 
 .comp-desc {
@@ -21,6 +20,10 @@
   }
   @include media-breakpoint-down(md){
     @include make-col(12);
+    p {
+      margin-top: 1rem;
+      font-size: 1.5rem;
+    }
   }
 }
 
@@ -65,11 +68,14 @@
 
 #products {
   border-radius: 20px;
-  border: 2px solid #eceeef;
-  padding: 1.5rem;
+  // border: 2px solid #eceeef;
+  @include media-breakpoint-up(lg){
+    padding-right: 1rem;
+  }
+
   table, tr, td, tbody {
-    border: 0;
     margin: 0;
+    vertical-align: middle;
   }
 }
 

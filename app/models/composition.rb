@@ -37,7 +37,7 @@ class Composition < ApplicationRecord
   end
 
   def update_price
-      self.comp_price
+      self.update(price: self.comp_price)
   end
 
   def tag_name

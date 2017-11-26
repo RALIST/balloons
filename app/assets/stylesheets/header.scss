@@ -1,6 +1,6 @@
 #header {
   z-index: 900;
-  @include media-breakpoint-up(md){
+  @include media-breakpoint-up(lg){
     margin-top: 0.5rem;
   }
 }
@@ -15,10 +15,10 @@
 
 .header-logo-responsive {
   @include media-breakpoint-only(md){
-    @include make-col(2);
+    @include make-col(12);
   }
   @include media-breakpoint-down(lg){
-    @include make-col(6);
+    @include make-col(12);
   }
 }
 .header-contacts {
@@ -48,31 +48,6 @@
     font-size: 0.9rem;
     font-weight: bold;
   }
-  // .delimeter {
-  //   @include make-col-xl(12);
-  //   @include make-col-lg(12);
-  // }
-  // .nav-link.active,
-  // .nav-item.show .nav-link {
-  //   background-color: $nav-link-hover-bg;
-  //   color: white;
-  //   &:hover {
-  //     background-color: $nav-link-hover-bg;
-  //   }
-  // }
-  // .nav-link {
-  //   color: $brand-secondary;
-  // }
-  // .dropdown-item a {
-  //   color: $nav-link-hover-bg;
-  // }
-
-  // .dropdown-item:active a{
-  //   color: white;
-  // }
-  // .nav-link {
-  //   font-weight: 700;
-  // }
 }
 
 
@@ -82,9 +57,6 @@
 .resp-menu-bar {
   width: 100%;
   z-index: 901;
-  .row {
-    min-height: 60px;
-  }
 
   #icon-wrapper {
     margin-right: 0.5em;

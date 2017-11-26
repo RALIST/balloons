@@ -3,7 +3,10 @@
   @include media-breakpoint-up(lg){
     @include make-col(4);
   }
-  @include media-breakpoint-down(lg){
+  @include media-breakpoint-only(md){
+    @include make-col(6);
+  }
+  @include media-breakpoint-down(sm){
     @include make-col(12);
   }
   margin-bottom: 10px;

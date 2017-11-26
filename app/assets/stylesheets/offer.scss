@@ -1,23 +1,31 @@
 .offer {
   @include media-breakpoint-up(lg){
     @include make-col(7);
+    margin-top: 180px;
   }
   @include media-breakpoint-down(lg){
     @include make-col(12);
   }
-  margin-top: 180px;
+
 }
 
 #main-offer {
-  background: image-url("offer.jpg") no-repeat right center scroll;
+  background: image-url("offer.jpg") no-repeat top center scroll;
   background-size: cover;
   @include media-breakpoint-down(lg){
     .mt-5 {
       margin-top: 0 !important;
     }
+    padding-top: 0 !important;
+    .row {
+      margin-top: 0 !important;
+    }
   }
 }
 
+#grad {
+  background: rgba(255,255,255,0.4);
+}
 
 #offer {
   height: 85vh;

@@ -28,8 +28,10 @@
     }
   })
 
-  $(document).on('click', '#ga-add-to-cart', function(){
-    yaCounter37371855.reachGoal('to_cart');
-    ga('send', 'event', 'cart', 'add');
-  })
-  <% end %>
+  $(document).ready(function(){
+    $('#ga-add-to-cart').on('click', function{
+      yaCounter37371855.reachGoal('to_cart');
+      ga('send', 'event', 'cart', 'add');
+    })
+  });
+<% end %>

@@ -1,14 +1,3 @@
-<% unless params[:page] %>
-  $(document).on('ajaxStart', function(){
-    $('#composition .modal-title').html('Загрузка...');
-    $('#composition .modal-body').html('<div class="text-center h1"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i></div>');
-  });
-  $(document).on('ajaxSuccess', function(){
-    $('#composition .modal-title').html('<span itemprop="name">Композиция №<%= @composition.id %></span> <br> <small class = "text-muted">Вы сможете изменить состав композиции и количество шаров просто добавив ее в корзину!</small');
-    $('#composition .modal-body').html('<%= j( render @composition) %>');
-  });
-<% end %>
-
 <% if params[:page] %>
   $('.compositions').append('<%= j(render partial: "delivery/main/thumb_composition", collection: @compositions, as: :c) %>');
   <% if @compositions.next_page %>

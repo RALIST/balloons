@@ -1,18 +1,20 @@
 .container.my-3
-  %h2.text-center
+  %h2.text-center.mt-5.mb-2
     Лучшие композиции по цене
     -if params[:min].present?
       от #{params[:min]}
     -if params[:max].present?
       до #{params[:max]}
     рублей
-  .row.justify-content-around.card-deck.compositions
-    = render partial: 'thumb_composition', collection: @compositions, as: :c, cached: true
-  .row.text-center
-    = will_paginate @compositions
+  .row.justify-content-around.compositions
+    = render partial: 'thumb_composition', collection: @compositions, as: :c
+  .row.text-center#pagination
+    / = will_paginate @compositions
   .row.text-center
     %h4.col-12.mt-3
       Ничего не нашли? Давайте мы поможем!
-    .col-lg-6.col-sm-12#help
-      = button_tag 'Оставить заявку', class: 'btn btn-success btn-lg btn-block', data:{ toggle: 'modal', target: '#call-modal'}
+    .col-12#help
+      = button_tag 'Оставить заявку', class: 'btn btn-success btn-lg btn-block col-lg-6 m-auto', data:{ toggle: 'modal', target: '#call-modal'}
+  #seo-text
 = render 'delivery/main/modal_composition'
+

@@ -62,10 +62,10 @@ class Delivery::MainController < Delivery::DeliveryController
       set_meta_tags title: "Оформление воздушными шарами до #{params[:max]} рублей",
                     description: "Воздушные шары на #{params[:tag_name]}",
                     reverse: true
-    @compositions = Composition.availible.price_range(params[:min], params[:max]).order(:price).paginate(page: params[:page], per_page: 6)
+    @compositions = Composition.availible.price_range(params[:min], params[:max]).order(:price)
     respond_to do |format|
       format.html {redirect_to root_path, flash: {danger: 'Нет композиций в этом диапазоне!'} unless @compositions.any?}
-      format.js {render 'index'} if params[:page]
+      format.js
     end
   end
 

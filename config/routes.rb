@@ -62,7 +62,6 @@ Rails.application.routes.draw do
   constraints NoneSubdomain do
     scope module: 'delivery' do
       root 'main#index'
-      resources :items,         only: [:index, :show]
       resources :compositions,  only: [:index, :show]
       resources :tags, only: :show, path: 'events' do
         resources :compositions, only: :show, path: ''

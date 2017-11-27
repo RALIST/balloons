@@ -8,10 +8,13 @@ Disallow: /thank_you
 Disallow: /add_to_cart/
 Disallow: /search$
 Disallow: *?max
+Disallow: *?min
 Disallow: /lp
 Disallow: /login
 Disallow: /signin
 Disallow: /users/
+Disallow: /items/
+Disallow: /products/
 
 Host: https://bigairballoons.ru
 Sitemap: https://bigairballoons.ru/sitemap.xml

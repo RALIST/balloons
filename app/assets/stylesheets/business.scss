@@ -34,11 +34,7 @@
 }
 
 .business-offer {
-  @include make-col-lg(8);
-  @include make-col-xl(8);
-  @include make-col-md(12);
-  @include make-col-sm(12);
-  @include make-col-xs(12);
+  @include make-col(12);
   margin-top: 2rem;
   color: #ffffff;
   background-color: transparentize($teal, 0.2);

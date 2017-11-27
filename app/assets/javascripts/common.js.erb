@@ -150,24 +150,24 @@ $(window).on('scroll', function(){
 });
 
 
-$(document).ready(function(){
-  $('#lp-header').addClass('original').clone().insertAfter('#lp-header').addClass('cloned').css('position', 'fixed').css('background', '#ffffff').css('width', '100%').css('top', '0').css('z-index', '1000').removeClass('original').hide();
-});
+// $(document).ready(function(){
+//   $('#lp-header').addClass('original').clone().insertAfter('#lp-header').addClass('cloned').css('position', 'fixed').css('background', '#ffffff').css('width', '100%').css('top', '0').css('z-index', '1000').removeClass('original').hide();
+// });
 
-$(window).on('scroll', function(){
-  if ($('#lp-header').length){
-    var orgPos = $('#lp-header').offset();
-    var orgPosTop = orgPos.top;
-    var orgPosLeft = orgPos.left;
-    if ($(this).scrollTop() >= (orgPosTop+1)){
-      $('.cloned').show();
-      $('.original').css('visibility', 'hidden')
-    }else{
-      $('.cloned').hide();
-      $('.original').css('visibility', 'visible')
-    }
-  }
-})
+// $(window).on('scroll', function(){
+//   if ($('#lp-header').length){
+//     var orgPos = $('#lp-header').offset();
+//     var orgPosTop = orgPos.top;
+//     var orgPosLeft = orgPos.left;
+//     if ($(this).scrollTop() >= (orgPosTop+1)){
+//       $('.cloned').show();
+//       $('.original').css('visibility', 'hidden')
+//     }else{
+//       $('.cloned').hide();
+//       $('.original').css('visibility', 'visible')
+//     }
+//   }
+// })
 
 
 $(function () {

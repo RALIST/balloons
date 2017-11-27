@@ -1,55 +1,55 @@
 
-$(document).on('ready', function(){
-  $('[data-toggle="tooltip"]').tooltip();
-});
+// $(document).on('ready', function(){
+//   $('[data-toggle="tooltip"]').tooltip();
+// });
 
-$(document).on('click touch', '#toggle-search-bar, #close-bar', function(){
-  $('.search-bar').toggle('drop').toggleClass('toggled');
-});
+// $(document).on('click touch', '#toggle-search-bar, #close-bar', function(){
+//   $('.search-bar').toggle('drop').toggleClass('toggled');
+// });
 
 
-// <------------------------------ Slider ------------------------>
-$(document).on('ready', function(){
-  $('#size-slider').slider({
-    range: true,
-    values: [14, 60],
-    min: 1,
-    max: 90,
-    create: function(event, ui){
-      $('input#min').val($('#size-slider').slider('values', 0));
-      $('input#max').val($('#size-slider').slider('values', 1));
-    },
-    stop: function(){
-      $('input#min').val($('#size-slider').slider('values', 0));
-      $('input#max').val($('#size-slider').slider('values', 1));
-    },
-    slide: function () {
-      $('input#min').val($('#size-slider').slider('values', 0));
-      $('input#max').val($('#size-slider').slider('values', 1));
-    },
-  });
+// // <------------------------------ Slider ------------------------>
+// $(document).on('ready', function(){
+//   $('#size-slider').slider({
+//     range: true,
+//     values: [14, 60],
+//     min: 1,
+//     max: 90,
+//     create: function(event, ui){
+//       $('input#min').val($('#size-slider').slider('values', 0));
+//       $('input#max').val($('#size-slider').slider('values', 1));
+//     },
+//     stop: function(){
+//       $('input#min').val($('#size-slider').slider('values', 0));
+//       $('input#max').val($('#size-slider').slider('values', 1));
+//     },
+//     slide: function () {
+//       $('input#min').val($('#size-slider').slider('values', 0));
+//       $('input#max').val($('#size-slider').slider('values', 1));
+//     },
+//   });
 
-  $('input#min_size').on('change', function(){
-    var min_value = $(this).val();
-    var max_value = $('#max_size').val();
-    if(parseInt(min_value) > parseInt(max_value)){
-      min_value = max_value;
-      $(this).val(min_value)
-    }
-    $('#size-slider').slider('values', 0, min_value)
-  });
+//   $('input#min_size').on('change', function(){
+//     var min_value = $(this).val();
+//     var max_value = $('#max_size').val();
+//     if(parseInt(min_value) > parseInt(max_value)){
+//       min_value = max_value;
+//       $(this).val(min_value)
+//     }
+//     $('#size-slider').slider('values', 0, min_value)
+//   });
 
-  $('input#max_size').on('change', function(){
-    var max_value = $(this).val();
-    var min_value = $('#min_size').val();
-    if(parseInt(max_value) > 90){max_value = 90; $(this).val(max_value)}
-    if(parseInt(min_value) > parseInt(max_value)) {
-      max_value = min_value;
-      $(this).val(max_value);
-    }
-    $('#size-slider').slider('values', 1, max_value)
-  });
-});
+//   $('input#max_size').on('change', function(){
+//     var max_value = $(this).val();
+//     var min_value = $('#min_size').val();
+//     if(parseInt(max_value) > 90){max_value = 90; $(this).val(max_value)}
+//     if(parseInt(min_value) > parseInt(max_value)) {
+//       max_value = min_value;
+//       $(this).val(max_value);
+//     }
+//     $('#size-slider').slider('values', 1, max_value)
+//   });
+// });
 
 
 

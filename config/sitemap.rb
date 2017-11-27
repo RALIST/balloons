@@ -30,21 +30,7 @@ SitemapGenerator::Sitemap.create do
     end
   end
 
-
-  prices = Composition.availible.pluck(:price)
-  prices.length.times do
-    min = prices[rand(prices.length)]
-    max = prices[rand(prices.length)]
-    if min < max
-      add price_range_path(min: min, max: max)
-    end
-  end
-
-  prices.each do |p|
-    add price_range_path(min: p)
-    add price_range_path(max: p)
-  end
-
+  add partners_path
   add prices_path
   add contacts_path
   add info_path
@@ -52,7 +38,6 @@ SitemapGenerator::Sitemap.create do
   add about_path
   add business_index_path
   add feedbacks_path
-  add '/lp'
   add 'graduations/sadik'
   add 'graduations/shkola'
 

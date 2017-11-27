@@ -19,7 +19,8 @@ class Product < ApplicationRecord
 
   has_attached_file :img, styles: {small: 'x100', thumb: 'x300'}
   validates_attachment_content_type :img,
-                        content_type: ["image/jpeg", "image/jpg", "image/png"]
+                        content_type: ["image/jpeg", "image/jpg", "image/png"],
+                        default_url: '/missing/:style/missing.png'
 
   attr_reader :img_remote_url
   before_save :set_price_with_helium
@@ -33,6 +34,8 @@ class Product < ApplicationRecord
       else
         if self.set_image
           return self.img.url(size)
+        else
+          self.img.url(size)
         end
       end
     end

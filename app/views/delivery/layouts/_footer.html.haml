@@ -7,28 +7,39 @@
             = image_tag 'logo-footer.png', class: 'img-fluid'
       .footer-contacts
         .container
-          .row
-            .col-6
-              .lead
-                Мы в социальных сетях:
-              .social.mt-2
-                %ul.list-unstyled.list-inline
-                  %li.list-inline-item.mr-4
-                    =link_to 'https://www.instagram.com/bigairballoon_izh/', target: :_blank do
-                      %i.fa.fa-instagram.fa-2x{"aria-hidden":  "true"}
-                  %li.list-inline-item.mr-4
-                    =link_to 'https://www.facebook.com/bigairballoons/', target: :_blank do
-                      %i.fa.fa-facebook.fa-2x{"aria-hidden": "true"}
-                  %li.list-inline-item
-                    =link_to 'https://vk.com/bigairballoon_izh', target: :_blank do
-                      %i.fa.fa-vk.fa-2x{"aria-hidden": "true"}
-            .col-6
-              .lead
+          .social.mt-2
+            %ul.list-unstyled.list-inline
+              %li.list-inline-item.mr-4
+                =link_to 'https://www.instagram.com/bigairballoon_izh/', target: :_blank do
+                  %i.fa.fa-instagram.fa-2x{"aria-hidden":  "true"}
+              %li.list-inline-item.mr-4
+                =link_to 'https://www.facebook.com/bigairballoons/', target: :_blank do
+                  %i.fa.fa-facebook.fa-2x{"aria-hidden": "true"}
+              %li.list-inline-item
+                =link_to 'https://vk.com/bigairballoon_izh', target: :_blank do
+                  %i.fa.fa-vk.fa-2x{"aria-hidden": "true"}
+          %ul.list-unstyled
+            .row
+              .col-4
+                %li
+                  = link_to 'О нас', about_path
+                %li
+                  = link_to 'Гарантии', garant_path
+                %li
+                  =link_to 'Доставка и оплата', info_path
+              .col-4
+                %li
+                  =link_to 'Цены', prices_path
+                %li
+                  =link_to 'Контакты', contacts_path
+                %li
+                  =link_to 'Партнерам', partners_path
+              .col-4.lead
                 Позвоните нам!
-              .lead.strong
-                +7 (912) 453-25-98
-                .small
-                  WhatsApp | Viber | Telegram
+                .lead.strong
+                  +7 (912) 453-25-98
+                  .small
+                    WhatsApp | Viber | Telegram
 
 
 

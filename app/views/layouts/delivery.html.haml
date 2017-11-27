@@ -15,8 +15,10 @@
     = javascript_include_tag 'application', async: Rails.env.production?
     = javascript_include_tag 'https://www.googleadservices.com/pagead/conversion_async.js', async: true
   %body
-    %a#return-to-top
-      %i.fa.fa-chevron-up
+    %a#return-to-top{data: {toggle: 'tooltip'}, title: 'Наверх'}
+      %span.fa-stack.fa-2x
+        %i.fa.fa-circle.fa-stack-2x
+        %i.fa.fa-angle-double-up.fa-stack-1x
     .wrapper
       %header
         #responsive

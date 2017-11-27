@@ -68,15 +68,12 @@ body, p, span, .lead,.btn {
   cursor: pointer;
   position: fixed;
   bottom: 20px;
-  right: 20px;
-  background: rgba($brand-secondary, 0.7);
-  width: 50px;
-  height: 50px;
+  left: 20px;
+  color: rgba($brand-secondary, 0.7);
+  // width: 56px;
+  // height: 56px;
   display: block;
   text-decoration: none;
-  -webkit-border-radius: 35px;
-  -moz-border-radius: 35px;
-  border-radius: 35px;
   display: none;
   -webkit-transition: all 0.3s linear;
   -moz-transition: all 0.3s ease;
@@ -84,25 +81,25 @@ body, p, span, .lead,.btn {
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
+.fa-angle-double-up {
+  color: #ffffff !important;
+}
 #return-to-top i {
-    color: #fff;
+    color: rgba($brand-secondary, 0.6);
     margin: 0;
-    position: relative;
-    left: 13px;
-    top: 13px;
-    font-size: 1.5em;
+    // position: relative;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     -ms-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
-#return-to-top:hover {
-    background: rgba(darken($brand-secondary, 10%), 0.9);
+#return-to-top:hover .fa-circle {
+    // background: rgba(darken($brand-secondary, 10%), 0.9);
+    color: $brand-secondary;
 }
-#return-to-top:hover i {
-    color: #fff;
-    top: 0.1em;
+#return-to-top:hover .fa-angle-double-up {
+    bottom: 0.3em;
 }
 
 .hidden {

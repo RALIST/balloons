@@ -1,0 +1,26 @@
+.container
+  %h1.text-center Зарегистрированные пользователи
+  %table.table
+    %thead
+      %th
+        Имя
+      %th
+        Телефон
+      %th
+        Кол-во заказов
+      %th
+        Сумма заказов
+      %th
+        Скидка
+    - @users.each do |user|
+      %tr
+        %td
+          = user.first_name
+        %td
+          = user.phone
+        %td
+          = user.orders.count
+        %td
+          = number_to_currency(user.orders.map{|i| i.total}.sum)
+        %td
+          = user.discount

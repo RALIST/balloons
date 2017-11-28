@@ -47,7 +47,7 @@
           .h3.mt-4 Состав заказа
           %table.table
             - position.subpositions.each do |s|
-              %tr
+              %tr.text-center
                 %td
                   = image_tag s.product.image(:small), class: 'img-fluid'
                 %td

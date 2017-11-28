@@ -1,31 +1,36 @@
 .container
-  %h2 Заказы
-  %table.table
-    %thead
-      %th
+  %h2
+    Заказы
+  %table.table.text-center
+    %thead.text-center
+      %th.text-center
         №
-      %th
+      %th.text-center
         Заказчик
-      %th
+      %th.text-center
         Сумма
-      %th
+      %th.text-center
         Дата доставки
-      %th
+      %th.text-center
+        Дата заказа
+      %th.text-center
     - @orders.order(:order_date).each do |order|
-      %tr
+      %tr.text-center
         %td
           %strong
             = order.id
         %td
-          %span.hidden-xs
-            = order.name
-            |
-          = order.phone
+          = order.name
         %td
           = number_to_currency(order.total)
         %td
           = Russian::strftime(order.order_date.in_time_zone, ' %d %B в %H:%M')
         %td
+          = Russian::strftime(order.created_at.in_time_zone, ' %d %B')
+        %td
           = link_to 'Подробнее', admin_order_path(order)
           / = link_to 'Удалить', admin_order_path(order), method: :delete
-
+  .border-bot
+  .text-right.lead
+    Всего:
+    = number_to_currency(@orders.map{|i| i.total}.sum)

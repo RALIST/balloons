@@ -1,20 +1,16 @@
-.container
+.container-fluid
   .row
-    .col-md-4
-      = image_tag @comp.img.url(:thumb), class: 'img-responsive', style: 'margin: auto;'
-    .col-md-8
+    .col-4
+      = image_tag @comp.img.url(:preview), class: 'img-fluid', style: 'margin: auto;'
+    .col-8
       .row
-        .col-md-8
+        .col-8
           .h4.bg-brand Товары в композиции
           .items.text-left
-          %table.table
-            %thead
-              %th
-              %th
-              %th
+          %table.table.table-sm
             %tbody#products
               = render @products,  partial: "admin/products/product", locals: {product: @product}
-        .col-md-4
+        .col-4
           .h4.bg-brand Повод/Кому
           - @comp.tags.each do |tag|
             = tag.name.capitalize

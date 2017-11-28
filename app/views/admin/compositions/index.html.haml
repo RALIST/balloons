@@ -1,12 +1,12 @@
 .container
   .row
-    .col-10
+    .col-12
       %h2{data: {toggle: 'collapse', target: '#availible'}, style: 'cursor: pointer;'}
         Доступные композиции
         %br
         %small Доступные к покупке пользователям
       .collapse#availible
-        .card-deck
+        .row
           = render @compositions
 
       - if @compositions_without_items.any?
@@ -15,7 +15,7 @@
           %br
           .small Нет ни одного товара в композиции
         .collapse#without_items
-          .card-deck#admin-comp
+          .row
             = render @compositions_without_items
 
       - if @compositions_without_price.any?
@@ -24,7 +24,7 @@
           %br
           %small Не указана цена с гелием
         .collapse#without_price
-          .card-deck
+          .row
             = render @compositions_without_price
 
       - if @compositions_without_tags.any?
@@ -33,7 +33,7 @@
           %br
           %smallНе указан "повод" или "кому"
         .collapse#without_tags
-          .card-deck
+          .row
             = render @compositions_without_tags
 
       =link_to 'Добавить композицию', new_admin_composition_path, class: 'btn btn-info'

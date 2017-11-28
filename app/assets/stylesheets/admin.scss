@@ -1,42 +1,7 @@
-.admin > .container {
-  padding-top: 5%;
+.c-preview {
+  @include make-col(4);
 }
 
-.left-menu{
-  @include make-col(2);
-}
-.left-menu {
-  min-height: 100%;
-  position: absolute;
-  z-index: 998;
-  padding: 0px;
-  ul {
-    list-style-type: none;
-    text-align: center;
-  }
-  .nav-header {
-    min-height: 100px;
-  }
-  &:hover, &:focus, &:visited {
-    text-decoration: none;
-  }
-}
-
-.left-menu.toggled + .container {
-  @include make-col(10);
-  @include make-col-offset(2);
-  padding-left: 20px;
-}
-
-.top-menu {
-  width: 100%;
-  position: absolute;
-  z-index: 999;
-  i, li {
-    font-size: 1.2em;
-  }
-}
-
-.top-menu + .container {
-  margin-top: 80px;
+tr, td, table {
+  vertical-align: middle !important;
 }

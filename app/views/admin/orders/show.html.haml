@@ -1,23 +1,63 @@
 .container
-  .row
-    .order-info.col-md-10.col-xs-10
-      - if @order.positions.any?
-        - @order.positions.each do |position|
-          .row
-            .col-md-5.col-xs-12
-              = image_tag position.composition.img(:thumb), class: 'img-fluid'
-            .col-md-7.col-xs-12
-              - position.subpositions.each do |s|
-                .row
-                  .col-md-4.col-xs-5
-                    - if s.product.tone
-                      = image_tag s.product.tone.img(:small), class: 'img-fluid'
-                    - else
-                      = image_tag s.product.img(:small), class: 'img-fluid'
-                  .col-md-8.col-xs-7
-                    %strong
-                      = s.product.name
-                    = s.quantity
-                    шт.
-      -else
-        Ничего нет
+  %h1.my-3.text-center Информация о заказе
+  - if @order.positions.any?
+    .row.order-info
+      .col-12.card.pb-4
+        .h3.mt-4.border-bot Информация для доставки
+        .row
+          .col-6
+            Заказчик:
+          .col-6
+            = @order.name
+        .row
+          .col-6
+            Телефон:
+          .col-6
+            = @order.phone
+        .row
+          .col-6
+            Адрес доставки:
+          .col-6
+            = @order.address
+        .row
+          .col-6
+            Дата доставки:
+          .col-6
+            = Russian::strftime(@order.order_date.in_time_zone, ' %d %B в %H:%M')
+        .row
+          .col-6
+            Примечание:
+          .col-6
+            = @order.desc
+        .row
+          .col-6
+            Метод оплаты:
+          .col-6
+            = @order.pay_method
+        .row
+          .col-6
+            Сумма заказа:
+          .col-6
+            = number_to_currency(@order.total)
+    - @order.positions.each do |position|
+      .row.my-5
+        .col-4.text-center
+          = image_tag position.composition.img(:thumb), class: 'img-fluid'
+        .col-8
+          .h3.mt-4 Состав заказа
+          %table.table
+            - position.subpositions.each do |s|
+              %tr
+                %td
+                  - if s.product.tone
+                    = image_tag s.product.tone.img(:small), class: 'img-fluid'
+                  - else
+                    = image_tag s.product.img(:small), class: 'img-fluid'
+                %td
+                  %strong
+                    = s.product.name
+                %td
+                  = s.quantity
+                  шт.
+  - else
+    Ничего нет

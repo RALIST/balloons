@@ -1,11 +1,13 @@
 %tr.item{data: {product_id: "#{product.id}"}}
-  %td{style: 'display: none;'}
-    .popover-img{style: 'display: none;'}
-      = image_tag product.image(:small)
+  %td.text-center
+    = image_tag product.image(:small)
   %td
     = link_to product.complex_name, admin_product_path(product)
   %td
     = @comp.products.where(id: product.id).count
+    шт.
+  %td
+    = number_to_currency(product.price_with_helium, precision: 0)
   %td
     = link_to  admin_remove_item_path(@comp, product_id: product.id) do
       %i.fa.fa-times-circle{style: 'aria-hidden="true"'}

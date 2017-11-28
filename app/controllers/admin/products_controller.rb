@@ -18,7 +18,7 @@ class Admin::ProductsController < Admin::AdminController
 
 
   def show
-    @product = Product.find(params[:item])
+    @product = Product.find(params[:id])
   end
 
   def edit

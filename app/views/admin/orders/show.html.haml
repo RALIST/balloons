@@ -49,10 +49,7 @@
             - position.subpositions.each do |s|
               %tr
                 %td
-                  - if s.product.tone
-                    = image_tag s.product.tone.img(:small), class: 'img-fluid'
-                  - else
-                    = image_tag s.product.img(:small), class: 'img-fluid'
+                  = image_tag s.product.image(:small), class: 'img-fluid'
                 %td
                   %strong
                     = s.product.name

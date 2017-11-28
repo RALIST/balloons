@@ -21,6 +21,21 @@ class Delivery::UsersController < Delivery::DeliveryController
     end
   end
 
+  def fogot_password
+    if @user = User.find_by(phone: params[:phone])
+      if @user.send_password
+        flash[:success] = 'Пароль отправлен вам в смс!'
+        redirect_to login_path
+      else
+        flash[:danger] = 'Не удалось отправить вам пароль!'
+        redirect_to login_path
+      end
+    else
+      flash[:danger] = 'Пользователь не найден!'
+      redirect_to login_path
+    end
+  end
+
   def show
     set_meta_tags title: 'Личный кабинет',
                   reverse: true,
@@ -32,6 +47,13 @@ class Delivery::UsersController < Delivery::DeliveryController
   end
 
   def update
+    if current_user.update(user_params)
+      flash[:success] = 'Успешно изменено!'
+      redirect_to cp_path
+    else
+      flash[:danger] = 'Не удалось изменить'
+      redirect_to cp_path
+    end
   end
 
   def destroy

@@ -1,6 +1,40 @@
-.container
-  %h2.border-bot Личный кабинет
-  %h3
-    Здравствуйте,
-    = current_user.first_name
+.container#cp
+  %h2.border-bot
+    Личный кабинет
+    %small
 
+  .lead
+    Здравствуйте,
+    = current_user.first_name.capitalize
+    .small
+      = link_to 'Редактировать профиль', edit_cp_path
+      |
+      = link_to 'Изменить пароль', '#', data:{ toggle: 'modal', target: '#change_password'}
+  Ваша скидка: #{current_user.discount.round(2)}%
+
+
+
+.modal.fade{id: "change_password",  tabindex: "-1",  role: "dialog"}
+  .modal-dialog#call{role: "document"}
+    .modal-content
+      .modal-header
+        %h3.modal-title
+        %button.close{data: {dismiss: "modal"}, style: 'aria-label: "Close"'}
+          %span
+            &times;
+      .modal-body.pt-0
+        .form-wrapper.d-flex.align-items-center.justify-content-around
+          .container
+            .row.text-center
+              .col-12
+                %h2.border-bot Изменить пароль
+              .form-container.mt-2
+                = form_for current_user, html: {class: 'form-horizontal'}  do |f|
+                  .form-group
+                    = f.label 'Новый пароль', class: 'lable-control'
+                    .input-group
+                      %span.input-group-addon
+                        %i.fa.fa-key{style: 'aria-hidden="true"'}
+                      = f.password_field :password, class: 'form-control',  required: true
+                  .form-group.col-8.mx-auto
+                    = f.submit 'Обновить', class: 'btn btn-info btn-block'

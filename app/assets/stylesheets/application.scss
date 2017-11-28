@@ -22,7 +22,7 @@
  @import 'header';
  @import 'clockpicker';
  @import 'admin';
- // @import 'shop';
+ @import 'users';
  @import 'offer';
  @import 'footer';
  @import 'resp_menu';
@@ -59,7 +59,7 @@ body, p, span, .lead,.btn {
 .wrapper {
   position: relative;
   width: 100%;
-  min-height: 100%;
+  min-height: 90vh;
 }
 
 

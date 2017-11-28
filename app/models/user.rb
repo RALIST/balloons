@@ -23,6 +23,21 @@ class User < ApplicationRecord
     end
   end
 
+  def send_password
+    password = rand(10000..100000)
+    new_password = 'Ваш новый пароль на сайте Шариковой феи:' + password.to_s
+    self.update_attributes(password: password)
+    phone = self.phone.tr('()+ ', '')
+    message = MainsmsApi::Message.new(sender: 'sendertest', message: new_password,
+                                      recipients: [phone])
+    response = message.deliver
+    if response.status == 'success'
+      true
+    else
+      false
+    end
+  end
+
   private
   def set_name
     if first_name.blank?
@@ -31,6 +46,7 @@ class User < ApplicationRecord
   end
 
   def normalize_password
+    password = password.to_s
     self.password = Unicode.downcase(password) unless password.blank?
   end
 end

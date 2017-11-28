@@ -80,8 +80,11 @@
                 - else
                   %span
                     Здравствуйте,
-                    = current_user.first_name
-                    %small
+                    = current_user.first_name.capitalize
+                    .small
+                      - if current_user.admin?
+                        = link_to 'Админка', '/admin',class: 'pr-3'
+                      = link_to 'Личный кабинет', cp_path, class: 'pr-3'
                       = link_to 'Выйти', logout_path, method: :post
             .row.mt-1.align-items-center
               .col-6.text-right

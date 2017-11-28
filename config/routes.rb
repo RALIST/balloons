@@ -94,11 +94,14 @@ Rails.application.routes.draw do
       get '/signin',                    to: 'users#new',                    as: :signin
       get '/search',                    to: 'main#search',                  as: :search
       get '/my_cart',                   to: 'carts#show',                   as: :my_cart
+      get '/cp',                        to: 'users#show',                   as: :cp
+      get '/cp/edit',                   to: 'users#edit',                   as: :edit_cp
       post '/by_price',                 to: 'main#by_price'
       get '/by_price',                  to: 'main#by_price',                as: :price_range
       get '/account',                   to: 'users#show',                   as: :account
       get '/thank_you',                 to: 'main#thanks',                  as: :thanks
       get '/contacts', to: 'main#contacts', as: :contacts
+      post '/fogot_password', to: 'users#fogot_password', as: :fogot_password
       get '/lp', to: 'main#lp', as: :lp
       get '/prices', to: 'main#prices', as: :prices
       get '/o-nas', to: 'main#about', as: :about

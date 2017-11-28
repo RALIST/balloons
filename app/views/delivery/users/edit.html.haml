@@ -1,0 +1,22 @@
+.form-wrapper.d-flex.align-items-center.justify-content-around
+  .container
+    .row.text-center
+      .col-12
+        %h2.border-bot Редактирование профиля
+      .form-container.mt-2
+        = form_for current_user, html: {class: 'form-horizontal'}  do |f|
+          .form-group
+            = f.label 'Ваше имя', class: 'lable-control'
+            .input-group
+              %span.input-group-addon
+                %i.fa.fa-user{style: 'aria-hidden="true"'}
+              = f.text_field :first_name, class: 'form-control',  required: true
+          .form-group
+            = f.label "Номер телефона", class: 'lable-control'
+            .input-group
+              %span.input-group-addon
+                %i.fa.fa-phone{style: 'aria-hidden="true"'}
+              = f.telephone_field :phone, data:{ mask: '+7 (999) 999 99 99' },  class: 'form-control', required: true
+          .form-group.col-8.mx-auto
+            = f.submit 'Обновить', class: 'btn btn-info btn-block'
+

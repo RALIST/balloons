@@ -97,7 +97,7 @@ class Composition < ApplicationRecord
           latex_products.push((p.color.name + ' ' + 'латексный воздушный шар').capitalize)
         end
       end
-      receivers =  self.receivers.map{|i| 'для ' + i.title}
+      receivers =  self.receivers.map{|i| i.title}
       products = foil_products + latex_products
       start = start + products
       tags  = tags + receivers

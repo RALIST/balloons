@@ -31,6 +31,8 @@ class Composition < ApplicationRecord
   scope :availible, -> {joins(:tags).joins(:products).distinct(:id).where.not(id: Composition.without_price.map(&:id), deleted: true)}
   scope :with_receivers, -> (receiver) { joins(:receivers).where(receivers: {title: receiver})}
 
+  after_find :random_title
+
   def comp_price
     price = self.products.map{ |i| i.price_with_helium }.reject(&:nil?).sum.round(2)
     # self.update(price: price)
@@ -77,6 +79,31 @@ class Composition < ApplicationRecord
       where('compositions.price >= ?', min)
     else
       where(compositions: {price: min..max})
+    end
+  end
+
+
+  def random_title
+    if self.title.blank?
+      tags = self.tags.map{|i| i.name}
+      start = ['Букет','Композиция','Облако','Оформление','Стойка','Красота']
+      foil_products = []
+      latex_products = []
+      self.products.uniq.each do |p|
+        case p.type.name
+        when 'фольгированные шары'
+          foil_products.push('фольгированный шар' + ' ' + p.foil_form.name) if p.foil_form
+        when 'латексные шары'
+          latex_products.push(p.color.name)
+        end
+      end
+      title = start.sample + ' ' +
+            'из воздушных шаров' + " № #{self.id}" + ': ' +
+            foil_products.uniq.join(', ') + ' и ' +
+            latex_products.map{|i| i.delete('ый') + 'ые'}.uniq.join(', ') +
+            ' латексные шары' +
+            " на #{tags.join(', ')}"
+      self.update(title: title)
     end
   end
 

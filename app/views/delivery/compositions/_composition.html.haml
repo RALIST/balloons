@@ -18,7 +18,7 @@
             %tr.item.text-center{data: {item_id: "#{product.id}", content: "#{product.complex_name}" }}
               %td.text-center
                 %span{style: 'border-bottom: 1px dashed black; cursor: pointer;'}
-                  = image_tag product.image(:small), alt: product.complex_name
+                  = image_tag product.image(:small), alt: 'Воздушный шар' + " " + product.complex_name
               %td.h5.strong
                 = product.price_with_helium.round(0)
                 %small
@@ -57,7 +57,7 @@
       = link_to root_path, class: 'btn btn-outline-info btn-sm my-3 d-none d-lg-inline-block' do
         %i.fa.fa-chevron-left
         Вернуться в каталог
-      = image_tag composition.img.url(:preview), class: 'img-fluid img-thumbnail', itemprop: 'image'
+      = image_tag composition.img.url(:preview), class: 'img-fluid img-thumbnail', itemprop: 'image', alt: composition.title
   %h3.col-12.text-center.strong.my-5
     Похожие композиции
   .row.justify-content-around.compositions

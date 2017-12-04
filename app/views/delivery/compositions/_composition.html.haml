@@ -42,14 +42,17 @@
             = link_to 'Перейти в корзину', my_cart_path, class: 'btn btn-success btn-block'
           / .small.text-center.text-danger.d-flex
           /   Вы cможете изменить состав композиции в корзине
-      .row.mt-3
+      .row
+        .col-12.text-center
+          Вы можете изменить состав композиции в корзине
+      .row.mt-3.align-items-center
         .h6.w-100.text-center
           Способы оплаты:
-        .col-6.text-info.align-items-center.d-flex.lh-1
+        .col-6.text-info.d-flex.justify-content-center.align-items-center
           %i.fa.fa-money.fa-2x.pr-1
           Наличными
           курьеру
-        .col-6.text-info.align-items-center.d-flex.lh-1
+        .col-6.text-info.d-flex.justify-content-center.align-items-center
           %i.fa.fa-credit-card.fa-2x.pr-1
           Банковской
           картой

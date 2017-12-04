@@ -66,6 +66,12 @@
                 = link_to 'Из садика', kg_path, class: 'nav-link'
               %li.h5
                 = link_to 'Из школы', school_path, class: 'nav-link'
+          %li.nav-item
+            = link_to business_index_path do
+              .h4.d-flex.justify-content-between.align-items-center
+                %i.fa.fa-briefcase
+                Для бизнеса
+                %i.fa.fa-arrow-circle-right
     .row
       - if @cart.positions.any?
         .resp-cart

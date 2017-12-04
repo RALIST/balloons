@@ -24,12 +24,12 @@
           .form-group
             = f.label 'Укажите дату и время доставки'
             .row
-              .date-field
+              .date-field.col-6
                 .input-group
                   %span.input-group-addon
                     %i.fa.fa-calendar
                   = f.date_field :order_date, class: 'form-control', required: true, min: Date.today
-              .time-field
+              .time-field.col-6
                 .input-group.clockpicker
                   .input-group-addon
                     %i.fa.fa-clock-o
@@ -38,10 +38,10 @@
               = show_errors(@order, :order_date)
           .form-group
             .row
-              .address-field
+              .address-field.col-6
                 =f.label 'Адрес доставки', class: 'lable-control'
                 = f.text_area :address, value: (current_user.address if current_user),  rows: 3, class: 'form-control', required: true,placeholder: 'Улица, дом, подъезд, квартира, этаж и т.д.'
-              .add-field
+              .add-field.col-6
                 =f.label 'Дополнительно', class: 'lable-control'
                 = f.text_area :desc, rows: 3, class: 'form-control', placeholder: 'Информация для курьера (не звонить в домофон и т.д.)'
           .form-group
@@ -52,3 +52,5 @@
               = f.select :pay_method, options_for_select(Order.pay_methods),{prompt: 'Выберите способ оплаты'}, {class: 'form-control', required: true}
           .form-group
             = f.submit 'Создать заказ', class: 'btn btn-info btn-block', disable_with: 'Оформляю заказ...'
+          .text-center
+            =link_to 'Назад', my_cart_path

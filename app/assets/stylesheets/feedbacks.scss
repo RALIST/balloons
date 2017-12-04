@@ -12,7 +12,6 @@
 }
 
 .feed-text{
-  @include make-col-ready();
   @include make-col(8);
 }
 

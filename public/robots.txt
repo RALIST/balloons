@@ -6,7 +6,7 @@ Disallow: /cart
 Disallow: /orders/
 Disallow: /thank_you
 Disallow: /add_to_cart/
-Disallow: /search$
+Disallow: /search
 Disallow: *?max
 Disallow: *?min
 Disallow: /lp

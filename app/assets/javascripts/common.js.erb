@@ -108,27 +108,8 @@ $(document).ready(function(){
     variableWidth: true,
     lazyLoad: 'progressive'
   });
-})
+});
 
-// $(document).ready(function(){
-//   $('#menu').addClass('original').clone().insertAfter('#menu').addClass('cloned').css('position', 'fixed').css('background', '#ffffff').css('width', '100%').css('top', '0').css('z-index', '1000').removeClass('original').hide();
-// });
-
-// $(window).scroll(function(){
-//   if ($('#menu').length){
-//     var orgPos = $('#menu').offset();
-//     var orgPosTop = orgPos.top;
-//     var orgPosLeft = orgPos.left;
-//     if ($(this).scrollTop() >= (orgPosTop+1)){
-//       $('.cloned').show();
-//       $('.cloned a.nav-link').removeClass('text-white');
-//       $('.original').css('visibility', 'hidden')
-//     }else{
-//       $('.cloned').hide();
-//       $('.original').css('visibility', 'visible')
-//     }
-//   }
-// })
 
 $(document).ready(function(){
   $('#resp-fixed').addClass('resp-original').clone().insertAfter('#resp-fixed').addClass('resp-cloned').css('position', 'fixed').css('width', '100%').css('top', '0').css('z-index', '1000').removeClass('resp-original').hide();
@@ -149,27 +130,31 @@ $(window).on('scroll', function(){
   }
 });
 
-
-// $(document).ready(function(){
-//   $('#lp-header').addClass('original').clone().insertAfter('#lp-header').addClass('cloned').css('position', 'fixed').css('background', '#ffffff').css('width', '100%').css('top', '0').css('z-index', '1000').removeClass('original').hide();
-// });
-
-// $(window).on('scroll', function(){
-//   if ($('#lp-header').length){
-//     var orgPos = $('#lp-header').offset();
-//     var orgPosTop = orgPos.top;
-//     var orgPosLeft = orgPos.left;
-//     if ($(this).scrollTop() >= (orgPosTop+1)){
-//       $('.cloned').show();
-//       $('.original').css('visibility', 'hidden')
-//     }else{
-//       $('.cloned').hide();
-//       $('.original').css('visibility', 'visible')
-//     }
-//   }
-// })
+$(document).ready(function(){
+  $('#more').hide();
+  var rows = $('.item');
+  if (rows.length > 4){
+    $('#more').show();
+    $(rows[3]).addClass('grad-1');
+    for (i = 4; i < rows.length; i++) {
+      $(rows[i]).hide();
+    }
+    $('#more').on('click', function(){
+      for (i = 4; i < rows.length; i++) {
+        $(rows[i]).toggle(100);
+      }
+      $(rows[3]).toggleClass('grad-1');
+      $(this).find('i').toggleClass('fa-chevron-up').toggleClass('fa-chevron-down');
+      $(this).toggleClass('with-grad');
+      $(this).find('.small').text(function(){
+        var text = $(this).text();
+        return text == 'Спрятать' ? "Показать все" : "Спрятать"
+      })
+    });
+  }
+});
 
 
 $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
+  $('[data-toggle="tooltip"]').tooltip();
 })

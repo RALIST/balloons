@@ -27,6 +27,11 @@
                 = composition.products.where(id: product.id).count
                 %small
                   шт.
+        #more.text-center.w-100.lead.with-grad{style: 'cursor: pointer; line-height: 0.3rem;'}
+          .small.lead
+            Показать все
+          %br
+          %i.fa.fa-chevron-down
       .row#total.mt-2.py-2.align-items-center.m-0
         .col-8.d-inline-flex
           .t1.pl-3.text-uppercase.strong.p-0.lead

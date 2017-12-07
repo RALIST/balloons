@@ -52,6 +52,7 @@ gem "paperclip-optimizer"
 gem "gretel"
 gem 'friendly_id', '~> 5.1.0'
 gem 'popper_js'
+gem 'social-share-button'
 
 
 group :production do

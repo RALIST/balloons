@@ -6,6 +6,8 @@ class Composition < ApplicationRecord
   has_many :tags, as: :taggable
   has_many :carts, through: :positions
   has_many :receivers, as: :personable
+  has_many :orders, through: :positions
+  has_many :positions
 
   validates :img, presence: true
   has_attached_file :img, styles: {small:  ['x100', :png],

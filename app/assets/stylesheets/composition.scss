@@ -105,3 +105,12 @@
 #more {
   font-size: 1.5rem !important;
 }
+
+.social-share-button {
+  display: inline-block;
+  .ssb-icon {
+    background-size: 2rem 2rem !important;
+    width: 2rem !important;
+    height: 2rem !important;
+  }
+}

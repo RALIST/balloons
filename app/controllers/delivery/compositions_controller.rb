@@ -10,12 +10,14 @@ class Delivery::CompositionsController < Delivery::DeliveryController
     @comp = Composition.find(params[:id])
     @comp.update_attributes(views: @comp.views + 1)
     tags = @comp.tags.map(&:name)
+    receivers = @comp.receivers.map(&:title)
     @tag = Tag.friendly.find(params[:tag_id]) if params[:tag_id]
     @receiver = Receiver.friendly.find(params[:receiver_id]) if params[:receiver_id]
-    set_meta_tags title: "Композиция № #{@comp.id}",
+    set_meta_tags title: "Композиция № #{@comp.id} из воздушных шаров | Шариковая фея",
                   reverse: true,
-                  description: "Композиция из воздушных шаров на #{tags.join(', ')}",
-                  canonical: composition_path(@comp) if @tag || @receiver
+                  keywords: 'воздушные шары, заказать воздушные шары, шарики с доставкой, доставка шариков, воздушные шары с доставкой',
+                  description: "Композиция из воздушных шаров на #{tags.join(', ')}, #{receivers.join(', ')}",
+                  canonical: (composition_path(@comp) if @tag || @receiver)
 
   end
 

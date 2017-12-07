@@ -62,10 +62,19 @@
           Банковской
           картой
     .comp-image
-      = link_to root_path, class: 'btn btn-outline-info btn-sm my-3 d-none d-lg-inline-block' do
+      = link_to :back, class: 'btn btn-outline-info btn-sm my-3 d-none d-lg-inline-block' do
         %i.fa.fa-chevron-left
         Вернуться в каталог
       = image_tag composition.img.url(:preview), class: 'img-fluid img-thumbnail', itemprop: 'image', alt: composition.title
+      .row.comp-text.text-secondary.justify-content-around.align-items-center.mt-3
+        .d-flex-inline
+          = social_share_button_tag("Шариковая фея | Композиция №#{composition.id} из воздушных шаров", image: composition.img.url(:preview), url: composition_path(composition), desc: "Композиция из воздушных шаров на #{composition.tags.map(&:name).join(', ')}, #{composition.receivers.map(&:title).join(', ')}", 'data-toggle': 'tooltip' )
+        .d-flex-inline{title: "Просмотрели", data: {toggle: 'tooltip'}}
+          %i.fa.fa-eye
+          = composition.views
+        .d-flex-inline{title: "Заказали" , data: {toggle: 'tooltip'}}
+          %i.fa.fa-shopping-basket
+          = composition.orders.count + 3
   %h3.col-12.text-center.strong.my-5
     Похожие композиции
   .row.justify-content-around.compositions

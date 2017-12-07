@@ -23,6 +23,7 @@
 //= require jquery.ui.touch-punch
 //= require cookies
 //= require jquery.slick
+//= require social-share-button
 //= require_tree .
 
 setTimeout(function(){

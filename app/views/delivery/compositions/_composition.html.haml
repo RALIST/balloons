@@ -1,5 +1,5 @@
 - cache composition do
-  .d-flex#reverse
+  .d-flex#reverse{itemscope: true, itemtype: "http://schema.org/Product"}
     .comp-desc
       %p.strong.text-uppercase.mb-0
         В композицию входит:
@@ -18,7 +18,7 @@
             %tr.item.text-center{data: {item_id: "#{product.id}", content: "#{product.complex_name}" }}
               %td.text-center
                 %span{style: 'border-bottom: 1px dashed black; cursor: pointer;'}
-                  = image_tag product.image(:small), alt: 'Воздушный шар' + " " + product.complex_name
+                  = image_tag product.image(:small), alt: 'Воздушный шар' + " " + product.complex_name, itemprop: 'image'
               %td.h5.strong
                 = product.price_with_helium.round(0)
                 %small
@@ -36,9 +36,9 @@
         .col-8.d-inline-flex
           .t1.pl-3.text-uppercase.strong.p-0.lead
             Итого
-          .t2.strong.h2.p-0.pl-3.text-secondary.m-0.text-right
+          .t2.strong.h2.p-0.pl-3.text-secondary.m-0.text-right{itemprop: 'price'}
             = composition.comp_price.round(0)
-          .strong.pl-1
+          .strong.pl-1{itemprop: 'priceCurrency', content: 'RUB'}
             руб.
         .col-4.d-inline-flex.px-2
           - unless @cart.compositions.include?(composition)
@@ -67,6 +67,8 @@
         Вернуться в каталог
       = image_tag composition.img.url(:preview), class: 'img-fluid img-thumbnail', itemprop: 'image', alt: composition.title
       .row.comp-text.text-secondary.justify-content-end.align-items-center.mt-3
+        .text-center.mb-2{itemprop: 'description'}
+          Композиция из воздушных шаров на #{composition.tags.map(&:name).join(', ')}, #{composition.receivers.map(&:title).join(', ') if composition.receivers}
         .d-flex-inline.mr-5
           = social_share_button_tag("Шариковая фея | Композиция №#{composition.id} из воздушных шаров", image: 'https:' + composition.img.url(:preview), url: request.original_url, desc: "Композиция из воздушных шаров на #{composition.tags.map(&:name).join(', ')}, #{composition.receivers.map(&:title).join(', ')}", 'data-toggle': 'tooltip' )
         .d-flex-inline.lead.mr-5{title: "Просмотрели", data: {toggle: 'tooltip'}}
@@ -77,6 +79,6 @@
           = composition.orders.count + 3
   %h3.col-12.text-center.strong.my-5
     Похожие композиции
-  .row.justify-content-around.compositions
+  .row.justify-content-around.compositions{itemprop: 'isSimilarTo'}
     = render partial: 'delivery/main/thumb_composition', collection: composition.related.limit(3), as: :c
 

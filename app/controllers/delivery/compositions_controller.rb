@@ -26,7 +26,7 @@ class Delivery::CompositionsController < Delivery::DeliveryController
       url: request.url,
       description: "Композиция из воздушных шаров на #{tags.join(', ')}, #{receivers.join(', ') if receivers}",
       image: {
-          _: 'https:' + @comp.img.url(:thumb),
+          _: 'https:' + @comp.img.url(:preview),
           width: 968,
           height: 504
         },

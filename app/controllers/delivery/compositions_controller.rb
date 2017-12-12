@@ -23,9 +23,13 @@ class Delivery::CompositionsController < Delivery::DeliveryController
     set_meta_tags og: {
       title: "Композиция № #{@comp.id} из воздушных шаров | Шариковая фея",
       type: 'article',
-      url: composition_path(@comp),
+      url: request.url,
       description: "Композиция из воздушных шаров на #{tags.join(', ')}, #{receivers.join(', ') if receivers}",
-      image: 'https:' + @comp.img.url(:thumb),
+      image: {
+          _: 'https:' + @comp.img.url(:thumb),
+          width: 968,
+          height: 504
+        },
       price: {
         amount: @comp.comp_price.round(0),
         currency: 'RUB'

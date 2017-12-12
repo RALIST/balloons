@@ -35,9 +35,10 @@ class Delivery::MainController < Delivery::DeliveryController
       description: 'Оформление торжества воздушными шарами от "Шариковой феи" оставит приятные впечатления и сделает этот день ярким. Для оформления заказа звоните по телефону +7 (912) 453-25-98',
       type: 'article',
       url: request.url,
-      image: "#{Rails.root}/app/assets/images/logo1.png",
+      image: view_context.image_path('logo1.png'),
       site_name: 'Шариковая фея'
     }
+
     @compositions =  Composition.availible.with_tag('день рождения').order(:price).offset(5).limit(3)
     @composition  = Composition.find(params[:id]) if params[:id]
     @feeds = Feedback.all

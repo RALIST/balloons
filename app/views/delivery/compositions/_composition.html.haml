@@ -72,7 +72,7 @@
       = image_tag composition.img.url(:preview), class: 'img-fluid img-thumbnail', itemprop: 'image', alt: composition.title
       .row.comp-text.text-secondary.justify-content-end.align-items-center.mt-3
         .d-flex-inline.mr-5
-          = social_share_button_tag("Шариковая фея | Композиция №#{composition.id} из воздушных шаров", image: 'https:' + composition.img.url(:preview), url: request.original_url, desc: "Композиция из воздушных шаров на #{composition.tags.map(&:name).join(', ')}, #{composition.receivers.map(&:title).join(', ')}", 'data-toggle': 'tooltip' )
+          = social_share_button_tag("Шариковая фея | Композиция из воздушных шаров", image: 'https:' + composition.img.url(:large), url: request.original_url, desc: "Композиция из воздушных шаров на #{composition.tags.map(&:name).join(', ')}, #{composition.receivers.map(&:title).join(', ')}", 'data-toggle': 'tooltip' )
         .d-flex-inline.lead.mr-5{title: "Просмотрели", data: {toggle: 'tooltip'}}
           %i.fa.fa-eye
           = composition.views

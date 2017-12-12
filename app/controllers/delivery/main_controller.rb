@@ -35,7 +35,10 @@ class Delivery::MainController < Delivery::DeliveryController
       description: 'Оформление торжества воздушными шарами от "Шариковой феи" оставит приятные впечатления и сделает этот день ярким. Для оформления заказа звоните по телефону +7 (912) 453-25-98',
       type: 'article',
       url: request.url,
-      image: view_context.image_path('logo1.png'),
+      image: {
+        _: view_context.image_path('logo1.png'),
+        width: 1000
+        },
       site_name: 'Шариковая фея'
     }
 

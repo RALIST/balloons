@@ -25,7 +25,7 @@ class Delivery::CompositionsController < Delivery::DeliveryController
       type: 'article',
       url: composition_path(@comp),
       description: "Композиция из воздушных шаров на #{tags.join(', ')}, #{receivers.join(', ') if receivers}",
-      image: @comp.img.url(:thumb),
+      image: 'https:' + @comp.img.url(:thumb),
       price: {
         amount: @comp.comp_price.round(0),
         currency: 'RUB'

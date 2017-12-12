@@ -2,8 +2,8 @@
   .d-flex#reverse{itemscope: true, itemtype: "http://schema.org/Product"}
     %meta{itemprop: 'name', content: "Композиция № #{@comp.id} из воздушных шаров | Шариковая фея"}
     .comp-desc
-      %p.strong.text-uppercase.mb-0
-        В композицию входит:
+      %p.strong.text-uppercase.mb-0.text-center
+        Состав композиции
       #products
         %table.table
           %tbody
@@ -67,10 +67,10 @@
       = link_to :back, class: 'btn btn-outline-info btn-sm my-3 d-none d-lg-inline-block' do
         %i.fa.fa-chevron-left
         Вернуться в каталог
+      .text-left{itemprop: 'description'}
+        Композиция из воздушных шаров на #{composition.tags.map(&:name).join(', ')}, #{composition.receivers.map(&:title).join(', ') if composition.receivers}
       = image_tag composition.img.url(:preview), class: 'img-fluid img-thumbnail', itemprop: 'image', alt: composition.title
       .row.comp-text.text-secondary.justify-content-end.align-items-center.mt-3
-        .text-center.mb-2{itemprop: 'description'}
-          Композиция из воздушных шаров на #{composition.tags.map(&:name).join(', ')}, #{composition.receivers.map(&:title).join(', ') if composition.receivers}
         .d-flex-inline.mr-5
           = social_share_button_tag("Шариковая фея | Композиция №#{composition.id} из воздушных шаров", image: 'https:' + composition.img.url(:preview), url: request.original_url, desc: "Композиция из воздушных шаров на #{composition.tags.map(&:name).join(', ')}, #{composition.receivers.map(&:title).join(', ')}", 'data-toggle': 'tooltip' )
         .d-flex-inline.lead.mr-5{title: "Просмотрели", data: {toggle: 'tooltip'}}

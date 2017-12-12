@@ -1,5 +1,4 @@
-
-.container-fluid.mt-5
+.container-fluid.mt-5{itemscope: true, itemtype: "http://schema.org/LocalBusiness" }
   %h1.text-center
     Контакты
   .row#contacts
@@ -7,33 +6,33 @@
       .map-block
         = image_tag 'map-block.png', class: 'img-fluid'
         #text-contacts
-          %h3.text-white
+          %h3.text-white{itemprop: 'name'}
             Шариковая фея™
           %ul.list-unstyled
-            %li.text-white.d-flex.align-items-center.my-1
+            %li.text-white.d-flex.align-items-center.my-1.border-bot.justify-content-between{itemprop: 'telephone'}
               %i.fa.fa-phone-square.fa-2x.pr-3
-              +7 (912) 453-25-98
-            %li.text-white.d-flex.align-items-center.my-1
+              %span
+                +7 (912) 453-25-98
+            %li.text-white.d-flex.align-items-center.my-1.border-bot.justify-content-between{itemprop: 'address', itemscope: true, itemtype: 'http://schema.org/PostalAddress'}
+              %meta{itemprop: 'addressCountry', content: 'RU'}
               %i.fa.fa-map-marker.fa-2x.pr-4
-              ул. Н. Островского, 25, офис 6
-            %li.text-white.d-flex.align-items-center.my-1
+              .row
+                .col-12.text-right{itemprop: 'addressRegion'}
+                  Удмуртская республика
+                .col-12.text-right{itemprop: 'addressLocality'}
+                  г. Ижевск
+                .col-12.text-right{itemprop: 'streetAddress'}
+                  ул. Николая Островского, 25, офис 6
+            %li.text-white.d-flex.align-items-center.my-1.border-bot.justify-content-between
               %i.fa.fa-envelope.fa-2x.pr-4
-              info@bigairballoons.ru
-            %li.text-white.d-flex.align-items-center.my-1
+              .row
+                .col-12{itemprop: 'email'}
+                  info@bigairballoons.ru
+            %li.text-white.d-flex.align-items-center.my-1.border-bot.justify-content-between
               %i.fa.fa-clock-o.fa-2x.pr-4
-              %small
-                Заявки: с 8:00 до 22:00, без выходных
-                %br
-                Доставка: круглосуточно, без выходных
-          .small
-            .mt-3.text-white
-              .strong
-                ООО "ДЕЛИРИУМ"
-              ИНН 1832110279
-              %br
-              КПП 183201001
-              %br
-              ОГРН 1131832004831
+              %time{itemprop: 'openingHours', datetime: 'Mo-Su, 08:00-20:00'}
+                с 8:00 до 22:00, без выходных
+
     #text-contacts.p-3.d-lg-none
       %h3.text-white
         Шариковая фея™

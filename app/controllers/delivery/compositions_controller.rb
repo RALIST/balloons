@@ -28,7 +28,8 @@ class Delivery::CompositionsController < Delivery::DeliveryController
       image: {
           _: 'https:' + @comp.img.url(:large),
           width: 968,
-          height: 504
+          height: 504,
+          alt: @comp.title
         },
       price: {
         amount: @comp.comp_price.round(0),

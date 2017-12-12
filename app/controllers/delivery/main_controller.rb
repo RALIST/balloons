@@ -1,7 +1,7 @@
 class Delivery::MainController < Delivery::DeliveryController
 
   def index
-    set_meta_tags title: 'Доставка и оформление воздушными шарами от Шариковой феи в Ижевске',
+    set_meta_tags title: 'Доставка и оформление воздушными шарами в Ижевске от Шариковой феи',
                   description: 'Оформление торжества воздушными шарами от "Шариковой феи" оставит приятные впечатления и сделает этот день ярким. Для оформления заказа звоните по телефону +7 (912) 453-25-98',
                   keywords: 'доставка воздушных шаров ижевск,
                               воздушные шары с доставкой,
@@ -30,6 +30,14 @@ class Delivery::MainController < Delivery::DeliveryController
                               шары гелий ижевск,
                               шары в ижевске где купить,
                               заказать гелевые шары в ижевске'
+    set_meta_tags og: {
+      title: 'Доставка и оформление воздушными шарами в Ижевске от Шариковой феи',
+      description: 'Оформление торжества воздушными шарами от "Шариковой феи" оставит приятные впечатления и сделает этот день ярким. Для оформления заказа звоните по телефону +7 (912) 453-25-98',
+      type: 'article',
+      url: request.url,
+      image: "#{Rails.root}/app/assets/images/logo1.png",
+      site_name: 'Шариковая фея'
+    }
     @compositions =  Composition.availible.with_tag('день рождения').order(:price).offset(5).limit(3)
     @composition  = Composition.find(params[:id]) if params[:id]
     @feeds = Feedback.all

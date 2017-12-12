@@ -29,7 +29,8 @@ class Delivery::CompositionsController < Delivery::DeliveryController
       price: {
         amount: @comp.comp_price.round(0),
         currency: 'RUB'
-      }
+      },
+      site_name: 'Шариковая фея'
     }
 
   end

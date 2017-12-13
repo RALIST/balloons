@@ -34,11 +34,13 @@
       %strong
         = @cart.total_with_discounts
         %i.fa.fa-rub{style: 'aria-hidden="true"'}
-  / .d-flex.align-items-center.px-3
-  /   .subtotal-col.text-left
-  /     = text_field_tag '', '', class: 'form-control input-sm', placeholder: 'Промо код'
-  /   .subtotal-col.text-right
-  /     %span= link_to 'Как получить?'
+  .d-flex.align-items-center.px-3
+    .subtotal-col.text-left
+      = text_field_tag '', '', class: 'form-control input-sm', placeholder: 'Промо код'
+    .subtotal-col.text-right
+      = submit_tag 'Применить', class: 'btn btn-success btn-sm', remote: true
+  .row.text-muted.text-right
+    .subtotal-col.mt-0= link_to 'Как получить?'
   .d-flex
     .col-12.text-center
       = link_to 'Оформить заказ', new_order_path, class: 'btn btn-info btn-block'

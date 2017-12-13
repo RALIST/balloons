@@ -32,32 +32,33 @@
     %i.fa.fa-angle-double-down.fa-2x
 
 .container.text-center.mt-5
-  %h3.font-weight-bold.mb-3
+  %h1.h3.font-weight-bold.mb-5
     Посмотрите готовые оформления на ваш праздник!
   .row.justify-content-between
     .col-12.text-capitalize.justify-content-between.text-left
       - @menu_tags.each do |tag|
-        = link_to tag.name, tag_path(tag), class: 'btn btn-outline-secondary btn-lg mb-3 mx-2'
+        = link_to tag_path(tag), class: 'btn btn-outline-secondary btn-lg my-3 mx-3' do
+          = tag.name
+          (#{Composition.availible.with_tag(tag.name).count})
 
-.mt-2.py-3.bg-info
-  .container
-    %h3.font-weight-bold.text-center.mb-3.text-white
+.my-5.py-3.bg-info
+  .container.pb-5
+    %h1.font-weight-bold.text-center.my-3.text-white
       Популярные композиции
     .row.justify-content-around.compositions
       = render partial: 'thumb_composition', collection: @compositions, as: :c
     .row.text-center
-      %h4.col-12.mt-3.text-white
+      %h2.h4.col-12.mt-3.text-white
         Ничего не нашли? Посмотрите все композиции!
       .col-12.col-sm-12#help.text-center
         = link_to 'Все наши оформления', compositions_path, class: 'btn btn-success btn-lg btn-block col-lg-6 m-auto'
-.mt-2.py-3
-  .container
-    %h3.text-center.font-weight-bold
-      Отзывы наших клиентов
-    .row.mt-3.justify-content-between
-      - @feeds.each do |feed|
-        = render feed
+
+.container.my-5.py-3
+  %h1.text-center.font-weight-bold.mb-5
+    Отзывы наших клиентов
+  .row.mt-3.justify-content-between
+    - @feeds.last(3).each do |feed|
+      = render feed
 = render 'delivery/feedbacks/get_feedback'
 
-= render 'delivery/main/modal_composition'
 

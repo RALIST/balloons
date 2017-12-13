@@ -4,6 +4,8 @@
   .feed-text.text-center
     .lead
       = feedback.name
+    .text-muted
+      = link_to 'Профиль в соц.сетях', feedback.social_url, target: :blank  if feedback.social_url
     %span
       = feedback.body
     .small

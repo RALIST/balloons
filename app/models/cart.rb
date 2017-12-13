@@ -10,7 +10,7 @@ class Cart < ApplicationRecord
     self.positions.each do |p|
       total += p.subpositions.includes(:product).map{|s| s.product.price_with_helium.to_f * s.quantity}.sum
     end
-    return total.round(2)
+    return total
   end
 
   def total_with_discounts
@@ -25,6 +25,20 @@ class Cart < ApplicationRecord
         total += 150
       end
     end
-    return total.round(2)
+    unless self.used_code_discount.blank?
+      total = total - (total * self.used_code_discount / 100)
+    end
+    self.total =  total
+    self.save
+  end
+
+  def apply_code
+    self.used_code_discount = 10
+    self.save
+  end
+
+  def remove_code
+    self.used_code_discount = 0
+    self.save
   end
 end

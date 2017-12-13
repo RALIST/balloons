@@ -9,7 +9,7 @@ class Delivery::OrdersController < Delivery::DeliveryController
 
   def create
     @order = Order.create(order_params)
-    @order.total = @cart.total_with_discounts
+    @order.total = @cart.total
     if current_user
       @order.user = current_user
     else
@@ -22,6 +22,7 @@ class Delivery::OrdersController < Delivery::DeliveryController
         @order.positions.push(p)
         p.update(cart_id: nil)
       end
+      @cart.remove_code
       @order.send_admin_notification
       @order.user.calculate_discount
       redirect_to thanks_path(order: @order)

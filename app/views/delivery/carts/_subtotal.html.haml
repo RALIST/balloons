@@ -16,12 +16,14 @@
       Ваша скидка:
     .subtotal-col.text-right
       - if current_user
-        #{number_to_percentage(current_user.discount, precision: 2)}
+        #{number_to_percentage(current_user.discount + @cart.used_code_discount, precision: 2)}
+        (#{(@cart.total * (@cart.used_code_discount + current_user.discount) / 100).round(2)}
+        %i.fa.fa-rub{style: 'aria-hidden="true"'})
       - else
         = link_to 'Войдите', login_path
   .d-flex.px-3
     .subtotal-col.text-left
-      - to_delivery = 1000 - @cart.total_price
+      - to_delivery = 1000 - @cart.total
       Доставка
     .subtotal-col.text-right
       = to_delivery > 0 ? 150 : 0
@@ -32,15 +34,21 @@
         Всего к оплате:
     .subtotal-col.text-right
       %strong
-        = @cart.total_with_discounts
+        = @cart.total.round(2)
         %i.fa.fa-rub{style: 'aria-hidden="true"'}
-  .d-flex.align-items-center.px-3
-    .subtotal-col.text-left
-      = text_field_tag '', '', class: 'form-control input-sm', placeholder: 'Промо код'
-    .subtotal-col.text-right
-      = submit_tag 'Применить', class: 'btn btn-success btn-sm', remote: true
-  .row.text-muted.text-right
-    .subtotal-col.mt-0= link_to 'Как получить?'
+  - unless @cart.used_code_discount > 1
+    = form_tag apply_code_path, method: :post do
+      .d-flex.align-items-center.px-3
+        .subtotal-col.text-left
+          = text_field_tag :code, '', class: 'form-control input-sm', placeholder: 'Промо код'
+        .subtotal-col.text-right
+          = submit_tag 'Применить', class: 'btn btn-success btn-sm'
+  - else
+    .text-success.text-center
+      Вы использовали промокод на скидку
+      #{@cart.used_code_discount}%
+  / .row.text-muted.text-right
+  /   .subtotal-col.mt-0= link_to 'Как получить?'
   .d-flex
     .col-12.text-center
       = link_to 'Оформить заказ', new_order_path, class: 'btn btn-info btn-block'

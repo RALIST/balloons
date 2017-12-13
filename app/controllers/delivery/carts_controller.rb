@@ -7,6 +7,7 @@ class Delivery::CartsController < Delivery::DeliveryController
     @cart = current_cart
     @collections = Color.all
     @categories = Subcategory.joins(:products).distinct
+    current_cart.total_with_discounts
     case
     when params[:collection_id]
       latex = Product.latex_in_compositions.includes(:color).where(colors: {id: params[:collection_id]})
@@ -29,6 +30,7 @@ class Delivery::CartsController < Delivery::DeliveryController
 
   def add_to_cart
     @composition = Composition.find(params[:id])
+    current_cart.total_with_discounts
     unless current_cart.compositions.include?(@composition)
       current_cart.positions.create(composition: @composition)
       @composition.products.uniq.each do |product|
@@ -49,9 +51,22 @@ class Delivery::CartsController < Delivery::DeliveryController
   def remove_from_cart
     @position = Position.find(params[:id])
     current_cart.positions.destroy(@position)
+    current_cart.remove_code
+    current_cart.total_with_discounts
     respond_to do |format|
       format.html {redirect_back(fallback_location: root_path)}
       format.js
+    end
+  end
+
+  def apply_code
+    code = Feedback.find_by(promocode: params[:code])
+    if code
+      current_cart.apply_code
+      redirect_to my_cart_path
+    else
+      redirect_back(fallback_location: root_path)
+      flash[:danger] = 'Такого промокода не существует'
     end
   end
 end

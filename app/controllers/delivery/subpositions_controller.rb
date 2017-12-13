@@ -7,6 +7,7 @@ class Delivery::SubpositionsController < Delivery::DeliveryController
       format.html{redirect_back(fallback_location: root_path)}
       format.js
     end
+    current_cart.total_with_discounts
   end
 
   def down_quantity
@@ -16,6 +17,7 @@ class Delivery::SubpositionsController < Delivery::DeliveryController
     else
       @subposition.destroy
     end
+    current_cart.total_with_discounts
     respond_to do |format|
       format.html{redirect_back(fallback_location: root_path)}
       format.js
@@ -30,6 +32,7 @@ class Delivery::SubpositionsController < Delivery::DeliveryController
     else
       @position.subpositions.create(product: item, quantity: 1)
     end
+    current_cart.total_with_discounts
     respond_to do |format|
       format.html{ redirect_back(fallback_location: root_path) }
       format.js
@@ -45,6 +48,7 @@ class Delivery::SubpositionsController < Delivery::DeliveryController
       format.html
       format.js
     end
+    current_cart.total_with_discounts
   end
 
 
@@ -56,6 +60,7 @@ class Delivery::SubpositionsController < Delivery::DeliveryController
         format.js
       end
     end
+    current_cart.total_with_discounts
   end
 
   private

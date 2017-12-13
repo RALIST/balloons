@@ -6,7 +6,8 @@
   .container.border-bot
     %h2.text-center.my-5
       Отзывы наших клиентов
-    = render @feedbacks, cache: true
+    .row
+      = render @feedbacks, cache: true
     %ul.feed.list-unstyled.d-flex.justify-content-between.align-items-center.mt-4
       = will_paginate @feedbacks,  container: false, next_label: 'Вперед <i class="fa fa-angle-right" aria-hidden="true"></i>', previous_label: '<i class="fa fa-angle-left" aria-hidden="true"></i> Назад'
 .container

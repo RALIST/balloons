@@ -1,18 +1,21 @@
 #feedback {
-  @include make-row();
+  @include make-col(4);
+  @include media-breakpoint-down(lg){
+    @include make-col(6);
+  }
 }
 
 .feed-img{
-  @include make-col-ready();
-  @include make-col(4);
-  img{
-    max-height: 200px;
+  @include make-col(12);
+  img {
+    overflow: hidden;
+    width: 100px;
+    height: 100px;
     object-fit: cover;
   }
 }
 
 .feed-text{
-  @include make-col(8);
 }
 
 .feed {
@@ -40,4 +43,20 @@
     font-size: 1.2rem;
   }
 
+}
+
+.feedback-offer {
+  @include make-col(8);
+  @include media-breakpoint-down(lg){
+    @include make-col(12);
+    padding-bottom: 1rem !important;
+  }
+}
+
+.feedback-button {
+  @include make-col(4);
+  @include media-breakpoint-down(lg){
+    @include make-col(12);
+    padding-top: 1rem !important;
+  }
 }

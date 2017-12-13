@@ -1,12 +1,12 @@
 #feedback.my-3
   .feed-img.text-center
-    = image_tag feedback.img(:preview), class: 'img-fluid'
-  .feed-text
+    = image_tag feedback.img(:preview), class: 'rounded-circle'
+  .feed-text.text-center
     .lead
       = feedback.name
-      %em.mb-2.d-block.small
-        = Russian::strftime(feedback.created_at, '%d %b %Y')
     %span
       = feedback.body
+    .small
+      = Russian::strftime(feedback.created_at, "%d %b  '%y")
 
 

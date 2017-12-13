@@ -31,31 +31,6 @@
     %br
     %i.fa.fa-angle-double-down.fa-2x
 
-
-  / .container
-  /   .row.card-group
-  /     .col-lg-4.bg-info.card
-  /       .row.align-items-center
-  /         .col-2.text-white
-  /           .display-1
-  /             1
-  /         %em.text-white.col-10
-  /           Выберите готовую композицию или свяжитесь с менеджером
-  /     .col-lg-4.bg-secondary.card
-  /       .row.align-items-center
-  /         .col-2.text-white
-  /           .display-1
-  /             2
-  /         %em.text-white.col-10
-  /           Мы подготовим композицию из воздушных шаров
-  /     .col-lg-4.bg-success.card
-  /       .row.align-items-center
-  /         .col-2.text-white
-  /           .display-1
-  /             3
-  /         %em.text-white.col-10
-  /           Доставим в любую точку города и оформим праздник
-
 .container.text-center.mt-5
   %h3.font-weight-bold.mb-3
     Посмотрите готовые оформления на ваш праздник!
@@ -78,11 +53,11 @@
 .mt-2.py-3
   .container
     %h3.text-center.font-weight-bold
-      Отзывы о нас!
+      Отзывы наших клиентов
     .row.mt-3.justify-content-between
       - @feeds.each do |feed|
-        #feeds.my-2.py-2.border.border-info
-          = render feed
+        = render feed
+= render 'delivery/feedbacks/get_feedback'
 
 = render 'delivery/main/modal_composition'
 

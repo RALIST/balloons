@@ -20,6 +20,7 @@ class Delivery::FeedbacksController < Delivery::DeliveryController
 
     respond_to do |format|
       if @feedback.save
+        @feedback.send_code_to_user
         format.html { redirect_to feedbacks_path, success: 'Спасибо за ваш отзыв!' }
         format.json { render :show, status: :created, location: @feedback }
       else
@@ -37,6 +38,6 @@ class Delivery::FeedbacksController < Delivery::DeliveryController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def feedback_params
-      params.require(:feedback).permit(:name, :body, :img)
+      params.require(:feedback).permit(:name, :body, :img, :phone, :social_url, :promocode)
     end
 end

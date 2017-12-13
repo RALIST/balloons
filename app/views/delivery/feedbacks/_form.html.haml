@@ -1,17 +1,21 @@
-.h4.text-center.mb-5.text-uppercase
-  Оставьте отзыв!
+%h2.text-center.my-5.text-uppercase
+  Спасибо за ваш отзыв!
 .row
   #form-call.px-4
     = form_for @feedback do |f|
-      .form-group.row.align-items-center
-        = f.label 'Как вас зовут?', class: 'control-label col-5 text-uppercase'
-        = f.text_field :name, class: 'form-control col-6', required: true
-      .form-group.row.align-items-center
-        = f.label 'Ваш отзыв', class: 'control-label col-5 text-uppercase'
-        = f.text_area :body, class: 'form-control col-6', required: true, rows: 5
-      .form-group.row.align-items-center
-        = f.label 'Фото', class: 'control-label col-5 text-uppercase'
-        = f.file_field :img, class: 'form-control col-6'
+      .form-group
+        = f.text_field :name, class: 'form-control', required: true, placeholder: 'Ваше имя*'
+      .form-group
+        = f.telephone_field :phone, class: 'form-control', required: true, placeholder: 'Номер телефона*', data:{ mask: '+7 (999) 999 99 99' }
+      .form-group
+        = f.text_field :social_url, class: 'form-control', placeholder: 'Ссылка на соц.сеть'
+      .form-group
+        = f.text_area :body, class: 'form-control', required: true, rows: 5, placeholder: 'Ваш отзыв*'
+      .form-group
+        = f.label 'Фото', class: 'control-label text-uppercase'
+        = f.file_field :img, class: 'form-control'
+        .form-text.text-muted.small
+          *Мы отправим вам СМС с промокодом на скидку 10% к следующему заказу
 
       .form-group.text-center.my-4
-        = f.submit'Отправить', class: 'btn btn-info col-6 text-uppercase', data:{disable_with: 'Отправляю...'}
+        = f.submit 'Оставить отзыв', class: 'btn btn-info col-6 text-uppercase', data:{disable_with: 'Отправляю...'}

@@ -40,6 +40,11 @@
         = link_to tag_path(tag), class: 'btn btn-outline-secondary btn-lg my-3 mx-3' do
           = tag.name
           (#{Composition.availible.with_tag(tag.name).count})
+      - @menu_receivers.each do |r|
+        = link_to receiver_path(r), class: 'btn btn-outline-secondary btn-lg my-3 mx-3'do
+          = r.title
+          (#{Composition.availible.with_receivers(r.title).count})
+
 
 .my-5.py-3.bg-info
   .container.pb-5

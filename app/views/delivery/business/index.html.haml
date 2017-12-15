@@ -1,23 +1,24 @@
 .business
   .container-fluid
-    .row.align-items-center
-      %nav.navbar.navbar-expand-md.bg-brand.justify-content-between#business-menu
-        %button.navbar-toggler.collapsed.navbar-toggler-right{data: {toggle: 'collapse', target: '#b-menu'}}
-          %i.fa.fa-bars
-        = link_to root_path, class: 'navbar-brand' do
-          = image_tag 'logo-resp.png'
-        .collapse.navbar-collapse#b-menu
-          %ul.navbar-nav.nav-pills.text-center.align-items-center
-            %li.nav-item
-              = link_to 'Оформление входных групп', business_index_path(anchor: 'outdoor'), class: 'nav-link'
-            %li.nav-item
-              = link_to 'Корпоративные мероприятия', business_index_path(anchor: 'indoor'), class: 'nav-link'
-            %li.nav-item
-              = link_to 'Печать на шарах', business_index_path(anchor: 'prints'), class: 'nav-link'
-            %li.nav-item
-              = link_to 'Контакты', business_index_path(anchor: 'contacts'), class: 'nav-link'
-        .business-call.align-self-center.d-none.d-lg-block
-          = button_tag 'Заказать звонок', class: 'btn btn-info', data:{ toggle: 'modal', target: '#call-modal'}
+    .row.align-items-center.fixed-top.bg-teal
+      .container
+        %nav.navbar.navbar-expand-md.justify-content-between#business-menu.navbar-light
+          %button.navbar-toggler.collapsed.navbar-toggler-right{data: {toggle: 'collapse', target: '#b-menu'}}
+            %i.fa.fa-bars
+          = link_to root_path, class: 'navbar-brand' do
+            = image_tag 'logo-resp.png'
+          .collapse.navbar-collapse#b-menu
+            %ul.nav.navbar-nav.text-center.align-items-center.nav-fill
+              %li.nav-item
+                = link_to 'Оформление входных групп', business_index_path(anchor: 'outdoor'), class: 'nav-link text-white'
+              %li.nav-item
+                = link_to 'В помещении', business_index_path(anchor: 'indoor'), class: 'nav-link text-white'
+              %li.nav-item
+                = link_to 'Печать на шарах', business_index_path(anchor: 'prints'), class: 'nav-link text-white'
+              %li.nav-item
+                = link_to 'Контакты', business_index_path(anchor: 'contacts'), class: 'nav-link text-white'
+          .business-call.align-self-center.d-none.d-lg-block
+            = button_tag 'Заказать звонок', class: 'btn btn-info', data:{ toggle: 'modal', target: '#call-modal'}
 #offer-wrapper
   .jumbotron.jumbotron-fluid#offer.d-flex.align-items-center.jumb-business
     .container
@@ -49,7 +50,7 @@
       - @partners.each do |p|
         = image_tag p.logo.url(:small), class: 'img-fluid', alt: 'Воздушные шары для ' + p.name
 
-.hr#outdoor.my-5
+%hr#outdoor.my-4
 .container-fluid.bg-dark
   .row.py-4
     .col-lg-5.col-sm-12.mt-1
@@ -75,8 +76,8 @@
       .slider-outdoor
         - @outdoor.each do |o|
           = image_tag o.img.url(:thumb)
-.hr.my-5#indoor
-.container-fluid
+%hr.my-4#indoor
+.container-fluid.bg-light
   .row.py-4
     .col-lg-5.col-sm-12.mt-1
       %h2 Оформление воздушными шарами корпоративного мероприятия
@@ -92,12 +93,12 @@
       %em Оформление корпоративных мероприятий воздушными шарами, это то, что мы делаем очень хорошо! Если вы планируете открытие магазина, распродажу или любое другое мероприятие, то оформление воздушными шарами будет изюминкой вечера!
       .lead.text-center.my-5
         Подберем варианты оформления бесплатно!
-        = button_tag 'Оставить заявку', class: 'btn btn-info btn-block btn-lg', data:{ toggle: 'modal', target: '#call-modal'}
+        = button_tag 'Оставить заявку', class: 'btn btn-dark btn-block btn-lg', data:{ toggle: 'modal', target: '#call-modal'}
     .col-lg-6.col-sm-12.mt-1
       .slider-outdoor
         - @indoor.each do |i|
           = image_tag i.img.url(:thumb)
-.hr.my-5#prints
+%hr.my-4#prints
 .container-fluid.bg-info
   .row.py-4
     .col-lg-5.col-sm-12.mt-1
@@ -194,12 +195,7 @@
           %li Нанесение изображения на вторую и последующую стороны при печати на воздушных шарах: + 20% от стоимости, указанной в таблице (см. выше).
 
           %li При смене краски в одном заказе, общее количество которого не более 500 шт., взимается дополнительная плата 150 руб. за каждую смену краски.
-
-
-  .row#indoor
-  .row#holidays
-  .row#prints
-  .row#contacts
+%hr.my-4
 .container-fluid#contacts
   = render 'delivery/main/contacts'
 

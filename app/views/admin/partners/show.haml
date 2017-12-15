@@ -1,0 +1,19 @@
+.container.mt-5
+  .row.align-items-center
+    .col-4
+      = image_tag @partner.logo.url(:small), class: 'img-fluid'
+    .col-4
+      = @partner.name
+    .col-4
+      = form_for [:admin, @partner] do |f|
+        = f.fields_for :images, @partner.images.build do |i|
+          .form-group
+            = i.file_field :img
+          .from-group
+            = i.select :style, Image::TYPES.map{|t| t}
+        .from-group
+          = f.submit
+  .row.mt-5
+    - @partner.images.each do |i|
+      .col-4
+        = image_tag i.img.url(:thumb), class: 'img-fluid'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171213140728) do
+ActiveRecord::Schema.define(version: 20171215072023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,6 +95,19 @@ ActiveRecord::Schema.define(version: 20171213140728) do
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
   end
 
+  create_table "images", force: :cascade do |t|
+    t.string   "img_file_name"
+    t.string   "img_content_type"
+    t.integer  "img_file_size"
+    t.datetime "img_updated_at"
+    t.string   "imageable_type"
+    t.integer  "imageable_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "style"
+    t.index ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id", using: :btree
+  end
+
   create_table "items", force: :cascade do |t|
     t.string   "name"
     t.text     "desc"
@@ -160,6 +173,16 @@ ActiveRecord::Schema.define(version: 20171213140728) do
     t.datetime "order_date"
     t.string   "pay_method"
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
+  end
+
+  create_table "partners", force: :cascade do |t|
+    t.string   "name"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "positions", force: :cascade do |t|

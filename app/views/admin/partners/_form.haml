@@ -1,0 +1,16 @@
+= form_for [:admin, @partner]  do |f|
+  .form-group
+    = f.label :name,'Название'
+    .input-group
+      = f.text_field :name
+  .form-group
+    = f.label :logo, 'Логотип'
+    .input-group
+      = f.file_field :logo
+  / .form-group
+  /   = f.label :images, 'Фото оформлений'
+  /   .input-group
+  /     = f.fields_for :image do |i|
+  /       = i.file_field :img
+  .form-group
+    = f.submit 'Создать'

@@ -12,6 +12,11 @@ class Delivery::BusinessController < Delivery::DeliveryController
                               печать на воздушных шарах,
                               печать на воздушных шарах ижевск'
     @disable_header = true
+
+    @partners = Partner.all
+    @outdoor = Image.where(style: 'вход')
+    @indoor = Image.where(style: 'внутри')
+    @print = Image.where(style: 'печать')
   end
 
 end

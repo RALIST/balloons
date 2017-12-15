@@ -3,14 +3,13 @@ $(document).ready(function(){
   $('.jumb-business').css('height', height);
 })
 
-// $('#more').on('click', function(){
+// $('#arr').on('click', function(){
 //   $('body').animate({scrollTop: $('#outdoor').offset().top - 30 }, 'slow');
 // });
 
 $(document).ready(function(){
   $('.slider-outdoor').slick({
     slidesToShow: 1,
-    autoplay: true,
     autoplaySpeed: 2000,
     variableWidth: true,
     adaptiveHeight: true,
@@ -20,6 +19,16 @@ $(document).ready(function(){
   })
 })
 
-
+$(document).ready(function(){
+  $('.slider-company').slick({
+    slidesToShow: 4,
+    autoplay: true,
+    variableWidth: true,
+    autoplaySpeed: 2000,
+    dots: true,
+    slidesToScroll: 1,
+    autoplaySpeed: 1000
+  })
+})
 
 

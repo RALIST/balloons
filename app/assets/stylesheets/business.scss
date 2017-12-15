@@ -58,7 +58,7 @@
   @include make-col-sm(12);
   @include make-col-xs(12);
   .nav-item:hover {
-    background-color: $brand-secondary;
+    background-color: $brand-info;
     border-radius: 4px;
   }
   @include media-breakpoint-up(md) {
@@ -81,19 +81,31 @@
 
 #companies {
   margin-bottom: 2rem;
-  color: darken($brand-secondary, 10);
 }
 
-#company {
-
-  @include make-col(3);
-  @include media-breakpoint-down(lg){
-     @include make-col(4);
+.slider-company {
+  img{
+    width: auto !important;
+    height: 100px;
+    @include media-breakpoint-down(lg){
+      height: 50px;
+    }
   }
-  border: none;
-  margin: 1rem 0;
-  img {
-    object-fit: contain;
+  .slick-dots {
+    li {
+      button:before {
+        color: $teal;
+      }
+    }
+  }
+  .slick-prev:before, .slick-next:before {
+    font-size: 30px;
+    color: darken($brand-secondary, 10%);
+  }
+  @include media-breakpoint-down(lg){
+    .slick-next, .slick-prev{
+      display: none !important;
+    }
   }
 }
 
@@ -125,4 +137,8 @@
     color: darken($brand-secondary, 10%);
   }
 
+}
+
+#arr-down {
+  font-size: 4rem !important;
 }

@@ -1,0 +1,12 @@
+.container.mt-5
+  = link_to 'Добавить', new_admin_partner_path, class: 'btn btn-lg btn-info'
+  %table.table
+    - @partners.each do |p|
+      %tr
+        %td
+          = image_tag p.logo.url(:small), class: 'img-fluid'
+        %td.lead
+          = link_to p.name, admin_partner_path(p)
+
+        %td
+          = link_to 'Удалить', admin_partner_path(p), method: :delete

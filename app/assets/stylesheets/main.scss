@@ -100,6 +100,9 @@
     padding-top: 2em;
     padding-bottom: 0;
     font-size: 80%;
+    -webkit-box-align: center !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
   }
   .current{
     padding-bottom: 2em;

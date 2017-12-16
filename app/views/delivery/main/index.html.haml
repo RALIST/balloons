@@ -34,16 +34,15 @@
 .container.text-center.mt-5
   %h1.h3.font-weight-bold.mb-5
     Посмотрите готовые оформления на ваш праздник!
-  .row.justify-content-between
-    .col-12.text-capitalize.justify-content-between.text-left
-      - @menu_tags.each do |tag|
-        = link_to tag_path(tag), class: 'btn btn-outline-secondary btn-lg my-3 mx-3' do
-          = tag.name
-          (#{Composition.availible.with_tag(tag.name).count})
-      - @menu_receivers.each do |r|
-        = link_to receiver_path(r), class: 'btn btn-outline-secondary btn-lg my-3 mx-3'do
-          = r.title
-          (#{Composition.availible.with_receivers(r.title).count})
+  .row.text-capitalize.justify-content-center
+    - @menu_tags.each do |tag|
+      = link_to tag_path(tag), class: 'btn btn-outline-secondary btn-lg mb-3 mx-2' do
+        = tag.name
+        (#{Composition.availible.with_tag(tag.name).count})
+    - @menu_receivers.each do |r|
+      = link_to receiver_path(r), class: 'btn btn-outline-secondary btn-lg mb-3 mx-2' do
+        = r.title
+        (#{Composition.availible.with_receivers(r.title).count})
 
 
 .my-5.py-3.bg-info

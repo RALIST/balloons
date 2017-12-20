@@ -33,7 +33,7 @@
       .header-contacts.d-none.d-lg-block
         .row
           .col-4
-            .row.align-items-start
+            .row.align-items-center
               .col-2
                 .social
                   %ul.list-unstyled
@@ -56,22 +56,17 @@
                     WhatsApp | Viber | Telegram
                     .h5.m-0
                       +7 950 171-81-09
-                    %br
                     Ежедневно с 8:00 до 21:00
                 .mt-1
                   = button_tag 'Нужна консультация', class: 'btn btn-secondary text-uppercase strong btn-sm', data:{ toggle: 'modal', target: '#call-modal'}
-          .col-4
-            .row.align-items-start.justify-content-center
-              .col-1
-              .col-2.p-0
-                = image_tag 'balloon-contacts.png', class: 'img-fluid d-inline-block'
-              .col-8.pl-2.pr-0
-                .h6.text-uppercase.p-0.strong.m-0
-                  Бесплатная
-                  %br
-                  доставка
-                .m-0
-                  по Ижевску от 1000р.
+          .col-4.align-items-center
+            = image_tag 'balloon-contacts.png', class: 'img-fluid d-inline-flex pt-3'
+            .h6.text-uppercase.p-0.strong.d-inline-flex.mb-0
+              Бесплатная
+              %br
+              доставка
+              %br
+              по Ижевску от 1000р.
 
           .col-4
             .row

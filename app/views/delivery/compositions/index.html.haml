@@ -2,3 +2,5 @@
 .container.my-5
   .row.justify-content-around.card-deck.compositions.card-group
     = render partial: 'delivery/main/thumb_composition', collection: @compositions, as: :c
+  .row.text-center
+    = will_paginate @compositions

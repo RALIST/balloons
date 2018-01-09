@@ -3,8 +3,8 @@
     Контакты
   .row#contacts
     %div{itemprop: "logo",  itemscope: true, itemtype: "https://schema.org/ImageObject"}
-      = image_tag 'logo-round.png', itemprop: 'image url', style: "display: none"
-
+      = image_tag 'logo-round.png', itemprop: 'image url', style: "display: none", alt: 'Логотип bigairballoons.ru'
+    = image_tag 'logo-round.png', itemprop: 'image url', style: "display: none", alt: 'Логотип bigairballoons.ru'
     .col-12.p-0#map.d-none.d-lg-block
       .map-block
         = image_tag 'map-block.png', class: 'img-fluid'

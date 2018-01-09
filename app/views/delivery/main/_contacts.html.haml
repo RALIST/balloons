@@ -2,8 +2,8 @@
   %h1.text-center
     Контакты
   .row#contacts
-    / %meta{itemprop: 'image', content: "#{asset_path 'logo-round.png'}"}
-    / %meta{itemprop: 'logo', content: "#{asset_path 'logo-round.png'}"}
+    %meta{itemprop: 'image', content: "#{asset_path 'logo-round.png'}"}
+    %meta{itemprop: 'logo', content: "#{asset_path 'logo-round.png'}"}
     .col-12.p-0#map.d-none.d-lg-block
       .map-block
         = image_tag 'map-block.png', class: 'img-fluid'

@@ -2,7 +2,7 @@
   %h1.text-center
     Контакты
   .row#contacts
-    %div{itemprop="logo" itemscope itemtype="https://schema.org/ImageObject"}
+    %div{itemprop: "logo",  itemscope: true, itemtype: "https://schema.org/ImageObject"}
       = image_tag 'logo-round.png', itemprop: 'image', style: {display: none}
 
     .col-12.p-0#map.d-none.d-lg-block

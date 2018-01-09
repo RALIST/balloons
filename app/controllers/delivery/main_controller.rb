@@ -87,6 +87,7 @@ class Delivery::MainController < Delivery::DeliveryController
 
 
   def contacts
+    set_meta_tags title: "Контакты"
   end
 
   def lp

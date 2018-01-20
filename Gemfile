@@ -53,6 +53,7 @@ gem "gretel"
 gem 'friendly_id', '~> 5.1.0'
 gem 'popper_js'
 gem 'social-share-button'
+gem 'loadcss-rails', '~> 2.0.1'
 
 
 group :production do

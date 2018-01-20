@@ -24,6 +24,9 @@
 //= require cookies
 //= require jquery.slick
 //= require social-share-button
+//= require loadCSS
+//= require cssrelpreload
+//= require onloadCSS
 //= require_tree .
 
 setTimeout(function(){
@@ -32,3 +35,7 @@ setTimeout(function(){
     Cookies.set('popup', 'true')
   }
 }, 70000)
+
+$(document).ready(function(){
+  $('body, html').scrollTop(0);
+})

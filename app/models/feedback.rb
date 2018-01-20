@@ -1,9 +1,9 @@
 class Feedback < ApplicationRecord
-  has_attached_file :img, styles: { preview: ['x100', :png]},
-                          convert_options: {
-                                            preview: "-quality 60 -strip -interlace Plane"},
-                          processors: [:thumbnail, :compression],
-                          default_url: '/missing/:style/missing.png'
+  has_attached_file :img, styles: { small: ['x150', :png]},
+                          convert_options: {preview: "-quality 75 -strip -interlace Plane"},
+                          processors: [:thumbnail, :paperclip_optimizer],
+                          filename_cleaner: Paperclip::FilenameCleaner.new(/\_-/),
+                          default_url: '/missing/:style/missing_:style.png'
   validates_attachment_content_type :img,
                         content_type: ["image/jpeg", "image/jpg", "image/png"]
 

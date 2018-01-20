@@ -14,7 +14,8 @@ class Composition < ApplicationRecord
                                     large: ['x600', :png]},
                           convert_options: {
                                             all: "-quality 75 -strip -interlace Plane"},
-                          processors: [:thumbnail, :paperclip_optimizer]
+                          processors: [:thumbnail, :paperclip_optimizer],
+                          filename_cleaner: Paperclip::FilenameCleaner.new(/\_-/)
   validates_attachment_content_type :img,
                         content_type: ["image/jpeg", "image/jpg", "image/png"]
 

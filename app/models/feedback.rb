@@ -1,7 +1,7 @@
 class Feedback < ApplicationRecord
-  has_attached_file :img, styles: { preview: ['x300', :png]},
+  has_attached_file :img, styles: { preview: ['x100', :png]},
                           convert_options: {
-                                            preview: "-quality 75 -strip"},
+                                            preview: "-quality 60 -strip -interlace Plane"},
                           processors: [:thumbnail, :compression],
                           default_url: '/missing/:style/missing.png'
   validates_attachment_content_type :img,

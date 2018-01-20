@@ -59,14 +59,14 @@
                     Ежедневно с 8:00 до 21:00
                 .mt-2
                   = button_tag 'Нужна консультация', class: 'btn btn-secondary text-uppercase strong btn-sm', data:{ toggle: 'modal', target: '#call-modal'}
-          .col-4.align-items-center
+          .col-4.align-items-start
             = image_tag 'balloon-contacts.png', class: 'img-fluid d-inline-flex pt-3'
-            .h6.text-uppercase.p-0.strong.d-inline-flex.mb-0
+            .h6.text-uppercase.d-inline-flex
               Бесплатная
               %br
               доставка
               %br
-              по Ижевску от 1000р.
+              по Ижевску от 1200р.
 
           .col-4
             .row
@@ -104,5 +104,6 @@
                   = link_to 'В корзину', my_cart_path if @cart.positions.any?
         .row.mt-3.mb-4
           .col-12
-            = render 'delivery/layouts/main_menu'
+            - cache do
+              = render 'delivery/layouts/main_menu'
 = render 'delivery/layouts/call'

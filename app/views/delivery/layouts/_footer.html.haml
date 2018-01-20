@@ -1,52 +1,53 @@
-.container-fluid.bg-grey.footer.mt-4
-  .container
-    .row
-      .footer-logo.d-none.d-lg-block
-        #logo
-          = link_to root_path do
-            = image_tag 'logo-footer.png', class: 'img-fluid'
-      .footer-contacts
-        .container
-          .social.mt-2
-            %ul.list-unstyled.list-inline
-              %li.list-inline-item.mr-4
-                =link_to 'https://www.instagram.com/bigairballoon_izh/', target: :_blank do
-                  %i.fa.fa-instagram.fa-2x{"aria-hidden":  "true"}
-              %li.list-inline-item.mr-4
-                =link_to 'https://www.facebook.com/bigairballoons/', target: :_blank do
-                  %i.fa.fa-facebook.fa-2x{"aria-hidden": "true"}
-              %li.list-inline-item
-                =link_to 'https://vk.com/bigairballoon_izh', target: :_blank do
-                  %i.fa.fa-vk.fa-2x{"aria-hidden": "true"}
-          %ul.list-unstyled
-            .row
-              .col-4
-                %li
-                  = link_to 'О нас', about_path
-                %li
-                  = link_to 'Гарантии', garant_path
-                %li
-                  =link_to 'Доставка и оплата', info_path
-              .col-4
-                %li
-                  =link_to 'Цены', prices_path
-                %li
-                  =link_to 'Контакты', contacts_path
-                %li
-                  =link_to 'Партнерам', partners_path
-              .col-4.lead
-                Позвоните нам!
-                .lead.strong
-                  +7 (3412) 234-084
-                  .small
-                    WhatsApp | Viber | Telegram
-                    %br
-                    +7 950 171-81-09
-    .row
-      .col-12.text-center.small
-        ООО "ДЕЛИРИУМ"
-        ИНН 1832110279
-        КПП 183201001
-        ОГРН 1131832004831
+- cache do
+  .container-fluid.bg-grey.footer.mt-4
+    .container
+      .row
+        .footer-logo.d-none.d-lg-block
+          #logo
+            = link_to root_path do
+              = image_tag 'logo-footer.png', class: 'img-fluid'
+        .footer-contacts
+          .container
+            .social.mt-2
+              %ul.list-unstyled.list-inline
+                %li.list-inline-item.mr-4
+                  =link_to 'https://www.instagram.com/bigairballoon_izh/', target: :_blank do
+                    %i.fa.fa-instagram.fa-2x{"aria-hidden":  "true"}
+                %li.list-inline-item.mr-4
+                  =link_to 'https://www.facebook.com/bigairballoons/', target: :_blank do
+                    %i.fa.fa-facebook.fa-2x{"aria-hidden": "true"}
+                %li.list-inline-item
+                  =link_to 'https://vk.com/bigairballoon_izh', target: :_blank do
+                    %i.fa.fa-vk.fa-2x{"aria-hidden": "true"}
+            %ul.list-unstyled
+              .row
+                .col-4
+                  %li
+                    = link_to 'О нас', about_path
+                  %li
+                    = link_to 'Гарантии', garant_path
+                  %li
+                    =link_to 'Доставка и оплата', info_path
+                .col-4
+                  %li
+                    =link_to 'Цены', prices_path
+                  %li
+                    =link_to 'Контакты', contacts_path
+                  %li
+                    =link_to 'Партнерам', partners_path
+                .col-4.lead
+                  Позвоните нам!
+                  .lead.strong
+                    +7 (3412) 234-084
+                    .small
+                      WhatsApp | Viber | Telegram
+                      %br
+                      +7 950 171-81-09
+      .row
+        .col-12.text-center.small
+          ООО "ДЕЛИРИУМ"
+          ИНН 1832110279
+          КПП 183201001
+          ОГРН 1131832004831
 
 

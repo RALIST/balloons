@@ -22,11 +22,11 @@
           = render 'delivery/layouts/header'
         = render 'delivery/layouts/flash'
         = render 'delivery/layouts/breadcrumbs'
+      = stylesheet_link_tag 'application', media: 'all'
       = yield
     %footer
       = render 'delivery/layouts/footer'
-  = stylesheet_link_tag    'application', media: 'all'
-  - if controller.action_name = 'contacts'
+  - if controller.action_name == 'contacts'
     = javascript_include_tag 'https://api-maps.yandex.ru/2.1/?lang=ru_RU', async: Rails.env.production?
   = javascript_include_tag 'application', async: Rails.env.production?
   = javascript_include_tag 'https://www.googleadservices.com/pagead/conversion_async.js', async: true

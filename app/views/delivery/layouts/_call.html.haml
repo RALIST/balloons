@@ -1,24 +1,25 @@
-.modal.fade{id: "call-modal",  tabindex: "-1",  role: "dialog"}
-  .modal-dialog#call{role: "document"}
-    .modal-content
-      .modal-header
-        %h3.modal-title
-        %button.close{data: {dismiss: "modal"}, style: 'aria-label: "Close"'}
-          %span
-            &times;
+-cache do
+  .modal.fade{id: "call-modal",  tabindex: "-1",  role: "dialog"}
+    .modal-dialog#call{role: "document"}
+      .modal-content
+        .modal-header
+          %h3.modal-title
+          %button.close{data: {dismiss: "modal"}, style: 'aria-label: "Close"'}
+            %span
+              &times;
 
-      .modal-body.pt-0
-        = render 'delivery/layouts/form_to_call'
-        .row
-          #form-call
-            .row.align-items-center
-              .h4.w-100.text-center
-                Напишите нам в чате
-              .col-6.text-right
-                =image_tag 'telegram.png', class: 'img-fluid', style: 'width: 32px'
-                =image_tag 'whatsapp.png', class: 'img-fluid', style: 'width: 36px'
-                =image_tag 'viber.png', class: 'img-fluid', style: 'width: 36px'
-              .col-6.text-left
-                .lead
-                  +7 950 171-81-09
+        .modal-body.pt-0
+          = render 'delivery/layouts/form_to_call'
+          .row
+            #form-call
+              .row.align-items-center
+                .h4.w-100.text-center
+                  Напишите нам в чате
+                .col-6.text-right
+                  =image_tag 'telegram.png', class: 'img-fluid', style: 'width: 32px'
+                  =image_tag 'whatsapp.png', class: 'img-fluid', style: 'width: 36px'
+                  =image_tag 'viber.png', class: 'img-fluid', style: 'width: 36px'
+                .col-6.text-left
+                  .lead
+                    +7 950 171-81-09
 

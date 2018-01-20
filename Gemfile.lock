@@ -372,7 +372,7 @@ DEPENDENCIES
   paperclip
   paperclip-compression
   paperclip-optimizer
-  pg
+  pg (~> 0.21)
   popper_js
   premailer-rails
   puma (~> 3.0)

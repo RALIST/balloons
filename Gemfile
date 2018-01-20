@@ -17,6 +17,7 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'bullet'
   gem 'web-console'
+  gem 'image_optim_pack'
 end
 
 source 'http://insecure.rails-assets.org' do
@@ -55,7 +56,6 @@ gem 'popper_js'
 gem 'social-share-button'
 gem 'loadcss-rails', '~> 2.0.1'
 gem "image_optim"
-gem 'image_optim_pack'
 gem 'paperclip-optimizer'
 
 

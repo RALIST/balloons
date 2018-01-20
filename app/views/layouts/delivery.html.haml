@@ -8,8 +8,11 @@
     = display_meta_tags
     = favicon_link_tag 'favicons/favicon-32.png'
     = favicon_link_tag 'favicons/favicon-120.png', rel: 'apple-touch-icon'
-    = stylesheet_link_tag 'application', media: 'all'
     = csrf_meta_tags
+    %link{rel: "preload", href: stylesheet_path("fonts"), onload: "this.rel = 'stylesheet'", as: "style"}
+    %noscript
+      = stylesheet_link_tag 'fonts'
+    = stylesheet_link_tag 'application', media: 'all'
   %body
     %a#return-to-top{data: {toggle: 'tooltip'}, title: 'Наверх'}
       %span.fa-stack.fa-2x

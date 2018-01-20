@@ -13,7 +13,7 @@ class Composition < ApplicationRecord
   has_attached_file :img, styles: {preview: ['x400', :png],
                                     large: ['x600', :png]},
                           convert_options: {
-                                            all: "-quality 60 -strip -interlace Plane"},
+                                            all: "-quality 50 -strip -interlace Plane"},
                           processors: [:thumbnail, :compression]
   validates_attachment_content_type :img,
                         content_type: ["image/jpeg", "image/jpg", "image/png"]

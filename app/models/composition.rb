@@ -10,14 +10,10 @@ class Composition < ApplicationRecord
   has_many :positions
 
   validates :img, presence: true
-  has_attached_file :img, styles: {small:  ['x100', :png],
-                                    thumb: ['x300', :png],
-                                    preview: ['x600', :png],
-                                    large: ['x1080', :png]},
+  has_attached_file :img, styles: {preview: ['x400', :png],
+                                    large: ['x600', :png]},
                           convert_options: {
-                                            large: "-quality 75 -strip",
-                                            thumb: "-quality 75 -strip",
-                                            preview: "-quality 30 -strip"},
+                                            all: "-quality 60 -strip -interlace Plane"},
                           processors: [:thumbnail, :compression]
   validates_attachment_content_type :img,
                         content_type: ["image/jpeg", "image/jpg", "image/png"]
@@ -103,8 +99,6 @@ class Composition < ApplicationRecord
       products = foil_products + latex_products
       start = start + products
       tags  = tags + receivers
-      puts start
-      puts tags
       title = start[rand(start.length)] +
             " #{tags[rand(tags.length)]}"
       self.update(title: title)

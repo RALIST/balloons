@@ -69,7 +69,7 @@
         Вернуться в каталог
       .text-left{itemprop: 'description'}
         Композиция из воздушных шаров на #{composition.tags.map(&:name).join(', ')}, #{composition.receivers.map(&:title).join(', ') if composition.receivers}
-      = image_tag composition.img.url(:preview), class: 'img-fluid img-thumbnail', itemprop: 'image', alt: composition.title
+      = image_tag composition.img.url(:large), class: 'img-fluid img-thumbnail', itemprop: 'image', alt: composition.title
       .row.comp-text.text-secondary.justify-content-end.align-items-center.mt-3
         .d-flex-inline.mr-5
           = social_share_button_tag("Шариковая фея | Композиция из воздушных шаров №#{composition.id}", image: 'https:' + composition.img.url(:large), url: request.original_url, desc: "Композиция из воздушных шаров на #{composition.tags.map(&:name).join(', ')}, #{composition.receivers.map(&:title).join(', ')}", 'data-toggle': 'tooltip' )

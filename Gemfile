@@ -25,7 +25,7 @@ end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'haml-rails'
-gem 'pg'
+gem 'pg', '~> 0.21'
 gem 'font-awesome-sass'
 gem 'jquery-ui-rails'
 gem 'paperclip'

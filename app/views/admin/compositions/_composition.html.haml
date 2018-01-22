@@ -2,7 +2,7 @@
   .row.p-2
     .col-6
       = link_to admin_composition_path(composition) do
-        = image_tag composition.img.url(:small), class: 'img-fluid'
+        = image_tag composition.img.url(:preview), class: 'img-fluid'
     .col-6
       ID:
       = composition.id

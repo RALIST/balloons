@@ -27,6 +27,7 @@
 //= require loadCSS
 //= require cssrelpreload
 //= require onloadCSS
+//= require turbolinks
 //= require_tree .
 
 setTimeout(function(){
@@ -36,6 +37,6 @@ setTimeout(function(){
   }
 }, 70000)
 
-$(document).ready(function(){
-  $('body, html').scrollTop(0);
-})
+// $(document).on('ready, turbolinks:load', function(){
+//   $('body, html').scrollTop(0);
+// })

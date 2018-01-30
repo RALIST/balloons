@@ -1,4 +1,4 @@
-  $(document).ready(function() {
+  $(document).on('ready, turbolinks:load', function() {
     if ($('.pagination').length) {
       $(window).scroll(function() {
         var url = $('.pagination .next_page a').attr('href');
@@ -21,7 +21,7 @@
   });
 
 
-$(document).ready(function(){
+$(document).on('ready, turbolinks:load', function(){
   $(window).scroll(function() {
     if ($(this).scrollTop() >= 1000) {        // If page is scrolled more than 50px
         $('#return-to-top').fadeIn(400);    // Fade in the arrow

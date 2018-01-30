@@ -5,6 +5,7 @@
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
     %meta{name: "google-site-verification", content:"7YdqoinSILjL2WHYMwi8xu3uUDgshmVKYp6GKfoBavo"}
     %meta{name: "yandex-verification", content: "55c1242f77b26454"}
+    = javascript_include_tag 'application'
     = display_meta_tags
     = favicon_link_tag 'favicons/favicon-32.png'
     = favicon_link_tag 'favicons/favicon-120.png', rel: 'apple-touch-icon'
@@ -29,9 +30,8 @@
       = yield
     %footer
       = render 'delivery/layouts/footer'
-  - if controller.action_name == 'contacts'
+  - if controller.action_name == 'contacts' || controller.action_name == 'business'
     = javascript_include_tag 'https://api-maps.yandex.ru/2.1/?lang=ru_RU', async: Rails.env.production?
-  = javascript_include_tag 'application', async: Rails.env.production?
   = javascript_include_tag 'https://www.googleadservices.com/pagead/conversion_async.js', async: true
   = render 'delivery/ym'
   = render 'delivery/ga'

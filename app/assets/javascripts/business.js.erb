@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).on('ready, turbolinks:load', function(){
   var height = $(window).height();
   $('.jumb-business').css('height', height);
 })
@@ -7,7 +7,7 @@ $(document).ready(function(){
 //   $('body').animate({scrollTop: $('#outdoor').offset().top - 30 }, 'slow');
 // });
 
-$(document).ready(function(){
+$(document).on('ready, turbolinks:load', function(){
   $('.slider-outdoor').slick({
     slidesToShow: 1,
     autoplaySpeed: 2000,
@@ -19,7 +19,7 @@ $(document).ready(function(){
   })
 })
 
-$(document).ready(function(){
+$(document).on('ready, turbolinks:load', function(){
   $('.slider-company').slick({
     slidesToShow: 4,
     autoplay: true,

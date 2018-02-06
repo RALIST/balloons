@@ -42,7 +42,7 @@
     - @order.positions.each do |position|
       .row.my-5
         .col-4.text-center
-          = image_tag position.composition.img(:thumb), class: 'img-fluid'
+          = image_tag position.composition.img(:preview), class: 'img-fluid'
         .col-8
           .h3.mt-4 Состав заказа
           %table.table

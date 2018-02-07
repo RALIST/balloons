@@ -33,41 +33,42 @@
       .header-contacts.d-none.d-lg-block
         .row
           .col-4
-            .row.align-items-center
+            .row
               .col-2
                 .social
-                  %ul.list-unstyled
-                    %li
-                      =link_to 'https://www.instagram.com/bigairballoon_izh/', target: :_blank do
+                  %ul.nav.align-content-between.flex-column
+                    %li.nav-item
+                      =link_to 'https://www.instagram.com/bigairballoon_izh/', target: :_blank, class: 'nav-link' do
                         %i.fa.fa-instagram{"aria-hidden":  "true"}
-                    %li
-                      =link_to 'https://www.facebook.com/bigairballoons/', target: :_blank do
+                    %li.nav-item
+                      =link_to 'https://www.facebook.com/bigairballoons/', target: :_blank , class: 'nav-link'do
                         %i.fa.fa-facebook{"aria-hidden": "true"}
-                    %li
-                      =link_to 'https://vk.com/bigairballoon_izh', target: :_blank do
+                    %li.nav-item
+                      =link_to 'https://vk.com/bigairballoon_izh', target: :_blank, class: 'nav-link' do
                         %i.fa.fa-vk{"aria-hidden": "true"}
-              .col-10.text-center
+              .col-10.text-center.justify-content-between.d-flex.flex-column
                 .strong
-                  .h3
-                    %small
+                  .h3.mb-0
+                    %small.text-info
                       %i.fa.fa-phone
                     234-084
-                  .small.text-center
-                    WhatsApp | Viber | Telegram
-                    .h5.m-0
-                      +7 950 171-81-09
-                    Ежедневно с 8:00 до 21:00
+                  .small.mb-2
+                    c 8:00 до 21:00
+                .small.text-center
+                  WhatsApp | Viber | Telegram
+                  .h5.m-0
+                    +7 950 171-81-09
                 .mt-2
                   = button_tag 'Нужна консультация', class: 'btn btn-secondary text-uppercase strong btn-sm', data:{ toggle: 'modal', target: '#call-modal'}
-          .col-4.align-items-start
-            = image_tag 'balloon-contacts.png', class: 'img-fluid d-inline-flex pt-3'
-            .h6.text-uppercase.d-inline-flex
-              Бесплатная
-              %br
-              доставка
-              %br
-              по Ижевску от 1200р.
-
+          .col-4.d-flex.justify-content-center
+            %ul.p-0.m-0.list-group.list-group-flush
+              .lead.text-center.text-secondary
+                %i.fa.fa-car
+                Доставка
+              %li.list-group-item
+                Бесплатная от 1200 руб.
+              %li.list-group-item
+                Минимальная от 600 руб.
           .col-4
             .row
               .col-12.text-right
@@ -86,22 +87,27 @@
                         = link_to 'Админка', '/admin',class: 'pr-3'
                       = link_to 'Личный кабинет', cp_path, class: 'pr-3'
                       = link_to 'Выйти', logout_path, method: :post
-            .row.mt-1.align-items-center
-              .col-6.text-right
+            #cart.d-flex.flex-row.align-items-center.justify-content-center.border.border-info.p-1.mt-2.rounded{data: {turbolinks: {permanent: true}}}
+              #cart-icon.mr-4
                 = link_to my_cart_path do
-                  %i.fa.fa-shopping-basket.fa-2x.text-secondary
-              .col-6.text-left#cart
-                .small
-                  %span#count
-                    = pluralize(@cart.positions.count, 'товар', 'товара')
-                .lead.text-secondary
-                  %strong
-                    %span#sum
-                      = @cart.total_price.round(0)
-                    %span.text-primary
-                      руб.
+                  %i.fa.fa-shopping-basket.fa-3x.text-secondary
+              .text-secondary
+                .strong.lead
+
+                  %span#sum
+                    = @cart.total_price.round(0)
+                  %span.text-primary
+                    руб.
+                .font-size-08.text-primary
+                  Cкидка:
+                  - if current_user
+                    = current_user.discount
+                  - else
+                    = link_to 'Войдите', login_path
                 #to-cart
-                  = link_to 'В корзину', my_cart_path if @cart.positions.any?
+                  = link_to my_cart_path do
+                    В корзину
+                    %i.fa.fa-angle-right
         .row.mt-3.mb-4
           .col-12
             - cache do

@@ -36,6 +36,9 @@ setTimeout(function(){
     Cookies.set('popup', 'true')
   }
 }, 70000)
+$(document).on('turbolinks:load', function(){
+  FontAwesome.dom.i2svg();
+});
 
 // $(document).on('ready, turbolinks:load', function(){
 //   $('body, html').scrollTop(0);

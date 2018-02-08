@@ -56,11 +56,11 @@
         .h6.w-100.text-center
           Способы оплаты:
         .col-6.text-info.d-flex.justify-content-center.align-items-center
-          %i.fa.fa-money.fa-2x.pr-1
+          %i.fas.fa-money-bill-alt.fa-2x.pr-1
           Наличными
           курьеру
         .col-6.text-info.d-flex.justify-content-center.align-items-center
-          %i.fa.fa-credit-card.fa-2x.pr-1
+          %i.far.fa-credit-card.fa-2x.pr-1
           Банковской
           картой
     .comp-image
@@ -73,10 +73,10 @@
           .lead
             = social_share_button_tag("Шариковая фея | Композиция из воздушных шаров №#{composition.id}", image: 'https:' + composition.img.url(:large), url: request.original_url, desc: "Композиция из воздушных шаров на #{composition.tags.map(&:name).join(', ')}, #{composition.receivers.map(&:title).join(', ')}", 'data-toggle': 'tooltip' )
           .lead{title: "Просмотрели", data: {toggle: 'tooltip'}}
-            %i.fa.fa-eye
+            %i.fas.fa-eye
             = composition.views
           .lead{title: "Заказали" , data: {toggle: 'tooltip'}}
-            %i.fa.fa-shopping-basket
+             %i.fas.fa-shopping-basket
             = composition.orders.count + 3
   %hr
   .h4.text-center.strong.mb-3.text-info

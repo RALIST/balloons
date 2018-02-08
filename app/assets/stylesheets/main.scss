@@ -5,12 +5,15 @@
 .composition {
   @include make-row();
   @include media-breakpoint-up(lg){
+    @include make-col-ready();
     @include make-col(4);
   }
   @include media-breakpoint-only(md){
+    @include make-col-ready();
     @include make-col(6);
   }
   @include media-breakpoint-down(sm){
+    @include make-col-ready();
     @include make-col(12);
   }
   margin-bottom: 10px;

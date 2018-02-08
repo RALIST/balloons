@@ -32,6 +32,7 @@ class Composition < ApplicationRecord
 
   after_find :random_title
 
+
   def comp_price
     price = self.products.map{ |i| i.price_with_helium }.reject(&:nil?).sum.round(2)
     # self.update(price: price)

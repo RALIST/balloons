@@ -1,5 +1,5 @@
 - cache composition do
-  .d-flex#reverse{itemscope: true, itemtype: "http://schema.org/Product"}
+  .row.d-flex#reverse{itemscope: true, itemtype: "http://schema.org/Product"}
     %meta{itemprop: 'name', content: "Композиция № #{@comp.id} из воздушных шаров | Шариковая фея"}
     .comp-desc
       %p.strong.text-uppercase.mb-0.text-center
@@ -67,20 +67,19 @@
       = link_to :back, class: 'btn btn-outline-info btn-sm my-3 d-none d-lg-inline-block' do
         %i.fa.fa-chevron-left
         Вернуться в каталог
-      .text-left{itemprop: 'description'}
-        Композиция из воздушных шаров на #{composition.tags.map(&:name).join(', ')}, #{composition.receivers.map(&:title).join(', ') if composition.receivers}
       = image_tag composition.img.url(:large), class: 'img-fluid img-thumbnail', itemprop: 'image', alt: composition.title
-      .row.comp-text.text-secondary.justify-content-end.align-items-center.mt-3
-        .d-flex-inline.mr-5
-          = social_share_button_tag("Шариковая фея | Композиция из воздушных шаров №#{composition.id}", image: 'https:' + composition.img.url(:large), url: request.original_url, desc: "Композиция из воздушных шаров на #{composition.tags.map(&:name).join(', ')}, #{composition.receivers.map(&:title).join(', ')}", 'data-toggle': 'tooltip' )
-        .d-flex-inline.lead.mr-5{title: "Просмотрели", data: {toggle: 'tooltip'}}
-          %i.fa.fa-eye
-          = composition.views
-        .d-flex-inline.lead.mr-4{title: "Заказали" , data: {toggle: 'tooltip'}}
-          %i.fa.fa-shopping-basket
-          = composition.orders.count + 3
-
-  %h3.col-12.text-center.strong.my-5
+      .row.comp-text.text-secondary.justify-content-between.align-items-center.mt-3
+        .col-12.d-flex.flex-row.justify-content-between
+          .lead
+            = social_share_button_tag("Шариковая фея | Композиция из воздушных шаров №#{composition.id}", image: 'https:' + composition.img.url(:large), url: request.original_url, desc: "Композиция из воздушных шаров на #{composition.tags.map(&:name).join(', ')}, #{composition.receivers.map(&:title).join(', ')}", 'data-toggle': 'tooltip' )
+          .lead{title: "Просмотрели", data: {toggle: 'tooltip'}}
+            %i.fa.fa-eye
+            = composition.views
+          .lead{title: "Заказали" , data: {toggle: 'tooltip'}}
+            %i.fa.fa-shopping-basket
+            = composition.orders.count + 3
+  %hr
+  .h4.text-center.strong.mb-3.text-info
     Похожие композиции
   .row.justify-content-around.compositions{itemprop: 'isSimilarTo'}
     = render partial: 'delivery/main/thumb_composition', collection: composition.related.limit(3), as: :c

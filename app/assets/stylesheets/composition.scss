@@ -4,11 +4,17 @@
 
 .comp-image {
   @include media-breakpoint-up(lg){
+    @include make-col-ready();
     @include make-col(6);
     margin-top: -220px;
     text-align: right;
+    img{
+      width: 100%;
+      object-fit: cover;
+    }
   }
   @include media-breakpoint-down(md){
+    @include make-col-ready();
     @include make-col(12);
     text-align: center;
   }
@@ -16,9 +22,11 @@
 
 .comp-desc {
   @include media-breakpoint-up(lg){
+    @include make-col-ready();
     @include make-col(6);
   }
   @include media-breakpoint-down(md){
+    @include make-col-ready();
     @include make-col(12);
     p {
       margin-top: 1rem;
@@ -63,6 +71,15 @@
   .current{
     padding-bottom: 2em;
     font-weight: bold !important;
+    .small{
+      font-weight: 300;
+      @include media-breakpoint-up(lg){
+        @include make-col(6);
+      }
+      @include media-breakpoint-down(md){
+        @include make-col(12);
+      }
+    }
   }
 }
 

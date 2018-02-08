@@ -9,12 +9,34 @@ require 'open-uri'
 require 'roo'
 require 'nokogiri'
 
+user = User.find_or_create_by!(email: 'admin@admin.ru') do |user|
+  user.phone = '+7(999) 999 99 99',
+  user.admin = true,
+  user.password = 'admin'
+  user.first_name = 'admin'
+  user.last_name = 'admin'
+end
 
-user = User.create(email: 'info@bigairballoons.ru',
-                    phone: '79124614168',
-                    admin: true,
-                    password: 'paduvi30',
-                    first_name: 'admin' )
+c = Composition.find(15)
+200.times do
+  new_comp = c.clone
+  new_comp.save
+end
+
+@product = Product.find(3935)
+@tags = Tag.all.map{|t| t.name}.uniq
+@receivers = Receiver.all.map{|r| [r.title]}.uniq
+Composition.all.each do |c|
+  5.times do
+    c.products.push(@product)
+    c.update_price
+  end
+  c.tag_name = 'день рождения'
+  c.tag_name = 'праздник'
+  c.receiver_title = 'дочке'
+  puts 'Composition updated!'
+end
+
 
 vendors = ['belbal', 'gemar', 'sempertex', 'anagram', 'flex metal']
 types = ['латексные шары', 'фольгированные шары']

@@ -13,6 +13,9 @@ class Admin::SessionsController < Admin::AdminController
         cookies.permanent[:user_id] = @user.id
         remember_me!
         redirect_to admin_root_path
+      else
+        flash[:danger] = 'Не удалось войти!'
+        render 'new'
       end
     else
       flash[:danger] = 'Не удалось войти!'

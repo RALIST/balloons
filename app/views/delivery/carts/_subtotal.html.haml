@@ -10,7 +10,7 @@
       Сумма
     .subtotal-col.text-right
       = @cart.total_price
-      %i.fa.fa-rub{style: 'aria-hidden="true"'}
+      %i.fas.fa-ruble-sign
   .d-flex.px-3
     .subtotal-col.text-left
       Ваша скидка:
@@ -18,7 +18,8 @@
       - if current_user
         #{number_to_percentage(current_user.discount + @cart.used_code_discount, precision: 2)}
         (#{(@cart.total * (@cart.used_code_discount + current_user.discount) / 100).round(2)}
-        %i.fa.fa-rub{style: 'aria-hidden="true"'})
+        %i.fas.fa-ruble-sign
+        )
       - else
         = link_to 'Войдите', login_path
   .d-flex.px-3
@@ -27,7 +28,7 @@
       Доставка
     .subtotal-col.text-right
       = to_delivery > 0 ? 200 : 0
-      %i.fa.fa-rub{style: 'aria-hidden="true"'}
+      %i.fas.fa-ruble-sign
   .d-flex.border-bot.px-3
     .subtotal-col.text-left
       %strong
@@ -35,7 +36,7 @@
     .subtotal-col.text-right
       %strong
         = @cart.total.round(2)
-        %i.fa.fa-rub{style: 'aria-hidden="true"'}
+        %i.fas.fa-ruble-sign
   - unless @cart.used_code_discount > 1
     = form_tag apply_code_path, method: :post do
       .d-flex.align-items-center.px-3

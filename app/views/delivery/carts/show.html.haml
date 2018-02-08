@@ -17,7 +17,7 @@
                         %i.fa.fa-times#del-from-cart
                 .row.m-0
                   .position-img.text-center.card-body
-                    = image_tag p.composition.img.url(:thumb), class: 'img-fluid'
+                    = image_tag p.composition.img.url(:preview), class: 'img-fluid'
                   .modal.fade{id: "position-modal-#{p.id}",  tabindex: "-1",  role: "dialog", class: 'position-modal'}
                     .modal-dialog{role: "document"}
                       .modal-content

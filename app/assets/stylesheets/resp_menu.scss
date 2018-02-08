@@ -14,10 +14,11 @@
   a {
     color: white;
   }
-  .nav-item {
-
-    border-bottom: 1px solid white;
+  .row {
     background: lighten(#9555bd, 10%);
+  }
+  .nav-item {
+    border-bottom: 1px solid white;
     .h4{
       margin-left: 1rem;
       color: white;

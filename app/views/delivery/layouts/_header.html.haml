@@ -20,10 +20,10 @@
       .header-logo-responsive.d-flex.justify-content-between.align-items-center
         = link_to root_path, class: 'w-50' do
           = image_tag 'logo-resp.png', class: 'img-fluid ml-4'
-        #icon-wrapper
-          %i.fa.fa-bars{style: 'aria-hidden="true"; cursor: pointer; '}
+        #icon-wrapper.text-white
+          %i.fas.fa-bars{style: 'aria-hidden="true"; cursor: pointer; '}
             %span.badge= @cart.positions.count if @cart.positions.any?
-          %i.fa.fa-times{style: 'aria-hidden="true"; display: none; cursor: pointer;'}
+          %i.fas.fa-times{style: 'aria-hidden="true"; display: none; cursor: pointer;'}
   .container
     .row
       .header-logo.d-none.d-lg-block

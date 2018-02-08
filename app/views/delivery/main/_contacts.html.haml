@@ -1,6 +1,4 @@
-.container-fluid.mt-5{itemscope: true, itemtype: "http://schema.org/LocalBusiness" }
-  %h1.text-center
-    Контакты
+.container-fluid{itemscope: true, itemtype: "http://schema.org/LocalBusiness" }
   .row#contacts
     %div{itemprop: "logo",  itemscope: true, itemtype: "https://schema.org/ImageObject"}
       = image_tag 'logo-round.png', itemprop: 'image url', style: "display: none", alt: 'Логотип bigairballoons.ru'
@@ -12,13 +10,13 @@
           %h3.text-white{itemprop: 'name'}
             Шариковая фея™
           %ul.list-unstyled
-            %li.text-white.d-flex.align-items-center.my-1.border-bot.justify-content-between{itemprop: 'telephone'}
-              %i.fa.fa-phone-square.fa-2x.pr-3
+            %li.text-white.d-flex.align-items-center.border-bot.py-2.justify-content-between{itemprop: 'telephone'}
+              %i.fas.fa-phone-square.fa-2x
               %span
                 +7 (3412) 234-084
-            %li.text-white.d-flex.align-items-center.my-1.border-bot.justify-content-between{itemprop: 'address', itemscope: true, itemtype: 'http://schema.org/PostalAddress'}
+            %li.text-white.d-flex.align-items-center.py-2.border-bot.justify-content-between{itemprop: 'address', itemscope: true, itemtype: 'http://schema.org/PostalAddress'}
               %meta{itemprop: 'addressCountry', content: 'RU'}
-              %i.fa.fa-map-marker.fa-2x.pr-4
+              %i.fas.fa-map-marker-alt.fa-2x
               .row
                 .col-12.text-right{itemprop: 'addressRegion'}
                   Удмуртская республика
@@ -26,40 +24,44 @@
                   г. Ижевск
                 .col-12.text-right{itemprop: 'streetAddress'}
                   ул. Н.Островского, 25, офис 6
-            %li.text-white.d-flex.align-items-center.my-1.border-bot.justify-content-between
-              %i.fa.fa-envelope.fa-2x.pr-4
+            %li.text-white.d-flex.align-items-center.py-2.border-bot.justify-content-between
+              %i.far.fa-envelope.fa-2x
               .row
                 .col-12{itemprop: 'email'}
                   info@bigairballoons.ru
-            %li.text-white.d-flex.align-items-center.my-1.border-bot.justify-content-between
-              %i.fa.fa-clock-o.fa-2x.pr-4
+            %li.text-white.d-flex.align-items-center.py-2.border-bot.justify-content-between
+              %i.fas.fa-clock.fa-2x
               %time{itemprop: 'openingHours', datetime: 'Mo-Su, 08:00-20:00'}
                 с 8:00 до 22:00, без выходных
 
     #text-contacts.p-3.d-lg-none
-      %h3.text-white
+      %h3.text-white.text-center
         Шариковая фея™
       %ul.list-unstyled
-        %li.text-white.d-flex.align-items-center.my-1
-          %i.fa.fa-phone-square.fa-2x.pr-3
-          +7 950 171-81-09
-        %li.text-white.d-flex.align-items-center.my-1
-          %i.fa.fa-map-marker.fa-2x.pr-4
+        %li.text-white.py-3.border-bot.d-flex.align-items-center
+          %i.fas.fa-phone-square.fa-2x.mr-4
+          +7 (3412) 234-084
+          %hr
+          +7 (950) 171-81-09
+        %li.text-white.py-3.border-bot
+          %i.fas.fa-map-marker-alt.fa-2x.mr-4
           ул. Н. Островского, 25, офис 6
-        %li.text-white.d-flex.align-items-center.my-1
-          %i.fa.fa-envelope.fa-2x.pr-4
+        %li.text-white.py-3.border-bot
+          %i.far.fa-envelope.fa-2x.mr-4
           info@bigairballoons.ru
-        %li.text-white.d-flex.align-items-center.my-1
-          %i.fa.fa-clock-o.fa-2x.pr-4
-          %small
-            Заявки: с 8:00 до 22:00, без выходных
-            %br
-            Доставка: круглосуточно, без выходных
+        %li.text-white.d-flex.align-items-center.py-3.border-bot
+          %i.fas.fa-clock.fa-2x.mr-4
+          Заявки: с 8:00 до 22:00, без выходных
+          %br
+          Доставка: круглосуточно, без выходных
       .small
-        .mt-3.text-white
+        .mt-3.text-white.text-center
           ООО "ДЕЛИРИУМ"
+          %br
           ИНН 1832110279
+          %br
           КПП 183201001
+          %br
           ОГРН 1131832004831
 :javascript
   window.onload =  function(){

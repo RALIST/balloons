@@ -66,9 +66,7 @@
   height: 400px;
 }
 
-.btn {
-  border-radius: 20px;
-}
+
 
 .btn-info {
   background: $brand-info;
@@ -155,4 +153,11 @@
   }
 
   border-radius: 20px;
+}
+
+#contacts, #map {
+  min-height: 100vh;
+  #text-contacts{
+    top: 0;
+  }
 }

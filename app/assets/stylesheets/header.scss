@@ -19,9 +19,11 @@
 
 .header-logo-responsive {
   @include media-breakpoint-only(md){
+    @include make-col-ready();
     @include make-col(12);
   }
   @include media-breakpoint-down(lg){
+    @include make-col-ready();
     @include make-col(12);
   }
 }

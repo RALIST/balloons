@@ -15,16 +15,18 @@ $(document).on('click', '#icon-wrapper', function(){
 });
 
 $(document).on('turbolinks:load', function(){
-  var top = $('#resp-fixed').offset().top;
-  $(window).scroll(function(){
-    var currentScroll = $(window).scrollTop();
-    if (currentScroll > top){
-      $('#resp-fixed').addClass('fixed-top');
-    }else{
-      $('#resp-fixed').removeClass('fixed-top bg-gradient-info');
-    }
-  })
-})
+  if ($('#resp-fixed').length){
+    var top = $('#resp-fixed').offset().top;
+    $(window).scroll(function(){
+      var currentScroll = $(window).scrollTop();
+      if (currentScroll > top){
+        $('#resp-fixed').addClass('fixed-top');
+      }else{
+        $('#resp-fixed').removeClass('fixed-top bg-gradient-info');
+      }
+    })
+  }
+});
 
 
 
@@ -59,7 +61,7 @@ $(document).on('ready, turbolinks:load', function(){
     $('.modal div').show();
   });
 
-
+$(document).on('turbolinks:load', function(){
   $('[data-mask]').each(function(index, value){
     element = $(value)
     element.mask($(value).data('mask'), {placeholder: '-'})
@@ -70,6 +72,9 @@ $(document).on('ready, turbolinks:load', function(){
       autoclose: true,
       donetext: 'Готово!'}
     );
+
+})
+
 
 
 });

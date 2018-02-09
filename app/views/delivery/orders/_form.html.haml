@@ -12,27 +12,31 @@
           .form-group
             =f.label 'Ваше имя', class: 'lable-control'
             .input-group
-              %span.input-group-addon
-                %i.fa.fa-user{style: 'aria-hidden="true"'}
+              %span.input-group-prepend
+                .input-group-text
+                  %i.fas.fa-user
               = f.text_field :name, value: (current_user.first_name if current_user), class: 'form-control', required: true
           .form-group
             =f.label 'Контактный телефон', class: 'lable-control'
             .input-group
-              %span.input-group-addon
-                %i.fa.fa-phone{style: 'aria-hidden="true"'}
+              %span.input-group-prepend
+                .input-group-text
+                  %i.fas.fa-phone
               = f.telephone_field :phone, value: (current_user.phone if current_user), data:{ mask: '+7 (999) 999 99 99' }, class: 'form-control', required: true
           .form-group
             = f.label 'Укажите дату и время доставки'
             .row
               .date-field.col-6
                 .input-group
-                  %span.input-group-addon
-                    %i.fa.fa-calendar
+                  %span.input-group-prepend
+                    .input-group-text
+                      %i.far.fa-calendar-check
                   = f.date_field :order_date, class: 'form-control', required: true, min: Date.today
               .time-field.col-6
                 .input-group.clockpicker
-                  .input-group-addon
-                    %i.fa.fa-clock-o
+                  .input-group-prepend
+                    .input-group-text
+                      %i.far.fa-clock
                   = f.text_field :order_time, value: Time.current.to_s(:time), class: 'form-control', data:{mask: '99:99'}, required: true, readonly: true
             .error
               = show_errors(@order, :order_date)
@@ -47,8 +51,9 @@
           .form-group
             = f.label :pay_method, 'Выберите способ оплаты', class: 'lable-control'
             .input-group
-              .input-group-addon
-                %i.fa.fa-rub
+              .input-group-prepend
+                .input-group-text
+                  %i.fas.fa-ruble-sign
               = f.select :pay_method, options_for_select(Order.pay_methods),{prompt: 'Выберите способ оплаты'}, {class: 'form-control', required: true}
           .form-group
             = f.submit 'Создать заказ', class: 'btn btn-info btn-block', disable_with: 'Оформляю заказ...'

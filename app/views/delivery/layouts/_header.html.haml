@@ -21,9 +21,9 @@
         = link_to root_path, class: 'w-50' do
           = image_tag 'logo-resp.png', class: 'img-fluid ml-4'
         #icon-wrapper.text-white
-          %i.fas.fa-bars{style: 'aria-hidden="true"; cursor: pointer; '}
+          %i.fas.fa-bars
             %span.badge= @cart.positions.count if @cart.positions.any?
-          %i.fas.fa-times{style: 'aria-hidden="true"; display: none; cursor: pointer;'}
+          %i.fas.fa-times
   .container
     .row
       .header-logo.d-none.d-lg-block

@@ -23,7 +23,7 @@
                   = link_to p.title.capitalize, receiver_path(p), class: 'nav-link'
           %li.dropdown.nav-item
             .h4.d-flex.justify-content-between.align-items-center
-              %i.fa.fa-rub
+              %i.fas.fa-ruble-sign
               По цене
               %i.fa.fa-caret-down
             %ul.list-unstyled.dropdown-menus
@@ -66,7 +66,7 @@
               Корзина
               %span.badge
                 = @cart.total_price
-                %i.fa.fa-rub{style: 'aria-hidden="true"'}
+                %i.fas.fa-ruble-sign
 
     .row
       .col-12.p-0

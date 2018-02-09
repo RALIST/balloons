@@ -15,15 +15,16 @@
         %li.list-inline-item.pl-3
           =link_to 'Партнерам', partners_path, class: 'text-white'
 .container-fluid#header
-  .row#resp-fixed.d-lg-none.d-md-block
-    .resp-menu-bar.bg-teal
+  .row#resp-fixed.d-lg-none.d-md-block{data: {turbolinks: {permanent: true}}}
+    .resp-menu-bar.bg-teal.py-2
       .header-logo-responsive.d-flex.justify-content-between.align-items-center
         = link_to root_path, class: 'w-50' do
           = image_tag 'logo-resp.png', class: 'img-fluid ml-4'
-        #icon-wrapper.text-white
+        .fa-layers.fa-fw.fa-3x.text-white#icon-wrapper
           %i.fas.fa-bars
-            %span.badge= @cart.positions.count if @cart.positions.any?
-          %i.fas.fa-times
+          %span.fa-layers-counter.fa-lg
+            = @cart.positions.count if @cart.positions.any?
+
   .container
     .row
       .header-logo.d-none.d-lg-block

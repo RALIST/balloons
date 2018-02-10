@@ -1,24 +1,4 @@
-.jumbotron#offer {
-    background: image-url('business.jpg') no-repeat;
-    background-size: cover;
-    background-position: top;
-    min-height: 100vh;
-    i {
-      font-size: 2rem;
-      color: #ffffff;
-      cursor: pointer;
-    }
-  }
 
-
-
-.navbar-brand {
-  img {
-    max-height: 40px;
-    max-width: 100%;
-  }
-
-}
 
 .business-call {
   @include make-col(2);
@@ -28,11 +8,7 @@
   }
 }
 
-.head-text {
-  @include make-col-lg(6);
-  @include make-col-xl(6);
-  font-size: 1.8rem;
-}
+
 
 .business-offer {
   @include make-col-ready();
@@ -53,28 +29,6 @@
   }
 }
 
-#business-menu {
-  @include make-col-lg(12);
-  @include make-col-xl(12);
-  @include make-col-md(12);
-  @include make-col-sm(12);
-  @include make-col-xs(12);
-  .nav-item:hover {
-    background-color: $brand-info;
-    border-radius: 4px;
-  }
-  @include media-breakpoint-up(md) {
-    .nav-item{
-      font-size: 0.9rem;
-    }
-  }
-  @include media-breakpoint-down(md) {
-    .nav-item{
-      font-size: 1.5rem;
-    }
-  }
-
-}
 
 .navbar-toggler > i {
   font-size: 2em;
@@ -119,28 +73,149 @@
   .slick-dots {
     li {
       button:before {
-        color: white;
+        color: $info;
       }
     }
   }
   @include media-breakpoint-down(lg){
     .slick-next {
-      right: -5px;
+      right: 1rem !important;
       z-index: 800;
     }
     .slick-prev {
-      left: -5px;
+      left: 1rem !important;
       z-index: 800;
     }
   }
 
   .slick-prev:before, .slick-next:before {
-    font-size: 30px;
+    font-size: 2rem;
     color: darken($brand-secondary, 10%);
   }
 
 }
 
-#arr-down {
-  font-size: 4rem !important;
+#outdoor, #indoor, #prints {
+  min-height: 100vh;
+  @include media-breakpoint-down(lg){
+    .h1 {
+      font-size: 2rem;
+    }
+  }
+}
+
+.slick-next {
+    right: 1rem !important;
+    z-index: 800;
+  }
+  .slick-prev {
+    left: 1rem !important;
+    z-index: 800;
+  }
+
+.font-oswald {
+  font-family: 'Oswald', sans-serif;
+}
+
+#particles {
+  top: 0;
+  left: 0;
+  background-color: rgb(23, 162, 184);
+  position: absolute;
+  z-index: -1;
+  min-height: 100vh;
+  width: 100%;
+  @include gradient-x($start-color: $brand-secondary, $end-color: $brand-info, $start-percent: 0%, $end-percent: 100%);
+  canvas {
+    min-height: 100vh !important;
+  }
+}
+
+
+#main-wrapper {
+  height: 100vh;
+  @include media-breakpoint-down(lg){
+    .display-3{
+      font-size: 2rem;
+      margin-top: 2rem;
+    }
+  }
+  @include media-breakpoint-down(lg){
+    .btn {
+      width: 100%;
+    }
+  }
+}
+
+#business-menu {
+  @include gradient-x($start-color: $brand-secondary, $end-color: $brand-info, $start-percent: 0%, $end-percent: 100%);
+  .nav-link.active {
+    background-color: $brand-info;
+  }
+  .nav-link {
+    color: #ffffff;
+  }
+}
+
+#iconlist{
+  @include make-col-ready();
+  @include make-col(7);
+  @include media-breakpoint-down(lg){
+    @include make-col(12);
+    .row{
+      -webkit-box-orient: vertical !important;
+      -webkit-box-direction: reverse !important;
+      -ms-flex-direction: column-reverse !important;
+      flex-direction: column-reverse !important;
+    }
+
+  }
+  #icon {
+    @include make-col-ready();
+    @include make-col(3);
+    text-align: center;
+  }
+  #icon-text {
+    @include make-col-ready();
+    @include make-col(9);
+    text-align: right;
+  }
+
+  @include media-breakpoint-down(lg){
+    #icon, #icon-text{
+      @include make-col(12);
+      text-align: center;
+    }
+  }
+
+}
+
+#iconlist-reverse {
+  @include make-col-ready();
+  @include make-col(7);
+  @include make-col-offset(5);
+  @include media-breakpoint-down(lg){
+    @include make-col(12);
+    @include make-col-offset(0);
+  }
+  #icon {
+    @include make-col-ready();
+    @include make-col(3);
+    text-align: center;
+  }
+  #icon-text {
+    @include make-col-ready();
+    @include make-col(9);
+    text-align: left;
+  }
+  @include media-breakpoint-down(lg){
+    #icon, #icon-text{
+      @include make-col(12);
+      text-align: center;
+    }
+  }
+}
+
+#iconlist, #iconlist-reverse {
+  margin-top: 2rem;
 }

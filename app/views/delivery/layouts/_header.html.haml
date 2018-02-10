@@ -22,8 +22,9 @@
           = image_tag 'logo-resp.png', class: 'img-fluid ml-4'
         .fa-layers.fa-fw.fa-3x.text-white#icon-wrapper
           %i.fas.fa-bars
-          %span.fa-layers-counter.fa-lg
-            = @cart.positions.count if @cart.positions.any?
+          -if @cart.positions.any?
+            %span.fa-layers-counter.fa-lg
+              = @cart.positions.count
 
   .container
     .row

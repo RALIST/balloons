@@ -1,203 +1,225 @@
-.business
-  .container-fluid
-    .row.align-items-center.fixed-top.bg-teal
-      .container
-        %nav.navbar.navbar-expand-md.justify-content-between#business-menu.navbar-light
-          %button.navbar-toggler.collapsed.navbar-toggler-right{data: {toggle: 'collapse', target: '#b-menu'}}
-            %i.fa.fa-bars
-          = link_to root_path, class: 'navbar-brand' do
-            = image_tag 'logo-resp.png'
-          .collapse.navbar-collapse#b-menu
-            %ul.nav.navbar-nav.text-center.align-items-center.nav-fill.text-uppercase.w-100
-              %li.nav-item
-                = link_to 'Оформление входных групп', business_index_path(anchor: 'outdoor'), class: 'nav-link text-white'
-              %li.nav-item
-                = link_to 'В помещении', business_index_path(anchor: 'indoor'), class: 'nav-link text-white'
-              %li.nav-item
-                = link_to 'Печать на шарах', business_index_path(anchor: 'prints'), class: 'nav-link text-white'
-              %li.nav-item
-                = link_to 'Контакты', business_index_path(anchor: 'contacts'), class: 'nav-link text-white'
-          .business-call.align-self-center.d-none.d-lg-block
-            = button_tag 'Заказать звонок', class: 'btn btn-info', data:{ toggle: 'modal', target: '#call-modal'}
-#offer-wrapper
-  .jumbotron.jumbotron-fluid#offer.d-flex.align-items-center.jumb-business
-    .container
-      .row
-        .business-offer.w-100.text-center
-          %h1
-            Профессиональное оформление
-            %br
-            воздушными шарами для бизнеса
-          %p.lead
-            Оформим открытие магазина, распродажу, презентацию и любое другое корпоративное мероприятие!
-          %hr.my-4
-          %p.text-center.hidden-md-down
-            Оставьте заявку, мы перезвоним и проконсультируем вас по всем вопросам!
-          .lead.text-center.hidden-md-down
-            = button_tag 'Оставить заявку', class: 'btn btn-info btn-lg', data:{ toggle: 'modal', target: '#call-modal'}
-      .row.justify-content-center.mt-4
-        %h2.text-white.text-center
-          Наши работы
-      .row.justify-content-center.mt-4
-        = link_to '#outdoor' do
-          %i.fa.fa-angle-double-down.d-block#arr-down
+.container-fluid
+	.row.align-items-center.fixed-top#business-menu
+		.container
+			%nav.navbar.navbar-expand-md.justify-content-between.navbar-light
+				%button.navbar-toggler.collapsed.navbar-toggler-right{data: {toggle: 'collapse', target: '#b-menu'}}
+					%i.fas.fa-bars.text-white
+				= link_to root_path, class: 'navbar-brand' do
+					.small.text-white
+						%i.fas.fa-angle-left
+						На главную
+				.collapse.navbar-collapse#b-menu
+					%ul.nav.nav-pills.text-center.nav-fill.text-uppercase.w-100
+						%li.nav-item
+							= link_to 'Входные группы', '#outdoor', class: 'nav-link', data: {turbolinks: false}
+						%li.nav-item
+							= link_to 'В помещении', '#indoor', class: 'nav-link', data: {turbolinks: false}
+						%li.nav-item
+							= link_to 'Печать на шарах', '#prints', class: 'nav-link', data: {turbolinks: false}
+						%li.nav-item
+							= link_to 'Контакты', '#contacts', class: 'nav-link', data: {turbolinks: false}
+				.business-call.align-self-center.d-none.d-lg-block
+					= button_tag 'Заказать звонок', class: 'btn btn-secondary', data:{ toggle: 'modal', target: '#call-modal'}
 
-.container
-  %h1.text-center#companies
-    C нами работают
-  .row.justify-content-around.align-items-center
-    .slider-company.col-12
-      - @partners.each do |p|
-        = image_tag p.logo.url(:small), class: 'img-fluid', alt: 'Воздушные шары для ' + p.name
 
-%hr#outdoor.my-4
-.container-fluid.bg-dark
-  .row.py-4
-    .col-lg-5.col-sm-12.mt-1
-      %h2.text-white Оформление входных групп
-      %ul.text-white.lead.mb-5
-        %li
-          Гирлянда из шаров от 400 руб.\метр
-        %li
-          Монтаж в подарок*
-        %li
-          Работа по договору
-        %li
-          Доставка по Ижевску
-      .text-white
-        %em Если вы планируете открытие, распродажу или любой другой праздник, то оформление входной группы воздушными шарами гарантировано привлечет внимание  к вашему мероприятию.
-      .lead.text-center.text-white.my-5
-        Подберем варианты оформления бесплатно!
-        = button_tag 'Оставить заявку', class: 'btn btn-info btn-block btn-lg', data:{ toggle: 'modal', target: '#call-modal'}
-      %em.text-white
-        *При высоте монтажа до 3 метров
+.container-fluid
+	#main-wrapper.d-flex.flex-column.justify-content-center.w-100
+		%h1.text-white.text-uppercase.font-oswald.display-3.text-center
+			Профессиональное оформление
+			воздушными шарами для бизнеса
+		.text-center.align-items-center.justify-content-center.mb-5
+			%p.lead
+				Оформим открытие магазина, распродажу, презентацию и любое другое корпоративное мероприятие!
+				%hr.border-white
+			%p.text-center.hidden-md-down
+				Оставьте заявку, мы перезвоним и проконсультируем вас по всем вопросам!
+				.lead.text-center.hidden-md-down
+					= button_tag 'Оставить заявку', class: 'btn btn-info btn-lg', data:{ toggle: 'modal', target: '#call-modal'}
+			.text-center.mt-4
+				%h2.text-white.text-center
+					Наши работы
+				.text-center.mt-4
+					= link_to '#outdoor', class: 'text-white' do
+						%i.fas.fa-angle-double-down.fa-2x#arr-down
+#particles
 
-    .col-lg-6.col-sm-12.mt-1
-      .slider-outdoor
-        - @outdoor.each do |o|
-          = image_tag o.img.url(:thumb)
-%hr.my-4#indoor
-.container-fluid.bg-light
-  .row.py-4
-    .col-lg-5.col-sm-12.mt-1
-      %h2 Оформление воздушными шарами корпоративного мероприятия
-      %ul.lead.mb-5
-        %li
-          Индивидуальный дизайн и подбор оформления
-        %li
-          Монтаж в подарок*
-        %li
-          Работа по договору
-        %li
-          Доставка по Ижевску
-      %em Оформление корпоративных мероприятий воздушными шарами, это то, что мы делаем очень хорошо! Если вы планируете открытие магазина, распродажу или любое другое мероприятие, то оформление воздушными шарами будет изюминкой вечера!
-      .lead.text-center.my-5
-        Подберем варианты оформления бесплатно!
-        = button_tag 'Оставить заявку', class: 'btn btn-dark btn-block btn-lg', data:{ toggle: 'modal', target: '#call-modal'}
-    .col-lg-6.col-sm-12.mt-1
-      .slider-outdoor
-        - @indoor.each do |i|
-          = image_tag i.img.url(:thumb)
-%hr.my-4#prints
-.container-fluid.bg-info
-  .row.py-4
-    .col-lg-5.col-sm-12.mt-1
-      %h2.text-white Печать на воздушных шарах
-      %ul.lead.mb-5.text-white
-        %li
-          Печатаем любой тираж
-        %li
-          Только качественные материалы
-        %li
-          Более 100 цветов на выбор
-        %li
-          Возможность печати с 5 сторон
-        %li
-          Срок печати: от 2 дней
-        %li
-          Доставка по Ижевску
-      %em.text-white Ваш логотип на воздушном шаре станет отличным маркетинговым ходом в любой ситуации! Если вы планируете акцию или открытие, то воздушные шары с печатью станут отличным подарком для ваших клиентов!
-      .lead.text-center.text-white.my-5
-        Ответим на любые вопросы по печати
-        = button_tag 'Оставить заявку', class: 'btn btn-teal btn-block btn-lg', data:{ toggle: 'modal', target: '#call-modal'}
 
-    .col-lg-6.col-sm-12.mt-1
-      .slider-outdoor
-        - @print.each do |p|
-          = image_tag p.img.url(:thumb)
-    .col-12.text-center
-      %h3.bg-teal.text-white.p-3{data: {toggle: 'collapse', target: '#print-price'}, style: 'cursor: pointer'}
-        Прайс на печать
-        %i.fa.fa-chevron-down
-      .container#print-price.collapse
-        .lead.text-white
-          В стоимость печати включена стоимость шара
-        %table.table.text-white.text-center.table-striped.table-hover.table-sm
-          %thead.bg-primary
-            %th.text-center Тираж, шт.
-            %th.text-center 14" (35см) пастель
-            %th.text-center 12" (30см) пастель
-            %th.text-center 14"(35см) металлик
-            %th.text-center 12"(30см) металлик
-          %tbody.text-center
-            %tr
-              %td 100
-              %td 1320 руб.
-              %td 1200 руб.
-              %td 1380 руб.
-              %td 1320 руб.
+.container-fluid.pt-5
+	.h1.text-center.text-uppercase.font-weight-bold.font-oswald
+		C нами работают
+	.row.justify-content-around.align-items-center.py-5
+		.slider-company.col-12
+			- @partners.each do |p|
+				= image_tag p.logo.url(:small), class: 'img-fluid', alt: 'Воздушные шары для ' + p.name
 
-            %tr
-              %td 200
-              %td 2560 руб.
-              %td 2320 руб.
-              %td 2680 руб.
-              %td 2560 руб.
+	%hr.border-info
+%section.container.py-5#outdoor
+	.h1.text-center.text-uppercase.font-weight-bold.font-oswald.mb-5
+		Оформление входных групп
+	.row.my-4.align-items-center
+		#iconlist
+			.row
+				#icon-text
+					.h4.font-oswald.text-right
+						Гирлянда от 400 руб\метр
+				#icon
+					%i.fas.fa-circle-notch.fa-6x
+		#iconlist-reverse
+			.row
+				#icon
+					%i.fas.fa-truck.fa-6x
+				#icon-text
+					.h4.font-oswald
+						Доставка и монтаж
+		#iconlist
+			.row
+				#icon-text
+					.h4.font-oswald.text-right
+						Работа по договору
+				#icon
+					%i.fas.fa-suitcase.fa-6x
+		#iconlist-reverse
+			.row
+				#icon
+					%i.fas.fa-truck.fa-6x
+				#icon-text
+					.h4.font-oswald
+						Доставка и монтаж
+	.text-center
+		%em Если вы планируете открытие, распродажу или любой другой праздник, то оформление входной группы воздушными шарами гарантировано привлечет внимание  к вашему мероприятию.
+		%em.text-white
+			*При высоте монтажа до 3 метров
+	.slider-outdoor.px-4
+		- @outdoor.each do |o|
+			= image_tag o.img.url(:thumb)
+	.lead.text-center.mt-4
+		Подберем варианты оформления бесплатно!
+	.text-center
+		= link_to 'Оставить заявку','#', class: 'btn btn-info mx-auto', data:{ toggle: 'modal', target: '#call-modal'}
+	%hr.border-info
+%section.container.py-5#indoor
+	.row.py-4
+		.col-lg-5.col-sm-12.mt-1
+			%h2 Оформление воздушными шарами корпоративного мероприятия
+			%ul.lead.mb-5
+				%li
+					Индивидуальный дизайн и подбор оформления
+				%li
+					Монтаж в подарок*
+				%li
+					Работа по договору
+				%li
+					Доставка по Ижевску
+			%em Оформление корпоративных мероприятий воздушными шарами, это то, что мы делаем очень хорошо! Если вы планируете открытие магазина, распродажу или любое другое мероприятие, то оформление воздушными шарами будет изюминкой вечера!
+			.lead.text-center.my-5
+				Подберем варианты оформления бесплатно!
+				= button_tag 'Оставить заявку', class: 'btn btn-dark btn-block btn-lg', data:{ toggle: 'modal', target: '#call-modal'}
+		.col-lg-6.col-sm-12.mt-1
+			.slider-outdoor
+				- @indoor.each do |i|
+					= image_tag i.img.url(:thumb)
+%hr.border-info
+%section.container.py-5#prints
+	.row.py-4
+		.col-lg-5.col-sm-12.mt-1
+			%h2 Печать на воздушных шарах
+			%ul.lead.mb-5
+				%li
+					Печатаем любой тираж
+				%li
+					Только качественные материалы
+				%li
+					Более 100 цветов на выбор
+				%li
+					Возможность печати с 5 сторон
+				%li
+					Срок печати: от 2 дней
+				%li
+					Доставка по Ижевску
+			%em Ваш логотип на воздушном шаре станет отличным маркетинговым ходом в любой ситуации! Если вы планируете акцию или открытие, то воздушные шары с печатью станут отличным подарком для ваших клиентов!
+			.lead.text-center.my-5
+				Ответим на любые вопросы по печати
+				= button_tag 'Оставить заявку', class: 'btn btn-teal btn-block btn-lg', data:{ toggle: 'modal', target: '#call-modal'}
 
-            %tr
-              %td 300
-              %td 3720 руб.
-              %td 3360 руб.
-              %td 3900 руб.
-              %td 3720 руб.
-            %tr
-              %td 400
-              %td 4880 руб.
-              %td 4360 руб.
-              %td 5040 руб.
-              %td 4880 руб.
-            %tr
-              %td 500
-              %td 5850 руб.
-              %td 5200 руб.
-              %td 6150 руб.
-              %td 5850 руб.
-            %tr
-              %td 1000
-              %td 11300 руб.
-              %td 10100 руб.
-              %td 12000 руб.
-              %td 11300 руб.
-            %tr
-              %td от 2000
-              %td 11,00 руб.
-              %td 9,70 руб.
-              %td 11,50 руб.
-              %td 11,00 руб.
-        %ul.text-white.text-left
-          %li Срок исполнения заказа: от 2-х до 7 дней, в зависимости от партии, после 100% предоплаты.
-          %li Размер запечатываемой области - 135 мм.
+		.col-lg-6.col-sm-12.mt-1
+			.slider-outdoor
+				- @print.each do |p|
+					= image_tag p.img.url(:thumb)
+		.col-12.text-center
+			%h3.bg-teal.p-3{data: {toggle: 'collapse', target: '#print-price'}, style: 'cursor: pointer'}
+				Прайс на печать
+				%i.fa.fa-chevron-down
+			.container#print-price.collapse
+				.lead
+					В стоимость печати включена стоимость шара
+				%table.table.text-white.text-center.table-striped.table-hover.table-sm
+					%thead.bg-primary
+						%th.text-center Тираж, шт.
+						%th.text-center 14" (35см) пастель
+						%th.text-center 12" (30см) пастель
+						%th.text-center 14"(35см) металлик
+						%th.text-center 12"(30см) металлик
+					%tbody.text-center
+						%tr
+							%td 100
+							%td 1320 руб.
+							%td 1200 руб.
+							%td 1380 руб.
+							%td 1320 руб.
 
-          %li Исходный логотип для печати на шарах должен быть предоставлен в кривых, т. е. в формате Corel Draw. Если материал предоставлен в другом формате, в этом случае мы делаем наценку в 300 руб. за допечатную подготовку изображения.
+						%tr
+							%td 200
+							%td 2560 руб.
+							%td 2320 руб.
+							%td 2680 руб.
+							%td 2560 руб.
 
-          %li Стоимость сетки-матрицы (станок полуавтомат) - 700 руб.
+						%tr
+							%td 300
+							%td 3720 руб.
+							%td 3360 руб.
+							%td 3900 руб.
+							%td 3720 руб.
+						%tr
+							%td 400
+							%td 4880 руб.
+							%td 4360 руб.
+							%td 5040 руб.
+							%td 4880 руб.
+						%tr
+							%td 500
+							%td 5850 руб.
+							%td 5200 руб.
+							%td 6150 руб.
+							%td 5850 руб.
+						%tr
+							%td 1000
+							%td 11300 руб.
+							%td 10100 руб.
+							%td 12000 руб.
+							%td 11300 руб.
+						%tr
+							%td от 2000
+							%td 11,00 руб.
+							%td 9,70 руб.
+							%td 11,50 руб.
+							%td 11,00 руб.
+				%ul.text-white.text-left
+					%li Срок исполнения заказа: от 2-х до 7 дней, в зависимости от партии, после 100% предоплаты.
+					%li Размер запечатываемой области - 135 мм.
 
-          %li Нанесение изображения на вторую и последующую стороны при печати на воздушных шарах: + 20% от стоимости, указанной в таблице (см. выше).
+					%li Исходный логотип для печати на шарах должен быть предоставлен в кривых, т. е. в формате Corel Draw. Если материал предоставлен в другом формате, в этом случае мы делаем наценку в 300 руб. за допечатную подготовку изображения.
 
-          %li При смене краски в одном заказе, общее количество которого не более 500 шт., взимается дополнительная плата 150 руб. за каждую смену краски.
-%hr.my-4
-.container-fluid#contacts
-  = render 'delivery/main/contacts'
+					%li Стоимость сетки-матрицы (станок полуавтомат) - 700 руб.
+
+					%li Нанесение изображения на вторую и последующую стороны при печати на воздушных шарах: + 20% от стоимости, указанной в таблице (см. выше).
+
+					%li При смене краски в одном заказе, общее количество которого не более 500 шт., взимается дополнительная плата 150 руб. за каждую смену краски.
+%hr.border-info
+%section.container-fluid#contacts
+	= render 'delivery/main/contacts'
 
 = render 'delivery/layouts/call'
+
+
 

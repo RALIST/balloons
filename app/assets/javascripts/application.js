@@ -28,6 +28,8 @@
 //= require cssrelpreload
 //= require onloadCSS
 //= require turbolinks
+//= require particles.min
+//= require particles
 //= require_tree .
 
 setTimeout(function(){

@@ -119,3 +119,10 @@ input::-webkit-inner-spin-button {
 }
 
 
+.pagination {
+  @extend .d-flex;
+  width: 100%;
+  @extend .align-items-center;
+  @extend .justify-content-between;
+  @extend .mt-4;
+}

@@ -1,17 +1,18 @@
-  $(document).on('ready, turbolinks:load', function() {
+  $(document).on('turbolinks:load', function() {
     if ($('.pagination').length) {
-      $(window).scroll(function() {
-        var url = $('.pagination .next_page a').attr('href');
+      console.log('Pagination found')
+      $(window).on('scroll', function() {
+        var url = $('.pagination .next_page').attr('href');
+        console.log(url)
         if($('#seo-text').length){
-          var text = $('#seo-text').offset();
-          var textTop = text.top;
-          if (url && $(window).scrollTop() > textTop - 1000) {
-            $('.pagination').html('<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>');
+          var textTop = $('#seo-text').offset().top;
+          if (url && $(window).scrollTop() > textTop - 500) {
+            $('.pagination').html('<i class="fas fa-spinner fa-pulse fa-7x fa-fw text-info"></i>');
             return $.getScript(url);
           };
         } else {
           if (url && $(window).scrollTop() > $(window).height() -  $('.wrapper').height() - 50) {
-            $('.pagination').html('<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>');
+            $('.pagination').html('<i class="fas fa-spinner fa-pulse fa-3x fa-fw"></i>');
             return $.getScript(url);
           };
         }
@@ -21,7 +22,7 @@
   });
 
 
-$(document).on('ready, turbolinks:load', function(){
+$(document).on('turbolinks:load', function(){
   $(window).scroll(function() {
     if ($(this).scrollTop() >= 1000) {        // If page is scrolled more than 50px
         $('#return-to-top').fadeIn(400);    // Fade in the arrow

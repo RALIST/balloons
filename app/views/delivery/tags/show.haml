@@ -6,7 +6,7 @@
       Найдено #{@compositions.count} композиций
   .row.justify-content-around.compositions
     = render partial: 'delivery/main/thumb_composition', collection: @compositions, as: :c
-  .row.text-center
+  .row
     = will_paginate @compositions
   .row.text-center
     %h4.col-12.mt-3

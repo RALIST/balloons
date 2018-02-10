@@ -1,8 +1,6 @@
 ru:
-  activerecord:
-    models:
-      item: 'товар'
-      composition: 'композиция'
-      cart: 'корзина'
-      order: 'заказ'
-      user: 'пользователь'
+ will_paginate:
+  next_label: 'Вперед'
+  previous_label: 'Назад'
+  page_gap: '...'
+

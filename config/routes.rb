@@ -99,7 +99,7 @@ Rails.application.routes.draw do
       get '/thank_you',                 to: 'main#thanks',                  as: :thanks
       get '/contacts', to: 'main#contacts', as: :contacts
       post '/fogot_password', to: 'users#fogot_password', as: :fogot_password
-      get '/lp', to: 'main#lp', as: :lp
+      get '/lp', to: redirect('/', status: 301)
       get '/prices', to: 'main#prices', as: :prices
       get '/o-nas', to: 'main#about', as: :about
       get '/dostavka', to: 'main#info', as: :info

@@ -1,13 +1,12 @@
 crumb :root do
-  link "Главная", root_path
+  link "\u0413\u043B\u0430\u0432\u043D\u0430\u044F", root_path
 end
 
 crumb :composition do |c|
-  case
-  when params[:tag_id]
+  if params[:tag_id]
     link "Композиция №#{c.id}", tag_composition_path(c)
     parent :tag, Tag.friendly.find(params[:tag_id])
-  when params[:receiver_id]
+  elsif params[:receiver_id]
     link "Композиция №#{c.id}", receiver_composition_path(c)
     parent :receiver, Receiver.friendly.find(params[:receiver_id])
   else
@@ -17,10 +16,9 @@ crumb :composition do |c|
 end
 
 crumb :compositions do
-  link 'Все композиции',compositions_path
+  link 'Все композиции', compositions_path
   parent :root
 end
-
 
 crumb :tag do |tag|
   link tag.name.capitalize, tag_path(tag)

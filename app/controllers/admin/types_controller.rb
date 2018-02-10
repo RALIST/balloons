@@ -1,5 +1,4 @@
 class Admin::TypesController < Admin::AdminController
-
   def new
     @type = Type.new
   end
@@ -10,6 +9,7 @@ class Admin::TypesController < Admin::AdminController
   end
 
   private
+
   def type_params
     params.require(:type).permit(:name)
   end

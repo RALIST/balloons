@@ -11,8 +11,8 @@ require 'nokogiri'
 
 user = User.find_or_create_by!(email: 'admin@admin.ru') do |user|
   user.phone = '+7(999) 999 99 99',
-  user.admin = true,
-  user.password = 'admin'
+               user.admin = true,
+               user.password = 'admin'
   user.first_name = 'admin'
   user.last_name = 'admin'
 end
@@ -24,8 +24,8 @@ c = Composition.find(15)
 end
 
 @product = Product.find(3935)
-@tags = Tag.all.map{|t| t.name}.uniq
-@receivers = Receiver.all.map{|r| [r.title]}.uniq
+@tags = Tag.all.map(&:name).uniq
+@receivers = Receiver.all.map { |r| [r.title] }.uniq
 Composition.all.each do |c|
   5.times do
     c.products.push(@product)
@@ -37,12 +37,11 @@ Composition.all.each do |c|
   puts 'Composition updated!'
 end
 
-
 vendors = ['belbal', 'gemar', 'sempertex', 'anagram', 'flex metal']
 types = ['латексные шары', 'фольгированные шары']
-forms = ['звезда', 'круг', 'сердце', 'цифра', 'месяц', 'фигура']
+forms = %W[\u0437\u0432\u0435\u0437\u0434\u0430 \u043A\u0440\u0443\u0433 \u0441\u0435\u0440\u0434\u0446\u0435 \u0446\u0438\u0444\u0440\u0430 \u043C\u0435\u0441\u044F\u0446 \u0444\u0438\u0433\u0443\u0440\u0430]
 categories = ['с рисунком', 'без рисунка']
-textures = ['пастель', 'металлик', 'кристалл', 'перламутр', 'супер', 'фэшн']
+textures = %W[\u043F\u0430\u0441\u0442\u0435\u043B\u044C \u043C\u0435\u0442\u0430\u043B\u043B\u0438\u043A \u043A\u0440\u0438\u0441\u0442\u0430\u043B\u043B \u043F\u0435\u0440\u043B\u0430\u043C\u0443\u0442\u0440 \u0441\u0443\u043F\u0435\u0440 \u0444\u044D\u0448\u043D]
 
 forms.each do |form|
   FoilForm.find_or_create_by!(name: form)
@@ -68,9 +67,9 @@ xls = Roo::Spreadsheet.open('public/Размеры.xlsm', extension: :xlsm)
 start_row = 2
 (start_row..xls.last_row).each do |row|
   size = Size.find_or_create_by(in_inch: xls.cell(row, 'B')) do |size|
-    size.in_cm = xls.cell(row, 'A') unless xls.cell(row, 'A').blank?
+    size.in_cm = xls.cell(row, 'A') if xls.cell(row, 'A').present?
     size.in_inch = xls.cell(row, 'B')
-    size.belbal = xls.cell(row, 'C') unless xls.cell(row, 'C').blank?
+    size.belbal = xls.cell(row, 'C') if xls.cell(row, 'C').present?
   end
 end
 
@@ -80,9 +79,9 @@ start_row = 2
   vendor = Vendor.find_by(name: xls.cell(row, 'A').strip.downcase)
   case vendor.name
   when 'belbal' || 'sempertex'
-    code = '%03d' % xls.cell(row, 'B')
+    code = format('%03d', xls.cell(row, 'B'))
   when 'gemar'
-    code = '%02d' % xls.cell(row, 'B')
+    code = format('%02d', xls.cell(row, 'B'))
   end
   name = xls.cell(row, 'C')
   color = Color.find_or_create_by!(name: xls.cell(row, 'E'))

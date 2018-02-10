@@ -30,18 +30,16 @@ class Delivery::CompositionsController < Delivery::DeliveryController
       url: request.url,
       description: "Композиция из воздушных шаров на #{tags.join(', ')}, #{receivers.join(', ') if receivers}",
       image: {
-          _: 'https:' + @comp.img.url(:large),
-          width: 968,
-          height: 504,
-          alt: @comp.title
-        },
+        _: 'https:' + @comp.img.url(:large),
+        width: 968,
+        height: 504,
+        alt: @comp.title
+      },
       price: {
         amount: @comp.comp_price.round(0),
         currency: 'RUB'
       },
       site_name: 'Шариковая фея'
     }
-
   end
-
 end

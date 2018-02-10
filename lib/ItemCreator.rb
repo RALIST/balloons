@@ -1,9 +1,7 @@
 class ItemCreator
-
   def initialize(item)
     @item = item
   end
-
 
   def set_vendor(vendor)
     @item.vendor = vendor
@@ -29,7 +27,7 @@ class ItemCreator
     when 'gemar'
       tones = Tone.joins(:vendors).where(vendor: 'belbal')
     end
-    unless tone.blank?
+    if tone.present?
       tone = tones.where('code LIKE ?', "%#{word}%")
       @item.tone = tone
     end
@@ -41,6 +39,6 @@ class ItemCreator
   end
 
   def compare
-    grouped = Item.all.group_by{|item| [item.vendor, item.tone, item.texture]}
+    grouped = Item.all.group_by { |item| [item.vendor, item.tone, item.texture] }
   end
 end

@@ -5,40 +5,40 @@ class FeedbacksControllerTest < ActionDispatch::IntegrationTest
     @feedback = feedbacks(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get feedbacks_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_feedback_url
     assert_response :success
   end
 
-  test "should create feedback" do
+  test 'should create feedback' do
     assert_difference('Feedback.count') do
-      post feedbacks_url, params: { feedback: {  } }
+      post feedbacks_url, params: { feedback: {} }
     end
 
     assert_redirected_to feedback_url(Feedback.last)
   end
 
-  test "should show feedback" do
+  test 'should show feedback' do
     get feedback_url(@feedback)
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get edit_feedback_url(@feedback)
     assert_response :success
   end
 
-  test "should update feedback" do
-    patch feedback_url(@feedback), params: { feedback: {  } }
+  test 'should update feedback' do
+    patch feedback_url(@feedback), params: { feedback: {} }
     assert_redirected_to feedback_url(@feedback)
   end
 
-  test "should destroy feedback" do
+  test 'should destroy feedback' do
     assert_difference('Feedback.count', -1) do
       delete feedback_url(@feedback)
     end

@@ -1,5 +1,4 @@
 class Delivery::UsersController < Delivery::DeliveryController
-
   def new
     set_meta_tags title: 'Регистрация',
                   reverse: true,
@@ -43,8 +42,7 @@ class Delivery::UsersController < Delivery::DeliveryController
     @user = current_user
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if current_user.update(user_params)
@@ -56,12 +54,11 @@ class Delivery::UsersController < Delivery::DeliveryController
     end
   end
 
-  def destroy
-  end
+  def destroy; end
 
   private
+
   def user_params
     params.require(:user).permit(:phone, :password, :first_name)
   end
-
 end

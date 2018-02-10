@@ -1,13 +1,12 @@
 class Call < ApplicationRecord
-
-# after_save :send_new_call_notification, :send_sms_to_admin
+  # after_save :send_new_call_notification, :send_sms_to_admin
 
   def send_new_call_notification
     AdminMailer.new_call_order_notify(self).deliver_now
   end
 
   def send_sms_to_admin
-    new_call = 'Заявка на обратный звонок: ' + self.userphone.to_s + ' ' + self.username + ' ' + (self.messangers ? self.messangers.join(',') : "")
+    new_call = 'Заявка на обратный звонок: ' + userphone.to_s + ' ' + username + ' ' + (messangers ? messangers.join(',') : '')
     message = MainsmsApi::Message.new(sender: 'shar_feya', message: new_call,
                                       recipients: ['79124532598'])
     response = message.deliver

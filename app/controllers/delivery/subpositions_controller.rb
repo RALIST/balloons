@@ -1,10 +1,9 @@
 class Delivery::SubpositionsController < Delivery::DeliveryController
-
   def up_quantity
     @subposition = Subposition.find(params[:id])
     @subposition.update_attribute(:quantity, @subposition.quantity + 1)
     respond_to do |format|
-      format.html{redirect_back(fallback_location: root_path)}
+      format.html { redirect_back(fallback_location: root_path) }
       format.js
     end
     current_cart.total_with_discounts
@@ -19,7 +18,7 @@ class Delivery::SubpositionsController < Delivery::DeliveryController
     end
     current_cart.total_with_discounts
     respond_to do |format|
-      format.html{redirect_back(fallback_location: root_path)}
+      format.html { redirect_back(fallback_location: root_path) }
       format.js
     end
   end
@@ -34,23 +33,20 @@ class Delivery::SubpositionsController < Delivery::DeliveryController
     end
     current_cart.total_with_discounts
     respond_to do |format|
-      format.html{ redirect_back(fallback_location: root_path) }
+      format.html { redirect_back(fallback_location: root_path) }
       format.js
     end
   end
 
   def update
     @subposition = Subposition.find(params[:id])
-    if params[:subposition][:quantity].to_i > 0
-      @subposition.update(sub_params)
-    end
+    @subposition.update(sub_params) if params[:subposition][:quantity].to_i > 0
     respond_to do |format|
       format.html
       format.js
     end
     current_cart.total_with_discounts
   end
-
 
   def destroy
     @subposition = Subposition.find(params[:id])
@@ -64,6 +60,7 @@ class Delivery::SubpositionsController < Delivery::DeliveryController
   end
 
   private
+
   def sub_params
     params.require(:subposition).permit(:quantity)
   end

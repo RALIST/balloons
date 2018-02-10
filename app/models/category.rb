@@ -3,8 +3,8 @@ class Category < ApplicationRecord
   validates :title, presence: true, uniqueness: true
   before_save :sanitize
 
-
   private
+
   def sanitize
     self.title = title.downcase
   end

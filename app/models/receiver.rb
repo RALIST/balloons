@@ -4,7 +4,6 @@ class Receiver < ApplicationRecord
   belongs_to :personable, polymorphic: true
   validates :title, presence: true
 
-
   def resolve_friendly_id_conflict(candidates)
     candidates.first
   end

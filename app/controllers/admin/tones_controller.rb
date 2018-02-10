@@ -1,5 +1,4 @@
 class Admin::TonesController < Admin::AdminController
-
   def new
     @tone = Tone.new
   end
@@ -14,6 +13,7 @@ class Admin::TonesController < Admin::AdminController
   end
 
   private
+
   def tone_params
     params.require(:tone).permit(:name, :eng_name, :code, :color)
   end

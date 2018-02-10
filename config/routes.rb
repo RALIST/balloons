@@ -2,16 +2,11 @@ require 'ShopSubdomain'
 require 'NoneSubdomain'
 
 Rails.application.routes.draw do
-
-
-  if Rails.env == 'production'
-    mount LetsencryptPlugin::Engine, at: '/'
-  end
-
+  mount LetsencryptPlugin::Engine, at: '/' if Rails.env.production?
 
   constraints ShopSubdomain do
     if ENV['CANONICAL_HOST']
-      match "/(*path)" => redirect { |params, req| "https://#{ENV['CANONICAL_HOST']}/#{params[:path]}"},  via: :all
+      match '/(*path)' => redirect { |params, _req| "https://#{ENV['CANONICAL_HOST']}/#{params[:path]}" }, via: :all
     end
     # scope module: 'shop' do
     #   root 'main#index'
@@ -51,11 +46,11 @@ Rails.application.routes.draw do
     resources :partners
     post '/destroy_items', to: 'items#destroy_items', as: :destroy_items
     get '/get_images', to: 'items#get_images', as: :get_images
-    put '/delete/:id',                        to: 'compositions#delete',        as: :delete_composition
+    put '/delete/:id', to: 'compositions#delete', as: :delete_composition
     post '/admin/compositions/:id',            to: 'compositions#add_item',      as: :add_item
     put '/admin/compositions/:id/remove_tag',  to: 'compositions#remove_tag',    as: :remove_tag
-    put '/admin/compositions/:id/remove_receiver',  to: 'compositions#remove_receiver',    as: :remove_receiver
-    get '/update_price/:id',                  to: 'compositions#update_price',  as: :update_price
+    put '/admin/compositions/:id/remove_receiver', to: 'compositions#remove_receiver', as: :remove_receiver
+    get '/update_price/:id', to: 'compositions#update_price', as: :update_price
     get '/login', to: 'sessions#new', as: :login
     get '/compositions/:id/remove_item', to: 'compositions#remove_item', as: :remove_item
   end
@@ -63,7 +58,7 @@ Rails.application.routes.draw do
   constraints NoneSubdomain do
     scope module: 'delivery' do
       root 'main#index'
-      resources :compositions,  only: [:index, :show]
+      resources :compositions,  only: %i[index show]
       resources :tags, only: :show, path: 'events' do
         resources :compositions, only: :show, path: ''
       end
@@ -72,14 +67,14 @@ Rails.application.routes.draw do
       resources :positions
       resources :users
       resources :sessions
-      resources :subpositions, only: [:edit, :update, :destroy]
-      resources :calls, only: [:new, :create]
+      resources :subpositions, only: %i[edit update destroy]
+      resources :calls, only: %i[new create]
       resources :business, only: :index
       resources :graduations, only: :index
       resources :receivers, only: :show, path: 'persons' do
         resources :compositions, only: :show, path: ''
       end
-      resources :feedbacks, only: [:index, :new, :create], path: 'otzivy'
+      resources :feedbacks, only: %i[index new create], path: 'otzivy'
       scope '/graduations' do
         get 'sadik', to: 'graduations#kg', as: :kg
         get 'shkola', to: 'graduations#school', as: :school
@@ -92,7 +87,7 @@ Rails.application.routes.draw do
       post '/down_quantity/:id',        to: 'subpositions#down_quantity',   as: :down_quantity
       post '/add_subposition',          to: 'subpositions#add_subposition', as: :add_subposition
       get '/login',                     to: 'sessions#new',                 as: :login
-      post '/logout' ,                  to: 'sessions#destroy',             as: :logout
+      post '/logout', to: 'sessions#destroy', as: :logout
       get '/signin',                    to: 'users#new',                    as: :signin
       get '/search',                    to: 'main#search',                  as: :search
       get '/my_cart',                   to: 'carts#show',                   as: :my_cart
@@ -108,17 +103,17 @@ Rails.application.routes.draw do
       get '/prices', to: 'main#prices', as: :prices
       get '/o-nas', to: 'main#about', as: :about
       get '/dostavka', to: 'main#info', as: :info
-      get '/garantee',to: 'main#garant', as: :garant
-      match "/404", to: "errors#not_found", :via => :all
-      match "/500", to: "errors#internal_server_error", :via => :all
+      get '/garantee', to: 'main#garant', as: :garant
+      match '/404', to: 'errors#not_found', via: :all
+      match '/500', to: 'errors#internal_server_error', via: :all
       get '/partners', to: 'partners#index', as: :partners
       constraints(format: /[a-z]+(\.[a-z]+)?/) do
         resources :sitemaps, only: :show
-        get '/sitemap',  to:  'sitemaps#show'
+        get '/sitemap', to: 'sitemaps#show'
       end
-      get '/wmail_8a207e840240fa656dd60c5e3d164964.html', :to => redirect('/wmail_8a207e840240fa656dd60c5e3d164964.html')
-      get '/yandex_889bff755caf54ec.html', :to => redirect('/yandex_889bff755caf54ec.html')
-      get '/google6c964074640a2edf.html', :to => redirect('/google6c964074640a2edf.html')
+      get '/wmail_8a207e840240fa656dd60c5e3d164964.html', to: redirect('/wmail_8a207e840240fa656dd60c5e3d164964.html')
+      get '/yandex_889bff755caf54ec.html', to: redirect('/yandex_889bff755caf54ec.html')
+      get '/google6c964074640a2edf.html', to: redirect('/google6c964074640a2edf.html')
     end
   end
 end

@@ -1,5 +1,4 @@
 class Delivery::CallsController < Delivery::DeliveryController
-
   def create
     @call = Call.create(call_params)
     if @call.save
@@ -11,8 +10,8 @@ class Delivery::CallsController < Delivery::DeliveryController
   end
 
   private
-  def call_params
-    params.require(:call).permit(:username, :userphone,:url, messangers: [] )
-  end
 
+  def call_params
+    params.require(:call).permit(:username, :userphone, :url, messangers: [])
+  end
 end

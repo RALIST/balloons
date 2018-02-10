@@ -1,11 +1,10 @@
 class Admin::OrdersController < Admin::AdminController
-  before_action :set_order, only: [:show, :destroy]
+  before_action :set_order, only: %i[show destroy]
   def index
     @orders = Order.all
   end
 
-  def show
-  end
+  def show; end
 
   def destroy
     if @order.destroy
@@ -14,8 +13,8 @@ class Admin::OrdersController < Admin::AdminController
     end
   end
 
-
   private
+
   def set_order
     @order = Order.find(params[:id])
   end

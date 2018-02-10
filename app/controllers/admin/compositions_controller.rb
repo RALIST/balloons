@@ -1,7 +1,7 @@
 class Admin::CompositionsController < Admin::AdminController
-  before_action :set_comp, only: [:show, :edit, :update, :destroy,
-                                  :add_item, :remove_tag, :remove_receiver,
-                                   :update_price, :delete, :remove_item]
+  before_action :set_comp, only: %i[show edit update destroy
+                                    add_item remove_tag remove_receiver
+                                    update_price delete remove_item]
 
   def index
     @compositions = Composition.availible
@@ -33,10 +33,7 @@ class Admin::CompositionsController < Admin::AdminController
     end
   end
 
-
-
-  def edit
-  end
+  def edit; end
 
   def update
     @comp.update(comp_params)
@@ -98,5 +95,4 @@ class Admin::CompositionsController < Admin::AdminController
   def set_comp
     @comp = Composition.find(params[:id])
   end
-
 end

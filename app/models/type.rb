@@ -4,6 +4,7 @@ class Type < ApplicationRecord
   before_save :sanitize
 
   private
+
   def sanitize
     self.name = name.downcase
   end

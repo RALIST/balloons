@@ -4,13 +4,13 @@ class Tag < ApplicationRecord
   belongs_to :taggable, polymorphic: true
   validates :name, presence:  true
 
-  scope :composition_tags, -> { where(taggable_type: 'Composition').select("distinct on (name) * ")}
+  scope :composition_tags, -> { where(taggable_type: 'Composition').select('distinct on (name) * ') }
 
   def resolve_friendly_id_conflict(candidates)
     candidates.first
   end
 
-# Sets the slug.
+  # Sets the slug.
   def set_slug(normalized_slug = nil)
     if should_generate_new_friendly_id?
       candidates = FriendlyId::Candidates.new(self, normalized_slug || send(friendly_id_config.base))

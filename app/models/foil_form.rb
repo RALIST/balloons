@@ -4,6 +4,7 @@ class FoilForm < ApplicationRecord
   validates :name, uniqueness: true
 
   private
+
   def sanitize
     self.name = name.strip.downcase
   end

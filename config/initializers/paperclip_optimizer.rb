@@ -18,7 +18,7 @@ Paperclip::PaperclipOptimizer.default_options = {
   optipng: {
     level: 6,
     interlace: true
-    },
+  },
   pngcrush: false,
   pngout: false,
   pngquant: false,

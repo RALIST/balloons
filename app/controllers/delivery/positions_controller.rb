@@ -1,5 +1,3 @@
 class Delivery::PositionsController < Delivery::DeliveryController
-
-  def destroy
-  end
+  def destroy; end
 end

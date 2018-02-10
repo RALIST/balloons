@@ -1,5 +1,5 @@
 class Admin::PromotionsController < Admin::AdminController
-  before_action :set_promo, only: [:show, :edit, :update, :destroy]
+  before_action :set_promo, only: %i[show edit update destroy]
 
   def new
     @promotion = Promotion.new
@@ -9,22 +9,18 @@ class Admin::PromotionsController < Admin::AdminController
     @promotion = Promotion.create(promo_params)
   end
 
-  def show
-  end
+  def show; end
 
-  def update
-  end
+  def update; end
 
-  def edit
-  end
+  def edit; end
 
-  def destroy
-  end
+  def destroy; end
 
-  def index
-  end
+  def index; end
 
   private
+
   def set_promo
     @promotion = Promotion.find(params[:id])
   end

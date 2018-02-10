@@ -18,13 +18,13 @@ module Balloons
       user_name:            ENV['MAIL_BOX'],
       password:             ENV['MAIL_PASSWORD'],
       authentication:       :plain,
-      enable_starttls_auto: true}
+      enable_starttls_auto: true
+    }
     config.action_mailer.default_options = { from: 'orders@bigairballoons.ru' }
 
     config.time_zone = 'Samara'
     config.i18n.default_locale = :ru
-    config.exceptions_app = self.routes
+    config.exceptions_app = routes
     Rack::Utils.multipart_part_limit = 512
   end
-
 end

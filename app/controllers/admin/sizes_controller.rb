@@ -1,5 +1,4 @@
 class Admin::SizesController < Admin::AdminController
-
   def new
     @size = Size.new
   end
@@ -9,7 +8,8 @@ class Admin::SizesController < Admin::AdminController
     redirect_to admin_items_path
   end
 
-private
+  private
+
   def size_params
     params.require(:size).permit(:in_cm, :in_inch, :belbal)
   end

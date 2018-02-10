@@ -17,10 +17,10 @@ class Item < ApplicationRecord
   validates :name, uniqueness: true, unless: :special?
   accepts_nested_attributes_for :products
 
-  scope :search, -> (word){where('name LIKE ? ', "%#{word}%").distinct}
-  scope :special, -> {joins(:type).where(types:{name: 'товары для композиций'})}
+  scope :search, ->(word) { where('name LIKE ? ', "%#{word}%").distinct }
+  scope :special, -> { joins(:type).where(types: { name: 'товары для композиций' }) }
 
   def special?
-    self.type.name == 'товары для композиций'
+    type.name == 'товары для композиций'
   end
 end

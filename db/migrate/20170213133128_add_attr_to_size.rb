@@ -21,6 +21,5 @@ class AddAttrToSize < ActiveRecord::Migration[5.0]
     end
 
     rename_table :item_sizes, :products
-
   end
 end

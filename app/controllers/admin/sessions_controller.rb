@@ -21,8 +21,8 @@ class Admin::SessionsController < Admin::AdminController
       flash[:danger] = 'Не удалось войти!'
       render 'new'
     end
-    rescue ActiveRecord::RecordNotFound
-      flash[:danger] = 'Вход только для администратора!'
-      render 'new'
+  rescue ActiveRecord::RecordNotFound
+    flash[:danger] = 'Вход только для администратора!'
+    render 'new'
   end
 end

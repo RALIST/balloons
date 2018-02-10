@@ -13,6 +13,7 @@ class Admin::FoilFormsController < Admin::AdminController
   end
 
   private
+
   def form_params
     params.require(:foil_form).permit(:name)
   end

@@ -2,25 +2,30 @@ require 'unicode'
 
 class String
   def downcase
-    Unicode::downcase(self)
+    Unicode.downcase(self)
   end
+
   def downcase!
-    self.replace downcase
+    replace downcase
   end
+
   def upcase
-    Unicode::upcase(self)
+    Unicode.upcase(self)
   end
+
   def upcase!
-    self.replace upcase
+    replace upcase
   end
+
   def capitalize
-    Unicode::capitalize(self)
+    Unicode.capitalize(self)
   end
+
   def capitalize!
-    self.replace capitalize
+    replace capitalize
   end
 
   def humanizer
-    self.mb_chars.humanize
+    mb_chars.humanize
   end
 end

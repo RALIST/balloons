@@ -3,6 +3,7 @@ class Admin::AdminController < ApplicationController
   before_action :check_is_admin
 
   private
+
   def check_is_admin
     if current_user && current_user.admin?
       true

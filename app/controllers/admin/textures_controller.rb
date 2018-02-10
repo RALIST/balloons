@@ -1,5 +1,4 @@
 class Admin::TexturesController < Admin::AdminController
-
   def new
     @texture = Texture.new
   end
@@ -10,6 +9,7 @@ class Admin::TexturesController < Admin::AdminController
   end
 
   private
+
   def texture_params
     params.require(:texture).permit(:name)
   end

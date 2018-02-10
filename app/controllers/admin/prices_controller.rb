@@ -13,6 +13,7 @@ class Admin::PricesController < Admin::AdminController
   end
 
   private
+
   def price_params
     params.require(:price).permit(:price_sheet, :vendor, :type)
   end

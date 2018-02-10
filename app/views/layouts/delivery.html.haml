@@ -23,12 +23,11 @@
         %i.fa.fa-angle-double-up.fa-stack-1x
     .wrapper
       %header
-        #responsive
-          = render 'delivery/layouts/resp_menu'
         - unless @disable_header
           = render 'delivery/layouts/header'
-        = render 'delivery/layouts/flash'
-        = render 'delivery/layouts/breadcrumbs'
+      = render 'delivery/layouts/flash'
+      = render 'delivery/layouts/breadcrumbs'
+      = render 'delivery/layouts/resp_menu'
       = yield
     %footer
       = render 'delivery/layouts/footer'

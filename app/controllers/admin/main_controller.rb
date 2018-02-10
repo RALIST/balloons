@@ -1,4 +1,3 @@
 class Admin::MainController < Admin::AdminController
-  def index
-  end
+  def index; end
 end

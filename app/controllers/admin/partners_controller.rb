@@ -1,6 +1,5 @@
 class Admin::PartnersController < Admin::AdminController
-
-  before_action :set_partner,only: [:show, :edit, :destroy, :update]
+  before_action :set_partner, only: %i[show edit destroy update]
 
   def new
     @partner = Partner.new
@@ -10,35 +9,28 @@ class Admin::PartnersController < Admin::AdminController
     @partners = Partner.all
   end
 
-  def show
-  end
+  def show; end
 
   def create
     @partner = Partner.create(business_params)
-    if @partner.save
-      redirect_to [:admin, @partner]
-    end
+    redirect_to [:admin, @partner] if @partner.save
   end
 
   def update
-    if @partner.update(business_params)
-      redirect_to [:admin, @partner]
-    end
+    redirect_to [:admin, @partner] if @partner.update(business_params)
   end
 
   def destroy
-    if @partner.destroy
-      redirect_to admin_partners_path
-    end
+    redirect_to admin_partners_path if @partner.destroy
   end
 
   private
+
   def business_params
-    params.require(:partner).permit(:name, :logo, images_attributes: [:id, :img, :style])
+    params.require(:partner).permit(:name, :logo, images_attributes: %i[id img style])
   end
 
   def set_partner
     @partner = Partner.find(params[:id])
   end
-
 end

@@ -2,16 +2,16 @@ class Delivery::DeliveryController < ApplicationController
   layout 'delivery'
   before_action :current_cart, :new_call, :tags, :receivers
 
+  private
 
-private
   def current_cart
     if current_user
-      unless current_user.cart.blank?
-        @cart = current_user.cart
-      else
+      if current_user.cart.blank?
         @cart = Cart.create
         cookies.permanent[:cart_id] = @cart.id
         current_user.cart = @cart
+      else
+        @cart = current_user.cart
       end
     else
       @cart = Cart.find(cookies[:cart_id])
@@ -21,6 +21,7 @@ private
     cookies.permanent[:cart_id] = @cart.id
     @cart
   end
+
   def new_call
     @call = Call.new
   end
@@ -30,6 +31,6 @@ private
   end
 
   def receivers
-    @menu_receivers = Receiver.all.select("distinct on (title) *")
+    @menu_receivers = Receiver.all.select('distinct on (title) *')
   end
 end

@@ -73,6 +73,7 @@
     font-weight: bold !important;
     .small{
       font-weight: 300;
+      font-size: 0.8rem;
       @include media-breakpoint-up(lg){
         @include make-col(6);
       }

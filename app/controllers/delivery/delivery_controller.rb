@@ -7,7 +7,7 @@ class Delivery::DeliveryController < ApplicationController
 
 
   def availible_cities
-    cities = ['izhevsk', 'kazan']
+    cities = User::CITIES
   end
 
 
@@ -15,20 +15,36 @@ class Delivery::DeliveryController < ApplicationController
   private
 
   def set_location
-    @city = user_location || default_city
+    @city = user_location || city_from_params || default_city
   end
 
   def user_location
     @city = request.location.city.downcase
-    if !availible_cities.include?(@city) || @city.blank?
+    if @city.blank? || !availible_cities.include?(@city)
       false
+    end
+  end
+
+  def city_from_params
+    if availible_cities.include?(params[:city])
+      params[:city]
+    else
+      default_city
+    end
+  end
+
+  def default_url_options
+    if @city == default_city
+      {city: nil}
+    else
+      {city: @city}
     end
   end
 
 
 
   def default_city
-    @city = 'izhevsk'
+    'izhevsk'
   end
 
   def current_cart

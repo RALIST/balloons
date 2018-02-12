@@ -6,7 +6,7 @@
         console.log(url)
         if($('#seo-text').length){
           var textTop = $('#seo-text').offset().top;
-          if (url && $(window).scrollTop() > textTop - 500) {
+          if (url && $(window).scrollTop() > textTop - 800) {
             $('.pagination').html('<i class="fas fa-spinner fa-pulse fa-7x fa-fw text-info"></i>');
             return $.getScript(url);
           };

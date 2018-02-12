@@ -2,6 +2,10 @@ class Delivery::DeliveryController < ApplicationController
   layout 'delivery'
   before_action :current_cart, :new_call, :tags, :receivers
 
+  include MetaHelper
+
+  before_action :set_meta_og
+
   private
 
   def current_cart

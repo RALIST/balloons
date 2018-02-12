@@ -15,10 +15,20 @@ class Delivery::DeliveryController < ApplicationController
   private
 
   def set_location
+    @city = user_location || default_city
+  end
+
+  def user_location
     @city = request.location.city.downcase
-    if @city.blank?
-      @city = "izhevsk"
+    if !availible_cities.include?(@city) || @city.blank?
+      false
     end
+  end
+
+
+
+  def default_city
+    @city = 'izhevsk'
   end
 
   def current_cart

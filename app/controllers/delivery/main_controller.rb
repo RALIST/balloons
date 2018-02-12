@@ -11,7 +11,7 @@ class Delivery::MainController < Delivery::DeliveryController
       format.js
     end
     @offer = true
-    @location = request.location.country.city
+    @location = request.location.city
   end
 
   def search

@@ -320,7 +320,6 @@ module MetaHelper
 									        currency: 'RUB'
 									      },
 									  retailer_item_id: @comp.id
-
     							}
 
     end

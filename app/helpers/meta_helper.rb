@@ -300,11 +300,11 @@ module MetaHelper
 
     set_meta_tags og: {
 									      title: "Композиция № #{@comp.id} из воздушных шаров | Шариковая фея",
-									      type: 'product',
+									      type: 'article',
 									      url: request.url,
 									      description: "Композиция из воздушных шаров на #{tags.map(&:name).join(', ')}, #{receivers.map(&:title).join(', ')}",
 									      image: {
-									        _: view_context.image_path(@comp.img.url(:large)),
+									        _: 'https:' + view_context.image_path(@comp.img.url(:large)),
 									        width: 968,
 									        height: 504,
 									        alt: @comp.title

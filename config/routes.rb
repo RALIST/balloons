@@ -58,8 +58,8 @@ Rails.application.routes.draw do
   constraints NoneSubdomain do
     scope module: 'delivery' do
       root 'main#index'
-      get '/:city', to: 'main#index', constraints: {city: / #{User::CITIES.join('|')} /}
-      scope '(:city)', city:  / #{User::CITIES.join('|')} / do
+      get '/:city', to: 'main#index', constraints: {city: /#{User::CITIES.map{|c| "(#{c})"}.join('|')}/}
+      scope '(:city)', city:  /#{User::CITIES.map{|c| "(#{c})"}.join('|')}/ do
         resources :compositions,  only: %i[index show]
         resources :tags, only: :show, path: 'events' do
           resources :compositions, only: :show, path: ''

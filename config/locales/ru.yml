@@ -4,6 +4,12 @@ ru:
   previous_label: 'Назад'
   page_gap: '...'
  cities:
-   izhevsk: 'Ижевск'
-   kazan: 'Казань'
-   perm: 'Пермь'
+   izhevsk:
+      base: 'Ижевск'
+      where: 'Ижевске'
+   kazan:
+    base: 'Казань'
+    where: 'Казани'
+   perm:
+    base: 'Пермь'
+    where: 'Перми'

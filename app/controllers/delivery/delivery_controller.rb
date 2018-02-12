@@ -6,9 +6,6 @@ class Delivery::DeliveryController < ApplicationController
   before_action :set_location
 
 
-  def availible_cities
-    cities = User::CITIES
-  end
 
 
 
@@ -41,6 +38,9 @@ class Delivery::DeliveryController < ApplicationController
     end
   end
 
+  def availible_cities
+    cities = User::CITIES
+  end
 
 
   def default_city

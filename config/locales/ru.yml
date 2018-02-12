@@ -3,4 +3,5 @@ ru:
   next_label: 'Вперед'
   previous_label: 'Назад'
   page_gap: '...'
-
+ cities:
+   Izhevsk: 'Ижевск'

@@ -11,7 +11,11 @@ class Delivery::MainController < Delivery::DeliveryController
       format.js
     end
     @offer = true
-    @location = request.location.city
+    @city = request.location.city
+    if @city.blank?
+      @city = "Izhevsk"
+    end
+
   end
 
   def search

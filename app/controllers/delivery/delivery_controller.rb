@@ -1,12 +1,25 @@
 class Delivery::DeliveryController < ApplicationController
   layout 'delivery'
-  before_action :current_cart, :new_call, :tags, :receivers
-
   include MetaHelper
-
+  before_action :current_cart, :new_call, :tags, :receivers
   before_action :set_meta_og
+  before_action :set_location
+
+
+  def availible_cities
+    cities = ['izhevsk', 'kazan']
+  end
+
+
 
   private
+
+  def set_location
+    @city = request.location.city.downcase
+    if @city.blank?
+      @city = "izhevsk"
+    end
+  end
 
   def current_cart
     if current_user

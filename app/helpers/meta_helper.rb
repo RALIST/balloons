@@ -302,7 +302,7 @@ module MetaHelper
 									      title: "Композиция № #{@comp.id} из воздушных шаров | Шариковая фея",
 									      type: 'article',
 									      url: request.url,
-									      description: "Композиция из воздушных шаров на #{tags.map(&:name).join(', ')}, #{receivers.map(&:title).join(', ')}",
+									      description: 'Оформление торжества воздушными шарами от "Шариковой феи" оставит приятные впечатления и сделает этот день ярким. Для оформления заказа звоните по телефону +7 (912) 453-25-98',
 									      image: {
 									        _: 'https:' + view_context.image_path(@comp.img.url(:large)),
 									        width: 968,

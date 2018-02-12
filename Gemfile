@@ -55,6 +55,7 @@ gem 'sorcery'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'unicode'
 gem 'will_paginate'
+gem 'geocoder'
 
 group :production do
   gem 'aws-sdk', '~> 1'

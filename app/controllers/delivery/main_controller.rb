@@ -1,6 +1,5 @@
 class Delivery::MainController < Delivery::DeliveryController
 
-  include MetaHelper
   before_action :set_meta_tags_for_main
 
   def index

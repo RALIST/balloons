@@ -284,6 +284,48 @@ module MetaHelper
 		end
 	end
 
+
+	def set_meta_tags_for_composition
+		case params[:action]
+		when 'index'
+			set_meta_tags title: 'Воздушные шары с доставкой, все композиции',
+                  description: 'Доставка самых красивых воздушных шаров, оформление праздников, доставка по Ижевску бесплатно!',
+                  keywords: 'воздушные шары, заказать воздушные шары, шарики с доставкой, доставка шариков'
+    when 'show'
+    	set_meta_tags title: "Композиция № #{@comp.id} из воздушных шаров | Шариковая фея",
+                  reverse: true,
+                  keywords: 'воздушные шары, заказать воздушные шары, шарики с доставкой, доставка шариков, воздушные шары с доставкой',
+                  description: "Композиция из воздушных шаров на #{tags.map(&:name).join(', ')}, #{receivers.map(&:title).join(', ')}",
+                  canonical: (composition_path(@comp) if @tag || @receiver)
+
+    set_meta_tags og: {
+									      title: "Композиция № #{@comp.id} из воздушных шаров | Шариковая фея",
+									      type: 'product',
+									      url: request.url,
+									      description: "Композиция из воздушных шаров на #{tags.map(&:name).join(', ')}, #{receivers.map(&:title).join(', ')}",
+									      image: {
+									        _: view_context.image_path(@comp.img.url(:large)),
+									        width: 968,
+									        height: 504,
+									        alt: @comp.title
+									      },
+									      site_name: 'Шариковая фея'
+    							},
+    							product: {
+    								availability: 'instock',
+    								brand: "Шариковая фея",
+    								condition: 'new',
+    								price: {
+									        amount: @comp.comp_price.round(0),
+									        currency: 'RUB'
+									      },
+									  retailer_item_id: @comp.id
+
+    							}
+
+    end
+	end
+
 	def set_meta_og
 		set_meta_tags og: {
       title: 'Доставка и оформление воздушными шарами в Ижевске от Шариковой феи',

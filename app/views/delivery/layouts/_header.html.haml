@@ -38,26 +38,26 @@
                 .social
                   %ul.nav.align-content-between.flex-column
                     %li.nav-item
-                      =link_to 'https://www.instagram.com/bigairballoon_izh/', target: :_blank, class: 'nav-link' do
+                      =link_to t("cities.#{@city}.links.ins"), target: :_blank, class: 'nav-link' do
                         %i.fab.fa-instagram{"aria-hidden":  "true"}
                     %li.nav-item
-                      =link_to 'https://www.facebook.com/bigairballoons/', target: :_blank , class: 'nav-link'do
+                      =link_to t("cities.#{@city}.links.fb"), target: :_blank , class: 'nav-link'do
                         %i.fab.fa-facebook{"aria-hidden": "true"}
                     %li.nav-item
-                      =link_to 'https://vk.com/bigairballoon_izh', target: :_blank, class: 'nav-link' do
+                      =link_to t("cities.#{@city}.links.vk"), target: :_blank, class: 'nav-link' do
                         %i.fab.fa-vk{"aria-hidden": "true"}
               .col-10.text-center.justify-content-between.d-flex.flex-column
                 .strong
                   .h3.mb-0
                     %small.text-info
                       %i.fa.fa-phone
-                    234-084
+                    = t "cities.#{@city}.phones.direct"
                   .small.mb-2
                     c 8:00 до 21:00
                 .small.text-center
                   WhatsApp | Viber | Telegram
                   .h5.m-0
-                    +7 950 171-81-09
+                    = t "cities.#{@city}.phones.mobile"
                 .mt-2
                   = button_tag 'Нужна консультация', class: 'btn btn-secondary text-uppercase strong btn-sm', data:{ toggle: 'modal', target: '#call-modal'}
           .col-4.d-flex.justify-content-center

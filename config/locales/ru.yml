@@ -8,11 +8,33 @@ ru:
       base: 'Ижевск'
       where: 'Ижевске'
       in: 'Ижевску'
+      phones:
+        mobile: '+7 950 171-81-09'
+        direct: '234-084'
+      links:
+        vk: 'https://vk.com/bigairballoon_izh'
+        ins: 'https://www.instagram.com/bigairballoon_izh/'
+        fb: 'https://www.facebook.com/bigairballoons/'
    kazan:
-    base: 'Казань'
-    where: 'Казани'
-    in: 'Казани'
+      base: 'Казань'
+      where: 'Казани'
+      in: 'Казани'
+      phones:
+        mobile: '234-084'
+        direct: '234-084'
+      links:
+        vk: 'https://vk.com/bigairballoon_izh'
+        ins: 'https://www.instagram.com/bigairballoon_izh/'
+        fb: 'https://www.facebook.com/bigairballoons/'
    perm:
-    base: 'Пермь'
-    where: 'Перми'
-    in: 'Перми'
+      base: 'Пермь'
+      where: 'Перми'
+      in: 'Перми'
+      phones:
+        mobile: '234-084'
+        direct: '234-084'
+      links:
+        vk: 'https://vk.com/bigairballoon_izh'
+        ins: 'https://www.instagram.com/bigairballoon_izh/'
+        fb: 'https://www.facebook.com/bigairballoons/'
+

@@ -38,10 +38,10 @@ setTimeout(function(){
     Cookies.set('popup', 'true')
   }
 }, 70000)
-$(document).on('ready, turbolinks:load', function(){
+$(document).on('ready, turbolinks:load',  function(){
   FontAwesome.dom.i2svg();
 });
+$(document).on('turbolinks:load, ready', '#map', function(){
+    yandex_map();
+})
 
-// $(document).on('ready, turbolinks:load', function(){
-//   $('body, html').scrollTop(0);
-// })

@@ -88,7 +88,7 @@
                       = link_to 'Личный кабинет', cp_path, class: 'pr-3'
                       = link_to 'Выйти', logout_path, method: :post
                 .text-right
-                  = link_to '#' do
+                  = link_to '#', data:{ toggle: 'modal', target: '#city'} do
                     %i.fas.fa-map-marker-alt
                     = t "cities.#{@city}.base"
             #cart.d-flex.flex-row.align-items-center.justify-content-end.p-1.mt-1.rounded{data: {turbolinks: {permanent: true}}}

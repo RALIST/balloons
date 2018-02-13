@@ -1,0 +1,16 @@
+-cache do
+  .modal.fade{id: "city",  tabindex: "-1",  role: "dialog"}
+    .modal-dialog{role: "document"}
+      .modal-content
+        .modal-header
+          %h3.modal-title
+          %button.close{data: {dismiss: "modal"}, style: 'aria-label: "Close"'}
+            %span
+              &times;
+
+        .modal-body.pt-0.text-center
+          .h4.text-center.text-uppercase.my-4
+            Выберите ваш город
+          .w-50.m-auto
+            - User::CITIES.map do |c|
+              = link_to t("cities.#{c}.base"), params.merge(city: c).permit(:city), class: 'btn btn-lg btn-outline-info btn-block'

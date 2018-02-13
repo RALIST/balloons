@@ -7,9 +7,12 @@ ru:
    izhevsk:
       base: 'Ижевск'
       where: 'Ижевске'
+      in: 'Ижевску'
    kazan:
     base: 'Казань'
     where: 'Казани'
+    in: 'Казани'
    perm:
     base: 'Пермь'
     where: 'Перми'
+    in: 'Перми'

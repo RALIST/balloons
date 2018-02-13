@@ -2,6 +2,10 @@
 .container.my-5
   %h1.h2.text-center.mb-4
     Оформление воздушными шарами на #{@tag.name}
+    %br
+    в
+    = t "cities.#{@city}.where"
+
     .small.text-muted.mt-1
       Найдено #{@compositions.count} композиций
   .row.justify-content-around.compositions

@@ -91,13 +91,13 @@
                   = link_to '#', data:{ toggle: 'modal', target: '#city'} do
                     %i.fas.fa-map-marker-alt
                     = t "cities.#{@city}.base"
-            #cart.d-flex.flex-row.align-items-center.justify-content-end.p-1.mt-1.rounded{data: {turbolinks: {permanent: true}}}
+            #cart.d-flex.flex-row.align-items-center.justify-content-end.p-1.mt-1.rounded
               #cart-icon.mr-3
                 = link_to my_cart_path do
                   %i.fas.fa-shopping-basket.fa-3x.text-secondary
               .text-secondary.text-right
                 .strong.lead
-                  %span#sum
+                  %span#sum{data: {turbolinks: {permanent: true}}}
                     = @cart.total_price.round(0)
                   %span.text-primary
                     руб.

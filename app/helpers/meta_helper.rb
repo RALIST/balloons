@@ -190,7 +190,7 @@ module MetaHelper
 	                  keywords: 'шары сыну',
 	                  reverse: true
 	  else
-	    set_meta_tags title: "Оформление воздушными шарами на #{@tag.name} в %{city} в компании Шариковая Фея" % {city: t("cities.#{@city}.where")},
+	    set_meta_tags title: "Оформление воздушными шарами  #{@receiver.title} в %{city} в компании Шариковая Фея" % {city: t("cities.#{@city}.where")},
 	                  description: "Воздушные шары #{params[:title]} в %{city}" % {city: t("cities.#{@city}.where")},
 	                  reverse: true
 	  end

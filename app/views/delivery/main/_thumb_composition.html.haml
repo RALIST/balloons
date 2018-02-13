@@ -2,16 +2,8 @@
   .composition
     .card.justify-content-around.align-items-center
       .card-image
-        - case controller.controller_name
-        - when 'receivers'
-          = link_to receiver_composition_path(@person, c), class: 'link-to-page' do
-            = image_tag c.img(:preview), class: 'img-fluid',alt: c.title
-        - when'tags'
-          = link_to tag_composition_path(@tag, c), class: 'link-to-page' do
-            = image_tag c.img(:preview), class: 'img-fluid', alt: c.title
-        - when 'main','compositions'
-          = link_to composition_path(c), class: 'link-to-page' do
-            = image_tag c.img(:preview), class: 'img-fluid',alt: c.title
+        = link_to custom_url_path(c) do
+          = image_tag c.img(:preview), class: 'img-fluid', alt: c.title
         .line
 
       .card-block.py-2
@@ -33,13 +25,7 @@
                   = c.price.round(0)
                   %i.fas.fa-ruble-sign
           .col-6.text-right
-            - case controller.controller_name
-            - when 'receivers'
-              = link_to 'Подробнее', receiver_composition_path(@person, c), class: 'btn btn-info btn-block'
-            - when'tags'
-              = link_to 'Подробнее', tag_composition_path(@tag, c), class: 'btn btn-info btn-block'
-            - when 'main','compositions'
-              = link_to 'Подробнее', composition_path(c), class: 'btn btn-info btn-block'
+            = link_to 'Подробнее', custom_url_path(c), class: 'btn btn-info btn-block'
 
         - else
           = link_to 'Перейти в корзину', my_cart_path, class: 'btn btn-success btn-block'

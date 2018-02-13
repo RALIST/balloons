@@ -2,6 +2,8 @@ class Delivery::CompositionsController < Delivery::DeliveryController
   before_action :set_composition, only: :show
   before_action :set_meta_tags_for_composition
 
+  include CompositionsHelper
+
   def index
     @compositions = Composition.availible.all.order(:price).paginate(page: params[:page], per_page: 6)
     respond_to do |format|

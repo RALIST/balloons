@@ -4,7 +4,7 @@
     %h1 Цены на гелиевые шары c доставкой.
     .row
       .col-12
-        %h3.bg-teal.text-white.p-3{data: {toggle: 'collapse', target: '#latex'}, style: 'cursor: pointer'}
+        %h3.bg-info.text-white.p-3{data: {toggle: 'collapse', target: '#latex'}, style: 'cursor: pointer'}
           Латексные шары
           %i.fa.fa-chevron-down
         .container.collapse#latex
@@ -90,7 +90,7 @@
                   45 руб.
 
       .col-12
-        %h3.bg-teal.text-white.p-3{data: {toggle: 'collapse', target: '#foil'}, style: 'cursor: pointer'}
+        %h3.bg-info.text-white.p-3{data: {toggle: 'collapse', target: '#foil'}, style: 'cursor: pointer'}
           Фольгированные шары
           %i.fa.fa-chevron-down
         .container.collapse#foil
@@ -135,7 +135,7 @@
                 %td
                   Уточняйте по телефону.
       .col-12
-        %h3.bg-teal.text-white.p-3{data: {toggle: 'collapse', target: '#products'}, style: 'cursor: pointer'}
+        %h3.bg-info.text-white.p-3{data: {toggle: 'collapse', target: '#products'}, style: 'cursor: pointer'}
           Дополнительные услуги
           %i.fa.fa-chevron-down
         .container.collapse#products
@@ -153,9 +153,11 @@
                   / %i.fa.fa-bars
                 %td.text-left{style: 'max-width: 40%;'}
                   .lead
-                    Доставка воздушных шаров по Ижевску
+                    Доставка воздушных шаров в
+                    = t "cities.#{@city}.where"
                     %blockquote.blockquote.small
-                      Крулосуточная доставка воздушных шариков в пределах Ижевска
+                      Крулосуточная доставка воздушных шариков в пределах
+                      = t "cities.#{@city}.where"
                 %td
                   150 руб.
                   %br

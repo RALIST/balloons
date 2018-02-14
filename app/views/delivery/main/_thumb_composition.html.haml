@@ -1,31 +1,31 @@
-- cache c do
-  .composition
-    .card.justify-content-around.align-items-center
-      .card-image
-        = link_to custom_url_path(c) do
-          = image_tag c.img(:preview), class: 'img-fluid', alt: c.title
-        .line
+.composition
+  .card.justify-content-around.align-items-center
+    .card-image
+      = link_to custom_url_path(c) do
+        = image_tag c.img(:preview), class: 'img-fluid', alt: c.title
+      .line
 
-      .card-block.py-2
-        .text-center
-          - if c.tags.any?
-            Воздушные шары на
-            %br
-            = c.tags.map{ |t| link_to t.name.capitalize, tag_path(t), class: 'text-info' }.join(', ').html_safe
-      .row.align-items-center.my-3#price
-        - unless @cart.compositions.include?(c)
-          .col-6.text-left.pr-0
-            .row.align-items-center
-              .small.font-weight-bold.col-5.pr-0.text-left
-                Цена как
-                %br
-                на фото
-              .h4.col-7.pr-0.pl-2.m-0
-                %strong
-                  = c.price.round(0)
-                  %i.fas.fa-ruble-sign
-          .col-6.text-right
-            = link_to 'Подробнее', custom_url_path(c), class: 'btn btn-info btn-block'
+    .card-block.py-2
+      .text-center
+        - if c.tags.any?
+          Воздушные шары на
+          %br
+          = c.tags.map{ |t| link_to t.name.capitalize, tag_path(t), class: 'text-info' }.join(', ').html_safe
+    .row.align-items-center.my-3#price
+      - unless @cart.compositions.include?(c)
+        .col-6.text-left.pr-0
+          .row.align-items-center
+            .small.font-weight-bold.col-5.pr-0.text-left
+              Цена как
+              %br
+              на фото
+            .h4.col-7.pr-0.pl-2.m-0
+              %strong
+                = c.price.round(0)
+                %i.fas.fa-ruble-sign
+        .col-6.text-right
+          - # Helper Dependency Updated: Time.now
+          = link_to 'Подробнее', custom_url_path(c), class: 'btn btn-info btn-block'
 
-        - else
-          = link_to 'Перейти в корзину', my_cart_path, class: 'btn btn-success btn-block'
+      - else
+        = link_to 'Перейти в корзину', my_cart_path, class: 'btn btn-success btn-block'

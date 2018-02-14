@@ -14,7 +14,7 @@
       %th.text-center
         Дата заказа
       %th.text-center
-    - @orders.order(:order_date).each do |order|
+    - @orders.each do |order|
       %tr.text-center
         %td
           %strong

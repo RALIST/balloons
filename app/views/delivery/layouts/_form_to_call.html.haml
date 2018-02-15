@@ -7,15 +7,19 @@
 .row#form-call
   = form_for @call do |f|
     .form-group.row.align-items-center
-      = f.label 'Как вас зовут?', class: 'control-label col-5 text-uppercase pr-0'
-      = f.text_field :username, class: 'form-control col-7', required: true, autofocus: true
+      #form-call-label
+        = f.label 'Как вас зовут?', class: 'control-label text-uppercase pr-0'
+      #form-call-input
+        = f.text_field :username, class: 'form-control', required: true, autofocus: true
     .form-group.row.align-items-center
-      = f.label 'Ваш телефон', class: 'control-label col-5 text-uppercase'
-      = f.telephone_field :userphone, data:{ mask: '+7 (999) 999 99 99' }, class: 'form-control col-7', required: true
+      #form-call-label
+        = f.label 'Ваш телефон', class: 'control-label text-uppercase'
+      #form-call-input
+        = f.telephone_field :userphone, data:{ mask: '+7 (999) 999 99 99' }, class: 'form-control', required: true
     .form-group.row
       .col-12
         = f.label 'Как лучше с вами связаться?', class: 'control-label text-uppercase'
-      .col-12.pr-0
+      .col-12
         .form-check.form-check-inline
           %label
             = f.check_box :messangers, {multiple: true}, 'Позвонить', nil
@@ -35,6 +39,6 @@
         = f.hidden_field :url, value: request.original_url
       .form-group.text-center.my-4.w-100
         = submit_tag 'Отправить', class: 'btn btn-info col-6 text-uppercase', data:{disable_with: 'Отправляю...'}
-      .row.text-center.small
+      .col-12.text-center.small
         Настоящим в соответствии с Федеральным законом № 152-ФЗ «О персональных данных» от 27.07.2006, отправляя данную форму, вы подтверждаете свое согласие на обработку персональных данных.
 

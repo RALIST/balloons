@@ -1,7 +1,7 @@
 .container-fluid
 	.row.align-items-center.fixed-top#business-menu
 		.container
-			%nav.navbar.navbar-expand-md.justify-content-between.navbar-light
+			%nav.navbar.navbar-expand-lg.justify-content-between.navbar-light
 				%button.navbar-toggler.collapsed.navbar-toggler-right{data: {toggle: 'collapse', target: '#b-menu'}}
 					%i.fas.fa-bars.text-white
 				= link_to root_path, class: 'navbar-brand' do
@@ -70,7 +70,7 @@
 					%i.fas.fa-truck.fa-6x
 				#icon-text
 					.h4.font-oswald
-						Доставка и монтаж
+						Доставка и монтаж по #{t("cities.#{@city}.in")}
 		#iconlist
 			.row
 				#icon-text
@@ -109,7 +109,7 @@
 				%li
 					Работа по договору
 				%li
-					Доставка по Ижевску
+					Доставка по #{t("cities.#{@city}.in")}
 			%em Оформление корпоративных мероприятий воздушными шарами, это то, что мы делаем очень хорошо! Если вы планируете открытие магазина, распродажу или любое другое мероприятие, то оформление воздушными шарами будет изюминкой вечера!
 			.lead.text-center.my-5
 				Подберем варианты оформления бесплатно!
@@ -135,7 +135,7 @@
 				%li
 					Срок печати: от 2 дней
 				%li
-					Доставка по Ижевску
+					Доставка по #{t("cities.#{@city}.in")}
 			%em Ваш логотип на воздушном шаре станет отличным маркетинговым ходом в любой ситуации! Если вы планируете акцию или открытие, то воздушные шары с печатью станут отличным подарком для ваших клиентов!
 			.lead.text-center.my-5
 				Ответим на любые вопросы по печати

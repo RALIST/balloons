@@ -1,7 +1,9 @@
 - breadcrumb :prices
 - cache do
   .container.mt-5.text-center
-    %h1 Цены на гелиевые шары c доставкой.
+    %h1
+      Цены на гелиевые шары c доставкой в
+      = t "cities.#{@city}.where"
     .row
       .col-12
         %h3.bg-info.text-white.p-3{data: {toggle: 'collapse', target: '#latex'}, style: 'cursor: pointer'}

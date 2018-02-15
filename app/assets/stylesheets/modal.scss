@@ -29,12 +29,28 @@
 }
 #form-call{
   @include media-breakpoint-down(lg){
+    @inclide make-col-ready();
     @include make-col(12);
   }
   @include media-breakpoint-up(lg){
+    @inclide make-col-ready();
     @include make-col(6);
   }
   margin: auto;
+  #form-call-label {
+    @include make-col-ready();
+    @include make-col(5);
+    @include media-breakpoint-down(lg){
+      @include make-col(12);
+    }
+  }
+  #form-call-input {
+    @include make-col-ready();
+    @include make-col(7);
+    @include media-breakpoint-down(lg){
+      @include make-col(12);
+    }
+  }
 }
 
 .modal-content, .modal-body, .modal-header, .modal-dialog{

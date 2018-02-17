@@ -12,14 +12,16 @@
           .form-group
             = label_tag '', 'Номер телефона', class: 'lable-control'
             .input-group
-              %span.input-group-addon
-                %i.fa.fa-phone{style: 'aria-hidden="true"'}
+              .input-group-prepend
+                %span.input-group-text
+                  %i.fa.fa-phone{style: 'aria-hidden="true"'}
               = telephone_field_tag :phone, nil, data:{ mask: '+7 (999) 999 99 99' },  class: 'form-control', required: true
           .form-group
             = label_tag '', 'Пароль', class: 'lable-control'
             .input-group
-              %span.input-group-addon
-                %i.fa.fa-key{style: 'aria-hidden="true"'}
+              .input-group-prepend
+                %span.input-group-text
+                  %i.fa.fa-key{style: 'aria-hidden="true"'}
               = password_field_tag :password, '', class: 'form-control', required: true
           .form-group
             .form-check
@@ -55,8 +57,9 @@
                   .form-group
                     = label_tag '', 'Отправим новый пароль вам на телефон', class: 'lable-control'
                     .input-group
-                      %span.input-group-addon
-                        %i.fa.fa-phone{style: 'aria-hidden="true"'}
-                      = telephone_field_tag :phone, nil, data:{ mask: '+7 (999) 999 99 99' },  class: 'form-control', required: true
+                      .input-group-prepend
+                        %span.input-group-text
+                          %i.fa.fa-phone{style: 'aria-hidden="true"'}
+                      = telephone_field_tag :phone, nil, data:{ mask: '+7 (999) 999 99 99' },  class: 'form-control', required: true, id: 'recover_phone'
                   .form-group.col-8.mx-auto
                     = submit_tag 'Отправить', class: 'btn btn-info btn-block'

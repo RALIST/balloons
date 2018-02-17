@@ -12,14 +12,16 @@
           .form-group
             = f.label 'Ваше имя', class: 'lable-control'
             .input-group
-              %span.input-group-addon
-                %i.fa.fa-user{style: 'aria-hidden="true"'}
+              %span.input-group-prepend
+                %span.input-group-text
+                  %i.fa.fa-user{style: 'aria-hidden="true"'}
               = f.text_field :password, class: 'form-control',  required: true
           .form-group
             = f.label "Номер телефона", class: 'lable-control'
             .input-group
-              %span.input-group-addon
-                %i.fa.fa-phone{style: 'aria-hidden="true"'}
+              %span.input-group-prepend
+                %span.input-group-text
+                  %i.fa.fa-phone{style: 'aria-hidden="true"'}
               = f.telephone_field :phone, data:{ mask: '+7 (999) 999 99 99' },  class: 'form-control', required: true
           .form-group.col-8.mx-auto
             = f.submit 'Зарегистрироваться', class: 'btn btn-info btn-block'

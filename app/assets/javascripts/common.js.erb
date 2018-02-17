@@ -44,7 +44,7 @@ $(document).on('click','#resp-menu  .dropdown li', function(){
 });
 
 
-$(document).on('ready, turbolinks:load', function(){
+$(document).on('ready turbolinks:load', function(){
 
   $('input[name="search"]').on('keyup', function(event){
     var search = $(this).val();
@@ -61,10 +61,12 @@ $(document).on('ready, turbolinks:load', function(){
     $('.modal div').show();
   });
 
-$(document).on('turbolinks:load', function(){
+$(document).ready(function(){
+  console.log('docuemnt ready')
   $('[data-mask]').each(function(index, value){
     element = $(value)
     element.mask($(value).data('mask'), {placeholder: '-'})
+    console.log('Data mask found')
   });
 
   $('.clockpicker').clockpicker(
@@ -73,6 +75,21 @@ $(document).on('turbolinks:load', function(){
       donetext: 'Готово!'}
     );
 
+})
+
+$(document).on('turbolinks:load',function(){
+  console.log('docuemnt ready')
+  $('[data-mask]').each(function(index, value){
+    element = $(value)
+    element.mask($(value).data('mask'), {placeholder: '-'})
+    console.log('Data mask found')
+  });
+
+  $('.clockpicker').clockpicker(
+    {'default': 'now',
+      autoclose: true,
+      donetext: 'Готово!'}
+    );
 })
 
 
@@ -105,7 +122,7 @@ $(document).on('mouseenter touchstart', '[data-product-id], [data-item-id]' , fu
   });
 });
 
-$(document).on('ready, turbolinks:load', function(){
+$(document).on('turbolinks:load', function(){
   $('.slider').slick({
     slidesToShow: 4,
     slidesToScroll: 1,

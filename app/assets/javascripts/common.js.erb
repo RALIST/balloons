@@ -14,7 +14,7 @@ $(document).on('click', '#icon-wrapper', function(){
   FontAwesome.dom.i2svg();
 });
 
-$(document).on('turbolinks:load', function(){
+$(document).on('ready, turbolinks:load', function(){
   if ($('#resp-fixed').length){
     var top = $('#resp-fixed').offset().top;
     $(window).scroll(function(){
@@ -44,7 +44,7 @@ $(document).on('click','#resp-menu  .dropdown li', function(){
 });
 
 
-$(document).on('ready turbolinks:load', function(){
+$(document).on('ready, turbolinks:load', function(){
 
   $('input[name="search"]').on('keyup', function(event){
     var search = $(this).val();
@@ -62,11 +62,9 @@ $(document).on('ready turbolinks:load', function(){
   });
 
 $(document).ready(function(){
-  console.log('docuemnt ready')
   $('[data-mask]').each(function(index, value){
     element = $(value)
     element.mask($(value).data('mask'), {placeholder: '-'})
-    console.log('Data mask found')
   });
 
   $('.clockpicker').clockpicker(
@@ -77,12 +75,10 @@ $(document).ready(function(){
 
 })
 
-$(document).on('turbolinks:load',function(){
-  console.log('docuemnt ready')
+$(document).on('ready, turbolinks:load',function(){
   $('[data-mask]').each(function(index, value){
     element = $(value)
     element.mask($(value).data('mask'), {placeholder: '-'})
-    console.log('Data mask found')
   });
 
   $('.clockpicker').clockpicker(
@@ -122,7 +118,7 @@ $(document).on('mouseenter touchstart', '[data-product-id], [data-item-id]' , fu
   });
 });
 
-$(document).on('turbolinks:load', function(){
+$(document).on('ready, turbolinks:load', function(){
   $('.slider').slick({
     slidesToShow: 4,
     slidesToScroll: 1,

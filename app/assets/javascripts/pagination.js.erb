@@ -1,13 +1,11 @@
-  $(document).on('turbolinks:load', function() {
+  $(document).on('ready, turbolinks:load', function() {
     if ($('.pagination').length) {
-      console.log('Pagination found')
       $(window).on('scroll', function() {
         var url = $('.pagination .next_page').attr('href');
-        console.log(url)
         if($('#seo-text').length){
           var textTop = $('#seo-text').offset().top;
           if (url && $(window).scrollTop() > textTop - 1000) {
-            $('.pagination').html('<i class="fas fa-spinner fa-pulse fa-7x fa-fw text-info"></i>');
+            $('.pagination').html('<div class="text-center h3 w-100">Загружаю ещё композиции...</div');
             return $.getScript(url);
           };
         } else {

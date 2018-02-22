@@ -52,7 +52,12 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   # config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   Paperclip.options[:command_path] = 'C:/Program Files/ImageMagick-7.0.4-Q16'
-  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+    config.action_mailer.default_url_options = {
+    :host => 'localhost:3000',
+    :only_path => false
+  }
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.asset_host = 'http://localhost:3000'
   config.action_mailer.default_options = { from: 'danilov@ralist.ru' }
   config.action_mailer.perform_deliveries = true
   # OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE

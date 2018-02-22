@@ -1,11 +1,13 @@
-<% if Rails.env.production? %>
+
   <script type="text/javascript" src="//vk.com/js/api/openapi.js?152"></script>
 
   <!-- VK Widget -->
   <div id="vk_community_messages"></div>
   <script type="text/javascript">
-  VK.Widgets.CommunityMessages("vk_community_messages", 55641465, {tooltipButtonText: "Добро пожаловать к Шариковой фее! "});
+    var widget = VK.Widgets.CommunityMessages("vk_community_messages", 55641465, {tooltipButtonText: "Нужна помощь?",
+      widgetPosition: 'right' });
+    widget.stopTitleAnimation();
   </script>
-<% end %>
+
 
 

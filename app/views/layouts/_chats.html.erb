@@ -1,9 +1,10 @@
 <% if Rails.env.production? %>
-  <script data-skip-moving="true">
-          (function(w,d,u,b){
-                  s=d.createElement('script');r=(Date.now()/1000|0);s.async=1;s.src=u+'?'+r;
-                  h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
-          })(window,document,'https://cdn.bitrix24.ru/b5149937/crm/site_button/loader_1_tz6wc8.js');
+  <script type="text/javascript" src="//vk.com/js/api/openapi.js?152"></script>
+
+  <!-- VK Widget -->
+  <div id="vk_community_messages"></div>
+  <script type="text/javascript">
+  VK.Widgets.CommunityMessages("vk_community_messages", 55641465, {tooltipButtonText: "Добро пожаловать к Шариковой фее! "});
   </script>
 <% end %>
 

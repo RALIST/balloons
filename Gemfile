@@ -14,18 +14,12 @@ gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
   gem 'bullet'
-  gem 'byebug', platform: :mri
   gem 'dotenv-rails'
   gem 'image_optim_pack'
   gem 'web-console'
 end
 
-source 'http://insecure.rails-assets.org' do
-  gem 'rails-assets-tether', '>= 1.3.3'
-end
 gem 'bootstrap', '~> 4.0.0'
-gem 'figaro'
-gem 'fog-aws'
 gem 'font-awesome-sass'
 gem 'font_assets'
 gem 'friendly_id', '~> 5.1.0'
@@ -34,7 +28,6 @@ gem 'haml-rails'
 gem 'image_optim'
 gem 'jquery-slick-rails'
 gem 'jquery-ui-rails'
-gem 'letsencrypt_plugin'
 gem 'loadcss-rails', '~> 2.0.1'
 gem 'mainsms_api'
 gem 'meta-tags'

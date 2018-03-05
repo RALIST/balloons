@@ -2,8 +2,8 @@ class Delivery::DeliveryController < ApplicationController
   layout 'delivery'
   include MetaHelper
   before_action :current_cart, :new_call, :tags, :receivers
-  before_action :set_meta_og
   before_action :set_location
+  before_action :set_meta_og
 
 
 

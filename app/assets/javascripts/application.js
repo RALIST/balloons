@@ -14,7 +14,6 @@
 //= require jquery3
 //= require popper
 //= require jquery_ujs
-//= require tether
 //= require bootstrap
 //= require jquery.maskedinput
 //= require clockpicker

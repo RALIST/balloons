@@ -2,7 +2,6 @@ require 'ShopSubdomain'
 require 'NoneSubdomain'
 
 Rails.application.routes.draw do
-  mount LetsencryptPlugin::Engine, at: '/' if Rails.env.production?
 
   constraints ShopSubdomain do
     if ENV['CANONICAL_HOST']

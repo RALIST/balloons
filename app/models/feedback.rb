@@ -9,7 +9,7 @@ class Feedback < ApplicationRecord
 
   def send_code_to_user
     new_code = rand(100_000..999_999)
-    text =  'Ваш промокод на скидку 5%: ' + new_code.to_s + ' Шариковая фея'
+    text =  'Ваш промокод на скидку 5%: ' + new_code.to_s
     phone = self.phone.tr('()+ ', '')
     message = MainsmsApi::Message.new(message: text,
                                       recipients: [phone])

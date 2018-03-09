@@ -1,5 +1,3 @@
-
-
 .composition {
   @include make-row();
   @include media-breakpoint-up(lg){
@@ -166,4 +164,7 @@
       width: 100%;
     }
   }
+  @include make-row();
+  @extend .text-capitalize;
+  @extend .justify-content-center;
 }

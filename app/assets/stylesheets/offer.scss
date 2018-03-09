@@ -1,17 +1,7 @@
-.offer {
-  @include media-breakpoint-up(lg){
-    @include make-col(7);
-    margin-top: 180px;
-  }
-  @include media-breakpoint-down(md){
-    @include make-col(12);
-  }
-
-}
-
 #main-offer {
   background: image-url("offer.jpg") no-repeat top center scroll;
   background-size: cover;
+  @extend .py-5;
   @include media-breakpoint-down(md){
     .mt-5 {
       margin-top: 0 !important;
@@ -25,91 +15,17 @@
 
 #grad {
   background: rgba(255,255,255,0.55);
+  @extend .my-5;
+  @extend .text-center;
+  @extend .text-dark;
 }
 
-#offer {
-  height: 80vh;
-  min-height: 700px;
-  background: image-url("offer.png") no-repeat right center scroll;
-  background-size: cover;
-  h1{
-    color: #ffffff;
-    .display-1 {
-      font-family: $font-family-sans-serif;
-      @include text-hide;
-      @include media-breakpoint-down(lg){
-        font-size: 1.2em;
-      }
-    }
-    .small{
-      font-size: 45%;
-    }
-    @include media-breakpoint-down(lg){
-      font-size: 2em;
-      text-align: center;
-      padding-top: 1rem;
-      padding-bottom: 1rem;
-      margin-top: 1rem;
-    }
-  }
-  @include media-breakpoint-down(lg){
-
-  }
-  .hat {
-    position: absolute;
-    top: -60px;
-    width: 60px;
-    height: auto;
-    @include media-breakpoint-down(lg){
-      display: none;
-    }
-  }
-
-
-}
-
-.offer-text {
-  @include media-breakpoint-down(lg){
-
-  }
-}
-
-.offer-details {
-  @include media-breakpoint-up(lg){
-    @include make-col(7);
-  }
-  @include media-breakpoint-down(lg){
+#offer-icon{
+  @include make-col-ready();
+  @include make-col(4);
+  @extend .my-4;
+  @include media-breakpoint-down(md){
     @include make-col(12);
-  }
-
-  .d-flex {
-    // @include media-breakpoint-up(lg){
-    //   @include make-col(4);
-    // }
-    @include media-breakpoint-down(lg){
-      @include make-col(12);
-    }
-    @include media-breakpoint-down(lg){
-      display: block;
-      padding-left: 50%;
-    }
-  }
-  .lead {
-    line-height: 1rem;
-  }
-}
-
-.detail{
-  font-size: 0.9rem;
-}
-
-.text-secondary {
-  color: $brand-secondary;
-}
-
-#button {
-  @include media-breakpoint-down(lg){
-    text-align: right;
   }
 }
 

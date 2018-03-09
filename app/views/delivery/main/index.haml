@@ -1,42 +1,39 @@
-.container-fluid#main-offer.py-5
-  .row.my-5.text-center.text-dark#grad
+.container-fluid#main-offer
+  .row#grad
     %h1.text-dark.my-5.w-100.font-weight-bold
       Доставка воздушных шаров и оформление праздников
       %br
       в
       = t "cities.#{@city}.where"
-    .col-sm-12.col-xs-12.my-4.col-md-4
+    #offer-icon
       %i.fas.fa-thumbs-up.fa-5x.my-1
       .h3.text-dark
         Гарантируем минимум 3 дня полета
         .small
           Бесплатно заменим брак в день обращения!
-    .col-sm-12.col-xs-12.my-4.col-md-4
+    #offer-icon
       %i.fas.fa-car.fa-5x.my-1
       .h3.text-dark
         Круглосуточная доставка
         .small
           Доставим ваш заказ точно в срок!
-    .col-sm-12.col-xs-12.my-4.col-md-4
+    #offer-icon
       %i.fas.fa-birthday-cake.fa-5x.my-1
       .h3.text-dark
         Индивидуальный дизайн
         .small
           Подберем уникальное оформление под ваш праздник!
-
-  .mt-5.mb-2
+  .row.mt-5.mb-2
     = button_tag 'Оставить заявку', class: 'btn btn-lg btn-block btn-secondary col-lg-6 m-auto', data:{ toggle: 'modal', target: '#call-modal'}
   .lead.text-center.text-white
     или посмотрите готовые композиции
-    %br
-    %i.fas.fa-angle-double-down.fa-2x
+    .fa-2x
+      %i.fas.fa-angle-double-down.text-secondary
 
-.container.text-center.mt-5
+.container.text-center.my-5
   .h3.font-weight-bold.mb-5
     Посмотрите готовые оформления на ваш праздник!
-    .small.text-muted
-      Выберите раздел:
-  .row.text-capitalize.justify-content-center#main-tags
+  #main-tags
     - @menu_tags.each do |tag|
       = link_to tag_path(tag), class: 'btn btn-outline-secondary btn-lg mb-3 mx-2' do
         = tag.name
@@ -47,9 +44,9 @@
         (#{Composition.availible.with_receivers(r.title).count})
 
 
-.my-5.py-3.bg-info
-  .container.pb-5
-    .h1.font-weight-bold.text-center.my-3.text-white
+.bg-info
+  .container.py-4
+    .h1.font-weight-bold.text-center.text-white.mb-4
       Популярные композиции
     .row.justify-content-around.compositions
       = render partial: 'thumb_composition', collection: @compositions, as: :c
@@ -59,8 +56,8 @@
       .col-12.col-sm-12#help.text-center
         = link_to 'Все наши оформления', compositions_path, class: 'btn btn-success btn-lg btn-block col-lg-6 m-auto'
 
-.container.my-5.py-3
-  .h1.text-center.font-weight-bold.mb-5
+.container.py-4
+  .h1.text-center.font-weight-bold.mb-4
     Отзывы наших клиентов
   .row.mt-3.justify-content-between
     - @feeds.last(3).each do |feed|

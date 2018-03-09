@@ -5,7 +5,7 @@ class Delivery::MainController < Delivery::DeliveryController
   def index
     @compositions = Composition.availible.with_tag('день рождения').order(:price).offset(5).limit(3)
     @composition  = Composition.find(params[:id]) if params[:id]
-    @feeds = Feedback.all
+    @feeds = Feedback.all.last(6)
     respond_to do |format|
       format.html
       format.js

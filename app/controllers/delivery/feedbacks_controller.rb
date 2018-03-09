@@ -2,7 +2,7 @@ class Delivery::FeedbacksController < Delivery::DeliveryController
   before_action :set_feedback, only: %i[show edit update destroy]
 
   def index
-    @feedbacks = Feedback.all.paginate(page: params[:page], per_page: 3)
+    @feedbacks = Feedback.all
     @feedback = Feedback.new
     @feed = true
   end
@@ -13,8 +13,7 @@ class Delivery::FeedbacksController < Delivery::DeliveryController
   end
 
   def create
-    @feedback = Feedback.new(feedback_params)
-
+    @feedback = Feedback.create(feedback_params)
     respond_to do |format|
       if @feedback.save
         @feedback.send_code_to_user

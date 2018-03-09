@@ -1,5 +1,5 @@
 .footer {
-  padding-top: 2rem;
+  padding-top: 1rem;
   padding-bottom: 2rem;
   .nav {
     @include make-col-ready();
@@ -19,6 +19,7 @@
 }
 
 .footer-contacts {
+
   @include media-breakpoint-up(lg){
     @include make-col-ready();
     @include make-col(10);
@@ -28,36 +29,42 @@
     @include make-col-ready();
     @include make-col(12);
   }
+
   .social {
+    @include make-col-ready();
+    @include make-col(12);
     @include media-breakpoint-up(md){
-      @include make-col(4);
+      @include make-col(12);
     }
   }
+  @include make-row();
 }
 
 #footer-links{
   @include make-col-ready();
-  @include make-col(6);
+  @include make-col(4);
   @include media-breakpoint-down(lg){
     @include make-col-ready();
     @include make-col(6);
-    margin-top: 2rem;
     text-align: center;
-    margin-bottom: 2 rem;
+  }
+  @include media-breakpoint-down(md){
+    text-align: left;
+    li {
+      padding-bottom: 1rem;
+    }
   }
 }
 
 #footer-contacts{
   @include make-col-ready();
   @include make-col(4);
-  @include media-breakpoint-down(lg){
+  @include media-breakpoint-down(md){
     @include make-col-ready();
     @include make-col(12);
-    margin-top: 2rem;
-    text-align: center;
-    margin: 2rem 0;
-    .small {
-      font-size: 1rem;
+    text-align: center !important;
+    .lead.strong {
+      font-size: 2rem;
     }
   }
 }

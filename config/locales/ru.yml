@@ -11,6 +11,10 @@ ru:
       phones:
         mobile: '+7 950 171-81-09'
         direct: '234-084'
+        tel_short: '234-084'
+        tel_long: '+7 (3412) 234-084'
+        tel_tag: '+73412234084'
+        tel_tag_mobile: '+79501718109'
       links:
         vk: 'https://vk.com/bigairballoon_izh'
         ins: 'https://www.instagram.com/bigairballoon_izh/'

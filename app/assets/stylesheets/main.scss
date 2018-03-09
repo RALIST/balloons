@@ -159,3 +159,11 @@
     top: 0;
   }
 }
+
+#main-tags {
+  .btn {
+    @include media-breakpoint-down(md){
+      width: 100%;
+    }
+  }
+}

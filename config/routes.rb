@@ -52,6 +52,7 @@ Rails.application.routes.draw do
     get '/update_price/:id', to: 'compositions#update_price', as: :update_price
     get '/login', to: 'sessions#new', as: :login
     get '/compositions/:id/remove_item', to: 'compositions#remove_item', as: :remove_item
+    get 'download_price', to: 'main#download_price', as: :download
   end
 
   constraints NoneSubdomain do

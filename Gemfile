@@ -20,7 +20,6 @@ group :development, :test do
 end
 
 gem 'bootstrap', '~> 4.0.0'
-gem 'font-awesome-sass'
 gem 'font_assets'
 gem 'friendly_id', '~> 5.1.0'
 gem 'gretel'
@@ -38,8 +37,6 @@ gem 'pg', '~> 0.21'
 gem 'popper_js'
 gem 'premailer-rails'
 gem 'rack-canonical-host'
-gem 'roo'
-gem 'roo-xls'
 gem 'rubocop', '~> 0.52.1', require: false
 gem 'russian'
 gem 'sitemap_generator'
@@ -49,6 +46,9 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'unicode'
 gem 'will_paginate'
 gem 'geocoder'
+gem 'axlsx'
+gem 'axlsx_rails'
+gem 'rubyzip', '~> 0.9.9'
 
 group :production do
   gem 'aws-sdk', '~> 1'

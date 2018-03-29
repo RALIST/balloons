@@ -1,0 +1,15 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Price") do |sheet|
+  sheet.add_row ['ID', 'Image_url', 'Section', 'InStock', 'Name', 'Price', 'Desc', 'URL']
+  @compositions.each do |m|
+    sheet.add_row [
+                  m.id, "https:#{m.img}",
+                  'Готовые наборы',
+                  1,
+                  "Композиция №#{m.id}",
+                  m.comp_price, "Состав композиции:" + " " +
+                  m.products.uniq.map{|p| p.complex_name + " " + m.products.where(id: p.id).count.to_s + ' шт.'}.join(', '),
+                  composition_url(m, city: nil)
+                  ]
+  end
+end

@@ -51,12 +51,9 @@ gem 'axlsx_rails'
 gem 'rubyzip', '~> 0.9.9'
 
 group :production do
-  gem 'aws-sdk', '~> 1'
-  gem 'aws-sdk-resources', '~> 2'
-  gem 'aws-sdk-v1'
+  gem 'aws-sdk'
   gem 'heroku-deflater'
   gem 'image_optim_bin'
   gem 'rack-cors', require: 'rack/cors'
   gem 'rails_12factor'
-  gem 'aws-sdk-s3'
 end

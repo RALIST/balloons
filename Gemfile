@@ -58,4 +58,5 @@ group :production do
   gem 'image_optim_bin'
   gem 'rack-cors', require: 'rack/cors'
   gem 'rails_12factor'
+  gem 'aws-sdk-s3'
 end

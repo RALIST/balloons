@@ -51,7 +51,7 @@
   span {
     border-bottom: 1px dashed black;
   }
-
+  @extend .item;
 }
 
 .product-quantity {

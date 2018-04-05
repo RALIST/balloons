@@ -82,5 +82,5 @@
   .h4.text-center.strong.mb-3.text-info
     Похожие композиции
   .row.justify-content-around.compositions#similar{itemprop: 'isSimilarTo'}
-    = render partial: 'delivery/main/thumb_composition', collection: composition.related.limit(3), as: :c
+    = render partial: 'delivery/main/small_composition', collection: composition.related.limit(4), as: :c
 

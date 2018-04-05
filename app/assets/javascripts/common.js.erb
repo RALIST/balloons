@@ -111,7 +111,7 @@ $(document).on('mouseenter touchstart', '[data-product-id], [data-item-id]' , fu
       container: 'body',
       animation: false,
       content: function(){
-        var name = $(this).closest('.item').data('content');
+        var name = $(this).closest('.item, .product-name').data('content');
         return name;
       }
     });
@@ -136,7 +136,7 @@ $(document).on('ready, turbolinks:load', function(){
 
 
 
-$(document).on('ready, turbolinks:load', function(){
+$(document).on('turbolinks:load', function(){
   $('#more').hide();
   var rows = $('.item');
   if (rows.length > 4){

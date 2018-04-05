@@ -45,7 +45,34 @@
   padding: 0;
 }
 
-
+.composition-small {
+  @extend .composition;
+  @include media-breakpoint-up(lg){
+    @include make-col-ready();
+    @include make-col(3);
+  }
+   @include media-breakpoint-only(md){
+    @include make-col-ready();
+    @include make-col(4);
+  }
+  @include media-breakpoint-down(sm){
+    @include make-col-ready();
+    @include make-col(6);
+    .card{
+      .card-image {
+        height: 150px !important;
+      }
+      #info {
+        display: none;
+      }
+    }
+  }
+  .card{
+    .card-image {
+      height: 200px;
+    }
+  }
+}
 
 #help {
   @include media-breakpoint-up(lg) {
@@ -168,3 +195,14 @@
   @extend .text-capitalize;
   @extend .justify-content-center;
 }
+
+
+#tag {
+  // background: image-url('birthday.png') top center scroll;
+  background-size: 300px;
+  .container {
+    background: rgba(255,255,255,0.55);
+  }
+  border-bottom: 1px solid black;
+}
+

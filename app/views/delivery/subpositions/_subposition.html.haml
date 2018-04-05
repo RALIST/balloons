@@ -1,6 +1,6 @@
 .row.align-items-center.cart-subposition{id: "#{subposition.id}"}
   - product = subposition.product
-  .product-name.item{data: {product_id: "#{subposition.product.id}", content: "#{subposition.product.complex_name}"}}
+  .product-name{data: {product_id: "#{subposition.product.id}", content: "#{subposition.product.complex_name}"}}
     %span{style: 'cursor: pointer;'}
       = image_tag product.image(:small)
   .product-quantity

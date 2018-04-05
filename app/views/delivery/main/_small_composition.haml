@@ -6,11 +6,12 @@
       .line
 
     .card-block.p-2
-      .text-center#info
-        - if c.tags.any?
-          Воздушные шары на
-          %br
-          = c.tags.map{ |t| link_to t.name.capitalize, tag_path(t), class: 'text-info' }.join(', ').html_safe
+      .text-center
+        Композиция № #{c.id}
+        / - if c.tags.any?
+        /   Воздушные шары на
+        /   %br
+        / = c.tags.limit(3).map{ |t| link_to t.name.capitalize, tag_path(t), class: 'text-info' }.join(', ').html_safe
       - unless @cart.compositions.include?(c)
         .text-center.small.mt-2
           Цена как

@@ -71,6 +71,11 @@
         и еще более #{@popular.count} готовых композиций!
     .row
       = link_to 'Посмотреть все', compositions_path, class: 'btn btn-success btn-lg btn-block col-lg-6 m-auto'
+    .lead.mb-2.text-center.my-4
+      Другие праздники
+    .row.justify-content-between
+      - @menu_tags.each do |tag|
+        = link_to tag.name, tag_path(tag), class: 'btn btn-sm btn-outline-secondary'
 
 .container.py-4
   %h2.text-center.font-weight-bold.mb-4

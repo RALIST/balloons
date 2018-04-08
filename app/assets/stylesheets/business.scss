@@ -10,25 +10,14 @@
 
 
 
-.business-offer {
-  @include make-col-ready();
-  @include make-col(12);
-  margin-top: 2rem;
-  color: #ffffff;
-  background-color: transparentize($teal, 0.2);
-  padding: 0.5rem;
-  border-radius: 6px;
-  h1, p{
-    color: #ffffff;
-  }
-  hr {
-    border-top: 1px solid #ffffff;
-  }
-  .btn {
-    margin-bottom: 1rem;
-  }
+#business-offer {
+  background: image-url('business.jpg') no-repeat center;
+  background-size: cover;
 }
 
+#main-wrapper {
+  background: transparentize(black, 0.5)
+}
 
 .navbar-toggler > i {
   font-size: 2em;

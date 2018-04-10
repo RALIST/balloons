@@ -58,6 +58,17 @@
   }
 }
 
+#menu-fixed {
+  @extend #menu;
+  @extend .py-3;
+  @include gradient-x($start-color: $brand-secondary, $end-color: $brand-info, $start-percent: 0%, $end-percent: 100%);
+  li > a {
+    @extend .text-white;
+  }
+  .dropdown-item > a {
+    @extend .text-dark;
+  }
+}
 // <---------------------- responsive-menu ---------------------->
 
 

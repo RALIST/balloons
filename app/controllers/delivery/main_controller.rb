@@ -5,6 +5,7 @@ class Delivery::MainController < Delivery::DeliveryController
   def index
     @birthday = Composition.availible.with_tag('день рождения').order(:views).reverse_order
     @roddom = Composition.availible.with_tag('выписку из роддома').order(:views).reverse_order
+    @love = Composition.availible.with_tag('14 февраля').order(:views).reverse_order
     @popular= Composition.availible.order(:views).reverse_order
     @composition  = Composition.find(params[:id]) if params[:id]
     @feeds = Feedback.all.last(6)

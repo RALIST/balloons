@@ -44,7 +44,7 @@ class Order < ApplicationRecord
     new_order = 'Заказ №' + id.to_s + ' ' + Russian.strftime(order_date.in_time_zone,
                                                              ' %d.%m в %H:%M').to_s + '. Телефон:' + ' ' + self.user.phone
     message = MainsmsApi::Message.new(message: new_order,
-                                      recipients: ['79124532598'])
+                                      recipients: ['79501718109'])
     response = message.deliver
   end
 

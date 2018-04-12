@@ -4,7 +4,7 @@ ru:
   previous_label: 'Назад'
   page_gap: '...'
  cities:
-   izhevsk:
+  izhevsk:
       base: 'Ижевск'
       where: 'Ижевске'
       in: 'Ижевску'
@@ -20,26 +20,89 @@ ru:
         vk: 'https://vk.com/bigairballoon_izh'
         ins: 'https://www.instagram.com/bigairballoon_izh/'
         fb: 'https://www.facebook.com/bigairballoons/'
-   kazan:
-      base: 'Казань'
-      where: 'Казани'
-      in: 'Казани'
-      phones:
-        mobile: '234-084'
-        direct: '234-084'
-      links:
-        vk: 'https://vk.com/bigairballoon_izh'
-        ins: 'https://www.instagram.com/bigairballoon_izh/'
-        fb: 'https://www.facebook.com/bigairballoons/'
-   perm:
-      base: 'Пермь'
-      where: 'Перми'
-      in: 'Перми'
-      phones:
-        mobile: '234-084'
-        direct: '234-084'
-      links:
-        vk: 'https://vk.com/bigairballoon_izh'
-        ins: 'https://www.instagram.com/bigairballoon_izh/'
-        fb: 'https://www.facebook.com/bigairballoons/'
-
+  sarapul:
+    base: 'Сарапул'
+    where: 'Сарапуле'
+    in: 'Сарапулу'
+    to: 'Сарапула'
+    phones:
+      mobile: '+7 950 171-81-09'
+      direct: '234-084'
+      tel_short: '234-084'
+      tel_long: '+7 (3412) 234-084'
+      tel_tag: '+73412234084'
+      tel_tag_mobile: '+79501718109'
+    links:
+      vk: 'https://vk.com/bigairballoon_izh'
+      ins: 'https://www.instagram.com/bigairballoon_izh/'
+      fb: 'https://www.facebook.com/bigairballoons/'
+  glazov:
+    base: 'Глазов'
+    where: 'Глазове'
+    in: 'Глазову'
+    to: 'Ижевску'
+    phones:
+      mobile: '+7 950 171-81-09'
+      direct: '234-084'
+      tel_short: '234-084'
+      tel_long: '+7 (3412) 234-084'
+      tel_tag: '+73412234084'
+      tel_tag_mobile: '+79501718109'
+    links:
+      vk: 'https://vk.com/bigairballoon_izh'
+      ins: 'https://www.instagram.com/bigairballoon_izh/'
+      fb: 'https://www.facebook.com/bigairballoons/'
+  mozhga:
+    base: 'Можга'
+    where: 'Можге'
+    in: 'Можгу'
+    to: 'Можги'
+    phones:
+      mobile: '+7 950 171-81-09'
+      direct: '234-084'
+      tel_short: '234-084'
+      tel_long: '+7 (3412) 234-084'
+      tel_tag: '+73412234084'
+      tel_tag_mobile: '+79501718109'
+    links:
+      vk: 'https://vk.com/bigairballoon_izh'
+      ins: 'https://www.instagram.com/bigairballoon_izh/'
+      fb: 'https://www.facebook.com/bigairballoons/'
+  votkinsk:
+    base: 'Воткинск'
+    where: 'Воткинске'
+    in: 'Ижевске'
+    to: 'Воткинска'
+    phones:
+      mobile: '+7 950 171-81-09'
+      direct: '234-084'
+      tel_short: '234-084'
+      tel_long: '+7 (3412) 234-084'
+      tel_tag: '+73412234084'
+      tel_tag_mobile: '+79501718109'
+    links:
+      vk: 'https://vk.com/bigairballoon_izh'
+      ins: 'https://www.instagram.com/bigairballoon_izh/'
+      fb: 'https://www.facebook.com/bigairballoons/'
+  kazan:
+    base: 'Казань'
+    where: 'Казани'
+    in: 'Казани'
+    phones:
+      mobile: '234-084'
+      direct: '234-084'
+    links:
+      vk: 'https://vk.com/bigairballoon_izh'
+      ins: 'https://www.instagram.com/bigairballoon_izh/'
+      fb: 'https://www.facebook.com/bigairballoons/'
+  perm:
+    base: 'Пермь'
+    where: 'Перми'
+    in: 'Перми'
+    phones:
+      mobile: '234-084'
+      direct: '234-084'
+    links:
+      vk: 'https://vk.com/bigairballoon_izh'
+      ins: 'https://www.instagram.com/bigairballoon_izh/'
+      fb: 'https://www.facebook.com/bigairballoons/'

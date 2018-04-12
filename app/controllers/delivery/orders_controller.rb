@@ -46,6 +46,6 @@ class Delivery::OrdersController < Delivery::DeliveryController
   end
 
   def order_params
-    params.require(:order).permit(:name, :phone, :address, :desc, :total, :order_date, :order_time, :pay_method)
+    params.require(:order).permit(:name, :phone, :address, :desc, :total, :order_date, :order_time, :pay_method, :city)
   end
 end

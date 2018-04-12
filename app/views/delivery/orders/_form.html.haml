@@ -41,6 +41,9 @@
             .error
               = show_errors(@order, :order_date)
           .form-group
+            .form-group
+              = f.label :city, 'Ваш город'
+              = f.select :city, User::CITIES.collect{|c| [t("cities.#{c}.base"), c]},{selected: @city}, class: 'form-control'
             .row
               .address-field.col-6
                 =f.label 'Адрес доставки', class: 'lable-control'

@@ -12,6 +12,6 @@ class Delivery::CallsController < Delivery::DeliveryController
   private
 
   def call_params
-    params.require(:call).permit(:username, :userphone, :url, messangers: [])
+    params.require(:call).permit(:username, :userphone, :url, :city, messangers: [])
   end
 end

@@ -18,6 +18,7 @@
           .col-6
             Адрес доставки:
           .col-6
+            = t("cities.#{@order.city}.base") if @order.city
             = @order.address
         .row
           .col-6

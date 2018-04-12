@@ -37,6 +37,7 @@
             = f.check_box :messangers, {multiple: true}, 'Telegram', nil
             Telegram
         = f.hidden_field :url, value: request.original_url
+        = f.hidden_field :city, value: @city
       .form-group.text-center.my-4.w-100
         = submit_tag 'Отправить', class: 'btn btn-info col-6 text-uppercase', data:{disable_with: 'Отправляю...'}
       .col-12.text-center.small

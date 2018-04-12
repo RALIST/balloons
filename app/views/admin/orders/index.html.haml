@@ -14,6 +14,7 @@
       %th.text-center
         Дата заказа
       %th.text-center
+        Город
     - @orders.each do |order|
       %tr.text-center
         %td
@@ -28,7 +29,9 @@
         %td
           = Russian::strftime(order.created_at.in_time_zone, ' %d %B')
         %td
-          = link_to 'Подробнее', admin_order_path(order)
+          = t("cities.#{order.city}.base") if order.city
+          .small
+            = link_to 'Подробнее', admin_order_path(order)
           / = link_to 'Удалить', admin_order_path(order), method: :delete
   .border-bot
   .text-right.lead

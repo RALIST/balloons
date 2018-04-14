@@ -49,4 +49,7 @@ class Delivery::MainController < Delivery::DeliveryController
   def garant
 
   end
+
+  def faq
+  end
 end

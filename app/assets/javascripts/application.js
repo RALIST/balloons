@@ -38,18 +38,16 @@ setTimeout(function(){
   }
 }, 70000)
 $(document).on('turbolinks:load',  function(){
-  FontAwesome.dom.i2svg();
   var top = $('#menu').offset().top;
-  console.log('top')
   $(window).scroll(function(){
     var currentScroll = $(window).scrollTop();
     if (currentScroll >= top){
       $('#menu-fixed').removeClass('d-none');
-      console.log('Scrolled')
     }else{
       $('#menu-fixed').addClass('d-none');
     }
   });
+  FontAwesome.dom.i2svg();
 });
 $(document).on('turbolinks:load', '#map', function(){
     yandex_map();
@@ -58,12 +56,10 @@ $(document).on('turbolinks:load', '#map', function(){
 
 $(document).on('ready', function(){
   var top = $('#menu').offset().top;
-  console.log('top')
   $(window).scroll(function(){
     var currentScroll = $(window).scrollTop();
     if (currentScroll >= top){
       $('#menu-fixed').removeClass('d-none');
-      console.log('Scrolled')
     }else{
       $('#menu-fixed').addClass('d-none');
     }

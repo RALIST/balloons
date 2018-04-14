@@ -120,27 +120,24 @@
 }
 
 .bread {
-  background: image-url('bg-tags.png') no-repeat center top;
-  background-size: cover;
+  margin-bottom: 3em;
   .breadcrumb {
+    @include make-col-ready();
+    @include make-col(9);
+    @include make-col-offset(3);
     background: transparent;
     margin-bottom: 0;
-    padding-top: 2em;
     padding-bottom: 0;
     font-size: 80%;
-    -webkit-box-align: center !important;
-    -ms-flex-align: center !important;
-    align-items: center !important;
-    -webkit-box-pack: center !important;
-    -ms-flex-pack: center !important;
-    justify-content: center !important;
-  }
-  .current{
-    padding-bottom: 2em;
-    .h2{
-      font-family: $font-family-sans-serif !important;
+    padding-left: 30px;
+    padding-top: 0;
+    .active {
+      @extend .text-muted;
     }
-
+  }
+  @include media-breakpoint-down(md){
+    margin-bottom: 0;
+    padding: 1rem;
   }
 }
 

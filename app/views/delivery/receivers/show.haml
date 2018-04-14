@@ -1,9 +1,10 @@
 - breadcrumb @person
 .container.my-5
   %h1.h2.text-center.mb-4
-    Оформление воздушными шарами #{@person.title.capitalize}
+    Воздушные шары #{@person.title} с доставкой в #{t "cities.#{@city}.where"}
     .small.text-muted.mt-1
-      Найдено #{@compositions.count} композиций
+      Найдено #{@compositions.count} готовых композиций
+  %hr
   .row.justify-content-around.compositions
     = render partial: 'delivery/main/thumb_composition', collection: @compositions, as: :c
   .row.text-center

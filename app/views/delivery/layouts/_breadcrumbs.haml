@@ -1,11 +1,12 @@
 - unless controller.controller_name == 'compositions' && action_name == 'show'
-  .container-fluid.bread.text-center.align-items-center
-    = breadcrumbs separator: " / ", style: :bootstrap, semantic: true, fragment_tag: 'breadcrumb'
-    - breadcrumbs.tap do |links|
-      - links.each do |link|
-        - if link.current?
-          .current
-            .h2.text-uppercase= link.text
+  .container-fluid.bread
+    .row
+      = breadcrumbs separator: '/', style: :bootstrap, semantic: true, fragment_tag: 'breadcrumb'
+      / - breadcrumbs.tap do |links|
+      /   - links.each do |link|
+      /     - if link.current?
+      /       .current
+      /         .lead.text-uppercase= link.text
 - else
   .container-fluid.bread-comp
     .container

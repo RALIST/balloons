@@ -39,4 +39,5 @@ SitemapGenerator::Sitemap.create do
   add feedbacks_path
   add 'graduations/sadik'
   add 'graduations/shkola'
+  add faq_path
 end

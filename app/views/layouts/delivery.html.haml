@@ -26,7 +26,7 @@
         - unless @disable_header
           = render 'delivery/layouts/header'
       = render 'delivery/layouts/flash'
-      = render 'delivery/layouts/breadcrumbs'
+      = render 'delivery/layouts/breadcrumbs' unless @disable_bread
       = render 'delivery/layouts/resp_menu'
       = yield
       = render 'delivery/layouts/call'

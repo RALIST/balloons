@@ -3,6 +3,7 @@ class Delivery::MainController < Delivery::DeliveryController
   before_action :set_meta_tags_for_main
 
   def index
+    @disable_bread = true
     @birthday = Composition.availible.with_tag('день рождения').order(:views).reverse_order
     @roddom = Composition.availible.with_tag('выписку из роддома').order(:views).reverse_order
     @love = Composition.availible.with_tag('14 февраля').order(:views).reverse_order

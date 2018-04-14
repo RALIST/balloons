@@ -50,6 +50,9 @@
     font-size: 0.9rem;
     font-weight: bold;
   }
+  .dropdown-toggle{
+    @extend .text-uppercase;
+  }
 }
 
 #cart {

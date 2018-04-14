@@ -4,19 +4,19 @@
       .row
         .menu-options
           %ul.list-unstyled.nav.justify-content-between
-            %li.text-uppercase.dropdown{role: "presentation"}
+            %li.dropdown{role: "presentation"}
               = link_to '', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
                 Повод
               %ul.dropdown-menu{style: 'aria-labelledby="dropdownMenuButton"'}
                 - @menu_tags.each do |tag|
-                  %li.text-capitalize.dropdown-item= link_to tag.name, tag_path(tag)
-            %li.text-uppercase.dropdown{role: "presentation"}
+                  %li.dropdown-item= link_to tag.name.capitalize, tag_path(tag)
+            %li.dropdown{role: "presentation"}
               = link_to '', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
                 Кому
               %ul.dropdown-menu
                 - @menu_receivers.each do |p|
                   %li.text-capitalize.dropdown-item
-                    = link_to p.title, receiver_path(p)
+                    = link_to p.title.capitalize, receiver_path(p)
             %li.text-uppercase.dropdown{role: "presentation"}
               = link_to '', class: 'dropdown-toggle', data:{toggle: 'dropdown'} do
                 По цене

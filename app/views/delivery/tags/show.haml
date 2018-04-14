@@ -3,9 +3,8 @@
   %h1.h2.text-center.mb-4.font-weight-bold
     Воздушные шары на #{@tag.name}
     %br
-    с доставкой
-    в
-    = t "cities.#{@city}.where"
+    с доставкой по
+    = t "cities.#{@city}.in"
     .small.text-muted.mt-1
       Найдено #{@compositions.count} готовых композиций
   %hr

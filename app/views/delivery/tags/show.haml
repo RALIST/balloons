@@ -1,6 +1,6 @@
 - breadcrumb @tag
 .container.mb-5
-  %h1.h2.text-center.mb-4
+  %h1.h2.text-center.mb-4.font-weight-bold
     Воздушные шары на #{@tag.name}
     %br
     с доставкой
@@ -27,4 +27,6 @@
     = render 'text_dev'
   - when 'праздник'
     = render 'text_party'
+  - when 'выписку из роддома'
+    = render 'text_roddom'
 

@@ -51,6 +51,7 @@ gem 'axlsx_rails'
 gem 'rubyzip', '~> 0.9.9'
 
 group :production do
+  gem 'fog-aws'
   gem 'aws-sdk'
   gem 'heroku-deflater'
   gem 'image_optim_bin'

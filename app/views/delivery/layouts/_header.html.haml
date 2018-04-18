@@ -48,14 +48,14 @@
                     %li.nav-item
                       =link_to t("cities.#{@city}.links.vk"), target: :_blank, class: 'nav-link' do
                         %i.fab.fa-vk{"aria-hidden": "true"}
-              .col-10.text-center
+              .col-10.text-center.d-flex.justify-content-center.flex-column
                 .strong
                   .h3.mb-0
                     %small.text-info
                       %i.fa.fa-phone
                     = t "cities.#{@city}.phones.direct"
-                  = link_to 'Перезвоните мне!', '#', class: 'text-secondary text-uppercase', data:{ toggle: 'modal', target: '#call-modal'}
-                %hr.my-2
+                  .my-2
+                    = link_to 'Перезвоните мне!', '#', class: 'text-secondary text-uppercase', data:{ toggle: 'modal', target: '#call-modal'}
                 .small.text-center
                   WhatsApp | Viber | Telegram
                 = t "cities.#{@city}.phones.mobile"

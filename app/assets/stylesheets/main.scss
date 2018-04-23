@@ -140,6 +140,10 @@
   @include media-breakpoint-down(md){
     margin-bottom: 0;
     padding: 1rem !important;
+    .breadcrumb{
+      @include make-col(12);
+      margin-left: 0 !important;
+    }
   }
 }
 
@@ -205,3 +209,6 @@
   border-bottom: 1px solid black;
 }
 
+.gradient{
+  @include gradient-x($start-color: $brand-secondary, $end-color: $brand-info, $start-percent: 0%, $end-percent: 100%);
+}

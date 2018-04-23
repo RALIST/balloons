@@ -1,46 +1,51 @@
 - cache do
-  .container-fluid.bg-grey.footer
-    .row
-      .social.d-flex.justify-content-around.text-secondary.w-100
-        = link_to 'https://www.instagram.com/bigairballoon_izh/', target: :_blank do
+  .container-fluid.footer
+    .row.gradient
+      .social.d-flex.justify-content-around.text-white.w-100
+        = link_to 'https://www.instagram.com/bigairballoon_izh/', target: :_blank, class: 'text-white' do
           %i.fab.fa-instagram.fa-2x{"aria-hidden":  "true"}
-        = link_to 'https://www.facebook.com/bigairballoons/', target: :_blank do
+        = link_to 'https://www.facebook.com/bigairballoons/', target: :_blank, class: 'text-white' do
           %i.fab.fa-facebook.fa-2x{"aria-hidden": "true"}
-        = link_to 'https://vk.com/bigairballoon_izh', target: :_blank do
+        = link_to 'https://vk.com/bigairballoon_izh', target: :_blank, class: 'text-white' do
           %i.fab.fa-vk.fa-2x{"aria-hidden": "true"}
     %hr
     .container
       .row
-        .footer-logo.d-none.d-lg-block
-          #logo
-            = link_to root_path do
-              = image_tag 'logo-footer.png', class: 'img-fluid'
-        .footer-contacts.align-items-center.flex-row-reverse
-          #footer-contacts.lead.text-right
-            Позвоните нам!
-            .lead.strong
-              = link_to t("cities.#{@city}.phones.direct"), 'tel: %{phone}' % {phone: t("cities.#{@city}.phones.tel_tag")}
-            .small.mt-2
-              WhatsApp | Viber | Telegram
-            .mt-0
-              = link_to t("cities.#{@city}.phones.mobile"), 'tel: %{phone}' % {phone: t("cities.#{@city}.phones.tel_tag_mobile")}
-            %hr.my-4.d-lg-none.d-md-block
-          #footer-links
-            %ul.list-unstyled
-              %li
-                = link_to 'О нас', about_path
-              %li
-                = link_to 'Гарантии', garant_path
-              %li
-                = link_to 'Доставка и оплата', info_path
-          #footer-links
-            %ul.list-unstyled
-              %li
-                = link_to 'Цены', prices_path
-              %li
-                = link_to 'Контакты', contacts_path
-              %li
-                = link_to 'Партнерам', partners_path
+        .footer-logo
+          / #logo
+          /   = link_to root_path do
+          /     = image_tag 'logo-footer.png', class: 'img-fluid'
+          %script{type: "text/javascript", src:"//vk.com/js/api/openapi.js?153"}
+          #vk_groups
+            %script{type:"text/javascript"}
+              VK.Widgets.Group("vk_groups", {mode: 3, no_cover: 1, width: 'auto', wide: 2}, 55641465);
+        .footer-contacts.align-items-center
+          .row.flex-row-reverse
+            #footer-contacts.lead.text-right
+              Позвоните нам!
+              .lead.strong
+                = link_to t("cities.#{@city}.phones.direct"), 'tel: %{phone}' % {phone: t("cities.#{@city}.phones.tel_tag")}
+              .small.mt-2
+                WhatsApp | Viber | Telegram
+              .mt-0
+                = link_to t("cities.#{@city}.phones.mobile"), 'tel: %{phone}' % {phone: t("cities.#{@city}.phones.tel_tag_mobile")}
+              %hr.my-4.d-lg-none.d-md-block
+            #footer-links
+              %ul.list-unstyled
+                %li
+                  = link_to 'О нас', about_path
+                %li
+                  = link_to 'Гарантии', garant_path
+                %li
+                  = link_to 'Доставка и оплата', info_path
+            #footer-links
+              %ul.list-unstyled
+                %li
+                  = link_to 'Цены', prices_path
+                %li
+                  = link_to 'Контакты', contacts_path
+                %li
+                  = link_to 'Партнерам', partners_path
       %hr
       .row
         .col-12.text-center

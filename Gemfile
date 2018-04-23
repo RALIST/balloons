@@ -20,7 +20,6 @@ group :development, :test do
 end
 
 gem 'bootstrap', '~> 4.0.0'
-gem 'font_assets'
 gem 'friendly_id', '~> 5.1.0'
 gem 'gretel'
 gem 'haml-rails'

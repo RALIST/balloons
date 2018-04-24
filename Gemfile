@@ -48,6 +48,7 @@ gem 'geocoder'
 gem 'axlsx'
 gem 'axlsx_rails'
 gem 'rubyzip', '~> 0.9.9'
+gem 'font_assets'
 
 group :production do
   gem 'fog-aws'

@@ -155,42 +155,40 @@ class Product < ApplicationRecord
   end
 
   def set_price_with_helium
-    if price_with_helium.blank?
-      if type.name == 'латексные шары' && size.present?
-        case size.in_inch
-        when 12
-          self.price_with_helium = 50
-        when 14
-          if category.name == 'без рисунка'
-            self.price_with_helium = 60
-          else
-            price.price_with_helium = 80
-          end
-        when 16
-          self.price_with_helium = 80
-        when 18
-          self.price_with_helium = 120
-        when 24
-          self.price_with_helium = 400
-        when 36
-          self.price_with_helium = 900
+    if type.name == 'латексные шары' && size.present?
+      case size.in_inch
+      when 12
+        self.price_with_helium = 50
+      when 14
+        if category.name == 'без рисунка'
+          self.price_with_helium = 60
+        else
+          price.price_with_helium = 80
         end
-      else
-        if type.name == 'фольгированные шары' && size.present?
-          case size.in_inch
-          when 18
-            self.price_with_helium = 180
-          when 19
-            self.price_with_helium = 180
-          when 30
-            self.price_with_helium = 450
-          when 32
-            self.price_with_helium = 450
-          when 36
-            self.price_with_helium = 700
-          when 40
-            self.price_with_helium = 700
-          end
+      when 16
+        self.price_with_helium = 80
+      when 18
+        self.price_with_helium = 120
+      when 24
+        self.price_with_helium = 450
+      when 36
+        self.price_with_helium = 900
+      end
+    else
+      if type.name == 'фольгированные шары' && size.present?
+        case size.in_inch
+        when 18
+          self.price_with_helium = 200
+        when 19
+          self.price_with_helium = 200
+        when 30
+          self.price_with_helium = 450
+        when 32
+          self.price_with_helium = 450
+        when 36
+          self.price_with_helium = 700
+        when 40
+          self.price_with_helium = 700
         end
       end
     end

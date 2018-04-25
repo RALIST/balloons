@@ -28,7 +28,7 @@
   margin-bottom: 2rem;
 }
 
-.slider-company {
+.slider-company, .slider-comp {
   img{
     width: auto !important;
     height: 100px;
@@ -46,11 +46,6 @@
   .slick-prev:before, .slick-next:before {
     font-size: 30px;
     color: darken($brand-secondary, 10%);
-  }
-  @include media-breakpoint-down(lg){
-    .slick-next, .slick-prev{
-      display: none !important;
-    }
   }
 }
 

@@ -20,10 +20,73 @@ $(document).on('ready, turbolinks:load', function(){
     autoplaySpeed: 2000,
     dots: true,
     slidesToScroll: 1,
-    autoplaySpeed: 1000
+    autoplaySpeed: 1000,
+  })
+});
+
+$(document).on('turbolinks:load', function(){
+  $('.slider-comp').slick({
+    slidesToShow: 4,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    dots: true,
+    slidesToScroll: 1,
+    responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 4,
+      }
+    },
+    {
+      breakpoint: 800,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 500,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }]
   })
 })
 
+$(document).on('ready', function(){
+  $('.slider-comp').slick({
+    slidesToShow: 4,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    dots: true,
+    slidesToScroll: 1,
+    responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 4,
+      }
+    },
+    {
+      breakpoint: 800,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 500,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }]
+  })
+})
 
 $(document).on('ready, turbolinks:load', function () {
     $(document).on("scroll", onScroll);

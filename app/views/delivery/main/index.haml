@@ -38,7 +38,7 @@
       Воздушные шары на День рождения
       .small
         Шарики на День рождения наверняка создадут праздничную атмосферу!
-    .row.justify-content-around.compositions
+    .row.justify-content-around.compositions.slider-comp.text-center
       = render partial: 'small_composition', collection: @birthday.limit(8), as: :c
     .row.text-center
       %h2.h4.col-12.mt-3
@@ -51,7 +51,7 @@
       Воздушные шары на выписку из роддома
       .small
         Встречайте маму и малыша правильно!
-    .row.justify-content-around.compositions
+    .row.justify-content-around.compositions.slider-comp.text-center
       = render partial: 'small_composition', collection: @roddom.limit(8), as: :c
     .row.text-center
       %h2.h4.col-12.mt-3
@@ -64,7 +64,7 @@
       Воздушные шары для любимых
       .small
         Сделать предложение, оформить романтический ужин или просто признаться в любви!
-    .row.justify-content-around.compositions
+    .row.justify-content-around.compositions.slider-comp.text-center
       = render partial: 'small_composition', collection: @love.limit(8), as: :c
     .row.text-center
       %h2.h4.col-12.mt-3
@@ -77,7 +77,7 @@
       Чаще всего заказывают
       .small
         Самые популярные композиции!
-    .row.justify-content-around.compositions
+    .row.justify-content-around.compositions.slider-comp.text-center
       = render partial: 'small_composition', collection: @popular.limit(4), as: :c
     .row.text-center
       .h4.col-12.mt-3

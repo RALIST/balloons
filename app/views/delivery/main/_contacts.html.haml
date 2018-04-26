@@ -1,39 +1,41 @@
-.container-fluid{itemscope: true, itemtype: "http://schema.org/LocalBusiness" }
+.container{itemscope: true, itemtype: "http://schema.org/LocalBusiness" }
   .row#contacts
     %div{itemprop: "logo",  itemscope: true, itemtype: "https://schema.org/ImageObject"}
       = image_tag 'logo-round.png', itemprop: 'image url', style: "display: none", alt: 'Логотип bigairballoons.ru'
     = image_tag 'logo-round.png', itemprop: 'image url', style: "display: none", alt: 'Логотип bigairballoons.ru'
-    .col-12.p-0#map.d-none.d-lg-block
-      .map-block
-        = image_tag 'map-block.png', class: 'img-fluid'
-        #text-contacts
-          %h3.text-white{itemprop: 'name'}
+    .col-12.d-none.d-lg-block
+      .row
+        .col-6#text-contacts
+          %h2.text-center{itemprop: 'name'}
             Шариковая фея™
+            .small
+              Доставка воздушных шаров и оформление праздников
+          %hr
           %ul.list-unstyled
-            %li.text-white.d-flex.align-items-center.border-bot.py-2.justify-content-between{itemprop: 'telephone'}
+            %li{itemprop: 'telephone'}
               %i.fas.fa-phone-square.fa-2x
-              %span
+              .lead.d-inline
                 +7 (3412) 234-084
-            %li.text-white.d-flex.align-items-center.py-2.border-bot.justify-content-between{itemprop: 'address', itemscope: true, itemtype: 'http://schema.org/PostalAddress'}
+            %li{itemprop: 'address', itemscope: true, itemtype: 'http://schema.org/PostalAddress'}
               %meta{itemprop: 'addressCountry', content: 'RU'}
               %i.fas.fa-map-marker-alt.fa-2x
-              .row
-                .col-12.text-right{itemprop: 'addressRegion'}
-                  Удмуртская республика
-                .col-12.text-right{itemprop: 'addressLocality'}
-                  г. Ижевск
-                .col-12.text-right{itemprop: 'streetAddress'}
+              .d-inline
+                .lead{itemprop: 'addressRegion'}
+                  Удмуртская республика,
+                .lead{itemprop: 'addressLocality'}
+                  г. Ижевск,
+                .lead{itemprop: 'streetAddress'}
                   ул. Н.Островского, 25, офис 6
-            %li.text-white.d-flex.align-items-center.py-2.border-bot.justify-content-between
+            %li
               %i.far.fa-envelope.fa-2x
-              .row
-                .col-12{itemprop: 'email'}
-                  info@bigairballoons.ru
-            %li.text-white.d-flex.align-items-center.py-2.border-bot.justify-content-between
+              .lead.d-inline{itemprop: 'email'}
+                info@bigairballoons.ru
+            %li
               %i.fas.fa-clock.fa-2x
-              %time{itemprop: 'openingHours', datetime: 'Mo-Su, 08:00-20:00'}
+              .lead.d-inline{itemprop: 'openingHours', datetime: 'Mo-Su, 08:00-20:00'}
                 с 8:00 до 22:00, без выходных
-
+        .col-6.border
+          %script{type: "text/javascript", charset:"utf-8", async: true, src: "https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A14c90a9f5898798c7138c231992b812157614231ed60a0c7b45dee0553b4843e&amp;width=100%&amp;height=400&amp;lang=ru_RU&amp;scroll=true"}
     #text-contacts.p-3.d-lg-none
       %h3.text-white.text-center
         Шариковая фея™

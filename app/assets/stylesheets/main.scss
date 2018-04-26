@@ -172,12 +172,6 @@
   border-radius: 20px;
 }
 
-#contacts, #map {
-  min-height: 100vh;
-  #text-contacts{
-    top: 0;
-  }
-}
 
 #main-tags {
   .btn {
@@ -202,4 +196,14 @@
 
 .gradient{
   @include gradient-x($start-color: $brand-secondary, $end-color: $brand-info, $start-percent: 0%, $end-percent: 100%);
+}
+
+#text-contacts li {
+  @extend .d-flex;
+  @extend .align-items-center;
+  @extend .my-3;
+  svg {
+    @extend .text-info;
+    @extend .mr-5;
+  }
 }

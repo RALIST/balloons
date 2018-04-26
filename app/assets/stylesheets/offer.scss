@@ -130,21 +130,11 @@
 }
 
 #text-contacts {
-  width: 100%;
-  position: absolute;
-  top: 20px;
-  left: 0;
-  padding-left: 2rem;
-  padding-right: 4rem;
-  i {
-    color: $brand-secondary;
-  }
   .small {
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-weight: 100;
   }
   @include media-breakpoint-down(lg){
-    position: relative;
     color: black !important;
     background: $brand-info;
     .small {

@@ -64,11 +64,11 @@
   @include media-breakpoint-down(lg){
     .slick-next {
       right: 1rem !important;
-      z-index: 800;
+      z-index: 500;
     }
     .slick-prev {
       left: 1rem !important;
-      z-index: 800;
+      z-index: 500;
     }
   }
 

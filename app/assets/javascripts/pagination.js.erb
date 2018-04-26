@@ -1,5 +1,6 @@
-  $(document).on('ready, turbolinks:load', function() {
-    if ($('.pagination').length) {
+
+var paginate = function(){
+  if ($('.pagination').length) {
       $(window).on('scroll', function() {
         var url = $('.pagination .next_page').attr('href');
         if($('#seo-text').length){
@@ -17,10 +18,9 @@
       });
       return $(window).scroll();
     };
-  });
+}
 
-
-$(document).on('turbolinks:load', function(){
+var toTop = function(){
   $(window).scroll(function() {
     if ($(this).scrollTop() >= 1000) {        // If page is scrolled more than 50px
         $('#return-to-top').fadeIn(400);    // Fade in the arrow
@@ -33,4 +33,4 @@ $(document).on('turbolinks:load', function(){
         scrollTop : 0                       // Scroll to top of body
     }, 200);
   });
-});
+};

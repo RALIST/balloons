@@ -6,7 +6,7 @@ var yandex_map = function(){
   function init(){
       myMap = new ymaps.Map("map", {
           center: [56.841067, 53.118398],
-          zoom:14,
+          zoom:15,
           controls: []
       });
 
@@ -30,5 +30,8 @@ var yandex_map = function(){
 
       myMap.geoObjects.add(myPlacemark);
   }
-  ymaps.ready(init);
+  if($('#map').length){
+    ymaps.ready(init);
+  }
+
 }

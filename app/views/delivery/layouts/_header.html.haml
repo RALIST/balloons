@@ -19,7 +19,7 @@
 
 .d-flex#resp-fixed.align-items-center.justify-content-around
   = link_to root_path do
-    = image_tag 'logo-resp.png', class: 'img-fluid'
+    = image_tag 'logo-resp.png', class: 'img-fluid', alt: 'Шариковая фея'
   .fa-layers.fa-fw.fa-2x.text-white#icon-wrapper
     %i.fas.fa-bars
     -if @cart.positions.any?

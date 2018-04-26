@@ -7,12 +7,6 @@ $.extend($.expr[':'], {
 });
 
 
-$(document).on('click', '#icon-wrapper', function(){
-  $('#resp-menu').toggle('slide',300);
-  $(this).find('[data-fa-i2svg]').toggleClass('fa-bars', 300).toggleClass('fa-times', 300);
-  $('.resp-menu-bar').toggleClass('bg-teal', 150);
-  FontAwesome.dom.i2svg();
-});
 
 $(document).on('ready, turbolinks:load', function(){
   if ($('#resp-fixed').length){
@@ -115,21 +109,6 @@ $(document).on('mouseenter touchstart', '[data-product-id], [data-item-id]' , fu
         return name;
       }
     });
-  });
-});
-
-$(document).on('ready, turbolinks:load', function(){
-  $('.slider').slick({
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    focusOnSelect: true,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    arrows: true,
-    prevArrow: '<i class="fa fa-chevron-left"></i>',
-    nextArrow: '<i class="fa fa-chevron-right"></i>',
-    variableWidth: true,
-    lazyLoad: 'progressive'
   });
 });
 

@@ -1,6 +1,6 @@
 
 
-$(document).on('ready, turbolinks:load', function(){
+var slickGallery = function(){
   $('.slider-outdoor').slick({
     slidesToShow: 1,
     autoplaySpeed: 2000,
@@ -9,10 +9,7 @@ $(document).on('ready, turbolinks:load', function(){
     dots: true,
     slidesToScroll: 1,
     focusOnSelect: true
-  })
-})
-
-$(document).on('ready, turbolinks:load', function(){
+  });
   $('.slider-company').slick({
     slidesToShow: 4,
     autoplay: true,
@@ -21,10 +18,7 @@ $(document).on('ready, turbolinks:load', function(){
     dots: true,
     slidesToScroll: 1,
     autoplaySpeed: 1000,
-  })
-});
-
-$(document).on('turbolinks:load', function(){
+  });
   $('.slider-comp').slick({
     slidesToShow: 4,
     autoplay: true,
@@ -54,43 +48,10 @@ $(document).on('turbolinks:load', function(){
       }
     }]
   })
-})
+}
 
-$(document).on('ready', function(){
-  $('.slider-comp').slick({
-    slidesToShow: 4,
-    autoplay: true,
-    autoplaySpeed: 1500,
-    dots: true,
-    slidesToScroll: 1,
-    responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 4,
-        slidesToScroll: 4,
-      }
-    },
-    {
-      breakpoint: 800,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1
-      }
-    },
-    {
-      breakpoint: 500,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    }]
-  })
-})
-
-$(document).on('ready, turbolinks:load', function () {
-    $(document).on("scroll", onScroll);
-
+var smoothScroll = function(){
+  $(document).on("scroll", onScroll);
     //smoothscroll
     $('a[href^="#"]').on('click', function (e) {
         e.preventDefault();
@@ -112,9 +73,9 @@ $(document).on('ready, turbolinks:load', function () {
                 $(document).on("scroll", onScroll);
             });
         }
-
     });
-});
+}
+
 
 function onScroll(event){
     var scrollPos = $(document).scrollTop();

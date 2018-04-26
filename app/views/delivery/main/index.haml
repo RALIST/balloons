@@ -1,10 +1,16 @@
 .container-fluid#main-offer
   .row#grad
-    %h1.text-dark.my-5.w-100.font-weight-bold
+    %h1.text-dark.mt-5.mb-4.col-12.font-weight-bold
       Доставка воздушных шаров и оформление праздников
       %br
       в
       = t "cities.#{@city}.where"
+      %u
+        = link_to  '#', data:{ toggle: 'modal', target: '#city'}, class: 'text-danger text-uppercase' do
+          %i.fas.fa-map-marker-alt
+          Другой город?
+    .col-12.text-center
+
     #offer-icon
       %i.fas.fa-thumbs-up.fa-5x.my-1
       .h3.text-dark

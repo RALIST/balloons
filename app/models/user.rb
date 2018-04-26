@@ -10,7 +10,7 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 1 }, presence: true, if: -> { new_record? || changes[:crypted_password] }
   validates :phone, uniqueness: true
 
-  CITIES = ['izhevsk', 'sarapul', 'glazov', 'mozhga', 'votkinsk', 'perm', 'kazan']
+  CITIES = ['izhevsk', 'sarapul', 'glazov', 'mozhga', 'votkinsk']
 
   def calculate_discount
     orders_total = orders.map { |order| order.total.to_f }

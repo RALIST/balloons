@@ -23,4 +23,5 @@ class Item < ApplicationRecord
   def special?
     type.name == 'товары для композиций'
   end
+
 end

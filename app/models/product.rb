@@ -160,7 +160,7 @@ class Product < ApplicationRecord
       when 12
         self.price_with_helium = 50
       when 14
-        if category.name == 'без рисунка'
+        if category.title == 'без рисунка'
           self.price_with_helium = 60
         else
           price.price_with_helium = 80

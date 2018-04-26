@@ -39,15 +39,9 @@
 					%h2.text-white.text-center
 						Наши работы
 					.text-center.mt-4
-						= link_to '#outdoor', class: 'text-white' do
+						= link_to '#out', class: 'text-white',data: {turbolinks: false, menuanchor: 'out'} do
 							%i.fas.fa-angle-double-down.fa-2x#arr-down
-	/ .container-fluid.pt-5
-	/ 	.h1.text-center.text-uppercase.font-weight-bold.font-oswald
-	/ 		C нами работают
-	/ 	.row.justify-content-around.align-items-center.py-5
-	/ 		.slider-company.col-12
-	/ 			- @partners.each do |p|
-	/ 				= image_tag p.logo.url(:small), class: 'img-fluid', alt: 'Воздушные шары для ' + p.name
+
 
 	/ 	%hr.border-info
 	%section.section.container.fp-auto-height-responsive
@@ -116,6 +110,13 @@
 						= image_tag p.img.url(:thumb)
 
 	%section.section.container.fp-auto-height-responsive
+		.container-fluid.pt-5
+			.h1.text-center.text-uppercase.font-weight-bold.font-oswald
+				C нами работают
+			.row.justify-content-around.align-items-center.py-5
+				.slider-company.col-12
+					- @partners.each do |p|
+						= image_tag p.logo.url(:small), class: 'img-fluid', alt: 'Воздушные шары для ' + p.name
 		= render 'delivery/main/contacts'
 
 = render 'delivery/layouts/call'

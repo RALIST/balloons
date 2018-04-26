@@ -81,7 +81,9 @@ var fullPage = function(){
     $('#fullpage').fullpage({
       menu: '#business-menu',
       anchors: ['main', 'out', 'in', 'print', 'contact-us'],
-      navigation: true
+      navigation: true,
+      scrollOverflow: true,
+      responsiveWidth: 600
     });
   }
 

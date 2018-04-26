@@ -22,7 +22,7 @@
 					= button_tag 'Заказать звонок', class: 'btn btn-secondary', data:{ toggle: 'modal', target: '#call-modal'}
 
 #fullpage
-	.container-fluid#business-offer.section.active.p-0
+	.container-fluid#business-offer.section.active.p-0.fp-auto-height-responsive
 		#main-wrapper.d-flex.flex-column.justify-content-center.w-100
 			%h1.text-white.text-uppercase.font-oswald.display-3.text-center
 				Профессиональное оформление
@@ -41,7 +41,6 @@
 					.text-center.mt-4
 						= link_to '#outdoor', class: 'text-white' do
 							%i.fas.fa-angle-double-down.fa-2x#arr-down
-	}
 	/ .container-fluid.pt-5
 	/ 	.h1.text-center.text-uppercase.font-weight-bold.font-oswald
 	/ 		C нами работают
@@ -51,7 +50,7 @@
 	/ 				= image_tag p.logo.url(:small), class: 'img-fluid', alt: 'Воздушные шары для ' + p.name
 
 	/ 	%hr.border-info
-	%section.section.container
+	%section.section.container.fp-auto-height-responsive
 		%h2.h1.text-center.text-uppercase.font-weight-bold.font-oswald.mb-5
 			Оформление входных групп
 			.small.text-muted
@@ -68,7 +67,7 @@
 		.text-center
 			= link_to 'Оставить заявку','#', class: 'col-8 btn btn-info btn-lg mx-auto', data:{ toggle: 'modal', target: '#call-modal'}
 		%p
-	%section.section.container
+	%section.section.container.fp-auto-height-responsive
 		.row.py-4
 			.col-lg-5.col-sm-12.mt-1
 				%h2 Оформление воздушными шарами корпоративного мероприятия
@@ -89,7 +88,7 @@
 				.slider-outdoor
 					- @indoor.each do |i|
 						= image_tag i.img.url(:thumb)
-	%section.section.container
+	%section.section.container.fp-auto-height-responsive
 		.row.py-4
 			.col-lg-5.col-sm-12.mt-1
 				%h2 Печать на воздушных шарах
@@ -115,80 +114,74 @@
 				.slider-outdoor
 					- @print.each do |p|
 						= image_tag p.img.url(:thumb)
-			.col-12.text-center
-				%h3.bg-teal.p-3{data: {toggle: 'collapse', target: '#print-price'}, style: 'cursor: pointer'}
-					Прайс на печать
-					%i.fa.fa-chevron-down
-				.container#print-price.collapse
-					.lead
-						В стоимость печати включена стоимость шара
-					%table.table.text-center.table-striped.table-hover.table-sm.col-12
-						%thead.bg-primary
-							%th.text-center Тираж, шт.
-							%th.text-center 14" (35см) пастель
-							%th.text-center 12" (30см) пастель
-							%th.text-center 14"(35см) металлик
-							%th.text-center 12"(30см) металлик
-						%tbody.text-center
-							%tr
-								%td 100
-								%td 1320 руб.
-								%td 1200 руб.
-								%td 1380 руб.
-								%td 1320 руб.
 
-							%tr
-								%td 200
-								%td 2560 руб.
-								%td 2320 руб.
-								%td 2680 руб.
-								%td 2560 руб.
-
-							%tr
-								%td 300
-								%td 3720 руб.
-								%td 3360 руб.
-								%td 3900 руб.
-								%td 3720 руб.
-							%tr
-								%td 400
-								%td 4880 руб.
-								%td 4360 руб.
-								%td 5040 руб.
-								%td 4880 руб.
-							%tr
-								%td 500
-								%td 5850 руб.
-								%td 5200 руб.
-								%td 6150 руб.
-								%td 5850 руб.
-							%tr
-								%td 1000
-								%td 11300 руб.
-								%td 10100 руб.
-								%td 12000 руб.
-								%td 11300 руб.
-							%tr
-								%td от 2000
-								%td 11,00 руб.
-								%td 9,70 руб.
-								%td 11,50 руб.
-								%td 11,00 руб.
-					%ul.text-white.text-left
-						%li Срок исполнения заказа: от 2-х до 7 дней, в зависимости от партии, после 100% предоплаты.
-						%li Размер запечатываемой области - 135 мм.
-
-						%li Исходный логотип для печати на шарах должен быть предоставлен в кривых, т. е. в формате Corel Draw. Если материал предоставлен в другом формате, в этом случае мы делаем наценку в 300 руб. за допечатную подготовку изображения.
-
-						%li Стоимость сетки-матрицы (станок полуавтомат) - 700 руб.
-
-						%li Нанесение изображения на вторую и последующую стороны при печати на воздушных шарах: + 20% от стоимости, указанной в таблице (см. выше).
-
-						%li При смене краски в одном заказе, общее количество которого не более 500 шт., взимается дополнительная плата 150 руб. за каждую смену краски.
-	%section.section.container-fluid
+	%section.section.container.fp-auto-height-responsive
 		= render 'delivery/main/contacts'
 
 = render 'delivery/layouts/call'
 
 
 
+/ %table.table.text-center.table-striped.table-hover.table-sm.col-12
+/ 	%thead.bg-primary
+/ 		%th.text-center Тираж, шт.
+/ 		%th.text-center 14" (35см) пастель
+/ 		%th.text-center 12" (30см) пастель
+/ 		%th.text-center 14"(35см) металлик
+/ 		%th.text-center 12"(30см) металлик
+/ 	%tbody.text-center
+/ 		%tr
+/ 			%td 100
+/ 			%td 1320 руб.
+/ 			%td 1200 руб.
+/ 			%td 1380 руб.
+/ 			%td 1320 руб.
+
+/ 		%tr
+/ 			%td 200
+/ 			%td 2560 руб.
+/ 			%td 2320 руб.
+/ 			%td 2680 руб.
+/ 			%td 2560 руб.
+
+/ 		%tr
+/ 			%td 300
+/ 			%td 3720 руб.
+/ 			%td 3360 руб.
+/ 			%td 3900 руб.
+/ 			%td 3720 руб.
+/ 		%tr
+/ 			%td 400
+/ 			%td 4880 руб.
+/ 			%td 4360 руб.
+/ 			%td 5040 руб.
+/ 			%td 4880 руб.
+/ 		%tr
+/ 			%td 500
+/ 			%td 5850 руб.
+/ 			%td 5200 руб.
+/ 			%td 6150 руб.
+/ 			%td 5850 руб.
+/ 		%tr
+/ 			%td 1000
+/ 			%td 11300 руб.
+/ 			%td 10100 руб.
+/ 			%td 12000 руб.
+/ 			%td 11300 руб.
+/ 		%tr
+/ 			%td от 2000
+/ 			%td 11,00 руб.
+/ 			%td 9,70 руб.
+/ 			%td 11,50 руб.
+/ 			%td 11,00 руб.
+/ %ul.text-white.text-left
+/ 	%li Срок исполнения заказа: от 2-х до 7 дней, в зависимости от партии, после 100% предоплаты.
+/ 	%li Размер запечатываемой области - 135 мм.
+
+/ 	%li Исходный логотип для печати на шарах должен быть предоставлен в кривых, т. е. в формате Corel Draw. Если материал предоставлен в другом формате, в этом случае мы делаем наценку в 300 руб. за допечатную подготовку изображения.
+
+/ 	%li Стоимость сетки-матрицы (станок полуавтомат) - 700 руб.
+
+/ 	%li Нанесение изображения на вторую и последующую стороны при печати на воздушных шарах: + 20% от стоимости, указанной в таблице (см. выше).
+
+/ 	%li При смене краски в одном заказе, общее количество которого не более 500 шт., взимается дополнительная плата 150 руб. за каждую смену краски.

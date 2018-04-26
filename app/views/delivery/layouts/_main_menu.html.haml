@@ -38,6 +38,6 @@
                 %li.text-capitalize.dropdown-item
                   = link_to 'Из школы', school_path
             %li.text-uppercase.nav-item
-              = link_to 'Для бизнеса', business_index_path
+              = link_to 'Для бизнеса', business_index_path,data: {turbolinks: false}
             %li.text-uppercase.nav-item
               = link_to 'Отзывы', feedbacks_path

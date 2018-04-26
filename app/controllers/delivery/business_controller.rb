@@ -11,7 +11,7 @@ class Delivery::BusinessController < Delivery::DeliveryController
                            печать на воздушных шарах,
                            печать на воздушных шарах #{@city}"
     @disable_header = true
-
+    @disable_bread = true
     @partners = Partner.all
     @outdoor = Image.where(style: 'вход')
     @indoor = Image.where(style: 'внутри')

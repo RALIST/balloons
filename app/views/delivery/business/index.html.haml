@@ -4,219 +4,189 @@
 			%nav.navbar.navbar-expand-lg.justify-content-between.navbar-light
 				%button.navbar-toggler.collapsed.navbar-toggler-right{data: {toggle: 'collapse', target: '#b-menu'}}
 					%i.fas.fa-bars.text-white
-				= link_to root_path, class: 'navbar-brand' do
+				= link_to root_path, class: 'navbar-brand', data: {turbolinks: false} do
 					.small.text-white
 						%i.fas.fa-angle-left
 						На главную
 				.collapse.navbar-collapse#b-menu
 					%ul.nav.nav-pills.text-center.nav-fill.text-uppercase.w-100
 						%li.nav-item
-							= link_to 'Входные группы', '#outdoor', class: 'nav-link', data: {turbolinks: false}
+							= link_to 'Входные группы', '#out', class: 'nav-link', data: {turbolinks: false, menuanchor: 'out'}
 						%li.nav-item
-							= link_to 'В помещении', '#indoor', class: 'nav-link', data: {turbolinks: false}
+							= link_to 'В помещении', '#in', class: 'nav-link', data: {turbolinks: false, menuanchor: 'in'}
 						%li.nav-item
-							= link_to 'Печать на шарах', '#prints', class: 'nav-link', data: {turbolinks: false}
+							= link_to 'Печать на шарах', '#print', class: 'nav-link', data: {turbolinks: false, menuanchor: 'print'}
 						%li.nav-item
-							= link_to 'Контакты', '#contacts', class: 'nav-link', data: {turbolinks: false}
+							= link_to 'Контакты', '#contact-us', class: 'nav-link', data: {turbolinks: false, menuanchor: 'contact-us'}
 				.business-call.align-self-center.d-none.d-lg-block
 					= button_tag 'Заказать звонок', class: 'btn btn-secondary', data:{ toggle: 'modal', target: '#call-modal'}
 
-
-.container-fluid#business-offer.p-0
-	#main-wrapper.d-flex.flex-column.justify-content-center.w-100
-		%h1.text-white.text-uppercase.font-oswald.display-3.text-center
-			Профессиональное оформление
-			воздушными шарами для бизнеса
-		.text-center.align-items-center.justify-content-center.mb-5
-			%p.lead.text-white
-				Оформим открытие магазина, распродажу, презентацию и любое другое корпоративное мероприятие!
-				%hr.border-white
-			%p.text-center.text-white
-				Оставьте заявку, мы перезвоним и проконсультируем вас по всем вопросам!
-				.lead.text-center.hidden-md-down
-					= button_tag 'Оставить заявку', class: 'btn btn-info btn-lg', data:{ toggle: 'modal', target: '#call-modal'}
-			.text-center.mt-4
-				%h2.text-white.text-center
-					Наши работы
+#fullpage
+	.container-fluid#business-offer.section.active.p-0
+		#main-wrapper.d-flex.flex-column.justify-content-center.w-100
+			%h1.text-white.text-uppercase.font-oswald.display-3.text-center
+				Профессиональное оформление
+				воздушными шарами для бизнеса
+			.text-center.align-items-center.justify-content-center.mb-5
+				%p.lead.text-white
+					Оформим открытие магазина, распродажу, презентацию и любое другое корпоративное мероприятие!
+					%hr.border-white
+				%p.text-center.text-white
+					Оставьте заявку, мы перезвоним и проконсультируем вас по всем вопросам!
+					.lead.text-center.hidden-md-down
+						= button_tag 'Оставить заявку', class: 'btn btn-info btn-lg', data:{ toggle: 'modal', target: '#call-modal'}
 				.text-center.mt-4
-					= link_to '#outdoor', class: 'text-white' do
-						%i.fas.fa-angle-double-down.fa-2x#arr-down
+					%h2.text-white.text-center
+						Наши работы
+					.text-center.mt-4
+						= link_to '#outdoor', class: 'text-white' do
+							%i.fas.fa-angle-double-down.fa-2x#arr-down
+	}
+	/ .container-fluid.pt-5
+	/ 	.h1.text-center.text-uppercase.font-weight-bold.font-oswald
+	/ 		C нами работают
+	/ 	.row.justify-content-around.align-items-center.py-5
+	/ 		.slider-company.col-12
+	/ 			- @partners.each do |p|
+	/ 				= image_tag p.logo.url(:small), class: 'img-fluid', alt: 'Воздушные шары для ' + p.name
 
+	/ 	%hr.border-info
+	%section.section.container
+		%h2.h1.text-center.text-uppercase.font-weight-bold.font-oswald.mb-5
+			Оформление входных групп
+			.small.text-muted
+				Оформим воздушными шарами входную группу магазина или офиса
 
-.container-fluid.pt-5
-	.h1.text-center.text-uppercase.font-weight-bold.font-oswald
-		C нами работают
-	.row.justify-content-around.align-items-center.py-5
-		.slider-company.col-12
-			- @partners.each do |p|
-				= image_tag p.logo.url(:small), class: 'img-fluid', alt: 'Воздушные шары для ' + p.name
-
-	%hr.border-info
-%section.container.py-5#outdoor
-	.h1.text-center.text-uppercase.font-weight-bold.font-oswald.mb-5
-		Оформление входных групп
-	.row.my-4.align-items-center
-		#iconlist
-			.row
-				#icon-text
-					.h4.font-oswald.text-right
-						Гирлянда от 400 руб\метр
-				#icon
-					%i.fas.fa-circle-notch.fa-6x
-		#iconlist-reverse
-			.row
-				#icon
-					%i.fas.fa-truck.fa-6x
-				#icon-text
-					.h4.font-oswald
-						Доставка и монтаж по #{t("cities.#{@city}.in")}
-		#iconlist
-			.row
-				#icon-text
-					.h4.font-oswald.text-right
+		.slider-outdoor.px-4
+			- @outdoor.each do |o|
+				= image_tag o.img.url(:thumb), alt: 'оформление воздушными шарами входной группы'
+		%hr.my-2
+		%h3.h4.text-center
+			Воздушные шары на открытие магазина, распродажу или акцию - лучший способ привлечь внимание покупателей и прохожих при минимальных затратах.
+		.lead.text-center.mt-4
+			Подберем варианты оформления бесплатно!
+		.text-center
+			= link_to 'Оставить заявку','#', class: 'col-8 btn btn-info btn-lg mx-auto', data:{ toggle: 'modal', target: '#call-modal'}
+		%p
+	%section.section.container
+		.row.py-4
+			.col-lg-5.col-sm-12.mt-1
+				%h2 Оформление воздушными шарами корпоративного мероприятия
+				%ul.lead.mb-5
+					%li
+						Индивидуальный дизайн и подбор оформления
+					%li
+						Монтаж в подарок*
+					%li
 						Работа по договору
-				#icon
-					%i.fas.fa-suitcase.fa-6x
-		#iconlist-reverse
-			.row
-				#icon
-					%i.fas.fa-truck.fa-6x
-				#icon-text
-					.h4.font-oswald
-						Доставка и монтаж
-	.text-center
-		%em Если вы планируете открытие, распродажу или любой другой праздник, то оформление входной группы воздушными шарами гарантировано привлечет внимание  к вашему мероприятию.
-		%em.text-white
-			*При высоте монтажа до 3 метров
-	.slider-outdoor.px-4
-		- @outdoor.each do |o|
-			= image_tag o.img.url(:thumb)
-	.lead.text-center.mt-4
-		Подберем варианты оформления бесплатно!
-	.text-center
-		= link_to 'Оставить заявку','#', class: 'btn btn-info mx-auto', data:{ toggle: 'modal', target: '#call-modal'}
-	%hr.border-info
-%section.container.py-5#indoor
-	.row.py-4
-		.col-lg-5.col-sm-12.mt-1
-			%h2 Оформление воздушными шарами корпоративного мероприятия
-			%ul.lead.mb-5
-				%li
-					Индивидуальный дизайн и подбор оформления
-				%li
-					Монтаж в подарок*
-				%li
-					Работа по договору
-				%li
-					Доставка по #{t("cities.#{@city}.in")}
-			%em Оформление корпоративных мероприятий воздушными шарами, это то, что мы делаем очень хорошо! Если вы планируете открытие магазина, распродажу или любое другое мероприятие, то оформление воздушными шарами будет изюминкой вечера!
-			.lead.text-center.my-5
-				Подберем варианты оформления бесплатно!
-				= button_tag 'Оставить заявку', class: 'btn btn-dark btn-block btn-lg', data:{ toggle: 'modal', target: '#call-modal'}
-		.col-lg-6.col-sm-12.mt-1
-			.slider-outdoor
-				- @indoor.each do |i|
-					= image_tag i.img.url(:thumb)
-%hr.border-info
-%section.container.py-5#prints
-	.row.py-4
-		.col-lg-5.col-sm-12.mt-1
-			%h2 Печать на воздушных шарах
-			%ul.lead.mb-5
-				%li
-					Печатаем любой тираж
-				%li
-					Только качественные материалы
-				%li
-					Более 100 цветов на выбор
-				%li
-					Возможность печати с 5 сторон
-				%li
-					Срок печати: от 2 дней
-				%li
-					Доставка по #{t("cities.#{@city}.in")}
-			%em Ваш логотип на воздушном шаре станет отличным маркетинговым ходом в любой ситуации! Если вы планируете акцию или открытие, то воздушные шары с печатью станут отличным подарком для ваших клиентов!
-			.lead.text-center.my-5
-				Ответим на любые вопросы по печати
-				= button_tag 'Оставить заявку', class: 'btn btn-teal btn-block btn-lg', data:{ toggle: 'modal', target: '#call-modal'}
+					%li
+						Доставка по #{t("cities.#{@city}.in")}
+				%em Оформление корпоративных мероприятий воздушными шарами, это то, что мы делаем очень хорошо! Если вы планируете открытие магазина, распродажу или любое другое мероприятие, то оформление воздушными шарами будет изюминкой вечера!
+				.lead.text-center.my-5
+					Подберем варианты оформления бесплатно!
+					= button_tag 'Оставить заявку', class: 'btn btn-dark btn-block btn-lg', data:{ toggle: 'modal', target: '#call-modal'}
+			.col-lg-6.col-sm-12.mt-1
+				.slider-outdoor
+					- @indoor.each do |i|
+						= image_tag i.img.url(:thumb)
+	%section.section.container
+		.row.py-4
+			.col-lg-5.col-sm-12.mt-1
+				%h2 Печать на воздушных шарах
+				%ul.lead.mb-5
+					%li
+						Печатаем любой тираж
+					%li
+						Только качественные материалы
+					%li
+						Более 100 цветов на выбор
+					%li
+						Возможность печати с 5 сторон
+					%li
+						Срок печати: от 2 дней
+					%li
+						Доставка по #{t("cities.#{@city}.in")}
+				%em Ваш логотип на воздушном шаре станет отличным маркетинговым ходом в любой ситуации! Если вы планируете акцию или открытие, то воздушные шары с печатью станут отличным подарком для ваших клиентов!
+				.lead.text-center.my-5
+					Ответим на любые вопросы по печати
+					= button_tag 'Оставить заявку', class: 'btn btn-teal btn-block btn-lg', data:{ toggle: 'modal', target: '#call-modal'}
 
-		.col-lg-6.col-sm-12.mt-1
-			.slider-outdoor
-				- @print.each do |p|
-					= image_tag p.img.url(:thumb)
-		.col-12.text-center
-			%h3.bg-teal.p-3{data: {toggle: 'collapse', target: '#print-price'}, style: 'cursor: pointer'}
-				Прайс на печать
-				%i.fa.fa-chevron-down
-			.container#print-price.collapse
-				.lead
-					В стоимость печати включена стоимость шара
-				%table.table.text-center.table-striped.table-hover.table-sm.col-12
-					%thead.bg-primary
-						%th.text-center Тираж, шт.
-						%th.text-center 14" (35см) пастель
-						%th.text-center 12" (30см) пастель
-						%th.text-center 14"(35см) металлик
-						%th.text-center 12"(30см) металлик
-					%tbody.text-center
-						%tr
-							%td 100
-							%td 1320 руб.
-							%td 1200 руб.
-							%td 1380 руб.
-							%td 1320 руб.
+			.col-lg-6.col-sm-12.mt-1
+				.slider-outdoor
+					- @print.each do |p|
+						= image_tag p.img.url(:thumb)
+			.col-12.text-center
+				%h3.bg-teal.p-3{data: {toggle: 'collapse', target: '#print-price'}, style: 'cursor: pointer'}
+					Прайс на печать
+					%i.fa.fa-chevron-down
+				.container#print-price.collapse
+					.lead
+						В стоимость печати включена стоимость шара
+					%table.table.text-center.table-striped.table-hover.table-sm.col-12
+						%thead.bg-primary
+							%th.text-center Тираж, шт.
+							%th.text-center 14" (35см) пастель
+							%th.text-center 12" (30см) пастель
+							%th.text-center 14"(35см) металлик
+							%th.text-center 12"(30см) металлик
+						%tbody.text-center
+							%tr
+								%td 100
+								%td 1320 руб.
+								%td 1200 руб.
+								%td 1380 руб.
+								%td 1320 руб.
 
-						%tr
-							%td 200
-							%td 2560 руб.
-							%td 2320 руб.
-							%td 2680 руб.
-							%td 2560 руб.
+							%tr
+								%td 200
+								%td 2560 руб.
+								%td 2320 руб.
+								%td 2680 руб.
+								%td 2560 руб.
 
-						%tr
-							%td 300
-							%td 3720 руб.
-							%td 3360 руб.
-							%td 3900 руб.
-							%td 3720 руб.
-						%tr
-							%td 400
-							%td 4880 руб.
-							%td 4360 руб.
-							%td 5040 руб.
-							%td 4880 руб.
-						%tr
-							%td 500
-							%td 5850 руб.
-							%td 5200 руб.
-							%td 6150 руб.
-							%td 5850 руб.
-						%tr
-							%td 1000
-							%td 11300 руб.
-							%td 10100 руб.
-							%td 12000 руб.
-							%td 11300 руб.
-						%tr
-							%td от 2000
-							%td 11,00 руб.
-							%td 9,70 руб.
-							%td 11,50 руб.
-							%td 11,00 руб.
-				%ul.text-white.text-left
-					%li Срок исполнения заказа: от 2-х до 7 дней, в зависимости от партии, после 100% предоплаты.
-					%li Размер запечатываемой области - 135 мм.
+							%tr
+								%td 300
+								%td 3720 руб.
+								%td 3360 руб.
+								%td 3900 руб.
+								%td 3720 руб.
+							%tr
+								%td 400
+								%td 4880 руб.
+								%td 4360 руб.
+								%td 5040 руб.
+								%td 4880 руб.
+							%tr
+								%td 500
+								%td 5850 руб.
+								%td 5200 руб.
+								%td 6150 руб.
+								%td 5850 руб.
+							%tr
+								%td 1000
+								%td 11300 руб.
+								%td 10100 руб.
+								%td 12000 руб.
+								%td 11300 руб.
+							%tr
+								%td от 2000
+								%td 11,00 руб.
+								%td 9,70 руб.
+								%td 11,50 руб.
+								%td 11,00 руб.
+					%ul.text-white.text-left
+						%li Срок исполнения заказа: от 2-х до 7 дней, в зависимости от партии, после 100% предоплаты.
+						%li Размер запечатываемой области - 135 мм.
 
-					%li Исходный логотип для печати на шарах должен быть предоставлен в кривых, т. е. в формате Corel Draw. Если материал предоставлен в другом формате, в этом случае мы делаем наценку в 300 руб. за допечатную подготовку изображения.
+						%li Исходный логотип для печати на шарах должен быть предоставлен в кривых, т. е. в формате Corel Draw. Если материал предоставлен в другом формате, в этом случае мы делаем наценку в 300 руб. за допечатную подготовку изображения.
 
-					%li Стоимость сетки-матрицы (станок полуавтомат) - 700 руб.
+						%li Стоимость сетки-матрицы (станок полуавтомат) - 700 руб.
 
-					%li Нанесение изображения на вторую и последующую стороны при печати на воздушных шарах: + 20% от стоимости, указанной в таблице (см. выше).
+						%li Нанесение изображения на вторую и последующую стороны при печати на воздушных шарах: + 20% от стоимости, указанной в таблице (см. выше).
 
-					%li При смене краски в одном заказе, общее количество которого не более 500 шт., взимается дополнительная плата 150 руб. за каждую смену краски.
-%hr.border-info
-%section.container-fluid#contacts
-	= render 'delivery/main/contacts'
+						%li При смене краски в одном заказе, общее количество которого не более 500 шт., взимается дополнительная плата 150 руб. за каждую смену краски.
+	%section.section.container-fluid
+		= render 'delivery/main/contacts'
 
 = render 'delivery/layouts/call'
 

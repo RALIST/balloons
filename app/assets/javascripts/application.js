@@ -39,15 +39,14 @@ setTimeout(function(){
 
 var ready = function(){
   if($('body').attr('data-loaded') == 'T'){
-    return
+    return;
   }
   fixedMenu();
-  smoothScroll();
   slickGallery();
-  yandex_map();
   paginate();
   toTop();
   respMenu();
+  fullPage();
   FontAwesome.dom.i2svg();
   $('body').attr('data-loaded', 'T')
   }
@@ -55,15 +54,17 @@ var ready = function(){
 
 
 var fixedMenu = function(){
-  var top = $('#menu').offset().top;
-  $(window).scroll(function(){
-    var currentScroll = $(window).scrollTop();
-    if (currentScroll >= top){
-      $('#menu-fixed').addClass('d-lg-block');
-    }else{
-      $('#menu-fixed').removeClass('d-lg-block');
-    }
-  });
+  if ($('#menu').length){
+    var top = $('#menu').offset().top;
+    $(window).scroll(function(){
+      var currentScroll = $(window).scrollTop();
+      if (currentScroll >= top){
+        $('#menu-fixed').addClass('d-lg-block');
+      }else{
+        $('#menu-fixed').removeClass('d-lg-block');
+      }
+    });
+  }
 }
 
 var respMenu = function(){
@@ -75,5 +76,20 @@ var respMenu = function(){
   });
 }
 
+var fullPage = function(){
+  if ($('#fullpage').length){
+    $('#fullpage').fullpage({
+      menu: '#business-menu',
+      anchors: ['main', 'out', 'in', 'print', 'contact-us'],
+      navigation: true
+    });
+  }
+
+};
+
+var destroyFullpage = function(){
+  $.fn.fullpage.destroy('all')
+}
+
 document.addEventListener('turbolinks:load', ready);
-document.addEventListener('ready', ready);
+document.addEventListener('ready', ready)

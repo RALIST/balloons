@@ -1,37 +1,35 @@
 
-var yandex_map = function(){
-  var myMap,
-      myPlacemark;
+// var yandex_map = function(){
+//   var myMap,
+//       myPlacemark;
 
-  function init(){
-      myMap = new ymaps.Map("map", {
-          center: [56.841067, 53.118398],
-          zoom:15,
-          controls: []
-      });
+//   function init(){
+//       myMap = new ymaps.Map("map", {
+//           center: [56.841067, 53.118398],
+//           zoom:15,
+//           controls: []
+//       });
 
-      balloonContentHeader = "<b style='font-size: 16px;'>Мы здесь!</b><br>";
-      balloonContentBody = '<%= image_tag "logo2.png", style: "width: 100px;"%><br>';
-      balloonContentFooter = "ул. Николая Островского, 25";
+//       balloonContentHeader = "<b style='font-size: 16px;'>Мы здесь!</b><br>";
+//       balloonContentBody = '<%= image_tag "logo2.png", style: "width: 100px;"%><br>';
+//       balloonContentFooter = "ул. Николая Островского, 25";
 
-      balloon = "<div class='text-center'>" + balloonContentHeader + balloonContentBody + balloonContentFooter + "</div>";
+//       balloon = "<div class='text-center'>" + balloonContentHeader + balloonContentBody + balloonContentFooter + "</div>";
 
-      myPlacemark = new ymaps.Placemark([56.841067, 53.118398], {
-          balloonContentHeader: "Мы здесь!",
-          balloonContentBody: '<%= image_tag "logo2.png", style: "width: 60px;"%>',
-          balloonContentFooter: "ул. Николая Островского, 25",
-          hintContent: "Шариковая фея"
-      });
+//       myPlacemark = new ymaps.Placemark([56.841067, 53.118398], {
+//           balloonContentHeader: "Мы здесь!",
+//           balloonContentBody: '<%= image_tag "logo2.png", style: "width: 60px;"%>',
+//           balloonContentFooter: "ул. Николая Островского, 25",
+//           hintContent: "Шариковая фея"
+//       });
 
-      // myMap.balloon.open([56.841067, 53.118398], balloon, {
-      //   // Опция: не показываем кнопку закрытия.
-      //   closeButton: true
-      // });
+//       // myMap.balloon.open([56.841067, 53.118398], balloon, {
+//       //   // Опция: не показываем кнопку закрытия.
+//       //   closeButton: true
+//       // });
 
-      myMap.geoObjects.add(myPlacemark);
-  }
-  if($('#map').length){
-    ymaps.ready(init);
-  }
+//       myMap.geoObjects.add(myPlacemark);
+//   }
+//   ymaps.ready(init);
 
-}
+// }

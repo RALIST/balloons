@@ -80,7 +80,7 @@
 }
 
 #outdoor, #indoor, #prints {
-  min-height: 100vh;
+  // min-height: 100vh;
   @include media-breakpoint-down(lg){
     .h1 {
       font-size: 2rem;

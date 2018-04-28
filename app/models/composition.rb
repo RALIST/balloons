@@ -14,7 +14,8 @@ class Composition < ApplicationRecord
                                     preview: ['x400', :png],
                                     large: ['x600', :png] },
                           convert_options: {
-                            all: '-quality 75 -strip -interlace Plane'
+                            small: '-quality 75 -strip -sample -thumbnail -interlace Plane',
+                            preview: '-quality 75 -strip -sample -thumbnail -interlace Plane'
  },
                           processors: %i[thumbnail paperclip_optimizer],
                           filename_cleaner: Paperclip::FilenameCleaner.new(/\_-/)

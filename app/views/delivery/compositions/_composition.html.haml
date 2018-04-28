@@ -81,6 +81,6 @@
   %hr
   .h4.text-center.strong.mb-3.text-info
     Похожие композиции
-  .row.justify-content-around.compositions#similar{itemprop: 'isSimilarTo'}
+  .row.justify-content-around.compositions.slider-comp.text-center#similar{itemprop: 'isSimilarTo'}
     = render partial: 'delivery/main/small_composition', collection: composition.related.limit(4), as: :c
 

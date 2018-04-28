@@ -50,9 +50,6 @@
   max-width: 100% !important;
   @include media-breakpoint-down(sm){
     .card{
-      .card-image {
-        height: 300px !important;
-      }
       #info {
         display: none;
       }

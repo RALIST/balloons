@@ -1,18 +1,12 @@
 !!!
 %html
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
-    %meta{name: "google-site-verification", content:"7YdqoinSILjL2WHYMwi8xu3uUDgshmVKYp6GKfoBavo"}
-    %meta{name: "yandex-verification", content: "55c1242f77b26454"}
-    %meta{name: "yandex-verification", content: "8898d5cb05bc2278"}
-    %meta{name: 'mysitecost.ru', content: 'addurl'}
-    = javascript_include_tag 'application'
-    = javascript_include_tag 'https://use.fontawesome.com/releases/v5.0.10/js/all.js'
+    = render 'delivery/layouts/special/meta'
     = display_meta_tags
     = favicon_link_tag 'favicons/favicon-32.png'
     = favicon_link_tag 'favicons/favicon-120.png', rel: 'apple-touch-icon'
     = csrf_meta_tags
+    = render 'delivery/layouts/special/scripts'
     %link{rel: "preload", href: stylesheet_path("fonts"), onload: "this.rel = 'stylesheet'", as: "style"}
     %noscript
       = stylesheet_link_tag 'fonts'
@@ -20,8 +14,8 @@
   %body
     %a#return-to-top{data: {toggle: 'tooltip'}, title: 'Наверх'}
       %span.fa-stack
-        %i.fa.fa-circle.fa-stack-2x
-        %i.fa.fa-angle-double-up.fa-stack-1x
+        %i.fas.fa-circle.fa-stack-2x
+        %i.fas.fa-angle-double-up.fa-stack-1x
     .wrapper
       %header
         - unless @disable_header
@@ -34,13 +28,8 @@
       = render 'delivery/layouts/modal_city'
     %footer
       = render 'delivery/layouts/footer'
-  = javascript_include_tag 'https://api-maps.yandex.ru/2.1/?lang=ru_RU', async: Rails.env.production?
-  = javascript_include_tag 'https://www.googleadservices.com/pagead/conversion_async.js', async: Rails.env.production?
-  = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/jquery.fullpage.min.js'
-  = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/vendors/scrolloverflow.min.js'
-  = stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/jquery.fullpage.min.css'
-  = render 'delivery/ym'
-  = render 'delivery/ga'
-  = render 'layouts/chats'
+    = render 'delivery/layouts/special/ym'
+    = render 'delivery/layouts/special/ga'
+    = render 'delivery/layouts/special/chats'
 
 

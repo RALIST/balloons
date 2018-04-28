@@ -10,8 +10,9 @@ class Composition < ApplicationRecord
   has_many :positions
 
   validates :img, presence: true
-  has_attached_file :img, styles: { preview: ['x400', :png],
-                                   large: ['x600', :png] },
+  has_attached_file :img, styles: { small: ['x200', :jpg],
+                                    preview: ['x400', :png],
+                                    large: ['x600', :png] },
                           convert_options: {
                             all: '-quality 75 -strip -interlace Plane'
  },

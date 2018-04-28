@@ -14,10 +14,10 @@ class Composition < ApplicationRecord
                                     preview: ['x400', :png],
                                     large: ['x600', :png] },
                           convert_options: {
-                            small: '-quality 75 -strip -sample -interlace Plane',
-                            preview: '-quality 75 -strip -sample -interlace Plane'
+                            small: '-quality 75 -strip  -interlace Plane',
+                            preview: '-quality 75 -strip -interlace Plane'
  },
-                          processors: %i[thumbnail paperclip_optimizer],
+                          processors: [:thumbnail, :paperclip_optimizer],
                           filename_cleaner: Paperclip::FilenameCleaner.new(/\_-/)
   validates_attachment_content_type :img,
                                     content_type: ['image/jpeg', 'image/jpg', 'image/png']

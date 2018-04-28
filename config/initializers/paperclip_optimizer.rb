@@ -14,7 +14,11 @@ Paperclip::PaperclipOptimizer.default_options = {
   jhead: false,
   jpegoptim: false,
   jpegrecompress: false,
-  jpegtran: false,
+  jpegtran: {
+    copy_chunks: false,
+    progressive: true,
+    jpegrescan: false
+    },
   optipng: {
     level: 6,
     interlace: true

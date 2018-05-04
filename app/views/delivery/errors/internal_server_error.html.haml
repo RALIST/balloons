@@ -3,12 +3,14 @@
 
 .container
   .row.align-items-center
-    .col-6
+    .col-lg-6.col-sm-12.text-center
       = link_to root_path do
         =image_tag 'logo2.png', class: 'img-fluid'
-    .col-6
+    .col-lg-6.col-sm-12.text-center
       %h1
-        Упс. У нас что-то сломалось...
+        Упс :(
+        %br
+        У нас что-то сломалось... (500)
       %p Не переживайте, мы постараемся починить все как можно скорее!
       %p
-        = link_to 'На главную', root_path, class: 'btn btn-info'
+        = link_to 'Вернуться на главную', root_path, class: 'btn btn-info col-8'

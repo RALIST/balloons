@@ -5,7 +5,7 @@
     .lead
       = feedback.name
     .text-muted
-      = link_to 'Профиль в соц.сетях', feedback.social_url, target: :blank  if feedback.social_url
+      = link_to 'Профиль в соц.сетях', feedback.social_url, target: :blank, rel: 'nofollow'  if feedback.social_url
     %span
       = feedback.body
     .small

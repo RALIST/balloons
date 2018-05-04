@@ -3,13 +3,13 @@
 
 .container
   .row.align-items-center
-    .col-6
+    .col-lg-6.col-sm-12
       = link_to root_path do
         =image_tag 'logo2.png', class: 'img-fluid'
-    .col-6
+    .col-lg-6.col-sm-12.text-center
       %h1
-        Ой! Страница не найдена! (404)
+        Упс! Страница не найдена! (404)
       %p Возможно вы ошиблись в адресе или страница была удалена!
       %p
-        = link_to 'На главную', root_path, class: 'btn btn-info'
+        = link_to 'Вернуться на главную', root_path, class: 'btn btn-info col-8'
 

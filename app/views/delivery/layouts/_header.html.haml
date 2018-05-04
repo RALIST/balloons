@@ -40,13 +40,13 @@
                 .social
                   %ul.nav.align-content-between.flex-column
                     %li.nav-item
-                      =link_to t("cities.#{@city}.links.ins"), target: :_blank, class: 'nav-link' do
+                      =link_to t("cities.#{@city}.links.ins"), target: :_blank, rel: 'nofollow', class: 'nav-link' do
                         %i.fab.fa-instagram{"aria-hidden":  "true"}
                     %li.nav-item
-                      =link_to t("cities.#{@city}.links.fb"), target: :_blank , class: 'nav-link'do
+                      =link_to t("cities.#{@city}.links.fb"), target: :_blank , rel: 'nofollow', class: 'nav-link'do
                         %i.fab.fa-facebook{"aria-hidden": "true"}
                     %li.nav-item
-                      =link_to t("cities.#{@city}.links.vk"), target: :_blank, class: 'nav-link' do
+                      =link_to t("cities.#{@city}.links.vk"), target: :_blank, rel: 'nofollow', class: 'nav-link' do
                         %i.fab.fa-vk{"aria-hidden": "true"}
               .col-10.text-center.d-flex.justify-content-center.flex-column
                 .strong
@@ -100,7 +100,7 @@
                     %i.fas.fa-map-marker-alt.text-secondary
                     = t "cities.#{@city}.base"
             #cart.text-right.mb-2
-              = link_to my_cart_path, class: 'btn btn-secondary' do
+              = link_to my_cart_path,rel: 'nofollow', class: 'btn btn-secondary' do
                 %i.fas.fa-shopping-basket
                 #to-cart.d-inline
                   В корзину

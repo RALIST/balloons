@@ -1,5 +1,5 @@
 crumb :root do
-  link "\u0413\u043B\u0430\u0432\u043D\u0430\u044F", root_path
+  link "Главная", root_path
 end
 
 crumb :composition do |c|

@@ -13,6 +13,6 @@
             .card-body
               .row.align-items-center
                 .col-5
-                  = image_tag Product.includes(:color).where(colors: { id: color.id}).first.image(:small), title: color.name, alt: color.name
+                  = image_tag Product.includes(:color).where(colors: { id: color.id}).first.image(:small), title: color.name, alt: color.name if Product.includes(:color).where(colors: { id: color.id}).first
                 .col-7.lead
                   = color.name.capitalize

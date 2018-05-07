@@ -36,8 +36,6 @@
     .fa-2x
       %i.fas.fa-angle-double-down.text-secondary
 
-
-
 #tag
   .container.py-4
     %h2.font-weight-bold.text-center.mb-4
@@ -51,51 +49,22 @@
         и еще более #{@birthday.count} готовых композиций на день рождения!
     .row
       = link_to 'Посмотреть все', tag_path(Tag.find_by(name:'день рождения')), class: 'btn btn-success btn-lg btn-block col-lg-6 m-auto'
-#tag
-  .container.py-4
-    %h2.font-weight-bold.text-center.mb-4
-      Воздушные шары на выписку из роддома
-      .small
-        Встречайте маму и малыша правильно!
-    .row.justify-content-around.compositions.slider-comp.text-center
-      = render partial: 'small_composition', collection: @roddom.limit(8), as: :c
-    .row.text-center
-      %h2.h4.col-12.mt-3
-        и еще более #{@roddom.count} готовых композиций на рождение малыша!
-    .row
-      = link_to 'Посмотреть все', tag_path(Tag.find_by(name: 'выписку из роддома')), class: 'btn btn-success btn-lg btn-block col-lg-6 m-auto'
-#tag
-  .container.py-4
-    %h2.font-weight-bold.text-center.mb-4
-      Воздушные шары для любимых
-      .small
-        Сделать предложение, оформить романтический ужин или просто признаться в любви!
-    .row.justify-content-around.compositions.slider-comp.text-center
-      = render partial: 'small_composition', collection: @love.limit(8), as: :c
-    .row.text-center
-      %h2.h4.col-12.mt-3
-        и еще более #{@love.count} готовых композиций на рождение малыша!
-    .row
-      = link_to 'Посмотреть все', tag_path(Tag.find_by(name: '14 февраля')), class: 'btn btn-success btn-lg btn-block col-lg-6 m-auto'
-#tag
-  .container.py-4
-    .h2.font-weight-bold.text-center.mb-4
-      Чаще всего заказывают
-      .small
-        Самые популярные композиции!
-    .row.justify-content-around.compositions.slider-comp.text-center
-      = render partial: 'small_composition', collection: @popular.limit(4), as: :c
-    .row.text-center
-      .h4.col-12.mt-3
-        и еще более #{@popular.count} готовых композиций!
-    .row
-      = link_to 'Посмотреть все', compositions_path, class: 'btn btn-success btn-lg btn-block col-lg-6 m-auto'
-    .lead.mb-2.text-center.my-4
-      Другие праздники
-    .row.justify-content-around
-      - @menu_tags.each do |tag|
-        = link_to tag.name, tag_path(tag), class: 'btn btn-sm btn-outline-secondary mx-4 my-2'
+.container-fluid.py-4.bg-info
+  %h2.h3.font-weight-bold.text-center.text-white
+    Вы можете заказать шарики с доставкой на любой праздник!
+    .small
+      Посмотрите готовые композиции из воздушных шаров
+  .container
+    .row.text-center.justify-content-around.mt-4
+      = link_to 'Повод', tags_path, class: 'btn btn-lg col-lg-5 text-uppercase btn-outline-light my-2'
+      = link_to 'Кому', receivers_path, class: 'btn btn-lg col-lg-5 text-uppercase btn-outline-light my-2'
+    %h3.h5.text-center.text-white.mt-3
+      или составьте свою композицию
+    .text-center
+      = link_to 'Шары по цветам и тематике', products_path, class: 'btn btn-lg col-lg-5 text-uppercase btn-light my-2 text-info'
 
+
+%hr
 .container.py-4
   %h2.text-center.font-weight-bold.mb-4
     Отзывы наших клиентов
@@ -136,7 +105,7 @@
         Купить воздушные шары с гелием, надутые и ненадутые в любом количестве и цвете.
   %p
     Если вы ничего не нашли для себя из готовых оформлений или хотите срочно заказать воздушные шары, вы всегда можете оставить заявку или позвонить нам по телефону. Наши менеджеры с удовольствием подберут для вас уникальное оформление под ваш праздник и проконсультируют по всем #{link_to 'вопросам', faq_path}!
-  %h2.h3
-    Заказать шарики с доставкой в #{t("cities.#{@city}.where")} от Шариковой феи - лучший способ сделать праздник незабываемым!
+  / %h2.h3
+  /   Заказать шарики с доставкой в #{t("cities.#{@city}.where")} от Шариковой феи - лучший способ сделать праздник незабываемым!
   %p
     Просто посмотрите #{link_to 'примеры готовых оформлений', compositions_path} на нашем сайте, и без сомнений, вы влюбитесь в наши шарики так же, как влюбились мы в свое время!

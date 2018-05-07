@@ -20,12 +20,45 @@ crumb :compositions do
   parent :root
 end
 
+crumb :tags do
+  link 'Праздники', tags_path
+end
+
 crumb :tag do |tag|
   link tag.name.capitalize, tag_path(tag)
+  parent :tags
+end
+
+crumb :receivers do
+  link 'Кому', receivers_path
 end
 
 crumb :receiver do |p|
   link p.title.capitalize, receiver_path(p)
+  parent :receivers
+end
+
+crumb :products do
+  link 'Гелиевые шары', products_path
+end
+
+crumb :colors do
+  link 'Цвета', colors_path
+  parent :products
+end
+crumb :color do |color|
+  link color.name.capitalize, color_path(color)
+  parent :colors
+end
+
+crumb :categories do
+  link 'Коллекции', categories_path
+  parent :products
+end
+
+crumb :category do |category|
+  link category.name.capitalize, category_path(category)
+  parent :categories
 end
 
 crumb :prices do

@@ -1,5 +1,7 @@
 class Delivery::ReceiversController < Delivery::DeliveryController
 
+  def index
+  end
   def show
     begin
       @person = Receiver.friendly.find(params[:id])

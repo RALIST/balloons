@@ -1,0 +1,25 @@
+- breadcrumb :color, @color
+.container
+  %h1.h2.font-weight-bold.text-center
+    #{@color.name.chomp('ый').capitalize + 'ые'} воздушные шары с гелием
+  %hr
+  .lead.text-center
+    = link_to 'Назад', colors_path, class: 'btn btn-outline-dark mb-2'
+  .card-columns
+    - @items_in_collection.each do |product|
+      .card.text-center.pt-3
+        = image_tag product.image(:thumb), class: 'card-img-top', style: 'max-width:150px'
+        .card-body
+          .card-title.text-center
+            - if product.type.name == 'фольгированные шары'
+              = product.foil_form.name.capitalize
+            - else
+              Латексный шар
+            %br
+            Размер:
+            #{product.size.in_cm.round(0) if product.size.in_cm} см
+            (#{product.size.in_inch.round(0)}")
+            .h4.font-weight-bold
+              = number_to_currency(product.price_with_helium, precision: 0)
+            = link_to 'В корзину', add_product_to_cart_path(product), class: 'btn btn-info', method: :post
+

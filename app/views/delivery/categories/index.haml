@@ -1,0 +1,18 @@
+- breadcrumb :categories
+.container
+  %h1.h2.font-weight-bold.text-center
+    Тематические воздушные шары с рисунком
+    .small.text-muted
+      Воздушные шары с персонажами любимых мультфильмов на любой праздник
+  %hr
+  .card-columns
+    - @categories.each do |category|
+      = link_to category_path(category) do
+        - cache category do
+          .card
+            .card-body
+              .row.align-items-center
+                .col-5
+                  = image_tag category.products.first.image(:small), title: category.name, alt: category.name
+                .col-7.lead
+                  = category.name.capitalize

@@ -17,10 +17,15 @@ class Delivery::MainController < Delivery::DeliveryController
   end
 
   def by_price
-    @compositions = Composition.availible.price_range(params[:min], params[:max]).order(:price)
-    respond_to do |format|
-      format.html { redirect_to root_path, flash: { danger: 'Нет композиций в этом диапазоне!' } unless @compositions.any? }
-      format.js
+    if params[:min].to_i > 0 || params[:max].to_i > 0
+      @compositions = Composition.availible.price_range(params[:min], params[:max]).order(:price)
+      unless @compositions.any?
+        redirect_to root_path
+        flash[:danger] = 'Нет композиций в этом диапазоне!'
+      end
+    else
+      redirect_to root_path
+      flash[:danger] = 'Необходимо указать хотя бы одну цену!'
     end
   end
 

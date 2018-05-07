@@ -61,8 +61,13 @@ Rails.application.routes.draw do
       get '/:city', to: 'main#index', constraints: {city: /#{User::CITIES.map{|c| "(#{c})"}.join('|')}/}
       scope '(:city)', city:  /#{User::CITIES.map{|c| "(#{c})"}.join('|')}/ do
         resources :compositions,  only: %i[index show]
-        resources :tags, only: :show, path: 'events' do
+        resources :tags, path: 'events' do
           resources :compositions, only: :show, path: ''
+        end
+        scope'gelievie-shary' do
+          resources :colors
+          resources :categories
+          resources :products, path: ''
         end
         resources :carts
         resources :orders
@@ -73,7 +78,7 @@ Rails.application.routes.draw do
         resources :calls, only: %i[new create]
         resources :business, only: :index
         resources :graduations, only: :index
-        resources :receivers, only: :show, path: 'persons' do
+        resources :receivers, path: 'persons' do
           resources :compositions, only: :show, path: ''
         end
         resources :feedbacks, only: %i[index new create], path: 'otzivy'
@@ -82,7 +87,8 @@ Rails.application.routes.draw do
           get 'shkola', to: 'graduations#school', as: :school
           get 'universitet', to: 'graduations#univ', as: :univ
         end
-        post '/add_to_cart/:id',          to: 'carts#add_to_cart',            as: :add_to_cart
+        post '/add_to_cart/:id',              to: 'carts#add_to_cart',        as: :add_to_cart
+        post '/add_product_to_cart/:id',  to: 'carts#add_product_to_cart',    as: :add_product_to_cart
         post '/apply_code',               to: 'carts#apply_code',             as: :apply_code
         post '/remove_from_cart/:id',     to: 'carts#remove_from_cart',       as: :remove_from_cart
         post '/add_quantity/:id',         to: 'subpositions#up_quantity',     as: :add_quantity

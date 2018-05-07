@@ -1,0 +1,18 @@
+- breadcrumb :colors
+.container
+  %h1.h2.font-weight-bold.text-center
+    Разноцветные воздушные шары
+    .small.text-muted
+      Воздушные шары
+  %hr
+  .card-columns
+    - @colors.each do |color|
+      = link_to color_path(color) do
+        - cache color do
+          .card
+            .card-body
+              .row.align-items-center
+                .col-5
+                  = image_tag Product.includes(:color).where(colors: { id: color.id}).first.image(:small), title: color.name, alt: color.name
+                .col-7.lead
+                  = color.name.capitalize

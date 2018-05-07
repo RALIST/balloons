@@ -5,7 +5,6 @@ class Delivery::CartsController < Delivery::DeliveryController
     @cart = current_cart
     @collections = Color.all
     @categories = Subcategory.joins(:products).distinct
-    current_cart.total_with_discounts
     if params[:collection_id]
       latex = Product.latex_in_compositions.includes(:color).where(colors: { id: params[:collection_id] })
       foil = Product.foil_in_compositions.includes(:color).where(colors: { id: params[:collection_id] })
@@ -40,6 +39,28 @@ class Delivery::CartsController < Delivery::DeliveryController
       format.html { redirect_back(fallback_location: root_path) }
       format.js
     end
+  end
+
+  def add_product_to_cart
+    @product = Product.find(params[:id])
+    unless current_cart.positions.any?
+      @composition = Composition.create!
+      @composition.products.push(@product)
+      current_cart.positions.create(composition: @composition)
+      @composition.products.uniq.each do |product|
+        quantity = @composition.products.where(id: product.id).count
+        current_cart.positions.where(composition: @composition).last.subpositions.create(product: product, quantity: quantity)
+      end
+    else
+      @composition = Composition.find(current_cart.positions.first.composition_id)
+      @position = current_cart.positions.first
+      if @position.sub_exists?(@product)
+        @position.add_quantity_to_sub(@product, 1)
+      else
+        @position.subpositions.create(product: @product, quantity: 1)
+      end
+    end
+    redirect_to my_cart_path
   end
 
   def remove_from_cart

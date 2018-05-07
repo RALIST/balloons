@@ -26,18 +26,22 @@ class Product < ApplicationRecord
   before_save :set_price_with_helium
 
   def image(size)
-    if item.tone && type.name != 'фольгированные шары' && type.name != 'товары для композиций' && self.size.in_inch != 36
-      item.tone.img.url(size)
-    else
-      if img.blank?
-        if set_image
-          img.url(size)
+    begin
+      if item.tone && type.name != 'фольгированные шары' && type.name != 'товары для композиций' && self.size.in_inch != 36
+        item.tone.img.url(size)
+      else
+        if img.blank?
+          if set_image
+            img.url(size)
+          else
+            img.url(size)
+          end
         else
           img.url(size)
         end
-      else
-        img.url(size)
       end
+    rescue
+      img = 0
     end
   end
 
@@ -204,6 +208,10 @@ class Product < ApplicationRecord
 
   def self.foil_in_compositions
     joins(:foil, :size).where.not(price_with_helium: nil, sizes: { in_inch: nil }).order(:size_id)
+  end
+
+  def self.availible_products
+    joins(:size).includes(:item).includes(:type, :tone, :size, :foil_form).where('price_with_helium > ? AND sizes.in_inch >= ?', 0, 12)
   end
 
   delegate :special?, to: :item

@@ -1,0 +1,44 @@
+#tag
+  .container.py-4
+    %h2.font-weight-bold.text-center.mb-4
+      Воздушные шары на выписку из роддома
+      .small
+        Встречайте маму и малыша правильно!
+    .row.justify-content-around.compositions.slider-comp.text-center
+      = render partial: 'small_composition', collection: @roddom.limit(8), as: :c
+    .row.text-center
+      %h2.h4.col-12.mt-3
+        и еще более #{@roddom.count} готовых композиций на рождение малыша!
+    .row
+      = link_to 'Посмотреть все', tag_path(Tag.find_by(name: 'выписку из роддома')), class: 'btn btn-success btn-lg btn-block col-lg-6 m-auto'
+#tag
+  .container.py-4
+    %h2.font-weight-bold.text-center.mb-4
+      Воздушные шары для любимых
+      .small
+        Сделать предложение, оформить романтический ужин или просто признаться в любви!
+    .row.justify-content-around.compositions.slider-comp.text-center
+      = render partial: 'small_composition', collection: @love.limit(8), as: :c
+    .row.text-center
+      %h2.h4.col-12.mt-3
+        и еще более #{@love.count} готовых композиций на рождение малыша!
+    .row
+      = link_to 'Посмотреть все', tag_path(Tag.find_by(name: '14 февраля')), class: 'btn btn-success btn-lg btn-block col-lg-6 m-auto'
+#tag
+  .container.py-4
+    .h2.font-weight-bold.text-center.mb-4
+      Чаще всего заказывают
+      .small
+        Самые популярные композиции!
+    .row.justify-content-around.compositions.slider-comp.text-center
+      = render partial: 'small_composition', collection: @popular.limit(4), as: :c
+    .row.text-center
+      .h4.col-12.mt-3
+        и еще более #{@popular.count} готовых композиций!
+    .row
+      = link_to 'Посмотреть все', compositions_path, class: 'btn btn-success btn-lg btn-block col-lg-6 m-auto'
+    .lead.mb-2.text-center.my-4
+      Другие праздники
+    .row.justify-content-around
+      - @menu_tags.each do |tag|
+        = link_to tag.name, tag_path(tag), class: 'btn btn-sm btn-outline-secondary mx-4 my-2'

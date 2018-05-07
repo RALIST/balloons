@@ -123,6 +123,11 @@
     padding-top: 0;
     .active {
       @extend .text-white;
+      @extend .text-uppercase;
+    }
+    span {
+      @extend .mx-2;
+      @extend .text-white;
     }
   }
   @include media-breakpoint-down(md){
@@ -133,6 +138,10 @@
       margin-left: 0 !important;
     }
   }
+}
+
+.bg-grad{
+  @include gradient-x($start-color: $brand-secondary, $end-color: $brand-info, $start-percent: 0%, $end-percent: 100%);
 }
 
 #price{

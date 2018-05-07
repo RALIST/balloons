@@ -9,7 +9,6 @@ class Composition < ApplicationRecord
   has_many :orders, through: :positions
   has_many :positions
 
-  validates :img, presence: true
   has_attached_file :img, styles: { small: ['x200', :png],
                                     preview: ['x400', :png],
                                     large: ['x600', :png] },
@@ -88,26 +87,28 @@ class Composition < ApplicationRecord
   end
 
   def random_title
-    if self.title.blank?
-      tags = self.tags.map { |i| 'на ' + i.name }
-      start = ['Букет из воздушных шаров', 'Композиция из воздушных шаров', 'Облако из воздушных шаров', 'Оформление из воздушных шаров', 'Стойка из воздушных шаров', 'Красота из воздушных шаров']
-      foil_products = []
-      latex_products = []
-      self.products.uniq.each do |p|
-        case p.type.name
-        when 'фольгированные шары'
-          foil_products.push(('фольгированный шар' + ' ' + p.foil_form.name).capitalize) if p.foil_form
-        when 'латексные шары'
-          latex_products.push((p.color.name + ' ' + 'латексный воздушный шар').capitalize)
+    if img.present?
+      if self.title.blank?
+        tags = self.tags.map { |i| 'на ' + i.name }
+        start = ['Букет из воздушных шаров', 'Композиция из воздушных шаров', 'Облако из воздушных шаров', 'Оформление из воздушных шаров', 'Стойка из воздушных шаров', 'Красота из воздушных шаров']
+        foil_products = []
+        latex_products = []
+        self.products.uniq.each do |p|
+          case p.type.name
+          when 'фольгированные шары'
+            foil_products.push(('фольгированный шар' + ' ' + p.foil_form.name).capitalize) if p.foil_form
+          when 'латексные шары'
+            latex_products.push((p.color.name + ' ' + 'латексный воздушный шар').capitalize)
+          end
         end
+        receivers = self.receivers.map { |i| i.title }
+        products = foil_products + latex_products
+        start = start + products
+        tags  = tags + receivers
+        title = start[rand(start.length)] +
+                " #{tags[rand(tags.length)]}"
+        self.update(title: title)
       end
-      receivers = self.receivers.map { |i| i.title }
-      products = foil_products + latex_products
-      start = start + products
-      tags  = tags + receivers
-      title = start[rand(start.length)] +
-              " #{tags[rand(tags.length)]}"
-      self.update(title: title)
     end
   end
 end

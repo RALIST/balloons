@@ -17,48 +17,52 @@
     .subtotal-col.text-right
       - if current_user
         #{number_to_percentage(current_user.discount + @cart.used_code_discount, precision: 2)}
-        (#{(@cart.total * (@cart.used_code_discount + current_user.discount) / 100).round(2)}
+        (#{@cart.user_discount}
         %i.fas.fa-ruble-sign
         )
       - else
         = link_to 'Войдите', login_path
   .d-flex.px-3
     .subtotal-col.text-left
-      - to_delivery = 1000 - @cart.total
+      - to_delivery = 1200 - @cart.total_price
       Доставка
     .subtotal-col.text-right
-      = to_delivery > 0 ? 200 : 0
+      = to_delivery > 0 ? 250 : 0
       %i.fas.fa-ruble-sign
-  .d-flex.border-bot.px-3
+  %hr.my-2
+  .d-flex.border-botom.px-3.lead
     .subtotal-col.text-left
       %strong
         Всего к оплате:
     .subtotal-col.text-right
       %strong
-        = @cart.total.round(2)
+        = @cart.total_with_discounts.round(0)
         %i.fas.fa-ruble-sign
-  - unless @cart.used_code_discount > 1
-    = form_tag apply_code_path, method: :post do
-      .d-flex.align-items-center.px-3
-        .subtotal-col.text-left
-          = text_field_tag :code, '', class: 'form-control input-sm', placeholder: 'Промо код'
-        .subtotal-col.text-right
-          = submit_tag 'Применить', class: 'btn btn-success btn-sm'
-  - else
-    .text-success.text-center
-      Вы использовали промокод на скидку
-      #{@cart.used_code_discount}%
+  .text-center.my-3
+    = link_to 'Использовать промокод', '#', data:{toggle: 'collapse', target: '#code'}, class: 'text-muted'
+  #code.collapse.my-3
+    - unless @cart.used_code_discount > 1
+      = form_tag apply_code_path, method: :post do
+        .d-flex.align-items-center.px-3
+          .subtotal-col.text-left
+            = text_field_tag :code, '', class: 'form-control form-control-sm input-sm', placeholder: 'Промо код'
+          .subtotal-col.text-right
+            = submit_tag 'Применить', class: 'btn btn-info btn-sm'
+    - else
+      .text-success.text-center
+        Вы использовали промокод на скидку
+        #{@cart.used_code_discount}%
   / .row.text-muted.text-right
   /   .subtotal-col.mt-0= link_to 'Как получить?'
   .d-flex
     .col-12.text-center
-      = link_to 'Оформить заказ', new_order_path, class: 'btn btn-info btn-block'
-      .text-center
-        - if to_delivery > 0
-          Ещё
-          %strong
-            #{to_delivery.round(2)}
-            %i.fa.fa-rub{style: 'aria-hidden="true"'}
-          до бесплатной доставки
-        -else
-          Бесплатная доставка в любой конец города!
+      = link_to 'Оформить заказ', new_order_path, class: 'btn btn-success btn-block btn-lg'
+  .text-center.text-muted
+    - if to_delivery > 0
+      Ещё
+      %strong
+        #{to_delivery.round(2)}
+        %i.fas.fa-ruble-sign
+      до бесплатной доставки
+    -else
+      Бесплатная доставка в любой конец города!

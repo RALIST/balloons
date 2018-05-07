@@ -15,12 +15,16 @@ SitemapGenerator::Sitemap.create do
     add composition_path(c), lastmod: c.updated_at
   end
 
+  add tags_path
+
   Tag.composition_tags.each do |tag|
     add tag_path(tag), lastmod: tag.updated_at
     Composition.availible.with_tag(tag.name).each do |c|
       add tag_composition_path(tag, c)
     end
   end
+
+  add receivers_path
 
   Receiver.all.select('distinct on (title) *').each do |r|
     add receiver_path(r)
@@ -29,6 +33,20 @@ SitemapGenerator::Sitemap.create do
     end
   end
 
+  Color.all.each do |color|
+    add color_path(color), lastmod: color.updated_at
+  end
+
+  Subcategory.joins(items: [:type, :sizes])
+              .where('types.name = ? OR types.name = ?', 'латексные шары', 'фольгированные шары')
+              .distinct.each do |category|
+    add category_path(category), lastmod: category.updated_at
+  end
+
+
+  add colors_path
+  add categories_path
+  add products_path
   add partners_path
   add prices_path
   add contacts_path

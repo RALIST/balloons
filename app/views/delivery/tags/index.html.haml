@@ -1,2 +1,16 @@
-- @tags.each do |tag|
-  = tag.name
+- breadcrumb :tags
+.container
+  %h1.h2.text-center.font-weight-bold
+    Воздушные шары на любой праздник с доставкой по #{t "cities.#{@city}.in"}
+    .small.text-muted
+      Посмотрите готовые оформления на любой праздник
+  %hr
+  .card-columns
+    - @menu_tags.each do |tag|
+      - cache tag do
+        = link_to tag_path(tag) do
+          .card.mb-5
+            = image_tag Composition.all.with_tag(tag.name).first.img(:preview), class: 'card-img'
+            .card-body.card-img-overlay
+              .h2.card-title.text-info.bg-white.p-2
+                = tag.name.capitalize

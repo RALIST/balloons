@@ -1,0 +1,56 @@
+- breadcrumb :products
+.container-fluid.bg-grad.py-3
+  %h1.h2.text-center.font-weight-bold.mb-3.text-white
+    Гелиевые шары с доставкой в #{t("cities.#{@city}.where")}
+    .small
+      Большой ассортимент воздушных шаров на любой праздник
+  .row.text-center
+    #offer-icon.text-white
+      %i.fas.fa-thumbs-up.fa-3x.my-1
+      .h4.text-white
+        Проклеиваем все шары
+        .small
+          Гарантируем 3 дня полета или заменим брак!
+    #offer-icon.text-white
+      %i.fas.fa-car.fa-3x.my-1
+      .h4.text-white
+        Круглосуточная доставка
+        .small
+          Доставим ваш заказ точно в срок!
+    #offer-icon.text-white
+      %i.fas.fa-birthday-cake.fa-3x.my-1
+      .h4.text-white
+        Индивидуальный дизайн
+        .small
+          Подберем уникальное оформление под ваш праздник!
+  .text-center
+    .lead.text-white
+      Помочь с выбором?
+    = button_tag 'Оставить заявку', class: 'btn btn-block btn-info col-lg-6 m-auto', data:{ toggle: 'modal', target: '#call-modal'}
+.container.mt-4
+  %h2.h3.mt-5.text-center=link_to 'Воздушные шары по коллекциям',categories_path
+  %hr
+  .card-columns
+    - @categories.each do |category|
+      = link_to category_path(category) do
+        - cache category do
+          .card
+            .card-body
+              .row.align-items-center
+                .col-5
+                  = image_tag category.products.first.image(:small), title: category.name, alt: category.name
+                .col-7.lead
+                  = category.name.capitalize
+  %h2.h3.text-center=link_to 'Воздушные шары по цветам', colors_path
+  %hr
+  .card-columns
+    - @colors.each do |color|
+      = link_to color_path(color) do
+        - cache color do
+          .card
+            .card-body
+              .row.align-items-center
+                .col-5
+                  = image_tag Product.includes(:color).where(colors: { id: color.id}).first.image(:small), title: color.name, alt: color.name
+                .col-7.lead
+                  = color.name.capitalize

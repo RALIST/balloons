@@ -38,7 +38,7 @@
             .card-body
               .row.align-items-center
                 .col-5
-                  = image_tag category.products.first.image(:small), title: category.name, alt: category.name
+                  = image_tag category.products.first.image(:small), title: category.name, alt: category.name if Product.includes(:color).where(colors: { id: color.id}).first
                 .col-7.lead
                   = category.name.capitalize
   %h2.h3.text-center=link_to 'Воздушные шары по цветам', colors_path

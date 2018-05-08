@@ -213,3 +213,12 @@
     @extend .mr-5;
   }
 }
+
+#vk_share {
+  a{
+    @extend .btn;
+    @extend .btn-secondary;
+    @extend .btn-block;
+    @extend .px-0;
+  }
+}

@@ -5,6 +5,8 @@
         .h3.text-white
           Оставьте нам отзыв
         и получите промокод на скидку 5% к следующему заказу!
-    .feedback-button.p-5
-      = link_to 'Написать отзыв', new_feedback_path, class: 'btn btn-success btn-lg btn-block text-uppercase', rel: 'nofollow'
 
+    .feedback-button.p-5
+      #feed_btn
+        = link_to 'Написать отзыв', new_feedback_path, class: 'btn btn-success btn-block text-uppercase', rel: 'nofollow'
+      #vk_share.mt-3.text-uppercase

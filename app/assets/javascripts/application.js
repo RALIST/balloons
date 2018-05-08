@@ -47,6 +47,7 @@ var ready = function(){
   toTop();
   respMenu();
   fullPage();
+  share();
   FontAwesome.dom.i2svg();
   $('body').attr('data-loaded', 'T')
   }
@@ -91,6 +92,13 @@ var fullPage = function(){
 
 var destroyFullpage = function(){
   $.fn.fullpage.destroy('all')
+}
+
+var share = function(){
+  $('#vk_share').html(VK.Share.button(false,{
+    type: 'custom',
+    text: '<i class="fab fa-vk mr-2"></i>Поделиться'
+  }))
 }
 
 document.addEventListener('turbolinks:load', ready);

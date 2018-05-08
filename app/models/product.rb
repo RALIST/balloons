@@ -17,7 +17,12 @@ class Product < ApplicationRecord
   validates :item_id, :barcode, presence: true, unless: :special?
   validates :barcode, uniqueness: true, unless: :special?
 
-  has_attached_file :img, styles: { small: 'x100', thumb: 'x300' }
+  has_attached_file :img, styles: { small: 'x100', thumb: 'x300' },
+                          convert_options: {
+                                  small: '-quality 75 -strip  -interlace Plane',
+                                  thumb: '-quality 75 -strip -interlace Plane'
+                         },
+                          processors: [:thumbnail, :paperclip_optimizer]
   validates_attachment_content_type :img,
                                     content_type: ['image/jpeg', 'image/jpg', 'image/png'],
                                     default_url: '/missing/:style/missing.png'

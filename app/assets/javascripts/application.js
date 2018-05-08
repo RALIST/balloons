@@ -49,6 +49,7 @@ var ready = function(){
   fullPage();
   share();
   FontAwesome.dom.i2svg();
+  $('[data-toggle="tooltip"]').tooltip();
   $('body').attr('data-loaded', 'T')
   }
 

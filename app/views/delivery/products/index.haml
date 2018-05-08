@@ -38,7 +38,7 @@
             .card-body
               .row.align-items-center
                 .col-5
-                  = image_tag category.products.first.image(:small), title: category.name, alt: category.name
+                  = image_tag category.products.first.image(:small), title: category.name, alt: category.name, data: {toggle: 'tooltip'}
                 .col-7.lead
                   = category.name.capitalize
   %h2.h3.text-center=link_to 'Воздушные шары по цветам', colors_path
@@ -51,7 +51,8 @@
             .card-body
               .row.align-items-center
                 .col-5
-                  = image_tag Product.includes(:color).where(colors: { id: color.id}).first.image(:small), title: color.name, alt: color.name if Product.includes(:color).where(colors: { id: color.id}).first
+                  - if Product.includes(:color).where(colors: { id: color.id}).first
+                    = image_tag Product.includes(:color).where(colors: { id: color.id}).first.image(:small), title: color.name, alt: color.name, data: {toggle: 'tooltip'}
                 .col-7.lead
                   = color.name.capitalize
 .container#seo-text.mt-4

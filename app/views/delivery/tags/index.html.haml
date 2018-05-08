@@ -1,7 +1,7 @@
 - breadcrumb :tags
 .container
   %h1.h2.text-center.font-weight-bold
-    Воздушные шары на любой праздник с доставкой по #{t "cities.#{@city}.in"}
+    Воздушные шары на праздник с доставкой по #{t "cities.#{@city}.in"}
     .small.text-muted
       Посмотрите готовые оформления на любой праздник
   %hr
@@ -14,3 +14,6 @@
             .card-body.card-img-overlay
               .h2.card-title.text-info.bg-white.p-2
                 = tag.name.capitalize
+%hr
+.container#seo-text
+  = render 'text_party'

@@ -28,7 +28,7 @@ class Composition < ApplicationRecord
   scope :without_price, -> { with_items.where(products: { price_with_helium: nil }).distinct(:id) }
   scope :with_tags, -> { joins(:tags).joins(:receivers) }
   scope :without_tags, -> { where.not(id: Composition.with_tags.map(&:id)).where(deleted: false) }
-  scope :availible, -> { joins(:tags).joins(:products).distinct(:id).where.not(products: { price_with_helium: nil }) }
+  scope :availible, -> { includes(:tags, :compositions_tags).joins(:tags).joins(:products).distinct(:id).where.not(products: { price_with_helium: nil }) }
   scope :with_receivers, ->(receiver) { joins(:receivers).where(receivers: { title: receiver }) }
 
   after_find :random_title

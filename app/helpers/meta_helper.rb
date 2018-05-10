@@ -288,7 +288,7 @@ module MetaHelper
     	set_meta_tags title: "Композиция № #{@comp.id} из воздушных шаров | Шариковая фея",
                   reverse: true,
                   keywords: "воздушные шары, заказать воздушные шары, шарики с доставкой, доставка шариков, воздушные шары с доставкой",
-                  description: "Композиция из воздушных шаров на #{tags.map(&:name).join(", ")}, #{receivers.map(&:title).join(", ")}",
+                  description: "Композиция из воздушных шаров на #{@comp.tags.map(&:name).join(", ")}, #{@comp.receivers.map(&:title).join(", ")}",
                   canonical: (composition_path(@comp) if @tag || @receiver)
 
     set_meta_tags og: {

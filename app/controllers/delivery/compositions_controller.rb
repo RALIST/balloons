@@ -14,8 +14,6 @@ class Delivery::CompositionsController < Delivery::DeliveryController
 
   def show
     @comp.update_attributes(views: @comp.views + 1)
-    tags = @comp.tags.map(&:name)
-    receivers = @comp.receivers.map(&:title)
     @tag = Tag.friendly.find(params[:tag_id]) if params[:tag_id]
     @receiver = Receiver.friendly.find(params[:receiver_id]) if params[:receiver_id]
   end

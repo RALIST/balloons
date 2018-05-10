@@ -3,11 +3,11 @@ class Composition < ApplicationRecord
   has_many :items, through: :items_in_compositions
   has_many :products, through: :items_in_compositions
   has_many :sizes, through: :products
-  has_many :tags, as: :taggable
   has_many :carts, through: :positions
   has_many :receivers, as: :personable
   has_many :orders, through: :positions
   has_many :positions
+  has_many :tags, as: :taggable
 
   has_attached_file :img, styles: { small: ['x200', :png],
                                     preview: ['x400', :png],
@@ -21,9 +21,6 @@ class Composition < ApplicationRecord
   validates_attachment_content_type :img,
                                     content_type: ['image/jpeg', 'image/jpg', 'image/png']
 
-  scope :with_tag, ->(tag) {
-                     joins(:tags)
-    .where('tags.name LIKE ?', "%#{tag}%").distinct(:id) }
   scope :with_items, -> { joins(:products).distinct(:id) }
   scope :without_items, -> {
                           left_outer_joins(:items)
@@ -31,11 +28,25 @@ class Composition < ApplicationRecord
   scope :without_price, -> { with_items.where(products: { price_with_helium: nil }).distinct(:id) }
   scope :with_tags, -> { joins(:tags).joins(:receivers) }
   scope :without_tags, -> { where.not(id: Composition.with_tags.map(&:id)).where(deleted: false) }
-  scope :availible, -> { joins(:tags).joins(:products).distinct(:id).where.not(id: Composition.without_price.map(&:id), deleted: true) }
+  scope :availible, -> { joins(:tags).joins(:products).distinct(:id).where.not(products: { price_with_helium: nil }) }
   scope :with_receivers, ->(receiver) { joins(:receivers).where(receivers: { title: receiver }) }
 
   after_find :random_title
+  after_touch :set_tags
 
+  def set_tags
+    data =  File.read('tmp/tags.txt')
+    data.each_line do |line|
+      arr = line.split(':')
+      comp = Composition.find(arr[0])
+      tag = Tag.find_by(name: arr[1].strip)
+      comp.tags << tag unless comp.tags.include?(tag)
+    end
+  end
+
+  def self.with_tag(tag)
+    joins(:tags).where(tags: {name: tag})
+  end
 
   def comp_price
     price = self.products.map { |i| i.price_with_helium }.reject(&:nil?).sum.round(2)
@@ -48,13 +59,14 @@ class Composition < ApplicationRecord
 
   def tag_name
     tags.each do |tag|
-      return tag.name
+      return tag
     end
   end
 
   def tag_name=(name)
     name = Unicode.downcase(name.strip)
-    self.tags.find_or_create_by!(name: name) unless name.blank?
+    tag = Tag.find_or_create_by!(name: name) unless name.blank?
+    self.tags << tag
   end
 
   def receiver_title

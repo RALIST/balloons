@@ -1,6 +1,7 @@
 class Delivery::ReceiversController < Delivery::DeliveryController
 
   def index
+    @menu_receivers = Receiver.all.select('distinct on (title) *')
   end
   def show
     begin

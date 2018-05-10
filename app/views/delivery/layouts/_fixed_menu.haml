@@ -3,40 +3,27 @@
     .row
       .menu-options
         %ul.list-unstyled.nav.justify-content-between
-          %li.text-uppercase.dropdown{role: "presentation"}
+          %li.dropdown
             = link_to '', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
-              Повод
-            %ul.dropdown-menu{style: 'aria-labelledby="dropdownMenuButton"'}
-              - @menu_tags.each do |tag|
-                %li.text-capitalize.dropdown-item= link_to tag.name, tag_path(tag)
-          %li.text-uppercase.dropdown{role: "presentation"}
+              Готовые композиции
+            %ul.dropdown-menu
+              %li.dropdown-item= link_to 'По праздникам', tags_path
+              %li.dropdown-item= link_to 'Кому', receivers_path
+          %li.dropdown
             = link_to '', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
-              Кому
+              Гелиевые шары
             %ul.dropdown-menu
-              - @menu_receivers.each do |p|
-                %li.text-capitalize.dropdown-item
-                  = link_to p.title, receiver_path(p)
-          %li.text-uppercase.dropdown{role: "presentation"}
-            = link_to '', class: 'dropdown-toggle', data:{toggle: 'dropdown'} do
-              По цене
-            %ul.dropdown-menu
-              %li.px-2
-                = form_tag price_range_path, class: 'form' do
-                  .form-group
-                    = number_field_tag :min,'', class: ' form-control form-control-sm', placeholder: 'От'
-                  .form-group
-                    = number_field_tag :max,'', class: 'form-control form-control-sm', placeholder: 'До'
-                  .from-group.mx-auto
-                    = submit_tag 'Показать', class: 'btn btn-info btn-block btn-sm'
+              %li.dropdown-item= link_to 'По цветам', colors_path
+              %li.dropdown-item= link_to 'По коллекциям', categories_path
           %li.text-uppercase.dropdown{role: "presentation"}
             = link_to '', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
               Выпускные
             %ul.dropdown-menu
-              %li.text-capitalize.dropdown-item
+              %li.dropdown-item
                 = link_to 'Из садика', kg_path
-              %li.text-capitalize.dropdown-item
+              %li.dropdown-item
                 = link_to 'Из школы', school_path
           %li.text-uppercase.nav-item
-            = link_to 'Для бизнеса', business_index_path
+            = link_to 'Для бизнеса', business_index_path,data: {turbolinks: false}
           %li.text-uppercase.nav-item
             = link_to 'Отзывы', feedbacks_path

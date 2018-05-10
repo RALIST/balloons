@@ -1,7 +1,7 @@
 class Delivery::DeliveryController < ApplicationController
   layout 'delivery'
   include MetaHelper
-  before_action :current_cart, :new_call, :tags, :receivers
+  before_action :current_cart, :new_call
   before_action :set_location
   before_action :set_meta_og
 
@@ -67,13 +67,5 @@ class Delivery::DeliveryController < ApplicationController
 
   def new_call
     @call = Call.new
-  end
-
-  def tags
-    @menu_tags = Tag.composition_tags
-  end
-
-  def receivers
-    @menu_receivers = Receiver.all.select('distinct on (title) *')
   end
 end

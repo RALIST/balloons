@@ -46,7 +46,7 @@
       = render partial: 'small_composition', collection: @birthday.limit(8), as: :c
     .row.text-center
       %h2.h4.col-12.mt-3
-        и еще более #{@birthday.count} готовых композиций на день рождения!
+        и еще более #{@birthday.length} готовых композиций на день рождения!
     .row
       = link_to 'Посмотреть все', tag_path(Tag.find_by(name:'день рождения')), class: 'btn btn-success btn-lg btn-block col-lg-6 m-auto'
 .container-fluid.py-4.bg-info

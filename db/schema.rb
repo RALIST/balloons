@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180506104702) do
+ActiveRecord::Schema.define(version: 20180412101329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,7 +49,6 @@ ActiveRecord::Schema.define(version: 20180506104702) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "slug"
   end
 
   create_table "compositions", force: :cascade do |t|
@@ -63,6 +62,12 @@ ActiveRecord::Schema.define(version: 20180506104702) do
     t.boolean  "deleted",          default: false
     t.float    "price",            default: 0.0
     t.integer  "views",            default: 0
+  end
+
+  create_table "compositions_tags", id: false, force: :cascade do |t|
+    t.integer "composition_id"
+    t.integer "tag_id"
+    t.index ["composition_id", "tag_id"], name: "index_compositions_tags_on_composition_id_and_tag_id", using: :btree
   end
 
   create_table "feedbacks", force: :cascade do |t|
@@ -269,7 +274,6 @@ ActiveRecord::Schema.define(version: 20180506104702) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "slug"
   end
 
   create_table "subpositions", force: :cascade do |t|

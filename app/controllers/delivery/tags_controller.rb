@@ -17,7 +17,7 @@ class Delivery::TagsController < Delivery::DeliveryController
 																детские праздники воздушными шарами,
 																оформление праздников воздушными шарами,
 																оформление детского праздника воздушными шарами"
-
+		@menu_tags = Tag.composition_tags
 	end
 
 	def show
@@ -32,7 +32,7 @@ class Delivery::TagsController < Delivery::DeliveryController
 				redirect_to tag_path(@tag), status: 301
 			end
 		end
-		@compositions = Composition.availible.with_tag(@tag.name).order(:price).paginate(page: params[:page], per_page: 6)
+		@compositions = @tag.compositions.availible.order(:price).paginate(page: params[:page], per_page: 6)
 		respond_to do |format|
 			format.html { redirect_to root_path, flash: { danger: 'По запросу ' + @tag.name + ' ничего не найдено!' } unless @compositions.any? }
 			format.js {render layout: false}

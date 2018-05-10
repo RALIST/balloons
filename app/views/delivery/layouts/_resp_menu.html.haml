@@ -6,25 +6,27 @@
           %li.dropdown.nav-item
             .h4.d-flex.justify-content-between.align-items-center
               %i.fa.fa-birthday-cake
-              Повод
+              Готовые композиции
               %i.fa.fa-caret-down
             %ul.list-unstyled.dropdown-menus
-              - @menu_tags.each do |tag|
-                %li.h5
-                  = link_to tag.name.capitalize, tag_path(tag), class: 'nav-link', rel: 'nofollow'
+              %li.h5
+                = link_to 'По праздникам', tags_path, class: 'nav-link', rel: 'nofollow'
+              %li.h5
+                = link_to 'Кому', receivers_path, class: 'nav-link', rel: 'nofollow'
           %li.dropdown.nav-item
             .h4.d-flex.justify-content-between.align-items-center
               %i.fa.fa-venus-mars
-              Кому
+              Гелиевые шары
               %i.fa.fa-caret-down
             %ul.list-unstyled.dropdown-menus
-              - @menu_receivers.each do |p|
-                %li.h5
-                  = link_to p.title.capitalize, receiver_path(p), class: 'nav-link', rel: 'nofollow'
+              %li.h5
+                = link_to 'По коллекциям', categories_path, class: 'nav-link', rel: 'nofollow'
+              %li.h5
+                = link_to 'По цветам', colors_path, class: 'nav-link', rel: 'nofollow'
           %li.dropdown.nav-item
             .h4.d-flex.justify-content-between.align-items-center
               %i.fas.fa-ruble-sign
-              По цене
+              Композиции по цене
               %i.fa.fa-caret-down
             %ul.list-unstyled.dropdown-menus
               %li.h5

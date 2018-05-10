@@ -1,25 +1,30 @@
 class Tag < ApplicationRecord
   extend FriendlyId
   friendly_id :name, use: :slugged
-  belongs_to :taggable, polymorphic: true
+  belong_to :taggable
   validates :name, presence:  true
 
   scope :composition_tags, -> { where(taggable_type: 'Composition').select('distinct on (name) * ') }
-
-  def resolve_friendly_id_conflict(candidates)
-    candidates.first
-  end
-
-  # Sets the slug.
-  def set_slug(normalized_slug = nil)
-    if should_generate_new_friendly_id?
-      candidates = FriendlyId::Candidates.new(self, normalized_slug || send(friendly_id_config.base))
-      slug = slug_generator.generate(candidates) || resolve_friendly_id_conflict(candidates)
-      send "#{friendly_id_config.slug_column}=", slug
+  def self.dedupe
+    grouped = all.group_by{|model| model.name }
+    File.open('tmp/tags.txt', 'w+') do |f|
+      grouped.values.each do |duplicates|
+        first_one = duplicates.shift
+        duplicates.each do |double|
+          Composition.availible.where('tags.name LIKE ? ', double.name).each do |c|
+            f.puts("#{c.id}:#{double.name}")
+            double.destroy
+          end
+        end
+      end
     end
+    data1 = File.read('app/models/tag.rb')
+    data2 = File.read('app/models/composition.rb')
+    replace1 = data1.gsub(/has_and_belongs_to_many :compositions/,
+                            'has_and_belongs_to_many :compositions')
+    replace2 = data2.gsub(/has_many :tags, as: :taggable/,
+                          'has_and_belongs_to_many :tags')
+    File.open('app/models/tag.rb', 'w'){|file| file.write replace1}
+    File.open('app/models/composition.rb', 'w'){|file| file.write replace2}
   end
-  # def to_param
-  #   name = Russian::transliterate(self.name)
-  #   [id, name.downcase.split(' ')].join('-')
-  # end
 end

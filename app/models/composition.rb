@@ -7,7 +7,7 @@ class Composition < ApplicationRecord
   has_many :receivers, as: :personable
   has_many :orders, through: :positions
   has_many :positions
-  has_many :tags, as: :taggable
+  has_and_belongs_to_many :tags
 
   has_attached_file :img, styles: { small: ['x200', :png],
                                     preview: ['x400', :png],

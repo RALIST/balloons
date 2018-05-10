@@ -1,7 +1,7 @@
 class Tag < ApplicationRecord
   extend FriendlyId
   friendly_id :name, use: :slugged
-  belong_to :taggable
+  belongs_to :taggable
   validates :name, presence:  true
 
   scope :composition_tags, -> { where(taggable_type: 'Composition').select('distinct on (name) * ') }

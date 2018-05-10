@@ -8,18 +8,11 @@
     .card-block.p-2
       .text-center.d-none.d-lg-block
         Композиция № #{c.id}
-        / - if c.tags.any?
-        /   Воздушные шары на
-        /   %br
-        / = c.tags.limit(3).map{ |t| link_to t.name.capitalize, tag_path(t), class: 'text-info' }.join(', ').html_safe
-      - unless @cart.compositions.include?(c)
-        .text-center.small.mt-2
-          Цена как
-          на фото
-        .h4.font-weight-bold.text-center.mb-2
-          = c.price.round(0)
-          %i.fas.fa-ruble-sign
-        .text-center
-          = link_to 'Подробнее', custom_url_path(c), class: 'btn btn-info btn-block btn-sm'
-      - else
-        = link_to 'Перейти в корзину', my_cart_path, class: 'btn btn-success btn-block'
+      .text-center.small.mt-2
+        Цена как
+        на фото
+      .h4.font-weight-bold.text-center.mb-2
+        = c.price.round(0)
+        %i.fas.fa-ruble-sign
+      .text-center
+        = link_to 'Подробнее', custom_url_path(c), class: 'btn btn-info btn-block btn-sm'

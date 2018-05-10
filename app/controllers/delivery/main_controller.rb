@@ -4,7 +4,8 @@ class Delivery::MainController < Delivery::DeliveryController
 
   def index
     @disable_bread = true
-    @birthday = Composition.availible.with_tag('день рождения').order(:views).reverse_order
+    @tag = Tag.find_by(name: 'день рождения')
+    @birthday = Composition.with_tag(@tag.name).limit(8)
     @feeds = Feedback.all.last(6)
     respond_to do |format|
       format.html

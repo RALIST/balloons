@@ -28,29 +28,17 @@ class Composition < ApplicationRecord
   scope :without_price, -> { with_items.where(products: { price_with_helium: nil }).distinct(:id) }
   scope :with_tags, -> { joins(:tags).joins(:receivers) }
   scope :without_tags, -> { where.not(id: Composition.with_tags.map(&:id)).where(deleted: false) }
-  scope :availible, -> { includes(:tags, :compositions_tags).joins(:tags).joins(:products).distinct(:id).where.not(products: { price_with_helium: nil }) }
+  scope :availible, -> {joins(:products).where('products.price_with_helium > ?', 0)  }
   scope :with_receivers, ->(receiver) { joins(:receivers).where(receivers: { title: receiver }) }
 
   after_find :random_title
-  after_touch :set_tags
-
-  def set_tags
-    data =  File.read('tmp/tags.txt')
-    data.each_line do |line|
-      arr = line.split(':')
-      comp = Composition.find(arr[0])
-      tag = Tag.find_by(name: arr[1].strip)
-      comp.tags << tag unless comp.tags.include?(tag)
-    end
-  end
 
   def self.with_tag(tag)
-    joins(:tags).where(tags: {name: tag})
+    joins(:products, :tags).where('tags.name = ? AND products.price_with_helium > ?', tag, 0).distinct(:id)
   end
 
   def comp_price
     price = self.products.map { |i| i.price_with_helium }.reject(&:nil?).sum.round(2)
-    # self.update(price: price)
   end
 
   def update_price
@@ -81,11 +69,9 @@ class Composition < ApplicationRecord
   end
 
   def related
-    min = (self.price.to_f - 1000)
-    max = (self.price.to_f + 1000)
-    Composition.availible.where(price: min..max).includes(:tags)
-               .where(tags: { name: self.tags.map(&:name) })
-               .where.not(id: self.id)
+    min = (self.price.to_f - 500)
+    max = (self.price.to_f + 500)
+    Composition.availible.where(price: min..max).where.not(id: self.id).distinct(:id)
   end
 
   def self.price_range(min, max)

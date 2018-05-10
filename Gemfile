@@ -49,10 +49,11 @@ gem 'axlsx'
 gem 'axlsx_rails'
 gem 'rubyzip', '~> 0.9.9'
 gem 'font_assets'
+gem 'aws-sdk'
+gem 'aws-sdk-s3'
 
 group :production do
   gem 'fog-aws'
-  gem 'aws-sdk'
   gem 'heroku-deflater'
   gem 'image_optim_bin'
   gem 'rack-cors', require: 'rack/cors'

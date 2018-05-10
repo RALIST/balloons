@@ -17,22 +17,12 @@ class Delivery::TagsController < Delivery::DeliveryController
 																детские праздники воздушными шарами,
 																оформление праздников воздушными шарами,
 																оформление детского праздника воздушными шарами"
-		@menu_tags = Tag.composition_tags
+		@tags = Tag.joins(:compositions).group(:id).order('COUNT (compositions.id) DESC')
 	end
 
 	def show
-		begin
-			@tag = Tag.friendly.find(params[:id])
-		rescue ActiveRecord::RecordNotFound
-			if params[:id].to_i == 0 || params[:id] == '8 марта' || params[:id] == '14 февраля'
-				@tag = Tag.find_by!(name: params[:id])
-				redirect_to tag_path(@tag), status: 301
-			else
-				@tag = Tag.find(params[:id])
-				redirect_to tag_path(@tag), status: 301
-			end
-		end
-		@compositions = @tag.compositions.availible.order(:price).paginate(page: params[:page], per_page: 6)
+		@tag = Tag.friendly.find(params[:id])
+		@compositions = Composition.with_tag(@tag.name).order(:price).paginate(page: params[:page], per_page: 6)
 		respond_to do |format|
 			format.html { redirect_to root_path, flash: { danger: 'По запросу ' + @tag.name + ' ничего не найдено!' } unless @compositions.any? }
 			format.js {render layout: false}

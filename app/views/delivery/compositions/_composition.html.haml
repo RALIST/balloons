@@ -15,7 +15,7 @@
                   Цена
                 %th.text-center
                   Количество
-          - composition.products.uniq.each do |product|
+          - @products.each do |product|
             %tr.item.text-center{data: {item_id: "#{product.id}", content: "#{product.complex_name}" }}
               %td.text-center
                 %span{style: 'border-bottom: 1px dashed black; cursor: pointer;'}
@@ -25,7 +25,7 @@
                 %small
                   руб.
               %td.h5.strong
-                = composition.products.where(id: product.id).count
+                = composition.products.where(id: product.id).length
                 %small
                   шт.
         #more.text-center.w-100.lead.with-grad{style: 'cursor: pointer; line-height: 0.3rem;'}
@@ -77,7 +77,7 @@
             = composition.views
           .lead{title: "Заказали" , data: {toggle: 'tooltip'}}
             %i.fas.fa-shopping-basket
-            = composition.orders.count + 3
+            = composition.orders.length + 3
 .container-fluid.bg-grad.py-3.mt-5.rounded
   %h2.h4.font-weight-bold.text-center.text-white
     Композиция № #{@comp.id} из шариков с доставкой в #{t("cities.#{@city}.where")} сделает #{@tag.present? ? @tag.name : 'праздник'} незабываемым!

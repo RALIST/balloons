@@ -12,17 +12,18 @@ class Subcategory < ApplicationRecord
                          },
                           processors: [:thumbnail, :paperclip_optimizer]
   validates_attachment_content_type :img,
-                                    content_type: ['image/jpeg', 'image/jpg', 'image/png'],
-                                    default_url: '/missing/:style/missing.png'
+                                    content_type: ['image/jpeg', 'image/jpg', 'image/png']
 
   def self.availible
     joins(items: [:type, :sizes]).where('types.name = ? OR types.name = ?', 'латексные шары', 'фольгированные шары').distinct(:id)
   end
 
   def set_image
-    img_url = 'https:' + self.products.availible_products.first.image(:original)
-    self.img = URI.parse(img_url)
-    self.save
+    unless self.img.present?
+      img_url = 'https:' + self.products.availible_products.first.image(:original)
+      self.img = URI.parse(img_url)
+      self.save
+    end
   end
 
   private

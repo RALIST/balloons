@@ -14,8 +14,7 @@ class Subcategory < ApplicationRecord
   def set_image
     unless self.image.present?
       img_url = 'https:' + self.products.availible_products.first.image(:original)
-      image = Image.new
-      image.img_remote_url = img_url
+      image = Image.create(img_remote_url: img_url)
       self.image = image
     end
   end

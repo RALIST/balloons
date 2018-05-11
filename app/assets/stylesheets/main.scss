@@ -121,6 +121,7 @@
     font-size: 80%;
     padding-left: 30px;
     padding-top: 0;
+    @extend .text-white;
     .active {
       @extend .text-white;
       @extend .text-uppercase;

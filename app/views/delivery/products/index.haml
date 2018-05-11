@@ -33,14 +33,13 @@
   .card-columns
     - @categories.each do |category|
       = link_to category_path(category) do
-        - cache category do
-          .card
-            .card-body
-              .row.align-items-center
-                .col-5
-                  = image_tag category.img(:small), title: category.name, alt: category.name, data: {toggle: 'tooltip'}
-                .col-7.lead
-                  = category.name.capitalize
+        .card
+          .card-body
+            .row.align-items-center
+              .col-5
+                = image_tag category.img(:small), title: category.name, alt: category.name, data: {toggle: 'tooltip'}
+              .col-7.lead
+                = category.name.capitalize
   %h2.h3.text-center=link_to 'Воздушные шары по цветам', colors_path
   %hr
   .card-columns

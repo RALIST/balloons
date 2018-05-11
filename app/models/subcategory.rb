@@ -20,15 +20,9 @@ class Subcategory < ApplicationRecord
   end
 
   def set_image
-    if img.blank?
-      if self.products.first.present?
-        img_url = 'https:' + self.products.first.image(:original)
-      else
-        img_url = 'https:' + self.products.availible_products.first.image(:original)
-      end
-      self.img = URI.parse(img_url)
-      self.save
-    end
+    img_url = 'https:' + self.products.availible_products.first.image(:original)
+    self.img = URI.parse(img_url)
+    self.save
   end
 
   private

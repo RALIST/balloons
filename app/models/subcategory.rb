@@ -5,24 +5,18 @@ class Subcategory < ApplicationRecord
   extend FriendlyId
   friendly_id :name, use: :slugged
 
-  has_attached_file :img, styles: { small: 'x100', thumb: 'x300' },
-                          convert_options: {
-                                  small: '-quality 75 -strip  -interlace Plane',
-                                  thumb: '-quality 75 -strip -interlace Plane'
-                         },
-                          processors: [:thumbnail, :paperclip_optimizer]
-  validates_attachment_content_type :img,
-                                    content_type: ['image/jpeg', 'image/jpg', 'image/png']
+  has_one :image, as: :imageable
 
   def self.availible
     joins(items: [:type, :sizes]).where('types.name = ? OR types.name = ?', 'латексные шары', 'фольгированные шары').distinct(:id)
   end
 
   def set_image
-    unless self.img.present?
+    unless self.image.present?
       img_url = 'https:' + self.products.availible_products.first.image(:original)
-      self.img = URI.parse(img_url)
-      self.save
+      image = Image.new
+      image.img_remote_url = img_url
+      self.image = image
     end
   end
 

@@ -12,8 +12,8 @@
           .card-body
             .row.align-items-center
               .col-5
-                - if category.img.blank?
+                - if category.image.blank?
                   - @categories.find_each(&:set_image)
-                = image_tag category.img(:small), title: category.name, alt: category.name, data: {toggle: 'tooltip'}
+                = image_tag category.image(:small), title: category.name, alt: category.name, data: {toggle: 'tooltip'}
               .col-7.lead
                 = category.name.capitalize

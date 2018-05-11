@@ -22,9 +22,9 @@
     = image_tag 'logo-resp.png', class: 'img-fluid', alt: 'Шариковая фея'
   .fa-layers.fa-fw.fa-2x.text-white#icon-wrapper
     %i.fas.fa-bars
-    -if @cart.positions.any?
+    -if @cart.total_price > 0
       %span.fa-layers-counter.fa-lg{data: {turbolinks: {permanent: true}}}
-        = @cart.positions.count
+        = @cart.positions.length
 .container-fluid#header
   .container
     .row
@@ -100,7 +100,7 @@
                     %i.fas.fa-map-marker-alt.text-secondary
                     = t "cities.#{@city}.base"
             #cart.text-right.mb-2
-              = link_to my_cart_path,rel: 'nofollow', class: 'btn btn-secondary' do
+              = link_to my_cart_path, rel: 'nofollow', class: 'btn btn-secondary' do
                 %i.fas.fa-shopping-basket
                 #to-cart.d-inline
                   В корзину

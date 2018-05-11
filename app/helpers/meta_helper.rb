@@ -331,6 +331,4 @@ module MetaHelper
       site_name: "Шариковая фея"
     }
 	end
-
-
 end

@@ -31,7 +31,7 @@ class Composition < ApplicationRecord
   scope :availible, -> {joins(:products).where('products.price_with_helium > ?', 0)  }
   scope :with_receivers, ->(receiver) { joins(:receivers).where(receivers: { title: receiver }) }
 
-  after_find :random_title
+  after_save :random_title
 
   def self.with_tag(tag)
     joins(:products, :tags).where('tags.name = ? AND products.price_with_helium > ?', tag, 0).distinct(:id)

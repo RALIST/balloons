@@ -7,13 +7,15 @@ class Color < ApplicationRecord
   extend FriendlyId
   friendly_id :name, use: :slugged
 
-  def set_slug(normalized_slug = nil)
-    if should_generate_new_friendly_id?
-      candidates = FriendlyId::Candidates.new(self, normalized_slug || send(friendly_id_config.base))
-      slug = slug_generator.generate(candidates) || resolve_friendly_id_conflict(candidates)
-      send "#{friendly_id_config.slug_column}=", slug
-    end
-  end
+  has_attached_file :img, styles: { small: 'x100', thumb: 'x300' },
+                          convert_options: {
+                                  small: '-quality 75 -strip  -interlace Plane',
+                                  thumb: '-quality 75 -strip -interlace Plane'
+                         },
+                          processors: [:thumbnail, :paperclip_optimizer]
+  validates_attachment_content_type :img,
+                                    content_type: ['image/jpeg', 'image/jpg', 'image/png'],
+                                    default_url: '/missing/:style/missing.png'
 
   private
 

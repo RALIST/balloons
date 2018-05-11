@@ -26,7 +26,9 @@ class Admin::ItemsController < Admin::AdminController
   def edit; end
 
   def update
-    @item.update(item_params)
+    if @item.update(item_params)
+      redirect_to admin_items_path
+    end
   end
 
   def destroy
@@ -90,7 +92,8 @@ class Admin::ItemsController < Admin::AdminController
                                    quantity
                                    name
                                    img
-                                 ])
+                                 ],
+                                 subcategory_ids: [])
   end
 
   def set_item

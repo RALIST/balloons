@@ -5,7 +5,7 @@ class Delivery::CompositionsController < Delivery::DeliveryController
   include CompositionsHelper
 
   def index
-    @compositions = Composition.availible.order(:price).paginate(page: params[:page], per_page: 6)
+    @compositions = Composition.availible.distinct.order(:price).paginate(page: params[:page], per_page: 6)
     respond_to do |format|
       format.html
       format.js if params[:page]

@@ -216,7 +216,7 @@ class Product < ApplicationRecord
   end
 
   def self.availible_products
-    joins(:size).includes(:item).includes(:type, :tone, :size, :foil_form).where('price_with_helium > ? AND sizes.in_inch >= ?', 0, 12)
+    joins(:size).includes(:item, :type, :tone, :size, :foil_form).where('price_with_helium > ? AND sizes.in_inch >= ?', 0, 12)
   end
 
   delegate :special?, to: :item

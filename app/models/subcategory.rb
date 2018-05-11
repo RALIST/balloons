@@ -15,7 +15,7 @@ class Subcategory < ApplicationRecord
     unless self.image.present?
       img_url = 'https:' + self.products.availible_products.first.image(:original)
       image = Image.create(img_remote_url: img_url)
-      self.image = image
+      self.image << image
     end
   end
 

@@ -20,7 +20,7 @@ class Subcategory < ApplicationRecord
       if self.products.first.present?
         img_url = 'https:' + self.products.first.image(:original)
       else
-        img_url = 'https:' + self.products.availible_products.last.image(:original)
+        img_url = 'https:' + self.products.availible_products.first.image(:original)
       end
       self.img = URI.parse(img_url)
       self.save

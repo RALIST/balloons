@@ -12,8 +12,6 @@
           .card-body
             .row.align-items-center
               .col-5
-                - if category.image.blank?
-                  - category.set_image
                 = image_tag category.image(:small), title: category.name, alt: category.name, data: {toggle: 'tooltip'}
               .col-7.lead
                 = category.name.capitalize

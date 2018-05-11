@@ -38,7 +38,7 @@
             .card-body
               .row.align-items-center
                 .col-4
-                  = image_tag category.image.image.img(:small), title: category.name, alt: category.name, data: {toggle: 'tooltip'}
+                  = image_tag category.image.img(:small), title: category.name, alt: category.name, data: {toggle: 'tooltip'}
                 .col-8.lead
                   = category.name.capitalize
   %h2.h3.text-center=link_to 'Воздушные шары по цветам', colors_path

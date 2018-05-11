@@ -17,7 +17,11 @@ class Subcategory < ApplicationRecord
 
   def set_image
     if img.blank?
-      img_url = 'https:' + self.products.first.image(:original).force_encoding("windows-1254")
+      if self.products.first.present?
+        img_url = 'https:' + self.products.first.image(:original)
+      else
+        img_url = 'https:' + self.products.availible_products.last.image(:original)
+      end
       self.img = URI.parse(img_url)
       self.save
     end

@@ -3,8 +3,7 @@ class Delivery::CategoriesController < Delivery::DeliveryController
   def index
     set_meta_tags title: 'Воздушные шары с рисунком. Бесплатная доставка в %{city} | Шариковая фея' % {city: t("cities.#{@city}.where")},
                   description: 'Воздушные шары с рисунком - это лучший способ порадовать ребенка! Персонажи любимых мультфильмов, цветы, смайлы и многое другое в ассортименте нашего магазина!'
-    @categories = Subcategory.joins(items: [:type, :sizes]).where('types.name = ? OR types.name = ?', 'латексные шары', 'фольгированные шары')
-                              .select(:id, :name, :slug, :updated_at).distinct
+    @categories = Subcategory.availible.select(:id, :name, :slug, :updated_at).distinct
   end
 
   def show

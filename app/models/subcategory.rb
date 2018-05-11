@@ -15,6 +15,10 @@ class Subcategory < ApplicationRecord
                                     content_type: ['image/jpeg', 'image/jpg', 'image/png'],
                                     default_url: '/missing/:style/missing.png'
 
+  def self.availible
+    joins(items: [:type, :sizes]).where('types.name = ? OR types.name = ?', 'латексные шары', 'фольгированные шары')
+  end
+
   def set_image
     if img.blank?
       if self.products.first.present?

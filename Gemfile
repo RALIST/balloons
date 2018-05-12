@@ -17,6 +17,8 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'image_optim_pack'
   gem 'web-console'
+  gem 'active_record_query_trace'
+  gem 'derailed_benchmarks'
 end
 
 gem 'bootstrap', '~> 4.0.0'
@@ -45,12 +47,14 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'unicode'
 gem 'will_paginate'
 gem 'geocoder'
-gem 'axlsx'
-gem 'axlsx_rails'
-gem 'rubyzip', '~> 0.9.9'
+gem 'axlsx', require: false
+gem 'axlsx_rails', require: false
+gem 'rubyzip', '~> 0.9.9', require: false
 gem 'font_assets'
 gem 'aws-sdk'
 gem 'aws-sdk-s3'
+gem 'puma_worker_killer'
+gem 'derailed_benchmarks'
 
 group :production do
   gem 'fog-aws'
@@ -59,3 +63,4 @@ group :production do
   gem 'rack-cors', require: 'rack/cors'
   gem 'rails_12factor'
 end
+

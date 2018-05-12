@@ -18,7 +18,6 @@ group :development, :test do
   gem 'image_optim_pack'
   gem 'web-console'
   gem 'active_record_query_trace'
-  gem 'derailed_benchmarks'
 end
 
 gem 'bootstrap', '~> 4.0.0'

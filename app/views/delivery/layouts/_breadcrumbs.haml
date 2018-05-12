@@ -1,12 +1,8 @@
 - unless controller.controller_name == 'compositions' && action_name == 'show'
   .container.bread
     .row
-      = breadcrumbs separator: '/', style: :bootstrap, semantic: true, fragment_tag: 'breadcrumb'
-      / - breadcrumbs.tap do |links|
-      /   - links.each do |link|
-      /     - if link.current?
-      /       .current
-      /         .lead.text-uppercase= link.text
+      = breadcrumbs separator: '/', style: :bootstrap, semantic: true, fragment_tag: 'breadcrumb', link_current: true
+
 - else
   .container-fluid.bread-comp
     .container

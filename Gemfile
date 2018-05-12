@@ -18,6 +18,7 @@ group :development, :test do
   gem 'image_optim_pack'
   gem 'web-console'
   gem 'active_record_query_trace'
+  gem 'sys-proctable'
 end
 
 gem 'bootstrap', '~> 4.0.0'

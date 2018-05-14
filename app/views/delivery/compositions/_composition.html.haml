@@ -71,13 +71,7 @@
       = image_tag composition.img.url(:large), class: 'img-fluid img-thumbnail', itemprop: 'image', alt: composition.title
       .row.comp-text.text-secondary.justify-content-between.mt-3
         .col-12.d-flex.flex-row.justify-content-between
-          = social_share_button_tag("Шариковая фея | Композиция из воздушных шаров №#{composition.id}", image: 'https:' + composition.img.url(:large), url: request.original_url, desc: "Композиция из воздушных шаров на #{composition.tags.map(&:name).join(', ')}, #{composition.receivers.map(&:title).join(', ')}", 'data-toggle': 'tooltip' )
-          .lead{title: "Просмотрели", data: {toggle: 'tooltip'}}
-            %i.fas.fa-eye
-            = composition.views
-          .lead{title: "Заказали" , data: {toggle: 'tooltip'}}
-            %i.fas.fa-shopping-basket
-            = composition.orders.length + 3
+
 .container-fluid.bg-grad.py-3.mt-5.rounded
   %h2.h4.font-weight-bold.text-center.text-white
     Композиция № #{@comp.id} из шариков с доставкой в #{t("cities.#{@city}.where")} сделает #{@tag.present? ? @tag.name : 'праздник'} незабываемым!

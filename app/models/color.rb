@@ -20,7 +20,7 @@ class Color < ApplicationRecord
 
   def set_image
     product = Product.includes(:color).where(colors: { id: self.id}).first
-    if product.present? && image.blank?
+    if product.present?
       img_url = 'https:' + product.image(:original)
       self.image = Image.create(img_remote_url: img_url)
     end

@@ -3,6 +3,17 @@ class Receiver < ApplicationRecord
   friendly_id :title, use: :slugged
   belongs_to :personable, polymorphic: true
   validates :title, presence: true
+  has_one :image, as: :imageable
+  after_find :set_image
+
+
+  def set_image
+    if self.image.blank?
+      img_url = 'https:' + self.compositions.order('RANDOM()').first.img(:original)
+      image = Image.create(img_remote_url: img_url)
+      self.image << image
+    end
+  end
 
   def resolve_friendly_id_conflict(candidates)
     candidates.first

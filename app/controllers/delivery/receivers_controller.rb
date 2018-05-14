@@ -16,7 +16,6 @@ class Delivery::ReceiversController < Delivery::DeliveryController
       end
     end
 
-
     @compositions = Composition.with_receivers(@person.title).availible.order(:price).paginate(page: params[:page], per_page: 6)
     respond_to do |format|
       format.html  { redirect_to root_path, flash: { danger: 'Нет композиций!' } unless @compositions.any? }

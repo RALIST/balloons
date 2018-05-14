@@ -1,7 +1,7 @@
 - breadcrumb :color, @color
 .container
   %h1.h2.font-weight-bold.text-center
-    #{@color.name.chomp('ый').capitalize + 'ые'} воздушные шары с гелием
+    #{@color.name.chomp('ый').capitalize + 'ые'} воздушные шары с доставкой в #{t("cities.#{@city}.where")}
   %hr
   .lead.text-center
     = link_to 'Назад', colors_path, class: 'btn btn-outline-dark mb-2'

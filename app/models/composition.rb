@@ -28,13 +28,16 @@ class Composition < ApplicationRecord
   scope :without_price, -> { with_items.where(products: { price_with_helium: nil }).distinct(:id) }
   scope :with_tags, -> { joins(:tags).joins(:receivers) }
   scope :without_tags, -> { where.not(id: Composition.with_tags.map(&:id)).where(deleted: false) }
-  scope :availible, -> {joins(:products, :tags).where('products.price_with_helium > ? AND compositions.img_file_size > ?', 0, 0)  }
-  scope :with_receivers, ->(receiver) { joins(:receivers).where(receivers: { title: receiver }) }
+  scope :availible, -> {joins(:products).where('products.price_with_helium > ? AND compositions.img_file_size > ?', 0, 0)}
 
   after_save :random_title
 
   def self.with_tag(tag)
     joins(:products, :tags).where('tags.name = ? AND products.price_with_helium > ?', tag, 0).distinct(:id)
+  end
+
+  def self.with_receivers(receiver)
+    joins(:products, :receivers).where('receivers.title = ? AND products.price_with_helium > ?', receiver, 0).distinct(:id)
   end
 
   def comp_price

@@ -2,6 +2,8 @@
 .container
   %h1.h2.font-weight-bold.text-center
     Воздушные шары "#{@category.name.capitalize}"
+    .small
+      c доставкой в #{t("cities.#{@city}.where")}
   %hr
   .lead.text-center
     = link_to 'Назад', categories_path, class: 'btn btn-outline-dark mb-2'

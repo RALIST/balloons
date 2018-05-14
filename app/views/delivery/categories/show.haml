@@ -25,11 +25,11 @@
               .h4.font-weight-bold
                 = number_to_currency(product.price_with_helium, precision: 0)
               = link_to 'В корзину', add_product_to_cart_path(product), class: 'btn btn-info', method: :post
-.row.text-center
-  %h4.col-12.mt-3
-    Ничего не нашли? Давайте мы поможем!
-  .col-12#help
-    = button_tag 'Оставить заявку', class: 'btn btn-success btn-lg btn-block col-lg-6 m-auto', data:{ toggle: 'modal', target: '#call-modal'}
+  .row.text-center
+    %h4.col-12.mt-3
+      Ничего не нашли? Давайте мы поможем!
+    .col-12#help
+      = button_tag 'Оставить заявку', class: 'btn btn-success btn-lg btn-block col-lg-6 m-auto', data:{ toggle: 'modal', target: '#call-modal'}
 %hr
 .container
   %h2.h3.font-weight-bold.mt-4

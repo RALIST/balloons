@@ -3,11 +3,10 @@ class Delivery::ColorsController < Delivery::DeliveryController
   def index
     set_meta_tags title: 'Разноцветные воздушные шары с доставкой в %{city} | Шариковая фея' % {city: t("cities.#{@city}.where")},
                   description: 'Большой выбор воздушных шаров разных цветов на любой праздник от Шариковой феи'
-    @colors = Color.select(:name, :slug, :id, :updated_at).all
+    @colors = Color.includes(:image).select(:name, :slug, :id, :updated_at).all
   end
 
   def show
-
     @color = Color.friendly.find(params[:id])
     latex = Product.latex_in_compositions.includes(:item, :tone, :size, :type, :foil_form, :color).where(colors: { id: @color.id})
     foil = Product.foil_in_compositions.includes(:item, :tone, :size, :type, :foil_form, :color).where(colors: { id: @color.id })

@@ -10,8 +10,7 @@ class Receiver < ApplicationRecord
   def set_image
     if self.image.blank?
       img_url = 'https:' + self.compositions.order('RANDOM()').first.img(:original)
-      image = Image.create(img_remote_url: img_url)
-      self.image << image
+      self.image = Image.create(img_remote_url: img_url)
     end
   end
 

@@ -6,7 +6,7 @@ class Tag < ApplicationRecord
   has_one :image, as: :imageable
 
   scope :composition_tags, -> { where(taggable_type: 'Composition').select('distinct on (name) * ') }
-  # after_find :set_image
+  after_find :set_image
 
   def set_image
     if self.image.blank?

@@ -17,7 +17,7 @@ class Delivery::TagsController < Delivery::DeliveryController
 																детские праздники воздушными шарами,
 																оформление праздников воздушными шарами,
 																оформление детского праздника воздушными шарами"
-		@tags = Tag.joins(:compositions).group(:id).order('COUNT (compositions.id) DESC')
+		@tags = Tag.joins(:compositions).includes(:image).group(:id).order('COUNT (compositions.id) DESC')
 	end
 
 	def show

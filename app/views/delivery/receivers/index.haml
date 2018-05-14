@@ -10,7 +10,8 @@
       - cache r do
         = link_to receiver_path(r) do
           .card.mb-5
-            = image_tag r.image.image(:preview), class: 'card-img'
+            - r.set_image
+            = image_tag r.image.img(:thumb), class: 'card-img' if r.image
             .card-body.card-img-overlay
               .h2.card-title.text-info.bg-white.p-2
                 = r.title.capitalize

@@ -16,5 +16,7 @@ Disallow: /users/
 Disallow: /items/
 Disallow: /products/
 Disallow: /cp/
+Disallow: /kazan
+Disallow: /perm
 Host: https://bigairballoons.ru
 Sitemap: https://bigairballoons.ru/sitemap.xml

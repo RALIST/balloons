@@ -14,7 +14,7 @@ class Receiver < ApplicationRecord
     end
   end
 
-  def image(size)
+  def _image(size)
     Composition.with_receivers(self.title).first.img(size)
   end
 

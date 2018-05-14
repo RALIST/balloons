@@ -6,11 +6,12 @@
   .card-columns
     - @colors.each do |color|
       = link_to color_path(color) do
-        - cache color do
-          .card
-            .card-body
-              .row.align-items-center
-                .col-5
-                  = image_tag color.image.img(:small), title: color.name, alt: color.name, data: {toggle: 'tooltip'} if color.image
-                .col-7.lead
-                  = color.name.capitalize
+        - unless color.name == 'ассорти'
+          - cache color do
+            .card
+              .card-body
+                .row.align-items-center
+                  .col-5
+                    = image_tag color.image.img(:small), title: color.name, alt: color.name, data: {toggle: 'tooltip'} if color.image
+                  .col-7.lead
+                    = color.name.capitalize

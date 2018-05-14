@@ -37,23 +37,24 @@
           .card
             .card-body
               .row.align-items-center
-                .col-4
+                .col-5
                   = image_tag category.image.img(:small), title: category.name, alt: category.name, data: {toggle: 'tooltip'}
-                .col-8.lead
+                .col-7.lead
                   = category.name.capitalize
   %h2.h3.text-center=link_to 'Воздушные шары по цветам', colors_path
   %hr
   .card-columns
     - @colors.each do |color|
       = link_to color_path(color) do
-        - cache color do
-          .card
-            .card-body
-              .row.align-items-center
-                .col-5
-                  = image_tag color.image.img(:small), title: color.name, alt: color.name, data: {toggle: 'tooltip'} if color.image
-                .col-7.lead
-                  = color.name.capitalize
+        - unless color.name == 'ассорти'
+          - cache color do
+            .card
+              .card-body
+                .row.align-items-center
+                  .col-5
+                    = image_tag color.image.img(:small), title: color.name, alt: color.name, data: {toggle: 'tooltip'} if color.image
+                  .col-7.lead
+                    = color.name.capitalize
 .container#seo-text.mt-4
   %h2.h4.font-weight-bold
     Заказать воздушные шары с гелием недорого с бесплатной доставкой в #{t("cities.#{@city}.where")} - только у Шариковой феи!

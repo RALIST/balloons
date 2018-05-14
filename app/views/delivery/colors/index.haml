@@ -1,9 +1,7 @@
 - breadcrumb :colors
 .container
   %h1.h2.font-weight-bold.text-center
-    Разноцветные воздушные шары
-    .small.text-muted
-      Воздушные шары
+    Разноцветные воздушные шары с доставкой в #{t("cities.#{@city}.where")}
   %hr
   .card-columns
     - @colors.each do |color|

@@ -8,7 +8,7 @@ class Delivery::CategoriesController < Delivery::DeliveryController
 
   def show
     @category = Subcategory.friendly.find(params[:id])
-    products = @category.products
+    products = @category.products.includes(item: [:tone, :texture])
     @items_in_collection = products.availible_products.order(:name)
     set_meta_tags title: "#{@category.name.capitalize} - тематические воздушные шары | Шариковая фея",
                   description: "Воздушные шары из коллекции '#{@category.name.capitalize}' сделают ваш праздник незабываемым!"

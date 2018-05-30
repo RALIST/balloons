@@ -36,6 +36,27 @@ setTimeout(function(){
   }
 }, 70000)
 
+var jivo = function(){
+  var widget_id = 'j5dc5TFiVH';
+  var d=document;
+  var w=window;
+  function l(){
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = '//code.jivosite.com/script/widget/'+widget_id;
+    var ss = document.getElementsByTagName('script')[0];
+    ss.parentNode.insertBefore(s, ss);}
+  if(d.readyState=='complete'){
+    l();
+  }else{
+    if(w.attachEvent){
+      w.attachEvent('onload',l);
+    }else{
+      w.addEventListener('load',l,false);
+    }
+  }
+};
 
 var ready = function(){
   if($('body').attr('data-loaded') == 'T'){
@@ -48,6 +69,7 @@ var ready = function(){
   respMenu();
   fullPage();
   share();
+  jivo_init();
   FontAwesome.dom.i2svg();
   $('[data-toggle="tooltip"]').tooltip();
   $('body').attr('data-loaded', 'T')
@@ -104,3 +126,5 @@ var share = function(){
 
 document.addEventListener('turbolinks:load', ready);
 document.addEventListener('ready', ready)
+
+$(document).ready(jivo())

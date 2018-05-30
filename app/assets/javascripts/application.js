@@ -69,7 +69,6 @@ var ready = function(){
   respMenu();
   fullPage();
   share();
-  jivo_init();
   FontAwesome.dom.i2svg();
   $('[data-toggle="tooltip"]').tooltip();
   $('body').attr('data-loaded', 'T')
@@ -128,3 +127,9 @@ document.addEventListener('turbolinks:load', ready);
 document.addEventListener('ready', ready)
 
 $(document).ready(jivo())
+
+function jivo_onLoadCallback(){
+  $(document).on('turbolinks:load', function(){
+    jivo_init();
+  })
+};

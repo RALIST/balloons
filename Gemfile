@@ -54,7 +54,6 @@ gem 'font_assets'
 gem 'aws-sdk'
 gem 'aws-sdk-s3'
 gem 'puma_worker_killer'
-gem 'derailed_benchmarks'
 
 group :production do
   gem 'fog-aws'

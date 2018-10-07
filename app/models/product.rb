@@ -168,42 +168,42 @@ class Product < ApplicationRecord
       if type.name == 'латексные шары' && size.present?
         case size.in_inch
         when 12
-          self.price_with_helium = 50
+          self.price_with_helium = 65
         when 14
           if category.title == 'без рисунка'
-            self.price_with_helium = 60
+            self.price_with_helium = 75
           else
-            price.price_with_helium = 80
+            price.price_with_helium = 85
           end
         when 16
-          self.price_with_helium = 80
+          self.price_with_helium = 100
         when 18
-          self.price_with_helium = 120
+          self.price_with_helium = 150
         when 24
-          self.price_with_helium = 450
+          self.price_with_helium = 550
         when 36
-          self.price_with_helium = 900
+          self.price_with_helium = 1100
         end
       else
         if type.name == 'фольгированные шары' && size.present?
           case size.in_inch
           when 18
-            self.price_with_helium = 200
+            self.price_with_helium = 250
           when 19
-            self.price_with_helium = 200
+            self.price_with_helium = 250
           when 30
-            self.price_with_helium = 450
+            self.price_with_helium = 500
           when 32
-            self.price_with_helium = 450
+            self.price_with_helium = 500
           when 36
-            self.price_with_helium = 700
+            self.price_with_helium = 800
           when 40
-            self.price_with_helium = 700
+            self.price_with_helium = 800
           end
         end
       end
     rescue => e
-      p e
+      puts e
     end
   end
 

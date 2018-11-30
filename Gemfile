@@ -1,4 +1,5 @@
 source 'http://rubygems.org'
+ruby '2.3.3'
 
 gem 'bcrypt', git: 'http://github.com/codahale/bcrypt-ruby.git', require: 'bcrypt'
 gem 'coffee-rails', '~> 4.2'

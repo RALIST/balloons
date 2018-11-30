@@ -1,21 +1,30 @@
 #main-offer {
   background: image-url("offer.jpg") no-repeat top center scroll;
   background-size: cover;
-  @extend .py-5;
+  min-height: 90vh;
+  @extend .d-flex;
+  @extend .align-items-center;
+  @extend .justify-content-around;
+  //@extend .py-5;
   @include media-breakpoint-down(md){
-    .mt-5 {
-      margin-top: 0 !important;
+    h1 {
+      font-size: 2rem;
     }
-    padding-top: 0 !important;
-    .row {
-      margin-top: 0 !important;
+    .btn {
+      margin: 0.5rem 0;
     }
+  }
+  h1 {
+    color: white;
+    text-transform: uppercase;
+    text-shadow: 0 0 1px black, 2px 0px 1px darken($brand-info, 5%),
+    2px 0px 20px darken($brand-info, 20%);
+    //letter-spacing: 2px;
   }
 }
 
 #grad {
   background: rgba(255,255,255,0.55);
-  @extend .my-5;
   @extend .text-center;
   @extend .text-dark;
   u {
@@ -32,7 +41,7 @@
   @include make-col(4);
   @extend .my-4;
   @include media-breakpoint-down(md){
-    @include make-col(12);
+    display: none;
   }
 }
 

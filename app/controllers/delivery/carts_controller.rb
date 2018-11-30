@@ -24,7 +24,6 @@ class Delivery::CartsController < Delivery::DeliveryController
 
   def add_to_cart
     @composition = Composition.find(params[:id])
-    current_cart.total_with_discounts
     if current_cart.compositions.include?(@composition)
       flash.now[:danger] = 'Эта композиция уже в корзине!'
     else

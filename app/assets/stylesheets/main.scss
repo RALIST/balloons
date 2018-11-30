@@ -108,27 +108,23 @@
 }
 
 .bread {
-  margin-bottom: 3em;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  margin: 1rem 0;
   .breadcrumb {
-    @include gradient-x($start-color: $brand-secondary, $end-color: $brand-info, $start-percent: 0%, $end-percent: 100%);
+    //@include gradient-x($start-color: $brand-secondary, $end-color: $brand-info, $start-percent: 0%, $end-percent: 100%);
     @include make-col-ready();
-    @include make-col(9);
-    @include make-col-offset(3);
+    @include make-col(12);
+    @include make-col-offset(1);
     margin-bottom: 0;
     padding-bottom: 0;
     font-size: 80%;
-    padding-left: 30px;
+    padding-left: 60px;
     padding-top: 0;
-    @extend .text-white;
+
     .active {
-      @extend .text-white;
       @extend .text-uppercase;
     }
     span {
       @extend .mx-2;
-      @extend .text-white;
     }
   }
   @include media-breakpoint-down(md){

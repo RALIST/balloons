@@ -1,30 +1,48 @@
-- cache do
-  #menu.hidden-md-down
-    .container
-      .row
-        .menu-options
-          %ul.list-unstyled.nav.justify-content-between
-            %li.dropdown
-              = link_to '', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
-                Готовые композиции
-              %ul.dropdown-menu
-                %li.dropdown-item= link_to 'По праздникам', tags_path
-                %li.dropdown-item= link_to 'Кому', receivers_path
-            %li.dropdown
-              = link_to '', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
-                Гелиевые шары
-              %ul.dropdown-menu
-                %li.dropdown-item= link_to 'По цветам', colors_path
-                %li.dropdown-item= link_to 'По коллекциям', categories_path
-            %li.text-uppercase.dropdown{role: "presentation"}
-              = link_to '', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
-                Выпускные
-              %ul.dropdown-menu
-                %li.dropdown-item
-                  = link_to 'Из садика', kg_path
-                %li.dropdown-item
-                  = link_to 'Из школы', school_path
+#menu.hidden-md-down.py-3.bg-white
+  .container
+    .row
+      .menu-options
+        %ul.list-unstyled.nav.justify-content-around
+          %li.dropdown
+            = link_to '', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
+              Готовые композиции
+            %ul.dropdown-menu
+              %li.dropdown-item= link_to 'По праздникам', tags_path
+              %li.dropdown-item= link_to 'Кому', receivers_path
+          %li.dropdown
+            = link_to '', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
+              Гелиевые шары
+            %ul.dropdown-menu
+              %li.dropdown-item= link_to 'По цветам', colors_path
+              %li.dropdown-item= link_to 'По коллекциям', categories_path
+          %li.dropdown{role: "presentation"}
+            = link_to '', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
+              Выпускные
+            %ul.dropdown-menu
+              %li.dropdown-item
+                = link_to 'Из садика', kg_path
+              %li.dropdown-item
+                = link_to 'Из школы', school_path
+          %li.nav-item
+            = link_to 'Для бизнеса', business_index_path,data: {turbolinks: false}
+          %li.nav-item
+            = link_to 'Отзывы', feedbacks_path
+          %li.nav-item
+            = link_to my_cart_path, rel: 'nofollow', title: 'Корзина' do
+              %span.fa-layers.fa-fw.fa-lg
+                %i.fas.fa-shopping-cart.text-info
+                - if @cart.positions.any?
+                  %span.fa-layers-counter.h2.bg-secondary.text-white
+                    = @cart.positions.count
+          - if !current_user
             %li.text-uppercase.nav-item
-              = link_to 'Для бизнеса', business_index_path,data: {turbolinks: false}
+              = link_to login_path, title: 'Войти' do
+                %i.fas.fa-sign-in-alt.fa-lg.text-info
+          - else
             %li.text-uppercase.nav-item
-              = link_to 'Отзывы', feedbacks_path
+              = link_to  cp_path, title: 'Личный кабинет', rel: 'nofollow' do
+                %i.fas.fa-user.fa-lg.text-info
+            %li.text-uppercase.nav-item
+              = link_to logout_path, method: :post, title: 'Выйти' do
+                %i.fas.fa-sign-out-alt.text-info.fa-lg
+

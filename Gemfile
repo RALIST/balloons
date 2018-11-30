@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'bcrypt'
+gem 'bcrypt', git: 'http://github.com/codahale/bcrypt-ruby.git', require: 'bcrypt'
 gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'

@@ -82,9 +82,9 @@ var fixedMenu = function(){
     $(window).scroll(function(){
       var currentScroll = $(window).scrollTop();
       if (currentScroll >= top){
-        $('#menu-fixed').addClass('d-lg-block');
+        $('#menu').addClass('fixed-top');
       }else{
-        $('#menu-fixed').removeClass('d-lg-block');
+        $('#menu').removeClass('fixed-top');
       }
     });
   }
@@ -126,10 +126,10 @@ var share = function(){
 document.addEventListener('turbolinks:load', ready);
 document.addEventListener('ready', ready);
 
-$(document).ready(jivo());
-
-function jivo_onLoadCallback(){
-  $(document).on('turbolinks:load', function(){
-    jivo_init()
-  })
-};
+// $(document).ready(jivo());
+//
+// function jivo_onLoadCallback(){
+//   $(document).on('turbolinks:load', function(){
+//     jivo_init()
+//   })
+// };

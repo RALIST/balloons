@@ -11,7 +11,8 @@
 
 
 .header-logo {
-  @include make-col(3);
+  @include make-col-ready();
+  @include make-col(1);
   #logo{
     position: absolute;
   }
@@ -19,22 +20,26 @@
 
 
 .header-contacts {
-  @include make-col(9);
+  @include make-col-ready();
+  @include make-col(11);
   .social {
-    font-size: 1.5em;
-    min-height: 100%;
-    a {
-      color: $brand-secondary;
-      &:hover {
-        color: darken($brand-secondary, 15%)
+    li {
+      padding-right: 2rem;
+      font-size: 1.25rem;
+      a {
+        color: $brand-secondary;
+        &:hover {
+          color: darken($brand-secondary, 15%)
+        }
       }
+      &:last-child {
+        margin-left: 2rem;
+      }
+
     }
     ul {
       margin: 0;
       min-height: 100%;
-      .nav-link{
-        padding: 0.3rem 0.3rem;
-      }
     }
   }
   .order-call {
@@ -50,7 +55,7 @@
     font-size: 0.9rem;
     font-weight: bold;
   }
-  .dropdown-toggle{
+  .dropdown-toggle, .nav-item{
     @extend .text-uppercase;
   }
 }

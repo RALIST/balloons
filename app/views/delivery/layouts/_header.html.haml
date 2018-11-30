@@ -1,6 +1,6 @@
 .container-fluid
   .row.d-none.d-lg-block
-    .col-12.bg-info.mb-1
+    .col-12.bg-info
       %ul.list-inline.d-flex.justify-content-between.m-0.fs-80
         %li.list-inline-item.pl-3
           = link_to 'О нас', about_path, class: 'text-white'
@@ -25,95 +25,68 @@
     -if @cart.total_price > 0
       %span.fa-layers-counter.fa-lg{data: {turbolinks: {permanent: true}}}
         = @cart.positions.length
-.container-fluid#header
-  .container
-    .row
-      .header-logo.d-none.d-lg-block
-        #logo
-          = link_to root_path do
-            = image_tag 'logo-round.png', class: 'img-fluid'
-      .header-contacts.d-none.d-lg-block
-        .row
-          .col-5.border-right
-            .row
-              .col-2
-                .social
-                  %ul.nav.align-content-between.flex-column
-                    %li.nav-item
-                      =link_to t("cities.#{@city}.links.ins"), target: :_blank, rel: 'nofollow', class: 'nav-link' do
-                        %i.fab.fa-instagram{"aria-hidden":  "true"}
-                    %li.nav-item
-                      =link_to t("cities.#{@city}.links.fb"), target: :_blank , rel: 'nofollow', class: 'nav-link'do
-                        %i.fab.fa-facebook{"aria-hidden": "true"}
-                    %li.nav-item
-                      =link_to t("cities.#{@city}.links.vk"), target: :_blank, rel: 'nofollow', class: 'nav-link' do
-                        %i.fab.fa-vk{"aria-hidden": "true"}
-              .col-10.text-center.d-flex.justify-content-center.flex-column
-                .strong
-                  .h3.mb-0
-                    %small.text-info
-                      %i.fa.fa-phone
-                    = t "cities.#{@city}.phones.direct"
-                  .my-2
-                    = link_to 'Перезвоните мне!', '#', class: 'text-secondary text-uppercase', data:{ toggle: 'modal', target: '#call-modal'}
-                .small.text-center
-                  WhatsApp | Viber | Telegram
-                = t "cities.#{@city}.phones.mobile"
-          .col-4.border-right.align-content-between
-            .row.align-items-center
-              .col-2
-                %i.fas.fa-truck.text-secondary
-              .col-10.text-uppercase.lh-1{style: 'font-size: 0.8rem;'}
-                Бесплатная доставка заказов от 1200 руб.
-            %hr.my-2.border-muted
-            .row.align-items-center
-              .col-2
-                %i.fas.fa-percent.text-secondary
-              .col-10.text-uppercase.lh-1{style: 'font-size: 0.8rem;'}
-                Скидка на самовывоз 10%
-            %hr.my-2
-              .row.align-items-center
-                .col-2
-                  %i.fas.fa-gift.text-secondary
-                .col-10.text-uppercase.lh-1{style: 'font-size: 0.8rem;'}
-                  Подарок при заказе на сайте
-          .col-3.d-flex.justify-content-between.flex-column
-            .row
-              .col-12.text-right
-                - unless current_user
-                  .text-uppercase
-                    %strong{style:'font-size: 0.9rem;'}
-                      = link_to 'Войти', login_path
-                      \/
-                      = link_to 'Регистрация', signin_path
-                - else
-                  %span
-                    Здравствуйте,
-                    = current_user.first_name.capitalize
-                    .small
-                      - if current_user.admin?
-                        = link_to 'Админка', '/admin',class: 'pr-3'
-                      = link_to 'Личный кабинет', cp_path, class: 'pr-3'
-                      = link_to 'Выйти', logout_path, method: :post
-                .text-right
-                  = link_to '#', data:{ toggle: 'modal', target: '#city'} do
-                    %i.fas.fa-map-marker-alt.text-secondary
-                    = t "cities.#{@city}.base"
-            #cart.text-right.mb-2
-              = link_to my_cart_path, rel: 'nofollow', class: 'btn btn-secondary' do
-                %i.fas.fa-shopping-basket
-                #to-cart.d-inline
-                  В корзину
-                  %i.fa.fa-angle-right
-                .badge.badge-light.d-inline
-                  %span#sum{data: {turbolinks: {permanent: true}}}
-                    = @cart.total_price.round(0)
-                  %span.text-primary
-                    руб.
+.container-fluid#header.d-none.d-lg-block
+  .row
+    .header-logo
+      = link_to root_path do
+        = image_tag 'logo-round.png', class: 'img-fluid', alt: 'Шариковая фея', title: 'Шариковая фея', id: 'logo'
+    .header-contacts.my-2
+      -#.row.align-items-center
+      -#  .col-6
+      -#    -#.h5.text-center
+      -#    -#  Свяжитесь с нами!
+      -#    %ul.nav.social.align-items-end
+      -#      %li
+      -#        =link_to t("cities.#{@city}.links.ins"), target: :_blank, rel: 'nofollow' do
+      -#          %i.fab.fa-instagram{"aria-hidden":  "true"}
+      -#      %li
+      -#        =link_to t("cities.#{@city}.links.fb"), target: :_blank , rel: 'nofollow' do
+      -#          %i.fab.fa-facebook{"aria-hidden": "true"}
+      -#      %li
+      -#        =link_to t("cities.#{@city}.links.vk"), target: :_blank, rel: 'nofollow' do
+      -#          %i.fab.fa-vk{"aria-hidden": "true"}
+      -#      %li.text-center
+      -#        = t "cities.#{@city}.phones.mobile"
+      -#
+      -#  -#.col-5
+      -#  -#  %i.fas.fa-truck.text-secondary.fa-2x
+      -#  -#  Бесплатная доставка
+      -#  -#  %i.fas.fa-percent.text-secondary.fa-2x
+      -#  -#  Скидка на самовывоз 10%
+      -#  -#  %i.fas.fa-gift.text-secondary.fa-2x
+      -#  -#  Подарок при заказе на сайте
+      -#  .col-6.d-flex.justify-content-between.flex-column
+      -#    .row
+      -#      .col-12.text-right
+      -#        - unless current_user
+      -#          .text-uppercase
+      -#            %strong{style:'font-size: 0.9rem;'}
+      -#              = link_to 'Войти', login_path
+      -#              \/
+      -#              = link_to 'Регистрация', signin_path
+      -#        - else
+      -#          %span
+      -#            Здравствуйте,
+      -#            = current_user.first_name.capitalize
+      -#            .small
+      -#              - if current_user.admin?
+      -#                = link_to 'Админка', '/admin',class: 'pr-3'
+      -#              = link_to 'Личный кабинет', cp_path, class: 'pr-3'
+      -#              = link_to 'Выйти', logout_path, method: :post
+      -#        -#.text-right
+      -#        -#  = link_to '#', data:{ toggle: 'modal', target: '#city'} do
+      -#        -#    %i.fas.fa-map-marker-alt.text-secondary
+      -#        -#    = t "cities.#{@city}.base"
+      -#    -##cart.text-right.mb-2
+      -#    -#  = link_to my_cart_path, rel: 'nofollow', class: 'btn btn-secondary' do
+      -#    -#    %i.fas.fa-shopping-basket
+      -#    -#    #to-cart.d-inline
+      -#    -#      В корзину
+      -#    -#      %i.fa.fa-angle-right
+      -#    -#    .badge.badge-light.d-inline
+      -#    -#      %span#sum{data: {turbolinks: {permanent: true}}}
+      -#    -#        = @cart.total_price.round(0)
+      -#    -#      %span.text-primary
+      -#    -#        руб.
 
-
-        %hr.my-1.border-dark
-        .row.mt-2.mb-2
-          .col-12
-            = render 'delivery/layouts/main_menu'
-            = render 'delivery/layouts/fixed_menu'
+      = render 'delivery/layouts/main_menu'

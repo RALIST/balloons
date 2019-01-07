@@ -4,9 +4,9 @@ require 'NoneSubdomain'
 Rails.application.routes.draw do
 
   constraints ShopSubdomain do
-    if ENV['CANONICAL_HOST']
-      match '/(*path)' => redirect { |params, _req| "https://#{ENV['CANONICAL_HOST']}/#{params[:path]}" }, via: :all
-    end
+    # if ENV['CANONICAL_HOST']
+    #   match '/(*path)' => redirect { |params, _req| "https://#{ENV['CANONICAL_HOST']}/#{params[:path]}" }, via: :all
+    # end
     # scope module: 'shop' do
     #   root 'main#index'
     #   resources :users

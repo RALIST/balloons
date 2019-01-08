@@ -18,20 +18,20 @@
       = button_tag 'Оставить заявку', class: 'btn btn-block btn-lg btn-secondary', data:{ toggle: 'modal', target: '#call-modal'}
       %br
       %i.fas.fa-angle-double-down.text-secondary.fa-2x
-
-#tag
-  .container.py-4
-    %h2.font-weight-bold.text-center.mb-4
-      Воздушные шары на День рождения
-      .small
-        Шарики на День рождения наверняка создадут праздничную атмосферу!
-    .row.justify-content-around.compositions.slider-comp.text-center
-      = render partial: 'small_composition', collection: @birthday, as: :c
-    .row.text-center
-      %h2.h4.col-12.mt-3
-        и еще больше готовых композиций на день рождения!
-    .row
-      = link_to 'Посмотреть все', tag_path(@tag), class: 'btn btn-success btn-lg btn-block col-lg-6 m-auto'
+- if @tag
+  #tag
+    .container.py-4
+      %h2.font-weight-bold.text-center.mb-4
+        Воздушные шары на День рождения
+        .small
+          Шарики на День рождения наверняка создадут праздничную атмосферу!
+      .row.justify-content-around.compositions.slider-comp.text-center
+        = render partial: 'small_composition', collection: @birthday, as: :c
+      .row.text-center
+        %h2.h4.col-12.mt-3
+          и еще больше готовых композиций на день рождения!
+      .row
+        = link_to 'Посмотреть все', tag_path(@tag), class: 'btn btn-success btn-lg btn-block col-lg-6 m-auto'
 .container-fluid.py-4.bg-info
   %h2.h3.font-weight-bold.text-center.text-white
     Вы можете заказать шарики с доставкой на любой праздник!

@@ -5,7 +5,7 @@ class Delivery::MainController < Delivery::DeliveryController
   def index
     @disable_bread = true
     @tag = Tag.find_by(name: 'день рождения')
-    @birthday = Composition.with_tag(@tag.name).limit(8)
+    @birthday = Composition.with_tag(@tag.name).limit(8) if @tag
     @feeds = Feedback.all.last(6)
     respond_to do |format|
       format.html

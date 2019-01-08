@@ -12,6 +12,7 @@ module Balloons
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.serve_static_assets = true
+
     config.action_mailer.smtp_settings = {
       address:              'smtp.mailgun.org',
       port:                 587,
@@ -20,8 +21,9 @@ module Balloons
       authentication:       :plain,
       enable_starttls_auto: true
     }
-    config.action_mailer.default_options = { from: 'orders@bigairballoons.ru' }
 
+
+    config.action_mailer.default_options = { from: 'orders@bigairballoons.ru' }
     config.time_zone = 'Samara'
     config.i18n.default_locale = :ru
     config.exceptions_app = routes

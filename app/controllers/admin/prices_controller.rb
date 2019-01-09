@@ -6,6 +6,7 @@ class Admin::PricesController < Admin::AdminController
   def create
     @price = Price.create(price_params)
     if @price.save
+      @price.upload_price
       redirect_to admin_root_path
     else
       render 'new'

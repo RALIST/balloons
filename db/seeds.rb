@@ -1,13 +1,7 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+
 require 'open-uri'
-require 'roo'
 require 'nokogiri'
+require 'roo'
 
 user = User.find_or_create_by!(email: 'admin@admin.ru') do |user|
   user.phone = '+7(999) 999 99 99',
@@ -15,26 +9,6 @@ user = User.find_or_create_by!(email: 'admin@admin.ru') do |user|
                user.password = 'admin'
   user.first_name = 'admin'
   user.last_name = 'admin'
-end
-
-c = Composition.find(15)
-200.times do
-  new_comp = c.clone
-  new_comp.save
-end
-
-@product = Product.find(3935)
-@tags = Tag.all.map(&:name).uniq
-@receivers = Receiver.all.map { |r| [r.title] }.uniq
-Composition.all.each do |c|
-  5.times do
-    c.products.push(@product)
-    c.update_price
-  end
-  c.tag_name = 'день рождения'
-  c.tag_name = 'праздник'
-  c.receiver_title = 'дочке'
-  puts 'Composition updated!'
 end
 
 vendors = ['belbal', 'gemar', 'sempertex', 'anagram', 'flex metal']

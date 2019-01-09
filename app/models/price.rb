@@ -13,11 +13,10 @@ class Price < ApplicationRecord
 
   def upload_price
     if vendor.present?
-      if Rails.env.development?
-        xls = Roo::Spreadsheet.open('public' + price_sheet.url(:original, false), extension: :xlsm)
-      else
-        xls = Roo::Spreadsheet.open(open('https:' + price_sheet.url(:original, false)), extension: :xlsm)
-      end
+      file = open(price_sheet.url(:original, false))
+      puts file
+      xls = Roo::Spreadsheet.open(file, extension: :xlsm)
+
       start_row = 1
       price_vendor = Vendor.find_by(name: vendor)
       price_type = Type.find_by!(name: type) if type.present?

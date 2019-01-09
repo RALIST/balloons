@@ -95,11 +95,10 @@ Rails.application.configure do
   config.force_ssl = true
   unless Rails.env.test?
     config.paperclip_defaults = {
-      default_url: 'https://d18psmjp7qnrxg.cloudfront.net/images/missing/small/missing_small.png',
+      default_url: 'https://d3folkhy05ctbw.cloudfront.net/images/missing/small/missing_small.png',
       storage: :s3,
         s3_region: ENV['AWS_REGION'],
-        s3_host_name: "s3-us-west-2.amazonaws.com",
-        s3_host_alias: 'd18psmjp7qnrxg.cloudfront.net',
+        s3_host_alias: 'd3folkhy05ctbw.cloudfront.net',
         url: ":s3_alias_url",
         path: ':class/:attachment/:id_partition/:style/:filename',
         s3_headers: { 'Expires': 1.year.from_now.httpdate },

@@ -48,9 +48,8 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'unicode'
 gem 'will_paginate'
 gem 'geocoder'
-gem 'axlsx', require: false
-gem 'axlsx_rails', require: false
-gem 'rubyzip', '~> 0.9.9', require: false
+gem "roo", "~> 2.7.0"
+gem 'rubyzip', require: false
 gem 'font_assets'
 gem 'aws-sdk'
 gem 'aws-sdk-s3'

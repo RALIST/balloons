@@ -142,8 +142,12 @@ class Product < ApplicationRecord
   end
 
   def img_remote_url=(url)
+    begin
     self.img = URI.parse(url)
     @img_remote_url = url
+    rescue
+    end
+
   end
 
   def get_image_from_web
@@ -153,6 +157,7 @@ class Product < ApplicationRecord
   end
 
   def set_image
+    begin
     if code.present? && img.blank?
       if File.exist?("#{Rails.root}/public/300/#{code + '_m1.jpg'}")
         self.img = File.open("#{Rails.root}/public/300/#{code + '_m1.jpg'}")
@@ -160,6 +165,9 @@ class Product < ApplicationRecord
         get_image_from_web
       end
       save
+    end
+    rescue
+      get_image_from_web
     end
   end
 
@@ -216,7 +224,7 @@ class Product < ApplicationRecord
   end
 
   def self.availible_products
-    joins(:size).includes(:item, :type, :tone, :size, :foil_form).where('price_with_helium > ? AND sizes.in_inch >= ?', 0, 12)
+    joins(:size).includes(:item, :type, :tone, :size, :foil_form).where('price_with_helium > ? AND sizes.in_inch >= ?', 0, 14)
   end
 
   delegate :special?, to: :item

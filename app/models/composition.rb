@@ -15,11 +15,19 @@ class Composition < ApplicationRecord
                           convert_options: {
                             small: '-quality 75 -strip  -interlace Plane',
                             preview: '-quality 75 -strip -interlace Plane'
- },
-                          processors: [:thumbnail, :paperclip_optimizer],
-                          filename_cleaner: Paperclip::FilenameCleaner.new(/\_-/)
+                          }
+
   validates_attachment_content_type :img,
                                     content_type: ['image/jpeg', 'image/jpg', 'image/png']
+
+  before_post_process :rename_img
+
+  def rename_img
+    extension = File.extname(img_file_name).downcase
+    self.img.instance_write :file_name, "#{Time.now.to_i.to_s.force_encoding('utf-8')}#{extension}"
+  end
+
+
 
   scope :with_items, -> { joins(:products).distinct(:id) }
   scope :without_items, -> {
@@ -29,8 +37,11 @@ class Composition < ApplicationRecord
   scope :with_tags, -> { joins(:tags).joins(:receivers) }
   scope :without_tags, -> { where.not(id: Composition.with_tags.map(&:id)).where(deleted: false) }
   scope :availible, -> {joins(:products).where('products.price_with_helium > ? AND compositions.img_file_size > ?', 0, 0)}
-
   after_save :random_title
+
+
+
+
 
   def self.with_tag(tag)
     joins(:products, :tags).where('tags.name = ? AND products.price_with_helium > ?', tag, 0).distinct(:id)

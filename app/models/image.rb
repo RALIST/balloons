@@ -2,9 +2,7 @@ class Image < ApplicationRecord
   belongs_to :imageable, polymorphic: true
   attr_reader :img_remote_url
   validates :img, presence: true
-  has_attached_file :img, styles: { small:  ['x100', :png],
-                                    thumb: ['x400', :png],
-                                    preview: ['x1000', :png] },
+  has_attached_file :img, styles: { small:  'x100', thumb: 'x400'},
                           convert_options: {
                             small: '-quality 75 -strip',
                             thumb: '-quality 75 -strip'

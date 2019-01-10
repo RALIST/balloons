@@ -14,9 +14,9 @@ class Subcategory < ApplicationRecord
   end
 
   def set_image
-    unless self.image
+    unless self.image && !self.products.any?
       self.image = Image.create do |image|
-        image.img_remote_url = self.products.first.image(:original) if self.products.any?
+        image.img_remote_url = self.products.first.image(:original)
       end
     end
   end

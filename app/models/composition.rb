@@ -32,11 +32,11 @@ class Composition < ApplicationRecord
   scope :with_items, -> { joins(:products).distinct(:id) }
   scope :without_items, -> {
                           left_outer_joins(:items)
-    .where(items_in_compositions: { id: nil }).where(deleted: false)}
+    .where(items_in_compositions: { id: nil }).where(deleted: false).distinct}
   scope :without_price, -> { with_items.where(products: { price_with_helium: nil }).distinct(:id) }
   scope :with_tags, -> { joins(:tags).joins(:receivers) }
-  scope :without_tags, -> { where.not(id: Composition.with_tags.map(&:id)).where(deleted: false) }
-  scope :availible, -> {joins(:products).where('products.price_with_helium > ? AND compositions.img_file_size > ?', 0, 0)}
+  scope :without_tags, -> { where.not(id: Composition.with_tags.map(&:id)).where(deleted: false).distinct }
+  scope :availible, -> {joins(:products).where('products.price_with_helium > ? AND compositions.img_file_size > ?', 0, 0).distinct}
   after_save :random_title
 
 

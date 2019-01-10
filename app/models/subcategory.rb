@@ -7,15 +7,17 @@ class Subcategory < ApplicationRecord
 
   has_one :image, as: :imageable
 
+  after_find :set_image
+
   def self.availible
     joins(items: [:type, :sizes]).where('types.name = ? OR types.name = ?', 'латексные шары', 'фольгированные шары').distinct(:id)
   end
 
   def set_image
-    unless self.image.present?
-      img_url = self.products.availible_products.first.image(:original)
-      image = Image.create(img_remote_url: img_url)
-      self.image << image
+    unless self.image
+      self.image = Image.create do |image|
+        image.img_remote_url = self.products.first.image(:original) if self.products.any?
+      end
     end
   end
 

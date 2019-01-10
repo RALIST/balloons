@@ -7,11 +7,10 @@ class Receiver < ApplicationRecord
 
 
 
+  after_create :set_image
+
   def set_image
-    if self.image.blank?
-      img_url = 'https:' + Composition.with_receivers(self.title).first.img(:original)
-      self.image = Image.create(img_remote_url: img_url)
-    end
+    self.image.img_remote_url = self.compositions.availible.first.img(:original) unless self.image
   end
 
   def _image(size)

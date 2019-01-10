@@ -13,6 +13,6 @@
             .card-body
               .row.align-items-center
                 .col-5
-                  = image_tag category.image.img(:small), title: category.name, alt: category.name, data: {toggle: 'tooltip'}
+                  = image_tag category.image.img(:small), title: category.name, alt: category.name, data: {toggle: 'tooltip'} if category.image
                 .col-7.lead
                   = category.name.capitalize

@@ -21,8 +21,7 @@ class Product < ApplicationRecord
                           convert_options: {
                                   small: '-quality 75 -strip  -interlace Plane',
                                   thumb: '-quality 75 -strip -interlace Plane'
-                         },
-                          processors: [:thumbnail, :paperclip_optimizer]
+                         }
   validates_attachment_content_type :img,
                                     content_type: ['image/jpeg', 'image/jpg', 'image/png'],
                                     default_url: '/missing/:style/missing.png'
@@ -224,7 +223,7 @@ class Product < ApplicationRecord
   end
 
   def self.availible_products
-    joins(:size).includes(:item, :type, :tone, :size, :foil_form).where('price_with_helium > ? AND sizes.in_inch >= ?', 0, 14)
+    joins(:size).includes(:item, :type, :tone, :size, :foil_form).where('price_with_helium > ? AND sizes.in_inch >= ?', 0, 12)
   end
 
   delegate :special?, to: :item

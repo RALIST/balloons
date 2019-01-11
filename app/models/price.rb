@@ -124,11 +124,7 @@ class Price < ApplicationRecord
     end
     arr.each do |word|
       if @form && @form.name == 'цифра'
-        @size = Size.where('in_inch >= ?', 14).find_by(in_inch: word.to_i)
-        if @size.present?
-          arr.delete(word)
-          break
-        end
+        @size = Size.find_by(in_inch: 40)
       else
         @size = get_size(word, vendor)
         if @size.present?

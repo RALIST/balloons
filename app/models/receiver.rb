@@ -7,7 +7,7 @@ class Receiver < ApplicationRecord
 
 
 
-  after_create :set_image
+  # after_create :set_image
 
   def set_image
     self.image.img_remote_url = self.compositions.availible.first.img(:original) unless self.image

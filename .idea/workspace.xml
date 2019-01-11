@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f1b38864-17e2-48ba-9f1a-eee384936dde" name="Default Changelist" comment="" />
+    <list default="true" id="f1b38864-17e2-48ba-9f1a-eee384936dde" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/app/models/subcategory.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/subcategory.rb" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
     <ignored path="$PROJECT_DIR$/public/system/" />
@@ -68,7 +70,7 @@
           <entry key="erb" value="2" />
           <entry key="haml" value="1487" />
           <entry key="js" value="39" />
-          <entry key="rb" value="1029" />
+          <entry key="rb" value="1047" />
           <entry key="scss" value="824" />
         </counts>
       </usages-collector>
@@ -77,7 +79,7 @@
           <entry key="Haml" value="1487" />
           <entry key="JavaScript" value="39" />
           <entry key="RHTML" value="2" />
-          <entry key="Ruby" value="1035" />
+          <entry key="Ruby" value="1053" />
           <entry key="SCSS" value="824" />
         </counts>
       </usages-collector>
@@ -124,8 +126,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/subcategory.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+            <state relative-caret-position="437">
+              <caret line="22" column="10" lean-forward="true" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -392,12 +394,12 @@
       <workItem from="1543560338858" duration="22011000" />
       <workItem from="1543815588432" duration="5130000" />
       <workItem from="1546844887836" duration="10042000" />
-      <workItem from="1546940045568" duration="40741000" />
+      <workItem from="1546940045568" duration="41006000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77924000" />
+    <option name="totallyTimeSpent" value="78189000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -417,7 +419,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" x="303" y="147" width="841" height="685" id="Run" order="2" type="WINDOWED" visible="true" weight="0.32953104" />
+      <window_info anchor="bottom" x="303" y="147" width="841" height="685" id="Run" order="2" type="WINDOWED" visible="true" weight="0.32953104" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -425,7 +427,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" x="118" y="383" width="1121" height="411" id="Terminal" order="10" type="WINDOWED" visible="true" weight="0.32953104" />
+      <window_info active="true" anchor="bottom" x="118" y="383" width="1121" height="411" id="Terminal" order="10" type="WINDOWED" visible="true" weight="0.32953104" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32953104" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32953104" />
       <window_info anchor="right" id="Coverage" side_tool="true" weight="0.32980457" />
@@ -711,8 +713,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/subcategory.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+        <state relative-caret-position="437">
+          <caret line="22" column="10" lean-forward="true" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
         </state>
       </provider>
     </entry>

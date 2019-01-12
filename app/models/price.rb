@@ -13,7 +13,7 @@ class Price < ApplicationRecord
 
   def upload_price
     if vendor.present?
-      file = open(price_sheet.url(:original, false))
+      file = price_sheet(:original, false)
       xls = Roo::Spreadsheet.open(file, extension: :xlsm)
 
       start_row    = 1

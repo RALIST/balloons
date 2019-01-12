@@ -141,7 +141,7 @@ module MetaHelper
 		end
 	end
 	def	set_meta_tags_for_receiver(receiver)
-		case @person.title
+		case receiver.title
 	  when "для него"
 	    set_meta_tags title: "Воздушные шары для мужчины с поводом и без",
 	                  description: "Мужчины тоже любят внимание, а один из главных компонентов настроения - это воздушные шары от Шариковой феи!",
@@ -178,7 +178,7 @@ module MetaHelper
 	                  keywords: "шары сыну",
 	                  reverse: true
 	  else
-	    set_meta_tags title: "Оформление воздушными шарами  #{@receiver.title} в %{city} в компании Шариковая Фея" % {city: t("cities.#{@city}.where")},
+	    set_meta_tags title: "Оформление воздушными шарами  #{receiver.title} в %{city} в компании Шариковая Фея" % {city: t("cities.#{@city}.where")},
 	                  description: "Воздушные шары #{params[:title]} в %{city}" % {city: t("cities.#{@city}.where")},
 	                  reverse: true
 	  end

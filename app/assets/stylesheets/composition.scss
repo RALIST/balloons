@@ -141,9 +141,9 @@
 .social-share-button {
   display: inline-block;
   .ssb-icon {
-    background-size: 2rem 2rem !important;
-    width: 2rem !important;
-    height: 2rem !important;
+    background-size: 1.5rem 1.5rem !important;
+    width: 1.5rem !important;
+    height: 1.5rem !important;
     @include media-breakpoint-down(sm){
       background-size: 1.5rem 1.5rem !important;
       width: 1.5rem !important;

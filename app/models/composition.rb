@@ -4,10 +4,10 @@ class Composition < ApplicationRecord
   has_many :products, through: :items_in_compositions
   has_many :sizes, through: :products
   has_many :carts, through: :positions
-  has_many :receivers, as: :personable
   has_many :orders, through: :positions
   has_many :positions
   has_and_belongs_to_many :tags
+  has_and_belongs_to_many :receivers
 
   has_attached_file :img, styles: { small: ['x200', :png],
                                     preview: ['x400', :png],
@@ -73,13 +73,14 @@ class Composition < ApplicationRecord
 
   def receiver_title
     receivers.each do |r|
-      return r.title
+      return r
     end
   end
 
   def receiver_title=(title)
     title = Unicode.downcase(title.strip)
-    self.receivers.find_or_create_by!(title: title) unless title.blank?
+    receiver = Receiver.find_or_create_by!(title: title) unless title.blank?
+    self.receivers << receiver
   end
 
   def related

@@ -3,6 +3,8 @@ class Delivery::ReceiversController < Delivery::DeliveryController
   def index
     @menu_receivers = Receiver.all.includes(:image).select('distinct on (title) *')
   end
+
+
   def show
     begin
       @person = Receiver.friendly.find(params[:id])
@@ -16,7 +18,7 @@ class Delivery::ReceiversController < Delivery::DeliveryController
       end
     end
 
-    @compositions = Composition.with_receivers(@person.title).availible.order(:price).paginate(page: params[:page], per_page: 6)
+    @compositions = @person.compositions.availible.order(:price).paginate(page: params[:page], per_page: 6)
     respond_to do |format|
       format.html  { redirect_to root_path, flash: { danger: 'Нет композиций!' } unless @compositions.any? }
       format.js if params[:page]

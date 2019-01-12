@@ -1,20 +1,21 @@
 class Receiver < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: :slugged
-  belongs_to :personable, polymorphic: true
+  has_and_belongs_to_many :compositions
   validates :title, presence: true
   has_one :image, as: :imageable
 
 
 
-  # after_create :set_image
+  after_commit :set_image
 
   def set_image
-    self.image.img_remote_url = self.compositions.availible.first.img(:original) unless self.image
-  end
-
-  def _image(size)
-    Composition.with_receivers(self.title).first.img(size)
+    if !self.image
+      Image.create do |image|
+        image.img = compositions.first.img
+        self.image = image
+      end
+    end
   end
 
   def resolve_friendly_id_conflict(candidates)

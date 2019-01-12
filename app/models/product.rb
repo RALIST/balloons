@@ -175,7 +175,7 @@ class Product < ApplicationRecord
       if type.name == 'латексные шары' && size.present?
         case size.in_inch
         when 12
-          self.price_with_helium = 65
+          self.price_with_helium = 80
         when 14
           if category.title == 'без рисунка'
             self.price_with_helium = 80

@@ -98,6 +98,7 @@
 }
 
 .category-item {
+  @include make-col-ready();
   @include media-breakpoint-up(lg){
     @include make-col(3);
   }

@@ -1,14 +1,13 @@
+
 .row
-  .col-12
-    %h2.border-bot По цветам
+  %h3.border-bot.w-100 По цветам
   - @collections.each do |collection|
     .category-item
       - position = p || @position
       = link_to my_cart_path(collection_id: collection.id, position: position), remote: true do
         %span.as_btn= collection.name.capitalize
 .row
-  .col-12
-    %h2.border-bot По коллекциям
+  %h3.border-bot.w-100 По коллекциям
   - @categories.each do |category|
     .category-item
       - position = p || @position

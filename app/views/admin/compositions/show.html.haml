@@ -19,7 +19,7 @@
           - @comp.receivers.each do |receiver|
             = receiver.title
             = link_to admin_remove_receiver_path(receiver_id: receiver.id), method: :put do
-              %i.fa.fa-times-circle{style: 'aria-hidden="true"'}
+              %i.fas.fa-times-circle{style: 'aria-hidden="true"'}
 
       .row
         .col-md-8.text-right

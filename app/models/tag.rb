@@ -6,9 +6,16 @@ class Tag < ApplicationRecord
   has_one :image, as: :imageable
 
   scope :composition_tags, -> { where(taggable_type: 'Composition').select('distinct on (name) * ') }
-  # after_create :set_image
+
+  after_commit :set_image
 
   def set_image
-    self.image.img_remote_url = self.compositions.availible.first.img(:original) unless self.image
+    if !self.image
+      Image.create do |image|
+        image.img = compositions.first.img
+        self.image = image
+      end
+    end
   end
+
 end

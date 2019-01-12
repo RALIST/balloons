@@ -5,14 +5,14 @@
     .small.text-muted
       Посмотрите готовые оформления на любой праздник
   %hr
-  .card-columns
+  .row.card-columns
     - @tags.each do |tag|
       - cache tag do
-        = link_to tag_path(tag) do
-          .card.mb-5
+        .col-3.card.mb-5.border-0
+          = link_to tag_path(tag) do
             = image_tag tag.image.img(:thumb), class: 'card-img'
             .card-body.card-img-overlay
-              .h2.card-title.bg-white.p-2.rounded
+              .h3.card-title.bg-white.p-2.rounded.text-info
                 = tag.name.capitalize
 %hr
 .container#seo-text

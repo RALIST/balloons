@@ -1,16 +1,16 @@
 .container
   %h1
-    Загрузите прайс
-  .row
-    .col-md-6
-      = form_for [:admin, @price] do |f|
-        .form-group
-          = f.label :vendor, 'Производитель'
-          = f.select :vendor, Vendor.all.map{ |v| [v.name, v.name] }, {}, class: 'form-control'
-        .form-group
-          = f.label :type, 'Тип продукции'
-          = f.select :type, Type.all.map{|t| [t.name, t.name] }, {}, class: 'form-control'
-        .form-group
-          = f.file_field :price_sheet, class: 'form-control'
-        .form-group
-          = f.submit 'Загрузить', class: 'btn btn-info'
+    = link_to 'Загрузите прайс', admin_parse_price_path, class: 'btn btn-info', method: :post
+  -#.row
+  -#  .col-md-6
+  -#    = form_for [:admin, @price] do |f|
+  -#      .form-group
+  -#        = f.label :vendor, 'Производитель'
+  -#        = f.select :vendor, Vendor.all.map{ |v| [v.name, v.name] }, {}, class: 'form-control'
+  -#      .form-group
+  -#        = f.label :type, 'Тип продукции'
+  -#        = f.select :type, Type.all.map{|t| [t.name, t.name] }, {}, class: 'form-control'
+  -#      .form-group
+  -#        = f.file_field :price_sheet, class: 'form-control'
+  -#      .form-group
+  -#        = f.submit 'Загрузить', class: 'btn btn-info'

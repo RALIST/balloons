@@ -14,8 +14,8 @@ class Product < ApplicationRecord
   has_one :foil_form, through: :item
   has_one :vendor, through: :item
   has_many :subcategories, through: :item
-  validates :item_id, :barcode, presence: true, unless: :special?
-  validates :barcode, uniqueness: true, unless: :special?
+  validates :item_id, presence: true
+  validates :name, uniqueness: true, presence: true
 
   has_attached_file :img, styles: { small: 'x100', thumb: 'x300' },
                           convert_options: {
@@ -27,25 +27,14 @@ class Product < ApplicationRecord
                                     default_url: '/missing/:style/missing.png'
 
   attr_reader :img_remote_url
-  before_save :set_price_with_helium
+  before_save :set_price_with_helium, :set_image
 
-  def image(size)
-    begin
-      if item.tone && type.name != 'фольгированные шары' && type.name != 'товары для композиций' && self.size.in_inch != 36
-        item.tone.img.url(size)
-      else
-        if img.blank?
-          if set_image
-            img.url(size)
-          else
-            img.url(size)
-          end
-        else
-          img.url(size)
-        end
-      end
-    rescue
-      img = 0
+
+  def set_image
+    if tone && type.name != 'фольгированные шары' && type.name != 'товары для композиций' && self.size.in_inch != 36
+      self.img = tone.img if tone.img.present?
+    else
+      get_image unless self.img.present?
     end
   end
 
@@ -146,7 +135,6 @@ class Product < ApplicationRecord
     @img_remote_url = url
     rescue
     end
-
   end
 
   def get_image_from_web
@@ -155,7 +143,7 @@ class Product < ApplicationRecord
     false
   end
 
-  def set_image
+  def get_image
     begin
     if code.present? && img.blank?
       if File.exist?("#{Rails.root}/public/300/#{code + '_m1.jpg'}")
@@ -163,54 +151,45 @@ class Product < ApplicationRecord
       else
         get_image_from_web
       end
-      save
     end
     rescue
-      get_image_from_web
+
     end
   end
 
   def set_price_with_helium
-    begin
-      if type.name == 'латексные шары' && size.present?
+    if type.name == 'латексные шары' && size.present?
+      case size.in_inch
+      when 12
+        self.price_with_helium = 80
+      when 14
+        self.price_with_helium = 80
+      when 16
+        self.price_with_helium = 100
+      when 18
+        self.price_with_helium = 150
+      when 24
+        self.price_with_helium = 550
+      when 36
+        self.price_with_helium = 1000
+      end
+    else
+      if type.name == 'фольгированные шары' && size.present?
         case size.in_inch
-        when 12
-          self.price_with_helium = 80
-        when 14
-          if category.title == 'без рисунка'
-            self.price_with_helium = 80
-          else
-            price.price_with_helium = 85
-          end
-        when 16
-          self.price_with_helium = 100
         when 18
-          self.price_with_helium = 150
-        when 24
-          self.price_with_helium = 550
+          self.price_with_helium = 250
+        when 19
+          self.price_with_helium = 250
+        when 30
+          self.price_with_helium = 500
+        when 32
+          self.price_with_helium = 500
         when 36
-          self.price_with_helium = 1100
-        end
-      else
-        if type.name == 'фольгированные шары' && size.present?
-          case size.in_inch
-          when 18
-            self.price_with_helium = 250
-          when 19
-            self.price_with_helium = 250
-          when 30
-            self.price_with_helium = 500
-          when 32
-            self.price_with_helium = 500
-          when 36
-            self.price_with_helium = 800
-          when 40
-            self.price_with_helium = 800
-          end
+          self.price_with_helium = 800
+        when 40
+          self.price_with_helium = 800
         end
       end
-    rescue => e
-      puts e
     end
   end
 
@@ -226,5 +205,5 @@ class Product < ApplicationRecord
     joins(:size).includes(:item, :type, :tone, :size, :foil_form).where('price_with_helium > ? AND sizes.in_inch >= ?', 0, 12)
   end
 
-  delegate :special?, to: :item
+  # delegate :special?, to: :item
 end

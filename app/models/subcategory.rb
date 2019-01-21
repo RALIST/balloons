@@ -7,7 +7,9 @@ class Subcategory < ApplicationRecord
 
   has_one :image, as: :imageable
 
-  after_commit :set_image
+  validates :name, uniqueness: true, presence: true
+
+
 
   def self.availible
     joins(items: [:type, :sizes]).where('types.name = ? OR types.name = ?', 'латексные шары', 'фольгированные шары').distinct(:id)

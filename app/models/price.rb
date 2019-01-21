@@ -1,4 +1,5 @@
 class Price < ApplicationRecord
+
   has_attached_file :price_sheet
   validates_attachment :price_sheet, presence: true,
                        content_type:           {content_type: [
@@ -11,42 +12,131 @@ class Price < ApplicationRecord
   validates :vendor, :type, presence: true
   after_commit :upload_price
 
-  def upload_price
-    if vendor.present?
-      file = price_sheet(:original, false)
-      xls = Roo::Spreadsheet.open(file, extension: :xlsm)
 
-      start_row    = 1
-      price_vendor = Vendor.find_by(name: vendor)
-      price_type   = Type.find_by!(name: type) if type.present?
-      (start_row .. xls.last_row).each do |row|
-        @product_name  = xls.cell(row, 'B').strip.downcase if xls.cell(row, 'B').present?
-        @barcode       = xls.cell(row, 'C') if xls.cell(row, 'C').present?
-        @code          = xls.cell(row, 'D') if xls.cell(row, 'D').present?
-        @product_price = xls.cell(row, 'E') if xls.cell(row, 'E').present?
-        @min_order     = xls.cell(row, 'F') if xls.cell(row, 'F').present?
-        @subcategory   = xls.cell(row, 'G').strip.downcase if xls.cell(row, 'G').present?
-        next if @barcode.blank?
-        Product.where(barcode: xls.cell(row, 'C').to_i).first_or_create do |product|
-          case price_type.name
-            when 'латексные шары'
-              get_latex(@product_name, price_vendor, product)
-            when 'фольгированные шары'
-              vendor_name = xls.cell(row, 'A').strip.downcase if xls.cell(row, 'A').present?
-              if vendor_name.present?
-                @vendor = Vendor.find_or_create_by!(name: vendor_name) do |vendor|
-                  vendor.name = vendor_name
-                end
-                get_foil(@product_name, product, @vendor)
-              end
+  def self.don
+    start_time = Time.now
+    sizes = 12..36
+    items = []
+    CSV.foreach("public/prices/Donballon.csv", col_sep: ';', headers: true) do |row|
+      next if row[24].blank?
+
+       if row[0] == 'Воздушные шары из латекса'
+
+         if row[29] == 'Sempertex S.A.' && row[24].to_i == 12 && row[1] != 'Линколуны' && row[1] != 'Круглые без рисунка'
+           item = {}
+           item[:collection] = row[13].split(';')
+           item[:category] = row[1]
+           item[:category_1] = row[2]
+           item[:name] = row[5].split(' ')
+           item[:image] = row[11]
+           item[:made_by] = row[29]
+           items << item
+         end
+
+       elsif row[0] == 'Воздушные шары из фольги' && row[24].to_i > 12 && !/мини/.match(row[2].downcase) && row[2] != 'Специальные фигуры' && row[29] != 'Falali'
+         item = {}
+         item[:category] = row[1]
+         item[:category_1] = row[2]
+         item[:collection] = row[13].split(';')
+         item[:name] = row[5]
+         item[:image] = row[11]
+         item[:made_by] = row[29]
+         items << item
+
+       end
+
+    end
+    end_time = Time.now
+    puts "***Parsing finished in #{end_time - start_time}***"
+    return items
+  end
+
+  def self.parse_price
+    Dir.glob(File.join('public/prices/**', '*.xlsm')).each do |file|
+      xls = Roo::Spreadsheet.open(file, extension: :xlsm)
+      (1..xls.last_row).each do |row|
+        vendor_name = xls.cell(row, 'A')
+        name = xls.cell(row, 'B').strip.downcase unless xls.cell(row, 'B').blank?
+        category =  Subcategory.find_or_create_by!(name: xls.cell(row, 'G').downcase) unless xls.cell(row, 'G').blank?
+        code = xls.cell(row, 'D')
+        if vendor_name.blank? && name.present? && !/ассорти/.match(name)
+
+          Product.find_or_create_by(name: name) do |product|
+            vendor = Vendor.find_or_create_by(name: 'belbal')
+            get_latex(name, vendor, product, category, code) if name.present?
           end
+
+        else
+
+          # Product.find_or_create_by!(name: name) do |product|
+          #
+          #   vendor = Vendor.find_or_create_by(name: vendor_name)
+          #   get_foil(name, vendor, product, category, code) if name.present?
+          #
+          # end
         end
       end
     end
+    # latex = Roo::Spreadsheet.open("public/belbal.xlsm", extension: :xlsm)
+    # foil =  Roo::Spreadsheet.open("public/foil.xlsm", extension: :xlsm)
+    #
+    # (1..latex.last_row).each do |row|
+    #
+    #   @product_name  = latex.cell(row, 'B').strip.downcase
+    #   @barcode       = latex.cell(row, 'C')
+    #   @code          = latex.cell(row, 'D')
+    #   @product_price = latex.cell(row, 'E')
+    #   @subcategory   = latex.cell(row, 'G')
+    #   vendor = Vendor.find_or_create_by(name: 'belbal')
+    #   Product.where(name: @product_name).first_or_create do |product|
+    #     get_latex(@product_name, vendor, product)
+    #   end
+    #
+    # end
+    #
+    # (1..foil.last_row).each do |row|
+    #   vendor_name = xls.cell(row, 'A').strip.downcase
+    #   @product_name  = foil.cell(row, 'B')
+    #   @barcode       = foil.cell(row, 'C')
+    #   @code          = foil.cell(row, 'D')
+    #   @product_price = foil.cell(row, 'E')
+    #   @subcategory   = foil.cell(row, 'G').strip.downcase
+    #   vendor = Vendor.find_or_create_by(name: vendor_name)
+    #   Product.where(name: @product_name).first_or_create do |product|
+    #     get_foil(@product_name, vendor, product)
+    #   end
+
+    # end
+
+    # start_row    = 1
+    # price_vendor = Vendor.find_by(name: vendor)
+    # price_type   = Type.find_by!(name: type) if type.present?
+    # (start_row .. xls.last_row).each do |row|
+    #   @product_name  = xls.cell(row, 'B').strip.downcase if xls.cell(row, 'B').present?
+    #   @barcode       = xls.cell(row, 'C') if xls.cell(row, 'C').present?
+    #   @code          = xls.cell(row, 'D') if xls.cell(row, 'D').present?
+    #   @product_price = xls.cell(row, 'E') if xls.cell(row, 'E').present?
+    #   @subcategory   = xls.cell(row, 'G').strip.downcase if xls.cell(row, 'G').present?
+    #   Product.where(name: @product_name).first_or_create do |product|
+    #     case price_type.name
+    #       when 'латексные шары'
+    #         get_latex(@product_name, price_vendor, product)
+    #       when 'фольгированные шары'
+    #         vendor_name = xls.cell(row, 'A').strip.downcase if xls.cell(row, 'A').present?
+    #         if vendor_name.present?
+    #           @vendor = Vendor.find_or_create_by!(name: vendor_name) do |vendor|
+    #             vendor.name = vendor_name
+    #           end
+    #           get_foil(@product_name, product, @vendor)
+    #         end
+    #     end
+    #   end
+    # end
   end
 
-  def get_latex(name, vendor, product)
+  def self.get_latex(name, vendor, product, category, code)
     arr = name.encode('UTF-8').split(/[^a-zA-Zа-яА-Я0-9_]/)
+
     case vendor.name
       when 'belbal' || 'gemar'
         @size = Size.find_by(belbal: arr[1].to_i)
@@ -85,37 +175,40 @@ class Price < ApplicationRecord
       break if @color.present?
     end
     arr.delete(arr[0])
-    if @tone.present? && @texture.present? && @size.present?
+
+
+    if @tone.present? && @texture.present? && @size.present? && @size.in_inch > 12
       @item = Latex.find_or_create_by!(vendor:  vendor,
                                        tone:    @tone,
                                        texture: @texture) do |item|
-        item.category = Category.find_or_create_by!(title: 'без рисунка')
+        puts category
+        item.category = Category.find_or_create_by(title: 'без рисунка')
         item.name     = arr.join(' ').encode('UTF-8')
-        item.subcategories.push(Subcategory.find_or_create_by!(name: @subcategory))
+        item.subcategories << category if category
       end
     else
-      @item = Latex.find_or_create_by!(name: arr.join(' ').encode('UTF-8')) do |i|
-        i.category = Category.find_or_create_by!(title: 'с рисунком')
-        i.vendor   = vendor
-        i.texture  = @texture if @texture.present?
-        i.name     = arr.join(' ').encode('UTF-8')
-        i.color    = @color
-        i.subcategories.push(Subcategory.find_or_create_by!(name: @subcategory))
+      if @size.present? && @size.in_inch >= 12
+        @item = Latex.find_or_create_by!(name: arr.join(' ').encode('UTF-8')) do |i|
+          i.category = Category.find_or_create_by!(title: 'с рисунком')
+          i.vendor   = vendor
+          i.texture  = @texture if @texture.present?
+          i.name     = arr.join(' ').encode('UTF-8')
+          i.color    = @color
+          i.subcategories << category if category
+        end
       end
     end
     if @item.present?
       product.item      = @item
       product.size      = @size
-      product.code      = @code
+      product.code      = code
       product.barcode   = @barcode
       product.price     = @product_price
-      product.name      = @product_name
-      product.min_order = @min_order
-      product.set_image unless @item.tone
+      product.name      = name
     end
   end
 
-  def get_foil(name, product, vendor)
+  def self.get_foil(name, vendor, product, category, code)
     arr = name.encode('UTF-8').split(/[^a-zA-Zа-яА-Я0-9_]/)
 
     arr.each do |word|
@@ -157,7 +250,7 @@ class Price < ApplicationRecord
         item.name      = arr.join(' ')
         item.tone      = @tone
         item.category  = Category.find_or_create_by(title: 'без рисунка')
-        item.subcategories.push(Subcategory.find_or_create_by!(name: @subcategory))
+        item.subcategories.push(Subcategory.find_or_create_by!(name: category)) if category
       end
     else
       @item = Foil.find_or_create_by!(name: arr.join(' ').encode('UTF-8')) do |item|
@@ -165,7 +258,7 @@ class Price < ApplicationRecord
         item.foil_form = @form if @form
         item.texture   = @texture if @texture
         item.name      = arr.join(' ').encode('UTF-8')
-        item.subcategories.push(Subcategory.find_or_create_by!(name: @subcategory))
+        item.subcategories.push(Subcategory.find_or_create_by!(name: category)) if category
         if @tone
           item.tone     = @tone
           item.category = Category.find_or_create_by(title: 'без рисунка')
@@ -182,18 +275,17 @@ class Price < ApplicationRecord
       end
       product.name      = name
       product.barcode   = @barcode
-      product.code      = @code
+      product.code      = code
       product.price     = @product_price
-      product.min_order = @min_order
       product.set_image
     end
   end
 
-  def get_tone_by_name(str)
+  def self.get_tone_by_name(str)
     tone = Tone.find_by(name: str)
   end
 
-  def get_tone(str, vendor)
+  def self.get_tone(str, vendor)
     case vendor.name
       when 'belbal'
         tone = vendor.tones.find_by(code: format('%03d', str))
@@ -202,19 +294,19 @@ class Price < ApplicationRecord
     end
   end
 
-  def get_color(str)
+  def self.get_color(str)
     color = Color.find_by(name: str)
   end
 
-  def get_texture(str)
+  def self.get_texture(str)
     texture = Texture.find_by(name: str)
   end
 
-  def get_size(str, _vendor)
+  def self.get_size(str, _vendor)
     size = Size.find_by(in_inch: str.to_i) unless str.to_i == 0
   end
 
-  def get_form(str)
+  def self.get_form(str)
     form = FoilForm.find_by(name: str)
   end
 end

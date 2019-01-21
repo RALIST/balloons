@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     resources :subcategories
     resources :promotions
     resources :partners
+    post '/parse_price', to: 'prices#parse_price', as: :parse_price
     post '/destroy_items', to: 'items#destroy_items', as: :destroy_items
     get '/get_images', to: 'items#get_images', as: :get_images
     put '/delete/:id', to: 'compositions#delete', as: :delete_composition

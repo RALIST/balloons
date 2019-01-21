@@ -51,15 +51,10 @@ xls = Roo::Spreadsheet.open('public/Цвета.xlsm', extension: :xlsm)
 start_row = 2
 (start_row..xls.last_row).each do |row|
   vendor = Vendor.find_by(name: xls.cell(row, 'A').strip.downcase)
-  case vendor.name
-  when 'belbal' || 'sempertex'
-    code = format('%03d', xls.cell(row, 'B'))
-  when 'gemar'
-    code = format('%02d', xls.cell(row, 'B'))
-  end
+  code = format('%03d', xls.cell(row, 'B'))
   name = xls.cell(row, 'C')
   color = Color.find_or_create_by!(name: xls.cell(row, 'E'))
   if vendor.present? && code.present? && name.present?
-    tone = Tone.find_or_create_by(vendor: vendor, name: name, color: color, code: code)
+    tone = Tone.find_or_create_by!(vendor: vendor, name: name, color: color, code: code)
   end
 end

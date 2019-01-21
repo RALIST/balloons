@@ -4,10 +4,13 @@ class Tone < ApplicationRecord
   has_many :items
   validates :name, :code, presence: true
   validates :code, uniqueness: { scope: :vendor_id }
-  before_save :sanitize, :set_image
+
   has_attached_file :img, styles: { small: 'x100', thumb: 'x300' }
   validates_attachment_content_type :img,
                                     content_type: ['image/jpeg', 'image/jpg', 'image/png']
+
+  before_save :sanitize, :set_image
+
 
   def sanitize
     self.name = name.downcase
@@ -24,7 +27,8 @@ class Tone < ApplicationRecord
   end
 
   def set_image
-    unless code.blank? && img.present?
+
+    if !img.present?
       if File.exist?("#{Rails.root}/public/#{vendor.name}/#{code + '.png'}")
         self.img = File.open("#{Rails.root}/public/#{vendor.name}/#{code + '.png'}")
       end

@@ -13,6 +13,11 @@ class Admin::PricesController < Admin::AdminController
     end
   end
 
+  def parse_price
+    Price.parse_price
+    redirect_back(fallback_location: root_path)
+  end
+
   private
 
   def price_params

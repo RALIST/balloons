@@ -1,7 +1,6 @@
 class Item < ApplicationRecord
   has_many :items_in_compositions, dependent: :destroy
   has_many :compositions, through: :items_in_compositions
-  has_many :tags, as: :taggable, dependent: :destroy
   has_and_belongs_to_many :subcategories
   belongs_to :vendor
   belongs_to :type
@@ -14,7 +13,7 @@ class Item < ApplicationRecord
   has_many :products, dependent: :destroy, autosave: true
 
   validates :vendor_id, :type_id, presence: true
-  validates :name, uniqueness: true, unless: :special?
+  validates :name, uniqueness: true
   accepts_nested_attributes_for :products
 
   scope :search, ->(word) { where('name LIKE ? ', "%#{word}%").distinct }

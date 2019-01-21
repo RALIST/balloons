@@ -12,7 +12,8 @@ class Delivery::DeliveryController < ApplicationController
   private
 
   def set_location
-    @city = city_from_params || user_location || default_city
+    # @city = city_from_params || user_location || default_city
+    @city = default_city
   end
 
   def user_location

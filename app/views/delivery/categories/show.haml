@@ -11,7 +11,7 @@
     - @items_in_collection.each do |product|
       - cache product do
         .card.text-center.pt-3
-          = image_tag product.image(:thumb), class: 'card-img-top', style: 'max-width:150px', title: product.complex_name, title: product.complex_name, data: {toggle: 'tooltip'}
+          = image_tag product.img(:thumb), class: 'card-img-top', style: 'max-width:150px', title: product.complex_name, title: product.complex_name, data: {toggle: 'tooltip'}
           .card-body
             .card-title.text-center
               - if product.type.name == 'фольгированные шары'

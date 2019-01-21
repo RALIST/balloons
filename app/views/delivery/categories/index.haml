@@ -12,7 +12,7 @@
           .card
             .card-body
               .row.align-items-center
-                .col-5
-                  = image_tag category.image.img(:small), title: category.name, alt: category.name, data: {toggle: 'tooltip'} if category.image
-                .col-7.lead
+                -#.col-5
+                -#  = image_tag category.image.img(:small), title: category.name, alt: category.name, data: {toggle: 'tooltip'} if category.image
+                .col-12
                   = category.name.capitalize

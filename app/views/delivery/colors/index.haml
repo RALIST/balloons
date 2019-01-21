@@ -11,7 +11,5 @@
             .card
               .card-body
                 .row.align-items-center
-                  .col-5
-                    = image_tag color.image.img(:small), title: color.name, alt: color.name, data: {toggle: 'tooltip'} if color.image
-                  .col-7.lead
+                  .col-12
                     = color.name.capitalize

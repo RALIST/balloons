@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1b38864-17e2-48ba-9f1a-eee384936dde" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/controllers/admin/compositions_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/admin/compositions_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/admin/items_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/admin/items_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/compositions/index.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/compositions/index.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/items/index.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/items/index.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/orders/show.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/orders/show.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/sizes/index.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/sizes/index.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/product.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/product.rb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -54,7 +49,7 @@
           <entry key="lock" value="1" />
           <entry key="pid" value="1" />
           <entry key="png" value="4" />
-          <entry key="rb" value="207" />
+          <entry key="rb" value="209" />
           <entry key="ru" value="3" />
           <entry key="scss" value="16" />
           <entry key="xlsm" value="1" />
@@ -69,7 +64,7 @@
           <entry key="JavaScript" value="3" />
           <entry key="PLAIN_TEXT" value="5" />
           <entry key="RHTML" value="4" />
-          <entry key="Ruby" value="218" />
+          <entry key="Ruby" value="220" />
           <entry key="SCSS" value="16" />
           <entry key="YAML" value="6" />
         </counts>
@@ -80,7 +75,7 @@
           <entry key="erb" value="2" />
           <entry key="haml" value="2566" />
           <entry key="js" value="39" />
-          <entry key="rb" value="8086" />
+          <entry key="rb" value="8107" />
           <entry key="scss" value="863" />
         </counts>
       </usages-collector>
@@ -89,7 +84,7 @@
           <entry key="Haml" value="2566" />
           <entry key="JavaScript" value="39" />
           <entry key="RHTML" value="2" />
-          <entry key="Ruby" value="8092" />
+          <entry key="Ruby" value="8113" />
           <entry key="SCSS" value="863" />
         </counts>
       </usages-collector>
@@ -97,7 +92,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/price.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-2906">
@@ -105,6 +100,24 @@
               <folding>
                 <element signature="e#665#4334#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/size.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/models/product.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="161" column="16" lean-forward="true" selection-start-line="161" selection-start-column="16" selection-end-line="161" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -166,13 +179,13 @@
         <option value="$PROJECT_DIR$/app/models/composition.rb" />
         <option value="$PROJECT_DIR$/app/views/delivery/subpositions/_subposition.html.haml" />
         <option value="$PROJECT_DIR$/app/views/admin_mailer/new_order_notify.html.haml" />
-        <option value="$PROJECT_DIR$/app/models/product.rb" />
         <option value="$PROJECT_DIR$/app/views/admin/sizes/index.haml" />
         <option value="$PROJECT_DIR$/app/controllers/admin/items_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/admin/items/index.html.haml" />
         <option value="$PROJECT_DIR$/app/controllers/admin/compositions_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/admin/compositions/index.html.haml" />
         <option value="$PROJECT_DIR$/app/views/admin/orders/show.html.haml" />
+        <option value="$PROJECT_DIR$/app/models/product.rb" />
       </list>
     </option>
   </component>
@@ -211,6 +224,12 @@
               <item name="Balloons" type="b2602c69:ProjectViewProjectNode" />
               <item name="Balloons" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Balloons" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Balloons" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -347,12 +366,12 @@
       <workItem from="1546844887836" duration="10042000" />
       <workItem from="1546940045568" duration="59687000" />
       <workItem from="1547306282558" duration="9000" />
-      <workItem from="1547475276636" duration="64027000" />
+      <workItem from="1547475276636" duration="66065000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="160906000" />
+    <option name="totallyTimeSpent" value="162944000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -539,13 +558,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/size.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
@@ -682,13 +694,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/product.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3268">
-          <caret line="166" lean-forward="true" selection-start-line="166" selection-end-line="166" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/admin/items_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="686">
@@ -710,6 +715,20 @@
           <folding>
             <element signature="e#665#4334#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/size.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/product.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="161" column="16" lean-forward="true" selection-start-line="161" selection-start-column="16" selection-end-line="161" selection-end-column="16" />
         </state>
       </provider>
     </entry>

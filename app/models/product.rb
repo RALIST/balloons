@@ -158,7 +158,11 @@ class Product < ApplicationRecord
   end
 
   def price_with_helium
-    size.value
+    if size
+      size.value
+    else
+      0
+    end
   end
 
   def self.latex_in_compositions

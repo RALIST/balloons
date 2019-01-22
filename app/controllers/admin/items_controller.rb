@@ -73,6 +73,13 @@ class Admin::ItemsController < Admin::AdminController
     elsif params[:subcategory]
       subcategory = Subcategory.find(params[:subcategory])
       @items = subcategory.items.paginate(page: params[:page], per_page: 20)
+    elsif params[:size]
+      size = Size.find(params[:size])
+      ids = []
+      size.products.each do |product|
+        ids << product.item.id
+      end
+      @items = Item.where(id: ids).paginate(page: params[:page], per_page: 20)
     end
   end
 

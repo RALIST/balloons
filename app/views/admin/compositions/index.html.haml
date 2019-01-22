@@ -18,15 +18,6 @@
           .row
             = render @compositions_without_items
 
-      - if @compositions_without_price.any?
-        %h2{data: {toggle: 'collapse', target: '#without_price'}, style: 'cursor: pointer;'}
-          Композиции без цены
-          %br
-          %small Не указана цена с гелием
-        .collapse#without_price
-          .row
-            = render @compositions_without_price
-
       - if @compositions_without_tags.any?
         %h2{data: {toggle: 'collapse', target: '#without_tags'}, style: 'cursor: pointer;'}
           Композиции без тегов

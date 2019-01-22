@@ -7,27 +7,13 @@
           = text_field_tag :q, '', class: 'form-control'
         .form-group
           = submit_tag 'Найти', class: 'btn btn-info'
-    -#.col-12
-    -#  - @dons.group_by{|item| item[:category]}.each do |category, items|
-    -#    %h2
-    -#      = category
-    -#      - items.group_by{|item| item[:category_1]}.each do |cat_1, items_1|
-    -#        %h3.mb-2= cat_1
-    -#        .row
-    -#          - items_1.each do |item|
-    -#            .col-2
-    -#              = image_tag item[:image], class: 'img-fluid'
-    -#              .small
-    -#                = item[:name]
-    -#                = item[:made_by]
-    -#                = item[:collection]
   .row.border-bot
     .col-12
       %h5{data: {toggle: 'collapse', target: '#colors'}, style: 'cursor: pointer;'}
         Цвета
       .collapse#colors
         - Color.all.each do |color|
-          = link_to "#{color.name.capitalize} |",admin_items_path(color: color.id)
+          = link_to "#{color.name.capitalize} |", admin_items_path(color: color.id)
         %p
           = link_to 'Добавить цвет', new_admin_color_path, class: 'btn btn-info btn-sm'
   .row.border-bot

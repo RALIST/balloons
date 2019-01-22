@@ -6,7 +6,6 @@ class Admin::CompositionsController < Admin::AdminController
   def index
     @compositions = Composition.availible
     @compositions_without_items = Composition.without_items.order(:id)
-    @compositions_without_price = Composition.without_price.order(:id)
     @compositions_without_tags = Composition.without_tags.order(:id)
   end
 

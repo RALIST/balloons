@@ -11,7 +11,7 @@
     - @items_in_collection.each do |product|
       - cache product do
         .card.text-center.pt-3
-          = image_tag product.img(:thumb), class: 'card-img-top', style: 'max-width:150px', title: product.complex_name, title: product.complex_name, data: {toggle: 'tooltip'}
+          = image_tag product.img(:thumb), class: 'card-img-top', style: 'max-width:150px', title: product.complex_name, alt: product.complex_name, data: {toggle: 'tooltip'}
           .card-body
             .card-title.text-center
               - if product.type.name == 'фольгированные шары'
@@ -41,7 +41,7 @@
       Почему стоит заказать шарики у нас?
     %ul
       %li
-        Круглосуточная бесплатная доставка от 1200 руб. в #{t("cities.#{@city}.where")}
+        Круглосуточная бесплатная доставка от 1500 руб. в #{t("cities.#{@city}.where")}
         %p
           Мы привезем ваш заказ в любое время суток, не потревожив сон виновника торжества!
       %li

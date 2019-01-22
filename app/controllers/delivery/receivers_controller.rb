@@ -20,7 +20,7 @@ class Delivery::ReceiversController < Delivery::DeliveryController
 
     @compositions = @person.compositions.availible.order(:price).paginate(page: params[:page], per_page: 6)
     respond_to do |format|
-      format.html  { redirect_to root_path, flash: { danger: 'Нет композиций!' } unless @compositions.any? }
+      format.html
       format.js if params[:page]
     end
     set_meta_tags_for_receiver(@person)

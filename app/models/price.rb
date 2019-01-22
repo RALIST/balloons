@@ -22,25 +22,30 @@ class Price < ApplicationRecord
 
        if row[0] == 'Воздушные шары из латекса'
 
-         if row[29] == 'Sempertex S.A.' && row[24].to_i == 12 && row[1] != 'Линколуны' && row[1] != 'Круглые без рисунка'
+         if row[29] == 'Sempertex S.A.' && row[24].to_i == 12 && row[1] != 'Линколуны' && row[1] != 'Круглые без рисунка' && !/ассорти/.match(row[5].downcase)
            item = {}
+           item[:type] = row[0]
            item[:collection] = row[13].split(';')
            item[:category] = row[1]
            item[:category_1] = row[2]
-           item[:name] = row[5].split(' ')
+           item[:name] = row[5]
            item[:image] = row[11]
            item[:made_by] = row[29]
+           item[:size] = row[24]
            items << item
          end
 
        elsif row[0] == 'Воздушные шары из фольги' && row[24].to_i > 12 && !/мини/.match(row[2].downcase) && row[2] != 'Специальные фигуры' && row[29] != 'Falali'
          item = {}
+         item[:type] = row[0]
          item[:category] = row[1]
          item[:category_1] = row[2]
          item[:collection] = row[13].split(';')
          item[:name] = row[5]
          item[:image] = row[11]
          item[:made_by] = row[29]
+         item[:size] = row[24]
+         item[:form] = row[15]
          items << item
 
        end
@@ -48,7 +53,92 @@ class Price < ApplicationRecord
     end
     end_time = Time.now
     puts "***Parsing finished in #{end_time - start_time}***"
-    return items
+
+    items.each do |i|
+
+      if i[:collection].length
+        @categories = []
+        i[:collection].each do |c|
+          category = Subcategory.find_or_create_by!(name: c.downcase.strip)
+          @categories << category
+        end
+      end
+
+      arr = i[:name].split(' ')
+      arr.each do |word|
+        @color = get_color(word.downcase)
+        break if @color.present?
+      end
+
+
+      if i[:type] == 'Воздушные шары из латекса'
+
+        size = Size.find_by(in_inch: 14)
+        vendor = Vendor.find_or_create_by(name: i[:made_by].downcase) if i[:made_by]
+        type = Category.find_or_create_by(title: 'с рисунком')
+
+        @item = Latex.find_or_create_by!(name: i[:name]) do |item|
+
+          item.vendor = vendor
+          item.category = type
+          item.name = i[:name]
+          item.color = @color if @color.present?
+
+
+        end
+
+
+        if @item.present?
+          @item.subcategories = @categories
+          Product.find_or_create_by!(name: i[:name]) do |p|
+
+            p.item = @item
+            p.size = size
+            p.name = i[:name]
+            p.img_remote_url = i[:image]
+
+          end
+
+        end
+
+      else
+        size = Size.find_or_create_by(in_inch: i[:size].to_i)
+        vendor = Vendor.find_or_create_by(name: i[:made_by].downcase) if i[:made_by]
+        form = FoilForm.find_or_create_by(name: i[:form].downcase)
+
+        if i[:category] == 'Оформительские без рисунка'
+          type = Category.find_or_create_by(title: 'без рисунка')
+        elsif i[:category] == 'Сердца, круги и звезды с рисунком'
+          type = Category.find_or_create_by(title: 'с рисунком')
+        else
+          type = Category.find_or_create_by(title: i[:type].downcase)
+        end
+
+
+
+        @item = Foil.find_or_create_by(name: i[:name].downcase) do |item|
+
+          item.foil_form = form
+          item.vendor = vendor
+          item.category = type
+          item.color = @color if @color
+          item.subcategories = @categories if @categories
+
+        end
+
+        if @item.present?
+          @item.subcategories = @categories
+          Product.find_or_create_by!(name: i[:name]) do |p|
+
+            p.item = @item
+            p.size = size
+            p.name = i[:name]
+            p.img_remote_url = i[:image]
+
+          end
+        end
+      end
+    end
   end
 
   def self.parse_price
@@ -59,79 +149,29 @@ class Price < ApplicationRecord
         name = xls.cell(row, 'B').strip.downcase unless xls.cell(row, 'B').blank?
         category =  Subcategory.find_or_create_by!(name: xls.cell(row, 'G').downcase) unless xls.cell(row, 'G').blank?
         code = xls.cell(row, 'D')
-        if vendor_name.blank? && name.present? && !/ассорти/.match(name)
+        if vendor_name.blank?
+          if name.present? && !/ассорти/.match(name)
 
-          Product.find_or_create_by(name: name) do |product|
-            vendor = Vendor.find_or_create_by(name: 'belbal')
-            get_latex(name, vendor, product, category, code) if name.present?
+            Product.find_or_create_by(name: name) do |product|
+              vendor = Vendor.find_or_create_by(name: 'belbal')
+              get_latex(name, vendor, product, category, code) if name.present?
+            end
+
           end
-
         else
 
-          # Product.find_or_create_by!(name: name) do |product|
-          #
-          #   vendor = Vendor.find_or_create_by(name: vendor_name)
-          #   get_foil(name, vendor, product, category, code) if name.present?
-          #
-          # end
+          vendor = Vendor.find_or_create_by(name: vendor_name.downcase)
+          Product.find_or_create_by!(name: name) do |product|
+            get_foil(name, vendor, product, category, code) if name.present?
+          end
+
         end
       end
     end
-    # latex = Roo::Spreadsheet.open("public/belbal.xlsm", extension: :xlsm)
-    # foil =  Roo::Spreadsheet.open("public/foil.xlsm", extension: :xlsm)
-    #
-    # (1..latex.last_row).each do |row|
-    #
-    #   @product_name  = latex.cell(row, 'B').strip.downcase
-    #   @barcode       = latex.cell(row, 'C')
-    #   @code          = latex.cell(row, 'D')
-    #   @product_price = latex.cell(row, 'E')
-    #   @subcategory   = latex.cell(row, 'G')
-    #   vendor = Vendor.find_or_create_by(name: 'belbal')
-    #   Product.where(name: @product_name).first_or_create do |product|
-    #     get_latex(@product_name, vendor, product)
-    #   end
-    #
-    # end
-    #
-    # (1..foil.last_row).each do |row|
-    #   vendor_name = xls.cell(row, 'A').strip.downcase
-    #   @product_name  = foil.cell(row, 'B')
-    #   @barcode       = foil.cell(row, 'C')
-    #   @code          = foil.cell(row, 'D')
-    #   @product_price = foil.cell(row, 'E')
-    #   @subcategory   = foil.cell(row, 'G').strip.downcase
-    #   vendor = Vendor.find_or_create_by(name: vendor_name)
-    #   Product.where(name: @product_name).first_or_create do |product|
-    #     get_foil(@product_name, vendor, product)
-    #   end
 
-    # end
+    self.don
 
-    # start_row    = 1
-    # price_vendor = Vendor.find_by(name: vendor)
-    # price_type   = Type.find_by!(name: type) if type.present?
-    # (start_row .. xls.last_row).each do |row|
-    #   @product_name  = xls.cell(row, 'B').strip.downcase if xls.cell(row, 'B').present?
-    #   @barcode       = xls.cell(row, 'C') if xls.cell(row, 'C').present?
-    #   @code          = xls.cell(row, 'D') if xls.cell(row, 'D').present?
-    #   @product_price = xls.cell(row, 'E') if xls.cell(row, 'E').present?
-    #   @subcategory   = xls.cell(row, 'G').strip.downcase if xls.cell(row, 'G').present?
-    #   Product.where(name: @product_name).first_or_create do |product|
-    #     case price_type.name
-    #       when 'латексные шары'
-    #         get_latex(@product_name, price_vendor, product)
-    #       when 'фольгированные шары'
-    #         vendor_name = xls.cell(row, 'A').strip.downcase if xls.cell(row, 'A').present?
-    #         if vendor_name.present?
-    #           @vendor = Vendor.find_or_create_by!(name: vendor_name) do |vendor|
-    #             vendor.name = vendor_name
-    #           end
-    #           get_foil(@product_name, product, @vendor)
-    #         end
-    #     end
-    #   end
-    # end
+
   end
 
   def self.get_latex(name, vendor, product, category, code)
@@ -184,7 +224,7 @@ class Price < ApplicationRecord
         puts category
         item.category = Category.find_or_create_by(title: 'без рисунка')
         item.name     = arr.join(' ').encode('UTF-8')
-        item.subcategories << category if category
+        item.subcategories << category if category.present?
       end
     else
       if @size.present? && @size.in_inch >= 12
@@ -194,7 +234,7 @@ class Price < ApplicationRecord
           i.texture  = @texture if @texture.present?
           i.name     = arr.join(' ').encode('UTF-8')
           i.color    = @color
-          i.subcategories << category if category
+          i.subcategories << category if category.present?
         end
       end
     end
@@ -215,14 +255,15 @@ class Price < ApplicationRecord
       @form = get_form(word)
       break if @form.present?
     end
+
     arr.each do |word|
-      if @form && @form.name == 'цифра'
-        @size = Size.find_by(in_inch: 40)
+      @size = get_size(word, vendor)
+      if @size.present?
+        arr.delete(word)
+        break
       else
-        @size = get_size(word, vendor)
-        if @size.present?
-          arr.delete(word)
-          break
+        if @form && @form.name == 'цифра'
+          @size = Size.find_by(in_inch: 40)
         end
       end
     end
@@ -243,22 +284,22 @@ class Price < ApplicationRecord
     end
     arr.delete(arr[0])
     if @tone.present? && @texture.present? && @form.present?
-      @item = Foil.find_or_create_by!(name: arr.join(' ').encode('UTF-8')) do |item|
+      @item = Foil.find_or_create_by(name: arr.join(' ').encode('UTF-8')) do |item|
         item.vendor    = vendor
         item.foil_form = @form
         item.texture   = @texture
-        item.name      = arr.join(' ')
+        item.name      = arr.join(' ').encode('UTF-8')
         item.tone      = @tone
         item.category  = Category.find_or_create_by(title: 'без рисунка')
-        item.subcategories.push(Subcategory.find_or_create_by!(name: category)) if category
+        item.subcategories.push(category) if category
       end
     else
-      @item = Foil.find_or_create_by!(name: arr.join(' ').encode('UTF-8')) do |item|
+      @item = Foil.find_or_create_by(name: arr.join(' ').encode('UTF-8')) do |item|
         item.vendor    = vendor
         item.foil_form = @form if @form
         item.texture   = @texture if @texture
         item.name      = arr.join(' ').encode('UTF-8')
-        item.subcategories.push(Subcategory.find_or_create_by!(name: category)) if category
+        item.subcategories << category if category
         if @tone
           item.tone     = @tone
           item.category = Category.find_or_create_by(title: 'без рисунка')

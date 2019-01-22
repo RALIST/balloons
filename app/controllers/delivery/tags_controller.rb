@@ -24,7 +24,7 @@ class Delivery::TagsController < Delivery::DeliveryController
 		@tag = Tag.friendly.find(params[:id])
 		@compositions = Composition.with_tag(@tag.name).order(:price).paginate(page: params[:page], per_page: 6)
 		respond_to do |format|
-			format.html { redirect_to root_path, flash: { danger: 'По запросу ' + @tag.name + ' ничего не найдено!' } unless @compositions.any? }
+			format.html
 			format.js {render layout: false}
 		end
 		set_meta_tags_for_tag(@tag)

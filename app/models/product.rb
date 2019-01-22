@@ -46,11 +46,11 @@ class Product < ApplicationRecord
       if size_name && tone_name
         size_name + tone_name
       else
-        size_name + item.name
+        size_name + item.name.gsub(/[\d+,()\/.']|\bшт[.|\b]|\bсм\b|\bст\b/, '')
       end
     when 'фольгированные шары'
       size_name = "#{size.in_inch.to_i}''(#{size.in_cm.to_i}см) " if size
-      size_name + item.name
+      size_name + item.name.gsub(/[\w',()\/]|\bшт[.|\b]|\bсм\b|\bст\b/, '')
     when 'товары для композиций'
       name.capitalize
     end

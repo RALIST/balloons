@@ -47,7 +47,6 @@ class Admin::ItemsController < Admin::AdminController
   def show; end
 
   def index
-    @dons = Price.don
     if params[:q]
       @items = Item.search(params[:q]).paginate(page: params[:page], per_page: 20)
     elsif params[:type]

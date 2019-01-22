@@ -2,7 +2,7 @@
   - product = subposition.product
   .product-name{data: {product_id: "#{subposition.product.id}", content: "#{subposition.product.complex_name}"}}
     %span{style: 'cursor: pointer;'}
-      = image_tag product.image(:small)
+      = image_tag product.img(:small)
   .product-quantity
     = form_for subposition, class: 'form-inline', remote: true do |f|
       .input-group

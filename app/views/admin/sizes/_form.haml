@@ -1,0 +1,15 @@
+= form_for [:admin, @size] do |f|
+  .form-group
+    = f.label :in_cm, 'В см.'
+    = f.text_field :in_cm, class: 'form-control'
+  .form-group
+    = f.label :in_inch, 'В дюймах'
+    = f.text_field :in_inch, class: 'form-control'
+  .form-group
+    = f.label :belbal, 'Размеры Белбал'
+    = f.text_field :belbal, class: 'form-control'
+  .form-group
+    = f.label :value, 'Цена с гелием'
+    = f.text_field :value, class: 'form-control'
+  .form-group
+    = f.submit 'Создать размер', class: 'btn btn-info'

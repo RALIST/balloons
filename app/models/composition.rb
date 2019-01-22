@@ -33,10 +33,9 @@ class Composition < ApplicationRecord
   scope :without_items, -> {
                           left_outer_joins(:items)
     .where(items_in_compositions: { id: nil }).where(deleted: false).distinct}
-  scope :without_price, -> { with_items.where(products: { price_with_helium: nil }).distinct(:id) }
   scope :with_tags, -> { joins(:tags).joins(:receivers) }
   scope :without_tags, -> { where.not(id: Composition.with_tags.map(&:id)).where(deleted: false).distinct }
-  scope :availible, -> {joins(:products).where('products.price_with_helium > ? AND compositions.img_file_size > ?', 0, 0).distinct}
+  scope :availible, -> {joins(:products).where('compositions.img_file_size > ?',0).distinct}
   after_save :random_title
 
 
@@ -44,11 +43,11 @@ class Composition < ApplicationRecord
 
 
   def self.with_tag(tag)
-    joins(:products, :tags).where('tags.name = ? AND products.price_with_helium > ?', tag, 0).distinct(:id)
+    joins(:products, :tags).where('tags.name = ?', tag).distinct(:id)
   end
 
   def self.with_receivers(receiver)
-    joins(:products, :receivers).where('receivers.title = ? AND products.price_with_helium > ?', receiver, 0).distinct(:id)
+    joins(:products, :receivers).where('receivers.title = ? ', receiver).distinct(:id)
   end
 
   def comp_price

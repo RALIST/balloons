@@ -27,7 +27,7 @@ class Product < ApplicationRecord
                                     default_url: '/missing/:style/missing.png'
 
   attr_reader :img_remote_url
-  before_save :set_price_with_helium, :set_image
+  before_save :set_image
 
 
   def set_image
@@ -157,40 +157,8 @@ class Product < ApplicationRecord
     end
   end
 
-  def set_price_with_helium
-    if type.name == 'латексные шары' && size.present?
-      case size.in_inch
-      when 12
-        self.price_with_helium = 80
-      when 14
-        self.price_with_helium = 80
-      when 16
-        self.price_with_helium = 100
-      when 18
-        self.price_with_helium = 150
-      when 24
-        self.price_with_helium = 550
-      when 36
-        self.price_with_helium = 1000
-      end
-    else
-      if type.name == 'фольгированные шары' && size.present?
-        case size.in_inch
-        when 18
-          self.price_with_helium = 250
-        when 19
-          self.price_with_helium = 250
-        when 30
-          self.price_with_helium = 500
-        when 32
-          self.price_with_helium = 500
-        when 36
-          self.price_with_helium = 800
-        when 40
-          self.price_with_helium = 800
-        end
-      end
-    end
+  def price_with_helium
+    size.value
   end
 
   def self.latex_in_compositions
@@ -198,11 +166,11 @@ class Product < ApplicationRecord
   end
 
   def self.foil_in_compositions
-    joins(:foil, :size).where.not(price_with_helium: nil, sizes: { in_inch: nil }).order(:size_id)
+    joins(:foil, :size).where.not(sizes: { in_inch: nil }).order(:size_id)
   end
 
   def self.availible_products
-    joins(:size).includes(:item, :type, :tone, :size, :foil_form).where('price_with_helium > ? AND sizes.in_inch >= ?', 0, 12)
+    joins(:size).includes(:item, :type, :tone, :size, :foil_form).where(' sizes.in_inch >= ?', 12)
   end
 
   # delegate :special?, to: :item

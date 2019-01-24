@@ -13,6 +13,7 @@ class Product < ApplicationRecord
   has_one :texture,  through: :item
   has_one :foil_form, through: :item
   has_one :vendor, through: :item
+  has_one :category, through: :item
   has_many :subcategories, through: :item
   validates :item_id, presence: true
   validates :name, uniqueness: true, presence: true
@@ -28,6 +29,15 @@ class Product < ApplicationRecord
 
   attr_reader :img_remote_url
   before_save :set_image
+
+
+  def in_cart?(cart)
+    if cart.positions.any?
+      cart.positions.each do |p|
+        return p.subpositions.where(product: self).any?
+      end
+    end
+  end
 
 
   def set_image

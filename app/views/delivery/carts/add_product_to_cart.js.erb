@@ -1,0 +1,5 @@
+$(document).on('ajaxComplete', function(){
+  $("#add-<%=@product.id%>").hide().closest('.row').html("<%=j link_to 'Добавлено в корзину', my_cart_path, class: 'btn btn-success btn-block'%>");
+  $('#cart #to-cart').html("<%=j link_to 'В корзину', my_cart_path %>");
+  $('#responsive').html('<%= j(render "delivery/layouts/resp_menu")%>');
+});

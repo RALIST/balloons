@@ -59,7 +59,11 @@ class Delivery::CartsController < Delivery::DeliveryController
         @position.subpositions.create(product: @product, quantity: 1)
       end
     end
-    redirect_to my_cart_path
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
   end
 
   def remove_from_cart

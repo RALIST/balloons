@@ -3,7 +3,7 @@ class Delivery::CategoriesController < Delivery::DeliveryController
   def index
     set_meta_tags title: 'Коллекции воздушных шаров по тематике. Бесплатная доставка в %{city} | Шариковая фея' % {city: t("cities.#{@city}.where")},
                   description: 'Воздушные шары с рисунком - это лучший способ порадовать ребенка! Персонажи любимых мультфильмов, цветы, смайлы и многое другое в ассортименте нашего магазина!'
-    @categories = Subcategory.includes(:image).availible.select(:id, :name, :slug, :updated_at)
+    @categories = Subcategory.includes(:image).availible.select(:id, :name, :slug, :updated_at).order(:name)
   end
 
   def show

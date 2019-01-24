@@ -13,14 +13,19 @@ class Delivery::SubpositionsController < Delivery::DeliveryController
     @subposition = Subposition.find(params[:id])
     if @subposition.quantity > 1
       @subposition.update_attribute(:quantity, @subposition.quantity - 1)
+      respond_to do |format|
+        format.html { redirect_back(fallback_location: root_path) }
+        format.js
+      end
     else
       @subposition.destroy
+      respond_to do |format|
+        format.html { redirect_back(fallback_location: root_path) }
+        format.js {render action: :destroy}
+      end
     end
     current_cart.total_with_discounts
-    respond_to do |format|
-      format.html { redirect_back(fallback_location: root_path) }
-      format.js
-    end
+
   end
 
   def add_subposition

@@ -43,7 +43,7 @@ class Delivery::CartsController < Delivery::DeliveryController
   def add_product_to_cart
     @product = Product.find(params[:id])
     unless current_cart.positions.any?
-      @composition = Composition.create!
+      @composition = Composition.create(img: File.open('public/missing/preview/missing.png'))
       @composition.products.push(@product)
       current_cart.positions.create(composition: @composition)
       @composition.products.uniq.each do |product|

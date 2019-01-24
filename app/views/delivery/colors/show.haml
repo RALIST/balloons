@@ -21,7 +21,11 @@
             (#{product.size.in_inch.round(0)}")
             .h4.font-weight-bold
               = number_to_currency(product.price_with_helium, precision: 0)
-            = link_to 'В корзину', add_product_to_cart_path(product), class: 'btn btn-info', method: :post
+            .row.justify-content-center
+              - if !product.in_cart?(@cart)
+                = link_to 'В корзину', add_product_to_cart_path(product), class: 'btn btn-info', id: "add-#{product.id}", method: :post, remote: true
+              - else
+                = link_to 'Добавлено в корзину', my_cart_path, class: 'btn btn-success btn-block'
   .row.text-center
     %h4.col-12.mt-3
       Ничего не нашли? Давайте мы поможем!

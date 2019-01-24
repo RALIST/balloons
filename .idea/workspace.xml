@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1b38864-17e2-48ba-9f1a-eee384936dde" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/delivery/carts_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/delivery/carts_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/delivery/subpositions_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/delivery/subpositions_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/composition.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/composition.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/colors/show.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/colors/show.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/subpositions/destroy.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/subpositions/destroy.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/subpositions/down_quantity.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/subpositions/down_quantity.js.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/size.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/size.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/sitemap.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/sitemap.rb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -55,7 +50,8 @@
           <entry key="lock" value="1" />
           <entry key="pid" value="1" />
           <entry key="png" value="5" />
-          <entry key="rb" value="232" />
+          <entry key="rake" value="1" />
+          <entry key="rb" value="234" />
           <entry key="ru" value="3" />
           <entry key="scss" value="16" />
           <entry key="xlsm" value="1" />
@@ -70,7 +66,7 @@
           <entry key="JavaScript" value="3" />
           <entry key="PLAIN_TEXT" value="5" />
           <entry key="RHTML" value="14" />
-          <entry key="Ruby" value="243" />
+          <entry key="Ruby" value="246" />
           <entry key="SCSS" value="16" />
           <entry key="YAML" value="6" />
         </counts>
@@ -81,7 +77,7 @@
           <entry key="erb" value="51" />
           <entry key="haml" value="2805" />
           <entry key="js" value="39" />
-          <entry key="rb" value="9314" />
+          <entry key="rb" value="9411" />
           <entry key="scss" value="863" />
         </counts>
       </usages-collector>
@@ -90,7 +86,7 @@
           <entry key="Haml" value="2805" />
           <entry key="JavaScript" value="39" />
           <entry key="RHTML" value="51" />
-          <entry key="Ruby" value="9320" />
+          <entry key="Ruby" value="9417" />
           <entry key="SCSS" value="863" />
         </counts>
       </usages-collector>
@@ -110,8 +106,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/product.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="931">
+            <state relative-caret-position="646">
               <caret line="47" column="7" lean-forward="true" selection-start-line="47" selection-start-column="7" selection-end-line="47" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/sitemap.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="304">
+              <caret line="9" column="48" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -125,11 +130,25 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/delivery/subpositions_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+            <state relative-caret-position="418">
+              <caret line="22" column="46" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/tasks/clear_carts.rake">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/size.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
             </state>
           </provider>
         </entry>
@@ -174,8 +193,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/views/delivery/products/index.haml" />
-        <option value="$PROJECT_DIR$/app/views/delivery/carts/_category_list.html.haml" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/cart.scss" />
         <option value="$PROJECT_DIR$/app/views/delivery/carts/show.html.haml" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/composition.scss" />
@@ -225,6 +242,8 @@
         <option value="$PROJECT_DIR$/app/views/delivery/subpositions/destroy.js.erb" />
         <option value="$PROJECT_DIR$/app/views/delivery/subpositions/down_quantity.js.erb" />
         <option value="$PROJECT_DIR$/app/controllers/delivery/subpositions_controller.rb" />
+        <option value="$PROJECT_DIR$/app/models/size.rb" />
+        <option value="$PROJECT_DIR$/config/sitemap.rb" />
       </list>
     </option>
   </component>
@@ -263,25 +282,6 @@
               <item name="Balloons" type="b2602c69:ProjectViewProjectNode" />
               <item name="Balloons" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Balloons" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Balloons" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Balloons" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Balloons" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="delivery" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Balloons" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Balloons" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -418,12 +418,12 @@
       <workItem from="1546844887836" duration="10042000" />
       <workItem from="1546940045568" duration="59687000" />
       <workItem from="1547306282558" duration="9000" />
-      <workItem from="1547475276636" duration="78085000" />
+      <workItem from="1547475276636" duration="78953000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="174964000" />
+    <option name="totallyTimeSpent" value="175832000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -436,14 +436,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26384366" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26384366" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" x="303" y="147" width="841" height="685" id="Run" order="2" type="WINDOWED" visible="true" weight="0.32953104" />
+      <window_info anchor="bottom" x="303" y="147" width="841" height="685" id="Run" order="2" type="WINDOWED" visible="true" weight="0.32953104" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -471,20 +470,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/admin/sizes/_form.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="54" selection-start-line="14" selection-start-column="54" selection-end-line="14" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/sizes/new.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/admin/sizes/edit.haml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
@@ -604,13 +589,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/size.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/category.rb">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -706,13 +684,6 @@
     <entry file="file://$PROJECT_DIR$/public/missing/preview/missing.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/product.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="931">
-          <caret line="47" column="7" lean-forward="true" selection-start-line="47" selection-start-column="7" selection-end-line="47" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/composition.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
@@ -799,8 +770,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/delivery/subpositions_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+        <state relative-caret-position="418">
+          <caret line="22" column="46" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/tasks/clear_carts.rake">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/size.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/product.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="47" column="7" lean-forward="true" selection-start-line="47" selection-start-column="7" selection-end-line="47" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/sitemap.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="9" column="48" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="48" />
         </state>
       </provider>
     </entry>

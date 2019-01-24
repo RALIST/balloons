@@ -8,7 +8,7 @@ if Rails.env.production?
                                                                       fog_directory: ENV['AWS_BUCKET'],
                                                                       fog_region: ENV['AWS_REGION'])
   SitemapGenerator::Sitemap.public_path = 'tmp/'
-  SitemapGenerator::Sitemap.sitemaps_host = 'https://s3-us-west-2.amazonaws.com/flashcards123'
+  SitemapGenerator::Sitemap.sitemaps_host = 'https://s3.eu-central-1.amazonaws.com/balloons-images'
   SitemapGenerator::Sitemap.sitemaps_path = 'sitemaps/'
   SitemapGenerator::Sitemap.compress = false
 end

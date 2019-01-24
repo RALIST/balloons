@@ -7,28 +7,11 @@
   %hr
   .lead.text-center
     = link_to 'Назад', categories_path, class: 'btn btn-outline-dark mb-2'
-  .card-columns
-    - @items_in_collection.each do |product|
-      - cache product do
-        .card.text-center.pt-3
-          = image_tag product.img(:thumb), class: 'card-img-top', style: 'max-width:150px', title: product.complex_name, alt: product.complex_name, data: {toggle: 'tooltip'}
-          .card-body
-            .card-title.text-center
-              - if product.type.name == 'фольгированные шары'
-                = product.foil_form.name.capitalize if product.foil_form
-              - else
-                Латексный шар
-              %br
-              Размер:
-              #{product.size.in_cm.round(0) if product.size.in_cm} см
-              (#{product.size.in_inch.round(0)}")
-              .h4.font-weight-bold
-                = number_to_currency(product.price_with_helium, precision: 0)
-              .row.justify-content-center
-                - if !product.in_cart?(@cart)
-                  = link_to 'В корзину', add_product_to_cart_path(product), class: 'btn btn-info', id: "add-#{product.id}", method: :post, remote: true
-                - else
-                  = link_to 'Добавлено в корзину', my_cart_path, class: 'btn btn-success btn-block'
+  .row
+    = render @items_in_collection
+  %hr
+  .lead.text-center
+    = link_to 'Назад', categories_path, class: 'btn btn-outline-dark mb-2'
   .row.text-center
     %h4.col-12.mt-3
       Ничего не нашли? Давайте мы поможем!

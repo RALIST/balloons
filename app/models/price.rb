@@ -32,6 +32,7 @@ class Price < ApplicationRecord
            item[:image] = row[11]
            item[:made_by] = row[29]
            item[:size] = row[24]
+           item[:price] = row[7]
            items << item
          end
 
@@ -46,6 +47,7 @@ class Price < ApplicationRecord
          item[:made_by] = row[29]
          item[:size] = row[24]
          item[:form] = row[15]
+         item[:price] = row[7]
          items << item
 
        end

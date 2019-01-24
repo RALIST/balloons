@@ -86,7 +86,6 @@ class Product < ApplicationRecord
       if items.any?
         products_arr = []
         products = includes(:vendor, :size).where(item_id: items)
-                                           .where('price_with_helium > ?', 0)
                                            .select(:id, :name, :item_id, :size_id)
         products.find_each do |product|
           if product.size
@@ -158,10 +157,29 @@ class Product < ApplicationRecord
   end
 
   def price_with_helium
-    if size
+    if type.name == 'латексные шары' && size
       size.value
     else
-      0
+      if foil_form && size
+        case foil_form.name
+          when 'звезда', 'круг', 'сердце', 'квадрат'
+            if size.in_inch < 32
+              250
+            else
+              650
+            end
+          when 'цифра'
+            700
+          when 'фигура'
+            if size.in_inch < 40
+              500
+            else
+              600
+            end
+          when 'ходячая', 'ходячая фигура'
+            2500
+        end
+      end
     end
   end
 

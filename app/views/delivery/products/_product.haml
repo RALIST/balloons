@@ -1,17 +1,23 @@
 - cache product do
-  .card.text-center.pt-3.col-lg-3.col-6
-    = image_tag product.img(:thumb), class: 'card-img-top', title: product.complex_name, alt: product.complex_name, data: {toggle: 'tooltip'}
-    .card-body
-      .card-title.text-center
-        - if product.type.name == 'фольгированные шары'
-          = product.foil_form.name.capitalize if product.foil_form
-        - else
-          Шар
-        #{product.size.in_cm.round(0) if product.size.in_cm} см
-      .h4.font-weight-bold
-        = number_to_currency(product.price_with_helium, precision: 0)
-      .row.justify-content-center
-        - if !product.in_cart?(@cart)
-          = button_to 'В корзину', add_product_to_cart_path(product), class: 'btn btn-info', id: "add-#{product.id}", method: :post, remote: true, data: {disable_with: 'Добавляю...'}
-        - else
-          = link_to 'В корзине', my_cart_path, class: 'btn btn-success'
+  #product
+    .card.text-center.pt-3
+      .card-image
+        = image_tag product.img(:thumb), class: 'img-fluid', title: product.complex_name, alt: product.complex_name, data: {toggle: 'tooltip'}
+      .line
+      .card-body
+        .card-title.text-center
+          - if product.type.name == 'фольгированные шары'
+            = product.foil_form.name.capitalize if product.foil_form
+          - else
+            Шар
+          #{product.size.in_cm.round(0) if product.size.in_cm} см
+
+        .row.justify-content-center.align-items-center
+          .col-6.pr-0
+            .font-weight-bold
+              = number_to_currency(product.price_with_helium, precision: 0)
+          .col-6.pl-0
+            - if !product.in_cart?(@cart)
+              = button_to 'В корзину', add_product_to_cart_path(product), class: 'btn btn-info', id: "add-#{product.id}", method: :post, remote: true, data: {disable_with: 'Добавляю...'}
+            - else
+              = link_to 'В корзине', my_cart_path, class: 'btn btn-success'

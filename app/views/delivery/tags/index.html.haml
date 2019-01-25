@@ -5,15 +5,18 @@
     .small.text-muted
       Посмотрите готовые оформления на любой праздник
   %hr
-  .row.card-columns
+  .row.justify-content-around.compositions
     - @tags.each do |tag|
       - cache tag do
-        .col-3.card.mb-5.border-0
-          = link_to tag_path(tag) do
-            = image_tag tag.image.img(:thumb), class: 'card-img'
-            .card-body.card-img-overlay
-              .h3.card-title.bg-white.p-2.rounded.text-info
-                = tag.name.capitalize
+        .composition
+          = link_to tag_path(tag), class: 'w-100' do
+            .card.justify-content-between.align-items-center
+              .card-image
+                = image_tag tag.image.img(:thumb), class: 'img-fluid'
+                .line
+              .card-body
+                .h3.card-title.bg-white.p-2.rounded.text-info
+                  = tag.name.capitalize
 %hr
 .container#seo-text
   = render 'text_party'

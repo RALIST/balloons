@@ -22,10 +22,9 @@ class Composition < ApplicationRecord
 
   before_post_process :rename_img
 
-  def rename_img
-    extension = File.extname(img_file_name).downcase
-    self.img.instance_write :file_name, "#{Time.now.to_i.to_s.force_encoding('utf-8')}#{extension}"
-  end
+  after_save :random_title
+
+
 
 
 
@@ -36,9 +35,13 @@ class Composition < ApplicationRecord
   scope :with_tags, -> { joins(:tags).joins(:receivers) }
   scope :without_tags, -> { where.not(id: Composition.with_tags.map(&:id)).where(deleted: false).distinct }
   scope :availible, -> {joins(:products, :tags).where('compositions.img_file_size > ?',0).distinct}
-  after_save :random_title
 
 
+
+  def rename_img
+    extension = File.extname(img_file_name).downcase
+    self.img.instance_write :file_name, "#{Time.now.to_i.to_s.force_encoding('utf-8')}#{extension}"
+  end
 
 
 

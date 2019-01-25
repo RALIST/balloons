@@ -12,14 +12,13 @@
           = render 'delivery/layouts/form_to_call'
           .row
             #form-call
-              .row.align-items-center
+              .row.align-items-center.justify-content-center
                 .h4.w-100.text-center
                   Напишите нам в чате
-                .col-6.text-right
+                .text-center.mr-2
                   =image_tag 'telegram.png', class: 'img-fluid', style: 'width: 32px'
                   =image_tag 'whatsapp.png', class: 'img-fluid', style: 'width: 36px'
                   =image_tag 'viber.png', class: 'img-fluid', style: 'width: 36px'
-                .col-6.text-left
-                  .lead
-                    = t "cities.#{@city}.phones.mobile"
+                .lead
+                  = t "cities.#{@city}.phones.mobile"
 

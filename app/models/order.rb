@@ -45,7 +45,7 @@ class Order < ApplicationRecord
                                                              ' %d.%m в %H:%M').to_s + '. Телефон:' + ' ' + self.user.phone
     message = MainsmsApi::Message.new(message: new_order,
                                       recipients: ['79501718109'])
-    response = message.deliver
+    response = message.deliver unless Rails.env.development?
   end
 
   def send_sms_to_user
@@ -53,7 +53,7 @@ class Order < ApplicationRecord
     phone = self.phone.tr('()+ ', '')
     message = MainsmsApi::Message.new(message: order,
                                       recipients: [phone])
-    response = message.deliver
+    response = message.deliver unless Rails.env.development?
   end
 
   def self.pay_methods

@@ -9,6 +9,6 @@ class Call < ApplicationRecord
     new_call = 'Заявка на обратный звонок: ' + userphone.to_s + ' ' + username + ' ' + (messangers ? messangers.join(',') : '') + ' ' + I18n.t("cities.#{city}.base")
     message = MainsmsApi::Message.new(sender: 'shar_feya', message: new_call,
                                       recipients: ['79501718109'])
-    response = message.deliver
+    response = message.deliver unless Rails.env.development?
   end
 end

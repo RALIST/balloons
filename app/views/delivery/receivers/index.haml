@@ -5,12 +5,16 @@
     .small.text-muted
       Посмотрите готовые оформления на любой праздник
   %hr
-  .row.card-columns
-    - @menu_receivers.each do |r|
-      - cache r do
-        .card.mb-5.col-2.border-0
-          = link_to receiver_path(r) do
-            = image_tag r.image.img(:thumb), class: 'card-img' if r.image
-            .card-body.card-img-overlay
-              .h3.card-title.text-info.bg-white.p-2
-                = r.title.capitalize
+  .row.justify-content-around.compositions
+    - @menu_receivers.each do |tag|
+      - cache tag do
+        .composition
+          = link_to receiver_path(tag), class: 'w-100' do
+            .card.justify-content-between.align-items-center
+              .card-image
+
+                = image_tag tag.image.img(:thumb), class: 'img-fluid'
+                .line
+              .card-body
+                .h3.card-title.bg-white.p-2.rounded.text-info
+                  = tag.title.capitalize

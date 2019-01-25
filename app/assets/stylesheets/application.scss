@@ -33,8 +33,14 @@
   .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h5, h4, a {
     font-family: $font-family-serif ;
   }
-   .wrapper {
+  .wrapper {
      min-height: 90vh;
+  }
+
+   #seo-text {
+     a {
+       color: $brand-secondary;
+     }
    }
 }
 

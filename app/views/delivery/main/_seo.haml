@@ -1,0 +1,29 @@
+.container#seo-text
+  - case controller.controller_name
+    - when 'tags'
+      - if controller.action_name == 'show'
+        - case @tag.name
+        - when 'день рождения'
+          = render 'text_bithday'
+        - when 'свадьба'
+          = render 'text_wedding'
+        - when 'девичник'
+          = render 'text_dev'
+        - when 'праздник'
+          = render 'text_party'
+        - when 'выписку из роддома'
+          = render 'text_roddom'
+      - else
+        = render 'text_party'
+    - when 'receivers'
+
+    - when 'main'
+      = render 'delivery/main/main_text'
+    - when 'categories'
+      - if controller.action_name == 'show'
+        = render 'delivery/categories/seo_text'
+    - when 'colors'
+      - if controller.action_name == 'show'
+        = render 'delivery/colors/seo_text'
+    - when 'products'
+      = render 'delivery/products/seo_text'

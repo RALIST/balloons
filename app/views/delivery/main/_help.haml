@@ -1,0 +1,31 @@
+.container-fluid.py-3.mt-5.bg-info
+
+  .row.align-items-center.justify-content-around.text-center.gift
+
+    .col-12
+
+      .text-white
+        Ничего не нашли?
+      .h3.text-white.mb-4
+        Давайте мы вам поможем!
+
+    = button_tag 'Оставить заявку', class: 'btn btn-light m-auto', data:{ toggle: 'modal', target: '#call-modal'}
+    -#.row.text-center.text-white
+    -#  #offer-icon
+    -#    %i.fas.fa-thumbs-up.fa-3x.my-1
+    -#    .h4
+    -#      Проклеиваем все шары
+    -#      .small
+    -#        Гарантируем 3 дня полета или заменим брак!
+    -#  #offer-icon
+    -#    %i.fas.fa-car.fa-3x.my-1
+    -#    .h4
+    -#      Круглосуточная доставка
+    -#      .small
+    -#        Бесплатная доставка по #{t("cities.#{@city}.in")} от 1500 руб.
+    -#  #offer-icon
+    -#    %i.fas.fa-birthday-cake.fa-3x.my-1
+    -#    .h4
+    -#      Индивидуальный дизайн
+    -#      .small
+    -#        Подберем уникальное оформление под ваш праздник!

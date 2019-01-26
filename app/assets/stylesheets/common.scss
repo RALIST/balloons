@@ -8,7 +8,28 @@
 }
 
 
-
+.gift {
+  //background: image-url('gift.png') no-repeat;
+  //
+  //
+  min-height: 25vh;
+  position: relative;
+  &:after {
+    content: "";
+    background: image-url('gift.png') no-repeat;
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    background-position: center top;
+    background-size: 200px;
+  }
+  .col-12, .btn {
+    z-index: 2;
+  }
+}
 
 
 

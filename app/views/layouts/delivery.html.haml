@@ -26,8 +26,12 @@
       = render 'delivery/layouts/breadcrumbs' unless @disable_bread
       = render 'delivery/layouts/resp_menu'
       = yield
+      = render 'delivery/main/help'
+      = render 'delivery/feedbacks/get_feedback'
+      = render 'delivery/main/seo'
       = render 'delivery/layouts/call'
       = render 'delivery/layouts/modal_city'
+
     %footer
       = render 'delivery/layouts/footer' unless @disable_footer
     / = render 'delivery/layouts/special/chats'

@@ -72,32 +72,6 @@
       .row.comp-text.text-secondary.justify-content-between.mt-3
         .col-12.d-flex.flex-row.justify-content-between
 
-.container-fluid.bg-grad.py-3.mt-5.rounded
-  %h2.h4.font-weight-bold.text-center.text-white
-    Композиция № #{@comp.id} из шариков с доставкой в #{t("cities.#{@city}.where")} сделает #{@tag.present? ? @tag.name : 'праздник'} незабываемым!
-  .row.text-center
-    #offer-icon.text-white
-      %i.fas.fa-thumbs-up.fa-3x.my-1
-      .h4.text-white
-        Проклеиваем все шары
-        .small
-          Гарантируем 3 дня полета или заменим брак!
-    #offer-icon.text-white
-      %i.fas.fa-car.fa-3x.my-1
-      .h4.text-white
-        Круглосуточная доставка
-        .small
-          Бесплатная доставка по #{t("cities.#{@city}.in")} от 1200 руб.
-    #offer-icon.text-white
-      %i.fas.fa-birthday-cake.fa-3x.my-1
-      .h4.text-white
-        Индивидуальный дизайн
-        .small
-          Подберем уникальное оформление под ваш праздник!
-  .text-center
-    .lead.text-white
-      Помочь с выбором?
-    = button_tag 'Оставить заявку', class: 'btn btn-block btn-info col-lg-6 m-auto', data:{ toggle: 'modal', target: '#call-modal'}
 %hr
 .container
   .h4.text-center.strong.mb-3.text-info

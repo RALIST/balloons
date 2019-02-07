@@ -1,11 +1,12 @@
+- if item.price_with_helium
+  .col-lg-2.col-4.text-center.border-right.my-2
 
-.col-md-4
-  .thumbnail
-    .row
-      .col-md-5
-      .col-md-7
-        = link_to item.name.capitalize, admin_item_path(item)
-        = link_to 'Удалить', admin_item_path(item), method: :delete
-        = link_to 'Редактировать', edit_admin_item_path(item)
+    = image_tag item.img.url(:small), class: 'img-fluid'
+    .small
+      = item.name
+    = form_tag admin_add_item_path, remote: true do
+      = hidden_field_tag :item, item.id
+      = number_field_tag :count,'', class: 'form-control', placeholder: 'Кол-во'
+      = submit_tag 'Добавить', class: 'btn btn-info mt-2'
 
 

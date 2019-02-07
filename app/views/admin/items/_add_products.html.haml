@@ -1,45 +1,58 @@
-.col-md-4.border-right
-  %h4 Латексные шары без рисунка
-  = form_tag admin_add_item_path, remote: true do
-    .row
-      .col-md-8
-        .form-group
-          = select_tag :item, grouped_options_for_select(Product.plain_latex_for_select), class: 'form-control'
-      .col-md-4
-        .form-group
-          = number_field_tag :count,'', class: 'form-control', placeholder: 'Кол-во'
-      .col-md-12.text-right
-        = submit_tag 'Добавить товар', class: 'btn btn-info'
-  %h4 Фольгированые шары без рисунка
-  = form_tag admin_add_item_path, remote: true do
-    .row
-      .col-md-8
-        .form-group
-          = select_tag :item, grouped_options_for_select(Product.plain_foil_for_select), class: 'form-control'
-      .col-md-4
-        .form-group
-          = number_field_tag :count,'', class: 'form-control', placeholder: 'Кол-во'
-      .col-md-12.text-right
-        = submit_tag 'Добавить товар', class: 'btn btn-info'
-  / %h4 Фольгированые шары с рисунком
-  / = form_tag admin_add_item_path do
-  /   .row
-  /     .col-md-8
-  /       .form-group
-  /         = select_tag :item, grouped_options_for_select(Product.printed_foil_for_select), class: 'form-control'
-  /     .col-md-4
-  /       .form-group
-  /         = number_field_tag :count,'', class: 'form-control', placeholder: 'Кол-во'
-  /     .col-md-12.text-right
-  /       = submit_tag 'Добавить товар', class: 'btn btn-info'
-  %h4 Товары для композиций
-  = form_tag admin_add_item_path, remote: true do
-    .row
-      .col-md-8
-        .form-group
-          = select_tag :item, options_for_select(Product.special_products), class: 'form-control'
-      .col-md-4
-        .form-group
-          = number_field_tag :count,'', class: 'form-control', placeholder: 'Кол-во'
-      .col-md-12.text-right
-        = submit_tag 'Добавить товар', class: 'btn btn-info'
+
+Поиск товаров
+= form_tag admin_composition_path(@comp), method: :get do
+  .form-group
+    = text_field_tag :q, '', class: 'form-control'
+  .form-group
+    = submit_tag 'Найти', class: 'btn btn-info'
+- if @items
+  .row
+    = render collection:  @items, partial: 'admin/items/item'
+  .row
+    = will_paginate @items, container: false
+
+-#.col-md-4.border-right
+-#  %h4 Латексные шары без рисунка
+-#  = form_tag admin_add_item_path, remote: true do
+-#    .row
+-#      .col-md-8
+-#        .form-group
+-#          = select_tag :item, grouped_options_for_select(Product.plain_latex_for_select), class: 'form-control'
+-#      .col-md-4
+-#        .form-group
+-#          = number_field_tag :count,'', class: 'form-control', placeholder: 'Кол-во'
+-#      .col-md-12.text-right
+-#        = submit_tag 'Добавить товар', class: 'btn btn-info'
+-#  %h4 Фольгированые шары без рисунка
+-#  = form_tag admin_add_item_path, remote: true do
+-#    .row
+-#      .col-md-8
+-#        .form-group
+-#          = select_tag :item, grouped_options_for_select(Product.plain_foil_for_select), class: 'form-control'
+-#      .col-md-4
+-#        .form-group
+-#          = number_field_tag :count,'', class: 'form-control', placeholder: 'Кол-во'
+-#      .col-md-12.text-right
+-#        = submit_tag 'Добавить товар', class: 'btn btn-info'
+-#  / %h4 Фольгированые шары с рисунком
+-#  / = form_tag admin_add_item_path do
+-#  /   .row
+-#  /     .col-md-8
+-#  /       .form-group
+-#  /         = select_tag :item, grouped_options_for_select(Product.printed_foil_for_select), class: 'form-control'
+-#  /     .col-md-4
+-#  /       .form-group
+-#  /         = number_field_tag :count,'', class: 'form-control', placeholder: 'Кол-во'
+-#  /     .col-md-12.text-right
+-#  /       = submit_tag 'Добавить товар', class: 'btn btn-info'
+-#  %h4 Товары для композиций
+-#  = form_tag admin_add_item_path, remote: true do
+-#    .row
+-#      .col-md-8
+-#        .form-group
+-#          = select_tag :item, options_for_select(Product.special_products), class: 'form-control'
+-#      .col-md-4
+-#        .form-group
+-#          = number_field_tag :count,'', class: 'form-control', placeholder: 'Кол-во'
+-#      .col-md-12.text-right
+-#        = submit_tag 'Добавить товар', class: 'btn btn-info'

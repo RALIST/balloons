@@ -30,6 +30,8 @@ class Product < ApplicationRecord
   attr_reader :img_remote_url
   before_save :set_image
 
+  scope :search, ->(word) { where('lower(products.name) LIKE ? ', "%#{word}%").distinct.availible_products }
+
 
   def in_cart?(cart)
     if cart.positions.any?

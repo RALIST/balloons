@@ -11,6 +11,9 @@ class Admin::CompositionsController < Admin::AdminController
 
   def show
     @products = @comp.products.uniq
+    if params[:q]
+      @items = Product.search(params[:q]).paginate(page: params[:page], per_page: 50)
+    end
   end
 
   def new

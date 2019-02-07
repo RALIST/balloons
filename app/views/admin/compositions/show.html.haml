@@ -1,35 +1,33 @@
-.container-fluid
+.container
   .row
-    .col-4
-      = image_tag @comp.img.url(:preview), class: 'img-fluid', style: 'margin: auto;'
-    .col-8
-      .row
-        .col-8
-          .h4.bg-brand Товары в композиции
-          .items.text-left
-          %table.table.table-sm
-            %tbody#products
-              = render @products,  partial: "admin/products/product", locals: {product: @product}
-        .col-4
-          .h4.bg-brand Повод/Кому
-          - @comp.tags.each do |tag|
-            = tag.name.capitalize
-            = link_to admin_remove_tag_path(tag_id: tag.id), method: :put do
-              %i.fa.fa-times-circle{style: 'aria-hidden="true"'}
-          - @comp.receivers.each do |receiver|
-            = receiver.title
-            = link_to admin_remove_receiver_path(receiver_id: receiver.id), method: :put do
-              %i.fas.fa-times-circle{style: 'aria-hidden="true"'}
+    .col-lg-4.col-12.text-center.my-2
+      = image_tag @comp.img.url(:preview), class: 'img-fluid'
+    .col-lg-4.col-12.my-2
+      .bg-info.text-white.mb-2 Товары в композиции
+      %table.table.table-sm
+        %tbody#products
+          = render @products,  partial: "admin/products/product", locals: {product: @product}
+    .col-lg-4.col-12.my-2
+      .bg-info.text-white.mb-2 Повод/Кому
+      - @comp.tags.each do |tag|
+        = tag.name.capitalize
+        = link_to admin_remove_tag_path(tag_id: tag.id), method: :put do
+          X
+      - @comp.receivers.each do |receiver|
+        = receiver.title
+        = link_to admin_remove_receiver_path(receiver_id: receiver.id), method: :put do
+          X
 
-      .row
-        .col-md-8.text-right
-          .h3.border-top.price
-            = @comp.price
+  .row
+    .col-md-8.text-right
+      .h3.border-top.price
+        = @comp.price
   .row.my-5
-    .col-md-12
-      %h2 Добавить параметры
-    = render 'admin/items/add_products'
-    .col-md-4.border-right
+
+    .col-12
+      %h2 Добавить товары
+      = render 'admin/items/add_products'
+    .col-6.border-right
       %h3 Повод
       = form_for [:admin, @comp] do |f|
         .form-group
@@ -42,7 +40,7 @@
           = f.label :tag_name, 'или создайте свой'
           = f.text_field :tag_name, value: '',class: 'form-control'
         = f.submit 'Добавить', class: 'btn btn-info'
-    .col-md-4
+    .col-6
       %h3 Кому
       = form_for [:admin, @comp] do |f|
         .form-group

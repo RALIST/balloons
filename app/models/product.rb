@@ -63,7 +63,7 @@ class Product < ApplicationRecord
     when 'фольгированные шары'
       size_name = "#{size.in_inch.to_i}''(#{size.in_cm.to_i}см) " if size
       size_name + item.name.gsub(/[\w',()\/]|\bшт[.|\b]|\bсм\b|\bст\b/, '')
-    when 'товары для композиций'
+    when 'разное'
       name.capitalize
     end
   end
@@ -171,6 +171,8 @@ class Product < ApplicationRecord
   def price_with_helium
     if type.name == 'латексные шары' && size
       size.value
+    elsif type.name == 'разное'
+      self.price
     else
       if foil_form && size
         case foil_form.name

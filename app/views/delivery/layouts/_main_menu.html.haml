@@ -34,15 +34,14 @@
                 - if @cart.positions.any?
                   %span.fa-layers-counter.h2.bg-secondary.text-white
                     = @cart.positions.count
-          - if !current_user
-            %li.text-uppercase.nav-item
+          %li.nav-item
+            - if !current_user
               = link_to login_path, title: 'Войти' do
                 %i.fas.fa-sign-in-alt.fa-lg.text-info
-          - else
-            %li.text-uppercase.nav-item
-              = link_to  cp_path, title: 'Личный кабинет', rel: 'nofollow' do
-                %i.fas.fa-user.fa-lg.text-info
-            %li.text-uppercase.nav-item
-              = link_to logout_path, method: :post, title: 'Выйти' do
-                %i.fas.fa-sign-out-alt.text-info.fa-lg
+            - else
+              %li.text-uppercase.nav-item
+                = link_to  cp_path, title: 'Личный кабинет', rel: 'nofollow' do
+                  %i.fas.fa-user.fa-lg.text-info
+                = link_to logout_path, method: :post, title: 'Выйти' do
+                  %i.fas.fa-sign-out-alt.text-info.fa-lg
 

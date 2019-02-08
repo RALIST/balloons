@@ -148,7 +148,7 @@
   }
   @include media-breakpoint-down(lg){
     color: black !important;
-    background: $brand-info;
+    //background: $brand-info;
     .small {
       font-size: 1rem;
     }

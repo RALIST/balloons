@@ -18,7 +18,8 @@
     - when 'receivers'
 
     - when 'main'
-      = render 'delivery/main/main_text'
+      - if controller.action_name == 'index'
+        = render 'delivery/main/main_text'
     - when 'categories'
       - if controller.action_name == 'show'
         = render 'delivery/categories/seo_text'

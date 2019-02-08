@@ -10,7 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= reqiuire jquery
+//= require jquery
 //= require jquery3
 //= require popper
 //= require jquery_ujs
@@ -27,7 +27,12 @@
 //= require cssrelpreload
 //= require onloadCSS
 //= require turbolinks
-//= require_tree .
+//= require common
+//= require counters
+//= requirer pagination
+//= require social-share-button
+//= require business
+//= require pagination
 
 setTimeout(function(){
   if(!Cookies.get('popup')){
@@ -36,27 +41,6 @@ setTimeout(function(){
   }
 }, 70000)
 
-var jivo = function(){
-  var widget_id = 'j5dc5TFiVH';
-  var d=document;
-  var w=window;
-  function l(){
-    var s = document.createElement('script');
-    s.type = 'text/javascript';
-    s.async = true;
-    s.src = '//code.jivosite.com/script/widget/'+widget_id;
-    var ss = document.getElementsByTagName('script')[0];
-    ss.parentNode.insertBefore(s, ss);}
-  if(d.readyState=='complete'){
-    l();
-  }else{
-    if(w.attachEvent){
-      w.attachEvent('onload',l);
-    }else{
-      w.addEventListener('load',l,false);
-    }
-  }
-};
 
 var ready = function(){
   if($('body').attr('data-loaded') == 'T'){
@@ -70,10 +54,24 @@ var ready = function(){
   fullPage();
   share();
   FontAwesome.dom.i2svg();
+  search();
   $('[data-toggle="tooltip"]').tooltip();
   $('body').attr('data-loaded', 'T')
-  }
+}
 
+
+var search = function() {
+  $('input[name="search"]').on('keyup', function(event){
+    var search = $(this).val();
+    var key = event.which || event.keyCode || event.charCode;
+    if(search == ''){
+      $('.modal div').show();
+    }else{
+      $('.modal').find('.as_btn:not(:containsi("'+search+'"))').closest('div').hide();
+      $('.modal').find('.as_btn:containsi("'+search+'")').closest('div').show();
+    }
+  });
+};
 
 
 var fixedMenu = function(){
@@ -94,7 +92,6 @@ var respMenu = function(){
   $('#icon-wrapper').click(function(){
     $('#resp-menu').toggle('slide',300);
     $(this).find('[data-fa-i2svg]').toggleClass('fa-bars fa-times', 300);
-    // $('.resp-menu-bar').toggleClass('bg-teal', 150);
     FontAwesome.dom.i2svg();
   });
 }
@@ -126,10 +123,3 @@ var share = function(){
 document.addEventListener('turbolinks:load', ready);
 document.addEventListener('ready', ready);
 
-// $(document).ready(jivo());
-//
-// function jivo_onLoadCallback(){
-//   $(document).on('turbolinks:load', function(){
-//     jivo_init()
-//   })
-// };

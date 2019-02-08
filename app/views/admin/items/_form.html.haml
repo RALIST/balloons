@@ -1,16 +1,20 @@
-%h2 Добавить товар
-.col-md-6.col-xs-12
-  = form_for [:admin, @item] do |f|
-    .form-group
-      = f.label :type_id, 'Тип'
-      = f.select :type_id, Type.all.map{|t| [t.name, t.id]},{} ,class: 'form-control'
-    .form-group
-      = f.label :category_id, 'Категория'
-      = f.select :category_id, Category.all.map{|c| [c.title, c.id]},{}, class: 'form-control'
-    .from-group
-      = f.label :subcategories, 'Коллекция'
-      = f.select :subcategory_ids, Subcategory.all.map{|s| [s.name, s.id]}, {}, class: 'form-control', multiple: true
-    = f.fields_for :products, @product do |nf|
-      = render partial: 'product_fields', locals: {nf: nf}
-    .form-group
-      = f.submit class: 'btn btn-info', data: {disable_with: 'Сохраняю...'}
+.row
+  %h2 Добавить товар
+  .col-12
+    = form_for [:admin, @item] do |f|
+      .form-group
+        = f.label :type_id, 'Тип'
+        = f.select :type_id, Type.all.collect{|t| [t.name, t.id] if t.name == 'разное'}.reject(&:blank?), { include_blank: false }, class: 'form-control'
+      .form-group
+        = f.label :category_id, 'Категория'
+        = f.select :category_id, Category.all.map{|c| [c.title, c.id]},{}, class: 'form-control'
+      = f.fields_for :products, @product do |nf|
+        = render partial: 'product_fields', locals: {nf: nf}
+      .from-group.mt-4
+        = f.label :subcategories, 'Коллекция', class: 'mb-2 w-100'
+        = search_field_tag :search
+        = f.collection_check_boxes :subcategory_ids, Subcategory.all, :id, :name, class: 'form-control check-boxes' do |b|
+          = b.label(class: 'mr-3') { b.check_box + b.text.capitalize }
+
+      .form-group
+        = f.submit class: 'btn btn-info', data: {disable_with: 'Сохраняю...'}

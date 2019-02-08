@@ -5,3 +5,11 @@
 tr, td, table {
   vertical-align: middle !important;
 }
+
+em.current {
+  @extend .text-info
+}
+
+label {
+  @extend .text-info
+}

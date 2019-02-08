@@ -1,12 +1,12 @@
 - if item.price_with_helium
-  .col-lg-2.col-4.text-center.border-right.my-2
+  .col-lg-2.col-4.text-center.my-2
 
     = image_tag item.img.url(:small), class: 'img-fluid'
     .small
       = item.name
     = form_tag admin_add_item_path, remote: true do
       = hidden_field_tag :item, item.id
-      = number_field_tag :count,'', class: 'form-control', placeholder: 'Кол-во'
+      = number_field_tag :count,'', class: 'form-control form-control-sm', placeholder: 'Кол-во'
       = submit_tag 'Добавить', class: 'btn btn-info mt-2'
 
 

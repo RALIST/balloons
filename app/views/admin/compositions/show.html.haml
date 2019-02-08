@@ -2,12 +2,12 @@
   .row
     .col-lg-4.col-12.text-center.my-2
       = image_tag @comp.img.url(:preview), class: 'img-fluid'
-    .col-lg-4.col-12.my-2
+    .col-lg-6.col-12.my-2
       .bg-info.text-white.mb-2 Товары в композиции
       %table.table.table-sm
         %tbody#products
           = render @products,  partial: "admin/products/product", locals: {product: @product}
-    .col-lg-4.col-12.my-2
+    .col-lg-2.col-12.my-2
       .bg-info.text-white.mb-2 Повод/Кому
       - @comp.tags.each do |tag|
         = tag.name.capitalize
@@ -24,9 +24,10 @@
         = @comp.price
   .row.my-5
 
-    .col-12
+    .col-12.border.mb-5.rounded
       %h2 Добавить товары
       = render 'admin/items/add_products'
+  .row.border.mb-5.rounded
     .col-6.border-right
       %h3 Повод
       = form_for [:admin, @comp] do |f|
@@ -44,7 +45,7 @@
       %h3 Кому
       = form_for [:admin, @comp] do |f|
         .form-group
-          =f.label :receiver_title, 'Выберите из списка'
+          = f.label :receiver_title, 'Выберите из списка'
           = f.select :receiver_title, options_for_select(Receiver.all.map{|r| [r.title]}.uniq), {}, {class: 'form-control'}
         .form-group
           = f.submit 'Добавить', class: 'btn btn-info'

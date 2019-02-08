@@ -6,9 +6,9 @@
   .form-group
     = submit_tag 'Найти', class: 'btn btn-info'
 - if @items
-  .row
+  .row.align-items-end
     = render collection:  @items, partial: 'admin/items/item'
-  .row
+  %ul.pag.d-flex.flex-row.list-unstyled.justify-content-between.lead.mt-2
     = will_paginate @items, container: false
 
 -#.col-md-4.border-right

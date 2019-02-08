@@ -12,15 +12,14 @@ class Item < ApplicationRecord
   has_many :sizes, through: :products
   has_many :products, dependent: :destroy, autosave: true
 
-  validates :vendor_id, :type_id, presence: true
-  validates :name, uniqueness: true
+  validates :vendor_id, :type_id, presence: true, if: -> {self.not_special?}
   accepts_nested_attributes_for :products
 
   scope :search, ->(word) { where('name LIKE ? ', "%#{word}%").distinct }
-  scope :special, -> { joins(:type).where(types: { name: 'товары для композиций' }) }
+  scope :special, -> { joins(:type).where(types: { name: 'разное' }) }
 
-  def special?
-    type.name == 'товары для композиций'
+  def not_special?
+    !type.name == 'разное'
   end
 
 end

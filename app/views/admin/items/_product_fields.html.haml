@@ -1,25 +1,13 @@
-.form-group
-  = nf.label :name
+.form-group.mt-2
+  = nf.label :name, 'Название'
   = nf.text_field :name, class: 'form-control'
 .form-group
-  = nf.label :barcode, 'Штрихкод'
-  = nf.number_field :barcode, class: 'form-control'
+  = nf.label :size_id, 'Размер'
+  = nf.select :size_id, Size.order(:in_inch).all.map{|s| [s.in_inch, s.id]},{}, class: 'form-control'
 .form-group
-  = nf.label :code
-  = nf.text_field :code, class: 'form-control'
-.form-group
-  = nf.label :size_id
-  = nf.select :size_id, Size.all.map{|s| [s.in_inch, s.id]},{}, class: 'form-control'
-.form-group
-  = nf.label :price
+  = nf.label :price, 'Цена'
   = nf.number_field :price, class: 'form-control'
--#.form-group
--#  = nf.label :price_with_helium
--#  = nf.number_field :price_with_helium, class: 'form-control'
 .from-group
-  = nf.label :quantity
-  = nf.number_field :quantity, class: 'form-control'
-.from-group
-  = nf.label :img
+  = nf.label :img, 'Фото'
   = nf.file_field :img, class: 'form-control'
 

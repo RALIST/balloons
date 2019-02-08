@@ -2,17 +2,8 @@
 .col-md-6.col-xs-12
   = form_for [:admin, @item] do |f|
     .form-group
-      = f.label :vendor_id, 'Производитель'
-      = f.select :vendor_id, Vendor.all.map{ |v| [v.name.capitalize, v.id]},{} ,class: 'form-control'
-    .form-group
       = f.label :type_id, 'Тип'
       = f.select :type_id, Type.all.map{|t| [t.name, t.id]},{} ,class: 'form-control'
-    .form-group
-      = f.label :texture_id, 'Текстура'
-      = f.select :texture_id, Texture.all.map{ |t| [t.name.capitalize, t.id]},{} ,class: 'form-control'
-    .form-group
-      = f.label :tone_id, 'Оттенок'
-      = f.select :tone_id, grouped_options_for_select(Tone.for_select),{} ,class: 'form-control'
     .form-group
       = f.label :category_id, 'Категория'
       = f.select :category_id, Category.all.map{|c| [c.title, c.id]},{}, class: 'form-control'

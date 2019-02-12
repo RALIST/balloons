@@ -46,7 +46,7 @@ var ready = function(){
   if($('body').attr('data-loaded') == 'T'){
     return;
   }
-  fixedMenu();
+  // fixedMenu();
   slickGallery();
   paginate();
   toTop();
@@ -74,19 +74,19 @@ var search = function() {
 };
 
 
-var fixedMenu = function(){
-  if ($('#menu').length){
-    var top = $('#menu').offset().top;
-    $(window).scroll(function(){
-      var currentScroll = $(window).scrollTop();
-      if (currentScroll >= top){
-        $('#menu').addClass('fixed-top');
-      }else{
-        $('#menu').removeClass('fixed-top');
-      }
-    });
-  }
-}
+// var fixedMenu = function(){
+//   if ($('#menu').length){
+//     var top = $('#menu').offset().top;
+//     $(window).scroll(function(){
+//       var currentScroll = $(window).scrollTop();
+//       if (currentScroll >= top){
+//         $('#menu').addClass('fixed-top');
+//       }else{
+//         $('#menu').removeClass('fixed-top');
+//       }
+//     });
+//   }
+// };
 
 var respMenu = function(){
   $('#icon-wrapper').click(function(){

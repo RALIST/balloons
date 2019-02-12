@@ -7,10 +7,21 @@ class User < ApplicationRecord
   has_one :cart
   has_many :orders, dependent: :destroy
 
+
+  before_validation :set_password
+
   validates :password, length: { minimum: 1 }, presence: true, if: -> { new_record? || changes[:crypted_password] }
   validates :phone, uniqueness: true
 
+
   CITIES = ['izhevsk', 'sarapul', 'glazov', 'mozhga', 'votkinsk']
+
+
+  def set_password
+    if password.blank?
+      self.password = self.first_name
+    end
+  end
 
   def calculate_discount
     orders_total = orders.map { |order| order.total.to_f }
@@ -24,7 +35,7 @@ class User < ApplicationRecord
   end
 
   def send_password
-    password = rand(10_000..100_000)
+    password = rand(100_000..999_000)
     new_password = 'Ваш новый пароль на сайте Шариковой феи:' + password.to_s
     update_attributes(password: password)
     phone = self.phone.tr('()+ ', '')

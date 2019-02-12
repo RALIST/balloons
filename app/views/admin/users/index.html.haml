@@ -20,7 +20,10 @@
           = user.phone
         %td
           = user.orders.count
+          = link_to '+', new_admin_order_path(user: user)
         %td
           = number_to_currency(user.orders.map{|i| i.total}.sum)
         %td
           = user.discount
+
+  = link_to 'Добавить клиента', new_admin_user_path, class: 'btn btn-info'

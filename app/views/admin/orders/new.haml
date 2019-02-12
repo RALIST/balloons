@@ -1,0 +1,24 @@
+.row.justify-content-center
+  .col-6
+    %h1.text-center.h3
+      Новый заказ: #{@user.first_name}, #{@user.phone}
+    = form_for [:admin, @order] do |f|
+      - if @order.errors.any?
+        %ul
+          - @order.errors.full_messages.each do |m|
+            %li= m
+      = f.hidden_field :user_id, value: @user.id
+      = f.hidden_field :name, value: @user.first_name
+      = f.hidden_field :phone, value: @user.phone
+      = f.hidden_field :admin, value: true
+      .form-group
+        = f.label :total, 'Сумма заказа'
+        = f.number_field :total, class: 'form-control'
+      .form-group
+        = f.label :order_date, 'Дата заказа'
+        %br
+        = f.date_select :order_date, class: 'form-control'
+      .from-group
+        = f.submit 'Создать', class: 'btn btn-info btn-block'
+
+

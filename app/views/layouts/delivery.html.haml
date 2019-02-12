@@ -25,7 +25,8 @@
       = render 'delivery/layouts/flash'
       = render 'delivery/layouts/breadcrumbs' unless @disable_bread
       = render 'delivery/layouts/resp_menu'
-      = yield
+      .main
+        = yield
       = render 'delivery/main/help'
       = render 'delivery/feedbacks/get_feedback'
       = render 'delivery/main/seo'

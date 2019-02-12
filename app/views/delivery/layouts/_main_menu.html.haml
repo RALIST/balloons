@@ -1,47 +1,46 @@
-#menu.hidden-md-down.py-3.bg-white
-  .container
-    .row
-      .menu-options
-        %ul.list-unstyled.nav.justify-content-around
-          %li.dropdown
-            = link_to '', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
-              Готовые композиции
-            %ul.dropdown-menu
-              %li.dropdown-item= link_to 'По праздникам', tags_path
-              %li.dropdown-item= link_to 'Кому', receivers_path
-          %li.dropdown
-            = link_to '', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
-              Гелиевые шары
-            %ul.dropdown-menu
-              %li.dropdown-item= link_to 'По цветам', colors_path
-              %li.dropdown-item= link_to 'По коллекциям', categories_path
-          %li.dropdown{role: "presentation"}
-            = link_to '', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
-              Выпускные
-            %ul.dropdown-menu
-              %li.dropdown-item
-                = link_to 'Из садика', kg_path
-              %li.dropdown-item
-                = link_to 'Из школы', school_path
-          %li.nav-item
-            = link_to 'Для бизнеса', business_index_path,data: {turbolinks: false}
-          %li.nav-item
-            = link_to 'Отзывы', feedbacks_path
-          %li.nav-item
-            = link_to my_cart_path, rel: 'nofollow', title: 'Корзина' do
-              %span.fa-layers.fa-fw.fa-lg
-                %i.fas.fa-shopping-cart.text-info
-                - if @cart.positions.any?
-                  %span.fa-layers-counter.h2.bg-secondary.text-white
-                    = @cart.positions.count
-          %li.nav-item
-            - if !current_user
-              = link_to login_path, title: 'Войти' do
-                %i.fas.fa-sign-in-alt.fa-lg.text-info
-            - else
-              %li.text-uppercase.nav-item
-                = link_to  cp_path, title: 'Личный кабинет', rel: 'nofollow' do
-                  %i.fas.fa-user.fa-lg.text-info
-                = link_to logout_path, method: :post, title: 'Выйти' do
-                  %i.fas.fa-sign-out-alt.text-info.fa-lg
+#menu
+  .row
+    .menu-options
+      %ul.list-unstyled.nav.justify-content-around.align-items-center
+        %li.dropdown
+          = link_to '', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
+            Готовые композиции
+          %ul.dropdown-menu
+            %li.dropdown-item= link_to 'По праздникам', tags_path
+            %li.dropdown-item= link_to 'Кому', receivers_path
+        %li.dropdown
+          = link_to '', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
+            Гелиевые шары
+          %ul.dropdown-menu
+            %li.dropdown-item= link_to 'По цветам', colors_path
+            %li.dropdown-item= link_to 'По коллекциям', categories_path
+        -
+
+        %li.nav-item
+          = link_to 'Для бизнеса', business_index_path, data: {turbolinks: false}
+
+        %li.nav-item
+          = link_to 'Контакты', contacts_path
+        %li.nav-item.bg-secondary.rounded
+          = link_to my_cart_path, rel: 'nofollow', title: 'Корзина', class: 'text-white px-1' do
+            %span.fa-layers.fa-fw
+              %i.fas.fa-shopping-cart
+              - if @cart.positions.any?
+                %span.fa-layers-counter.h2.bg-info.text-white
+                  = @cart.positions.count
+            Корзина
+        %li.nav-item.text-center
+          -#= link_to '+7 (3412) 234-084', 'tel: +7 (3412) 234-084'
+          - if !current_user
+            = link_to login_path, title: 'Войти' do
+              Войти
+            \/
+            = link_to 'Регистрация', signin_path, title: 'Регистрация'
+          - else
+            = link_to cp_path, title: 'Личный кабинет', rel: 'nofollow' do
+              Личный кабинет
+            \/
+            = link_to logout_path, method: :post, title: 'Выйти' do
+              Выйти
+          = button_tag 'Оставить заявку', class: 'btn btn-block btn-sm btn-light', data:{ toggle: 'modal', target: '#call-modal'}
 

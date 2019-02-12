@@ -1,9 +1,9 @@
 #header {
   z-index: 900;
-  @include media-breakpoint-up(lg){
-    margin-top: 0.5rem;
-  }
-
+  //@include media-breakpoint-up(lg){
+  //  margin-top: 0.5rem;
+  //}
+  max-height: 10vh;
   .font-size-08 {
     font-size: 0.8rem;
   }
@@ -22,26 +22,7 @@
 .header-contacts {
   @include make-col-ready();
   @include make-col(11);
-  .social {
-    li {
-      padding-right: 2rem;
-      font-size: 1.25rem;
-      a {
-        color: $brand-secondary;
-        &:hover {
-          color: darken($brand-secondary, 15%)
-        }
-      }
-      &:last-child {
-        margin-left: 2rem;
-      }
 
-    }
-    ul {
-      margin: 0;
-      min-height: 100%;
-    }
-  }
   .order-call {
     button {
       cursor: pointer;
@@ -57,6 +38,10 @@
   }
   .dropdown-toggle, .nav-item{
     @extend .text-uppercase;
+  }
+
+  .nav-item {
+    @extend .py-1;
   }
 }
 

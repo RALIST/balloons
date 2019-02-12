@@ -34,6 +34,19 @@
               %i.fas.fa-clock.fa-2x
               .lead.d-inline{itemprop: 'openingHours', datetime: 'Mo-Su, 08:00-20:00'}
                 с 8:00 до 22:00, без выходных
+          %hr
+          .row.align-items-center
+            .col-12
+              %ul.nav.align-items-end.justify-content-between
+                %li
+                  = link_to t("cities.#{@city}.links.ins"), target: :_blank, rel: 'nofollow' do
+                    %i.fab.fa-instagram.fa-2x{"aria-hidden":  "true"}
+                %li
+                  = link_to t("cities.#{@city}.links.fb"), target: :_blank , rel: 'nofollow' do
+                    %i.fab.fa-facebook.fa-2x{"aria-hidden": "true"}
+                %li
+                  = link_to t("cities.#{@city}.links.vk"), target: :_blank, rel: 'nofollow' do
+                    %i.fab.fa-vk.fa-2x{"aria-hidden": "true"}
         .col-6.border
           %script{type: "text/javascript", charset:"utf-8", async: true, src: "https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A14c90a9f5898798c7138c231992b812157614231ed60a0c7b45dee0553b4843e&amp;width=100%&amp;height=400&amp;lang=ru_RU&amp;scroll=true"}
     #text-contacts.col-12.d-lg-none

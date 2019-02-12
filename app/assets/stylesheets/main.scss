@@ -1,3 +1,11 @@
+.main {
+  @include media-breakpoint-up(lg){
+    margin-top: 10vh;
+  }
+
+}
+
+
 .composition{
   @include make-row();
   @include media-breakpoint-up(lg){

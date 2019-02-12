@@ -1,21 +1,5 @@
 .container-fluid
-  .row.d-none.d-lg-block
-    .col-12.bg-info
-      %ul.list-inline.d-flex.justify-content-between.m-0.fs-80
-        %li.list-inline-item.pl-3
-          = link_to 'О нас', about_path, class: 'text-white'
-        %li.list-inline-item.pl-3
-          = link_to 'Гарантии', garant_path, class: 'text-white'
-        %li.list-inline-item.pl-3
-          =link_to 'Доставка и оплата', info_path, class: 'text-white'
-        %li.list-inline-item.pl-3
-          =link_to 'Цены', prices_path, class: 'text-white'
-        %li.list-inline-item.pl-3
-          =link_to 'Контакты', contacts_path, class: 'text-white'
-        %li.list-inline-item.pl-3
-          =link_to 'Партнерам', partners_path, class: 'text-white'
-        .li.list-inline-item.pl-3
-          =link_to 'FAQ', faq_path, class: 'text-white'
+
 
 .d-flex#resp-fixed.align-items-center.justify-content-around
   = link_to root_path do
@@ -25,68 +9,37 @@
     -if @cart.total_price > 0
       %span.fa-layers-counter.fa-lg{data: {turbolinks: {permanent: true}}}
         = @cart.positions.length
-.container-fluid#header.d-none.d-lg-block
+.container-fluid#header.d-none.d-lg-block.fixed-top.bg-white
+  .row
+    .col-12.bg-info
+      %ul.list-inline.d-flex.justify-content-around.m-0.fs-80
+        %li.list-inline-item.pl-3
+          = link_to 'О нас', about_path, class: 'text-white'
+        %li.list-inline-item.pl-3
+          = link_to 'Гарантии', garant_path, class: 'text-white'
+        %li.list-inline-item.pl-3
+          =link_to 'Доставка и оплата', info_path, class: 'text-white'
+        %li.list-inline-item.pl-3
+          =link_to 'Цены', prices_path, class: 'text-white'
+        %li.dropdown{role: "presentation"}
+          = link_to '', class: 'dropdown-toggle text-white', data: {toggle: 'dropdown'} do
+            Выпускные
+          %ul.dropdown-menu
+            %li.dropdown-item
+              = link_to 'Из садика', kg_path
+            %li.dropdown-item
+              = link_to 'Из школы', school_path
+        %li.nav-item
+          = link_to 'Отзывы', feedbacks_path, class: 'text-white'
+        -#%li.list-inline-item.pl-3
+        -#  =link_to 'Партнерам', partners_path, class: 'text-white'
+        %li.list-inline-item.pl-3
+          =link_to 'FAQ', faq_path, class: 'text-white'
+        %li.text-white.font-weight-bold
+          +7 (3412) 234-084
   .row
     .header-logo
       = link_to root_path do
         = image_tag 'logo-round.png', class: 'img-fluid', alt: 'Шариковая фея', title: 'Шариковая фея', id: 'logo'
     .header-contacts.my-2
-      -#.row.align-items-center
-      -#  .col-6
-      -#    -#.h5.text-center
-      -#    -#  Свяжитесь с нами!
-      -#    %ul.nav.social.align-items-end
-      -#      %li
-      -#        =link_to t("cities.#{@city}.links.ins"), target: :_blank, rel: 'nofollow' do
-      -#          %i.fab.fa-instagram{"aria-hidden":  "true"}
-      -#      %li
-      -#        =link_to t("cities.#{@city}.links.fb"), target: :_blank , rel: 'nofollow' do
-      -#          %i.fab.fa-facebook{"aria-hidden": "true"}
-      -#      %li
-      -#        =link_to t("cities.#{@city}.links.vk"), target: :_blank, rel: 'nofollow' do
-      -#          %i.fab.fa-vk{"aria-hidden": "true"}
-      -#      %li.text-center
-      -#        = t "cities.#{@city}.phones.mobile"
-      -#
-      -#  -#.col-5
-      -#  -#  %i.fas.fa-truck.text-secondary.fa-2x
-      -#  -#  Бесплатная доставка
-      -#  -#  %i.fas.fa-percent.text-secondary.fa-2x
-      -#  -#  Скидка на самовывоз 10%
-      -#  -#  %i.fas.fa-gift.text-secondary.fa-2x
-      -#  -#  Подарок при заказе на сайте
-      -#  .col-6.d-flex.justify-content-between.flex-column
-      -#    .row
-      -#      .col-12.text-right
-      -#        - unless current_user
-      -#          .text-uppercase
-      -#            %strong{style:'font-size: 0.9rem;'}
-      -#              = link_to 'Войти', login_path
-      -#              \/
-      -#              = link_to 'Регистрация', signin_path
-      -#        - else
-      -#          %span
-      -#            Здравствуйте,
-      -#            = current_user.first_name.capitalize
-      -#            .small
-      -#              - if current_user.admin?
-      -#                = link_to 'Админка', '/admin',class: 'pr-3'
-      -#              = link_to 'Личный кабинет', cp_path, class: 'pr-3'
-      -#              = link_to 'Выйти', logout_path, method: :post
-      -#        -#.text-right
-      -#        -#  = link_to '#', data:{ toggle: 'modal', target: '#city'} do
-      -#        -#    %i.fas.fa-map-marker-alt.text-secondary
-      -#        -#    = t "cities.#{@city}.base"
-      -#    -##cart.text-right.mb-2
-      -#    -#  = link_to my_cart_path, rel: 'nofollow', class: 'btn btn-secondary' do
-      -#    -#    %i.fas.fa-shopping-basket
-      -#    -#    #to-cart.d-inline
-      -#    -#      В корзину
-      -#    -#      %i.fa.fa-angle-right
-      -#    -#    .badge.badge-light.d-inline
-      -#    -#      %span#sum{data: {turbolinks: {permanent: true}}}
-      -#    -#        = @cart.total_price.round(0)
-      -#    -#      %span.text-primary
-      -#    -#        руб.
-
       = render 'delivery/layouts/main_menu'

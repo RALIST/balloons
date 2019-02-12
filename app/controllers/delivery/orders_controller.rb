@@ -23,7 +23,6 @@ class Delivery::OrdersController < Delivery::DeliveryController
       end
       @cart.remove_code
       @order.send_admin_notification
-      @order.user.calculate_discount
       redirect_to thanks_path(order: @order)
     else
       render 'new'
@@ -46,6 +45,6 @@ class Delivery::OrdersController < Delivery::DeliveryController
   end
 
   def order_params
-    params.require(:order).permit(:name, :phone, :address, :desc, :total, :order_date, :order_time, :pay_method, :city)
+    params.require(:order).permit(:name, :phone, :address, :desc, :total, :order_date, :order_time, :pay_method, :city, :user_id)
   end
 end

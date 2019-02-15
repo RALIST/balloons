@@ -22,7 +22,7 @@
  @import 'feedbacks';
  @import 'partners';
  @import "social-share-button";
- @import 'chat';
+
 
 
 
@@ -49,9 +49,6 @@ body, p, span, .lead,.btn {
   font-family: $font-family-sans-serif !important;
 }
 
-.lead{
-  font-weight: 700;
-}
 
 
 
@@ -59,8 +56,8 @@ body, p, span, .lead,.btn {
   z-index: 999;
   cursor: pointer;
   position: fixed;
-  bottom: 20px;
-  left: 20px;
+  bottom: 30px;
+  right: 30px;
   color: rgba($brand-secondary, 0.7);
   // width: 56px;
   // height: 56px;
@@ -79,7 +76,6 @@ body, p, span, .lead,.btn {
 #return-to-top i {
     color: rgba($brand-secondary, 0.6);
     margin: 0;
-    // position: relative;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     -ms-transition: all 0.3s ease;

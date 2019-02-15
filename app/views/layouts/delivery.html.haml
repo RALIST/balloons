@@ -6,13 +6,14 @@
     = favicon_link_tag 'favicons/favicon-32.png'
     = favicon_link_tag 'favicons/favicon-120.png', rel: 'apple-touch-icon'
     = csrf_meta_tags
-    = render 'delivery/layouts/special/scripts'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = render 'delivery/layouts/special/ym'
     = render 'delivery/layouts/special/ga'
     %link{rel: "preload", href: stylesheet_path("fonts"), onload: "this.rel = 'stylesheet'", as: "style"}
+    %link{rel: "preload", href: stylesheet_path("application"), onload: "this.rel = 'stylesheet'", as: "style"}
     %noscript
       = stylesheet_link_tag 'fonts'
-    = stylesheet_link_tag 'application', media: 'all'
+      = stylesheet_link_tag 'application', media: 'all'
   %body
     %a#return-to-top{data: {toggle: 'tooltip'}, title: 'Наверх'}
       %span.fa-stack
@@ -35,6 +36,5 @@
 
     %footer
       = render 'delivery/layouts/footer' unless @disable_footer
-    / = render 'delivery/layouts/special/chats'
-
+  = render 'delivery/layouts/special/scripts'
 

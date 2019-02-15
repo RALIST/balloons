@@ -29,7 +29,6 @@ var ready = function(){
   if($('body').attr('data-loaded') == 'T'){
     return;
   }
-  // fixedMenu();
   slickGallery();
   paginate();
   toTop();

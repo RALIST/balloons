@@ -2,7 +2,7 @@
   .card.justify-content-between.align-items-center
     .card-image
       = link_to custom_url_path(c) do
-        = image_tag c.img(:small), class: 'img-fluid', alt: c.title
+        = image_tag c.img(:small), class: 'img-fluid', alt: c.title, data: {lazy: c.img(:small)}
       .line
 
     .card-block.p-2

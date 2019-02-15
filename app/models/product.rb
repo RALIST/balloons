@@ -178,17 +178,17 @@ class Product < ApplicationRecord
         case foil_form.name
           when 'звезда', 'круг', 'сердце', 'квадрат'
             if size.in_inch < 32
-              250
+              200
             else
-              650
+              600
             end
           when 'цифра'
             700
           when 'фигура'
             if size.in_inch < 40
-              500
+              450
             else
-              600
+              550
             end
           when 'ходячая', 'ходячая фигура'
             2500

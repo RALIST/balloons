@@ -2,11 +2,11 @@
 <project version="4">
   <component name="dataSourceStorageLocal">
     <data-source name="Rails Balloons: test" uuid="69ecbaab-f2ac-4ce7-86f6-acf8df5e7c81">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" family="POSTGRES" exact-version="0.0" />
       <user-name>postgres</user-name>
     </data-source>
     <data-source name="Rails Balloons: production" uuid="699b46a8-9f3a-4d83-b324-d732b4e3b98a">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" family="POSTGRES" exact-version="0.0" />
       <user-name>postgres</user-name>
     </data-source>
     <data-source name="Rails Balloons: default" uuid="3611d0ee-51e2-46b8-85d4-1c6a4f339113">

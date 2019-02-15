@@ -24,7 +24,9 @@
  @import "social-share-button";
 
 
-
+html {
+  scroll-behavior: smooth;
+}
 
  body {
   width: 100%;

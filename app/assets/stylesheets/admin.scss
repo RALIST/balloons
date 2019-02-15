@@ -1,5 +1,10 @@
 .c-preview {
+  @include make-col-ready();
   @include make-col(2);
+
+  @include media-breakpoint-down(lg){
+    @include make-col(6);
+  }
 }
 
 tr, td, table {

@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery3
 //= require popper
 //= require jquery_ujs
 //= require bootstrap
@@ -29,7 +28,6 @@
 //= require turbolinks
 //= require common
 //= require counters
-//= requirer pagination
 //= require social-share-button
 //= require business
 //= require pagination
@@ -73,20 +71,6 @@ var search = function() {
   });
 };
 
-
-// var fixedMenu = function(){
-//   if ($('#menu').length){
-//     var top = $('#menu').offset().top;
-//     $(window).scroll(function(){
-//       var currentScroll = $(window).scrollTop();
-//       if (currentScroll >= top){
-//         $('#menu').addClass('fixed-top');
-//       }else{
-//         $('#menu').removeClass('fixed-top');
-//       }
-//     });
-//   }
-// };
 
 var respMenu = function(){
   $('#icon-wrapper').click(function(){

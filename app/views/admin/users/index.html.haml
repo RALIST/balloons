@@ -1,29 +1,16 @@
-.container
-  %h1.text-center Зарегистрированные пользователи
-  %table.table
-    %thead
-      %th
-        Имя
-      %th
-        Телефон
-      %th
-        Кол-во заказов
-      %th
-        Сумма заказов
-      %th
-        Скидка
-    - @users.each do |user|
-      %tr
-        %td
-          = user.first_name
-        %td
-          = user.phone
-        %td
-          = user.orders.count
-          = link_to '+', new_admin_order_path(user: user)
-        %td
-          = number_to_currency(user.orders.map{|i| i.total}.sum)
-        %td
-          = user.discount
 
-  = link_to 'Добавить клиента', new_admin_user_path, class: 'btn btn-info'
+%h1.text-center Клиенты
+%table.table.table-responsive.table-striped
+  %thead
+    %th
+      Имя
+    %th
+      Телефон
+  - @users.each do |user|
+    %tr
+      %td
+        = link_to user.first_name, admin_user_path(user)
+      %td
+        = user.phone
+
+= link_to 'Добавить клиента', new_admin_user_path, class: 'btn btn-info'

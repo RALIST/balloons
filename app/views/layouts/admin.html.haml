@@ -6,20 +6,18 @@
     %title Balloons
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all'
-    = javascript_include_tag 'application'
+    = javascript_include_tag 'admin'
   %body
     %a#return-to-top
       %i.fa.fa-chevron-up
     .wrapper
       %header
-        / = render 'admin/layouts/header'
-        / =render 'admin/layouts/main_menu'
-      - flash.each do |key, message|
-        %div{class: "alert alert-#{key} text-center"}
-          = message
-      .admin
         = render 'admin/layouts/left_menu'
+        - flash.each do |key, message|
+          %div{class: "alert alert-#{key} text-center"}
+            = message
+
+      .container-fluid
         = yield
-      .clearfix
     %footer
-      =render 'admin/layouts/footer'
+      = render 'admin/layouts/footer'

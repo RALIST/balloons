@@ -1,45 +1,45 @@
 .container
   %h1.my-3.text-center Информация о заказе
+  .row.order-info
+    .col-12.card.pb-4
+      .h3.mt-4.border-bot Информация для доставки
+      .row
+        .col-6
+          Заказчик:
+        .col-6
+          = @order.name
+      .row
+        .col-6
+          Телефон:
+        .col-6
+          = @order.phone
+      .row
+        .col-6
+          Адрес доставки:
+        .col-6
+          = t("cities.#{@order.city}.base") if @order.city
+          = @order.address
+      .row
+        .col-6
+          Дата доставки:
+        .col-6
+          = Russian::strftime(@order.order_date.in_time_zone, ' %d %B в %H:%M')
+      .row
+        .col-6
+          Примечание:
+        .col-6
+          = @order.desc
+      .row
+        .col-6
+          Метод оплаты:
+        .col-6
+          = @order.pay_method
+      .row
+        .col-6
+          Сумма заказа:
+        .col-6
+          = number_to_currency(@order.total)
   - if @order.positions.any?
-    .row.order-info
-      .col-12.card.pb-4
-        .h3.mt-4.border-bot Информация для доставки
-        .row
-          .col-6
-            Заказчик:
-          .col-6
-            = @order.name
-        .row
-          .col-6
-            Телефон:
-          .col-6
-            = @order.phone
-        .row
-          .col-6
-            Адрес доставки:
-          .col-6
-            = t("cities.#{@order.city}.base") if @order.city
-            = @order.address
-        .row
-          .col-6
-            Дата доставки:
-          .col-6
-            = Russian::strftime(@order.order_date.in_time_zone, ' %d %B в %H:%M')
-        .row
-          .col-6
-            Примечание:
-          .col-6
-            = @order.desc
-        .row
-          .col-6
-            Метод оплаты:
-          .col-6
-            = @order.pay_method
-        .row
-          .col-6
-            Сумма заказа:
-          .col-6
-            = number_to_currency(@order.total)
     - @order.positions.each do |position|
       .row.my-5
         .col-4.text-center

@@ -44,6 +44,7 @@ $(document).on('ready, turbolinks:load', function(){
   $(document).on('click', '#clear-search', function(){
     $('input[name="search"]').val('');
     $('.modal div').show();
+    $('.as_btn').closest('div').show();
   });
 
 $(document).ready(function(){
@@ -57,8 +58,9 @@ $(document).ready(function(){
       autoclose: true,
       donetext: 'Готово!'}
     );
+});
 
-})
+
 
 $(document).on('ready, turbolinks:load',function(){
   $('[data-mask]').each(function(index, value){

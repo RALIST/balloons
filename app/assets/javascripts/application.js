@@ -26,6 +26,7 @@ setTimeout(function(){
 }, 70000)
 
 
+
 var ready = function(){
   if(!($('body').attr('data-loaded') == 'T')) {
     slickGallery();
@@ -35,13 +36,36 @@ var ready = function(){
     topOnLoaded();
     smoothScroll();
     vk();
-    $('[data-toggle="tooltip"]').tooltip();
+    search();
+    $('[data-toggle="tooltip"]').tooltip({
+      html: true,
+      animated: 'fade',
+      placement: 'bottom'
+    });
     $('body').attr('data-loaded', 'T');
   } else {
     FontAwesome.dom.i2svg();
     topOnLoaded();
     return;
   }
+};
+
+
+var search = function(){
+  $("input[name='search']").on('keyup', function(e){
+    if( e.key == 8 || e.key == 46 ){
+      return false;
+    };
+    var text = $("input[name='search']").val();
+    console.log(text);
+    if(text.length){
+      $('.as_btn').not(":containsi('" + text + "')").closest('div').hide();
+      $(".as_btn:containsi('" + text + "')").closest('div').show();
+    }else{
+      $('.as_btn').closest('div').show();
+    }
+
+  });
 };
 
 var topOnLoaded = function() {

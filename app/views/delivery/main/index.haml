@@ -4,58 +4,65 @@
       Доставка воздушных шаров и оформление праздников
       в
       = t "cities.#{@city}.where"
-    -#.text-center
-    -#  .display-4.d-lg-none.font-weight-bold.text-dark
-    -#    = link_to '234-084', 'tel: +73412234084'
-    -#.col-lg-4.col-sm-12
-    -#  = link_to 'Праздники', tags_path, class: 'btn text-uppercase btn-info btn-block'
-    -#.col-lg-4.col-sm-12
-    -#  = link_to 'Кому', receivers_path, class: 'btn text-uppercase btn-info btn-block'
-    -#.col-lg-4.col-sm-12
-    -#  = link_to 'Составить свою композицию', products_path, class: 'btn text-uppercase btn-info btn-block'
-    .col-lg-6.col-sm-10.lead.text-center.mt-5
-      .h4.text-secondary
+
+  .row.align-items-center.justify-content-center.w-100
+    .flag.d-flex.align-items-center.justify-content-center.text-info.w-50
+      ИЛИ
+    .col-12.col-lg-6.bg-info.py-2.rounded
+      %h2.h3.text-left.text-white
+        Выберите готовое оформление
+        .small
+          Более 300 готовых композиций на любой праздник
+      = link_to 'Выбрать', tags_path, class: 'btn btn-secondary mb-2 text-uppercase'
+    .col-12.col-lg-6.bg-secondary.text-right.py-2.rounded
+      %h2.h3.text-right.text-white
+        Создайте свое оформление
+        .small
+          Огромный выбор латексных и фольгированных шаров
+      = link_to 'Выбрать', products_path, class: 'btn btn-info mb-2 text-uppercase'
+  .row.w-100.align-items-center.justify-content-center
+    .col-lg-6.col-10.lead.text-center.mt-5
+      .h4
         Бесплатно подберем уникальное оформление под ваш праздник!
       = button_tag 'Оставить заявку', class: 'btn btn-block btn-lg btn-secondary', data:{ toggle: 'modal', target: '#call-modal'}
-      %br
-      %i.fas.fa-angle-double-down.text-secondary.fa-2x
-- if @tag
-  #tag
-    .container.py-4
-      %h2.font-weight-bold.text-center.mb-4
-        Воздушные шары на День рождения
-        .small
-          Шарики на День рождения наверняка создадут праздничную атмосферу!
-      .row.justify-content-around.compositions.slider-comp.text-center
-        = render partial: 'small_composition', collection: @birthday, as: :c
-      .row.text-center
-        %h2.h4.col-12.mt-3
-          и еще больше готовых композиций на день рождения!
-      .row
-        = link_to 'Посмотреть все', tag_path(@tag), class: 'btn btn-success btn-lg btn-block col-lg-6 m-auto'
+
+
+
+-#- if @tag
+-#  #tag
+-#    .container.py-4
+-#      %h2.font-weight-bold.text-center.mb-4
+-#        Воздушные шары на День рождения
+-#        .small
+-#          Шарики на День рождения наверняка создадут праздничную атмосферу!
+-#      .row.justify-content-around.compositions.slider-comp.text-center
+-#        = render partial: 'small_composition', collection: @birthday, as: :c
+-#      .row.text-center
+-#        %h2.h4.col-12.mt-3
+-#          и еще больше готовых композиций на день рождения!
+-#      .row
+-#        = link_to 'Посмотреть все', tag_path(@tag), class: 'btn btn-success btn-lg btn-block col-lg-6 m-auto'
   %hr
   .h1.text-center
     Бесплатная доставка по Ижевску от 1500
     %i.fas.fa-ruble-sign
   %hr
-.container-fluid.py-4.bg-info
-  %h2.h3.font-weight-bold.text-center.text-white
-    Вы можете заказать шарики с доставкой на любой праздник!
-    .small
-      Посмотрите готовые композиции из воздушных шаров
-  .container
-    .row.text-center.justify-content-around.mt-4
-      = link_to 'Праздники', tags_path, class: 'btn btn-lg col-lg-5 text-uppercase btn-outline-light my-2'
-      = link_to 'Кому', receivers_path, class: 'btn btn-lg col-lg-5 text-uppercase btn-outline-light my-2'
-      .h5.text-center.text-white.mt-3.col-12
-        или составьте свою композицию
-      = link_to 'По цветам и тематике', products_path, class: 'btn btn-lg col-lg-5 text-uppercase btn-light my-2 text-info'
+-#.container-fluid.py-4.bg-info
+-#  %h2.h3.font-weight-bold.text-center.text-white
+-#    Вы можете заказать шарики с доставкой на любой праздник!
+-#    .small
+-#      Посмотрите готовые композиции из воздушных шаров
+-#  .container
+-#    .row.text-center.justify-content-around.mt-4
+-#      = link_to 'Праздники', tags_path, class: 'btn btn-lg col-lg-5 text-uppercase btn-outline-light my-2'
+-#      = link_to 'Кому', receivers_path, class: 'btn btn-lg col-lg-5 text-uppercase btn-outline-light my-2'
+-#      .h5.text-center.text-white.mt-3.col-12
+-#        или составьте свою композицию
+-#      = link_to 'По цветам и тематике', products_path, class: 'btn btn-lg col-lg-5 text-uppercase btn-light my-2 text-info'
 
-
-%hr
-.container.py-4
-  %h2.text-center.font-weight-bold.mb-4
-    Отзывы наших клиентов
-  .row.mt-3.justify-content-between
-    - @feeds.last(3).each do |feed|
-      = render feed
+-#.container.py-4
+-#  %h2.text-center.font-weight-bold.mb-4
+-#    Отзывы наших клиентов
+-#  .row.mt-3.justify-content-between
+-#    - @feeds.last(3).each do |feed|
+-#      = render feed

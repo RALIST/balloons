@@ -5,14 +5,18 @@
     .small.text-muted
       Воздушные шары с персонажами любимых мультфильмов на любой праздник с доставкой в #{t("cities.#{@city}.where")}
   %hr
-  .card-columns
+
+  .row
+    .col-12.my-3
+      .input-group
+        = text_field_tag :search,'', class: 'form-control', placeholder: 'Поиск по категориям'
+        %span.input-group-append
+          = button_tag(class: 'btn btn-info', id: 'clear-search', title: 'Очистить') do
+            %i.fa.fa-times
     - @categories.each do |category|
       - cache category do
-        = link_to category_path(category) do
-          .card
-            .card-body
-              .row.align-items-center
-                -#.col-5
-                -#  = image_tag category.image.img(:small), title: category.name, alt: category.name, data: {toggle: 'tooltip'} if category.image
-                .col-12
-                  = category.name.capitalize
+        .col-6.col-lg-3.my-2
+          = link_to category_path(category) do
+            %span.as_btn{data: {toggle: 'tooltip'}, title: "#{image_tag category.products.first.img(:small)}"}
+              = category.name.capitalize
+              (#{category.products.count})

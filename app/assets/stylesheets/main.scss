@@ -5,6 +5,23 @@
 
 }
 
+.flag {
+  background-image: image-url('flag.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  min-height: 100px;
+  width: 100%;
+  z-index: 10;
+  @include media-breakpoint-down(lg){
+    min-height: 60px;
+  }
+}
+
+#first {
+  padding-top: 10vh;
+}
 
 .composition{
   @include make-row();
@@ -92,16 +109,6 @@
   border: $brand-info;
 }
 
-.btn-secondary{
-  background: $brand-secondary;
-  border: $brand-secondary;
-  color: #ffffff;
-  &:hover{
-    background: $brand-info;
-    border: $brand-info;
-    color: #ffffff;
-  }
-}
 
 .text-secondary{
   color: $brand-secondary;

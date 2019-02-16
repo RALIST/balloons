@@ -5,11 +5,14 @@
     .small
       c доставкой в #{t("cities.#{@city}.where")}
   %hr
+  .text-muted.text-center
+    Найдено #{@items_in_collection.count} товаров
   .lead.text-center
-    = link_to 'Назад', categories_path, class: 'btn btn-outline-dark mb-2'
+    = link_to 'Назад', categories_path, class: 'btn btn-outline-dark mb-2 btn-sm'
+
   .row
     = render @items_in_collection
   %hr
   .lead.text-center
-    = link_to 'Назад', categories_path, class: 'btn btn-outline-dark mb-2'
+    = link_to 'Назад', categories_path, class: 'btn btn-outline-dark mb-2 btn-sm'
 

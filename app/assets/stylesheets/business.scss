@@ -17,6 +17,7 @@
     .lead {
       font-size: 0.8rem;
     }
+
   }
 
 }
@@ -28,6 +29,13 @@
 .section{
   min-height: 90vh;
   padding-top: 10vh;
+  position: relative;
+  //@include media-breakpoint-down(lg){
+  //  .h3 {
+  //    font-size: 1.2rem;
+  //  }
+  //
+  //}
 }
 
 .navbar-toggler > i {

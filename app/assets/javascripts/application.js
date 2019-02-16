@@ -39,6 +39,7 @@ var ready = function(){
     $('body').attr('data-loaded', 'T');
   } else {
     FontAwesome.dom.i2svg();
+    topOnLoaded();
     return;
   }
 };
@@ -95,14 +96,10 @@ function onScroll(event){
   var scrollPos = $(document).scrollTop();
   $('#b-menu ul li a').each(function () {
     var currLink = $(this);
-    var refElement = $(currLink.attr("href"));
-    if (refElement.position().top < scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+    $(this).click(function(){
       $('#business-menu ul li a').removeClass("active");
       currLink.addClass("active");
-    }
-    else{
-      currLink.removeClass("active");
-    }
+    });
   });
 }
 

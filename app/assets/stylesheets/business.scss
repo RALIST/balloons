@@ -13,10 +13,21 @@
 #business-offer {
   background: image-url('business.jpg') no-repeat center;
   background-size: cover;
+  @include media-breakpoint-down(lg){
+    .lead {
+      font-size: 0.8rem;
+    }
+  }
+
 }
 
 #main-wrapper {
   background: transparentize(black, 0.5)
+}
+
+.section{
+  min-height: 90vh;
+  padding-top: 10vh;
 }
 
 .navbar-toggler > i {
@@ -102,7 +113,7 @@
 
 
 #main-wrapper {
-  min-height: 100vh;
+  min-height: 90vh;
   @include media-breakpoint-down(lg){
     .display-3{
       font-size: 2rem;
@@ -111,7 +122,7 @@
   }
   @include media-breakpoint-down(lg){
     .btn {
-      width: 100%;
+      width: 80%;
     }
   }
   @include media-breakpoint-down(xs){
@@ -123,6 +134,7 @@
 }
 
 #business-menu {
+  min-height: 10vh;
   @include gradient-x($start-color: $brand-secondary, $end-color: $brand-info, $start-percent: 0%, $end-percent: 100%);
   .nav-link.active {
     background-color: $brand-info;

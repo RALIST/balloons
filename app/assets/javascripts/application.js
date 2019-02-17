@@ -52,7 +52,7 @@ var ready = function(){
 
 
 var search = function(){
-  $("input[name='search']").on('keyup', function(e){
+  $("input[name='search']").on('keyup touchend', function(e){
     if( e.key == 8 || e.key == 46 ){
       return false;
     };

@@ -7,19 +7,6 @@
     <list default="true" id="f1b38864-17e2-48ba-9f1a-eee384936dde" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/common.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/common.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/pagination.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/pagination.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/business.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/business.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/main.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/offer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/offer.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/main_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/main_helper.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/carts/show.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/carts/show.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/categories/index.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/categories/index.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/categories/show.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/categories/show.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/layouts/_footer.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/layouts/_footer.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/main/index.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/main/index.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/products/index.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/products/index.haml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -99,16 +86,16 @@
         <counts>
           <entry key="Gemfile" value="6" />
           <entry key="erb" value="108" />
-          <entry key="haml" value="10854" />
-          <entry key="js" value="914" />
+          <entry key="haml" value="10885" />
+          <entry key="js" value="915" />
           <entry key="rb" value="11768" />
           <entry key="scss" value="2231" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Haml" value="10854" />
-          <entry key="JavaScript" value="914" />
+          <entry key="Haml" value="10885" />
+          <entry key="JavaScript" value="915" />
           <entry key="RHTML" value="108" />
           <entry key="Ruby" value="11774" />
           <entry key="SCSS" value="2231" />
@@ -168,8 +155,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="42" column="25" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
+            <state relative-caret-position="399">
+              <caret line="57" column="6" lean-forward="true" selection-start-line="57" selection-start-column="6" selection-end-line="57" selection-end-column="6" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -180,17 +167,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/delivery/categories/index.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="21" column="42" lean-forward="true" selection-start-line="8" selection-start-column="2" selection-end-line="21" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/delivery/categories/show.haml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="16" column="80" selection-start-line="16" selection-start-column="80" selection-end-line="16" selection-end-column="80" />
+            <state relative-caret-position="418">
+              <caret line="19" column="110" selection-start-line="19" selection-start-column="110" selection-end-line="19" selection-end-column="110" />
             </state>
           </provider>
         </entry>
@@ -198,8 +176,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/delivery/products/index.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="472">
-              <caret line="43" column="94" lean-forward="true" selection-start-line="43" selection-start-column="94" selection-end-line="43" selection-end-column="94" />
+            <state relative-caret-position="586">
+              <caret line="45" column="42" lean-forward="true" selection-start-line="43" selection-start-column="11" selection-end-line="45" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -293,8 +271,8 @@
         <option value="$PROJECT_DIR$/app/assets/javascripts/common.js.erb" />
         <option value="$PROJECT_DIR$/app/views/delivery/carts/show.html.haml" />
         <option value="$PROJECT_DIR$/app/views/delivery/categories/show.haml" />
-        <option value="$PROJECT_DIR$/app/views/delivery/categories/index.haml" />
         <option value="$PROJECT_DIR$/app/views/delivery/products/index.haml" />
+        <option value="$PROJECT_DIR$/app/views/delivery/categories/index.haml" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
       </list>
     </option>
@@ -510,12 +488,12 @@
       <workItem from="1549260012562" duration="4033000" />
       <workItem from="1549362118533" duration="18589000" />
       <workItem from="1549966027728" duration="13794000" />
-      <workItem from="1550210828526" duration="33043000" />
+      <workItem from="1550210828526" duration="34032000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="269749000" />
+    <option name="totallyTimeSpent" value="270738000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -530,7 +508,7 @@
     <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26547232" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26547232" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Inspection Results" weight="0.3289941" />
@@ -544,7 +522,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" x="112" y="516" width="1121" height="411" id="Terminal" order="10" type="WINDOWED" visible="true" weight="0.32953104" />
+      <window_info active="true" anchor="bottom" x="112" y="516" width="1121" height="411" id="Terminal" order="10" type="WINDOWED" visible="true" weight="0.32953104" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.3289941" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32953104" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -864,6 +842,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/delivery/products/index.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="586">
+          <caret line="45" column="42" lean-forward="true" selection-start-line="43" selection-start-column="11" selection-end-line="45" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/delivery/categories/show.haml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
@@ -873,22 +858,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/delivery/categories/index.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="21" column="42" lean-forward="true" selection-start-line="8" selection-start-column="2" selection-end-line="21" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/delivery/products/index.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="43" column="94" lean-forward="true" selection-start-line="43" selection-start-column="94" selection-end-line="43" selection-end-column="94" />
+        <state relative-caret-position="418">
+          <caret line="19" column="110" selection-start-line="19" selection-start-column="110" selection-end-line="19" selection-end-column="110" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="42" column="25" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
+        <state relative-caret-position="399">
+          <caret line="57" column="6" lean-forward="true" selection-start-line="57" selection-start-column="6" selection-end-line="57" selection-end-column="6" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>

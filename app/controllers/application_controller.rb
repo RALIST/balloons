@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
   def redirect_subdomain
     if request.host == 'www.bigairballoons.ru' || 'шариковаяфея.рф' || 'www.шариковаяфея.рф'
-      redirect_to 'https://l2rate.com' + request.fullpath, :status => 301
+      redirect_to 'https://bigairballoons.ru' + request.fullpath, :status => 301
     end
   end
 

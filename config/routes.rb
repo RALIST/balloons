@@ -2,6 +2,7 @@
 
 Rails.application.routes.draw do
 
+
   namespace :admin, module: 'admin' do
     root 'main#index'
     resources :items

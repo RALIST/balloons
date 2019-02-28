@@ -1,5 +1,5 @@
 class NoneSubdomain
   def self.matches?(request)
-    request.subdomain.blank? || request.subdomain == 'www'
+    request.subdomain == 'www'
   end
 end

@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_subdomain
-    if request.subdomain == 'www' || request.host == 'шариковаяфея.рф' || request.host == 'www.шариковаяфея.рф'
+    if request.subdomain == 'www' || request.host == 'https://шариковаяфея.рф' || request.host == 'шариковаяфея.рф'
       redirect_to 'https://bigairballoons.ru' + request.fullpath, :status => 301
     end
   end

@@ -1,45 +1,17 @@
-.container-fluid
+-#.container-fluid
+-#.d-flex#resp-fixed.align-items-center.justify-content-around
+-#  = link_to root_path do
+-#    = image_tag 'logo-resp.png', class: 'img-fluid', alt: 'Шариковая фея'
+-#  .fa-layers.fa-fw.fa-2x.text-white#icon-wrapper
+-#    %i.fas.fa-bars
+-#    -if @cart.total_price > 0
+-#      %span.fa-layers-counter.fa-lg{data: {turbolinks: {permanent: true}}}
+-#        = @cart.positions.length
 
-
-.d-flex#resp-fixed.align-items-center.justify-content-around
-  = link_to root_path do
-    = image_tag 'logo-resp.png', class: 'img-fluid', alt: 'Шариковая фея'
-  .fa-layers.fa-fw.fa-2x.text-white#icon-wrapper
-    %i.fas.fa-bars
-    -if @cart.total_price > 0
-      %span.fa-layers-counter.fa-lg{data: {turbolinks: {permanent: true}}}
-        = @cart.positions.length
-.container-fluid#header.d-none.d-lg-block.fixed-top.bg-white
-  .row
-    .col-12.bg-info
-      %ul.list-inline.d-flex.justify-content-around.m-0.fs-80
-        %li.list-inline-item.pl-3
-          = link_to 'О нас', about_path, class: 'text-white'
-        %li.list-inline-item.pl-3
-          = link_to 'Гарантии', garant_path, class: 'text-white'
-        %li.list-inline-item.pl-3
-          =link_to 'Доставка и оплата', info_path, class: 'text-white'
-        %li.list-inline-item.pl-3
-          =link_to 'Цены', prices_path, class: 'text-white'
-        %li.dropdown{role: "presentation"}
-          = link_to '', class: 'dropdown-toggle text-white', data: {toggle: 'dropdown'} do
-            Выпускные
-          %ul.dropdown-menu
-            %li.dropdown-item
-              = link_to 'Из садика', kg_path
-            %li.dropdown-item
-              = link_to 'Из школы', school_path
-        %li.nav-item
-          = link_to 'Отзывы', feedbacks_path, class: 'text-white'
-        -#%li.list-inline-item.pl-3
-        -#  =link_to 'Партнерам', partners_path, class: 'text-white'
-        %li.list-inline-item.pl-3
-          =link_to 'FAQ', faq_path, class: 'text-white'
-        %li.text-white.font-weight-bold
-          +7 (3412) 234-084
-  .row
-    .header-logo
-      = link_to root_path do
-        = image_tag 'logo-round.png', class: 'img-fluid', alt: 'Шариковая фея', title: 'Шариковая фея', id: 'logo'
-    .header-contacts.my-2
-      = render 'delivery/layouts/main_menu'
+-#  .row
+-#    .header-logo
+-#      = link_to root_path do
+-#        = image_tag 'logo-round.png', class: 'img-fluid', alt: 'Шариковая фея', title: 'Шариковая фея', id: 'logo'
+-#    .header-contacts.my-2
+-#
+= render 'delivery/layouts/main_menu'

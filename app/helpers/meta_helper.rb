@@ -215,7 +215,7 @@ module MetaHelper
 	  description = "Круглосуточная доставка воздушных шаров на дом и оформление праздников от Шариковой феи в %{city}. Для оформления заказа звоните по телефону %{phone}" % {phone: t("cities.#{@city}.phones.mobile"), city: t("cities.#{@city}.where")}
 	  case params[:action]
 		when "index"
-			set_meta_tags title: "Доставка воздушных шаров и оформление праздников в %{city} | Шариковая фея" % {city: t("cities.#{@city}.where")},
+			set_meta_tags title: "Доставка воздушных шаров в %{city} | Шариковая фея" % {city: t("cities.#{@city}.where")},
 	                  description: description,
 	                  keywords: keywords
 	  when "by_price"

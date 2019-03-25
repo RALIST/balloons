@@ -61,20 +61,20 @@ Rails.application.configure do
   config.action_mailer.default_options = { from: 'danilov@ralist.ru' }
   config.action_mailer.perform_deliveries = true
   OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
-  # unless Rails.env.test?
-  #   config.paperclip_defaults = {
-  #     default_url: 'https://s3.eu-central-1.amazonaws.com/images/missing/small/missing_small.png',
-  #     storage: :s3,
-  #       s3_region: ENV['AWS_REGION'],
-  #       s3_host_name: "s3.eu-central-1.amazonaws.com",
-  #       s3_protocol: :https,
-  #       path: ':class/:attachment/:style/:filename',
-  #       s3_headers: { 'Expires': 1.year.from_now.httpdate },
-  #       s3_credentials: {
-  #         bucket: ENV['AWS_BUCKET'],
-  #         access_key_id: ENV['AWS_ACCESS_KEY'],
-  #         secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
-  #       }
-  #   }
-  # end
+  unless Rails.env.test?
+    config.paperclip_defaults = {
+      default_url: 'https://s3.eu-central-1.amazonaws.com/images/missing/small/missing_small.png',
+      storage: :s3,
+        s3_region: ENV['AWS_REGION'],
+        s3_host_name: "s3.eu-central-1.amazonaws.com",
+        s3_protocol: :https,
+        path: ':class/:attachment/:style/:filename',
+        s3_headers: { 'Expires': 1.year.from_now.httpdate },
+        s3_credentials: {
+          bucket: ENV['AWS_BUCKET'],
+          access_key_id: ENV['AWS_ACCESS_KEY'],
+          secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
+        }
+    }
+  end
 end

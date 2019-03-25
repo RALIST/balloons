@@ -1,46 +1,68 @@
-#menu
-  .row
-    .menu-options
-      %ul.list-unstyled.nav.justify-content-around.align-items-center
-        %li.dropdown
-          = link_to '', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
+#menu.fixed-top
+  %ul.nav.justify-content-around.small.bg-info
+    %li.list-inline-item
+      = link_to 'О нас', about_path
+    %li.list-inline-item
+      = link_to 'Гарантии', garant_path
+    %li.list-inline-item
+      =link_to 'Доставка и оплата', info_path
+    %li.list-inline-item
+      =link_to 'Цены', prices_path
+    %li.dropdown{role: "presentation"}
+      = link_to '', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
+        Выпускные
+      .dropdown-menu
+        = link_to 'Из садика', kg_path, class: 'dropdown-item'
+        = link_to 'Из школы', school_path, class: 'dropdown-item'
+    %li.list-inline-item
+      = link_to 'Отзывы', feedbacks_path
+
+    %li.list-inline-item
+      =link_to 'FAQ', faq_path
+    - if !current_user
+      %li.list-inline-item
+        = link_to 'Войти', login_path, title: 'Войти'
+        \/
+        = link_to 'Регистрация', signin_path, title: 'Регистрация'
+    - else
+      %li.list-inline-item
+        = link_to cp_path, title: 'Личный кабинет', rel: 'nofollow' do
+          Личный кабинет
+      %li.list-inline-item
+        = link_to logout_path, method: :post, title: 'Выйти' do
+          Выйти
+        
+  %nav.navbar.navbar-expand-lg.navbar-light.bg-white.pt-2.border-bottom
+    = link_to root_path, class: 'navbar-brand' do
+      = image_tag 'logo-round.png', class: 'p-0 fixed-top bg-white rounded-circle', width: 150
+    .collapse.navbar-collapse.col-11.ml-auto
+      %ul.navbar-nav.ml-auto.w-100.justify-content-around
+        %li.dropdown.nav-item
+          = link_to '', class: 'dropdown-toggle nav-link', data: {toggle: 'dropdown'} do
             Готовые композиции
-          %ul.dropdown-menu
-            %li.dropdown-item= link_to 'По праздникам', tags_path
-            %li.dropdown-item= link_to 'Кому', receivers_path
-        %li.dropdown
-          = link_to '', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
+          .dropdown-menu
+            = link_to 'По праздникам', tags_path, class: 'dropdown-item'
+            = link_to 'Кому', receivers_path, class: 'dropdown-item'
+        %li.dropdown.nav-item
+          = link_to '', class: 'dropdown-toggle nav-link', data: {toggle: 'dropdown'} do
             Гелиевые шары
-          %ul.dropdown-menu
-            %li.dropdown-item= link_to 'По цветам', colors_path
-            %li.dropdown-item= link_to 'По коллекциям', categories_path
-        -
-
+          .dropdown-menu
+            = link_to 'По цветам', colors_path, class: 'dropdown-item'
+            = link_to 'По коллекциям', categories_path, class: 'dropdown-item'
         %li.nav-item
-          = link_to 'Для бизнеса', business_index_path
-
+          = link_to 'Для бизнеса', business_index_path, class: 'nav-link'
+  
         %li.nav-item
-          = link_to 'Контакты', contacts_path
-        %li.nav-item.bg-secondary.rounded
-          = link_to my_cart_path, rel: 'nofollow', title: 'Корзина', class: 'text-white px-1' do
+          = link_to 'Контакты', contacts_path, class: 'nav-link'
+        %li.nav-item
+          = link_to my_cart_path, rel: 'nofollow', title: 'Корзина', class: 'nav-link' do
             %span.fa-layers.fa-fw
               %i.fas.fa-shopping-cart
               - if @cart.positions.any?
                 %span.fa-layers-counter.h2.bg-info.text-white
                   = @cart.positions.count
             Корзина
-        %li.nav-item.text-center
-          -#= link_to '+7 (3412) 234-084', 'tel: +7 (3412) 234-084'
-          - if !current_user
-            = link_to login_path, title: 'Войти' do
-              Войти
-            \/
-            = link_to 'Регистрация', signin_path, title: 'Регистрация'
-          - else
-            = link_to cp_path, title: 'Личный кабинет', rel: 'nofollow' do
-              Личный кабинет
-            \/
-            = link_to logout_path, method: :post, title: 'Выйти' do
-              Выйти
-          = button_tag 'Оставить заявку', class: 'btn btn-block btn-sm btn-light', data:{ toggle: 'modal', target: '#call-modal'}
 
+        %li.nav-item
+          = link_to 'Оставить заявку', '#', class: ' nav-link', data:{ toggle: 'modal', target: '#call-modal'}
+  = render 'delivery/layouts/breadcrumbs' unless @disable_bread

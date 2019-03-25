@@ -1,7 +1,6 @@
 - unless controller.controller_name == 'compositions' && action_name == 'show'
-  .container-fluid.bread
-    .row
-      = breadcrumbs separator: '/', style: :bootstrap, semantic: true, fragment_tag: 'breadcrumb', link_current: true
+  .small.py-2.bg-white{style: 'padding-left: 160px;'}
+    = breadcrumbs separator: '/', semantic: true, fragment_tag: 'breadcrumb', link_current: true
 
 - else
   .container-fluid.bread-comp

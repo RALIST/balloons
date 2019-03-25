@@ -1,13 +1,13 @@
 #main-offer {
-  background: image-url("offer.jpg") no-repeat top center fixed;
+  background: image-url("offer.jpg") no-repeat top center;
   background-size: cover;
   min-height: 90vh;
   @extend .d-flex;
   @extend .flex-column;
   @extend .align-items-center;
-  @extend .justify-content-around;
+  @extend .justify-content-center;
   @extend .py-5;
-  @include media-breakpoint-down(md){
+  @include media-breakpoint-down(lg){
     h1 {
       font-size: 1.6rem;
     }
@@ -19,10 +19,10 @@
     }
   }
   h1 {
-    color: white;
+    color: $brand-info;
     text-transform: uppercase;
-    text-shadow: 0 0 1px black, 2px 0px 1px darken($brand-info, 5%),
-    2px 0px 20px darken($brand-info, 20%);
+    //text-shadow: 0 0 1px black, 2px 0px 1px darken($brand-info, 5%),
+    //2px 0px 20px darken($brand-info, 20%);
     //letter-spacing: 2px;
   }
 }

@@ -5,6 +5,7 @@ class Delivery::DeliveryController < ApplicationController
   before_action :set_location
   before_action :set_meta_og
 
+  etag { current_user.try(:id) }
 
 
 

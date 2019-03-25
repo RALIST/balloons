@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 ruby '2.3.3'
 
-gem 'bcrypt', git: 'http://github.com/codahale/bcrypt-ruby.git', require: 'bcrypt'
+gem 'bcrypt'
 gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
@@ -22,7 +22,7 @@ group :development, :test do
   gem 'sys-proctable'
 end
 
-gem 'bootstrap', '~> 4.0.0'
+gem 'bootstrap'
 gem 'friendly_id', '~> 5.1.0'
 gem 'gretel'
 gem 'haml-rails'

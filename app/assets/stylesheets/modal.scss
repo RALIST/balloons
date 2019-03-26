@@ -4,16 +4,18 @@
   .modal-dialog {
     min-width: 100%;
     margin: 0;
+    min-height: 100vh;
   }
-  #call {
-    // max-width: 50%;
+  @include media-breakpoint-up(md){
+    form {
+      width: 50%;
+      margin: auto;
+    }
   }
-  .modal-title{
-    width: 100%;
-  }
+
 }
 .close {
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 @include media-breakpoint-up(md){
   .modal-open {
@@ -27,40 +29,14 @@
     padding-right: 0 !important;
   }
 }
-#form-call{
-  @include media-breakpoint-down(lg){
-    @inclide make-col-ready();
-    @include make-col(12);
-  }
-  @include media-breakpoint-up(lg){
-    @inclide make-col-ready();
-    @include make-col(6);
-  }
-  margin: auto;
-  #form-call-label {
-    @include make-col-ready();
-    @include make-col(5);
-    @include media-breakpoint-down(lg){
-      @include make-col(12);
-    }
-  }
-  #form-call-input {
-    @include make-col-ready();
-    @include make-col(7);
-    @include media-breakpoint-down(lg){
-      @include make-col(12);
-    }
-  }
-}
+
 
 .modal-content, .modal-body, .modal-header, .modal-dialog{
   background-color: transparent !important;
-  border: 0;
+  border: none;
+  border-radius: 0;
 }
 
-.modal-header{
-  border: none;
-}
 
 .modal-backdrop, .modal{
   background-color: transparentize(#ffffff, 0.1);

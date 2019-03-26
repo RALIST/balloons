@@ -3,22 +3,26 @@
     .modal-dialog#call{role: "document"}
       .modal-content
         .modal-header
-          %h3.modal-title
-          %button.close{data: {dismiss: "modal"}, style: 'aria-label: "Close"'}
+          .h4.modal-title
+          %button.close{data: {dismiss: "modal"}, 'aria-label': "Close"}
             %span
               &times;
 
-        .modal-body.pt-0.container
+        .modal-body
+          .h4.text-center
+            Оставте заявку
+          %p.text-muted.text-center
+            Мы отвечаем на заявки ежедневно с 9:00 до 20:00
+
           = render 'delivery/layouts/form_to_call'
-          .row
-            #form-call
-              .row.align-items-center.justify-content-center
-                .h4.w-100.text-center
-                  Напишите нам в чате
-                .text-center.mr-2
-                  =image_tag 'telegram.png', class: 'img-fluid', style: 'width: 32px'
-                  =image_tag 'whatsapp.png', class: 'img-fluid', style: 'width: 36px'
-                  =image_tag 'viber.png', class: 'img-fluid', style: 'width: 36px'
-                .lead
-                  = t "cities.#{@city}.phones.mobile"
+          .lead.text-center
+            или напишите нам в чате
+            .text-info
+              %i.fab.fa-viber{title: 'Viber'}
+              %i.fab.fa-whatsapp{title: 'WhatsApp'}
+              %i.fab.fa-telegram{title: 'Telegram'}
+              = link_to t("cities.#{@city}.phones.mobile"), "tel: #{t("cities.#{@city}.phones.tel_tag_mobile")}"
+        .modal-footer
+          .small.text-justify
+            В соответствии с Федеральным законом № 152-ФЗ «О персональных данных» от 27.07.2006, отправляя данную форму, вы подтверждаете свое согласие на обработку персональных данных.
 

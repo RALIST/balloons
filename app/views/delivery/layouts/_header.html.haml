@@ -1,17 +1,73 @@
--#.container-fluid
--#.d-flex#resp-fixed.align-items-center.justify-content-around
--#  = link_to root_path do
--#    = image_tag 'logo-resp.png', class: 'img-fluid', alt: 'Шариковая фея'
--#  .fa-layers.fa-fw.fa-2x.text-white#icon-wrapper
--#    %i.fas.fa-bars
--#    -if @cart.total_price > 0
--#      %span.fa-layers-counter.fa-lg{data: {turbolinks: {permanent: true}}}
--#        = @cart.positions.length
+#menu.fixed-top
+  %ul.nav.justify-content-around.small.bg-info.d-none.d-lg-flex
+    %li.list-inline-item
+      = link_to 'О нас', about_path
+    %li.list-inline-item
+      = link_to 'Гарантии', garant_path
+    %li.list-inline-item
+      =link_to 'Доставка и оплата', info_path
+    %li.list-inline-item
+      =link_to 'Цены', prices_path
+    %li.dropdown{role: "presentation"}
+      = link_to '', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
+        Выпускные
+      .dropdown-menu
+        = link_to 'Из садика', kg_path, class: 'dropdown-item'
+        = link_to 'Из школы', school_path, class: 'dropdown-item'
+    %li.list-inline-item
+      = link_to 'Отзывы', feedbacks_path
 
--#  .row
--#    .header-logo
--#      = link_to root_path do
--#        = image_tag 'logo-round.png', class: 'img-fluid', alt: 'Шариковая фея', title: 'Шариковая фея', id: 'logo'
--#    .header-contacts.my-2
--#
-= render 'delivery/layouts/main_menu'
+    %li.list-inline-item
+      =link_to 'FAQ', faq_path
+    - if !current_user
+      %li.list-inline-item
+        = link_to 'Войти', login_path, title: 'Войти'
+        \/
+        = link_to 'Регистрация', signin_path, title: 'Регистрация'
+    - else
+      %li.list-inline-item
+        = link_to cp_path, title: 'Личный кабинет', rel: 'nofollow' do
+          Личный кабинет
+      %li.list-inline-item
+        = link_to logout_path, method: :post, title: 'Выйти' do
+          Выйти
+
+  %nav.navbar.navbar-expand-lg.navbar-light.bg-white.pt-2.border-bottom
+    = link_to root_path, class: 'navbar-brand d-none d-lg-block col-1' do
+      = image_tag 'logo-round.png', class: 'p-0 fixed-top bg-white rounded-circle', width: 150
+    = link_to root_path, class: 'navbar-brand d-lg-none' do
+      = image_tag 'logo2.png', class: 'p-0 fixed-top', width: 56
+    = link_to '#', class: 'navbar-toggler navbar-toggler-right', data: {toggle: 'collapse', target: '#main-nav'} do
+      %span.navbar-toggler-icon
+    #main-nav.collapse.navbar-collapse.col.ml-auto
+      %hr
+      %ul.navbar-nav.ml-auto.w-100.justify-content-around
+        %li.dropdown.nav-item
+          = link_to '', class: 'dropdown-toggle nav-link', data: {toggle: 'dropdown'} do
+            Готовые композиции
+          .dropdown-menu
+            = link_to 'По праздникам', tags_path, class: 'dropdown-item'
+            = link_to 'Кому', receivers_path, class: 'dropdown-item'
+        %li.dropdown.nav-item
+          = link_to '', class: 'dropdown-toggle nav-link', data: {toggle: 'dropdown'} do
+            Гелиевые шары
+          .dropdown-menu
+            = link_to 'По цветам', colors_path, class: 'dropdown-item'
+            = link_to 'По коллекциям', categories_path, class: 'dropdown-item'
+        %li.nav-item
+          = link_to 'Для бизнеса', business_index_path, class: 'nav-link'
+
+        %li.nav-item
+          = link_to 'Контакты', contacts_path, class: 'nav-link'
+        %li.nav-item
+          = link_to my_cart_path, rel: 'nofollow', title: 'Корзина', class: 'nav-link' do
+            %span.fa-layers.fa-fw
+              %i.fas.fa-shopping-cart
+              - if @cart.positions.any?
+                %span.fa-layers-counter.h2.bg-info.text-white
+                  = @cart.positions.count
+            Корзина
+
+        %li.nav-item.rounded.border.border-success.text-center
+          = link_to 'Оставить заявку', '#', class: 'nav-link text-success', data:{ toggle: 'modal', target: '#call-modal'}
+  = render 'delivery/layouts/breadcrumbs' unless @disable_bread

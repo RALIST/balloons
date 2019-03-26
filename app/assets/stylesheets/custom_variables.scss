@@ -2,7 +2,8 @@
 $theme-colors: (
   "primary": #000000,
   "info": #9555bd,
-  "secondary": #ff4ba9
+  "secondary": #ff4ba9,
+  "success": #77dd77
 );
 
 $enable-gradients: true;
@@ -10,7 +11,10 @@ $brand-primary: #000000;
 $brand-secondary: #ff4ba9;
 $brand-info: #9555bd;
 
-$font-family-serif: 'Roboto Slab', serif;
-$font-family-sans-serif: 'Roboto', sans-serif;
-$font-family-base: $font-family-serif;
+$light-pink: transparentize($brand-secondary, 0.3);
+$lavander: transparentize($brand-info, 0.3);
+//
+//$font-family-serif: 'PT Serif', serif;
+$font-family-sans-serif: 'Montserrat', sans-serif;
+$enable-responsive-font-sizes: true;
 

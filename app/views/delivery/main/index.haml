@@ -1,29 +1,25 @@
-.container-fluid#main-offer
-  #grad
-    .row.text-center.align-items-center.justify-content-center
-      %h1.col-12.font-weight-bold.display-4.mb-5
-        Доставка воздушных шаров и оформление праздников
-        в
-        = t "cities.#{@city}.where"
-        
-    .row.w-100.align-items-center.justify-content-center
-      .col-lg-6.col-10.lead.text-center.mt-5
-        .h4
-          Бесплатно подберем уникальное оформление под ваш праздник!
-        = button_tag 'Оставить заявку', class: 'btn btn-block btn-lg btn-secondary', data:{ toggle: 'modal', target: '#call-modal'}
-.container-fluid
-  .row.align-items-center.justify-content-center.w-100
-    .flag.d-flex.align-items-center.justify-content-center.text-info.w-50
-      ИЛИ
-    .col-12.col-lg-6.bg-info.rounded
-      %h2.h3.text-left.text-white
-        Выберите готовое оформление
-        .small
-          Более 300 готовых композиций на любой праздник
-      = link_to 'Выбрать', tags_path, class: 'btn btn-secondary mb-2 text-uppercase'
-    .col-12.col-lg-6.bg-secondary.text-right.rounded
-      %h2.h3.text-right.text-white
-        Создайте свое оформление
-        .small
-          Огромный выбор латексных и фольгированных шаров
-      = link_to 'Выбрать', products_path, class: 'btn btn-info mb-2 text-uppercase'
+#main-offer.container-fluid.text-center.justify-content-center
+  %h1.col-12.display-4.text-white
+    Доставка воздушных шаров и оформление праздников
+    в
+    = t "cities.#{@city}.where"
+  %hr.bg-white.w-100
+  .lead.mb-2.text-white
+    Бесплатно подберем уникальное оформление под ваш праздник!
+    = button_tag 'Оставить заявку', class: 'btn btn-block col-10 col-lg-6 mx-auto btn-secondary', data:{ toggle: 'modal', target: '#call-modal'}
+-##check.container-fluid
+-#  .row.align-items-center.justify-content-center
+-#    .flag.d-flex.align-items-center.justify-content-center.text-info.w-50.lead
+-#      ИЛИ
+-#    .col-12.col-lg-6.bg-info.rounded.py-4
+-#      %h2.h4.text-left.text-white
+-#        Выберите готовое оформление
+-#        .small
+-#          > 300 готовых композиций
+-#      = link_to 'Выбрать', tags_path, class: 'btn btn-secondary mb-2 text-uppercase'
+-#    .col-12.col-lg-6.bg-secondary.text-right.rounded.py-4
+-#      %h2.h4.text-right.text-white
+-#        Создайте свое оформление
+-#        .small
+-#          Огромный выбор шаров
+-#      = link_to 'Выбрать', products_path, class: 'btn btn-info mb-2 text-uppercase'

@@ -8,19 +8,7 @@ $.extend($.expr[':'], {
 
 
 
-$(document).on('ready, turbolinks:load', function(){
-  if ($('#resp-fixed').length){
-    var top = $('#resp-fixed').offset().top;
-    $(window).scroll(function(){
-      var currentScroll = $(window).scrollTop();
-      if (currentScroll > top){
-        $('#resp-fixed').addClass('fixed-top');
-      }else{
-        $('#resp-fixed').removeClass('fixed-top bg-gradient-info');
-      }
-    })
-  }
-});
+
 
 
 
@@ -87,7 +75,7 @@ $(document).on('keyup','#subposition_quantity', function (e) {
     }
   }, 1100)
   return false;
-  });
+});
 
 $(document).on('mouseenter touchstart', '[data-product-id], [data-item-id]' , function(){
   $('[data-item-id] img, [data-product-id] img').each(function(index, value){

@@ -22,12 +22,11 @@ group :development, :test do
   gem 'sys-proctable'
 end
 
-gem 'bootstrap'
+gem 'bootstrap', '~> 4.3.1'
 gem 'friendly_id', '~> 5.1.0'
 gem 'gretel'
 gem 'haml-rails'
 gem 'image_optim'
-gem 'jquery-slick-rails'
 gem 'jquery-ui-rails'
 gem 'loadcss-rails', '~> 2.0.1'
 gem 'mainsms_api'
@@ -51,12 +50,12 @@ gem 'geocoder'
 gem "roo", "~> 2.7.0"
 gem 'rubyzip', require: false
 gem 'font_assets'
-gem 'aws-sdk'
-gem 'aws-sdk-s3'
+gem 'aws-sdk', require: false
+gem 'aws-sdk-s3', require: false
 gem 'puma_worker_killer'
 
 group :production do
-  gem 'fog-aws'
+  gem 'fog-aws', require: false
   gem 'heroku-deflater'
   gem 'image_optim_bin'
   gem 'rack-cors', require: 'rack/cors'

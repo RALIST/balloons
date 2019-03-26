@@ -1,23 +1,2 @@
-- unless controller.controller_name == 'compositions' && action_name == 'show'
-  .small.py-2.bg-white{style: 'padding-left: 160px;'}
-    = breadcrumbs separator: '/', semantic: true, fragment_tag: 'breadcrumb', link_current: true
-
-- else
-  .container-fluid.bread-comp
-    .container
-      = breadcrumbs separator: " / ", style: :bootstrap, semantic: true, fragment_tag: 'breadcrumb', link_current: true
-      - breadcrumbs.tap do |links|
-        - links.each do |link|
-          - if link.current?
-            .current
-              %h2.h3.font-weight-bold
-                = link.text
-                %span.mx-2{title: "Просмотрели", data: {toggle: 'tooltip'}}
-                  %i.fas.fa-eye
-                  = @comp.views
-                %span.mx-2{title: "Заказали" , data: {toggle: 'tooltip'}}
-                  %i.fas.fa-shopping-basket
-                  = @comp.orders.length + 3
-                .small{itemprop: 'description'}
-                  Композиция из воздушных шаров на #{@comp.tags.map(&:name).join(', ')}, #{@comp.receivers.map(&:title).join(', ') if @comp.receivers}
-              = social_share_button_tag("Шариковая фея | Композиция из воздушных шаров №#{@comp.id}", image: 'https:' + @comp.img.url(:large), url: request.original_url, desc: "Композиция из воздушных шаров на #{@comp.tags.map(&:name).join(', ')}, #{@comp.receivers.map(&:title).join(', ')}", 'data-toggle': 'tooltip' )
+.small.py-2.bg-white
+  = breadcrumbs separator: ' &rsaquo; ', semantic: true, fragment_tag: 'breadcrumb'

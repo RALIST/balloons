@@ -1,53 +1,51 @@
 - cache do
+  %hr
   .container-fluid.footer
     .row.gradient
-      .social.d-flex.justify-content-around.text-white.w-100
-        = link_to 'https://www.instagram.com/bigairballoon_izh/', target: :_blank, rel: 'nofollow', class: 'text-white', title: 'Instagram' do
-          %i.fab.fa-instagram.fa-2x{"aria-hidden":  "true"}
-        = link_to 'https://www.facebook.com/bigairballoons/', target: :_blank, rel: 'nofollow', class: 'text-white', title: 'Facebook' do
-          %i.fab.fa-facebook.fa-2x{"aria-hidden": "true"}
-        = link_to 'https://vk.com/bigairballoon_izh', target: :_blank, rel: 'nofollow', class: 'text-white', title: 'Вконтакте' do
-          %i.fab.fa-vk.fa-2x{"aria-hidden": "true"}
-    %hr
-    .container
-      .row
-        .footer-logo
-          #vk_groups
+      .col-12.d-flex.justify-content-around
+        = link_to 'https://www.instagram.com/bigairballoon_izh/', target: :_blank, rel: 'nofollow', title: 'Instagram' do
+          %i.fab.fa-instagram.fa-2x.text-info{"aria-hidden":  "true"}
+        = link_to 'https://www.facebook.com/bigairballoons/', target: :_blank, rel: 'nofollow', title: 'Facebook' do
+          %i.fab.fa-facebook.fa-2x.text-info{"aria-hidden": "true"}
+        = link_to 'https://vk.com/bigairballoon_izh', target: :_blank, rel: 'nofollow', title: 'Вконтакте' do
+          %i.fab.fa-vk.fa-2x.text-info{"aria-hidden": "true"}
+  %hr
+  .container-fluid
+    .row.flex-column.flex-column-reverse.flex-lg-row
+      .col-12
+        .row
+          .col-lg-8.col-12
+            %ul.nav.nav-justify
+              %li.nav-item
+                = link_to 'О нас', about_path, class: 'nav-link'
+              %li.nav-item
+                = link_to 'Гарантии', garant_path, class: 'nav-link'
+              %li.nav-item
+                = link_to 'Доставка и оплата', info_path, class: 'nav-link'
 
-
-        .footer-contacts.align-items-center
-          .row.flex-row-reverse
-            #footer-contacts.lead.text-right
-              Позвоните нам!
-              .lead.strong
-                = link_to t("cities.#{@city}.phones.direct"), 'tel: %{phone}' % {phone: t("cities.#{@city}.phones.tel_tag")}
-              .small.mt-2
-                WhatsApp | Viber | Telegram
-              .mt-0
-                = link_to t("cities.#{@city}.phones.mobile"), 'tel: %{phone}' % {phone: t("cities.#{@city}.phones.tel_tag_mobile")}
-              %hr.my-4.d-lg-none.d-md-block
-            #footer-links
-              %ul.list-unstyled
-                %li
-                  = link_to 'О нас', about_path
-                %li
-                  = link_to 'Гарантии', garant_path
-                %li
-                  = link_to 'Доставка и оплата', info_path
-            #footer-links
-              %ul.list-unstyled
-                %li
-                  = link_to 'Цены', prices_path
-                %li
-                  = link_to 'Контакты', contacts_path
-                %li
-                  = link_to 'Партнерам', partners_path
-      %hr
-      .row
-        .col-12.text-center
-          ООО "ДЕЛИРИУМ"
-          ИНН 1832110279
-          КПП 183201001
-          ОГРН 1131832004831
+              %li.nav-item
+                = link_to 'Цены', prices_path, class: 'nav-link'
+              %li.nav-item
+                = link_to 'Контакты', contacts_path, class: 'nav-link'
+              %li.nav-item
+                = link_to 'Партнерам', partners_path, class: 'nav-link'
+          .col-lg-4.col-12.text-right.d-none.d-lg-block
+            .row
+              .col-4
+                .text-info.small
+                  Позвоните нам!
+                .text-right.lead
+                  = link_to t("cities.#{@city}.phones.direct"), 'tel: %{phone}' % {phone: t("cities.#{@city}.phones.tel_tag")}
+              .col-8
+                .small.text-info
+                  WhatsApp | Viber | Telegram
+                .mt-0.text-right.lead
+                  = link_to t("cities.#{@city}.phones.mobile"), 'tel: %{phone}' % {phone: t("cities.#{@city}.phones.tel_tag_mobile")}
+    %hr.my-1
+    .text-center.small
+      ООО "ДЕЛИРИУМ"
+      ИНН 1832110279
+      \/
+      КПП 183201001
 
 

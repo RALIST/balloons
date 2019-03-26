@@ -38,7 +38,7 @@
     = link_to root_path, class: 'navbar-brand d-lg-none' do
       = image_tag 'logo2.png', class: 'p-0 fixed-top', width: 56
     = link_to '#', class: 'navbar-toggler navbar-toggler-right', data: {toggle: 'collapse', target: '#main-nav'} do
-      %span.navbar-toggler-icon
+      %span.navbar-toggler-icon.text-info
     #main-nav.collapse.navbar-collapse.col.ml-auto
       %hr
       %ul.navbar-nav.ml-auto.w-100.justify-content-around
@@ -64,7 +64,7 @@
             %span.fa-layers.fa-fw
               %i.fas.fa-shopping-cart
               - if @cart.positions.any?
-                %span.fa-layers-counter.h2.bg-info.text-white
+                %span.fa-layers-counter.h2.bg-success.text-white
                   = @cart.positions.count
             Корзина
 

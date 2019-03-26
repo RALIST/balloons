@@ -11,7 +11,8 @@
   @extend .flex-column;
   @extend .align-items-center;
   @include media-breakpoint-down(lg){
-    background-position: right;
+    background-position: top right;
+    background-size: 50%;
     .display-4 {
       font-size: 1.7rem;
       //background-color: rgba(0,0,0,0.5);
@@ -71,4 +72,21 @@
   @include media-breakpoint-down(lg){
     min-height: 60px;
   }
+}
+
+.gift{
+  background-image: image-url('gift.webp');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.form-check {
+  label {
+    color: transparentize(#000000, 0.4);
+  }
+}
+
+.form-control:focus{
+  box-shadow: none;
 }

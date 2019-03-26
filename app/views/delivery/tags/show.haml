@@ -1,12 +1,7 @@
 - breadcrumb @tag
-.container.mb-5
-  %h1.h2.text-center.mb-4.font-weight-bold
-    Воздушные шары на #{@tag.name}
-    %br
-    с доставкой по
-    = t "cities.#{@city}.in"
-    .small.text-muted.mt-1
-      Найдено #{@compositions.count} готовых композиций
+.container-fluid.mt-5
+  %h1.h2
+    = @tag.name.capitalize
   %hr
   .row.justify-content-around.compositions
     = render partial: 'delivery/main/thumb_composition', collection: @compositions, as: :c

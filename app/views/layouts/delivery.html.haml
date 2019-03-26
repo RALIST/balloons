@@ -20,13 +20,16 @@
         - unless @disable_header
           = render 'delivery/layouts/header'
       = render 'delivery/layouts/flash'
-      .main
-        = yield
-      = render 'delivery/main/help'
-      -#= render 'delivery/feedbacks/get_feedback'
-      = render 'delivery/main/seo'
-      = render 'delivery/layouts/call'
-      = render 'delivery/layouts/modal_city'
+      .container-fluid.main
+        .row.no-gutters
+          = render 'delivery/layouts/sidebar' unless @disable_sidebar
+          .col
+            = yield
+            = render 'delivery/main/help'
+            -#= render 'delivery/feedbacks/get_feedback'
+            = render 'delivery/main/seo'
+            = render 'delivery/layouts/call'
+            = render 'delivery/layouts/modal_city'
 
     %footer.bg-light
       = render 'delivery/layouts/footer' unless @disable_footer

@@ -62,7 +62,7 @@
         %li.nav-item
           = link_to my_cart_path, rel: 'nofollow', title: 'Корзина', class: 'nav-link' do
             %span.fa-layers.fa-fw
-              %i.fas.fa-shopping-cart
+              %i.fas.fa-shopping-cart.text-info
               - if @cart.positions.any?
                 %span.fa-layers-counter.h2.bg-success.text-white
                   = @cart.positions.count

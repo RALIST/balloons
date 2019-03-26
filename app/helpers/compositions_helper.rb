@@ -5,8 +5,12 @@ module CompositionsHelper
     when 'receivers'
       receiver_composition_path(params[:id], obj)
     when'tags'
-      tag_composition_path(params[:id], obj)
-    when 'main','compositions'
+      if controller.action_name == 'show'
+        tag_composition_path(params[:id], obj)
+      else
+        composition_path(obj)
+      end
+    else
       composition_path(obj)
     end
   end

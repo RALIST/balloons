@@ -53,6 +53,7 @@ gem 'font_assets'
 gem 'aws-sdk', require: false
 gem 'aws-sdk-s3', require: false
 gem 'puma_worker_killer'
+gem 'active_link_to'
 
 group :production do
   gem 'fog-aws', require: false

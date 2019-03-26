@@ -1,0 +1,14 @@
+.col-12.col-md-3.col-lg-2.sidebar-sticky
+  %ul.navbar-nav.flex-column.navbar-light
+    %li.nav-item
+      = active_link_to 'По праздникам', tags_path, class: 'nav-link h5'
+    .collapse{class: ('show' if is_active_link?(tags_path))}
+      - @tags.each do |tag|
+        %li.nav-item
+          = active_link_to tag.name.capitalize,  tag_path(tag), class: 'nav-link small'
+    %li.nav-item
+      = active_link_to 'Кому', receivers_path, class: 'nav-link h5'
+    .collapse{class: ('show' if is_active_link?(receivers_path))}
+      - @menu_receivers.each do |r|
+        %li.nav-item
+          = active_link_to r.title.capitalize, receiver_path(r), class: 'nav-link small'

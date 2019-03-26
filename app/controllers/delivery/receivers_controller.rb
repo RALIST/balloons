@@ -1,7 +1,7 @@
 class Delivery::ReceiversController < Delivery::DeliveryController
 
   def index
-    @menu_receivers = Receiver.all.includes(:image).select('distinct on (title) *')
+  
   end
 
 

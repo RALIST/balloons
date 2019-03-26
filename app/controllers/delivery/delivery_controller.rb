@@ -1,13 +1,17 @@
 class Delivery::DeliveryController < ApplicationController
   layout 'delivery'
   include MetaHelper
-  before_action :current_cart, :new_call
+  before_action :current_cart, :new_call, :set_tags
   before_action :set_location
   before_action :set_meta_og
 
   etag { current_user.try(:id) }
 
 
+  def set_tags
+    @tags = Tag.joins(:compositions).group(:id).order('COUNT (compositions.id) DESC')
+    @menu_receivers = Receiver.all.includes(:image).select('distinct on (title) *')
+  end
 
 
   private

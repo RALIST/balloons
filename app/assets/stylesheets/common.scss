@@ -90,3 +90,84 @@
 .form-control:focus{
   box-shadow: none;
 }
+
+.sidebar{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  padding: 160px 0;
+}
+.sidebar-sticky{
+  position: -webkit-sticky;
+  position: sticky;
+  height: calc(100vh - 113px);
+  top: 113px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border-right: 1px solid rgba(0,0,0,.1);
+  .navbar-nav {
+    padding-top: 50px;
+    .small.nav-link {
+      color: transparentize($dark, 0.2);
+      padding-left: 0.5rem;
+      &:hover, &:active{
+        color: $dark;
+      }
+    }
+  }
+  .h5.active {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .small.active {
+    color: $dark !important;
+    font-weight: bolder;
+    &:before {
+      content: '';
+      position: relative;
+      left: -0.6rem;
+      height: 35px;
+      width: 2px;
+      background: $brand-info;
+      border-left: 2px solid $brand-info;
+    }
+  }
+}
+.composition{
+  @include media-breakpoint-up(lg){
+    @include make-col-ready();
+    @include make-col(4);
+  }
+  @include media-breakpoint-only(md){
+    @include make-col-ready();
+    @include make-col(6);
+  }
+  @include media-breakpoint-down(sm){
+    @include make-col-ready();
+    @include make-col(12);
+  }
+  margin-bottom: 10px;
+  .card {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    min-height: 100%;
+    .line {
+      position: relative;
+      bottom: 11px;
+    }
+    .img-fluid {
+      min-width: 100%;
+      height: 100%;
+      object-fit: cover;
+      
+    }
+    .card-image-top{
+      width: 100%;
+      height: 350px;
+      overflow: hidden;
+      border-radius: 0.25rem;
+    }
+  }
+  padding: 0;
+}

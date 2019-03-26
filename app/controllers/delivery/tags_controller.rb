@@ -17,12 +17,16 @@ class Delivery::TagsController < Delivery::DeliveryController
 																детские праздники воздушными шарами,
 																оформление праздников воздушными шарами,
 																оформление детского праздника воздушными шарами"
-		@tags = Tag.joins(:compositions).includes(:image).group(:id).order('COUNT (compositions.id) DESC')
+		@compositions = Composition.includes(:tags).availible.paginate(page: params[:page], per_page: 6)
+		respond_to do |format|
+			format.html
+			format.js {render layout: false}
+		end
 	end
 
 	def show
 		@tag = Tag.friendly.find(params[:id])
-		@compositions = Composition.with_tag(@tag.name).order(:price).paginate(page: params[:page], per_page: 6)
+		@compositions = Composition.availible.with_tag(@tag.name).order(:price).paginate(page: params[:page], per_page: 6)
 		respond_to do |format|
 			format.html
 			format.js {render layout: false}

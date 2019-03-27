@@ -2,11 +2,11 @@
 var paginate = function(){
   if ($('.pagination').length) {
       $(window).on('scroll', function() {
-        var url = $('.pagination .next_page').attr('href');
+        var url = $('.pagination .next a').attr('href');
         if($('#seo-text').length){
           var textTop = $('#seo-text').offset().top;
           if (url && $(window).scrollTop() > textTop - 1000) {
-            $('.pagination').html('<div class="text-center h3 w-100">Загружаю ещё композиции...</div');
+            $('#pagy').html('<div class="text-center h3 w-100"><div class="spinner-grow text-info" role="status"><span class="sr-only">Loading...</span></div>Загружаю ещё композиции...</div>');
             return $.getScript(url);
           };
         } else {

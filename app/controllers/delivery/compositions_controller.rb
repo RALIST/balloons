@@ -13,8 +13,8 @@ class Delivery::CompositionsController < Delivery::DeliveryController
   end
 
   def show
-    @products = @comp.products.includes(:type, :size, :tone, :texture).distinct
-    @comp.update_attributes(views: @comp.views + 1)
+    @products = @composition.products.includes(:type, :size, :tone, :texture).distinct
+    @composition.update_attributes(views: @composition.views + 1)
     @tag = Tag.friendly.find(params[:tag_id]) if params[:tag_id]
     @receiver = Receiver.friendly.find(params[:receiver_id]) if params[:receiver_id]
   end
@@ -22,7 +22,7 @@ class Delivery::CompositionsController < Delivery::DeliveryController
   private
 
   def set_composition
-    @comp = Composition.find(params[:id])
+    @composition = Composition.find(params[:id])
   end
 
 end

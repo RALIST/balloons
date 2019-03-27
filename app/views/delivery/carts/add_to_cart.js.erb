@@ -1,10 +1,9 @@
 $(document).on('ajaxComplete', function(){
-  $("a.add-to-cart<%=@composition.id%>").hide().closest('.row').html("<%=j link_to 'Перейти в корзину', my_cart_path, class: 'btn btn-success btn-block'%>");
+  $("a.add-to-cart<%=@composition.id%>").hide().closest('.col-6').html("<%=j link_to 'Перейти в корзину', my_cart_path, class: 'btn btn-success btn-block'%>");
   $('#cart #count').html("<%= pluralize(@cart.positions.count, 'товар', 'товара') %>");
   $('#cart #sum').html('<%= @cart.total_price.round(0) %>');
   $('#cart #to-cart').html("<%=j link_to 'В корзину', my_cart_path %>");
   $('#icon-wrapper .badge').html('<%= @cart.positions.count %>');
-  $('#responsive').html('<%= j(render "delivery/layouts/resp_menu")%>');
 });
 
 

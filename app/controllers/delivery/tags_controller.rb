@@ -17,7 +17,8 @@ class Delivery::TagsController < Delivery::DeliveryController
 																детские праздники воздушными шарами,
 																оформление праздников воздушными шарами,
 																оформление детского праздника воздушными шарами"
-		@compositions = Composition.includes(:tags).availible.paginate(page: params[:page], per_page: 6)
+
+		@pagy, @compositions = pagy(Composition.availible.order(:price), items: 6)
 		respond_to do |format|
 			format.html
 			format.js {render layout: false}
@@ -26,7 +27,7 @@ class Delivery::TagsController < Delivery::DeliveryController
 
 	def show
 		@tag = Tag.friendly.find(params[:id])
-		@compositions = Composition.availible.with_tag(@tag.name).order(:price).paginate(page: params[:page], per_page: 6)
+  @pagy, @compositions = pagy(Composition.availible.with_tag(@tag.name).order(:price), items: 6)
 		respond_to do |format|
 			format.html
 			format.js {render layout: false}

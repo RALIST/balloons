@@ -1,9 +1,7 @@
-<% if params[:page] %>
-  $('.compositions').append('<%= j(render partial: "delivery/main/thumb_composition", collection: @compositions, as: :c) %>');
-  <% if @compositions.next_page %>
-    $('.pagination').replaceWith('<%= j(will_paginate @compositions) %>');
-  <% else %>
-    $(window).off('scroll');
-    $('.pagination').remove();
-  <% end %>
-<% end %>
+$('.compositions').append('<%= j(render partial: "delivery/main/thumb_composition", collection: @compositions, as: :c) %>');
+$('#pagy').html('<%= j(raw pagy_nav(@pagy)) %>');
+
+if ($('.pagination .next a').length < 1 ){
+  $(window).off('scroll');
+  $('#pagy').remove();
+};

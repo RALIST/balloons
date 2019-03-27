@@ -1,5 +1,8 @@
-.col-12.col-md-3.col-lg-2.sidebar-sticky
-  %ul.navbar-nav.flex-column.navbar-light
+
+.col-12.col-lg-2.sidebar-sticky
+  = link_to '#', class: 'd-lg-none collapsed d-block text-center py-2 bg-light border-bottom', data:{toggle: 'collapse', target: '#sidebar'} do
+    %i.fas.fa-ellipsis-h.fa-2x.text-info
+  %ul#sidebar.navbar-nav.flex-column.navbar-light.collapse
     %li.nav-item
       = active_link_to 'По праздникам', tags_path, class: 'nav-link h5'
     .collapse{class: ('show' if is_active_link?(tags_path))}

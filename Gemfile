@@ -54,6 +54,7 @@ gem 'aws-sdk', require: false
 gem 'aws-sdk-s3', require: false
 gem 'puma_worker_killer'
 gem 'active_link_to'
+gem 'pagy'
 
 group :production do
   gem 'fog-aws', require: false

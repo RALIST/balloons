@@ -1,8 +1,5 @@
 module MetaHelper
 
-	all_keywords = []
-
-
 	def set_meta_tags_for_tag(tag)
 		@tag = tag
 		title = "Воздушные шары на #{@tag.name} с доставкой в %{city} | Шариковая фея" % {city: t("cities.#{@city}.where")}
@@ -285,22 +282,22 @@ module MetaHelper
                   description: "Доставка самых красивых воздушных шаров, оформление праздников, доставка по %{city} бесплатно!" % {city: t("cities.#{@city}.in")},
                   keywords: "воздушные шары, заказать воздушные шары, шарики с доставкой, доставка шариков"
     when "show"
-    	set_meta_tags title: "Композиция № #{@comp.id} из воздушных шаров | Шариковая фея",
+    	set_meta_tags title: "Композиция № #{@composition.id} из воздушных шаров | Шариковая фея",
                   reverse: true,
                   keywords: "воздушные шары, заказать воздушные шары, шарики с доставкой, доставка шариков, воздушные шары с доставкой",
-                  description: "Композиция из воздушных шаров на #{@comp.tags.map(&:name).join(", ")}, #{@comp.receivers.map(&:title).join(", ")}",
-                  canonical: (composition_path(@comp) if @tag || @receiver)
+                  description: "Композиция из воздушных шаров на #{@composition.tags.pluck(&:name).join(", ")}, #{@composition.receivers.pluck(&:title).join(", ")}",
+                  canonical: (composition_path(@composition) if @tag || @receiver)
 
     set_meta_tags og: {
-									      title: "Композиция № #{@comp.id} из воздушных шаров | Шариковая фея",
+									      title: "Композиция № #{@composition.id} из воздушных шаров | Шариковая фея",
 									      type: "article",
 									      url: request.url,
 									      description: "Оформление торжества воздушными шарами от Шариковой феи оставит приятные впечатления и сделает этот день ярким. Для оформления заказа звоните по телефону %{phone}" % {phone: t("cities.#{@city}.phones.mobile")},
 									      image: {
-									        _: "https:" + view_context.image_path(@comp.img.url(:large)),
+									        _: "https:" + view_context.image_path(@composition.img.url(:large)),
 									        width: 968,
 									        height: 504,
-									        alt: @comp.title
+									        alt: @composition.title
 									      },
 									      site_name: "Шариковая фея"
     							},
@@ -309,10 +306,10 @@ module MetaHelper
     								brand: "Шариковая фея",
     								condition: "new",
     								price: {
-									        amount: @comp.comp_price.round(0),
+									        amount: @composition.comp_price.round(0),
 									        currency: "RUB"
 									      },
-									  retailer_item_id: @comp.id
+									  retailer_item_id: @composition.id
     							}
 
     end

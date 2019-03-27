@@ -9,16 +9,19 @@ class Composition < ApplicationRecord
   has_and_belongs_to_many :tags
   has_and_belongs_to_many :receivers
 
-  has_attached_file :img, styles: { small: ['x200', :png],
-                                    preview: ['x400', :png],
-                                    large: ['x600', :png] },
-                          convert_options: {
-                            small: '-quality 75 -strip  -interlace Plane',
-                            preview: '-quality 75 -strip -interlace Plane'
-                          }
+  has_attached_file :img,
+                    processors: [:thumbnail, :compression],
+                    styles: {
+                        small:
+                                             ['x200', :webp],
+                        preview:
+                                             ['x400', :webp],
+
+                        large:
+                                             ['x600', :webp] }
 
   validates_attachment_content_type :img,
-                                    content_type: ['image/jpeg', 'image/jpg', 'image/png']
+                                    content_type: ['image/jpeg', 'image/jpg', 'image/png', 'image/webp' ]
 
   before_post_process :rename_img
 
@@ -40,7 +43,7 @@ class Composition < ApplicationRecord
 
   def rename_img
     extension = File.extname(img_file_name).downcase
-    self.img.instance_write :file_name, "#{Time.now.to_i.to_s.force_encoding('utf-8')}#{extension}"
+    self.img.instance_write :file_name, "composition_#{self.id}#{extension}"
   end
 
 

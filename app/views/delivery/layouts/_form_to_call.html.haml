@@ -1,7 +1,7 @@
 = form_for @call do |f|
   .form-group
     = f.label :username,  'Как вас зовут?', class: 'text-lavender'
-    = f.text_field :username, class: 'form-control', required: true, autofocus: true
+    = f.text_field :username, class: 'form-control', required: true
   .form-group
     = f.label :userphone, 'Ваш телефон', class: 'text-lavender'
     = f.telephone_field :userphone, data:{ mask: '+7 (999) 999 99 99' }, class: 'form-control', required: true

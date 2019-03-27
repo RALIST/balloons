@@ -7,8 +7,6 @@
     = favicon_link_tag 'favicons/favicon-120.png', rel: 'apple-touch-icon'
     = csrf_meta_tags
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload', defer: true, asyn: Rails.env.production?
-    = render 'delivery/layouts/special/ym'
-    = render 'delivery/layouts/special/ga'
     = stylesheet_link_tag 'application', media: 'all'
   %body
     %a#return-to-top
@@ -20,10 +18,10 @@
         - unless @disable_header
           = render 'delivery/layouts/header'
       = render 'delivery/layouts/flash'
-      .container-fluid.main
+      .container-fluid.main.p-0
         .row.no-gutters
           = render 'delivery/layouts/sidebar' unless @disable_sidebar
-          .col
+          .col.p-0
             = yield
             = render 'delivery/main/help'
             -#= render 'delivery/feedbacks/get_feedback'
@@ -34,4 +32,6 @@
     %footer.bg-light
       = render 'delivery/layouts/footer' unless @disable_footer
   = render 'delivery/layouts/special/scripts'
-
+  %noscript
+    %div
+      %img{src: "https://mc.yandex.ru/watch/37371855", style: "position:absolute; left:-9999px;", alt: ""}

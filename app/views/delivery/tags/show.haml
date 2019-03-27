@@ -1,9 +1,11 @@
 - breadcrumb @tag
-.container-fluid.mt-5
-  %h1.h2
-    = @tag.name.capitalize
-  %hr
+.container-fluid.c-list
+  %h1.h4.text-center
+    .small.px-3
+      Воздушные шары на
+    %span.text-uppercase
+      = @tag.name.capitalize
   .row.justify-content-around.compositions
     = render partial: 'delivery/main/thumb_composition', collection: @compositions, as: :c
-  .row
-    = will_paginate @compositions
+  .row.text-center#pagy
+    = raw pagy_nav(@pagy)

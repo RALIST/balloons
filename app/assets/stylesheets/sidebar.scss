@@ -1,0 +1,52 @@
+.sidebar-sticky {
+  padding-top: 35px;
+  @include media-breakpoint-up(lg){
+    position: -webkit-sticky;
+    position: sticky;
+    height: calc(100vh + 162px);
+    top: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    //box-shadow: inset -10px 0 25px -5px rgba(0,0,0,0.3);
+    background: $light;
+    border-right: 1px solid $brand-info;
+    z-index: 1;
+
+  }
+  @include media-breakpoint-down(md){
+
+    margin-bottom: 0.5rem;
+  }
+  .navbar-nav {
+    padding-left: 0.7rem;
+    background: $light;
+
+    @include media-breakpoint-up(lg){
+      display: block !important;
+      background: none;
+    }
+    .small.nav-link {
+      color: transparentize($dark, 0.2);
+      &:hover, &:active{
+        color: $dark;
+      }
+    }
+  }
+  .h5.active {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .small.active {
+    color: $dark !important;
+    font-weight: bolder;
+    &:before {
+      content: '';
+      position: relative;
+      left: -0.6rem;
+      height: 35px;
+      width: 2px;
+      background: $brand-info;
+      border-left: 2px solid $brand-info;
+    }
+  }
+}

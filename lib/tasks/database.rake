@@ -4,17 +4,18 @@ namespace :db do
   task :copy_production => :environment do
 
     # Download latest dump
-    # system "heroku pg:backups:download"
+    system "heroku pg:backups:download"
 
     # get user and database name
     config   = Rails.configuration.database_configuration["development"]
     database = config["database"]
+    port = config['port']
     user = config["username"]
     puts database
     puts config
 
     # import
-    system("pg_restore --verbose --clean -U postgres -h localhost -p 5432 -d #{database} #{Rails.root}/latest.dump")
+    system("pg_restore --verbose --clean -U postgres -h localhost -p #{port} -d #{database} #{Rails.root}/latest.dump")
   end
 
 end

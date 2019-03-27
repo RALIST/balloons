@@ -1,81 +1,76 @@
 - cache composition do
-  .row.d-flex#reverse{itemscope: true, itemtype: "http://schema.org/Product"}
-    %meta{itemprop: 'name', content: "Композиция № #{@comp.id} из воздушных шаров | Шариковая фея"}
-    .comp-desc
-      %p.strong.text-uppercase.mb-0.text-center
-        Состав композиции
+  %h1.h5.text-center{itemprop: 'name'}
+    %span.px-3
+      Композиция № #{composition.id} из воздушных шаров
+  .row.flex-columns-reverse
+    .col-12.col-lg-6
+      -#.lead.strong.text-uppercase.mb-0.text-center
+      -#  Состав композиции
       #products
-        %table.table.table-sm
+        %table.table.table-sm.table-borderless
+          %thead.border-bottom.border
+            %tr
+              %th.text-center
+                Шар
+              %th.text-center
+                Цена
+              %th.text-center
+                Количество
           %tbody
-            %thead
-              %tr
-                %th.text-center
-                  Шар
-                %th.text-center
-                  Цена
-                %th.text-center
-                  Количество
-          - @products.each do |product|
-            %tr.item.text-center{data: {item_id: "#{product.id}", content: "#{product.complex_name}" }}
-              %td.text-center
-                %span{style: 'border-bottom: 1px dashed black; cursor: pointer;'}
-                  = image_tag product.img(:small), alt: 'Воздушный шар' + " " + product.complex_name
-              %td.h5.strong
-                = product.price_with_helium
-                %small
-                  руб.
-              %td.h5.strong
-                = composition.products.where(id: product.id).length
-                %small
-                  шт.
+            - @products.each do |product|
+              %tr.border-bottom.item.text-center{data: {item_id: "#{product.id}", content: "#{product.complex_name}" }}
+                %td.text-center.align-middle
+                  %span{style: 'border-bottom: 1px dashed black; cursor: pointer;'}
+                    = image_tag product.img(:small), alt: 'Воздушный шар' + " " + product.complex_name
+                %td.h5.strong.align-middle
+                  = product.price_with_helium
+                  %small
+                    руб.
+                %td.h5.strong.align-middle
+                  = composition.products.where(id: product.id).length
+                  %small
+                    шт.
         #more.text-center.w-100.lead.with-grad{style: 'cursor: pointer; line-height: 0.3rem;'}
           .small.lead
             Показать все
           %br
           %i.fa.fa-chevron-down
-      .row#total.mt-2.py-2.align-items-center.m-0
-        .col-8{itemprop: 'offers', itemscope: true, itemtype: "http://schema.org/Offer"}
-          .row.align-items-center
-            .t1.pl-3.text-uppercase.strong.p-0.lead.text-left
-              Итого
-            .t2.strong.h2.p-0.pl-3.text-secondary.m-0.text-right{itemprop: 'price'}
-              = composition.comp_price.round(0)
-              %span.small.pl-1.text-primary.align-self-start{itemprop: 'priceCurrency', content: 'RUB'}
-                руб.
+      #total.row.align-items-center.rounded.py-3.mt-3
+        .col-6.text-center
+          %span.text-uppercase.text-left.mr-1.text-lavender
+            Итого:
+          %span.text-right.h2{itemprop: 'price'}
+            = composition.price.round(0)
+          %span{itemprop: 'priceCurrency', content: 'RUB'}
+            руб.
           %link{itemprop: 'availability', href: 'http://schema.org/Preorder'}
-        .col-4.d-inline-flex.px-2
+        .col-6
           - unless @cart.compositions.include?(composition)
-            = link_to 'В корзину', add_to_cart_path(composition), class: "btn btn-info btn-block add-to-cart#{composition.id}", id: 'ga-add-to-cart', data: {disable_with: 'Добавляем...', turbolinks: false}, remote: true, method: :post
+            = link_to 'Добавить в корзину', add_to_cart_path(composition), class: "btn btn-info btn-block btn-sm add-to-cart#{composition.id}", id: 'ga-add-to-cart', data: {disable_with: 'Добавляем...', turbolinks: false}, remote: true, method: :post
           - else
-            = link_to 'Перейти в корзину', my_cart_path, class: 'btn btn-success btn-block'
-          / .small.text-center.text-danger.d-flex
-          /   Вы cможете изменить состав композиции в корзине
-      .row
-        .col-12.text-center
-          Вы можете изменить состав композиции в корзине
-      .row.mt-3.align-items-center
-        .h6.w-100.text-center
-          Способы оплаты:
-        .col-6.text-info.d-flex.justify-content-center.align-items-center
-          %i.fas.fa-money-bill-alt.fa-2x.pr-1
-          Наличными
-          курьеру
-        .col-6.text-info.d-flex.justify-content-center.align-items-center
-          %i.far.fa-credit-card.fa-2x.pr-1
-          Банковской
-          картой
-    .comp-image
-      = link_to :back, class: 'btn btn-outline-info btn-sm my-3 d-none d-lg-inline-block' do
-        %i.fa.fa-chevron-left
-        Вернуться в каталог
-      = image_tag composition.img.url(:large), class: 'img-fluid img-thumbnail', itemprop: 'image', alt: composition.title
+            = link_to 'Перейти в корзину', my_cart_path, class: 'btn btn-success btn-block btn-sm'
+        .col-12.text-center.text-lavender.mt-2.small
+          Вы cможете изменить состав композиции в корзине
+
+      -#.row.mt-3.align-items-center
+      -#  .h6.w-100.text-center
+      -#    Способы оплаты:
+      -#  .col-6.text-info.d-flex.justify-content-center.align-items-center
+      -#    %i.fas.fa-money-bill-alt.fa-2x.pr-1
+      -#    Наличными
+      -#    курьеру
+      -#  .col-6.text-info.d-flex.justify-content-center.align-items-center
+      -#    %i.far.fa-credit-card.fa-2x.pr-1
+      -#    Банковской
+      -#    картой
+    .col-12.col-lg-6.text-center
+      = image_tag composition.img.url(:large), class: 'img-fluid rounded', itemprop: 'image', alt: composition.title
       .row.comp-text.text-secondary.justify-content-between.mt-3
         .col-12.d-flex.flex-row.justify-content-between
 
-%hr
-.container
-  .h4.text-center.strong.mb-3.text-info
-    Похожие композиции
-  .row.justify-content-around.compositions.slider-comp.text-center#similar{itemprop: 'isSimilarTo'}
-    = render partial: 'delivery/main/small_composition', collection: composition.related.limit(4), as: :c
+%h2.h5.text-center.strong.my-3.text-secondary
+  %span.px-3.text-uppercase
+    Рекомендуем
+.row.justify-content-around.compositions.slider-comp.text-center#similar{itemprop: 'isSimilarTo'}
+  = render partial: 'delivery/main/thumb_composition', collection: composition.related.limit(3), as: :c
 

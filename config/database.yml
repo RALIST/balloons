@@ -6,7 +6,7 @@
 #
 default: &default
   adapter: postgresql
-  encoding: unicode
+  encoding: UTF8
   database: development_balloons
   pool: 5
   username: postgres

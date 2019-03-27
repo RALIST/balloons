@@ -53,16 +53,17 @@ class Product < ApplicationRecord
   def complex_name
     case type.name
     when 'латексные шары'
-      size_name = "#{size.in_inch.to_i}''(#{size.in_cm.to_i}см) " if size
-      tone_name = " #{texture.name} #{tone.name}" if tone
-      if size_name && tone_name
+      size_name = size ? "#{size.in_inch.to_i}''(#{size.in_cm.to_i}см) " : ""
+      tone_name = tone ? " #{texture.name} #{tone.name}" : ""
+      if !size_name.blank? && !tone_name.blank?
         size_name + tone_name
       else
         size_name + item.name.gsub(/[\d+,()\/.']|\bшт[.|\b]|\bсм\b|\bст\b/, '')
       end
     when 'фольгированные шары'
-      size_name = "#{size.in_inch.to_i}''(#{size.in_cm.to_i}см) " if size
-      size_name + item.name.gsub(/[\w',()\/]|\bшт[.|\b]|\bсм\b|\bст\b/, '')
+      size_name = size ? "#{size.in_inch.to_i}''(#{size.in_cm.to_i}см) " : ''
+      item_name = item ? item.name.gsub(/[\w',()\/]|\bшт[.|\b]|\bсм\b|\bст\b/, '') : ''
+      name = size_name + item_name
     when 'разное'
       name.capitalize
     end

@@ -3,14 +3,12 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
-// = require jquery.maskedinput
-// = require clockpicker
-// = require cookies
-// = require social-share-button
-// = require common
-// = require counters
-// = require social-share-button
-// = require pagination
+//= require jquery.maskedinput
+//= require clockpicker
+//= require cookies
+//= require common
+//= require pagination
+//= require ym
 
 
 setTimeout(function(){
@@ -18,7 +16,7 @@ setTimeout(function(){
     $('#call-modal').modal('show');
     Cookies.set('popup', 'true')
   }
-}, 70000)
+}, 70000);
 
 
 
@@ -26,13 +24,8 @@ var ready = function(){
   if(!($('body').attr('data-loaded') == 'T')) {
     paginate();
     toTop();
-    smoothScroll();
     search();
-    $('[data-toggle="tooltip"]').tooltip({
-      html: true,
-      animated: 'fade',
-      placement: 'bottom'
-    });
+    tooltip_init();
     $('body').attr('data-loaded', 'T');
   } else {
     return;
@@ -57,11 +50,12 @@ var search = function(){
   });
 };
 
-
-var vk = function(){
-  VK.Widgets.Group("vk_groups",
-    {mode: 3, no_cover: 1, width: 'auto', wide: 2},
-    55641465);
+var tooltip_init = function(){
+  $('[data-toggle="tooltip"]').tooltip({
+    html: true,
+    animated: 'fade',
+    placement: 'bottom'
+  });
 };
 
 var smoothScroll = function(){
@@ -104,4 +98,5 @@ function onScroll(event){
 }
 
 $(document).on('turbolinks:load', ready);
+$(document).ready(ready)
 

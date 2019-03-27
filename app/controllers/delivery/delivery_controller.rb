@@ -1,6 +1,9 @@
 class Delivery::DeliveryController < ApplicationController
   layout 'delivery'
+  include Pagy::Backend
   include MetaHelper
+  include ApplicationHelper
+
   before_action :current_cart, :new_call, :set_tags
   before_action :set_location
   before_action :set_meta_og

@@ -1,7 +1,7 @@
 class Delivery::ReceiversController < Delivery::DeliveryController
 
   def index
-  
+    @pagy, @compositions = pagy(Composition.availible.order(:price), items: 6)
   end
 
 
@@ -18,7 +18,7 @@ class Delivery::ReceiversController < Delivery::DeliveryController
       end
     end
 
-    @compositions = @person.compositions.availible.order(:price).paginate(page: params[:page], per_page: 6)
+    @pagy, @compositions = pagy(@person.compositions.availible.order(:price), items: 6)
     respond_to do |format|
       format.html
       format.js if params[:page]

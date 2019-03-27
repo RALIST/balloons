@@ -65,7 +65,7 @@ class Product < ApplicationRecord
       item_name = item ? item.name.gsub(/[\w',()\/]|\bшт[.|\b]|\bсм\b|\bст\b/, '') : ''
       name = size_name + item_name
     when 'разное'
-      name.capitalize
+      name.present? ? name.capitalize : ''
     end
   end
 
@@ -173,7 +173,7 @@ class Product < ApplicationRecord
     if type.name == 'латексные шары' && size
       size.value
     elsif type.name == 'разное'
-      self.price
+      self.price.to_i
     else
       if foil_form && size
         case foil_form.name

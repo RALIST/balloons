@@ -1,10 +1,12 @@
 class Delivery::UsersController < Delivery::DeliveryController
+  
+  before_action :disable_sidebar
+  
   def new
     set_meta_tags title: 'Регистрация',
                   reverse: true,
                   description: 'Зарегистрируйтесь на сайте'
     @user = User.new
-    @disable_header = true
   end
 
   def create

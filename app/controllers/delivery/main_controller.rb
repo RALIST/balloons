@@ -1,13 +1,10 @@
 class Delivery::MainController < Delivery::DeliveryController
 
   before_action :set_meta_tags_for_main
+  before_action :disable_sidebar
 
   def index
     @disable_bread = true
-    @disable_sidebar = true
-    @tag = Tag.find_by(name: 'день рождения')
-    @birthday = Composition.with_tag(@tag.name).limit(8) if @tag
-    @feeds = Feedback.all.last(6)
     respond_to do |format|
       format.html
       format.js
@@ -31,29 +28,19 @@ class Delivery::MainController < Delivery::DeliveryController
     @order = Order.find(params[:order])
   end
 
-  def contacts
+  def contacts; end
 
-  end
+  def lp; end
 
-  def lp
-  end
+  def prices; end
 
-  def prices
+  def about; end
 
-  end
+  def info; end
 
-  def about
+  def garant; end
 
-  end
-
-  def info
-
-  end
-
-  def garant
-
-  end
-
-  def faq
-  end
+  def faq; end
+  
+  
 end

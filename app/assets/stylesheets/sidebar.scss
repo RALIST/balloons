@@ -18,7 +18,6 @@
     margin-bottom: 0.5rem;
   }
   .navbar-nav {
-    padding-left: 0.7rem;
     background: $light;
 
     @include media-breakpoint-up(lg){
@@ -26,27 +25,64 @@
       background: none;
     }
     .small.nav-link {
+      padding-left: 0.7rem;
+      font-size: .75rem;
       color: transparentize($dark, 0.2);
-      &:hover, &:active{
-        color: $dark;
+      padding-left: .5rem;
+      &:before {
+        content: '';
+        position: relative;
+        left: -0.5rem;
+        height: 35px;
+        width: 2px;
+        background: transparent;
+        border-left: 4px solid transparent;
       }
+      &:hover{
+        color: $dark;
+        &:before {
+          content: '';
+          position: relative;
+          left: -0.5rem;
+          height: 35px;
+          width: 2px;
+          background: $brand-info;
+          border-left: 4px solid $lavander;
+        }
+      }
+    }
+  }
+  .h5 {
+    text-transform: uppercase;
+    font-size: 1rem;
+    padding-left: calc(0.5rem + 4px);
+    @extend .d-flex;
+    @extend .align-items-center;
+    svg {
+      margin-right: 0.5rem;
+      border: 1px solid $lavander;
+      padding: .25rem;
+      width: 1.5rem;
+      height: 1.5rem;
+      background: $lavander;
+      border-radius: .25rem;
     }
   }
   .h5.active {
     margin-bottom: 0;
     padding-bottom: 0;
+    color: $lavander !important;
   }
   .small.active {
-    color: $dark !important;
-    font-weight: bolder;
+    color: $lavander !important;
     &:before {
       content: '';
       position: relative;
-      left: -0.6rem;
+      left: -0.5rem;
       height: 35px;
       width: 2px;
       background: $brand-info;
-      border-left: 2px solid $brand-info;
+      border-left: 4px solid $lavander !important;
     }
   }
 }

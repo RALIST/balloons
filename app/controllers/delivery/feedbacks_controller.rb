@@ -1,5 +1,6 @@
 class Delivery::FeedbacksController < Delivery::DeliveryController
   before_action :set_feedback, only: %i[show edit update destroy]
+  before_action :disable_sidebar
 
   def index
     @feedbacks = Feedback.all

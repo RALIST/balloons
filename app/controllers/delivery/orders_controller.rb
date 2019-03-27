@@ -1,9 +1,9 @@
 class Delivery::OrdersController < Delivery::DeliveryController
   before_action :positions_in_cart, only: %i[new create]
+  before_action :disable_sidebar
 
   def new
     @order = Order.new
-    @disable_header = true
   end
 
   def create

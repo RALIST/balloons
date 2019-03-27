@@ -1,6 +1,6 @@
 class Delivery::SessionsController < Delivery::DeliveryController
+  before_action :disable_sidebar
   def new
-    @disable_header = true
     set_meta_tags title: 'Войти',
                   reverse: true,
                   description: 'Авторизируйтесь на сайте'

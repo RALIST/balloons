@@ -2,9 +2,11 @@
 .col-12.col-lg-2.sidebar-sticky
   = link_to '#', class: 'd-lg-none collapsed d-block text-center py-2 bg-light border-bottom', data:{toggle: 'collapse', target: '#sidebar'} do
     %i.fas.fa-ellipsis-h.fa-2x.text-info
-  %ul#sidebar.navbar-nav.flex-column.navbar-light.collapse
+  %ul#sidebar.navbar-nav.flex-column.navbar-light.collapse.align-items-center
     %li.nav-item
-      = active_link_to 'По праздникам', tags_path, class: 'nav-link h5'
+      = active_link_to tags_path, class: 'nav-link h5' do
+        %i.fas.fa-birthday-cake.fa-2x.text-white
+        По праздникам
     .collapse{class: ('show' if is_active_link?(tags_path))}
       - @tags.each do |tag|
         %li.nav-item

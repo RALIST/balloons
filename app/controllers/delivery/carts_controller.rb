@@ -1,4 +1,7 @@
 class Delivery::CartsController < Delivery::DeliveryController
+  
+  before_action :disable_sidebar
+  
   def index; end
 
   def show

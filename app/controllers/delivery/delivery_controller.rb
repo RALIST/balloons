@@ -18,6 +18,10 @@ class Delivery::DeliveryController < ApplicationController
 
 
   private
+  
+  def disable_sidebar
+    @disable_sidebar = true
+  end
 
   def set_location
     # @city = city_from_params || user_location || default_city

@@ -1,5 +1,5 @@
 .sidebar-sticky {
-  padding-top: 35px;
+  padding-top: 36px;
   @include media-breakpoint-up(lg){
     position: -webkit-sticky;
     position: sticky;
@@ -25,10 +25,9 @@
       background: none;
     }
     .small.nav-link {
-      padding-left: 0.7rem;
       font-size: .75rem;
       color: transparentize($dark, 0.2);
-      padding-left: .5rem;
+      padding-left: 2.5rem;
       &:before {
         content: '';
         position: relative;
@@ -53,7 +52,7 @@
     }
   }
   .h5 {
-    text-transform: uppercase;
+    //text-transform: uppercase;
     font-size: 1rem;
     padding-left: calc(0.5rem + 4px);
     @extend .d-flex;
@@ -64,7 +63,7 @@
       padding: .25rem;
       width: 1.5rem;
       height: 1.5rem;
-      background: $lavander;
+      //background: $lavander;
       border-radius: .25rem;
     }
   }
@@ -83,6 +82,26 @@
       width: 2px;
       background: $brand-info;
       border-left: 4px solid $lavander !important;
+    }
+  }
+  .h6 {
+    position: relative;
+    span {
+      padding: 0 0.5rem;
+      font-weight: 300;
+      position: relative;
+      background-color: $light;
+      text-transform: uppercase;
+    }
+    &:before{
+      content: '';
+      position: absolute;
+      height: 1px;
+      width: 100%;
+      top: 43%;
+      left: 0;
+      background-color: #dedede;
+      border-bottom: 2px solid #dee2e6;
     }
   }
 }

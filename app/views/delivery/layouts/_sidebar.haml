@@ -2,18 +2,35 @@
 .col-12.col-lg-2.sidebar-sticky
   = link_to '#', class: 'd-lg-none collapsed d-block text-center py-2 bg-light border-bottom', data:{toggle: 'collapse', target: '#sidebar'} do
     %i.fas.fa-ellipsis-h.fa-2x.text-info
-  %ul#sidebar.navbar-nav.flex-column.navbar-light.collapse.align-items-center
+  %ul#sidebar.navbar-nav.flex-column.navbar-light.collapse
+    .h6.text-center.text-muted
+      %span
+        Готовые композиции
     %li.nav-item
       = active_link_to tags_path, class: 'nav-link h5' do
-        %i.fas.fa-birthday-cake.fa-2x.text-white
+        %i.fas.fa-birthday-cake.text-info
         По праздникам
     .collapse{class: ('show' if is_active_link?(tags_path))}
       - @tags.each do |tag|
-        %li.nav-item
-          = active_link_to tag.name.capitalize,  tag_path(tag), class: 'nav-link small'
+        %li.nav-item= active_link_to tag.name.capitalize,  tag_path(tag), class: 'nav-link small'
     %li.nav-item
-      = active_link_to 'Кому', receivers_path, class: 'nav-link h5'
+      = active_link_to receivers_path, class: 'nav-link h5' do
+        %i.fas.fa-gifts.text-info
+        Кому
     .collapse{class: ('show' if is_active_link?(receivers_path))}
       - @menu_receivers.each do |r|
         %li.nav-item
           = active_link_to r.title.capitalize, receiver_path(r), class: 'nav-link small'
+    %li.nav-item
+      .h6.text-center.text-muted
+        %span
+          Гелиевые шары
+      = active_link_to products_path,  class: 'nav-link h5' do
+        %i.fas.fa-infinity.text-info
+        Гелиевые шары
+    .collapse{class: ('show' if is_active_link?(products_path))}
+      %li.nav-item
+        = active_link_to categories_path, class: 'nav-link small' do
+          По категориям
+        -#%i.fas.fa-caret-down
+      %li.nav-item= active_link_to 'По цветам', colors_path, class: 'nav-link small'

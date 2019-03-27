@@ -168,7 +168,8 @@
     padding-top: 0;
   }
   h1, h2 {
-    padding: 1.5rem 0;
+    padding-top: 0.5rem;
+    padding-bottom: 1.5rem;
     margin: 0;
     position: relative;
     @include media-breakpoint-down(md){
@@ -190,7 +191,7 @@
       top: 50%;
       left: 0;
       background-color: #dedede;
-      border-bottom: 1px solid #dee2e6;
+      border-bottom: 2px solid #dee2e6;
     }
   }
 

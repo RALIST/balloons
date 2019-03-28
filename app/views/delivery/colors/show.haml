@@ -1,9 +1,9 @@
 - breadcrumb :color, @color
-.container
-  %h1.h2.font-weight-bold.text-center
-    #{@color.name.chop.chop.capitalize + 'ые'} воздушные шары с доставкой в #{t("cities.#{@city}.where")}
-  %hr
+.container-fluid.c-list
+  %h1.h5.text-center
+    %span
+      #{@color.name.chop.chop.capitalize + 'ые'} воздушные шары
   .lead.text-center
     = link_to 'Назад', colors_path, class: 'btn btn-outline-dark mb-2'
-  .row
+  .card-columns
     = render @items_in_collection

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190215065151) do
+ActiveRecord::Schema.define(version: 20190328095423) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -230,8 +230,8 @@ ActiveRecord::Schema.define(version: 20190215065151) do
     t.float    "price"
     t.integer  "in_box"
     t.integer  "min_order"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.bigint   "barcode"
     t.string   "code"
     t.string   "name"
@@ -239,6 +239,8 @@ ActiveRecord::Schema.define(version: 20190215065151) do
     t.string   "img_content_type"
     t.integer  "img_file_size"
     t.datetime "img_updated_at"
+    t.float    "price_with_helium", default: 0.0
+    t.string   "complex_name"
     t.index ["item_id"], name: "index_products_on_item_id", using: :btree
     t.index ["size_id"], name: "index_products_on_size_id", using: :btree
   end

@@ -18,23 +18,23 @@ categories = ['с рисунком', 'без рисунка']
 textures = %W[\u043F\u0430\u0441\u0442\u0435\u043B\u044C \u043C\u0435\u0442\u0430\u043B\u043B\u0438\u043A \u043A\u0440\u0438\u0441\u0442\u0430\u043B\u043B \u043F\u0435\u0440\u043B\u0430\u043C\u0443\u0442\u0440 \u0441\u0443\u043F\u0435\u0440 \u0444\u044D\u0448\u043D]
 
 forms.each do |form|
-  FoilForm.find_or_create_by!(name: form)
+  FoilForm.find_or_create_by(name: form)
 end
 
 vendors.each do |vendor|
-  Vendor.find_or_create_by!(name: vendor)
+  Vendor.find_or_create_by(name: vendor)
 end
 
 types.each do |type|
-  Type.find_or_create_by!(name: type)
+  Type.find_or_create_by(name: type)
 end
 
 categories.each do |category|
-  Category.find_or_create_by!(title: category)
+  Category.find_or_create_by(title: category)
 end
 
 textures.each do |texture|
-  Texture.find_or_create_by!(name: texture)
+  Texture.find_or_create_by(name: texture)
 end
 
 xls = Roo::Spreadsheet.open('public/Размеры.xlsm', extension: :xlsm)
@@ -53,8 +53,8 @@ start_row = 2
   vendor = Vendor.find_by(name: xls.cell(row, 'A').strip.downcase)
   code = format('%03d', xls.cell(row, 'B'))
   name = xls.cell(row, 'C')
-  color = Color.find_or_create_by!(name: xls.cell(row, 'E'))
+  color = Color.find_or_create_by(name: xls.cell(row, 'E'))
   if vendor.present? && code.present? && name.present?
-    tone = Tone.find_or_create_by!(vendor: vendor, name: name, color: color, code: code)
+    tone = Tone.find_or_create_by(vendor: vendor, name: name, color: color, code: code)
   end
 end

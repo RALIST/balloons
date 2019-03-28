@@ -1,9 +1,5 @@
 
 
-$(document).on('ajaxSuccess', function(){
+$("#<%= @subposition.id%>").fadeOut();
+$('#subtotal').html('<%= j(render "delivery/carts/subtotal") %>');
 
-  $("row#<%= @subposition.id%>, div#<%= @subposition.id%>").fadeOut();
-  $('.subtotal').html('<%= j(render "delivery/carts/subtotal") %>');
-
-
-})

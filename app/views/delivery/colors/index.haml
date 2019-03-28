@@ -1,15 +1,7 @@
 - breadcrumb :colors
-.container
-  %h1.h2.font-weight-bold.text-center
-    Разноцветные воздушные шары с доставкой в #{t("cities.#{@city}.where")}
-  %hr
+.container-fluid.c-list
+  %h1.h5.text-center
+    %span
+      Воздушные шары по цветам
   .card-columns
-    - @colors.each do |color|
-      = link_to color_path(color) do
-        - unless color.name == 'ассорти'
-          - cache color do
-            .card
-              .card-body
-                .row.align-items-center
-                  .col-12
-                    = color.name.capitalize
+    = render @colors

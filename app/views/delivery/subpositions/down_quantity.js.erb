@@ -1,10 +1,9 @@
 <% unless @subposition.destroyed? %>
   $(document).on('ajaxSuccess', function(){
     $('#edit_subposition_<%=@subposition.id%> #subposition_quantity').val('<%= @subposition.quantity %>')
-    $('.subtotal').html('<%= j(render "delivery/carts/subtotal") %>')
-    $('.cart-link .badge span').html('<%= @cart.total_price %>');
+    $('#subtotal').html('<%= j(render "delivery/carts/subtotal") %>')
   });
 <% else %>
-  $('#edit_subposition_<%=@subposition.id%>').closest('tr', '.thumbnail').fadeOut();
+  $('#edit_subposition_<%=@subposition.id%>').closest('tr').fadeOut();
 <% end %>
 

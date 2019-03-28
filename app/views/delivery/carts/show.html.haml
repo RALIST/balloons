@@ -1,57 +1,18 @@
 - breadcrumb :cart
-
-.container
-  .row.cart.my-5
-    - if @cart.positions.any?
-      .cart-positions
-        %h2.border-bot В корзине
-        - @cart.positions.includes(:subpositions, :composition).each do |p|
-          %div{id: "position#{p.id}"}
-            .cart-position
-              .card
-                .card-header
-                  .row.justify-content-between.px-3
-                    %h5 В композицию входит
-                    .text-right
-                      = link_to remove_from_cart_path(p), method: :post, remote: true, data: {toggle: 'tooltip'}, title: 'Удалить из корзины' do
-                        %i.fa.fa-times#del-from-cart
-                .row.m-0
-                  .position-img.text-center.card-body
-                    = image_tag p.composition.img.url(:preview), class: 'img-fluid'
-                  .modal.fade{id: "position-modal-#{p.id}",  tabindex: "-1",  role: "dialog", class: 'position-modal'}
-                    .modal-dialog{role: "document"}
-                      .modal-content.container
-                        .modal-header
-                          .h1.modal-title
-                            Добавьте в композицию шары
-                            %br
-                            %small
-                              Выберите категорию
-                          %button{type: "button",  class: "close",  data: {dismiss: "modal"}}
-                            %span
-                              &times;
-                        .col-12.mb-1
-                          .input-group
-                            = text_field_tag :search,'', class: 'form-control', placeholder: 'Начните вводить название категории...'
-                            %span.input-group-append
-                              = button_tag(class: 'btn btn-info', id: 'clear-search') do
-                                %i.fa.fa-times
-                        %br
-                        .modal-body
-                          = render partial: 'category_list', locals: {p: p}
-
-                  .cart-subpositions.card-body
-                    .subpositions
-                      = render p.subpositions.includes(product: [:size,  :item, :tone]).order(:id)
-                .card-footer
-                  = link_to 'Добавить в композицию', '', class: 'btn btn-info btn-block', data:{ toggle: 'modal', target: "#position-modal-#{p.id}"}
-      .subtotal
+.container-fluid.c-list
+  - if @cart.positions.any?
+    .row
+      .col-12.col-lg-9
+        %h2.h5.text-center.mt-5.mt-lg-0
+          %span.text-uppercase В корзине
+        = render 'in_cart'
+      .col-12.col-lg-3#subtotal
         = render 'subtotal'
-    - else
-      .col-md-12
-        %h2
-          В вашей корзине пока ничего нет
-          %br
-          = link_to 'Добавить в корзину', root_path, class: 'btn btn-info'
+  - else
+    .col-md-12
+      %h2
+        В вашей корзине пока ничего нет
+        %br
+        = link_to 'Добавить в корзину', root_path, class: 'btn btn-info'
 
 

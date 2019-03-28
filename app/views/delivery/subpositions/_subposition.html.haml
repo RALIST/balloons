@@ -1,22 +1,23 @@
-.row.align-items-center.cart-subposition{id: "#{subposition.id}"}
-  - product = subposition.product
-  .product-name{data: {product_id: "#{subposition.product.id}", content: "#{subposition.product.complex_name}"}}
-    %span{style: 'cursor: pointer;'}
-      = image_tag product.img(:small)
-  .product-quantity
+- product = subposition.product
+%tr.text-center{id: "#{subposition.id}"}
+  %td{data: {toggle: 'popover', product_id: "#{subposition.product.id}", content: "#{subposition.product.complex_name}", title: "#{subposition.product.complex_name}"}}
+    = image_tag product.img(:small)
+  %td.align-middle.small
+    = subposition.product.complex_name
+  %td.align-middle.px-lg-5
     = form_for subposition, class: 'form-inline', remote: true do |f|
       .input-group
         .input-group-prepend
-          = link_to add_quantity_path(subposition), method: :post, remote: true, class: "sub-#{subposition.id} btn btn-info" do
+          = link_to add_quantity_path(subposition), method: :post, remote: true, class: "sub-#{subposition.id} btn btn-info btn-sm" do
             %i.fas.fa-plus
         = f.number_field :quantity, class: 'form-control form-control-sm text-center'
         .input-group-append
-          = link_to down_quantity_path(subposition), method: :post, remote: true, class: "sub-#{subposition.id} btn btn-info" do
+          = link_to down_quantity_path(subposition), method: :post, remote: true, class: "sub-#{subposition.id} btn btn-info btn-sm" do
             %i.fas.fa-minus
-  .product-price.text-center
+  %td.align-middle
     по
-    = product.price_with_helium
-    руб.
-  .remove-subposition.text-center
+    = product.price_with_helium.round(0)
+    %i.fas.fa-ruble-sign
+  %td.text-center.align-middle
     = link_to subposition_path(subposition), method: :delete, remote: true, data: {toggle: 'tooltip'}, title: 'Удалить из композиции' do
-      %i.fa.fa-times
+      %i.fa.fa-times.text-danger

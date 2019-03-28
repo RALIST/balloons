@@ -3,9 +3,10 @@
   = link_to '#', class: 'd-lg-none collapsed d-block text-center py-2 bg-light border-bottom', data:{toggle: 'collapse', target: '#sidebar'} do
     %i.fas.fa-ellipsis-h.fa-2x.text-info
   %ul#sidebar.navbar-nav.flex-column.navbar-light.collapse
-    .h6.text-center.text-muted
+    .sidebar-heading.text-center.text-muted
       %span
         Готовые композиции
+    %hr.my-1
     %li.nav-item
       = active_link_to tags_path, class: 'nav-link h5' do
         %i.fas.fa-birthday-cake.text-info
@@ -22,9 +23,10 @@
         %li.nav-item
           = active_link_to r.title.capitalize, receiver_path(r), class: 'nav-link small'
     %li.nav-item
-      .h6.text-center.text-muted
+      .sidebar-heading.text-center.text-muted
         %span
           Гелиевые шары
+      %hr.my-1
       = active_link_to products_path,  class: 'nav-link h5' do
         %i.fas.fa-infinity.text-info
         Гелиевые шары

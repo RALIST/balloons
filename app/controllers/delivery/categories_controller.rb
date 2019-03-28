@@ -3,13 +3,13 @@ class Delivery::CategoriesController < Delivery::DeliveryController
   def index
     set_meta_tags title: 'Воздушные шары любой тематики с доставкой в %{city} | Шариковая фея' % {city: t("cities.#{@city}.where")},
                   description: 'Воздушные шары с рисунком - это лучший способ порадовать ребенка! Персонажи любимых мультфильмов, цветы, смайлы и многое другое в ассортименте нашего магазина!'
-    @categories = Subcategory.includes(:image).availible.select(:id, :name, :slug, :updated_at).order(:name)
+    @categories = Rails.cache.fetch('select_categories', expires_in: 1.day) {Subcategory.joins(:products).where.not(products: {price_with_helium: 0}).distinct(:name).group('subcategories.id').select("subcategories.slug, subcategories.name, subcategories.id, COUNT(products.id) as total")}
   end
 
   def show
     @category = Subcategory.friendly.find(params[:id])
-    products = @category.products.includes(item: [:tone, :texture])
-    @items_in_collection = products.availible_products.order(:name)
+    products = Rails.cache.fetch("category#{@category_id}_products") {@category.products.availible_products}
+    @items_in_collection = products
     set_meta_tags title: "Заказать воздушные шары '#{@category.name.capitalize}' с доставкой в %{city} | Шариковая фея" % {city: t("cities.#{@city}.where")},
                   description: "Воздушные шары из коллекции '#{@category.name.capitalize}' сделают ваш праздник незабываемым!"
   end

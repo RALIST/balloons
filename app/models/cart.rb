@@ -3,7 +3,8 @@ class Cart < ApplicationRecord
   has_many :items, through: :positions
   has_many :compositions, through: :positions
   has_many :positions, dependent: :destroy
-  has_many :subpositions
+  has_many :subpositions, through: :positions
+  has_many :products, through: :subpositions
 
   def total_price
     total = 0

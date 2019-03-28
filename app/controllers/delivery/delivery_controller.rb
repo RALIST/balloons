@@ -12,8 +12,8 @@ class Delivery::DeliveryController < ApplicationController
 
 
   def set_tags
-    @tags = Tag.joins(:compositions).group(:id).order('COUNT (compositions.id) DESC')
-    @menu_receivers = Receiver.all.includes(:image).select('distinct on (title) *')
+    @tags = Rails.cache.fetch('tags', expires_in: 12.hours) { Tag.joins(:compositions).distinct }
+    @menu_receivers = Rails.cache.fetch('receivers', expires_in: 12.hours) {Receiver.joins(:compositions).distinct}
   end
 
 
@@ -21,6 +21,7 @@ class Delivery::DeliveryController < ApplicationController
   
   def disable_sidebar
     @disable_sidebar = true
+    @disable_help = true
   end
 
   def set_location

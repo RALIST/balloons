@@ -1,11 +1,8 @@
 - breadcrumb :categories
-.container
-  %h1.h2.font-weight-bold.text-center
-    Коллекции воздушных шаров по тематике
-    .small.text-muted
-      Воздушные шары с персонажами любимых мультфильмов на любой праздник с доставкой в #{t("cities.#{@city}.where")}
-  %hr
-
+.container-fluid.c-list
+  %h1.h5.font-weight-bold.text-center
+    %span
+      Воздушные шары по тематике
   .row
     .col-12.my-3
       .input-group
@@ -13,10 +10,6 @@
         %span.input-group-append
           = button_tag(class: 'btn btn-info', id: 'clear-search', title: 'Очистить') do
             %i.fa.fa-times
-    - @categories.each do |category|
-      - cache category do
-        .col-6.col-lg-3.my-2
-          = link_to category_path(category) do
-            %span.as_btn{data: {toggle: 'tooltip'}, title: "#{image_tag category.products.first.img(:small)}"}
-              = category.name.capitalize
-              (#{category.products.count})
+  .card-columns
+    = render partial: 'delivery/categories/category', collection:  @categories
+

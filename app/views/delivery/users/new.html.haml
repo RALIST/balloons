@@ -1,1 +1,30 @@
-= render 'form'
+- breadcrumb :signup
+.container-fluid.c-list
+  %h2.h5.text-center.mt-5.mt-lg-0
+    %span.text-uppercase
+      Регистрация
+  .row.align-items-center
+    .col-4.d-none.d-lg-block
+      = link_to root_path do
+        = image_tag 'logo2.png', class: 'img-fluid'
+    .col-12.col-lg-6
+      = form_for @user, html: {class: 'form-horizontal'}  do |f|
+        .form-group
+          = f.label 'Ваше имя', class: 'lable-control'
+          .input-group
+            %span.input-group-prepend
+              %span.input-group-text.bg-info
+                %i.fa.fa-user{style: 'aria-hidden="true"'}
+            = f.text_field :password, class: 'form-control',  required: true
+        .form-group
+          = f.label "Номер телефона", class: 'lable-control'
+          .input-group
+            %span.input-group-prepend
+              %span.input-group-text.bg-info
+                %i.fa.fa-phone{style: 'aria-hidden="true"'}
+            = f.telephone_field :phone, data:{ mask: '+7 (999) 999 99 99' },  class: 'form-control', required: true
+        .form-group
+          = f.submit 'Зарегистрироваться', class: 'btn btn-success btn-block'
+          .text-center.mt-3
+            Уже есть аккаунт?
+            = link_to 'Войдите', login_path

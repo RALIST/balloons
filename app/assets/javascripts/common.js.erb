@@ -80,7 +80,7 @@ $(document).on('mouseenter touchstart', '[data-product-id], [data-item-id]' , fu
       container: 'body',
       animation: false,
       content: function(){
-        var name = $(this).closest('.item, .product-name').data('content');
+        var name = $(this).closest('td').data('content');
         return name;
       }
     });

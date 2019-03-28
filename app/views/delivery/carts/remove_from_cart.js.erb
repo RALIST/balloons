@@ -4,7 +4,6 @@ $('.subtotal').html('<%= j(render "subtotal") %>');
 $('.cart-link .badge span').html('<%= @cart.total_price %>');
 <% if @cart.positions.any? %>
   $('#icon-wrapper .badge').html('<%= @cart.positions.count %>');
-  $('#responsive').html('<%= j(render "delivery/layouts/resp_menu")%>');
 <% else %>
   $('#icon-wrapper .badge span').hide();
   $('.cart').html('<h2> В вашей корзине пока ничего нет!<br><a class="btn btn-info" href="/">Добавить в корзину</a></h2>')

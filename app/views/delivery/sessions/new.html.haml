@@ -1,1 +1,61 @@
-= render 'form'
+- breadcrumb :signin
+.container-fluid.c-list
+  %h2.h5.text-center.mt-5.mt-lg-0
+    %span.text-uppercase Войдите
+  .row.align-items-center
+    .col-4.d-none.d-lg-block
+      = link_to root_path do
+        = image_tag 'logo2.png', class: 'img-fluid'
+    .col-lg-6.col-12
+      = form_tag sessions_path,  method: :post, class: 'form-horizontal' do
+        .form-group
+          = label_tag '', 'Номер телефона', class: 'lable-control'
+          .input-group
+            .input-group-prepend
+              %span.input-group-text.bg-info
+                %i.fa.fa-phone{style: 'aria-hidden="true"'}
+            = telephone_field_tag :phone, nil, data:{ mask: '+7 (999) 999 99 99' },  class: 'form-control', required: true
+        .form-group
+          = label_tag '', 'Пароль', class: 'lable-control'
+          .input-group
+            .input-group-prepend
+              %span.input-group-text.bg-info
+                %i.fa.fa-key{style: 'aria-hidden="true"'}
+            = password_field_tag :password, '', class: 'form-control', required: true
+        .form-group
+          .form-check
+            %label
+              = check_box_tag :remember_me
+              Запомнить меня
+        .form-group
+          = submit_tag 'Войти', class: 'btn btn-success btn-block'
+          .text-center.mt-3
+            Забыли пароль?
+            = link_to 'Восстановить', '#', data: {toggle: 'modal', target: '#fogot_password'}
+            %br
+            Нет аккаунта?
+            = link_to 'Регистрация', signin_path
+
+.modal.fade{id: "fogot_password",  tabindex: "-1",  role: "dialog"}
+  .modal-dialog#call{role: "document"}
+    .modal-content
+      .modal-header
+        %h3.modal-title
+        %button.close{data: {dismiss: "modal"}, style: 'aria-label: "Close"'}
+          %span
+            &times;
+      .modal-body
+        .container-fluid
+          %h2.h5.text-center.mb-3 Восстановление пароля
+          .row.align-items-center.justify-content-center
+            .col-12
+              = form_tag fogot_password_path do
+                .form-group.text-center
+                  = label_tag '', 'Отправим новый пароль вам на телефон', class: 'lable-control'
+                  .input-group
+                    .input-group-prepend
+                      %span.input-group-text.bg-info
+                        %i.fa.fa-phone{style: 'aria-hidden="true"'}
+                    = telephone_field_tag :phone, nil, data:{ mask: '+7 (999) 999 99 99' },  class: 'form-control', required: true, id: 'recover_phone'
+                .form-group
+                  = submit_tag 'Отправить пароль', class: 'btn btn-success btn-block'

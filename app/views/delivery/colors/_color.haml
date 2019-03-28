@@ -1,0 +1,7 @@
+- cache color do
+  = link_to color_path(color) do
+    .card.as_btn.h-100.justify-content-center.bg-lavander
+      .card-body.justify-self-center
+        = color.name.capitalize
+        .small.text-muted
+          В коллекции: #{color.total}  #{Russian.p(color.total, "шарик", "шарика", "шариков")}

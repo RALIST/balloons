@@ -3,8 +3,11 @@ class Delivery::ProductsController < Delivery::DeliveryController
     set_meta_tags title: "Гелиевые шары с доставкой в %{city} | Шариковая фея " % {city: t("cities.#{@city}.where")},
                   description: "Большой выбор гелиевых шаров с доставкой в %{city} от Шариковой феи наполнит ваш праздник атмосферой радости!" % {city: t("cities.#{@city}.where")},
                   keywords: 'гелиевые шары, воздушные шары с доставкой'
-    @colors = Color.includes(:image).select(:name, :slug, :id, :updated_at)
-    @categories = Subcategory.includes(:image).joins(items: [:type, :sizes]).where('types.name = ? OR types.name = ?', 'латексные шары', 'фольгированные шары')
-                              .select(:name, :slug, :id, :updated_at).distinct
+
+
+    @colors = Rails.cache.fetch('select_colors', expires_in: 1.day) {Color.joins(:products).where.not(products: {price_with_helium: 0}).distinct(:name).group('colors.id').select("colors.slug,colors.name, colors.id, COUNT(products.id) as total")}
+
+
+    @categories = Rails.cache.fetch('select_categories', expires_in: 1.day) {Subcategory.joins(:products).where.not(products: {price_with_helium: 0}).distinct(:name).group('subcategories.id').select("subcategories.slug, subcategories.name, subcategories.id, COUNT(products.id) as total")}
   end
 end

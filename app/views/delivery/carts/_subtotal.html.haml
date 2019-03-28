@@ -1,68 +1,68 @@
-.container
-  %h2.border-bot Итог:
-  .d-flex.px-3
-    .subtotal-col.text-left
-      Всего в корзине
-    .subtotal-col.text-right
-      = pluralize(@cart.positions.count, 'товар', 'товара')
-  .d-flex.px-3
-    .subtotal-col.text-left
-      Сумма
-    .subtotal-col.text-right
-      = @cart.total_price
+
+%h2.h5.text-center
+  %span.text-uppercase Итог
+.row.my-2
+  .col-8.text-left
+    Сумма
+  .col-4.text-right
+    = @cart.total_price.round(0)
+    %i.fas.fa-ruble-sign
+.row.my-2
+  .col-8.text-left
+    Ваша скидка
+  .col-4.text-right
+    - if current_user
+      #{number_to_percentage(current_user.discount + @cart.used_code_discount, precision: 2)}
+      (#{@cart.user_discount}
       %i.fas.fa-ruble-sign
-  .d-flex.px-3
-    .subtotal-col.text-left
-      Ваша скидка:
-    .subtotal-col.text-right
-      - if current_user
-        #{number_to_percentage(current_user.discount + @cart.used_code_discount, precision: 2)}
-        (#{@cart.user_discount}
-        %i.fas.fa-ruble-sign
-        )
-      - else
-        = link_to 'Войдите', login_path
-  .d-flex.px-3
-    .subtotal-col.text-left
-      - to_delivery = 1200 - @cart.total_price
-      Доставка
-    .subtotal-col.text-right
-      = to_delivery > 0 ? 300 : 0
-      %i.fas.fa-ruble-sign
-  %hr.my-2
-  .d-flex.border-botom.px-3.lead
-    .subtotal-col.text-left
-      %strong
-        Всего к оплате:
-    .subtotal-col.text-right
-      %strong
-        = @cart.total_with_discounts.round(0)
-        %i.fas.fa-ruble-sign
-  .text-center.my-3
-    = link_to 'Использовать промокод', '#', data:{toggle: 'collapse', target: '#code'}, class: 'text-muted'
-  #code.collapse.my-3
-    - unless @cart.used_code_discount > 1
-      = form_tag apply_code_path, method: :post do
-        .d-flex.align-items-center.px-3
-          .subtotal-col.text-left
-            = text_field_tag :code, '', class: 'form-control form-control-sm input-sm', placeholder: 'Промо код'
-          .subtotal-col.text-right
-            = submit_tag 'Применить', class: 'btn btn-info btn-sm'
+      )
     - else
-      .text-success.text-center
-        Вы использовали промокод на скидку
-        #{@cart.used_code_discount}%
-  / .row.text-muted.text-right
-  /   .subtotal-col.mt-0= link_to 'Как получить?'
-  .d-flex
-    .col-12.text-center
-      = link_to 'Оформить заказ', new_order_path, class: 'btn btn-success btn-block btn-lg'
-  .text-center.text-muted
-    - if to_delivery > 0
-      Ещё
-      %strong
-        #{to_delivery.round(2)}
-        %i.fas.fa-ruble-sign
-      до бесплатной доставки
-    -else
-      Бесплатная доставка в любой конец города!
+      = link_to 'Войдите', login_path, class: 'small'
+.row.my-2
+  .col-8.text-left
+    - to_delivery = 1500 - @cart.total_price
+    Доставка
+  .col-4.text-right
+    = to_delivery > 0 ? 300 : 0
+    %i.fas.fa-ruble-sign
+%hr.my-2
+.row.my-2
+  .col-8.text-left
+    %strong
+      К оплате:
+  .col-4.text-right
+    %strong
+      = @cart.total_with_discounts.round(2)
+      %i.fas.fa-ruble-sign
+.text-center.my-3.text-muted
+  = link_to 'Использовать промокод', '#', data:{toggle: 'collapse', target: '#code'}, class: 'text-muted'
+#code.collapse.my-3
+  - unless @cart.used_code_discount > 1
+    = form_tag apply_code_path, method: :post do
+      .row
+        .col-8.text-left
+          = text_field_tag :code, '', class: 'form-control form-control-sm input-sm', placeholder: 'Промо код', required: true
+        .col-4.text-right
+          = button_tag type: 'submit',  class: 'btn btn-info btn-sm btn-block' do
+            %i.fas.fa-check
+  - else
+    .text-success.text-center
+      Вы использовали промокод на скидку
+      #{@cart.used_code_discount}%
+/ .row.text-muted.text-right
+/   .subtotal-col.mt-0= link_to 'Как получить?'
+.text-center
+  = link_to 'Оформить заказ', new_order_path, class: (@cart.total_with_discounts.round(0) < 1000 ? 'btn btn-success btn-block disabled' : 'btn btn-success btn-block')
+.small.text-muted.text-center
+  - if @cart.total_with_discounts.round(0) < 1000
+    Минимальная сумма заказа 1000
+    %i.fas.fa-ruble-sign
+    %br
+  - if to_delivery > 0
+    Ещё
+    %strong
+      #{to_delivery.round(2)}
+      %i.fas.fa-ruble-sign
+    до бесплатной доставки
+  -else
+    Бесплатная доставка в любой конец города!

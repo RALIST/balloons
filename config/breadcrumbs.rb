@@ -2,6 +2,14 @@ crumb :root do
   link "Главная", root_path
 end
 
+crumb :signup do
+  link 'Регистрация', new_user_path
+end
+
+crumb :signin do
+  link 'Войдите', new_session_path
+end
+
 crumb :composition do |c|
   if params[:tag_id]
     link "Композиция №#{c.id}", tag_composition_path(c)

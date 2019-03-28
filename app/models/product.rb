@@ -29,43 +29,43 @@ class Product < ApplicationRecord
 
   attr_reader :img_remote_url
   before_save :set_image
+  after_find :calc_price_with_helium, :set_complex_name
 
   scope :search, ->(word) { where('lower(products.name) LIKE ? ', "%#{word}%").distinct.availible_products }
 
 
   def in_cart?(cart)
-    if cart.positions.any?
-      cart.positions.each do |p|
-        return p.subpositions.where(product: self).any?
-      end
-    end
+    cart.products.include?(self)
   end
 
 
   def set_image
-    if tone && type.name != 'фольгированные шары' && type.name != 'товары для композиций' && self.size.in_inch != 36
+    if tone && size && type.name != 'фольгированные шары' && type.name != 'товары для композиций' && self.size.in_inch != 36
       self.img = tone.img if tone.img.present?
     else
       get_image unless self.img.present?
     end
   end
 
-  def complex_name
-    case type.name
-    when 'латексные шары'
-      size_name = size ? "#{size.in_inch.to_i}''(#{size.in_cm.to_i}см) " : ""
-      tone_name = tone ? " #{texture.name} #{tone.name}" : ""
-      if !size_name.blank? && !tone_name.blank?
-        size_name + tone_name
-      else
-        size_name + item.name.gsub(/[\d+,()\/.']|\bшт[.|\b]|\bсм\b|\bст\b/, '')
+  def set_complex_name
+    if self.complex_name.blank?
+      case type.name
+      when 'латексные шары'
+        size_name = size ? "#{size.in_inch.to_i}''(#{size.in_cm.to_i}см) " : ""
+        tone_name = tone ? " #{texture.name} #{tone.name}" : ""
+        if !size_name.blank? && !tone_name.blank?
+          self.complex_name = size_name + tone_name
+        else
+          self.complex_name = size_name + item.name.gsub(/[\d+,()\/.']|\bшт[.|\b]|\bсм\b|\bст\b/, '')
+        end
+      when 'фольгированные шары'
+        size_name = size ? "#{size.in_inch.to_i}''(#{size.in_cm.to_i}см) " : ''
+        item_name = item ? item.name.gsub(/[\w',()\/]|\bшт[.|\b]|\bсм\b|\bст\b/, '') : ''
+        self.complex_name = size_name + item_name
+      when 'разное'
+        self.complex_name = name.present? ? name.capitalize : ''
       end
-    when 'фольгированные шары'
-      size_name = size ? "#{size.in_inch.to_i}''(#{size.in_cm.to_i}см) " : ''
-      item_name = item ? item.name.gsub(/[\w',()\/]|\bшт[.|\b]|\bсм\b|\bст\b/, '') : ''
-      name = size_name + item_name
-    when 'разное'
-      name.present? ? name.capitalize : ''
+      self.save
     end
   end
 
@@ -169,32 +169,35 @@ class Product < ApplicationRecord
     end
   end
 
-  def price_with_helium
-    if type.name == 'латексные шары' && size
-      size.value
-    elsif type.name == 'разное'
-      self.price.to_i
-    else
-      if foil_form && size
-        case foil_form.name
-          when 'звезда', 'круг', 'сердце', 'квадрат'
-            if size.in_inch < 32
-              200
-            else
-              600
-            end
-          when 'цифра'
-            700
-          when 'фигура'
-            if size.in_inch < 40
-              450
-            else
-              550
-            end
-          when 'ходячая', 'ходячая фигура'
-            2500
+  def calc_price_with_helium
+    unless self.price_with_helium > 0
+      if type.name == 'латексные шары' && size
+        self.price_with_helium = size.value
+      elsif type.name == 'разное'
+        self.price_with_helium = self.price.to_i
+      else
+        if foil_form && size
+          case foil_form.name
+            when 'звезда', 'круг', 'сердце', 'квадрат'
+              if size.in_inch < 32
+                self.price_with_helium = 200
+              else
+                self.price_with_helium = 600
+              end
+            when 'цифра'
+              self.price_with_helium = 700
+            when 'фигура'
+              if size.in_inch < 40
+                self.price_with_helium =  450
+              else
+                self.price_with_helium = 550
+              end
+            when 'ходячая', 'ходячая фигура'
+              self.price_with_helium = 2500
+          end
         end
       end
+      self.save
     end
   end
 
@@ -207,7 +210,7 @@ class Product < ApplicationRecord
   end
 
   def self.availible_products
-    joins(:size).includes(:item, :type, :tone, :size, :foil_form).where(' sizes.in_inch >= ?', 12)
+    where('price_with_helium > 0', 0)
   end
 
   # delegate :special?, to: :item

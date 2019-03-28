@@ -71,7 +71,7 @@ Rails.application.routes.draw do
       post '/add_to_cart/:id',              to: 'carts#add_to_cart',        as: :add_to_cart
       post '/add_product_to_cart/:id',  to: 'carts#add_product_to_cart',    as: :add_product_to_cart
       post '/apply_code',               to: 'carts#apply_code',             as: :apply_code
-      post '/remove_from_cart/:id',     to: 'carts#remove_from_cart',       as: :remove_from_cart
+      delete '/remove_from_cart/:id',     to: 'carts#remove_from_cart',       as: :remove_from_cart
       post '/add_quantity/:id',         to: 'subpositions#up_quantity',     as: :add_quantity
       post '/down_quantity/:id',        to: 'subpositions#down_quantity',   as: :down_quantity
       post '/add_subposition',          to: 'subpositions#add_subposition', as: :add_subposition

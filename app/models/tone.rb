@@ -5,9 +5,11 @@ class Tone < ApplicationRecord
   validates :name, :code, presence: true
   validates :code, uniqueness: { scope: :vendor_id }
 
-  has_attached_file :img, styles: { small: 'x100', thumb: 'x300' }
+  has_attached_file :img,
+                    processors: [:thumbnail, :compression],
+                    styles: { small: ['x100', :webp], thumb: ['x300', :webp] }
   validates_attachment_content_type :img,
-                                    content_type: ['image/jpeg', 'image/jpg', 'image/png']
+                                    content_type: ['image/jpeg', 'image/jpg', 'image/png', 'image/webp']
 
   before_save :sanitize, :set_image
 
@@ -27,7 +29,6 @@ class Tone < ApplicationRecord
   end
 
   def set_image
-
     if !img.present?
       if File.exist?("#{Rails.root}/public/#{vendor.name}/#{code + '.png'}")
         self.img = File.open("#{Rails.root}/public/#{vendor.name}/#{code + '.png'}")

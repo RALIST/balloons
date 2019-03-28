@@ -275,6 +275,7 @@ ActiveRecord::Schema.define(version: 20190328095423) do
     t.float    "in_inch"
     t.float    "in_cm"
     t.integer  "belbal"
+    t.integer  "value"
     t.index ["vendor_id"], name: "index_sizes_on_vendor_id", using: :btree
   end
 
@@ -384,6 +385,7 @@ ActiveRecord::Schema.define(version: 20190328095423) do
   add_foreign_key "positions", "items"
   add_foreign_key "positions", "orders"
   add_foreign_key "products", "items"
+  add_foreign_key "products", "sizes"
   add_foreign_key "subpositions", "positions"
   add_foreign_key "subpositions", "products"
   add_foreign_key "tones", "colors"

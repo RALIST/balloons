@@ -180,19 +180,19 @@
       padding: 0 0.5rem;
       font-weight: 600;
       position: relative;
-      background-color: white;
+      text-transform: uppercase;
     }
 
-    &:before{
-      content: '';
-      position: absolute;
-      height: 1px;
-      width: 100%;
-      top: 50%;
-      left: 0;
-      background-color: #dedede;
-      border-bottom: 2px solid #dee2e6;
-    }
+    //&:before{
+    //  content: '';
+    //  position: absolute;
+    //  height: 1px;
+    //  width: 100%;
+    //  top: 50%;
+    //  left: 0;
+    //  background-color: #dedede;
+    //  border-bottom: 2px solid #dee2e6;
+    //}
   }
 
 }

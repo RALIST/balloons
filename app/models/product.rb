@@ -18,17 +18,16 @@ class Product < ApplicationRecord
   validates :item_id, presence: true
   validates :name, uniqueness: true, presence: true
 
-  has_attached_file :img, styles: { small: 'x100', thumb: 'x300' },
-                          convert_options: {
-                                  small: '-quality 75 -strip  -interlace Plane',
-                                  thumb: '-quality 75 -strip -interlace Plane'
-                         }
+  has_attached_file :img,
+                    processors: [:thumbnail, :compression],
+                    styles: { small: ['x100', :webp], thumb: ['x300',
+                                                                                                            :webp] }
   validates_attachment_content_type :img,
-                                    content_type: ['image/jpeg', 'image/jpg', 'image/png'],
+                                    content_type: ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'],
                                     default_url: '/missing/:style/missing.png'
 
   attr_reader :img_remote_url
-  before_save :set_image
+  # before_save :set_image
   after_find :calc_price_with_helium, :set_complex_name
 
   scope :search, ->(word) { where('lower(products.name) LIKE ? ', "%#{word}%").distinct.availible_products }
@@ -141,6 +140,7 @@ class Product < ApplicationRecord
     arr
   end
 
+  
   def img_remote_url=(url)
     begin
     self.img = URI.parse(url)
@@ -170,7 +170,7 @@ class Product < ApplicationRecord
   end
 
   def calc_price_with_helium
-    unless self.price_with_helium > 0
+    unless self.price_with_helium.present? &&  self.price_with_helium > 0
       if type.name == 'латексные шары' && size
         self.price_with_helium = size.value
       elsif type.name == 'разное'
@@ -210,7 +210,7 @@ class Product < ApplicationRecord
   end
 
   def self.availible_products
-    where('price_with_helium > 0', 0)
+    left_outer_joins(:size).where('price_with_helium > ? AND sizes.in_inch > ?', 0, 12)
   end
 
   # delegate :special?, to: :item

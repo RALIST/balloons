@@ -6,37 +6,38 @@
     .col-12.col-lg-6
       -#.lead.strong.text-uppercase.mb-0.text-center
       -#  Состав композиции
-      #products
-        %table.table.table-sm.table-borderless
-          %thead.border-bottom.border
+      #products.card
+        %table.table.table-borderless
+          %thead
             %tr
               %th.text-center
                 Шар
               %th.text-center
-                Цена
-              %th.text-center
                 Количество
+              %th.text-center
+                Цена
           %tbody
             - @products.each do |product|
-              %tr.border-bottom.item.text-center{data: {item_id: "#{product.id}", content: "#{product.complex_name}" }}
-                %td.text-center.align-middle
+              %tr.item.text-center
+                %td.text-center.align-middle{data: {item_id: "#{product.id}", content: "#{product.complex_name}" }}
                   %span{style: 'border-bottom: 1px dashed black; cursor: pointer;'}
                     = image_tag product.img(:small), alt: 'Воздушный шар' + " " + product.complex_name
                 %td.h5.strong.align-middle
-                  = product.price_with_helium
-                  %small
-                    руб.
-                %td.h5.strong.align-middle
-                  = composition.products.where(id: product.id).length
+                  = composition.products.where(id: product.id).count
                   %small
                     шт.
+                %td.h5.strong.align-middle
+                  = product.price_with_helium.round(0)
+                  %small
+                    руб.
+                
         #more.text-center.w-100.lead.with-grad{style: 'cursor: pointer; line-height: 0.3rem;'}
           .small.lead
             Показать все
           %br
           %i.fa.fa-chevron-down
-      #total.row.align-items-center.rounded.py-3.mt-3
-        .col-6.text-center
+      #total.row.align-items-center
+        .col-12.text-center.my-2
           %span.text-uppercase.text-left.mr-1.text-lavender
             Итого:
           %span.text-right.h2{itemprop: 'price'}
@@ -44,7 +45,7 @@
           %span{itemprop: 'priceCurrency', content: 'RUB'}
             руб.
           %link{itemprop: 'availability', href: 'http://schema.org/Preorder'}
-        .col-6
+        .col-12.text-right
           - unless @cart.compositions.include?(composition)
             = link_to 'Добавить в корзину', add_to_cart_path(composition), class: "btn btn-info btn-block btn-sm add-to-cart#{composition.id}", id: 'ga-add-to-cart', data: {disable_with: 'Добавляем...', turbolinks: false}, remote: true, method: :post
           - else

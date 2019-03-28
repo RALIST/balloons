@@ -68,7 +68,7 @@ class Delivery::DeliveryController < ApplicationController
         cookies.permanent[:cart_id] = @cart.id
         current_user.cart = @cart
       else
-        @cart = current_user.cart
+        @cart = current_user.cart.includes(:positions)
       end
     else
       @cart = Cart.find(cookies[:cart_id])

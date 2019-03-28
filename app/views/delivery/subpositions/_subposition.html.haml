@@ -2,7 +2,7 @@
 %tr.text-center{id: "#{subposition.id}"}
   %td{data: {toggle: 'popover', product_id: "#{subposition.product.id}", content: "#{subposition.product.complex_name}", title: "#{subposition.product.complex_name}"}}
     = image_tag product.img(:small)
-  %td.align-middle.small
+  %td.align-middle.small.d-none.d-lg-table-cell
     = subposition.product.complex_name
   %td.align-middle.px-lg-5
     = form_for subposition, class: 'form-inline', remote: true do |f|

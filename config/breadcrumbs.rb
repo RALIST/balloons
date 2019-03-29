@@ -108,12 +108,12 @@ crumb :feedbacks do
 end
 
 crumb :kg do
-  link 'Выпускной из садика', kg_path
+  link 'Выпускной из садика', kg_tags_path
   parent :root
 end
 
 crumb :school do
-  link 'Выпускной из школы', school_path
+  link 'Выпускной из школы', school_tags_path
   parent :root
 end
 

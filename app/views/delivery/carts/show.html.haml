@@ -10,9 +10,10 @@
         = render 'subtotal'
   - else
     .col-md-12
-      %h2
-        В вашей корзине пока ничего нет
-        %br
+      %h2.h5.text-center
+        %span
+          В вашей корзине пока ничего нет
+      .my-3.text-center
         = link_to 'Добавить в корзину', tags_path, class: 'btn btn-info'
 
 

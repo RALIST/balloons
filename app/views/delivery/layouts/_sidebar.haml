@@ -19,6 +19,10 @@
     .collapse{class: ('show' if is_active_link?(tags_path))}
       - @tags.each do |tag|
         %li.nav-item= active_link_to tag.name.capitalize,  tag_path(tag), class: 'nav-link small'
+      %li.nav-item
+        = active_link_to 'Выпускной из садика', kg_tags_path, class: 'nav-link small'
+      %li.nav-item
+        = active_link_to 'Выпускной из школы', school_tags_path, class: 'nav-link small'
     %li.nav-item
       = active_link_to receivers_path, class: 'nav-link h5' do
         %i.fas.fa-gifts.text-info

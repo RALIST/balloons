@@ -44,6 +44,10 @@ Rails.application.routes.draw do
       resources :compositions,  only: %i[index show]
       resources :tags, path: 'events' do
         resources :compositions, only: :show, path: ''
+        collection do
+          get 'vypusknoi-iz-sadika', to: 'graduations#kg', as: :kg
+          get 'vypusknoi-iz-shkoly', to: 'graduations#school', as: :school
+        end
       end
       scope'gelievie-shary' do
         resources :colors
@@ -64,8 +68,6 @@ Rails.application.routes.draw do
       end
       resources :feedbacks, only: %i[index new create], path: 'otzivy'
       scope '/graduations' do
-        get 'sadik', to: 'graduations#kg', as: :kg
-        get 'shkola', to: 'graduations#school', as: :school
         get 'universitet', to: 'graduations#univ', as: :univ
       end
       post '/add_to_cart/:id',              to: 'carts#add_to_cart',        as: :add_to_cart

@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1b38864-17e2-48ba-9f1a-eee384936dde" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/carts/_in_cart.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/carts/_in_cart.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -42,11 +42,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/delivery/carts/_in_cart.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+            <state relative-caret-position="210">
+              <caret line="10" column="96" selection-start-line="10" selection-start-column="96" selection-end-line="10" selection-end-column="96" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Gemfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="529">
+              <caret line="62" column="12" selection-start-line="62" selection-start-column="12" selection-end-line="62" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -65,7 +74,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/views/delivery/users/_form.html.haml" />
         <option value="$PROJECT_DIR$/app/views/delivery/sessions/_form.html.haml" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/common.js.erb" />
         <option value="$PROJECT_DIR$/app/views/delivery/carts/remove_from_cart.js.erb" />
@@ -116,6 +124,7 @@
         <option value="$PROJECT_DIR$/app/views/delivery/layouts/_sidebar.haml" />
         <option value="$PROJECT_DIR$/config/breadcrumbs.rb" />
         <option value="$PROJECT_DIR$/app/views/delivery/carts/_in_cart.haml" />
+        <option value="$PROJECT_DIR$/Gemfile" />
       </list>
     </option>
   </component>
@@ -332,12 +341,12 @@
       <workItem from="1553794647759" duration="7073000" />
       <workItem from="1553801783569" duration="8156000" />
       <workItem from="1553837594127" duration="18980000" />
-      <workItem from="1553879958729" duration="492000" />
+      <workItem from="1553879958729" duration="1151000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="425304000" />
+    <option name="totallyTimeSpent" value="425963000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -352,12 +361,12 @@
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19056848" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19056848" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32918397" />
-      <window_info anchor="bottom" x="205" y="217" width="868" height="463" id="Run" order="2" type="WINDOWED" visible="true" weight="0.32953104" />
+      <window_info active="true" anchor="bottom" x="205" y="217" width="868" height="463" id="Run" order="2" type="WINDOWED" visible="true" weight="0.32953104" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -438,9 +447,6 @@
           <caret line="3" column="36" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/delivery/subpositions/_subposition.html.haml">
       <provider selected="true" editor-type-id="text-editor">
@@ -735,8 +741,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/delivery/carts/_in_cart.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+        <state relative-caret-position="210">
+          <caret line="10" column="96" selection-start-line="10" selection-start-column="96" selection-end-line="10" selection-end-column="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="62" column="12" selection-start-line="62" selection-start-column="12" selection-end-line="62" selection-end-column="12" />
         </state>
       </provider>
     </entry>

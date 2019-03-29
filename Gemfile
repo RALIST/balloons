@@ -27,7 +27,6 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'gretel'
 gem 'haml-rails'
 gem 'image_optim'
-gem 'jquery-ui-rails'
 gem 'loadcss-rails', '~> 2.0.1'
 gem 'mainsms_api'
 gem 'meta-tags'
@@ -41,7 +40,6 @@ gem 'rack-canonical-host'
 gem 'rubocop', '~> 0.52.1', require: false
 gem 'russian'
 gem 'sitemap_generator'
-gem 'social-share-button'
 gem 'sorcery'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'unicode'
@@ -62,5 +60,6 @@ group :production do
   gem 'image_optim_bin'
   gem 'rack-cors', require: 'rack/cors'
   gem 'rails_12factor'
+  gem 'dalli'
 end
 

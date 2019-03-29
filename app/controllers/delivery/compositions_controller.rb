@@ -6,6 +6,7 @@ class Delivery::CompositionsController < Delivery::DeliveryController
 
   def index
     @compositions = Composition.availible.distinct.order(:price).paginate(page: params[:page], per_page: 6)
+    fresh_when @compositions
     respond_to do |format|
       format.html
       format.js if params[:page]
@@ -14,9 +15,8 @@ class Delivery::CompositionsController < Delivery::DeliveryController
 
   def show
     @products = @composition.products.includes(:type, :size, :tone, :texture).distinct
-    @composition.update_attributes(views: @composition.views + 1)
-    @tag = Tag.friendly.find(params[:tag_id]) if params[:tag_id]
-    @receiver = Receiver.friendly.find(params[:receiver_id]) if params[:receiver_id]
+    @composition.update_columns(views: @composition.views + 1)
+    fresh_when @composition, public: true
   end
 
   private

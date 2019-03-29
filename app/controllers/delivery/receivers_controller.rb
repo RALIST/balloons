@@ -1,7 +1,9 @@
 class Delivery::ReceiversController < Delivery::DeliveryController
 
   def index
-    @pagy, @compositions = pagy(Composition.availible.order(:price), items: 6)
+    compositions = Composition.availible.order(:price)
+    fresh_when compositions
+    @pagy, @compositions = pagy(compositions, items: 6)
   end
 
 
@@ -17,8 +19,9 @@ class Delivery::ReceiversController < Delivery::DeliveryController
         redirect_to receiver_path(@person), status: 301
       end
     end
-
-    @pagy, @compositions = pagy(@person.compositions.availible.order(:price), items: 6)
+    compositions = @person.compositions.availible.order(:price)
+    fresh_when compositions
+    @pagy, @compositions = pagy(compositions, items: 6)
     respond_to do |format|
       format.html
       format.js if params[:page]

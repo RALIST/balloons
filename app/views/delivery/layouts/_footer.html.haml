@@ -4,11 +4,11 @@
     .row.gradient
       .col-12.d-flex.justify-content-around
         = link_to 'https://www.instagram.com/bigairballoon_izh/', target: :_blank, rel: 'nofollow', title: 'Instagram' do
-          %i.fab.fa-instagram.fa-2x.text-info{"aria-hidden":  "true"}
+          %i.fab.fa-instagram.fa-2x.text-secondary{"aria-hidden":  "true"}
         = link_to 'https://www.facebook.com/bigairballoons/', target: :_blank, rel: 'nofollow', title: 'Facebook' do
-          %i.fab.fa-facebook.fa-2x.text-info{"aria-hidden": "true"}
+          %i.fab.fa-facebook.fa-2x.text-secondary{"aria-hidden": "true"}
         = link_to 'https://vk.com/bigairballoon_izh', target: :_blank, rel: 'nofollow', title: 'Вконтакте' do
-          %i.fab.fa-vk.fa-2x.text-info{"aria-hidden": "true"}
+          %i.fab.fa-vk.fa-2x.text-secondary{"aria-hidden": "true"}
   %hr
   .container-fluid
     .row.flex-column.flex-column-reverse.flex-lg-row
@@ -22,13 +22,11 @@
                 = link_to 'Гарантии', garant_path, class: 'nav-link'
               %li.nav-item
                 = link_to 'Доставка и оплата', info_path, class: 'nav-link'
-
               %li.nav-item
                 = link_to 'Цены', prices_path, class: 'nav-link'
               %li.nav-item
                 = link_to 'Контакты', contacts_path, class: 'nav-link'
-              %li.nav-item
-                = link_to 'Партнерам', partners_path, class: 'nav-link'
+
           .col-lg-4.col-12.text-right.d-none.d-lg-block
             .row
               .col-4

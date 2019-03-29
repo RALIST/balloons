@@ -12,8 +12,11 @@
       Наши работы
     .text-center
       = link_to business_index_path(anchor: 'out'), class: 'text-white', data: {turbolinks: false} do
-        %i.fas.fa-angle-double-down.fa-2x#arr-down
+        %i.fas.fa-angle-down.fa-2x#arr-down
 .container-fluid.c-list#out
+  %h2.text-center
+    %span
+      C нами работают
   %h2.text-center
     %span
       Оформление входных групп
@@ -24,9 +27,7 @@
     %span Печать на воздушных шарах
 
 
-  %h2.text-center
-    %span
-      C нами работают
+
   %hr
   = render 'delivery/main/contacts'
 

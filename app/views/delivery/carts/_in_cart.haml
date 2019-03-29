@@ -7,9 +7,10 @@
       .col-12.text-center
         %table.table.table-sm.table-borderless.table-responsive-md
           = render p.subpositions
-      .col-12
-        = link_to 'Добавить в композицию', '', class: 'btn btn-info btn-block', data:{ toggle: 'modal', target: "#position-modal-#{p.id}"}
-        = link_to 'Удалить из корзины', remove_from_cart_path(p), class: 'btn btn-danger', method: :delete, remote: true
+      .col-8
+        = link_to 'Добавить в композицию', '', class: 'btn btn-info btn-block btn-sm', data:{ toggle: 'modal', target: "#position-modal-#{p.id}"}
+      .col-4
+        = link_to 'Удалить', remove_from_cart_path(p), class: 'btn btn-danger btn-block btn-sm', method: :delete, remote: true
     .modal.fade{id: "position-modal-#{p.id}",  tabindex: "-1",  role: "dialog", class: 'position-modal'}
       .modal-dialog{role: "document"}
         .modal-content.container

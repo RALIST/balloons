@@ -61,5 +61,6 @@ group :production do
   gem 'rack-cors', require: 'rack/cors'
   gem 'rails_12factor'
   gem 'dalli'
+  gem 'memcachier'
 end
 

@@ -5,9 +5,9 @@ class Delivery::ProductsController < Delivery::DeliveryController
                   keywords: 'гелиевые шары, воздушные шары с доставкой'
 
 
-    @colors = Rails.cache.fetch('select_colors', expires_in: 1.day) {Color.joins(:products).where.not(products: {price_with_helium: 0}).distinct(:name).group('colors.id').select("colors.slug,colors.name, colors.id, COUNT(products.id) as total")}
+    @colors = Rails.cache.fetch('select_colors', expires_in: 1.day) {Color.joins(:products).where(products: {id: Product.availible_products.ids } ).distinct(:name).group('colors.id').select("colors.slug,colors.name, colors.id, COUNT(products.id) as total")}
 
 
-    @categories = Rails.cache.fetch('select_categories', expires_in: 1.day) {Subcategory.joins(:products).where.not(products: {price_with_helium: 0}).distinct(:name).group('subcategories.id').select("subcategories.slug, subcategories.name, subcategories.id, COUNT(products.id) as total")}
+    @categories = Rails.cache.fetch('select_categories', expires_in: 1.day) {Subcategory.joins(:products).where(products: {id: Product.availible_products.ids } ).distinct(:name).group('subcategories.id').select("subcategories.slug, subcategories.name, subcategories.id, COUNT(products.id) as total")}
   end
 end

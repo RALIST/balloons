@@ -1,6 +1,9 @@
 .sidebar-sticky {
-  padding-top: 36px;
+  padding-right: 15px !important;
+  padding-left: 15px !important;
+  padding-top: 35px;
   @include media-breakpoint-up(lg){
+    padding-top: 1rem;
     position: -webkit-sticky;
     position: sticky;
     height: calc(100vh + 162px);
@@ -13,40 +16,39 @@
     z-index: 1;
 
   }
-  @include media-breakpoint-down(md){
 
-    margin-bottom: 0.5rem;
-  }
   .navbar-nav {
     background: $light;
 
     @include media-breakpoint-up(lg){
       display: block !important;
       background: none;
+      margin-top: 1rem;
     }
     .small.nav-link {
-      font-size: .75rem;
+      position: relative;
       color: transparentize($dark, 0.2);
-      padding-left: 2.5rem;
+      padding-left: calc(1rem + 15px);
       &:before {
         content: '';
-        position: relative;
-        left: -0.5rem;
-        height: 35px;
-        width: 2px;
-        background: transparent;
-        border-left: 4px solid transparent;
+        position: absolute;
+        font-size: 1rem;
+        left: 0.5rem;
+        display: inline-block;
+        height: 5px;
+        width: 5px;
       }
       &:hover{
-        color: $dark;
+        color: $light-pink;
         &:before {
           content: '';
-          position: relative;
-          left: -0.5rem;
-          height: 35px;
-          width: 2px;
-          background: $brand-info;
-          border-left: 4px solid $lavander;
+          position: absolute;
+          left: 0.5rem;
+          height: 5px;
+          width: 5px;
+          top: 44%;
+          background: $light-pink;
+          border-radius: 50%;
         }
       }
     }
@@ -54,7 +56,6 @@
   .h5 {
     //text-transform: uppercase;
     font-size: 1rem;
-    padding-left: calc(0.5rem + 4px);
     @extend .d-flex;
     @extend .align-items-center;
     svg {
@@ -73,22 +74,22 @@
     color: $lavander !important;
   }
   .small.active {
-    color: $lavander !important;
+    color: $light-pink !important;
     &:before {
       content: '';
-      position: relative;
-      left: -0.5rem;
-      height: 35px;
-      width: 2px;
-      background: $brand-info;
-      border-left: 4px solid $lavander !important;
+      position: absolute;
+      left: 0.5rem;
+      height: 5px;
+      width: 5px;
+      top: 44%;
+      background: $light-pink;
+      border-radius: 50%;
     }
   }
   .sidebar-heading {
     position: relative;
     span {
       font-size: 80%;
-      padding: 0 0.5rem;
       font-weight: 300;
       position: relative;
       text-transform: uppercase;

@@ -1,7 +1,12 @@
-
 .col-12.col-lg-2.sidebar-sticky
-  = link_to '#', class: 'd-lg-none collapsed d-block text-center py-2 bg-light border-bottom', data:{toggle: 'collapse', target: '#sidebar'} do
-    %i.fas.fa-ellipsis-h.fa-2x.text-info
+  .d-flex.align-items-center.border-bottom.py-3
+    .input-group.border.rounded
+      = text_field_tag :global_search,'', class: 'form-control form-control-sm border-0', placeholder: 'Поиск...'
+      %span.input-group-append.bg-white
+        = button_tag(class: 'btn btn-sm', title: 'Поиск', data: {toggle: 'tooltip'}) do
+          %i.fa.fa-search.text-muted
+    = link_to '#', class: 'd-lg-none collapsed d-inline-block text-center py-2 ml-4', data:{toggle: 'collapse', target: '#sidebar'} do
+      %i.fas.fa-ellipsis-v.fa-2x.text-info
   %ul#sidebar.navbar-nav.flex-column.navbar-light.collapse
     .sidebar-heading.text-center.text-muted
       %span

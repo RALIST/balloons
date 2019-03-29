@@ -4,9 +4,9 @@
 .card
   .card-body
     .row.my-2
-      .col-8.text-left
+      .col-7.text-left
         Сумма
-      .col-4.text-right
+      .col-5.text-right
         = @cart.total_price.round(0)
         %i.fas.fa-ruble-sign
     .row.my-2
@@ -29,10 +29,10 @@
         %i.fas.fa-ruble-sign
     %hr.my-2
     .row.my-2
-      .col-8.text-left
+      .col-7.text-left
         %strong
-          К оплате:
-      .col-4.text-right
+          К оплате
+      .col-5.text-right
         %strong
           = @cart.total_with_discounts.round(2)
           %i.fas.fa-ruble-sign

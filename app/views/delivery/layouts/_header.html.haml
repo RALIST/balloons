@@ -68,6 +68,6 @@
                   = @cart.positions.count
             Корзина
 
-        %li.nav-item.rounded.border.border-success.text-center
+        %li.nav-item.rounded.border.border-success.text-center.mt-3.mt-lg-0
           = link_to 'Оставить заявку', '#', class: 'nav-link text-success', data:{ toggle: 'modal', target: '#call-modal'}
   = render 'delivery/layouts/breadcrumbs' unless @disable_bread

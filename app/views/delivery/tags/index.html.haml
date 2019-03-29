@@ -1,7 +1,7 @@
 - breadcrumb :tags
 .container-fluid.c-list
   %h1.h5.text-center
-    %span.text-uppercase
+    %span
       Воздушные шары на любой праздник
   .row.compositions
     = render partial: 'delivery/main/thumb_composition', collection:  @compositions, cached: true, as: :c

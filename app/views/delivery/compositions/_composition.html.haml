@@ -1,13 +1,13 @@
 - cache composition do
   %h1.h5.text-center{itemprop: 'name'}
-    %span.px-3
+    %span
       Композиция № #{composition.id} из воздушных шаров
-  .row.flex-columns-reverse
-    .col-12.col-lg-6
+  .row.flex-sm-column.flex-lg-row
+    .col-12.col-lg-6.order-2.order-lg-first
       -#.lead.strong.text-uppercase.mb-0.text-center
       -#  Состав композиции
       #products.card
-        %table.table.table-borderless
+        %table.table.table-borderless.table-responsive-md
           %thead
             %tr
               %th.text-center
@@ -52,20 +52,8 @@
             = link_to 'Перейти в корзину', my_cart_path, class: 'btn btn-success btn-block btn-sm'
         .col-12.text-center.text-lavender.mt-2.small
           Вы cможете изменить состав композиции в корзине
-
-      -#.row.mt-3.align-items-center
-      -#  .h6.w-100.text-center
-      -#    Способы оплаты:
-      -#  .col-6.text-info.d-flex.justify-content-center.align-items-center
-      -#    %i.fas.fa-money-bill-alt.fa-2x.pr-1
-      -#    Наличными
-      -#    курьеру
-      -#  .col-6.text-info.d-flex.justify-content-center.align-items-center
-      -#    %i.far.fa-credit-card.fa-2x.pr-1
-      -#    Банковской
-      -#    картой
-    .col-12.col-lg-6.text-center
-      = image_tag composition.img.url(:large), class: 'img-fluid rounded', itemprop: 'image', alt: composition.title
+    .col-12.col-lg-6.text-center.order-1.order-lg-last
+      = image_tag composition.img.url(:large), class: 'img-fluid rounded w-100', itemprop: 'image', alt: composition.title
       .row.comp-text.text-secondary.justify-content-between.mt-3
         .col-12.d-flex.flex-row.justify-content-between
 

@@ -42,8 +42,10 @@ class Composition < ApplicationRecord
 
 
   def rename_img
-    extension = File.extname(img_file_name).downcase
-    self.img.instance_write :file_name, "composition_#{self.id}#{extension}"
+    if self.img_file_name
+      extension = File.extname(img_file_name).downcase
+      self.img.instance_write :file_name, "composition_#{self.id}#{extension}"
+    end
   end
 
 

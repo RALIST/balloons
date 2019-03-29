@@ -1,5 +1,10 @@
 crumb :root do
-  link "Главная", root_path
+  link content_tag(:i,'', class: 'fas fa-home'), root_path
+end
+
+crumb :new_order do
+  link 'Новый заказ', new_order_path
+  parent :cart
 end
 
 crumb :signup do

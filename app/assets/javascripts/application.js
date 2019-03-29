@@ -4,7 +4,7 @@
 //= require bootstrap
 //= require turbolinks
 //= require jquery.maskedinput
-//= require clockpicker
+//= require bootstrap-clockpicker.min
 //= require cookies
 //= require common
 //= require pagination

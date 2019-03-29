@@ -1,117 +1,33 @@
-.container-fluid
-  .row.align-items-center.fixed-top#business-menu
-    .container
-      %nav.navbar.navbar-expand-lg.justify-content-between.navbar-light
-        %button.navbar-toggler.collapsed.navbar-toggler-right{data: {toggle: 'collapse', target: '#b-menu'}}
-          %i.fas.fa-bars.text-white
-        = link_to root_path, class: 'navbar-brand' do
-          = image_tag 'logo-round.png', class: 'img-fluid', width: '60px'
-        .collapse.navbar-collapse#b-menu
-          %ul.nav.nav-pills.text-center.nav-fill.text-uppercase.w-100
-            %li.nav-item
-              = link_to 'Входные группы', business_index_path(anchor: 'out'), class: 'nav-link', data: {turbolinks: false}
-            %li.nav-item
-              = link_to 'В помещении', business_index_path(anchor: 'in'), class: 'nav-link', data: {turbolinks: false}
-            %li.nav-item
-              = link_to 'Печать на шарах', business_index_path(anchor: 'print'), class: 'nav-link', data: {turbolinks: false}
-            %li.nav-item
-              = link_to 'Контакты', business_index_path(anchor: 'contact-us'), class: 'nav-link', data: {turbolinks: false}
-        .business-call.align-self-center.d-none.d-lg-block
-          = button_tag 'Заказать звонок', class: 'btn btn-secondary', data:{ toggle: 'modal', target: '#call-modal'}
+- breadcrumb :business
+#business-offer.container-fluid.text-center.justify-content-center
+  %h1.col-12.display-4.text-white
+    Профессиональное оформление
+    воздушными шарами для бизнеса
+  %hr.border-white.w-100
+  .lead.text-white.mb-3
+    Открытие магазина, корпоратив и другие мероприятия
+  = link_to 'Оставить заявку', '#', class: 'btn btn-secondary col-10 col-lg-6', data:{ toggle: 'modal', target: '#call-modal'}
+  .text-center.mt-3
+    %h2.h6.text-white.text-center
+      Наши работы
+    .text-center
+      = link_to business_index_path(anchor: 'out'), class: 'text-white', data: {turbolinks: false} do
+        %i.fas.fa-angle-double-down.fa-2x#arr-down
+.container-fluid.c-list#out
+  %h2.text-center
+    %span
+      Оформление входных групп
+  %h2.text-center
+    %span
+      Оформление корпоративного мероприятия
+  %h2.text-center
+    %span Печать на воздушных шарах
 
 
-.container-fluid#business-offer.section.active.p-0
-  #main-wrapper.d-flex.flex-column.justify-content-center.w-100
-    %h1.text-white.text-uppercase.font-oswald.display-4.text-center
-      Профессиональное оформление
-      воздушными шарами для бизнеса
-    .text-center.align-items-center.justify-content-center.mb-5
-      %p.lead.text-white
-        Оформим открытие магазина, распродажу, презентацию и любое другое корпоративное мероприятие!
-        %hr.border-white
-      %p.text-center.text-white
-        Оставьте заявку, мы перезвоним и проконсультируем вас по всем вопросам!
-        .lead.text-center.hidden-md-down
-          = button_tag 'Оставить заявку', class: 'btn btn-info btn-lg', data:{ toggle: 'modal', target: '#call-modal'}
-      .text-center.mt-4
-        %h2.text-white.text-center
-          Наши работы
-        .text-center.mt-4
-          = link_to business_index_path(anchor: 'out'), class: 'text-white', data: {turbolinks: false} do
-            %i.fas.fa-angle-double-down.fa-2x#arr-down
-%section.section.container#out
-  %h2.h1.text-center.text-uppercase.font-weight-bold.font-oswald.mb-5
-    Оформление входных групп
-    .small.text-muted
-      Оформим воздушными шарами входную группу магазина или офиса
-
-  .slider-outdoor.px-4
-    - @outdoor.each do |o|
-      = image_tag o.img.url(:thumb), alt: 'оформление воздушными шарами входной группы'
-  %hr.my-2
-  %h3.h4.text-center
-    Воздушные шары на открытие магазина, распродажу или акцию - лучший способ привлечь внимание покупателей и прохожих при минимальных затратах.
-  .lead.text-center.mt-4
-    Подберем варианты оформления бесплатно!
-  .text-center
-    = link_to 'Оставить заявку','#', class: 'col-8 btn btn-info btn-lg mx-auto', data:{ toggle: 'modal', target: '#call-modal'}
-  %p
-%section.section.container#in
-  .row.py-4
-    .col-lg-5.col-sm-12.mt-1
-      %h2 Оформление воздушными шарами корпоративного мероприятия
-      %ul.lead.mb-5
-        %li
-          Индивидуальный дизайн и подбор оформления
-        %li
-          Монтаж в подарок*
-        %li
-          Работа по договору
-        %li
-          Доставка по #{t("cities.#{@city}.in")}
-      %em Оформление корпоративных мероприятий воздушными шарами, это то, что мы делаем очень хорошо! Если вы планируете открытие магазина, распродажу или любое другое мероприятие, то оформление воздушными шарами будет изюминкой вечера!
-      .lead.text-center.my-5
-        Подберем варианты оформления бесплатно!
-        = button_tag 'Оставить заявку', class: 'btn btn-dark btn-block btn-lg', data:{ toggle: 'modal', target: '#call-modal'}
-    .col-lg-6.col-sm-12.mt-1
-      .slider-outdoor
-        - @indoor.each do |i|
-          = image_tag i.img.url(:thumb)
-%section.section.container#print
-  .row.py-4
-    .col-lg-5.col-sm-12.mt-1
-      %h2 Печать на воздушных шарах
-      %ul.lead.mb-5
-        %li
-          Печатаем любой тираж
-        %li
-          Только качественные материалы
-        %li
-          Более 100 цветов на выбор
-        %li
-          Возможность печати с 5 сторон
-        %li
-          Срок печати: от 2 дней
-        %li
-          Доставка по #{t("cities.#{@city}.in")}
-      %em Ваш логотип на воздушном шаре станет отличным маркетинговым ходом в любой ситуации! Если вы планируете акцию или открытие, то воздушные шары с печатью станут отличным подарком для ваших клиентов!
-      .lead.text-center.my-5
-        Ответим на любые вопросы по печати
-        = button_tag 'Оставить заявку', class: 'btn btn-teal btn-block btn-lg', data:{ toggle: 'modal', target: '#call-modal'}
-
-    .col-lg-6.col-sm-12.mt-1
-      .slider-outdoor
-        - @print.each do |p|
-          = image_tag p.img.url(:thumb)
-
-%section.section.container#contact-us
-  .container-fluid.pt-5
-    .h1.text-center.text-uppercase.font-weight-bold.font-oswald
+  %h2.text-center
+    %span
       C нами работают
-    .row.justify-content-around.align-items-center.py-5
-      .slider-company.col-12
-        - @partners.each do |p|
-          = image_tag p.logo.url(:small), class: 'img-fluid', alt: 'Воздушные шары для ' + p.name
+  %hr
   = render 'delivery/main/contacts'
 
 = render 'delivery/layouts/call'

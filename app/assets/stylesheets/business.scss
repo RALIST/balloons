@@ -1,155 +1,16 @@
-
-
-.business-call {
-  @include make-col(2);
-  text-align: right;
-  ul {
-    margin: 0;
-  }
-}
-
-
-
 #business-offer {
-  background: image-url('business.jpg') no-repeat center;
-  background-size: cover;
-  @include media-breakpoint-down(lg){
+  @extend #main-offer;
+  min-height: calc(100vh - 78px - 35px);
+  @include media-breakpoint-down(lg) {
+    margin-top: 35px;
+    background-position: top right;
+    background-size: 50%;
+    min-height: calc(100vh - 83px - 35px);
+    .display-4 {
+      font-size: 1.7rem;
+    }
     .lead {
-      font-size: 0.8rem;
-    }
-
-  }
-
-}
-
-#main-wrapper {
-  background: transparentize(black, 0.5)
-}
-
-.section{
-  min-height: 90vh;
-  padding-top: 10vh;
-  position: relative;
-  //@include media-breakpoint-down(lg){
-  //  .h3 {
-  //    font-size: 1.2rem;
-  //  }
-  //
-  //}
-}
-
-.navbar-toggler > i {
-  font-size: 2em;
-  color: #ffffff;
-}
-
-#companies {
-  margin-bottom: 2rem;
-}
-
-.slider-company, .slider-comp {
-  img{
-    width: auto !important;
-    height: 100px;
-    @include media-breakpoint-down(lg){
-      height: 50px;
-    }
-  }
-  .slick-dots {
-    li {
-      button:before {
-        color: $teal;
-      }
-    }
-  }
-  .slick-prev:before, .slick-next:before {
-    font-size: 30px;
-    color: darken($brand-secondary, 10%);
-  }
-}
-
-.slider-outdoor{
-  img {
-    width: auto !important;
-    max-height: 400px;
-  }
-  .slick-dots {
-    li {
-      button:before {
-        color: $info;
-      }
-    }
-  }
-  @include media-breakpoint-down(lg){
-    .slick-next {
-      right: 1rem !important;
-      z-index: 500;
-    }
-    .slick-prev {
-      left: 1rem !important;
-      z-index: 500;
-    }
-  }
-
-  .slick-prev:before, .slick-next:before {
-    font-size: 2rem;
-    color: darken($brand-secondary, 10%);
-  }
-
-}
-
-#outdoor, #indoor, #prints {
-  @include media-breakpoint-down(lg){
-    .h1 {
-      font-size: 2rem;
+      font-size: 1rem;
     }
   }
 }
-
-.slick-next {
-    right: 1rem !important;
-    z-index: 800;
-  }
-  .slick-prev {
-    left: 1rem !important;
-    z-index: 800;
-  }
-
-.font-oswald {
-  font-family: 'Oswald', sans-serif;
-}
-
-
-#main-wrapper {
-  min-height: 90vh;
-  @include media-breakpoint-down(lg){
-    .display-3{
-      font-size: 2rem;
-      margin-top: 2rem;
-    }
-  }
-  @include media-breakpoint-down(lg){
-    .btn {
-      width: 80%;
-    }
-  }
-  @include media-breakpoint-down(xs){
-    h1{
-      margin-top: 2em !important;
-      font-size: 1.5rem !important;
-    }
-  }
-}
-
-#business-menu {
-  min-height: 10vh;
-  @include gradient-x($start-color: $brand-secondary, $end-color: $brand-info, $start-percent: 0%, $end-percent: 100%);
-  .nav-link.active {
-    background-color: $brand-info;
-  }
-  .nav-link {
-    color: #ffffff;
-  }
-}
-
-

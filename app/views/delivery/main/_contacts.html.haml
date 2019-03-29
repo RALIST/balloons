@@ -1,55 +1,59 @@
-.container{itemscope: true, itemtype: "http://schema.org/LocalBusiness" }
-  .row#contacts
+.container.c-list
+  %h2.h3.text-center
+    %span
+      Свяжитесь с нами
+  .row#contacts{itemscope: true, itemtype: "http://schema.org/LocalBusiness" }
     %div{itemprop: "logo",  itemscope: true, itemtype: "https://schema.org/ImageObject"}
       = image_tag 'logo-round.png', itemprop: 'image url', style: "display: none", alt: 'Логотип bigairballoons.ru'
     = image_tag 'logo-round.png', itemprop: 'image url', style: "display: none", alt: 'Логотип bigairballoons.ru'
     .col-12.d-none.d-lg-block
       .row
-        .col-6#text-contacts
-          %h2.text-center{itemprop: 'name'}
-            Шариковая фея™
-            .small
-              Доставка воздушных шаров и оформление праздников
+        .col-6.card
+          %h3.text-center.mt-3{itemprop: 'name'}
+            .text-info
+              Шариковая фея™
+          .text-center.text-muted
+            Доставка воздушных шаров и оформление праздников
           %hr
           %ul.list-unstyled
-            %li{itemprop: 'telephone'}
-              %i.fas.fa-phone-square.fa-2x
-              .lead.d-inline
+            %li.my-2{itemprop: 'telephone'}
+              %i.fas.fa-phone-square.fa-lg.mr-2.text-secondary
+              .d-inline
                 +7 (3412) 234-084
-            %li{itemprop: 'address', itemscope: true, itemtype: 'http://schema.org/PostalAddress'}
+            %li.my-2{itemprop: 'address', itemscope: true, itemtype: 'http://schema.org/PostalAddress'}
               %meta{itemprop: 'addressCountry', content: 'RU'}
-              %i.fas.fa-map-marker-alt.fa-2x
+              %i.fas.fa-map-marker-alt.fa-lg.mr-2.text-secondary
               .d-inline.w-100
-                .lead.d-inline{itemprop: 'addressRegion'}
-                  Удмуртская республика,
-                .lead.d-inline{itemprop: 'addressLocality'}
-                  г. Ижевск,
-                .lead.d-inline{itemprop: 'streetAddress'}
-                  ул. Н.Островского, 25, офис 6
-            %li
-              %i.far.fa-envelope.fa-2x
-              .lead.d-inline{itemprop: 'email'}
+                .d-inline{itemprop: 'addressRegion'}
+                  Удмуртская республика
+                .d-inline{itemprop: 'addressLocality'}
+                  Ижевск
+                .d-inline{itemprop: 'streetAddress'}
+                  ул. Н.Островского, 25, оф. 6
+            %li.my-2
+              %i.far.fa-envelope.fa-lg.mr-2.text-secondary
+              .d-inline{itemprop: 'email'}
                 info@bigairballoons.ru
-            %li
-              %i.fas.fa-clock.fa-2x
-              .lead.d-inline{itemprop: 'openingHours', datetime: 'Mo-Su, 08:00-20:00'}
-                с 8:00 до 22:00, без выходных
+            %li.my-2
+              %i.fas.fa-clock.fa-lg.mr-2.text-secondary
+              .d-inline{itemprop: 'openingHours', datetime: 'Mo-Su, 08:00-20:00'}
+                09:00 - 20:00, без выходных
           %hr
-          .row.align-items-center
-            .col-12
-              %ul.nav.align-items-end.justify-content-between
-                %li
-                  = link_to t("cities.#{@city}.links.ins"), target: :_blank, rel: 'nofollow' do
-                    %i.fab.fa-instagram.fa-2x{"aria-hidden":  "true"}
-                %li
-                  = link_to t("cities.#{@city}.links.fb"), target: :_blank , rel: 'nofollow' do
-                    %i.fab.fa-facebook.fa-2x{"aria-hidden": "true"}
-                %li
-                  = link_to t("cities.#{@city}.links.vk"), target: :_blank, rel: 'nofollow' do
-                    %i.fab.fa-vk.fa-2x{"aria-hidden": "true"}
-        .col-6.border
+            .lead.text-center.mb-3
+              Мы в социальных сетях
+            %ul.nav.align-items-end.justify-content-around
+              %li.text-info
+                = link_to t("cities.#{@city}.links.ins"), target: :_blank, rel: 'nofollow' do
+                  %i.fab.fa-instagram.fa-lg{"aria-hidden":  "true"}
+              %li
+                = link_to t("cities.#{@city}.links.fb"), target: :_blank , rel: 'nofollow' do
+                  %i.fab.fa-facebook.fa-lg{"aria-hidden": "true"}
+              %li
+                = link_to t("cities.#{@city}.links.vk"), target: :_blank, rel: 'nofollow' do
+                  %i.fab.fa-vk.fa-lg{"aria-hidden": "true"}
+        .col-6
           %script{type: "text/javascript", charset:"utf-8", async: true, src: "https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A14c90a9f5898798c7138c231992b812157614231ed60a0c7b45dee0553b4843e&amp;width=100%&amp;height=400&amp;lang=ru_RU&amp;scroll=true"}
-    #text-contacts.col-12.d-lg-none
+    .col-12.d-lg-none
       %h1.h3.text-center
         Шариковая фея™
       %hr

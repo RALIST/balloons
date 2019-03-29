@@ -1,5 +1,8 @@
 crumb :root do
-  link content_tag(:i,'', class: 'fas fa-home'), root_path
+  link content_tag(:i,'', class: 'fas fa-home border rounded border-info text-info fa-lg'), root_path
+end
+crumb :business do
+  link 'Воздушные шары для бизнеса', business_index_path
 end
 
 crumb :new_order do

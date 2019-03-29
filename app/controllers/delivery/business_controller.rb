@@ -1,4 +1,6 @@
 class Delivery::BusinessController < Delivery::DeliveryController
+
+  before_action :disable_sidebar
   def index
     set_meta_tags title: 'Оформление шарами открытия магазина',
                   description: 'Для привлечения внимания или в целях рекламной кампании вы можете обратиться в "Шариковую фею" для оформления шарами такого события, как открытие магазина.',
@@ -10,8 +12,6 @@ class Delivery::BusinessController < Delivery::DeliveryController
                            печать на шарах #{@city},
                            печать на воздушных шарах,
                            печать на воздушных шарах #{@city}"
-    @disable_header = true
-    @disable_bread = true
     @partners = Partner.all
     @outdoor = Image.where(style: 'вход')
     @indoor = Image.where(style: 'внутри')

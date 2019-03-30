@@ -20,10 +20,13 @@ class Product < ApplicationRecord
 
   has_attached_file :img,
                     processors: [:thumbnail, :compression],
-                    styles: { small: ['x100', :webp], thumb: ['x300',
-                                                                                                            :webp] }
+                    styles: { small: ['x100', :jpg], thumb: ['x250', :jpg] },
+                    convert_options: {
+                        all: '-normalize -compress JPEG2000 -quality 90'
+                    }
   validates_attachment_content_type :img,
                                     content_type: ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'],
+
                                     default_url: '/missing/:style/missing.png'
 
   attr_reader :img_remote_url

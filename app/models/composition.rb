@@ -13,12 +13,15 @@ class Composition < ApplicationRecord
                     processors: [:thumbnail, :compression],
                     styles: {
                         small:
-                                             ['x200', :webp],
+                                             ['x200', :jpg],
                         preview:
-                                             ['x400', :webp],
+                                             ['x350', :jpg],
 
                         large:
-                                             ['x600', :webp] }
+                                             ['x600', :jpg] },
+                    convert_options: {
+                        all: '-normalize -compress JPEG2000 -quality 90'
+                    }
 
   validates_attachment_content_type :img,
                                     content_type: ['image/jpeg', 'image/jpg', 'image/png', 'image/webp' ]

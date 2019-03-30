@@ -34,10 +34,8 @@
             Выйти
 
   %nav.navbar.navbar-expand-lg.navbar-light.bg-white.pt-2.border-bottom
-    = link_to root_path, class: 'navbar-brand d-none d-lg-block col-1' do
+    = link_to root_path, class: 'navbar-brand col-1' do
       = image_tag 'logo-round.png', class: 'p-0 logo-lg bg-white rounded-circle'
-    = link_to root_path, class: 'navbar-brand d-lg-none' do
-      = image_tag 'logo2.png', class: '', width: 56
     = link_to '#', class: 'navbar-toggler navbar-toggler-right', data: {toggle: 'collapse', target: '#main-nav'} do
       %i.fas.fa-bars.fa-lg.text-info
     #main-nav.collapse.navbar-collapse.col-lg-11.ml-auto

@@ -5,55 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1b38864-17e2-48ba-9f1a-eee384936dde" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/assets/images/annaliza.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/balloon-contacts.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/images/balloon-contacts.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/balloon-contacts.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/balobanov.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/bg-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/birthday.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/bote-2.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/bote-3.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/bote-4.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/bote.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/bote1.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/business1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/carl.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/coffee.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/da4a.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/da4a.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/ecomarket.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/etm.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/europe.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/flag.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/images/flag.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/flag.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/flagman.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/flagman.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/gift.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/images/gift.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/gift.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/hat.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/images/hat.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/like.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/logo-round.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/images/logo-round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/map-block.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/maximum.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/maximum1.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/offer.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/offer1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/plus.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/roddom.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/shmotka.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/shmotka1.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/shmotka_ent.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/shmotka_inner.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/telegram.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/viber.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/vibery.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/whatsapp.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/word.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/ziess.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/Обложка.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/common.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/common.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/composition.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/composition.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/product.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/product.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/delivery/layouts/_header.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/layouts/_header.html.haml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -98,37 +52,48 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="haml" value="1" />
           <entry key="rb" value="2" />
-          <entry key="scss" value="1" />
+          <entry key="scss" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="Haml" value="1" />
           <entry key="Ruby" value="2" />
-          <entry key="SCSS" value="1" />
+          <entry key="SCSS" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="rb" value="96" />
-          <entry key="scss" value="3" />
+          <entry key="scss" value="67" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Ruby" value="96" />
-          <entry key="SCSS" value="3" />
+          <entry key="SCSS" value="67" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/common.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="23" lean-forward="true" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+            <state relative-caret-position="472">
+              <caret line="43" column="17" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -161,19 +126,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/delivery/tags_controller.rb">
+        <entry file="file://$PROJECT_DIR$/app/models/product.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="589">
-              <caret line="31" column="40" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
+            <state relative-caret-position="304">
+              <caret line="25" column="21" lean-forward="true" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/models/product.rb">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/delivery/layouts/_header.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="22" column="65" selection-start-line="22" selection-start-column="65" selection-end-line="22" selection-end-column="65" />
+            <state relative-caret-position="342">
+              <caret line="37" column="80" selection-start-line="37" selection-start-column="80" selection-end-line="37" selection-end-column="80" />
             </state>
           </provider>
         </entry>
@@ -256,7 +221,6 @@
         <option value="$PROJECT_DIR$/app/views/delivery/carts/show.html.haml" />
         <option value="$PROJECT_DIR$/app/views/delivery/layouts/_footer.html.haml" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/app/views/delivery/layouts/_header.html.haml" />
         <option value="$PROJECT_DIR$/app/views/delivery/layouts/_sidebar.haml" />
         <option value="$PROJECT_DIR$/config/breadcrumbs.rb" />
         <option value="$PROJECT_DIR$/app/views/delivery/carts/_in_cart.haml" />
@@ -267,9 +231,10 @@
         <option value="$PROJECT_DIR$/app/controllers/delivery/tags_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/delivery/receivers_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/delivery/categories_controller.rb" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/common.scss" />
         <option value="$PROJECT_DIR$/app/models/composition.rb" />
         <option value="$PROJECT_DIR$/app/models/product.rb" />
+        <option value="$PROJECT_DIR$/app/views/delivery/layouts/_header.html.haml" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/common.scss" />
       </list>
     </option>
   </component>
@@ -329,7 +294,29 @@
               <item name="Balloons" type="b2602c69:ProjectViewProjectNode" />
               <item name="Balloons" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="stylesheets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Balloons" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Balloons" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Balloons" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Balloons" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="delivery" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Balloons" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Balloons" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="delivery" type="462c0819:PsiDirectoryNode" />
+              <item name="layouts" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -489,12 +476,12 @@
       <workItem from="1553801783569" duration="8156000" />
       <workItem from="1553837594127" duration="18980000" />
       <workItem from="1553879958729" duration="5312000" />
-      <workItem from="1553938082416" duration="1507000" />
+      <workItem from="1553938082416" duration="2999000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="431631000" />
+    <option name="totallyTimeSpent" value="433123000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -506,7 +493,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
+    <frame x="-8" y="-8" width="1296" height="1000" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.30944625" />
@@ -514,7 +501,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32918397" />
-      <window_info anchor="bottom" x="205" y="217" width="868" height="463" id="Run" order="2" type="WINDOWED" visible="true" weight="0.32953104" />
+      <window_info active="true" anchor="bottom" x="205" y="217" width="868" height="463" id="Run" order="2" type="WINDOWED" visible="true" weight="0.32953104" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -522,7 +509,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" weight="0.3289941" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" x="386" y="286" width="743" height="581" id="Terminal" order="10" type="WINDOWED" visible="true" weight="0.32953104" />
+      <window_info anchor="bottom" x="386" y="286" width="743" height="581" id="Terminal" order="10" type="WINDOWED" visible="true" weight="0.32953104" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32662722" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32780084" />
       <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.3289941" />
@@ -736,13 +723,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1181">
-          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/business.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -799,13 +779,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="588">
           <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/delivery/layouts/_header.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="16" column="43" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -873,13 +846,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/common.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="23" lean-forward="true" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/delivery/categories_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
@@ -903,8 +869,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/product.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="22" column="65" selection-start-line="22" selection-start-column="65" selection-end-line="22" selection-end-column="65" />
+        <state relative-caret-position="304">
+          <caret line="25" column="21" lean-forward="true" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/delivery/layouts/_header.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="37" column="80" selection-start-line="37" selection-start-column="80" selection-end-line="37" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/common.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="472">
+          <caret line="43" column="17" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
         </state>
       </provider>
     </entry>

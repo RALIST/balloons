@@ -10,7 +10,7 @@ class Composition < ApplicationRecord
   has_and_belongs_to_many :receivers
 
   has_attached_file :img,
-                    processors: [:thumbnail, :compression],
+                    processors: [:watermark, :thumbnail],
                     styles: {
                         small:
                                              ['x200', :jpg],

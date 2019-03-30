@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+  require 'paperclip_processors/watermark'
   belongs_to :item
   belongs_to :latex, foreign_key: :item_id
   belongs_to :foil, foreign_key: :item_id
@@ -19,10 +20,10 @@ class Product < ApplicationRecord
   validates :name, uniqueness: true, presence: true
 
   has_attached_file :img,
-                    processors: [:thumbnail, :compression],
-                    styles: { small: ['x100', :jpg], thumb: ['x250', :jpg] },
+                    processors: [:watermark, :thumbnail],
+                    styles: { small: ['x100', :jpg], thumb: ['x250', :jpg]},
                     convert_options: {
-                        all: '-normalize -compress JPEG2000 -quality 90'
+                        all: '-compress JPEG2000 -quality 90 -flatten -background white'
                     }
   validates_attachment_content_type :img,
                                     content_type: ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'],

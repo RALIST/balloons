@@ -1,102 +1,58 @@
-.container
-  .row.border-bot
-    .col-12
-      Поиск
-      = form_tag admin_items_path, method: :get do
-        .form-group
-          = text_field_tag :q, '', class: 'form-control'
-        .form-group
-          = submit_tag 'Найти', class: 'btn btn-info'
-
-  .row.border-bot
-    .col-12
-      %h5{data: {toggle: 'collapse', target: '#colors'}, style: 'cursor: pointer;'}
-        Цвета
+.row.no-gutters
+  .sidebar-sticky.admin-sidebar.col-2.bg-dark.navbar-dark
+    %ul.navbar-nav#sidebar
+      %li.nav-item.d-flex.justify-content-between
+        = link_to '#', data: {toggle: 'collapse', target: '#colors'}, class: 'nav-link h5 collapsed' do
+          Цвета
       .collapse#colors
         - Color.all.each do |color|
-          = link_to "#{color.name.capitalize} |", admin_items_path(color: color.id)
+          %li.nav-item= link_to color.name.capitalize, admin_items_path(color: color.id), class: 'nav-link small'
         %p
           = link_to 'Добавить цвет', new_admin_color_path, class: 'btn btn-info btn-sm'
-  .row.border-bot
-    .col-12
-      %h5{data: {toggle: 'collapse', target: '#types'}, style: 'cursor: pointer;'}
-        Тип продукции
+      %li.nav-item
+        = link_to '#', data: {toggle: 'collapse', target: '#types'}, class: 'nav-link h5 collapsed' do
+          Тип продукции
       .collapse#types
         - Type.all.each do |type|
-          = link_to "#{type.name.capitalize} |", admin_items_path(type: type.id)
+          %li.nav-item= link_to type.name.capitalize, admin_items_path(type: type.id), class: 'nav-link small'
         %p
           = link_to 'Добавить тип', new_admin_type_path, class: 'btn btn-info btn-sm'
-  .row.border-bot
-    .col-12
-      %h5{data: {toggle: 'collapse', target: '#textures'}, style: 'cursor: pointer;'}
-        Текстура
+      %li.nav-item
+        = link_to '#', data: {toggle: 'collapse', target: '#textures'}, class: 'nav-link h5 collapsed' do
+          Текстура
       .collapse#textures
         - Texture.all.each do |texture|
-          = link_to texture.name.capitalize, admin_items_path(texture: texture.id)
+          %li.nav-item= link_to texture.name.capitalize, admin_items_path(texture: texture.id), class: 'nav-link small'
         %p
           = link_to 'Добавить текстуру', new_admin_texture_path, class: 'btn btn-info btn-sm'
-  .row.border-bot
-    .col-12
-      %h5{data: {toggle: 'collapse', target: '#tones'}, style: 'cursor: pointer;'}
-        Оттенок
+      %li.nav-item
+        = link_to '#', data: {toggle: 'collapse', target: '#tones'}, class: 'nav-link h5 collapsed' do
+          Оттенок
       .collapse#tones
-        - Tone.all.each do |tone|
-          = link_to tone.name.capitalize, admin_items_path(tone: tone.id)
+        - Tone.all.distinct.each do |tone|
+          %li.nav-item= link_to tone.name.capitalize, admin_items_path(tone: tone.id), class: 'nav-link small'
         %p
           = link_to 'Добавить оттенок', new_admin_tone_path, class: 'btn btn-info btn-sm'
-  .row.border-bot
-    .col-12
-      %h5{data: {toggle: 'collapse', target: '#forms'}, style: 'cursor: pointer;'}
-        Форма
+      %li.nav-item
+        = link_to '#', data: {toggle: 'collapse', target: '#forms'}, class: 'nav-link h5 collapsed' do
+          Форма
       .collapse#forms
         - FoilForm.find_each do |form|
-          = link_to form.name.capitalize, admin_items_path(form: form.id)
+          %li.nav-item= link_to form.name.capitalize, admin_items_path(form: form.id), class: 'nav-link small'
         %p
           = link_to 'Добавить форму', new_admin_foil_form_path, class: 'btn btn-info btn-sm'
-  .row.border-bot
-    .col-12
-      %h5{data: {toggle: 'collapse', target: '#vendors'}, style: 'cursor: pointer;'}
-        Производитель
-      .collapse#vendors
-        - Vendor.all.each do |vendor|
-          = vendor.name
-        %p
-          = link_to 'Добавить производителя', new_admin_vendor_path, class: 'btn btn-info btn-sm'
-  .row.border-bot
-    .col-12
-      %h5{data: {toggle: 'collapse', target: '#categories'}, style: 'cursor: pointer;'}
-        Категории
-      .collapse#categories
-        - Category.all.each do |category|
-          = category.title
-        %p
-          = link_to 'Добавить категорию', new_admin_category_path, class: 'btn btn-info btn-sm'
-  .row.border-bot
-    .col-12
-      %h5{data: {toggle: 'collapse', target: '#subcategories'}, style: 'cursor: pointer;'}
-        Категории
-      .collapse#subcategories
+      %li.nav-item
+        = link_to '#', data: {toggle: 'collapse', target: '#collection'}, class: 'nav-link h5 collapsed' do
+          Коллекции
+      .collapse#collection
         - Subcategory.joins(:products).distinct.each do |category|
-          = link_to category.name.capitalize,  admin_items_path(subcategory: category.id)
+          %li.nav-item= link_to category.name.capitalize,  admin_items_path(subcategory: category.id), class: 'nav-link small'
         %p
           = link_to 'Добавить категорию', new_admin_subcategory_path, class: 'btn btn-info btn-sm'
-
-  .row.border-bot
-    .col-12
-      %h5{data: {toggle: 'collapse', target: '#sizes'}, style: 'cursor: pointer;'}
-        Размеры
-      .collapse#sizes
-        - Size.all.each do |size|
-          = size.in_inch
-        %p
-          = link_to 'Добавить размер', new_admin_size_path, class: 'btn btn-info btn-sm'
-        %p
-          = link_to 'Все размеры', admin_sizes_path, class: 'btn btn-info btn-sm'
-  .row
-    .col-12
       = link_to 'Добавить товар', new_admin_item_path, class: 'btn btn-info '
-  - if @items
-    .row
+  .col-10.ml-auto
+    
+    - if @items
       .col-12
         %h2{data: {toggle: 'collapse', target: '#items'}, style: 'cursor: pointer;'}
           Все товары
@@ -166,5 +122,5 @@
                       %br
                       = link_to 'Редактировать', edit_admin_product_path(product), target: '_blank'
                       = link_to 'Удалить', admin_product_path(product), method: :delete
-    %ul.pag.d-flex.flex-row.list-unstyled.justify-content-between
-      = will_paginate @items, container: false
+      %ul.pag.d-flex.flex-row.list-unstyled.justify-content-between
+        = will_paginate @items, container: false

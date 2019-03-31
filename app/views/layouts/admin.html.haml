@@ -5,9 +5,8 @@
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
     %title Balloons
     = csrf_meta_tags
-    = stylesheet_link_tag    'application', media: 'all'
-    = javascript_include_tag 'admin'
-    = javascript_include_tag 'https://use.fontawesome.com/releases/v5.0.10/js/all.js', async: Rails.env.production?, 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', defer: true, async: Rails.env.production?, 'data-turbolinks-track': 'reload'
   %body
     %a#return-to-top
       %i.fa.fa-chevron-up
@@ -18,7 +17,7 @@
           %div{class: "alert alert-#{key} text-center"}
             = message
 
-      .container-fluid
+      .container-fluid.p-0
         = yield
     %footer
       = render 'admin/layouts/footer'

@@ -45,6 +45,7 @@ class Delivery::CartsController < Delivery::DeliveryController
 
   def add_product_to_cart
     @product = Product.find(params[:id])
+    @product.touch
     unless current_cart.positions.any?
       @composition = Composition.create(img: File.open('public/missing/preview/missing.png'))
       @composition.products.push(@product)

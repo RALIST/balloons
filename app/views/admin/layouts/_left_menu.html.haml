@@ -1,4 +1,4 @@
-%nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.sticky-top
+%nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
   = link_to 'Админка', admin_users_path, class: 'navbar-brand'
   %button.navbar-toggler{data: {toggle: 'collapse', target: '#nav'}}
     %span.navbar-toggler-icon
@@ -6,26 +6,22 @@
     %ul.navbar-nav
       %li.nav-item
         = link_to admin_users_path, class: 'nav-link' do
-          %i.fa.fa-user
+          %i.fas.fa-user
           Клиенты
       %li.nav-item.mr-auto
         = link_to admin_items_path, class: 'nav-link'  do
-          %i.fa.fa-product-hunt
+          %i.fas.fa-product-hunt
           Товары
       %li.nav-item
         = link_to admin_compositions_path, class: 'nav-link'  do
-          %i.fa.fa-picture-o
+          %i.fas.fa-picture-o
           Композиции
       %li.nav-item
         = link_to admin_orders_path, class: 'nav-link'  do
-          %i.fa.fa-rub
+          %i.fas.fa-rub
           Заказы
       %li.nav-item
-        = link_to new_admin_price_path, class: 'nav-link'  do
-          %i.fa.fa-file
-          Загрузить прайс
-      %li.nav-item
         = link_to admin_partners_path, class: 'nav-link'  do
-          %i.fa.fa-file
+          %i.fas.fa-file
           Бизнес
 

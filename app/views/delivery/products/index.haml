@@ -19,8 +19,6 @@
   -#        .small
   -#          Огромный выбор шаров
   -#      = link_to 'Выбрать', categories_path, class: 'btn btn-info mb-2 text-uppercase'
-  %h2.h6.text-center.p-0
-    %span Коллекции
   .row
     .col-12.my-3
       .input-group
@@ -28,12 +26,15 @@
         %span.input-group-append
           = button_tag(class: 'btn btn-info', id: 'clear-search', title: 'Очистить', data: {toggle: 'tooltip'}) do
             %i.fa.fa-times
-  .card-columns
-    = render partial: 'delivery/categories/category', collection:  @categories
   %h2.h6.text-center
     %span Цвета
   .card-columns
     = render @colors
+  %h2.h6.text-center
+    %span Коллекции
+  .card-columns
+    = render partial: 'delivery/categories/category', collection:  @categories
+  
 
 
 

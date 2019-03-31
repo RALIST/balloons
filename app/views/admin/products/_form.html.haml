@@ -6,8 +6,14 @@
     = f.label :size_id
     = f.select :size_id, Size.all.map{|s| [s.in_inch, s.id]},{}, class: 'form-control'
   .form-group
-    = f.label :price
-    = f.number_field :price, class: 'form-control'
+    = f.label :color
+    = f.select :color, Color.all.map{|s| [s.name, s.id]}, {}, class: 'form-control'
+  .form-group
+    = f.collection_check_boxes :subcategory_ids, Subcategory.all, :id, :name, class: 'form-control check-boxes' do |b|
+      = b.label(class: 'mr-3') { b.check_box + b.text.capitalize }
+  .form-group
+    = f.label :price_with_helium
+    = f.number_field :price_with_helium, class: 'form-control'
   .form-group
     = f.label :img
     = f.file_field :img, class: 'form-control'

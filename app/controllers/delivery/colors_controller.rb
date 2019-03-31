@@ -3,7 +3,8 @@ class Delivery::ColorsController < Delivery::DeliveryController
   def index
     set_meta_tags title: 'Разноцветные воздушные шары с доставкой в %{city} | Шариковая фея' % {city: t("cities.#{@city}.where")},
                   description: 'Большой выбор воздушных шаров разных цветов на любой праздник от Шариковой феи'
-    @colors = Rails.cache.fetch('select_colors', expires_in: 1.day) {Color.joins(:products).where.not(products: {price_with_helium: 0}).distinct(:name).group('colors.id').select("colors.slug,colors.name, colors.id, colors.updated_at, COUNT(products.id) as total")}
+    @colors = Color.all
+    
   end
 
   def show

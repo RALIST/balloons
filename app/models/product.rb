@@ -20,7 +20,7 @@ class Product < ApplicationRecord
   validates :name, uniqueness: true, presence: true
 
   has_attached_file :img,
-                    processors: [:watermark, :thumbnail],
+                    processors: [:thumbnail],
                     styles: { small: ['x100', :jpg], thumb: ['x250', :jpg]},
                     convert_options: {
                         all: '-compress JPEG2000 -quality 90 -flatten -background white'

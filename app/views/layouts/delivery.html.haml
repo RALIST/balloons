@@ -7,6 +7,7 @@
     = favicon_link_tag 'favicons/favicon-120.png', rel: 'apple-touch-icon'
     = csrf_meta_tags
     = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload', defer: true, async: Rails.env.production?
   %body
     %a#return-to-top
       %span.fa-stack
@@ -29,7 +30,6 @@
 
     %footer
       = render 'delivery/layouts/footer' unless @disable_footer
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload', defer: true, asyn: Rails.env.production?
     = render 'delivery/layouts/special/scripts'
   %noscript
     %div

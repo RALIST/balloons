@@ -34,8 +34,8 @@
             Выйти
 
   %nav.navbar.navbar-expand-lg.navbar-light.bg-white.pt-2.border-bottom
-    = link_to root_path, class: 'navbar-brand col-1' do
-      = image_tag 'logo-round.png', class: 'p-0 logo-lg bg-white rounded-circle'
+    = link_to root_path, class: 'navbar-brand' do
+      = image_tag 'logo-round.png', class: 'p-0 img-fluid logo-lg bg-white rounded-circle'
     = link_to '#', class: 'navbar-toggler navbar-toggler-right', data: {toggle: 'collapse', target: '#main-nav'} do
       %i.fas.fa-bars.fa-lg.text-info
     #main-nav.collapse.navbar-collapse.col-lg-11.ml-auto
@@ -59,11 +59,7 @@
           = link_to 'Контакты', contacts_path, class: 'nav-link'
         %li.nav-item
           = link_to my_cart_path, rel: 'nofollow', title: 'Корзина', class: 'nav-link' do
-            %span.fa-layers.fa-fw
-              %i.fas.fa-shopping-cart.text-info
-              - if @cart.positions.any?
-                %span.fa-layers-counter.h2.bg-success.text-white
-                  = @cart.positions.count
+            %i.fas.fa-shopping-cart.text-info
             Корзина
 
         %li.nav-item.rounded.border.border-success.text-center.mt-3.mt-lg-0

@@ -1,7 +1,12 @@
 //= require jquery3
 //= require popper
 //= require jquery_ujs
-//= require bootstrap
+//= require bootstrap/util
+//= require bootstrap/modal
+//= require bootstrap/dropdown
+//= require bootstrap/tooltip
+//= require bootstrap/popover
+//= require bootstrap/collapse
 //= require turbolinks
 //= require jquery.maskedinput
 //= require bootstrap-clockpicker.min

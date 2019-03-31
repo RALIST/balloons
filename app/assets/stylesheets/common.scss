@@ -10,7 +10,7 @@
   @include media-breakpoint-down(lg){
     background-position: top right;
     background-size: 50%;
-    min-height: calc(100vh - 83px);
+    min-height: calc(100vh - 80px);
     .display-4 {
       font-size: 1.7rem;
       //background-color: rgba(0,0,0,0.5);
@@ -30,14 +30,14 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   .logo-lg{
     position: absolute;
-    top: -60px;
+    top: -35px;
     left: 0;
     height: 129px;
     border: 1px solid $brand-info;
     //box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     z-index: 2;
     @include media-breakpoint-down(md){
-      position: fixed;
+      position: initial;
       box-shadow: none;
       height: 53px;
       top: 0;

@@ -6,19 +6,6 @@ class Delivery::CartsController < Delivery::DeliveryController
 
   def show
     @cart = current_cart
-    @collections = Color.all
-    @categories = Subcategory.joins(:products).distinct
-    if params[:collection_id]
-      latex = Product.latex_in_compositions.includes(:color).where(colors: { id: params[:collection_id] })
-      foil = Product.foil_in_compositions.includes(:color).where(colors: { id: params[:collection_id] })
-      @items_in_collection = latex + foil
-    elsif params[:category_id]
-      category = Subcategory.find(params[:category_id])
-      latex = category.products.latex_in_compositions
-      foil = category.products.foil_in_compositions
-      @items_in_collection = latex + foil
-    end
-    @position = Position.find(params[:position]) if params[:position]
     respond_to do |format|
       format.html
       format.js
@@ -30,10 +17,10 @@ class Delivery::CartsController < Delivery::DeliveryController
     if current_cart.compositions.include?(@composition)
       flash.now[:danger] = 'Эта композиция уже в корзине!'
     else
-      current_cart.positions.create(composition: @composition)
+      @position = current_cart.positions.create(composition: @composition)
       @composition.products.uniq.each do |product|
         quantity = @composition.products.where(id: product.id).count
-        current_cart.positions.where(composition: @composition).last.subpositions.create(product: product, quantity: quantity)
+        @position.subpositions.create(product: product, quantity: quantity)
       end
       flash.now[:success] = 'Композиция добавлена в корзину!'
     end
@@ -47,7 +34,7 @@ class Delivery::CartsController < Delivery::DeliveryController
     @product = Product.find(params[:id])
     @product.touch
     unless current_cart.positions.any?
-      @composition = Composition.create(img: File.open('public/missing/preview/missing.png'))
+      @composition = Composition.create
       @composition.products.push(@product)
       current_cart.positions.create(composition: @composition)
       @composition.products.uniq.each do |product|

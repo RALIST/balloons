@@ -73,10 +73,11 @@ class Delivery::DeliveryController < ApplicationController
     else
       @cart = Cart.find(cookies[:cart_id])
     end
+    return @cart
   rescue ActiveRecord::RecordNotFound
     @cart = Cart.create
     cookies.permanent[:cart_id] = @cart.id
-    @cart
+    return @cart
   end
 
   def new_call

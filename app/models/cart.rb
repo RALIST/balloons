@@ -15,19 +15,16 @@ class Cart < ApplicationRecord
   end
 
   def total_with_discounts
-    if user.blank?
-      total = total_price
-    else
-      total = total_price - user_discount
-    end
-    total += 300 if total_price < 1500
+    total = total_price - user_discount
+    total += 200 if total_price < 1500
     self.total = total
     self.save
     return total
   end
 
   def user_discount
-    discount = total_price * user.discount / 100
+    discount = 0
+    discount += (total_price * user.discount / 100) if user
     if used_code_discount.present?
       discount += total_price * used_code_discount / 100
     end

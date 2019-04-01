@@ -2,7 +2,7 @@ $(document).on('ajaxComplete', function(){
   $("a.add-to-cart<%=@composition.id%>").hide().closest('div').html("<%=j link_to 'Перейти в корзину',
   my_cart_path, class: 'btn btn-success btn-block btn-sm'%>");
   $('#cart #to-cart').html("<%=j link_to 'В корзину', my_cart_path %>");
-  $('#icon-wrapper .badge').html('<%= @cart.positions.count %>');
+  $('#cart-count').html("(<%= @cart.subpositions.count %>)")
 });
 
 

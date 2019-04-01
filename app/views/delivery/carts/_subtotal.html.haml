@@ -15,9 +15,10 @@
       .col-4.text-right
         - if current_user
           #{number_to_percentage(current_user.discount + @cart.used_code_discount, precision: 2)}
-          (#{@cart.user_discount}
-          %i.fas.fa-ruble-sign
-          )
+          .small.text-success
+            (#{@cart.user_discount}
+            %i.fas.fa-ruble-sign
+            )
         - else
           = link_to 'Войдите', login_path, class: 'small'
     .row.my-2
@@ -25,7 +26,7 @@
         - to_delivery = 1500 - @cart.total_price
         Доставка
       .col-4.text-right
-        = to_delivery > 0 ? 300 : 0
+        = to_delivery > 0 ? 200 : 0
         %i.fas.fa-ruble-sign
     %hr.my-2
     .row.my-2

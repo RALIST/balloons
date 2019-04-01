@@ -1,3 +1,11 @@
 $("#<%= @subposition.id%>").fadeOut();
 $('#subtotal').html('<%= j(render "delivery/carts/subtotal") %>');
+$(document).on('ajaxSuccess', function(){
+  <% if @cart.subpositions.any? %>
+    $('#cart-count').html("(<%= @cart.subpositions.count %>)");
+  <% else %>
+    $('#cart-count').remove();
+  <% end %>
+});
+
 

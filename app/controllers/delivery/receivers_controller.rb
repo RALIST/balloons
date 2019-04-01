@@ -2,7 +2,7 @@ class Delivery::ReceiversController < Delivery::DeliveryController
 
   def index
     compositions = Composition.availible.order(:price)
-    fresh_when compositions
+    fresh_when compositions if Rails.env.production?
     @pagy, @compositions = pagy(compositions, items: 6)
   end
 
@@ -20,7 +20,7 @@ class Delivery::ReceiversController < Delivery::DeliveryController
       end
     end
     compositions = @person.compositions.availible.order(:price)
-    fresh_when compositions
+    fresh_when compositions if Rails.env.production?
     @pagy, @compositions = pagy(compositions, items: 6)
     respond_to do |format|
       format.html

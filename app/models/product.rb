@@ -27,7 +27,6 @@ class Product < ApplicationRecord
                     }
   validates_attachment_content_type :img,
                                     content_type: ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'],
-
                                     default_url: '/missing/:style/missing.png'
 
   attr_reader :img_remote_url

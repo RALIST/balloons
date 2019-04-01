@@ -18,7 +18,7 @@ class Delivery::TagsController < Delivery::DeliveryController
 																оформление праздников воздушными шарами,
 																оформление детского праздника воздушными шарами"
 		compositions = Composition.availible.order(:price)
-		fresh_when compositions, public: true
+		fresh_when compositions, public: true if Rails.env.production?
 		@pagy, @compositions = pagy(compositions, items: 6)
 		respond_to do |format|
 			format.html
@@ -29,7 +29,7 @@ class Delivery::TagsController < Delivery::DeliveryController
 	def show
 		@tag = Tag.friendly.find(params[:id])
 		compositions = Composition.availible.with_tag(@tag.name).order(:price)
-		fresh_when @compositions, public: true
+		fresh_when @compositions, public: true if Rails.env.production?
   	@pagy, @compositions = pagy(compositions, items: 6)
 		respond_to do |format|
 			format.html

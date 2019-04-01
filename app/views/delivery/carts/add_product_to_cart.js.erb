@@ -1,4 +1,6 @@
 $(document).on('ajaxComplete', function(){
   $("#add-<%=@product.id%>").hide().closest('div').html("<%=j link_to 'В корзине', my_cart_path, class: 'btn btn-success btn-sm'%>");
   $('#cart #to-cart').html("<%=j link_to 'В корзину', my_cart_path %>");
+  $('#cart-count').html("(<%= @cart.subpositions.count %>)");
+
 });

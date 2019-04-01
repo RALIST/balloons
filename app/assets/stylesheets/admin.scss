@@ -1,32 +1,4 @@
 .admin-sidebar {
-  .nav-link.h5 {
-    @extend .w-100;
-    position: relative;
-   
-    &:after {
-      font-family: "Font Awesome 5 Free";
-      content: '\f105';
-      font-weight: 900;
-      font-size: 1rem;
-      display: inline-block;
-      position: absolute;
-      right: 20px;
-      top: 10px;
-      -webkit-transform: rotate(0);
-      -moz-transform: rotate(0);
-      -ms-transform: rotate(0);
-      -o-transform: rotate(0);
-      transform: rotate(0);
-      transition: -webkit-transform .2s ease-in-out;
-    }
-    &:not(.collapsed)::after{
-      -webkit-transform: rotate(90deg);
-      -moz-transform: rotate(90deg);
-      -ms-transform: rotate(90deg);
-      -o-transform: rotate(90deg);
-      transform: rotate(90deg);
-    }
-  }
   .nav-link.small {
     color: rgba(255, 255, 255, 0.5) !important;
     &:hover, &:active, &:focus {

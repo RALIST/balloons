@@ -16,7 +16,7 @@ class Delivery::CompositionsController < Delivery::DeliveryController
   def show
     @products = @composition.products.includes(:type, :size, :tone, :texture).distinct
     @composition.update_columns(views: @composition.views + 1)
-    fresh_when @composition, public: true
+    fresh_when [@composition, @composition.products]
   end
 
   private

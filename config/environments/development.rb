@@ -1,6 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  config.action_dispatch.tld_length = 0
+
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
@@ -13,12 +13,13 @@ Rails.application.configure do
   config.consider_all_requests_local = true
 
   # Enable/disable caching. By default caching is disabled.
-  if Rails.root.join('tmp/caching-dev.txt').exist?
+  # Run rails dev:cache to toggle caching.
+  if Rails.root.join('tmp', 'caching-dev.txt').exist?
     config.action_controller.perform_caching = true
 
     config.cache_store = :memory_store
     config.public_file_server.headers = {
-      'Cache-Control' => 'public, max-age=172800'
+      'Cache-Control' => "public, max-age=#{2.days.to_i}"
     }
   else
     config.action_controller.perform_caching = false
@@ -26,8 +27,11 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  # Store uploaded files on the local file system (see config/storage.yml for options)
+  config.active_storage.service = :local
+
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.perform_caching = false
 
@@ -36,6 +40,9 @@ Rails.application.configure do
 
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
+
+  # Highlight code that triggered database queries in logs.
+  config.active_record.verbose_query_logs = true
 
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
@@ -51,30 +58,4 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   # config.file_watcher = ActiveSupport::EventedFileUpdateChecker
-  # Paperclip.options[:command_path] = 'C:/Program Files/ImageMagick-7.0.4-Q16'
-  config.action_mailer.default_url_options = {
-    :host => 'localhost:3000',
-    :only_path => false
-  }
-  config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.asset_host = 'http://localhost:3000'
-  config.action_mailer.default_options = { from: 'danilov@ralist.ru' }
-  config.action_mailer.perform_deliveries = true
-  OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
-  unless Rails.env.test?
-    config.paperclip_defaults = {
-      default_url: 'https://s3.eu-central-1.amazonaws.com/images/missing/small/missing_small.png',
-      storage: :s3,
-        s3_region: ENV['AWS_REGION'],
-        s3_host_name: "s3.eu-central-1.amazonaws.com",
-        s3_protocol: :https,
-        path: ':class/:attachment/:style/:filename',
-        s3_headers: { 'Expires': 1.year.from_now.httpdate },
-        s3_credentials: {
-          bucket: ENV['AWS_BUCKET'],
-          access_key_id: ENV['AWS_ACCESS_KEY'],
-          secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
-        }
-    }
-  end
 end

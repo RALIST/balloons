@@ -1,4 +1,7 @@
 class Delivery::CallsController < Delivery::DeliveryController
+  
+  skip_before_action :verify_authenticity_token
+  
   def create
     @call = Call.create(call_params)
     if @call.save

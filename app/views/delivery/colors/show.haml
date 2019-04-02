@@ -9,4 +9,4 @@
     %hr
     #products-list
       .row
-        = render products.sort_by(&:price_with_helium)
+        = render partial: 'delivery/products/product', collection: products.sort_by(&:price_with_helium), cached: true

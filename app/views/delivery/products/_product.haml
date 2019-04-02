@@ -1,4 +1,4 @@
-- cache [product, product.in_cart?(@cart)] do
+- cache product do
   .col-12.col-lg-4.col-md-6.mb-3
     .card.text-center.h-100#product
       .card-image-top
@@ -6,7 +6,6 @@
       .card-body
         .card-title.text-center
           = product.complex_name
-    
         .row.justify-content-center.align-items-center
           .col-12.col-lg-6
             .h5.font-weight-bold

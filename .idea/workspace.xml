@@ -5,19 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1b38864-17e2-48ba-9f1a-eee384936dde" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/common.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/common.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/products.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/products.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/admin/compositions_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/admin/compositions_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/admin/items_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/admin/items_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/admin/products_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/admin/products_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/delivery/colors_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/delivery/colors_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/item.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/item.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/price.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/price.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/product.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/product.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/items/_form.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/items/_form.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/items/index.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/items/index.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/products/_form.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/products/_form.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/compositions/_composition.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/compositions/_composition.html.haml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -66,7 +56,7 @@
         <counts>
           <entry key="erb" value="8" />
           <entry key="haml" value="30" />
-          <entry key="rb" value="24" />
+          <entry key="rb" value="25" />
           <entry key="scss" value="6" />
         </counts>
       </usages-collector>
@@ -74,7 +64,7 @@
         <counts>
           <entry key="Haml" value="30" />
           <entry key="RHTML" value="8" />
-          <entry key="Ruby" value="24" />
+          <entry key="Ruby" value="25" />
           <entry key="SCSS" value="6" />
         </counts>
       </usages-collector>
@@ -82,7 +72,7 @@
         <counts>
           <entry key="erb" value="370" />
           <entry key="haml" value="3425" />
-          <entry key="rb" value="1936" />
+          <entry key="rb" value="2252" />
           <entry key="scss" value="116" />
         </counts>
       </usages-collector>
@@ -90,7 +80,7 @@
         <counts>
           <entry key="Haml" value="3425" />
           <entry key="RHTML" value="370" />
-          <entry key="Ruby" value="1936" />
+          <entry key="Ruby" value="2252" />
           <entry key="SCSS" value="116" />
         </counts>
       </usages-collector>
@@ -110,7 +100,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/admin/products_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="665">
+            <state relative-caret-position="646">
               <caret line="32" column="217" selection-start-line="32" selection-start-column="217" selection-end-line="32" selection-end-column="217" />
             </state>
           </provider>
@@ -119,8 +109,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/product.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="76" column="72" selection-start-line="76" selection-start-column="72" selection-end-line="76" selection-end-column="72" />
+            <state relative-caret-position="548">
+              <caret line="85" column="5" lean-forward="true" selection-start-line="85" selection-start-column="5" selection-end-line="85" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -128,8 +118,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/item.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="605">
-              <caret line="33" column="66" selection-start-line="33" selection-start-column="66" selection-end-line="33" selection-end-column="66" />
+            <state relative-caret-position="681">
+              <caret line="37" column="3" lean-forward="true" selection-start-line="37" selection-start-column="3" selection-end-line="37" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/price.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="589">
+              <caret line="124" column="40" selection-start-line="124" selection-start-column="40" selection-end-line="124" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -137,7 +136,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/delivery/colors_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
+            <state relative-caret-position="399">
               <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
             </state>
           </provider>
@@ -209,12 +208,12 @@
         <option value="$PROJECT_DIR$/app/views/delivery/compositions/_composition.html.haml" />
         <option value="$PROJECT_DIR$/app/controllers/admin/items_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/delivery/colors_controller.rb" />
-        <option value="$PROJECT_DIR$/app/models/price.rb" />
         <option value="$PROJECT_DIR$/app/views/admin/items/index.html.haml" />
         <option value="$PROJECT_DIR$/app/views/admin/items/_form.html.haml" />
         <option value="$PROJECT_DIR$/app/views/admin/items/_items_sidebar.haml" />
         <option value="$PROJECT_DIR$/app/views/admin/products/_form.html.haml" />
         <option value="$PROJECT_DIR$/app/controllers/admin/products_controller.rb" />
+        <option value="$PROJECT_DIR$/app/models/price.rb" />
         <option value="$PROJECT_DIR$/app/models/product.rb" />
         <option value="$PROJECT_DIR$/app/models/item.rb" />
       </list>
@@ -441,12 +440,12 @@
       <workItem from="1554019955689" duration="4009000" />
       <workItem from="1554051165859" duration="9272000" />
       <workItem from="1554107498981" duration="7324000" />
-      <workItem from="1554125317527" duration="22951000" />
+      <workItem from="1554125317527" duration="25812000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="495368000" />
+    <option name="totallyTimeSpent" value="498229000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -783,24 +782,6 @@
     <entry file="file://$PROJECT_DIR$/app/views/admin/items/show.html.haml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/price.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1007">
-          <caret line="49" column="10" selection-start-line="49" selection-start-column="10" selection-end-line="49" selection-end-column="10" />
-          <folding>
-            <element signature="e#4402#5477#0" />
-            <element signature="e#5481#7674#0" />
-            <element signature="e#7678#9870#0" />
-            <element signature="e#9874#9945#0" />
-            <element signature="e#9949#10179#0" />
-            <element signature="e#10183#10249#0" />
-            <element signature="e#10253#10325#0" />
-            <element signature="e#10329#10430#0" />
-            <element signature="e#10434#10501#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/admin/items/_items_sidebar.haml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1292">
@@ -831,29 +812,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/admin/products_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="665">
+        <state relative-caret-position="646">
           <caret line="32" column="217" selection-start-line="32" selection-start-column="217" selection-end-line="32" selection-end-column="217" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/delivery/colors_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
+        <state relative-caret-position="399">
           <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/price.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="589">
+          <caret line="124" column="40" selection-start-line="124" selection-start-column="40" selection-end-line="124" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/product.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="76" column="72" selection-start-line="76" selection-start-column="72" selection-end-line="76" selection-end-column="72" />
+        <state relative-caret-position="548">
+          <caret line="85" column="5" lean-forward="true" selection-start-line="85" selection-start-column="5" selection-end-line="85" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/item.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="605">
-          <caret line="33" column="66" selection-start-line="33" selection-start-column="66" selection-end-line="33" selection-end-column="66" />
+        <state relative-caret-position="681">
+          <caret line="37" column="3" lean-forward="true" selection-start-line="37" selection-start-column="3" selection-end-line="37" selection-end-column="3" />
         </state>
       </provider>
     </entry>

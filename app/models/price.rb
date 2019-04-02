@@ -119,12 +119,10 @@ class Price < ApplicationRecord
         if @item.present?
           @item.subcategories = @categories
           Product.find_or_create_by!(name: i[:name]) do |p|
-
             p.item = @item
             p.size = size
             p.name = i[:name]
             p.img_remote_url = i[:image]
-
           end
         end
       end

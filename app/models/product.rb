@@ -34,6 +34,7 @@ class Product < ApplicationRecord
 
   attr_reader :img_remote_url
   # before_save :set_image
+  after_find :set_complex_name
 
   scope :search, ->(word) { where('lower(products.name) LIKE ? ', "%#{word}%").distinct.availible_products }
 
@@ -71,8 +72,8 @@ class Product < ApplicationRecord
     #   end
     #   self.save
     # end
-    unless self.type == 'разное'
-      item_name = item.sanitized_name
+    unless self.type == 'разное' || self.item.name.blank?
+      item_name = self.item.sanitized_name
       self_name = category.title == 'без рисунка' ? '' : " #{item_name}"
       size_name = size ?  "#{size.in_inch.to_i}'' (#{size.in_cm.to_i}см) " : ''
       form = foil_form ? " #{foil_form.name}" : ''
@@ -80,9 +81,11 @@ class Product < ApplicationRecord
       texture_name = texture ? " #{texture.name}" : ''
       tone_name = tone ? " #{tone.name}" : ''
       complex_name = size_name + form + texture_name + tone_name + self_name
-      update_attributes(complex_name: complex_name)
+      update_columns(complex_name: complex_name.downcase)
     end
   end
+
+
 
   def self.plain_latex_for_select
     arr = []

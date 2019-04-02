@@ -9,9 +9,7 @@ class Delivery::ColorsController < Delivery::DeliveryController
 
   def show
     @color = Color.friendly.find(params[:id])
-    latex = Product.latex_in_compositions.includes(:item, :tone, :size, :type, :foil_form, :color,:texture).where(colors: { id: @color.id})
-    foil = Product.foil_in_compositions.includes(:item, :tone, :size, :type, :foil_form, :color,:texture).where(colors: { id: @color.id })
-    @items_in_collection = latex + foil
+    @items_in_collection = Product.includes(:item).where(items: {color_id: @color.id}).availible_products
     set_meta_tags title: " Заказать #{@color.name.chomp('ый') + 'ые'} воздушные шары с гелием с доставкой в %{city}" % {city: t("cities.#{@city}.where")},
                   description: "#{@color.name.chomp('ый').capitalize + 'ые'} воздушные шары с гелием украсят любой праздник!"
   end

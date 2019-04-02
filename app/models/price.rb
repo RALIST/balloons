@@ -2,10 +2,8 @@ class Price < ApplicationRecord
 
   has_attached_file :price_sheet
   validates_attachment :price_sheet, presence: true,
-                       content_type:           {content_type: [
-                                                                  'application/vnd.ms-excel',
-                                                                  'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-                                                              ]},
+                       content_type: {content_type: ['application/vnd.ms-excel',
+                                                     'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet']},
                        message:                ' Only EXCEL files are allowed.'
 
   attr_accessor :vendor, :type
@@ -49,9 +47,7 @@ class Price < ApplicationRecord
          item[:form] = row[15]
          item[:price] = row[7]
          items << item
-
        end
-
     end
     end_time = Time.now
     puts "***Parsing finished in #{end_time - start_time}***"
@@ -79,28 +75,22 @@ class Price < ApplicationRecord
         vendor = Vendor.find_or_create_by(name: i[:made_by].downcase) if i[:made_by]
         type = Category.find_or_create_by(title: 'с рисунком')
 
-        @item = Latex.find_or_create_by!(name: i[:name]) do |item|
-
+        @item = Latex.find_or_create_by(name: i[:name]) do |item|
           item.vendor = vendor
           item.category = type
           item.name = i[:name]
           item.color = @color if @color.present?
-
-
         end
 
 
         if @item.present?
           @item.subcategories = @categories
-          Product.find_or_create_by!(name: i[:name]) do |p|
-
+          Product.find_or_create_by(name: i[:name]) do |p|
             p.item = @item
             p.size = size
             p.name = i[:name]
             p.img_remote_url = i[:image]
-
           end
-
         end
 
       else
@@ -119,13 +109,11 @@ class Price < ApplicationRecord
 
 
         @item = Foil.find_or_create_by(name: i[:name].downcase) do |item|
-
           item.foil_form = form
           item.vendor = vendor
           item.category = type
           item.color = @color if @color
           item.subcategories = @categories if @categories
-
         end
 
         if @item.present?
@@ -161,12 +149,10 @@ class Price < ApplicationRecord
 
           end
         else
-
           vendor = Vendor.find_or_create_by(name: vendor_name.downcase)
           Product.find_or_create_by!(name: name) do |product|
             get_foil(name, vendor, product, category, code) if name.present?
           end
-
         end
       end
     end

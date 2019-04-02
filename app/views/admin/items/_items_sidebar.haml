@@ -1,0 +1,51 @@
+.sidebar-sticky.admin-sidebar.col-2.bg-dark.navbar-dark
+  %ul.navbar-nav#sidebar
+    %li.nav-item.d-flex.justify-content-between
+      = link_to '#', data: {toggle: 'collapse', target: '#colors'}, class: 'nav-link h5 collapsed' do
+        Цвета
+    .collapse#colors
+      - Color.all.each do |color|
+        %li.nav-item= link_to color.name.capitalize, admin_items_path(color: color.id), class: 'nav-link small'
+      %p
+        = link_to 'Добавить цвет', new_admin_color_path, class: 'btn btn-info btn-sm'
+    %li.nav-item
+      = link_to '#', data: {toggle: 'collapse', target: '#types'}, class: 'nav-link h5 collapsed' do
+        Тип продукции
+    .collapse#types
+      - Type.all.each do |type|
+        %li.nav-item= link_to type.name.capitalize, admin_items_path(type: type.id), class: 'nav-link small'
+      %p
+        = link_to 'Добавить тип', new_admin_type_path, class: 'btn btn-info btn-sm'
+    %li.nav-item
+      = link_to '#', data: {toggle: 'collapse', target: '#textures'}, class: 'nav-link h5 collapsed' do
+        Текстура
+    .collapse#textures
+      - Texture.all.each do |texture|
+        %li.nav-item= link_to texture.name.capitalize, admin_items_path(texture: texture.id), class: 'nav-link small'
+      %p
+        = link_to 'Добавить текстуру', new_admin_texture_path, class: 'btn btn-info btn-sm'
+    %li.nav-item
+      = link_to '#', data: {toggle: 'collapse', target: '#tones'}, class: 'nav-link h5 collapsed' do
+        Оттенок
+    .collapse#tones
+      - Tone.all.distinct.each do |tone|
+        %li.nav-item= link_to tone.name.capitalize, admin_items_path(tone: tone.id), class: 'nav-link small'
+      %p
+        = link_to 'Добавить оттенок', new_admin_tone_path, class: 'btn btn-info btn-sm'
+    %li.nav-item
+      = link_to '#', data: {toggle: 'collapse', target: '#forms'}, class: 'nav-link h5 collapsed' do
+        Форма
+    .collapse#forms
+      - FoilForm.find_each do |form|
+        %li.nav-item= link_to form.name.capitalize, admin_items_path(form: form.id), class: 'nav-link small'
+      %p
+        = link_to 'Добавить форму', new_admin_foil_form_path, class: 'btn btn-info btn-sm'
+    %li.nav-item
+      = link_to '#', data: {toggle: 'collapse', target: '#collection'}, class: 'nav-link h5 collapsed' do
+        Коллекции
+    .collapse#collection
+      - Subcategory.joins(:products).distinct.each do |category|
+        %li.nav-item= link_to category.name.capitalize,  admin_items_path(subcategory: category.id), class: 'nav-link small'
+      %p
+        = link_to 'Добавить категорию', new_admin_subcategory_path, class: 'btn btn-info btn-sm'
+    = link_to 'Добавить товар', new_admin_product_path, class: 'btn btn-info '

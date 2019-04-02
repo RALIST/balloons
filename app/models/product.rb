@@ -8,7 +8,7 @@ class Product < ApplicationRecord
   has_many :items_in_compositions, dependent: :destroy
   has_many :subpositions, dependent: :delete_all
   has_one :tone, through: :item
-  has_one :color, through: :tone
+  has_one :color, through: :item
   has_one :type, through: :item
   has_one :category, through: :item
   has_one :texture,  through: :item
@@ -16,6 +16,9 @@ class Product < ApplicationRecord
   has_one :vendor, through: :item
   has_one :category, through: :item
   has_many :subcategories, through: :item
+
+  accepts_nested_attributes_for :item, update_only: true
+
   validates :item_id, presence: true
   validates :name, uniqueness: true, presence: true
 
@@ -31,7 +34,6 @@ class Product < ApplicationRecord
 
   attr_reader :img_remote_url
   # before_save :set_image
-  after_find :calc_price_with_helium, :set_complex_name
 
   scope :search, ->(word) { where('lower(products.name) LIKE ? ', "%#{word}%").distinct.availible_products }
 
@@ -50,24 +52,35 @@ class Product < ApplicationRecord
   end
 
   def set_complex_name
-    if self.complex_name.blank?
-      case type.name
-      when 'латексные шары'
-        size_name = size ? "#{size.in_inch.to_i}''(#{size.in_cm.to_i}см) " : ""
-        tone_name = tone ? " #{texture.name} #{tone.name}" : ""
-        if !size_name.blank? && !tone_name.blank?
-          self.complex_name = size_name + tone_name
-        else
-          self.complex_name = size_name + item.name.gsub(/[\d+,()\/.']|\bшт[.|\b]|\bсм\b|\bст\b/, '')
-        end
-      when 'фольгированные шары'
-        size_name = size ? "#{size.in_inch.to_i}''(#{size.in_cm.to_i}см) " : ''
-        item_name = item ? item.name.gsub(/[\w',()\/]|\bшт[.|\b]|\bсм\b|\bст\b/, '') : ''
-        self.complex_name = size_name + item_name
-      when 'разное'
-        self.complex_name = name.present? ? name.capitalize : ''
-      end
-      self.save
+    # if self.complex_name.blank?
+    #   case type.name
+    #   when 'латексные шары'
+    #     size_name = size ? "#{size.in_inch.to_i}''(#{size.in_cm.to_i}см) " : ""
+    #     tone_name = tone ? " #{texture.name} #{tone.name}" : ""
+    #     if !size_name.blank? && !tone_name.blank?
+    #       self.complex_name = size_name + tone_name
+    #     else
+    #       self.complex_name = size_name + item.name.gsub(/[\d+,()\/.']|\bшт[.|\b]|\bсм\b|\bст\b/, '')
+    #     end
+    #   when 'фольгированные шары'
+    #     size_name = size ? "#{size.in_inch.to_i}''(#{size.in_cm.to_i}см) " : ''
+    #     item_name = item ? item.name.gsub(/[\w',()\/]|\bшт[.|\b]|\bсм\b|\bст\b/, '') : ''
+    #     self.complex_name = size_name + item_name
+    #   when 'разное'
+    #     self.complex_name = name.present? ? name.capitalize : ''
+    #   end
+    #   self.save
+    # end
+    unless self.type == 'разное'
+      item_name = item.sanitized_name
+      self_name = category.title == 'без рисунка' ? '' : " #{item_name}"
+      size_name = size ?  "#{size.in_inch.to_i}'' (#{size.in_cm.to_i}см) " : ''
+      form = foil_form ? " #{foil_form.name}" : ''
+      color_name = color ? " #{color.name}" : ''
+      texture_name = texture ? " #{texture.name}" : ''
+      tone_name = tone ? " #{tone.name}" : ''
+      complex_name = size_name + form + texture_name + tone_name + self_name
+      update_attributes(complex_name: complex_name)
     end
   end
 
@@ -173,35 +186,33 @@ class Product < ApplicationRecord
   end
 
   def calc_price_with_helium
-    unless self.price_with_helium.present? &&  self.price_with_helium > 0
-      if type.name == 'латексные шары' && size
-        self.price_with_helium = size.value
-      elsif type.name == 'разное'
-        self.price_with_helium = self.price.to_i
-      else
-        if foil_form && size
-          case foil_form.name
-            when 'звезда', 'круг', 'сердце', 'квадрат'
-              if size.in_inch < 32
-                self.price_with_helium = 200
-              else
-                self.price_with_helium = 600
-              end
-            when 'цифра'
-              self.price_with_helium = 700
-            when 'фигура'
-              if size.in_inch < 40
-                self.price_with_helium =  450
-              else
-                self.price_with_helium = 550
-              end
-            when 'ходячая', 'ходячая фигура'
-              self.price_with_helium = 2500
-          end
+    if type.name == 'латексные шары' && size
+      self.price_with_helium = size.value
+    elsif type.name == 'разное'
+      self.price_with_helium = self.price.to_i
+    else
+      if foil_form && size
+        case foil_form.name
+          when 'звезда', 'круг', 'сердце', 'квадрат'
+            if size.in_inch < 32
+              self.price_with_helium = 200
+            else
+              self.price_with_helium = 600
+            end
+          when 'цифра'
+            self.price_with_helium = 700
+          when 'фигура'
+            if size.in_inch < 40
+              self.price_with_helium =  450
+            else
+              self.price_with_helium = 550
+            end
+          when 'ходячая', 'ходячая фигура'
+            self.price_with_helium = 2500
         end
       end
-      self.save
     end
+    self.save
   end
 
   def self.latex_in_compositions

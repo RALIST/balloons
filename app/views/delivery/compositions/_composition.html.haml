@@ -52,14 +52,19 @@
             = link_to 'Перейти в корзину', my_cart_path, class: 'btn btn-success btn-block btn-sm'
         .col-12.text-center.text-lavender.mt-2.small
           Вы cможете изменить состав композиции в корзине
+          - if current_user && current_user.admin?
+            .col-12.text-center
+              = link_to 'Редактировать', admin_composition_path(composition), class: 'btn btn-light btn-sm'
+              = link_to 'Удалить', admin_composition_path(composition), method: :delete, class: 'btn btn-light btn-sm', data: {confirm: 'Вы уверены?'}
     .col-12.col-lg-6.text-center.order-1.order-lg-last
       = image_tag composition.img.url(:large), class: 'img-fluid rounded w-100', itemprop: 'image', alt: composition.title
       .row.comp-text.text-secondary.justify-content-between.mt-3
         .col-12.d-flex.flex-row.justify-content-between
 
+%hr.w-100
 %h2.h5.text-center.strong.my-3.text-secondary
   %span.px-3.text-uppercase
-    Рекомендуем
+    Похожие композиции
 .row.justify-content-around.compositions.slider-comp.text-center#similar{itemprop: 'isSimilarTo'}
   = render partial: 'delivery/main/thumb_composition', collection: composition.related.limit(3), as: :c
 

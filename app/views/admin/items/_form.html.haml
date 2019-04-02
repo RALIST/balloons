@@ -2,12 +2,6 @@
   %h2 Добавить товар
   .col-12
     = form_for [:admin, @item] do |f|
-      .form-group
-        = f.label :type_id, 'Тип'
-        = f.select :type_id, Type.all.collect{|t| [t.name, t.id] if t.name == 'разное'}.reject(&:blank?), { include_blank: false }, class: 'form-control'
-      .form-group
-        = f.label :category_id, 'Категория'
-        = f.select :category_id, Category.all.map{|c| [c.title, c.id]},{}, class: 'form-control'
       = f.fields_for :products, @product do |nf|
         = render partial: 'product_fields', locals: {nf: nf}
       .from-group.mt-4

@@ -1,126 +1,61 @@
 .row.no-gutters
-  .sidebar-sticky.admin-sidebar.col-2.bg-dark.navbar-dark
-    %ul.navbar-nav#sidebar
-      %li.nav-item.d-flex.justify-content-between
-        = link_to '#', data: {toggle: 'collapse', target: '#colors'}, class: 'nav-link h5 collapsed' do
-          Цвета
-      .collapse#colors
-        - Color.all.each do |color|
-          %li.nav-item= link_to color.name.capitalize, admin_items_path(color: color.id), class: 'nav-link small'
-        %p
-          = link_to 'Добавить цвет', new_admin_color_path, class: 'btn btn-info btn-sm'
-      %li.nav-item
-        = link_to '#', data: {toggle: 'collapse', target: '#types'}, class: 'nav-link h5 collapsed' do
-          Тип продукции
-      .collapse#types
-        - Type.all.each do |type|
-          %li.nav-item= link_to type.name.capitalize, admin_items_path(type: type.id), class: 'nav-link small'
-        %p
-          = link_to 'Добавить тип', new_admin_type_path, class: 'btn btn-info btn-sm'
-      %li.nav-item
-        = link_to '#', data: {toggle: 'collapse', target: '#textures'}, class: 'nav-link h5 collapsed' do
-          Текстура
-      .collapse#textures
-        - Texture.all.each do |texture|
-          %li.nav-item= link_to texture.name.capitalize, admin_items_path(texture: texture.id), class: 'nav-link small'
-        %p
-          = link_to 'Добавить текстуру', new_admin_texture_path, class: 'btn btn-info btn-sm'
-      %li.nav-item
-        = link_to '#', data: {toggle: 'collapse', target: '#tones'}, class: 'nav-link h5 collapsed' do
-          Оттенок
-      .collapse#tones
-        - Tone.all.distinct.each do |tone|
-          %li.nav-item= link_to tone.name.capitalize, admin_items_path(tone: tone.id), class: 'nav-link small'
-        %p
-          = link_to 'Добавить оттенок', new_admin_tone_path, class: 'btn btn-info btn-sm'
-      %li.nav-item
-        = link_to '#', data: {toggle: 'collapse', target: '#forms'}, class: 'nav-link h5 collapsed' do
-          Форма
-      .collapse#forms
-        - FoilForm.find_each do |form|
-          %li.nav-item= link_to form.name.capitalize, admin_items_path(form: form.id), class: 'nav-link small'
-        %p
-          = link_to 'Добавить форму', new_admin_foil_form_path, class: 'btn btn-info btn-sm'
-      %li.nav-item
-        = link_to '#', data: {toggle: 'collapse', target: '#collection'}, class: 'nav-link h5 collapsed' do
-          Коллекции
-      .collapse#collection
-        - Subcategory.joins(:products).distinct.each do |category|
-          %li.nav-item= link_to category.name.capitalize,  admin_items_path(subcategory: category.id), class: 'nav-link small'
-        %p
-          = link_to 'Добавить категорию', new_admin_subcategory_path, class: 'btn btn-info btn-sm'
-      = link_to 'Добавить товар', new_admin_item_path, class: 'btn btn-info '
-  .col-10.ml-auto
-    
+  = render 'items_sidebar'
+  .col-10.ml-auto.c-list
     - if @items
       .col-12
-        %h2{data: {toggle: 'collapse', target: '#items'}, style: 'cursor: pointer;'}
-          Все товары
-        - @items.all.includes(:vendor, :texture, :tone, :products, :color, :category, :sizes).each do |item|
-          .border-bot
-            %h5
-              - case item.type.name
-              - when 'латексные шары', 'фольгированные шары'
-                = item.vendor.name.capitalize if item.vendor
-                = item.texture.name if item.texture
-                = item.foil_form.name if item.foil_form
-                - if item.tone
-                  = "#{item.tone.code}/#{item.tone.name}"
-                  = item.tone.color.name
-              - when 'товары для композиций'
-                = item.products.first.complex_name unless item.products.blank?
-              - else
-                = item.color.name if item.color
-              %small
-                = link_to 'Редактировать', edit_admin_item_path(item), target: '_blank'
-                = link_to 'Удалить', admin_item_path(item), method: :delete
-              %br
-              .small.text-right
-                Каталог:
-                = item.name
-                %br
-                = item.type.name.capitalize
-                = item.category.title
-                %br
-            -if item.products.any?
-              %table.table
-                %thead
-                  %th
-                    Изображение
-                  %th
-                    Шрихкод
-                  %th
-                    Акртикул
-                  %th
-                    Размер
-                  %th
-                    Цена
-                  %th
-                    Цена с гелием
-                  %th
-                    Количество
-                  %th
-                    Название
-                - item.products.order(:size_id).each do |product|
-                  %tr
-                    %td
-                      = image_tag product.img(:small)
-                    %td
-                      = product.barcode
-                    %td
-                      = product.code
-                    %td
-                      = product.size.in_inch if product.size
-                    %td
-                      = product.price
-                    %td
-                      = product.price_with_helium if product.price_with_helium
-                    %td
-                      = product.quantity
-                    %td
-                      = product.name
-                      %br
-                      = link_to 'Редактировать', edit_admin_product_path(product), target: '_blank'
-                      = link_to 'Удалить', admin_product_path(product), method: :delete
+        %table.table.table-sm
+          %thead
+            %th
+            %th
+              Название
+            %th
+              Артикул
+            %th
+              Размер
+            %th
+              Цена
+            %th
+              Цена с гелием
+            %th
+          - @items.each do |item|
+            - item.products.order(:size_id).each do |product|
+              %tr
+                %td.align-middle
+                  = image_tag product.img(:small)
+                %td.align-middle
+                  = product.complex_name
+                  .small
+                    %strong
+                      Тип:
+                    = product.item.type.name if item.type
+                  .small
+                    %strong
+                      Категория:
+                    = product.item.category.title if item.category
+                  .small
+                    %strong
+                      Текстура:
+                    = product.texture.name if product.texture
+                  .small
+                    %strong
+                      Цвет:
+                    = product.color.name if product.color
+                  .small
+                    %strong
+                      Оттенок:
+                    = product.tone.name + ' / ' + product.tone.code if product.tone
+                  .small
+                    = item.name
+                %td.align-middle
+                  = product.code
+                %td.align-middle
+                  = product.size.in_inch if product.size
+                %td.align-middle
+                  = product.price
+                %td.align-middle
+                  = product.price_with_helium
+                %td.align-middle
+                  = link_to 'Редактировать', edit_admin_product_path(product), target: '_blank', class: 'btn btn-light btn-sm'
+                  = link_to 'Удалить', admin_product_path(product), method: :delete, class: 'btn btn-light btn-sm'
       %ul.pag.d-flex.flex-row.list-unstyled.justify-content-between
         = will_paginate @items, container: false

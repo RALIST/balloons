@@ -65,8 +65,7 @@ class Admin::ItemsController < Admin::AdminController
       form = FoilForm.find(params[:form])
       @items = Item.where(foil_form: form).paginate(page: params[:page], per_page: 20)
     elsif params[:color]
-      color = Color.find(params[:color])
-      @items = Item.joins(:tone).where(tones: { color: color }).paginate(page: params[:page], per_page: 20)
+      @items = Item.where(color_id: params[:color]).paginate(page: params[:page], per_page: 20)
     elsif params[:texture]
       texture = Texture.find(params[:texture])
       @items = Item.where(texture: texture).paginate(page: params[:page], per_page: 20)

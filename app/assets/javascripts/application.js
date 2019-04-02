@@ -16,13 +16,6 @@
 //= require ym
 
 
-setTimeout(function(){
-  if(!Cookies.get('popup')){
-    $('#call-modal').modal('show');
-    Cookies.set('popup', 'true')
-  }
-}, 70000);
-
 
 
 var ready = function(){

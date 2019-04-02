@@ -33,8 +33,6 @@ class Product < ApplicationRecord
                                     default_url: '/missing/:style/missing.png'
 
   attr_reader :img_remote_url
-  # before_save :set_image
-  after_find :set_complex_name
 
   scope :search, ->(word) { where('lower(products.name) LIKE ? ', "%#{word}%").distinct.availible_products }
 
@@ -80,8 +78,8 @@ class Product < ApplicationRecord
       color_name = color ? " #{color.name}" : ''
       texture_name = texture ? " #{texture.name}" : ''
       tone_name = tone ? " #{tone.name}" : ''
-      complex_name = size_name + form + texture_name + tone_name + self_name
-      update_columns(complex_name: complex_name.downcase)
+      complex_name = 'Шар ' + size_name + form + texture_name + tone_name + self_name
+      update_columns(complex_name: complex_name.downcase.capitalize)
     end
   end
 

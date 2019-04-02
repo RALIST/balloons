@@ -28,11 +28,14 @@ class Item < ApplicationRecord
   end
 
   def sanitized_name
-    form = self.foil_form.name if foil_form
-    color = self.color.name if color
-    texture = self.texture.name if texture
-    puts form, texture, color
-    name.downcase.gsub(/[[:digit:]]|[[:punct:]]|\b[а-я]{2}\b|\b#{form}\b||\b#{color}\b|\b#{texture}\b|\bшар\b|\bily\b|\bм\b/, '')
+    form = foil_form ? self.foil_form.name : ""
+    color_name =  color ? self.color.name : ""
+    texture_name = texture ? "|\b#{self.texture.name}\b" : ""
+    sanitized = name.downcase.gsub(/\b[[:digit:]][а-я]{,3}\b|[[:digit:]]|[[:punct:]]|\b[а-я]{2}\b|\bшар\b|\bily\b|\bм\b|\bшар\b|\b[a-z]{1}[[:digit:]]{,2}\b/, '')
+    sanitized = sanitized.gsub(/#{form}/, '') if form
+    sanitized = sanitized.gsub(/#{color_name}/, '') if color_name
+    sanitized = sanitized.gsub(/#{texture_name}/, '') if texture_name
+    return sanitized
   end
 
 end

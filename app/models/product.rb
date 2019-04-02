@@ -16,6 +16,7 @@ class Product < ApplicationRecord
   has_one :vendor, through: :item
   has_one :category, through: :item
   has_many :subcategories, through: :item
+  has_many :carts, through: :subpositions
 
   accepts_nested_attributes_for :item, update_only: true
 
@@ -38,7 +39,7 @@ class Product < ApplicationRecord
 
 
   def in_cart?(cart)
-    cart.products.include?(self)
+    Rails.cache.fetch("#{self.updated_at}/#{cart.id}"){self.carts.include?(cart)}
   end
 
 

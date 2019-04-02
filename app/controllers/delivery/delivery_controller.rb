@@ -8,7 +8,7 @@ class Delivery::DeliveryController < ApplicationController
   before_action :set_location
   before_action :set_meta_og
 
-  etag { current_user.try(:id) }
+  etag { [current_user.try(:id), current_cart.try(:subpositions)] }
 
 
   def set_tags

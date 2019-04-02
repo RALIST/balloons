@@ -11,8 +11,10 @@ class Admin::ProductsController < Admin::AdminController
   end
 
   def update
-
-    redirect_to admin_items_path if @product.update(product_params)
+    if @product.update(product_params)
+      redirect_back(fallback_location: admin_items_path)
+      flash[:success] = 'Товар успешно обновлен!'
+    end
   end
 
   def show

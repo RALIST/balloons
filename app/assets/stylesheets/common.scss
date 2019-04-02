@@ -76,12 +76,11 @@
 
 #seo-text {
   p, ul {
-    font-size: 0.8rem;
     @extend .text-justify;
   }
   h2, h3 {
     @extend .text-info;
-    @extend .h6;
+    @extend .h5;
   }
 }
 

@@ -113,12 +113,12 @@ end
 
 crumb :kg do
   link 'Выпускной из садика', kg_tags_path
-  parent :root
+  parent :tags
 end
 
 crumb :school do
   link 'Выпускной из школы', school_tags_path
-  parent :root
+  parent :tags
 end
 
 crumb :cart do

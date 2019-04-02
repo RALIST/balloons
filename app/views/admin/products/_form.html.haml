@@ -16,7 +16,7 @@
           = nf.select :color_id, Color.all.map{|s| [s.name, s.id]}, {include_blank: true}, class: 'form-control'
         .form-group
           = nf.label :tone_id, 'Оттенок'
-          = nf.select :color_id, Tone.all.map{|s| [s.name + ' / ' + s.code, s.id]}, {include_blank: true}, class: 'form-control'
+          = nf.select :tone_id, Tone.all.map{|s| [s.name + ' / ' + s.code, s.id]}, {include_blank: true}, class: 'form-control'
         .form-group
           = nf.label :texture_id, 'Текстура'
           = nf.select :texture_id, Texture.all.map{|s| [s.name, s.id]}, {include_blank: true}, class: 'form-control'

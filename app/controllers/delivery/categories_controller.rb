@@ -8,9 +8,9 @@ class Delivery::CategoriesController < Delivery::DeliveryController
 
   def show
     @category = Subcategory.friendly.find(params[:id])
-    @items_in_collection = Rails.cache.fetch("category/#{@category.id}#{@category.updated_at}/products") {@category.products.availible_products}
-    fresh_when @items_in_collection, public: true
+    @items_in_collection = Rails.cache.fetch("category/#{@category.id}#{@category.products}") {@category.products.availible_products}
     set_meta_tags title: "Заказать воздушные шары '#{@category.name.capitalize}' с доставкой в %{city} | Шариковая фея" % {city: t("cities.#{@city}.where")},
                   description: "Воздушные шары из коллекции '#{@category.name.capitalize}' сделают ваш праздник незабываемым!"
+    fresh_when @category.products, public: true
   end
 end

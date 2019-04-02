@@ -1,182 +1,129 @@
 - breadcrumb :prices
-- cache do
-  .container.mt-5.text-center
-    %h1
+
+.container.c-list
+  %h1.h5.text-center
+    %span
       Цены на гелиевые шары c доставкой в
       = t "cities.#{@city}.where"
-    .row
-      .col-12
-        %h3.bg-info.text-white.p-3{data: {toggle: 'collapse', target: '#latex'}, style: 'cursor: pointer'}
-          Латексные шары
-          %i.fa.fa-chevron-down
-        .container.collapse#latex
-          %table.table.table-bordered.table-hover.text-center
-            %thead
-              %tr
-                %th.hidden-md-down
-                %th
-                  Название
-                %th
-                  Цена шара с гелием
-            %tbody
-              %tr
-                %td.hidden-md-down
-                  = image_tag Latex.first.products.last.img(:small), class: 'img-fluid', style: 'min-width: 100px'
-                %td.text-left{style: 'max-width: 40%;'}
-                  .lead
-                    Латексные шары без рисунка 12''(30см)
-                    %blockquote.blockquote.small
-                      Бюджетный вариант шаров, меньше стандартного размера, соотвественно и время полета у них меньше. Для тех, кому цена важнее.
-                %td
-                  70 руб.
-              %tr
-                %td.hidden-md-down
-                  = image_tag Latex.first.products.first.img(:small), class: 'img-fluid', style: 'min-width: 100px'
-                %td.text-left{style: 'max-width: 40%;'}
-                  .lead
-                    Латексные шары без рисунка 14''(36см)
-                    %blockquote.blockquote.small
-                      Стандартный и самый ходовой размер шара с гелием,
-                      подойдет практически на любой праздник и событие.
-                %td
-                  80 руб.
-              %tr
-                %td.hidden-md-down
-                  = image_tag Latex.where(tone_id: nil).last.products.last.img(:small), class: 'img-fluid', style: 'min-width: 100px'
-                %td.text-left{style: 'max-width: 40%;'}
-                  .lead
-                    Латексные шары c рисунком 12''(30см)
-                    %blockquote.blockquote.small
-                      Различные тематические шары с рисунком практически на любой повод: на день рождения, выписку, юбилей. Большой выбор шариков с героями мультфильмов. Некоторые виды шаров доступны только в этом размере.
-                %td
-                  75 руб.
-              %tr
-                %td.hidden-md-down
-                  = image_tag Latex.where(tone_id: nil).last.products.last.img(:small), class: 'img-fluid', style: 'min-width: 100px'
-                %td.text-left{style: 'max-width: 40%;'}
-                  .lead
-                    Латексные шары c рисунком 14''(30см)
-                    %blockquote.blockquote.small
-                      Шарики с рисунком - отличная возможность оформления под тематику вашего торжества. Огромный выбор различных рисунков, как абстрактных, так и с персонажами мультфильмов.
-                %td
-                  85 руб.
-              %tr
-                %td.hidden-md-down
-                  = image_tag Composition.find(182).img(:small), class: 'img-fluid', style: 'min-width: 100px' if Rails.env.production?
-                %td.text-left{style: 'max-width: 40%;'}
-                  .lead
-                    Латексный шар без рисунка 36''(96см)
-                    %blockquote.blockquote.small
-                      Огромный метровый шар! Выбрав его на свой праздник вы никогда не прогадаете, эффект производит потрясающий. Можно добавить кисти тассел для усиления эффекта.
-                %td
-                  1000 руб.
-              %tr
-                %td.hidden-md-down
-                  = image_tag Composition.find(182).img(:small), class: 'img-fluid', style: 'min-width: 100px' if Rails.env.production?
-                %td.text-left{style: 'max-width: 40%;'}
-                  .lead
-                    Прозрачный шар с конфетти
-                    %blockquote.blockquote.small
-                      Прозрачные шары с конфетти всегда производят wow-эффект, на любом празднике и мероприятии!
-                %td
-                  120 руб.
-              %tr
-                %td.hidden-md-down
-                  = image_tag Latex.where.not(tone_id: nil).last.products.last.img(:small), class: 'img-fluid', style: 'min-width: 100px'
-                %td.text-left{style: 'max-width: 40%;'}
-                  .lead
-                    Шары на запуск
-                    %blockquote.blockquote.small
-                      На сегодняшний день очень популярная традиция: на празднике отправлять множество шаров в небо. Мы предлагаем бюджетный вариант шариков на запуск.
-                %td
-                  65 руб.
-
-      .col-12
-        %h3.bg-info.text-white.p-3{data: {toggle: 'collapse', target: '#foil'}, style: 'cursor: pointer'}
-          Фольгированные шары
-          %i.fa.fa-chevron-down
-        .container.collapse#foil
-          %table.table.table-bordered.table-hover.text-center
-            %thead
-              %tr
-                %th.hidden-md-down
-                %th
-                  Название
-                %th
-                  Цена шара с гелием
-            %tbody
-              %tr
-                %td.hidden-md-down
-                  = image_tag Foil.where.not(foil_form_id: nil).last.products.last.img(:small), class: 'img-fluid', style: 'min-width: 100px'
-                %td.text-left{style: 'max-width: 40%;'}
-                  .lead
-                    Фольгированный шар: сердце, звезда, круг 18''(45см)
-                    %blockquote.blockquote.small
-                      Фольгированные шары просто созданы для великоплепных оформлений! Букет из фольгированных шаров будет отличным подарком и впишется в любой интерьер. Если вы хотите, чтобы ваш праздник запомнился, заказывайте фольгированные шары.
-                      Богатая цветовая гамма.
-                %td
-                  250 руб.
-              %tr
-                %td.hidden-md-down
-                  = image_tag Foil.joins(:foil_form).where(foil_forms:{name: 'цифра'}).first.products.first.img(:small), class: 'img-fluid', style: 'min-width: 100px'
-                %td.text-left{style: 'max-width: 40%;'}
-                  .lead
-                    Фольгированный шар-цифра (103см)
-                    %blockquote.blockquote.small
-                      Этот метровый шар-цифра просто идеальный вариант на День рождения или любую другую значимую дату в вашей жизни. Богатая цветовая гамма повзолит подобрать шар-цифру под вашу тематику.
-                %td
-                  800 руб.
-              %tr
-                %td.hidden-md-down
-                  = image_tag Foil.joins(:foil_form).where(foil_forms:{name: 'фигура'}, tone_id: nil).last.products.last.img(:small), class: 'img-fluid', style: 'min-width: 100px'
-                %td.text-left{style: 'max-width: 40%;'}
-                  .lead
-                    Фольгированный шар-фигура
-                    %blockquote.blockquote.small
-                      Огромный ассортимент шаров-фигур позволяет подобрать оформление на любой повод. Начиная от принцесс Диснея и заканчивая Звездными войнами и свинкой Пеппой.
-                %td
-                  Уточняйте по телефону.
-      .col-12
-        %h3.bg-info.text-white.p-3{data: {toggle: 'collapse', target: '#products'}, style: 'cursor: pointer'}
-          Дополнительные услуги
-          %i.fa.fa-chevron-down
-        .container.collapse#products
-          %table.table.table-bordered.table-hover.text-center
-            %thead
-              %tr
-                %th.hidden-md-down
-                %th
-                  Название
-                %th
-                  Цена
-            %tbody
-              %tr
-                %td.hidden-md-down
-                  / %i.fa.fa-bars
-                %td.text-left{style: 'max-width: 40%;'}
-                  .lead
-                    Доставка воздушных шаров в
-                    = t "cities.#{@city}.where"
-                    %blockquote.blockquote.small
-                      Крулосуточная доставка воздушных шариков в пределах
-                      = t "cities.#{@city}.where"
-                %td
-                  250 руб.
-                  %br
-                  .text-danger
-                    При заказе от 1500 руб. - бесплатно
-              %tr
-                %td.hidden-md-down
-                  / %i.fa.fa-bars
-                %td.text-left{style: 'max-width: 40%;'}
-                  .lead
-                    Оформление праздника воздушными шарами
-                    %blockquote.blockquote.small
-                      Подберем оформление и создадим красоту на вашем празднике
-                %td
-                  500 руб.
-                  .text-danger
-                    При заказе от 1500 руб. - бесплатно
-    .row.mt-3
-      .col-12
-        = render 'prices_text'
+  .row
+    .col-12
+      %h3.h5.bg-info.text-white.py-2.text-center{data: {toggle: 'collapse', target: '#latex'}, style: 'cursor: pointer'}
+        Латексные шары
+        %i.fa.fa-chevron-down
+      .collapse#latex
+        %table.table.table-bordered.bg-white.text-left
+          %tbody
+            %tr
+              %td.align-middle.w-75
+                .h6.font-weight-bold
+                  Латексные шары без рисунка 12'' (30см)
+                %p.small
+                  Бюджетный вариант шаров, меньше стандартного размера, соотвественно и время полета у них меньше. Для тех, кому цена важнее.
+              %td
+                70 руб.
+            %tr
+              %td.align-middle.w-75
+                .h6.font-weight-bold
+                  Латексные шары без рисунка 14'' (36см)
+                %p.small
+                  Стандартный и самый ходовой размер шара с гелием,
+                  подойдет практически на любой праздник и событие.
+              %td
+                80 руб.
+            %tr
+              %td.align-middle.w-75
+                .h6.font-weight-bold
+                  Латексные шары c рисунком 12'' (30см)
+                %p.small
+                  Различные тематические шары с рисунком практически на любой повод: на день рождения, выписку, юбилей. Большой выбор шариков с героями мультфильмов. Некоторые виды шаров доступны только в этом размере.
+              %td.align-middle
+                75 руб.
+            %tr
+              %td.align-middle.w-75
+                .h6.font-weight-bold
+                  Латексные шары c рисунком 14'' (30см)
+                %p.small
+                  Шарики с рисунком - отличная возможность оформления под тематику вашего торжества. Огромный выбор различных рисунков, как абстрактных, так и с персонажами мультфильмов.
+              %td
+                85 руб.
+            %tr
+              %td.align-middle.w-75
+                .h6.font-weight-bold
+                  Латексный шар без рисунка 36'' (96см)
+                %p.small
+                  Огромный метровый шар! Выбрав его на свой праздник вы никогда не прогадаете, эффект производит потрясающий. Можно добавить кисти тассел для усиления эффекта.
+              %td
+                1000 руб.
+            %tr
+              %td.align-middle.w-75
+                .h6.font-weight-bold
+                  Шары на запуск
+                %p.small
+                  На сегодняшний день очень популярная традиция: на празднике отправлять множество шаров в небо. Мы предлагаем бюджетный вариант шариков на запуск.
+              %td
+                65 руб.
+    .col-12
+      %h3.h5.bg-info.text-white.py-2.text-center{data: {toggle: 'collapse', target: '#foil'}, style: 'cursor: pointer'}
+        Фольгированные шары
+        %i.fa.fa-chevron-down
+      .collapse#foil
+        %table.table.table-bordered.bg-white.text-left
+          %tbody
+            %tr
+              %td.align-middle.w-75
+                .h6.font-weight-bold
+                  Фольгированный шар: сердце, звезда, круг 18''(45см)
+                %p.small
+                  Фольгированные шары просто созданы для великоплепных оформлений! Букет из фольгированных шаров будет отличным подарком и впишется в любой интерьер. Если вы хотите, чтобы ваш праздник запомнился, заказывайте фольгированные шары.
+                  Богатая цветовая гамма.
+              %td
+                250 руб.
+            %tr
+              %td.align-middle.w-75
+                .h6.font-weight-bold
+                  Фольгированный шар-цифра (103см)
+                %p.small
+                  Этот метровый шар-цифра просто идеальный вариант на День рождения или любую другую значимую дату в вашей жизни. Богатая цветовая гамма повзолит подобрать шар-цифру под вашу тематику.
+              %td
+                800 руб.
+            %tr
+              %td.align-middle.w-75
+                .h6.font-weight-bold
+                  Фольгированный шар-фигура
+                %p.small
+                  Огромный ассортимент шаров-фигур позволяет подобрать оформление на любой повод. Начиная от принцесс Диснея и заканчивая Звездными войнами и свинкой Пеппой.
+              %td
+                Уточняйте по телефону.
+    .col-12
+      %h3.h5.bg-info.text-white.py-2.text-center{data: {toggle: 'collapse', target: '#products'}, style: 'cursor: pointer'}
+        Дополнительные услуги
+        %i.fa.fa-chevron-down
+      .collapse#products
+        %table.table.table-bordered.bg-white.text-left
+          %tbody
+            %tr
+              %td
+                .h6.font-weight-bold
+                  Доставка воздушных шаров в
+                  = t "cities.#{@city}.where"
+                %p.small
+                  Крулосуточная доставка воздушных шариков в пределах
+                  = t "cities.#{@city}.where"
+              %td
+                250 руб.
+                %br
+                .text-danger.small
+                  При заказе от 1500 руб. - бесплатно
+            %tr
+              %td
+                .h6.font-weight-bold
+                  Оформление праздника воздушными шарами
+                %p.small
+                  Подберем оформление и создадим красоту на вашем празднике
+              %td
+                500 руб.
+                .text-danger.small
+                  При заказе от 1500 руб. - бесплатно
+  .row.mt-3
+    .col-12
+      = render 'prices_text'

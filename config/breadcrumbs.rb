@@ -92,6 +92,10 @@ crumb :info do
   parent :root
 end
 
+crumb :faq do
+  link 'FAQ', faq_path
+end
+
 crumb :about do
   link 'О нас', about_path
   parent :root

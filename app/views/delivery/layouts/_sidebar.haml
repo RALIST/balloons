@@ -35,9 +35,9 @@
         Гелиевые шары
     %hr.my-1
     %li.nav-item
-      = link_to 'Гелиевые шары', '#', class: ('nav-link h5' + (is_active_link?(products_path) ? '' : ' collapsed')), data: {toggle: 'collapse', target: '#products'}
+      = link_to 'Гелиевые шары', '#', class: ('nav-link h5' + (is_active_link?(products_path) ? '' : ' collapsed')), data: {toggle: 'collapse', target: '#products-menu'}
 
-    .collapse#products{class: ('show' if is_active_link?(products_path))}
+    .collapse#products-menu{class: ('show' if is_active_link?(products_path))}
       %li.nav-item
         = active_link_to 'Все шары', products_path, class: 'nav-link small', active: :exact
       %li.nav-item

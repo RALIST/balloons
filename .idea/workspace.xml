@@ -6,28 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="f1b38864-17e2-48ba-9f1a-eee384936dde" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/admin.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/admin.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/sidebar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/sidebar.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/delivery/carts_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/delivery/carts_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/delivery/compositions_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/delivery/compositions_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/delivery/delivery_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/delivery/delivery_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/delivery/receivers_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/delivery/receivers_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/delivery/tags_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/delivery/tags_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/cart.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/cart.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/product.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/product.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/subposition.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/subposition.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/carts/_in_cart.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/carts/_in_cart.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/carts/_subtotal.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/carts/_subtotal.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/carts/add_product_to_cart.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/carts/add_product_to_cart.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/carts/add_to_cart.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/carts/add_to_cart.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/carts/remove_from_cart.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/carts/remove_from_cart.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/carts/show.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/carts/show.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/compositions/_composition.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/compositions/_composition.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/layouts/_header.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/layouts/_header.html.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/delivery/graduations/kg.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/graduations/kg.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/delivery/graduations/school.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/graduations/school.haml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/delivery/layouts/_sidebar.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/layouts/_sidebar.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/subpositions/add_subposition.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/subpositions/add_subposition.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/subpositions/destroy.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/subpositions/destroy.js.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/delivery/main/_prices_text.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/main/_prices_text.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/delivery/main/about.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/main/about.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/delivery/main/faq.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/main/faq.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/delivery/main/garant.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/main/garant.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/delivery/main/info.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/main/info.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/delivery/main/prices.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/main/prices.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/delivery/subpositions/down_quantity.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/subpositions/down_quantity.js.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/breadcrumbs.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/breadcrumbs.rb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -43,7 +33,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/balloons@Development__Balloons.rcov" NAME="Development: Balloons Coverage Results" MODIFIED="1554051175227" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Balloons" />
-    <SUITE FILE_PATH="coverage/Balloons@Development__Balloons.rcov" NAME="Development: Balloons Coverage Results" MODIFIED="1554111112164" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Balloons" />
+    <SUITE FILE_PATH="coverage/Balloons@Development__Balloons.rcov" NAME="Development: Balloons Coverage Results" MODIFIED="1554186110324" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Balloons" />
   </component>
   <component name="CoverageViewManager">
     <option name="myElementSize" value="270" />
@@ -66,40 +56,42 @@
     <session id="1923353091">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.13" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="erb" value="8" />
-          <entry key="haml" value="9" />
-          <entry key="rb" value="9" />
+          <entry key="haml" value="20" />
+          <entry key="rb" value="10" />
           <entry key="scss" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Haml" value="9" />
+          <entry key="Haml" value="20" />
           <entry key="RHTML" value="8" />
-          <entry key="Ruby" value="9" />
+          <entry key="Ruby" value="10" />
           <entry key="SCSS" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="erb" value="369" />
-          <entry key="haml" value="740" />
-          <entry key="rb" value="157" />
-          <entry key="scss" value="40" />
+          <entry key="erb" value="370" />
+          <entry key="haml" value="1988" />
+          <entry key="rb" value="204" />
+          <entry key="scss" value="85" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Haml" value="740" />
-          <entry key="RHTML" value="369" />
-          <entry key="Ruby" value="157" />
-          <entry key="SCSS" value="40" />
+          <entry key="Haml" value="1988" />
+          <entry key="RHTML" value="370" />
+          <entry key="Ruby" value="204" />
+          <entry key="SCSS" value="85" />
         </counts>
       </usages-collector>
     </session>
@@ -107,37 +99,82 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/delivery/carts/_in_cart.haml">
+        <entry file="file://$PROJECT_DIR$/app/views/delivery/graduations/school.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
+            <state relative-caret-position="472">
+              <caret line="48" column="202" selection-start-line="48" selection-start-column="8" selection-end-line="48" selection-end-column="202" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/delivery/carts/add_to_cart.js.erb">
+        <entry file="file://$PROJECT_DIR$/app/views/delivery/main/info.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="4" column="58" selection-start-line="4" selection-start-column="58" selection-end-line="4" selection-end-column="58" />
+            <state relative-caret-position="168">
+              <caret line="48" column="8" lean-forward="true" selection-start-line="48" selection-start-column="8" selection-end-line="48" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/delivery/main/garant.haml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="6" column="69" selection-start-line="6" selection-start-column="69" selection-end-line="6" selection-end-column="69" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/delivery/main/about.haml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="627">
+              <caret line="18" column="116" selection-start-line="18" selection-start-column="116" selection-end-line="18" selection-end-column="116" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/delivery/main/prices.haml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="38">
+              <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/delivery/main/faq.haml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="9" column="19" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/delivery/subpositions/destroy.js.erb">
+        <entry file="file://$PROJECT_DIR$/config/breadcrumbs.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="11" lean-forward="true" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+            <state relative-caret-position="684">
+              <caret line="96" column="3" lean-forward="true" selection-start-line="96" selection-start-column="3" selection-end-line="96" selection-end-column="3" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/delivery/subpositions/down_quantity.js.erb">
+        <entry file="file://$PROJECT_DIR$/app/views/delivery/graduations/kg.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="1" column="43" lean-forward="true" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="43" />
+            <state relative-caret-position="342">
+              <caret line="16" column="2" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/delivery/main/_prices_text.haml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="7" selection-start-column="7" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -145,53 +182,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1764">
-              <caret line="108" lean-forward="true" selection-start-line="107" selection-end-line="108" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/delivery/carts/show.html.haml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/delivery/subpositions/add_subposition.js.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/delivery/carts/add_product_to_cart.js.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/delivery/layouts/_header.html.haml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="586">
-              <caret line="63" column="44" selection-start-line="63" selection-start-column="44" selection-end-line="63" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/delivery/carts/remove_from_cart.js.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="9" column="140" lean-forward="true" selection-start-line="9" selection-start-column="140" selection-end-line="9" selection-end-column="140" />
+            <state relative-caret-position="643">
+              <caret line="112" column="20" selection-start-line="112" selection-start-column="20" selection-end-line="112" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -210,15 +202,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/business.scss" />
-        <option value="$PROJECT_DIR$/app/views/delivery/main/contacts.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/delivery/categories/show.haml" />
-        <option value="$PROJECT_DIR$/app/views/delivery/business/index.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/delivery/main/_contacts.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/delivery/layouts/_footer.html.haml" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/Gemfile" />
-        <option value="$PROJECT_DIR$/app/controllers/delivery/categories_controller.rb" />
         <option value="$PROJECT_DIR$/tmp/pids/server.pid" />
         <option value="$PROJECT_DIR$/lib/watermark.rb" />
         <option value="$PROJECT_DIR$/app/models/composition.rb" />
@@ -229,7 +212,6 @@
         <option value="$PROJECT_DIR$/app/views/delivery/layouts/special/_scripts.haml" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/common.scss" />
-        <option value="$PROJECT_DIR$/config/breadcrumbs.rb" />
         <option value="$PROJECT_DIR$/app/views/admin/users/index.html.haml" />
         <option value="$PROJECT_DIR$/app/views/layouts/admin.html.haml" />
         <option value="$PROJECT_DIR$/app/views/admin/items/index.html.haml" />
@@ -243,7 +225,6 @@
         <option value="$PROJECT_DIR$/app/controllers/delivery/tags_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/delivery/receivers_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/subposition.rb" />
-        <option value="$PROJECT_DIR$/app/views/delivery/layouts/_sidebar.haml" />
         <option value="$PROJECT_DIR$/app/views/delivery/carts/_subtotal.html.haml" />
         <option value="$PROJECT_DIR$/app/models/cart.rb" />
         <option value="$PROJECT_DIR$/app/models/product.rb" />
@@ -259,8 +240,19 @@
         <option value="$PROJECT_DIR$/app/views/delivery/carts/remove_from_cart.js.erb" />
         <option value="$PROJECT_DIR$/app/views/delivery/carts/show.html.haml" />
         <option value="$PROJECT_DIR$/app/views/delivery/layouts/_header.html.haml" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/application.scss" />
         <option value="$PROJECT_DIR$/app/views/delivery/subpositions/destroy.js.erb" />
+        <option value="$PROJECT_DIR$/app/views/delivery/subpositions/down_quantity.js.erb" />
+        <option value="$PROJECT_DIR$/app/views/delivery/layouts/_sidebar.haml" />
+        <option value="$PROJECT_DIR$/app/views/delivery/main/_prices_text.haml" />
+        <option value="$PROJECT_DIR$/app/views/delivery/graduations/kg.haml" />
+        <option value="$PROJECT_DIR$/app/views/delivery/graduations/school.haml" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/application.scss" />
+        <option value="$PROJECT_DIR$/app/views/delivery/main/info.haml" />
+        <option value="$PROJECT_DIR$/app/views/delivery/main/garant.haml" />
+        <option value="$PROJECT_DIR$/app/views/delivery/main/about.haml" />
+        <option value="$PROJECT_DIR$/app/views/delivery/main/prices.haml" />
+        <option value="$PROJECT_DIR$/app/views/delivery/main/faq.haml" />
+        <option value="$PROJECT_DIR$/config/breadcrumbs.rb" />
       </list>
     </option>
   </component>
@@ -296,6 +288,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="RailsProjectView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -318,19 +311,6 @@
               <item name="Balloons" type="b2602c69:ProjectViewProjectNode" />
               <item name="Balloons" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="stylesheets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Balloons" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Balloons" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Balloons" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Balloons" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -346,13 +326,17 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="delivery" type="462c0819:PsiDirectoryNode" />
-              <item name="subpositions" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Balloons" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Balloons" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="RailsProjectView" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -512,12 +496,13 @@
       <workItem from="1553958822739" duration="21056000" />
       <workItem from="1554019955689" duration="4009000" />
       <workItem from="1554051165859" duration="9272000" />
-      <workItem from="1554107498981" duration="6104000" />
+      <workItem from="1554107498981" duration="7324000" />
+      <workItem from="1554125317527" duration="7763000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="471197000" />
+    <option name="totallyTimeSpent" value="480180000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -530,13 +515,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26384366" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26872963" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32918397" />
-      <window_info active="true" anchor="bottom" x="249" y="244" width="868" height="463" id="Run" order="2" type="WINDOWED" visible="true" weight="0.32953104" />
+      <window_info anchor="bottom" x="249" y="244" width="868" height="463" id="Run" order="2" type="WINDOWED" visible="true" weight="0.32953104" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -544,7 +530,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" weight="0.3289941" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" x="268" y="201" width="743" height="581" id="Terminal" order="10" type="WINDOWED" visible="true" weight="0.32953104" />
+      <window_info anchor="bottom" x="268" y="201" width="743" height="581" id="Terminal" order="10" type="WINDOWED" weight="0.32953104" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32662722" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32780084" />
       <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.3289941" />
@@ -589,57 +575,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/paperclip_processors/watermark.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="25" column="82" selection-start-line="25" selection-start-column="82" selection-end-line="25" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/breadcrumbs.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="45" selection-start-line="1" selection-start-column="45" selection-end-line="1" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/composition.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="45" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/common.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/delivery/layouts/special/_scripts.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/bootstrap-4.3.1/assets/javascripts/bootstrap/modal.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/master.key">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/delivery/graduations_controller.rb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/admin/users/index.html.haml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
@@ -781,13 +716,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/delivery/layouts/_sidebar.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="28" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/product.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3176">
@@ -844,19 +772,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/delivery/carts/add_product_to_cart.js.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/delivery/carts/add_to_cart.js.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="4" column="58" selection-start-line="4" selection-start-column="58" selection-end-line="4" selection-end-column="58" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/app/views/delivery/subpositions/update.js.erb">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/delivery/carts/_in_cart.haml">
       <provider selected="true" editor-type-id="text-editor">
@@ -865,48 +782,129 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/delivery/carts/remove_from_cart.js.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/delivery/carts/add_to_cart.js.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="9" column="140" lean-forward="true" selection-start-line="9" selection-start-column="140" selection-end-line="9" selection-end-column="140" />
+        <state relative-caret-position="76">
+          <caret line="4" column="58" selection-start-line="4" selection-start-column="58" selection-end-line="4" selection-end-column="58" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/delivery/carts/show.html.haml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/delivery/carts/add_product_to_cart.js.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/delivery/layouts/_header.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="586">
+        <state relative-caret-position="1197">
           <caret line="63" column="44" selection-start-line="63" selection-start-column="44" selection-end-line="63" selection-end-column="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/delivery/subpositions/update.js.erb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.scss">
+    <entry file="file://$PROJECT_DIR$/app/views/delivery/carts/remove_from_cart.js.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1764">
-          <caret line="108" lean-forward="true" selection-start-line="107" selection-end-line="108" />
+        <state relative-caret-position="171">
+          <caret line="9" column="140" selection-start-line="9" selection-start-column="140" selection-end-line="9" selection-end-column="140" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/delivery/subpositions/down_quantity.js.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="43" lean-forward="true" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="43" />
+        <state relative-caret-position="171">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/delivery/subpositions/destroy.js.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
-          <caret line="7" column="11" lean-forward="true" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+          <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/delivery/layouts/_sidebar.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="874">
+          <caret line="37" column="167" selection-start-line="37" selection-start-column="167" selection-end-line="37" selection-end-column="167" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/delivery/main/_prices_text.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="7" selection-start-column="7" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/delivery/graduations/kg.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="16" column="2" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/delivery/graduations/school.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="472">
+          <caret line="48" column="202" selection-start-line="48" selection-start-column="8" selection-end-line="48" selection-end-column="202" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="643">
+          <caret line="112" column="20" selection-start-line="112" selection-start-column="20" selection-end-line="112" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/delivery/main/info.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="48" column="8" lean-forward="true" selection-start-line="48" selection-start-column="8" selection-end-line="48" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/delivery/main/garant.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="69" selection-start-line="6" selection-start-column="69" selection-end-line="6" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/delivery/main/about.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="18" column="116" selection-start-line="18" selection-start-column="116" selection-end-line="18" selection-end-column="116" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/delivery/main/prices.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/delivery/main/faq.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="19" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/breadcrumbs.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="684">
+          <caret line="96" column="3" lean-forward="true" selection-start-line="96" selection-start-column="3" selection-end-line="96" selection-end-column="3" />
         </state>
       </provider>
     </entry>

@@ -1,9 +1,8 @@
 <% unless @subposition.destroyed? %>
   $(document).on('ajaxSuccess', function(){
     $('#edit_subposition_<%=@subposition.id%> #subposition_quantity').val('<%= @subposition.quantity %>')
-    $('#subtotal').html('<%= j(render "delivery/carts/subtotal") %>')
   });
 <% else %>
   $('#edit_subposition_<%=@subposition.id%>').closest('tr').fadeOut();
 <% end %>
-
+$('#subtotal').html('<%= j(render "delivery/carts/subtotal") %>')

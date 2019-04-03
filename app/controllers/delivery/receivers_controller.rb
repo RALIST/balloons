@@ -1,9 +1,10 @@
 class Delivery::ReceiversController < Delivery::DeliveryController
 
   def index
-    compositions = Composition.availible.order(:price)
-    fresh_when compositions if Rails.env.production?
-    @pagy, @compositions = pagy(compositions, items: 6)
+    @compositions = Composition.availible.order(:price)
+    fresh_when @compositions, last_modified: @compositions.maximum(:updated_at), public: true
+    set_meta_tags 	title: 'Воздушные шары близким с доставкой в %{city} | Шариковая фея' % {city: t("cities.#{@city}.where")},
+                   description: "Воздушные шары для любимых и близких людей"
   end
 
 
@@ -19,13 +20,11 @@ class Delivery::ReceiversController < Delivery::DeliveryController
         redirect_to receiver_path(@person), status: 301
       end
     end
-    compositions = @person.compositions.availible.order(:price)
-    fresh_when compositions if Rails.env.production?
-    @pagy, @compositions = pagy(compositions, items: 6)
-    respond_to do |format|
-      format.html
-      format.js if params[:page]
-    end
     set_meta_tags_for_receiver(@person)
+
+    @compositions = @person.compositions.availible.order(:price)
+
+    fresh_when @compositions, last_modified: @compositions.maximum(:updated_at), public: true
+
   end
 end

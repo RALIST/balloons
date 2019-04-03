@@ -17,25 +17,15 @@ class Delivery::TagsController < Delivery::DeliveryController
 																детские праздники воздушными шарами,
 																оформление праздников воздушными шарами,
 																оформление детского праздника воздушными шарами"
-		compositions = Composition.availible.order(:price)
-		@pagy, @compositions = pagy(compositions, items: 6)
-		fresh_when compositions, last_modified: compositions.maximum(:updated_at),public: true
-		respond_to do |format|
-			format.html
-			format.js {render layout: false}
-		end
+		@compositions = Composition.availible.order(:price)
+		# fresh_when @compositions, last_modified: @compositions.maximum(:updated_at), public: true
 	end
 
 	def show
 		@tag = Tag.friendly.find(params[:id])
-		compositions = Composition.availible.with_tag(@tag.name).order(:price)
-		@pagy, @compositions = pagy(compositions, items: 6)
-		fresh_when compositions, last_modified: compositions.maximum(:updated_at), public: true
+		@compositions = Composition.availible.with_tag(@tag.name).order(:price)
 
-		respond_to do |format|
-			format.html
-			format.js {render layout: false}
-  end
+		fresh_when @compositions, last_modified: @compositions.maximum(:updated_at), public: true
 
 		set_meta_tags_for_tag(@tag)
 	end

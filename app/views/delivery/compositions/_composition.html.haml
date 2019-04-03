@@ -67,5 +67,5 @@
   %span.px-3.text-uppercase
     Похожие композиции
 .row.justify-content-around.compositions.slider-comp.text-center#similar{itemprop: 'isSimilarTo'}
-  = render partial: 'delivery/main/thumb_composition', collection: composition.related.limit(3), as: :c
+  = render partial: 'delivery/main/thumb_composition', collection: composition.related.limit(3), as: :c, cached: true
 

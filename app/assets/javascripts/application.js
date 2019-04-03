@@ -7,6 +7,7 @@
 //= require bootstrap/tooltip
 //= require bootstrap/popover
 //= require bootstrap/collapse
+//= require bootstrap/tab
 //= require turbolinks
 //= require jquery.maskedinput
 //= require bootstrap-clockpicker.min

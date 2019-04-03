@@ -1,6 +1,8 @@
 $('.compositions').append('<%= j(render partial: "delivery/main/thumb_composition", collection: @compositions, as: :c) %>');
-$('#pagy').html('<%= j(raw pagy_nav(@pagy)) %>');
 
+$('.small-compositions').append('<%= j(render partial: "delivery/compositions/small_composition", collection: @compositions, as: :composition) %>');
+
+$('#pagy').html('<%= j(raw pagy_nav(@pagy)) %>');
 if ($('.pagination .next a').length < 1 ){
   $(window).off('scroll');
   $('#pagy').remove();

@@ -3,7 +3,4 @@
   %h1.h5.text-center
     %span.text-uppercase
       Воздушные шары для любимых
-  .row.compositions
-    = render partial: 'delivery/main/thumb_composition', collection:  @compositions, cached: true, as: :c
-  .row.text-center#pagy
-    = raw pagy_nav(@pagy)
+  = render 'delivery/compositions/compositions_list'

@@ -1,37 +1,39 @@
-#menu.bg-white
-  .bg-info
-    %ul.nav.justify-content-around.small.bg-info.d-none.d-lg-flex.col-11.ml-auto
-      %li.nav-item
-        = link_to 'О нас', about_path, class: 'nav-link'
-      %li.nav-item
-        = link_to 'Гарантии', garant_path, class: 'nav-link'
-      %li.nav-item
-        = link_to 'Доставка и оплата', info_path, class: 'nav-link'
-      %li.nav-item
-        = link_to 'Цены', prices_path, class: 'nav-link'
-      %li.dropdown.nav-item{role: "presentation"}
-        = link_to '', class: 'dropdown-toggle nav-link', data: {toggle: 'dropdown'} do
-          Выпускные
-        .dropdown-menu
-          = link_to 'Из садика', kg_tags_path, class: 'dropdown-item small'
-          = link_to 'Из школы', school_tags_path, class: 'dropdown-item small'
-      %li.nav-item
-        = link_to 'Отзывы', feedbacks_path, class: 'nav-link'
 
-      %li.nav-item
-        =link_to 'FAQ', faq_path, class: 'nav-link'
-      - if !current_user
+#menu.bg-white
+  - cache 'header-top' do
+    .bg-info
+      %ul.nav.justify-content-around.small.bg-info.d-none.d-lg-flex.col-11.ml-auto
         %li.nav-item
-          = link_to 'Войти', login_path, title: 'Войти', class: 'nav-link'
+          = link_to 'О нас', about_path, class: 'nav-link'
         %li.nav-item
-          = link_to 'Регистрация', signin_path, title: 'Регистрация', class: 'nav-link'
-      - else
+          = link_to 'Гарантии', garant_path, class: 'nav-link'
         %li.nav-item
-          = link_to cp_path, title: 'Личный кабинет', rel: 'nofollow', class: 'nav-link' do
-            Личный кабинет
+          = link_to 'Доставка и оплата', info_path, class: 'nav-link'
         %li.nav-item
-          = link_to logout_path, method: :post, title: 'Выйти', class: 'nav-link' do
-            Выйти
+          = link_to 'Цены', prices_path, class: 'nav-link'
+        %li.dropdown.nav-item{role: "presentation"}
+          = link_to '', class: 'dropdown-toggle nav-link', data: {toggle: 'dropdown'} do
+            Выпускные
+          .dropdown-menu
+            = link_to 'Из садика', kg_tags_path, class: 'dropdown-item small'
+            = link_to 'Из школы', school_tags_path, class: 'dropdown-item small'
+        %li.nav-item
+          = link_to 'Отзывы', feedbacks_path, class: 'nav-link'
+
+        %li.nav-item
+          =link_to 'FAQ', faq_path, class: 'nav-link'
+        - if !current_user
+          %li.nav-item
+            = link_to 'Войти', login_path, title: 'Войти', class: 'nav-link'
+          %li.nav-item
+            = link_to 'Регистрация', signin_path, title: 'Регистрация', class: 'nav-link'
+        - else
+          %li.nav-item
+            = link_to cp_path, title: 'Личный кабинет', rel: 'nofollow', class: 'nav-link' do
+              Личный кабинет
+          %li.nav-item
+            = link_to logout_path, method: :post, title: 'Выйти', class: 'nav-link' do
+              Выйти
 
   %nav.navbar.navbar-expand-lg.navbar-light.bg-white.pt-2.border-bottom
     = link_to root_path, class: 'navbar-brand' do

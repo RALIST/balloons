@@ -1,7 +1,9 @@
 class Item < ApplicationRecord
   has_many :items_in_compositions, dependent: :destroy
   has_many :compositions, through: :items_in_compositions
-  has_and_belongs_to_many :subcategories
+  has_and_belongs_to_many :subcategories,
+                          after_add: :touch_updated_at,
+                          after_remove: :touch_updated_at
   belongs_to :vendor
   belongs_to :type
   belongs_to :tone
@@ -17,6 +19,10 @@ class Item < ApplicationRecord
 
   scope :search, ->(word) { where('name LIKE ? ', "%#{word}%").distinct }
   scope :special, -> { joins(:type).where(types: { name: 'разное' }) }
+
+  def touch_updated_at(subcategory)
+   subcategory.touch
+  end
 
   def not_special?
     !type.name == 'разное'

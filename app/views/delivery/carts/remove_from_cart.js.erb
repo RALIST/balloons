@@ -5,6 +5,6 @@ $('#subtotal').html('<%= j(render "subtotal") %>');
   $('#cart-count').html("(<%= @cart.subpositions.count %>)")
 <% else %>
   $('#cart-count').remove();
+  $('.cart').html("<div class='text-center'><div class='lead text-center mb-2'> Пусто </div><%= j link_to 'Добавить товары', products_path, class: 'btn btn-info' %></div>")
 <% end %>
 
-$('.cart').html("<div class='text-center'><div class='lead text-center mb-2'> Пусто </div><%= j link_to 'Добавить товары', products_path, class: 'btn btn-info' %></div>")

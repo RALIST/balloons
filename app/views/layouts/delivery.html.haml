@@ -21,12 +21,12 @@
       .container-fluid.main.p-0
         .row.no-gutters
           = render 'delivery/layouts/sidebar' unless @disable_sidebar
-          .col.p-0
+          .col
             = yield
             = render 'delivery/main/help' unless @disable_help
             = render 'delivery/main/seo'
             = render 'delivery/layouts/call'
-            = render 'delivery/layouts/modal_city'
+            -#= render 'delivery/layouts/modal_city'
 
     %footer
       = render 'delivery/layouts/footer' unless @disable_footer

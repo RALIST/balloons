@@ -1,16 +1,17 @@
-.composition
-  .card.h-100
-    .card-image-top
-      = link_to custom_url_path(c) do
-        = image_tag c.img(:preview), class: 'img-fluid', alt: c.title, title: "Композиция из воздушных шаров №#{c.id}"
-      .line
-    .card-footer.bg-white
-      .row.align-items-center.my-2#price
-        .col-6.text-left
-          .small
-            Цена как на фото
-          .h4
-            = c.price.round(0)
-            %i.fas.fa-ruble-sign
-        .col-6.text-right
-          = link_to 'Подробнее', custom_url_path(c), class: 'btn btn-info btn-sm'
+- cache c do
+  .composition
+    .card.h-100
+      .card-image-top
+        = link_to custom_url_path(c) do
+          = image_tag c.img(:preview), class: 'img-fluid', alt: c.title, title: "Композиция из воздушных шаров №#{c.id}"
+        .line
+      .card-footer.bg-white
+        .row.align-items-center.my-2#price
+          .col-6.text-left
+            .small
+              Цена как на фото
+            .h4
+              = c.price.round(0)
+              %i.fas.fa-ruble-sign
+          .col-6.text-right
+            = link_to 'Подробнее', custom_url_path(c), class: 'btn btn-info btn-sm'

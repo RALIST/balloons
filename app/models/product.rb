@@ -34,6 +34,7 @@ class Product < ApplicationRecord
                                     default_url: '/missing/:style/missing.png'
 
   attr_reader :img_remote_url
+  after_commit :set_complex_name
 
   scope :search, ->(word) { where('lower(products.name) LIKE ? ', "%#{word}%").distinct.availible_products }
 

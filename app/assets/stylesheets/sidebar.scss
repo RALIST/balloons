@@ -28,7 +28,7 @@
       position: relative;
       color: transparentize($dark, 0.2);
       padding-left: 0.5rem;
-      font-size: 1rem;
+      font-size: 0.9rem;
       &:before {
         content: '';
         position: absolute;
@@ -56,7 +56,7 @@
   .nav-link.h5 {
     @extend .w-100;
     position: relative;
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     &:after {
       font-family: "Font Awesome 5 Free";
       content: '\f105';

@@ -10,6 +10,6 @@
         %span.input-group-append
           = button_tag(class: 'btn btn-info', id: 'clear-search', title: 'Очистить') do
             %i.fa.fa-times
-  .card-columns
-    = render partial: 'delivery/categories/category', collection:  @categories
+  .row
+    = render partial: 'delivery/categories/category', collection:  @categories, cached: true
 

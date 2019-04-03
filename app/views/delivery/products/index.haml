@@ -29,11 +29,11 @@
   %h2.h6.text-center
     %span Цвета
   .card-columns
-    = render @colors
+    = render partial: 'delivery/colors/color', collection:  @colors, cached: true
   %h2.h6.text-center
     %span Коллекции
-  .card-columns
-    = render partial: 'delivery/categories/category', collection:  @categories
+  .row
+    = render partial: 'delivery/categories/category', collection:  @categories, cached: true
   
 
 

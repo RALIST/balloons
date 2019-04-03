@@ -10,7 +10,6 @@ class Subcategory < ApplicationRecord
   validates :name, uniqueness: true, presence: true
 
 
-
   def self.availible
     joins(items: [:type, :sizes]).where('types.name = ? OR types.name = ?', 'латексные шары', 'фольгированные шары').distinct(:id)
   end

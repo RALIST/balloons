@@ -9,9 +9,11 @@
   -#.lead.text-center
   -#  = link_to 'Назад', categories_path
 
-  .row#products-list
-    = render @items_in_collection
-  %hr
-  .lead.text-center
-    = link_to 'Назад', categories_path
+  - @grouped_products.each do |group, products|
+    .h5
+      = group.capitalize
+    %hr
+    #products-list
+      .row
+        = render partial: 'delivery/products/product', collection: products.sort_by(&:price_with_helium), cached: true
 

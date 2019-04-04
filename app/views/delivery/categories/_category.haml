@@ -3,7 +3,7 @@
     = link_to category_path(category) do
       .card.as_btn.h-100.justify-content-center.bg-lavander
         .card-body.justify-self-center
-          .card-title.text-info.mb-0
+          .card-title.mb-0
             = category.name.capitalize
           .small.text-muted
             #{category.total}  #{Russian.p(category.total, "товар", "товара", "товаров")}

@@ -8,8 +8,10 @@
           = product.complex_name
         .row.justify-content-center.align-items-center
           .col-12.col-lg-6
-            .h5.font-weight-bold
+            .h5.font-weight-bold.mb-0
               = number_to_currency(product.price_with_helium, precision: 0)
+            .small
+              с гелием
           .col-12.col-lg-6
             - if !product.in_cart?(@cart)
               = button_to 'В корзину', add_product_to_cart_path(product), class: 'btn btn-info btn-sm', id: "add-#{product.id}", method: :post, remote: true, data: {disable_with: 'Добавляю...'}

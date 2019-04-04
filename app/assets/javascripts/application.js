@@ -40,10 +40,10 @@ var search = function(){
     var text = $("input[name='search']").val();
     console.log(text);
     if(text.length){
-      $('.as_btn').not(":containsi('" + text + "')").closest('div').hide();
-      $(".as_btn:containsi('" + text + "')").closest('div').show();
+      $('.as_btn').not(":containsi('" + text + "')").closest('.col-6').hide();
+      $(".as_btn:containsi('" + text + "')").closest('.col-6').show();
     }else{
-      $('.as_btn').closest('div').show();
+      $('.as_btn').closest('.col-6').show();
     }
 
   });

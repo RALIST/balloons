@@ -6,14 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f1b38864-17e2-48ba-9f1a-eee384936dde" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/compositions/_composition.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/compositions/_composition.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/compositions/index.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/compositions/index.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/compositions/show.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/compositions/show.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/items/index.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/items/index.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/products/_product.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/products/_product.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/admin.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/admin.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/delivery.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/delivery.html.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/ym.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/ym.js.erb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -58,8 +51,8 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="erb" value="5" />
-          <entry key="haml" value="73" />
+          <entry key="erb" value="6" />
+          <entry key="haml" value="74" />
           <entry key="js" value="4" />
           <entry key="rb" value="38" />
           <entry key="scss" value="8" />
@@ -67,16 +60,16 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Haml" value="73" />
+          <entry key="Haml" value="74" />
           <entry key="JavaScript" value="4" />
-          <entry key="RHTML" value="5" />
+          <entry key="RHTML" value="6" />
           <entry key="Ruby" value="38" />
           <entry key="SCSS" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="erb" value="34" />
+          <entry key="erb" value="226" />
           <entry key="haml" value="2959" />
           <entry key="js" value="64" />
           <entry key="rb" value="987" />
@@ -87,7 +80,7 @@
         <counts>
           <entry key="Haml" value="2959" />
           <entry key="JavaScript" value="64" />
-          <entry key="RHTML" value="34" />
+          <entry key="RHTML" value="226" />
           <entry key="Ruby" value="987" />
           <entry key="SCSS" value="788" />
         </counts>
@@ -146,11 +139,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/admin/compositions/_small_composition.haml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="76">
-              <caret line="4" column="91" selection-start-line="4" selection-start-column="91" selection-end-line="4" selection-end-column="91" />
+              <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/ym.js.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="551">
+              <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/layouts/delivery.html.haml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="20" column="42" lean-forward="true" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -190,7 +201,6 @@
         <option value="$PROJECT_DIR$/app/views/delivery/compositions/_small_composition.haml" />
         <option value="$PROJECT_DIR$/app/views/delivery/compositions/_compositions_list.haml" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/common.scss" />
-        <option value="$PROJECT_DIR$/app/assets/javascripts/ym.js.erb" />
         <option value="$PROJECT_DIR$/app/views/delivery/categories/_category.haml" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/common.js.erb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
@@ -220,6 +230,7 @@
         <option value="$PROJECT_DIR$/app/views/admin/compositions/_composition.html.haml" />
         <option value="$PROJECT_DIR$/app/views/admin/compositions/index.html.haml" />
         <option value="$PROJECT_DIR$/app/views/admin/compositions/_small_composition.haml" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/ym.js.erb" />
       </list>
     </option>
   </component>
@@ -279,6 +290,13 @@
               <item name="Balloons" type="b2602c69:ProjectViewProjectNode" />
               <item name="Balloons" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="javascripts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Balloons" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Balloons" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -295,6 +313,14 @@
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
               <item name="compositions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Balloons" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Balloons" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="layouts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Balloons" type="b2602c69:ProjectViewProjectNode" />
@@ -491,12 +517,12 @@
       <workItem from="1554107498981" duration="7324000" />
       <workItem from="1554125317527" duration="25812000" />
       <workItem from="1554225017076" duration="16706000" />
-      <workItem from="1554268541396" duration="29475000" />
+      <workItem from="1554268541396" duration="32094000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="544410000" />
+    <option name="totallyTimeSpent" value="547029000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -509,9 +535,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24185668" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24185668" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -524,7 +549,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" weight="0.3289941" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" x="280" y="229" width="743" height="581" id="Terminal" order="10" type="WINDOWED" visible="true" weight="0.32953104" />
+      <window_info active="true" anchor="bottom" x="280" y="229" width="743" height="581" id="Terminal" order="10" type="WINDOWED" visible="true" weight="0.32953104" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32662722" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32780084" />
       <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.3289941" />
@@ -645,13 +670,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1403">
           <caret line="250" column="36" selection-start-line="250" selection-start-column="36" selection-end-line="250" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/ym.js.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="18" column="9" lean-forward="true" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -827,13 +845,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/delivery.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="20" column="42" lean-forward="true" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/admin.html.haml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
@@ -909,7 +920,21 @@
     <entry file="file://$PROJECT_DIR$/app/views/admin/compositions/_small_composition.haml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
-          <caret line="4" column="91" selection-start-line="4" selection-start-column="91" selection-end-line="4" selection-end-column="91" />
+          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/delivery.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="20" column="42" lean-forward="true" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/ym.js.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
         </state>
       </provider>
     </entry>

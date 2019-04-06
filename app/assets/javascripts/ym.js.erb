@@ -5,15 +5,29 @@
   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
   ym(37371855, "init", {
-    clickmap:true,
-    trackLinks:true,
-    accurateTrackBounce:true,
-    webvisor:true,
-    trackHash:true
+    clickmap: true,
+    trackLinks: true,
+    accurateTrackBounce: true,
+    webvisor: true,
+    trackHash: true
   });
 
   $(document).on('submit', '#new_call', function(){
-    yaCounter37371855.reachGoal('order_call');
+    ym(37371855, 'reachGoal', 'order_call');
+  });
+
+  $(document).on('turbolinks:before-visit', function () {
+    window.turbolinks_referer = location.href;
+  });
+
+  $(document).on('turbolinks:load', function () {
+    if (window.turbolinks_referer) {
+      ym(37371855, 'hit', location.href, {
+        title: $('title').html(),
+        referrer: window.turbolinks_referer
+      });
+      ym(37371855, 'notBounce')
+    };
   });
 
 <% end %>

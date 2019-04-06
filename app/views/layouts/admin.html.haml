@@ -7,7 +7,7 @@
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', defer: true, async: Rails.env.production?, 'data-turbolinks-track': 'reload'
-  %body
+  %body#admin
     %a#return-to-top
       %i.fa.fa-chevron-up
     .wrapper
@@ -17,7 +17,7 @@
           %div{class: "alert alert-#{key} text-center"}
             = message
 
-      .container-fluid.p-0
+      .container-fluid
         = yield
     %footer
       = render 'admin/layouts/footer'

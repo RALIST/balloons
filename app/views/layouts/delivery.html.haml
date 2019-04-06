@@ -18,7 +18,7 @@
         - unless @disable_header
           = render 'delivery/layouts/header'
       = render 'delivery/layouts/flash'
-      .container-fluid.main.p-0
+      .container-fluid.main#main-container
         .row.no-gutters
           = render 'delivery/layouts/sidebar' unless @disable_sidebar
           .col

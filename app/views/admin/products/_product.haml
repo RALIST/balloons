@@ -1,0 +1,14 @@
+%tr
+  %td.text-center.align-middle
+    = image_tag product.img(:small)
+  %td.align-middle
+    = link_to product.complex_name, admin_product_path(product)
+  %td.align-middle
+    = @comp.products.where(id: product.id).count
+    шт.
+  %td.align-middle
+    = number_to_currency(product.price_with_helium, precision: 0)
+  %td.align-middle
+    = link_to  admin_remove_item_path(@comp, product_id: product.id), title: 'Удалить' do
+      %i.fas.fa-times.text-danger
+

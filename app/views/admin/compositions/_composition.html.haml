@@ -1,6 +1,7 @@
-.text-left.c-preview.card
-  .card-image-top
-    = link_to admin_composition_path(composition) do
-      = image_tag composition.img.url(:preview), class: 'img-fluid'
-  .card-footer
-    = link_to 'Удалить', admin_composition_path(composition), method: :delete, remote: true, class: 'destroy'
+.col-3
+  .card
+    .card-image-top
+      = link_to admin_composition_path(composition) do
+        = image_tag composition.img.url(:preview), class: 'img-fluid'
+    .card-footer
+      = link_to 'Удалить', admin_composition_path(composition), method: :delete, remote: true

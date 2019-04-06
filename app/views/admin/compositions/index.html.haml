@@ -1,30 +1,25 @@
-.container
-  .row
-    .col-12
-      %h2{data: {toggle: 'collapse', target: '#availible'}, style: 'cursor: pointer;'}
-        Доступные композиции
-        %br
-        %small Доступные к покупке пользователям
-      .collapse#availible
-        .row
-          = render @compositions
 
-      - if @compositions_without_items.any?
-        %h2{data: {toggle: 'collapse', target: '#without_items'}, style: 'cursor: pointer;'}
-          Композиции без товаров
-          %br
-          .small Нет ни одного товара в композиции
-        .collapse#without_items
-          .row
-            = render @compositions_without_items
+%ul.nav.nav-tabs.my-2
+  %li.nav-item
+    = link_to '#', data: {toggle: 'tab', target: '#availible'}, class: 'nav-link' do
+      Доступные композиции
+  %li.nav-item
+    = link_to '#', data: {toggle: 'tab', target: '#without_items'}, class: 'nav-link' do
+      Композиции без товаров
 
-      - if @compositions_without_tags.any?
-        %h2{data: {toggle: 'collapse', target: '#without_tags'}, style: 'cursor: pointer;'}
-          Композиции без тегов
-          %br
-          %smallНе указан "повод" или "кому"
-        .collapse#without_tags
-          .row
-            = render @compositions_without_tags
+  %li.nav-item
+    = link_to '#', data: {toggle: 'tab', target: '#without_tags'}, class: 'nav-link' do
+      Композиции без тегов
+  %li.nav-item
+    = link_to 'Добавить композицию', new_admin_composition_path, class: 'btn btn-sm btn-info nav-link'
+.tab-content
+  .tab-pane.fade.show.active#availible
+    .row.small-compositions
+      = render partial: 'small_composition', collection: @compositions, as: :composition
+  .tab-pabe.fade#without_items
+    .row.small-compositions
+      = render partial: 'small_composition', collection: @compositions_without_items, as: :composition
+  .tab-pane.fade#without_tags
+    .row.small-compositions
+      = render partial: 'small_composition', collection: @compositions_without_tags, as: :composition
 
-      =link_to 'Добавить композицию', new_admin_composition_path, class: 'btn btn-info'

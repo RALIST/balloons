@@ -1,57 +1,55 @@
-.container
-  .row
-    .col-lg-4.col-12.text-center.my-2
-      = image_tag @comp.img.url(:preview), class: 'img-fluid'
-    .col-lg-6.col-12.my-2
-      .bg-info.text-white.mb-2 Товары в композиции
-      %table.table.table-sm
-        %tbody#products
-          = render @products,  partial: "admin/products/product", locals: {product: @product}
-    .col-lg-2.col-12.my-2
-      .bg-info.text-white.mb-2 Повод/Кому
-      - @comp.tags.each do |tag|
+
+.row
+  .col-lg-4.col-12.my-2
+    = image_tag @comp.img.url(:preview), class: 'img-fluid'
+    - @comp.tags.each do |tag|
+      .badge.badge-info
         = tag.name.capitalize
-        = link_to admin_remove_tag_path(tag_id: tag.id), method: :put do
-          X
-      - @comp.receivers.each do |receiver|
+        = link_to admin_remove_tag_path(tag_id: tag.id), method: :put, title: 'Удалить' do
+          %i.fas.fa-times.text-danger
+    - @comp.receivers.each do |receiver|
+      .badge.badge-info
         = receiver.title
-        = link_to admin_remove_receiver_path(receiver_id: receiver.id), method: :put do
-          X
+        = link_to admin_remove_receiver_path(receiver_id: receiver.id), method: :put, title: 'Удалить' do
+          %i.fas.fa-times.text-danger
+  .col-lg-8.col-12.my-2
+    .bg-info.text-white.p-2.lead.rounded-top Товары в композиции
+    %table.table.card.table-responsive-sm
+      %tbody#products
+        = render @products,  partial: "admin/products/product", locals: {product: @product}
+    .h5.border-top.text-right.text-success
+      = @comp.price
+      %i.fas.fa-ruble-sign
 
-  .row
-    .col-md-8.text-right
-      .h3.border-top.price
-        = @comp.price
-  .row.my-5
-
-    .col-12.border.mb-5.rounded
-      %h2 Добавить товары
-      = render 'admin/items/add_products'
-  .row.border.mb-5.rounded
-    .col-6.border-right
-      %h3 Повод
-      = form_for [:admin, @comp] do |f|
-        .form-group
-          = f.label :tag_name, 'Выберите из списка'
-          = f.select :tag_name, options_for_select(Tag.all.map{|i| [i.name]}.uniq), {}, {class: 'form-control'}
-        .form-group
-          = f.submit 'Добавить',  class: 'btn btn-info'
-      = form_for [:admin, @comp] do |f|
-        .form-group
-          = f.label :tag_name, 'или создайте свой'
-          = f.text_field :tag_name, value: '',class: 'form-control'
+.row.my-5
+  .col-12.border.mb-5.rounded.card.shadow
+    %h2 Добавить товары
+    = render 'admin/items/add_products'
+.row.mb-5.shadow
+  .col-6.card
+    %h3 Повод
+    = form_for [:admin, @comp] do |f|
+      .form-group
+        = f.label :tag_name, 'Выберите из списка'
+        = f.select :tag_name, options_for_select(Tag.all.map{|i| [i.name]}.uniq), {}, {class: 'form-control'}
+      .form-group
+        = f.submit 'Добавить',  class: 'btn btn-info'
+    = form_for [:admin, @comp] do |f|
+      .form-group
+        = f.label :tag_name, 'или создайте свой'
+        = f.text_field :tag_name, value: '',class: 'form-control'
+      = f.submit 'Добавить', class: 'btn btn-info'
+  .col-6.card
+    %h3 Кому
+    = form_for [:admin, @comp] do |f|
+      .form-group
+        = f.label :receiver_title, 'Выберите из списка'
+        = f.select :receiver_title, options_for_select(Receiver.all.map{|r| [r.title]}.uniq), {}, {class: 'form-control'}
+      .form-group
         = f.submit 'Добавить', class: 'btn btn-info'
-    .col-6
-      %h3 Кому
-      = form_for [:admin, @comp] do |f|
-        .form-group
-          = f.label :receiver_title, 'Выберите из списка'
-          = f.select :receiver_title, options_for_select(Receiver.all.map{|r| [r.title]}.uniq), {}, {class: 'form-control'}
-        .form-group
-          = f.submit 'Добавить', class: 'btn btn-info'
-      = form_for [:admin, @comp] do |f|
-        .form-group
-          = f.label :receiver_title, 'или добавьте свой'
-          = f.text_field :receiver_title, value: '', class: 'form-control'
-        .form-group
-          = f.submit 'Добавить', class: 'btn btn-info'
+    = form_for [:admin, @comp] do |f|
+      .form-group
+        = f.label :receiver_title, 'или добавьте свой'
+        = f.text_field :receiver_title, value: '', class: 'form-control'
+      .form-group
+        = f.submit 'Добавить', class: 'btn btn-info'

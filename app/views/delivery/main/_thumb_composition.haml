@@ -1,4 +1,4 @@
-- cache c do
+- cache ["admin_#{current_user.try(:admin?)}", c] do
   .composition
     .card.h-100
       .card-image-top

@@ -1,4 +1,4 @@
-- cache [composition, @cart.products ]do
+- cache ["admin_#{current_user.try(:admin?)}", composition, @cart.products ]do
   %h1.h5.text-center{itemprop: 'name'}
     %span
       Композиция № #{composition.id} из воздушных шаров

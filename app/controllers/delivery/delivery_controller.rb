@@ -18,6 +18,7 @@ class Delivery::DeliveryController < ApplicationController
 
 
   private
+
   
   def disable_sidebar
     @disable_sidebar = true

@@ -6,14 +6,6 @@
       Воздушные шары
     %span
       = @category.name.capitalize
-  -#.lead.text-center
-  -#  = link_to 'Назад', categories_path
+  = render 'delivery/products/products_list'
 
-  - @grouped_products.each do |group, products|
-    .h5
-      = group.capitalize
-    %hr
-    #products-list
-      .row
-        = render partial: 'delivery/products/product', collection: products.sort_by(&:price_with_helium), cached: true
 

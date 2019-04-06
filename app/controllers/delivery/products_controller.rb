@@ -11,6 +11,6 @@ class Delivery::ProductsController < Delivery::DeliveryController
 
     @categories = categories.distinct(:name).group('subcategories.id').select("subcategories.slug, subcategories.name, subcategories.id, subcategories.updated_at, COUNT(products.id) as total").order('total desc')
 
-    fresh_when [@color, categories], public: true
+    fresh_when [@color, categories], public: true unless current_user.try(:admin?)
   end
 end

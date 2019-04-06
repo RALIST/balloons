@@ -1,0 +1,12 @@
+%ul.nav.nav-tabs.justify-content-end.mb-2
+  - @grouped_products.each do |group, products|
+    - warn @grouped_products
+    - group_id = group == 'латексные шары' ? 'latex' : 'foil'
+    %li.nav-item
+      = link_to group.capitalize, '#', data: {toggle: 'tab', target: "##{group_id}"}, class: 'nav-link' + ( (group_id == 'foil' || @grouped_products.size < 2) ? ' active' : '')
+.tab-content
+  - @grouped_products.each do |group, products|
+    - group_id = group == 'латексные шары' ? 'latex' : 'foil'
+    .tab-pane.fade.products-list{id: group_id, class: ('active show' if group_id == 'foil' || @grouped_products.size < 2 )}
+      .row
+        = render partial: 'delivery/products/product', collection: products.sort_by(&:price_with_helium), cached: true

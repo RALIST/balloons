@@ -6,7 +6,7 @@ class Delivery::CategoriesController < Delivery::DeliveryController
     
     @categories = categories.distinct(:name).group('subcategories.id').select("subcategories.slug, subcategories.name, subcategories.id, subcategories.updated_at, COUNT(products.id) as total").order('total desc')
 
-    fresh_when categories, last_modified: categories.maximum(:updated_at), public: true
+    fresh_when categories, last_modified: categories.maximum(:updated_at), public: true unless current_user.try(:admin?)
   end
 
   def show
@@ -18,7 +18,7 @@ class Delivery::CategoriesController < Delivery::DeliveryController
     set_meta_tags title: "Заказать воздушные шары '#{@category.name.capitalize}' с доставкой в %{city} | Шариковая фея" % {city: t("cities.#{@city}.where")},
                   description: "Воздушные шары из коллекции '#{@category.name.capitalize}' сделают ваш праздник незабываемым!"
 
-    fresh_when products, last_modified: products.maximum(:updated_at), public: true
+    fresh_when products, last_modified: products.maximum(:updated_at), public: true unless current_user.try(:admin?)
 
   end
 end

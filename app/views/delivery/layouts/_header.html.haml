@@ -1,6 +1,6 @@
 
 #menu.bg-white
-  - cache 'header-top' do
+  - cache ['header-top', logged_in?] do
     .bg-info
       %ul.nav.justify-content-around.small.bg-info.d-none.d-lg-flex.col-11.ml-auto
         %li.nav-item

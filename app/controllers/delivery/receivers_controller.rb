@@ -2,7 +2,7 @@ class Delivery::ReceiversController < Delivery::DeliveryController
 
   def index
     @compositions = Composition.availible.order(:price)
-    fresh_when @compositions, last_modified: @compositions.maximum(:updated_at), public: true
+    fresh_when @compositions, last_modified: @compositions.maximum(:updated_at), public: true unless current_user.try(:admin?)
     set_meta_tags 	title: 'Воздушные шары близким с доставкой в %{city} | Шариковая фея' % {city: t("cities.#{@city}.where")},
                    description: "Воздушные шары для любимых и близких людей"
   end
@@ -24,7 +24,7 @@ class Delivery::ReceiversController < Delivery::DeliveryController
 
     @compositions = @person.compositions.availible.order(:price)
 
-    fresh_when @compositions, last_modified: @compositions.maximum(:updated_at), public: true
+    fresh_when @compositions, last_modified: @compositions.maximum(:updated_at), public: true unless current_user.try(:admin?)
 
   end
 end

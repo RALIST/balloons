@@ -6,7 +6,7 @@ class Delivery::CompositionsController < Delivery::DeliveryController
 
   def index
     @compositions = Composition.availible.distinct.order(:price).paginate(page: params[:page], per_page: 6)
-    fresh_when @compositions, public: true, last_modified: @compositions.maximum(:updated_at)
+    fresh_when @compositions, public: true, last_modified: @compositions.maximum(:updated_at) unless current_user.try(:admin?)
     respond_to do |format|
       format.html
       format.js if params[:page]
@@ -16,7 +16,7 @@ class Delivery::CompositionsController < Delivery::DeliveryController
   def show
     @products = @composition.products.includes(:type, :size, :tone, :texture).distinct
     @composition.update_columns(views: @composition.views + 1)
-    fresh_when [@composition, @products], public: true, last_modified: @composition.products.maximum(:updated_at)
+    fresh_when [@composition, @products], public: true, last_modified: @composition.products.maximum(:updated_at) unless current_user.try(:admin?)
   end
 
   private

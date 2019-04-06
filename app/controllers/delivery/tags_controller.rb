@@ -18,15 +18,14 @@ class Delivery::TagsController < Delivery::DeliveryController
 																оформление праздников воздушными шарами,
 																оформление детского праздника воздушными шарами"
 		@compositions = Composition.availible.order(:price)
-		# fresh_when @compositions, last_modified: @compositions.maximum(:updated_at), public: true
+		fresh_when @compositions, last_modified: @compositions.maximum(:updated_at), public: true unless current_user.try(:admin?)
 	end
 
 	def show
 		@tag = Tag.friendly.find(params[:id])
 		@compositions = Composition.availible.with_tag(@tag.name).order(:price)
+  set_meta_tags_for_tag(@tag)
 
-		fresh_when @compositions, last_modified: @compositions.maximum(:updated_at), public: true
-
-		set_meta_tags_for_tag(@tag)
+		fresh_when @compositions, last_modified: @compositions.maximum(:updated_at), public: true unless current_user.try(:admin?)
 	end
 end

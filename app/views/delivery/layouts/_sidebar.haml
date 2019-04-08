@@ -1,14 +1,14 @@
 
-.col-12.col-lg-2.sidebar-sticky
+.col-12.col-lg-2.sidebar-sticky.bg-white.border-bottom
   .d-flex.align-items-center.py-3
     .input-group.border.rounded
       = text_field_tag :global_search,'', class: 'form-control form-control-sm border-0', placeholder: 'Поиск...'
       %span.input-group-append.bg-white
         = button_tag(class: 'btn btn-sm', title: 'Поиск', data: {toggle: 'tooltip'}) do
           %i.fa.fa-search.text-muted
-    = link_to '#', class: 'd-lg-none collapsed d-inline-block text-center py-2 ml-4', data:{toggle: 'collapse', target: '#sidebar'} do
+    = link_to '#', class: 'd-lg-none collapsed d-inline-block text-center px-2 border rounded ml-2 pt-1', data:{toggle: 'collapse', target: '#sidebar'} do
       %i.fas.fa-sliders-h.fa-2x.text-info
-  %ul#sidebar.navbar-nav.flex-column.navbar-light.collapse
+  %ul#sidebar.navbar-nav.flex-column.collapse.bg-white
     .sidebar-heading.text-center.text-muted
       %span
         Готовые композиции
@@ -47,3 +47,5 @@
         -#%i.fas.fa-caret-down
       %li.nav-item
         = active_link_to 'По цветам', colors_path, class: 'nav-link small'
+      %li.nav-item
+        = active_link_to 'По форме', forms_path, class: 'nav-link small'

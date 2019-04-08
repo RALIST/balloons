@@ -77,6 +77,16 @@ crumb :category do |category|
   parent :categories
 end
 
+crumb :forms do
+  link 'Формы', forms_path
+  parent :products
+end
+
+crumb :form do |form|
+  link form.name.capitalize, form_path(form)
+  parent :forms
+end
+
 crumb :prices do
   link 'Цены на шары', prices_path
   parent :root

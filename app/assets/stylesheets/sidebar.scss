@@ -29,27 +29,8 @@
       color: transparentize($dark, 0.2);
       padding-left: 0.5rem;
       font-size: 0.9rem;
-      &:before {
-        content: '';
-        position: absolute;
-        font-size: 1rem;
-        left: 0rem;
-        display: inline-block;
-        height: 5px;
-        width: 5px;
-      }
       &:hover{
         color: $light-pink;
-        &:before {
-          content: '';
-          position: absolute;
-          left: 0rem;
-          height: 5px;
-          width: 5px;
-          top: 44%;
-          background: $light-pink;
-          border-radius: 50%;
-        }
       }
     }
   }
@@ -84,17 +65,7 @@
   }
   .small.active {
     color: $light-pink !important;
-    
-    &:before {
-      content: '';
-      position: absolute;
-      left: 0;
-      height: 5px;
-      width: 5px;
-      top: 44%;
-      background: $light-pink;
-      border-radius: 50%;
-    }
+
   }
   .sidebar-heading {
     position: relative;

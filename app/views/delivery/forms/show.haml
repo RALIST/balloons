@@ -1,0 +1,8 @@
+- breadcrumb :form, @form
+.container-fluid.c-list
+  %h1.h5.text-center
+    .small
+      Воздушные шары
+    %span
+      = @form.name.capitalize
+  = render 'delivery/products/products_list'

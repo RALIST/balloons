@@ -52,7 +52,9 @@ Rails.application.routes.draw do
       scope'gelievie-shary' do
         resources :colors
         resources :categories
+        resources :forms
         resources :products, path: ''
+
       end
       resources :carts
       resources :orders

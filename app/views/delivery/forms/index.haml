@@ -1,0 +1,7 @@
+- breadcrumb :forms
+.container-fluid.c-list
+  %h1.h5.text-center
+    %span
+      Воздушные шары по форме
+  .row
+    = render partial: 'delivery/forms/form', collection:  @forms, cached: true

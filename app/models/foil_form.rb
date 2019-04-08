@@ -1,7 +1,13 @@
 class FoilForm < ApplicationRecord
   has_many :items
-  before_save :sanitize
+  has_many :products, through: :items
+
   validates :name, uniqueness: true
+
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
+  before_save :sanitize
 
   private
 

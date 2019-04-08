@@ -286,7 +286,7 @@ module MetaHelper
                   reverse: true,
                   keywords: "воздушные шары, заказать воздушные шары, шарики с доставкой, доставка шариков, воздушные шары с доставкой",
                   description: "Композиция из воздушных шаров на #{@composition.tags.pluck(&:name).join(", ")}, #{@composition.receivers.pluck(&:title).join(", ")}",
-                  canonical: (composition_path(@composition) if @tag || @receiver)
+                  canonical: (composition_path(@composition) unless controller_name == 'compositions')
 
     set_meta_tags og: {
 									      title: "Композиция № #{@composition.id} из воздушных шаров | Шариковая фея",

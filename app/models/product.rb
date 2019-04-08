@@ -53,25 +53,6 @@ class Product < ApplicationRecord
   end
 
   def set_complex_name
-    # if self.complex_name.blank?
-    #   case type.name
-    #   when 'латексные шары'
-    #     size_name = size ? "#{size.in_inch.to_i}''(#{size.in_cm.to_i}см) " : ""
-    #     tone_name = tone ? " #{texture.name} #{tone.name}" : ""
-    #     if !size_name.blank? && !tone_name.blank?
-    #       self.complex_name = size_name + tone_name
-    #     else
-    #       self.complex_name = size_name + item.name.gsub(/[\d+,()\/.']|\bшт[.|\b]|\bсм\b|\bст\b/, '')
-    #     end
-    #   when 'фольгированные шары'
-    #     size_name = size ? "#{size.in_inch.to_i}''(#{size.in_cm.to_i}см) " : ''
-    #     item_name = item ? item.name.gsub(/[\w',()\/]|\bшт[.|\b]|\bсм\b|\bст\b/, '') : ''
-    #     self.complex_name = size_name + item_name
-    #   when 'разное'
-    #     self.complex_name = name.present? ? name.capitalize : ''
-    #   end
-    #   self.save
-    # end
     unless self.type == 'разное' || self.item.name.blank?
       item_name = self.item.sanitized_name
       self_name = category.title == 'без рисунка' ? '' : " #{item_name}"
@@ -198,12 +179,12 @@ class Product < ApplicationRecord
         case foil_form.name
           when 'звезда', 'круг', 'сердце', 'квадрат'
             if size.in_inch < 32
-              self.price_with_helium = 200
+              self.price_with_helium = 199
             else
-              self.price_with_helium = 600
+              self.price_with_helium = 499
             end
           when 'цифра'
-            self.price_with_helium = 700
+            self.price_with_helium = 699
           when 'фигура'
             if size.in_inch < 40
               self.price_with_helium =  450
@@ -211,11 +192,10 @@ class Product < ApplicationRecord
               self.price_with_helium = 550
             end
           when 'ходячая', 'ходячая фигура'
-            self.price_with_helium = 2500
+            self.price_with_helium = 2499
         end
       end
     end
-    self.save
   end
 
   def self.latex_in_compositions

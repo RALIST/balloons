@@ -2,20 +2,21 @@
   %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
   = stylesheet_link_tag 'chats'
   = javascript_include_tag 'ym', async: true, defer: true
-.container
-  .row.h-100.align-items-center
-    .col-lg-8.col-12.mx-auto.text-justify
-      %h1.display-3.text-center.mb-5
-        Напишите нам!
-      = link_to  'viber://add?number=79501718109', class: 'btn btn-info btn-block mb-5 py-3 shadow chat-link' do
-        %i.fab.fa-viber.mr-5
-        Viber
-      = link_to  'https://api.whatsapp.com/send?phone=79501718109&text=Здравствуйте! Хочу проконсультироваться по шарам!', class: 'btn btn-success btn-block mb-5 py-3 shadow chat-link' do
-        %i.fab.fa-whatsapp.mr-5
-        Whats App
-      = link_to  'https://t.me/@bigairballoons', class: 'btn btn-blue btn-block mb-5 py-3 shadow chat-link' do
-        %i.fab.fa-telegram.mr-5
-        Telegram
-      = link_to  root_path, class: 'btn btn-light btn-block mb-5 py-2 shadow text-muted' do
-        %i.fab.fa-gratipay.mr-5.text-danger
-        На сайт
+- cache 'chats' do
+  .container
+    .row.h-100.align-items-center
+      .col-lg-8.col-12.mx-auto.text-justify
+        %h1.display-3.text-center.mb-5
+          Напишите нам!
+        = link_to  'viber://add?number=79501718109', class: 'btn btn-info btn-block mb-5 py-3 shadow chat-link' do
+          %i.fab.fa-viber.mr-5
+          Viber
+        = link_to  'https://api.whatsapp.com/send?phone=79501718109&text=Здравствуйте! Хочу проконсультироваться по шарам!', class: 'btn btn-success btn-block mb-5 py-3 shadow chat-link' do
+          %i.fab.fa-whatsapp.mr-5
+          Whats App
+        = link_to  'https://t.me/@bigairballoons', class: 'btn btn-blue btn-block mb-5 py-3 shadow chat-link' do
+          %i.fab.fa-telegram.mr-5
+          Telegram
+        = link_to  root_path, class: 'btn btn-light btn-block mb-5 py-2 shadow text-muted' do
+          %i.fab.fa-gratipay.mr-5.text-danger
+          На сайт

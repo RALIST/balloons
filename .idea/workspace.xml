@@ -6,16 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f1b38864-17e2-48ba-9f1a-eee384936dde" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/ym.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/ym.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/common.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/common.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/custom_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/custom_variables.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/delivery/main_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/delivery/main_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/layouts/_header.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/layouts/_header.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/main/_help.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/main/_help.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/main/index.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/main/index.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/initializers/assets.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/initializers/assets.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/delivery/main/chat_me.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/main/chat_me.haml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -81,18 +73,18 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="erb" value="320" />
-          <entry key="haml" value="5074" />
+          <entry key="haml" value="5095" />
           <entry key="js" value="64" />
-          <entry key="rb" value="2160" />
+          <entry key="rb" value="2161" />
           <entry key="scss" value="1181" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Haml" value="5074" />
+          <entry key="Haml" value="5095" />
           <entry key="JavaScript" value="64" />
           <entry key="RHTML" value="320" />
-          <entry key="Ruby" value="2160" />
+          <entry key="Ruby" value="2161" />
           <entry key="SCSS" value="1181" />
         </counts>
       </usages-collector>
@@ -103,8 +95,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/delivery/main_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="681">
-              <caret line="50" column="3" lean-forward="true" selection-start-line="50" selection-start-column="3" selection-end-line="50" selection-end-column="3" />
+            <state relative-caret-position="662">
+              <caret line="49" column="2" lean-forward="true" selection-start-line="49" selection-start-column="2" selection-end-line="49" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -112,8 +104,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/delivery/main/chat_me.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+            <state relative-caret-position="513">
+              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
             </state>
           </provider>
         </entry>
@@ -130,8 +122,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/delivery/main/index.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="21" column="123" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="123" />
+            <state relative-caret-position="589">
+              <caret line="28" column="41" lean-forward="true" selection-start-line="25" selection-start-column="2" selection-end-line="28" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -192,13 +184,13 @@
         <option value="$PROJECT_DIR$/app/assets/stylesheets/common.scss" />
         <option value="$PROJECT_DIR$/app/views/delivery/layouts/_header.html.haml" />
         <option value="$PROJECT_DIR$/app/views/delivery/main/_help.haml" />
-        <option value="$PROJECT_DIR$/app/views/delivery/main/index.haml" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.scss" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/custom_variables.scss" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/chats.scss" />
         <option value="$PROJECT_DIR$/config/initializers/assets.rb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/ym.js.erb" />
+        <option value="$PROJECT_DIR$/app/views/delivery/main/index.haml" />
         <option value="$PROJECT_DIR$/app/controllers/delivery/main_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/delivery/main/chat_me.haml" />
       </list>
@@ -462,12 +454,12 @@
       <workItem from="1554225017076" duration="16706000" />
       <workItem from="1554268541396" duration="40359000" />
       <workItem from="1554723265924" duration="6862000" />
-      <workItem from="1554790693276" duration="4604000" />
+      <workItem from="1554790693276" duration="6239000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="566760000" />
+    <option name="totallyTimeSpent" value="568395000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -482,7 +474,7 @@
     <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28257328" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28257328" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -495,7 +487,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" weight="0.3289941" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" x="234" y="224" width="743" height="581" id="Terminal" order="10" type="WINDOWED" weight="0.32953104" />
+      <window_info active="true" anchor="bottom" x="234" y="224" width="743" height="581" id="Terminal" order="10" type="WINDOWED" visible="true" weight="0.32953104" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32662722" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32780084" />
       <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.3289941" />
@@ -830,13 +822,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/delivery/main_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="681">
-          <caret line="50" column="3" lean-forward="true" selection-start-line="50" selection-start-column="3" selection-end-line="50" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/delivery.html.haml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -853,15 +838,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/delivery/main/index.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="21" column="123" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="123" />
+        <state relative-caret-position="589">
+          <caret line="28" column="41" lean-forward="true" selection-start-line="25" selection-start-column="2" selection-end-line="28" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/delivery/main_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="662">
+          <caret line="49" column="2" lean-forward="true" selection-start-line="49" selection-start-column="2" selection-end-line="49" selection-end-column="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/delivery/main/chat_me.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+        <state relative-caret-position="513">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>

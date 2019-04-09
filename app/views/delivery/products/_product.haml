@@ -1,4 +1,4 @@
-- cache ["admin_#{current_user.try(:admin?)}", product] do
+- cache ["admin_#{current_user.present? && current_user.admin?}", product] do
   .col-12.col-lg-4.col-md-6.mb-3
     .card.text-center.h-100#product
       .card-image-top

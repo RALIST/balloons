@@ -8,8 +8,12 @@
 .tab-content
   .tab-pane.active.show.fade#large-preview
     .row.compositions
-      = render partial: 'delivery/main/thumb_composition', collection:  @compositions, cached: true, as: :c
+      = render partial: 'delivery/main/thumb_composition',
+               collection:  @compositions,
+               as: :c
 
   .tab-pane.fade#small-preview
     .row.small-compositions
-      = render partial: 'delivery/compositions/small_composition', collection: @compositions, as: :composition, cached: true
+      = render partial: 'delivery/compositions/small_composition',
+                collection: @compositions,
+                as: :composition

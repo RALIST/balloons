@@ -8,4 +8,4 @@
     - group_id = group == 'латексные шары' ? 'latex' : 'foil'
     .tab-pane.fade.products-list{id: group_id, class: ('active show' if group_id == 'foil' || @grouped_products.size < 2 )}
       .row
-        = render partial: 'delivery/products/product', collection: products.sort_by(&:price_with_helium), cached: true
+        = render partial: 'delivery/products/product', collection: products.sort_by(&:price_with_helium)

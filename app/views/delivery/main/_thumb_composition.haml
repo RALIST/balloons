@@ -1,4 +1,4 @@
-- cache ["admin_#{current_user.try(:admin?)}", c] do
+- cache [(@tag.present? ? @tag.name : 'tag_false'), (@person.present? ? @person.title : 'receiver_false'), c] do
   .composition
     .card.h-100
       .card-image-top

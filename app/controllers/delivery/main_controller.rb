@@ -41,6 +41,11 @@ class Delivery::MainController < Delivery::DeliveryController
   def garant; end
 
   def faq; end
+
+  def chat_me
+    render layout: false
+    # http_cache_forever(public: true) {render layout: false} if Rails.env.production?
+  end
   
   
 end

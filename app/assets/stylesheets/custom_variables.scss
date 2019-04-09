@@ -4,7 +4,8 @@ $theme-colors: (
   "info": #9555bd,
   "secondary": #ff4ba9,
   "success": #77dd77,
-  "lavender": #ac7acb
+  "lavender": #ac7acb,
+  "blue": #0088cc
 );
 
 $brand-primary: #000000;
@@ -19,7 +20,7 @@ $font-family-sans-serif: 'Montserrat', sans-serif;
 $enable-responsive-font-sizes: true;
 $enable-gradients: false;
 
-.btn-success {
+.btn-success, .btn-blue {
   color: white !important;
 }
 

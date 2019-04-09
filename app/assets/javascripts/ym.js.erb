@@ -16,6 +16,10 @@
     ym(37371855, 'reachGoal', 'order_call');
   });
 
+  $(document).on('click', 'nav-link', function(){
+    ym(37371855, 'reachGoal', 'chat_link');
+  })
+
   $(document).on('turbolinks:before-visit', function () {
     window.turbolinks_referer = location.href;
   });

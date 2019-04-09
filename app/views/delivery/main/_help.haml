@@ -5,23 +5,19 @@
         Ничего не нашли?
       .lead.text-white.my-3
         Бесплатно подберем уникальное оформление под ваш праздник!
-    = button_tag 'Оставить заявку', class: 'btn btn-info col-10 col-lg-6 m-auto', data:{ toggle: 'modal', target: '#call-modal'}
-    -#.row.text-center.text-white
-    -#  #offer-icon
-    -#    %i.fas.fa-thumbs-up.fa-3x.my-1
-    -#    .h4
-    -#      Проклеиваем все шары
-    -#      .small
-    -#        Гарантируем 3 дня полета или заменим брак!
-    -#  #offer-icon
-    -#    %i.fas.fa-car.fa-3x.my-1
-    -#    .h4
-    -#      Круглосуточная доставка
-    -#      .small
-    -#        Бесплатная доставка по #{t("cities.#{@city}.in")} от 1500 руб.
-    -#  #offer-icon
-    -#    %i.fas.fa-birthday-cake.fa-3x.my-1
-    -#    .h4
-    -#      Индивидуальный дизайн
-    -#      .small
-    -#        Подберем уникальное оформление под ваш праздник!
+    .row.w-100.mt-3.justify-content-center
+      .col-10.col-lg-6
+        = button_tag 'Заказать звонок', class: 'btn btn-block mx-auto btn-secondary', data:{ toggle: 'modal', target: '#call-modal'}
+        .row.mt-3
+          .col-12.col-lg-6.d-none.d-lg-block
+            = link_to 'viber://chat?number=+79501718109', class: 'btn btn-info btn-block' do
+              %i.fab.fa-viber
+              Связаться в Viber
+          .col-12.col-lg-6.d-lg-none
+            = link_to 'viber://add?number=+79501718109', class: 'btn btn-info btn-block' do
+              %i.fab.fa-viber
+              Связаться в Viber
+          .col-12.col-lg-6.mt-lg-0.mt-3
+            = link_to 'https://api.whatsapp.com/send?phone=79501718109&text=Здравствуйте! Хочу проконсультироваться по шарам!', class: 'btn btn-success btn-block' do
+              %i.fab.fa-whatsapp
+              Связаться в WhatsApp

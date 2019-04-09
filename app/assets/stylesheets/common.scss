@@ -1,5 +1,5 @@
 #main-offer {
-  min-height: calc(100vh - 78px);
+  min-height: calc(90vh - 78px);
   background: image-url("balloon-contacts.png") no-repeat;
   background-size: contain;
   background-position: right;
@@ -175,6 +175,12 @@
   left: 0;
   background: image-url('line.png') repeat-x center;
   background-size: 12% 100%;
+}
+
+.main-line {
+  position: relative;
+  @extend .line;
+  top: -11px;
 }
 
 .c-list{

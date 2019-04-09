@@ -66,6 +66,8 @@
             #cart-count.d-inline.text-danger
               = @cart.subpositions.any? ? "(#{@cart.subpositions.count})" : ''
 
-        %li.nav-item.rounded.border.border-success.text-center.mt-3.mt-lg-0
-          = link_to 'Оставить заявку', '#', class: 'nav-link text-success', data:{ toggle: 'modal', target: '#call-modal'}
+        %li.nav-item
+          = link_to 'tel: +79501718109', class: 'nav-link' do
+            %i.fas.fa-phone
+            +7 (950) 171-81-09
   = render 'delivery/layouts/breadcrumbs' unless @disable_bread

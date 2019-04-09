@@ -101,6 +101,9 @@ Rails.application.routes.draw do
       match '/500', to: 'errors#internal_server_error', via: :all
       get '/partners', to: 'partners#index', as: :partners
       get '/faq', to: 'main#faq', as: :faq
+
+      get '/chat-me', to: 'main#chat_me'
+
       constraints(format: /[a-z]+(\.[a-z]+)?/) do
         resources :sitemaps, only: :show
         get '/sitemap', to: 'sitemaps#show'

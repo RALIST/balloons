@@ -10,14 +10,14 @@
         = button_tag 'Заказать звонок', class: 'btn btn-block mx-auto btn-secondary', data:{ toggle: 'modal', target: '#call-modal'}
         .row.mt-3
           .col-12.col-lg-6.d-none.d-lg-block
-            = link_to 'viber://chat?number=+79501718109', class: 'btn btn-info btn-block' do
+            = link_to 'viber://chat?number=+79501718109', class: 'btn btn-info btn-block chat-link' do
               %i.fab.fa-viber
               Связаться в Viber
           .col-12.col-lg-6.d-lg-none
-            = link_to 'viber://add?number=+79501718109', class: 'btn btn-info btn-block' do
+            = link_to 'viber://add?number=+79501718109', class: 'btn btn-info btn-block chat-link' do
               %i.fab.fa-viber
               Связаться в Viber
           .col-12.col-lg-6.mt-lg-0.mt-3
-            = link_to 'https://api.whatsapp.com/send?phone=79501718109&text=Здравствуйте! Хочу проконсультироваться по шарам!', class: 'btn btn-success btn-block' do
+            = link_to 'https://api.whatsapp.com/send?phone=79501718109&text=Здравствуйте! Хочу проконсультироваться по шарам!', class: 'btn btn-success btn-block chat-link' do
               %i.fab.fa-whatsapp
               Связаться в WhatsApp

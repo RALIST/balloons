@@ -15,6 +15,7 @@
 //= require common
 //= require pagination
 //= require ym
+//=require goals
 
 
 

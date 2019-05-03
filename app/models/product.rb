@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
   require 'paperclip_processors/watermark'
-  belongs_to :item
+  belongs_to :item, inverse_of: :products, optional: true
   belongs_to :latex, foreign_key: :item_id
   belongs_to :foil, foreign_key: :item_id
   belongs_to :size
@@ -18,7 +18,7 @@ class Product < ApplicationRecord
   has_many :subcategories, through: :item
   has_many :carts, through: :subpositions
 
-  accepts_nested_attributes_for :item, update_only: true
+  accepts_nested_attributes_for :item
 
   validates :item_id, presence: true
   validates :name, uniqueness: true, presence: true

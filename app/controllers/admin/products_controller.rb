@@ -7,7 +7,15 @@ class Admin::ProductsController < Admin::AdminController
   end
 
   def create
+
     @product = Product.create(product_params)
+    if @product.save
+      redirect_to admin_products_path
+      flash[:success] = 'Товар создан'
+    else
+      render 'new'
+      flash[:danger] = @product.errors.full_messages
+    end
   end
 
   def update

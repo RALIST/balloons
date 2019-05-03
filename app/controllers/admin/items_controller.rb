@@ -1,25 +1,19 @@
 class Admin::ItemsController < Admin::AdminController
   before_action :set_item, only: %i[show edit update destroy]
 
+  before_action :find_item, only: :create
   def new
     @item = Item.new
-    @product = @item.products.build
   end
 
   def create
-    @item = Item.where(vendor_id: item_params[:vendor_id],
-                       texture_id: item_params[:texture_id],
-                       tone_id: item_params[:tone_id],
-                       type_id: params[:type_id]).first_or_create! do |item|
-      item.vendor_id = item_params[:vendor_id]
-      item.tone_id = item_params[:tone_id]
-      item.texture_id = item_params[:texture_id]
-      item.type_id = item_params[:type_id]
-      item.category_id = item_params[:category_id]
-    end
-    if @item.save
-      @item.products.create!(item_params[:products_attributes][:"#{0}"])
+    @product = @item.products.create(item_params[:products_attributes]["0"])
+    if @product.save
       redirect_to admin_items_path
+    else
+      flash[:alert] = @product.errors.full_messages
+      render 'new'
+
     end
   end
 
@@ -86,7 +80,7 @@ class Admin::ItemsController < Admin::AdminController
 
   def item_params
     params.require(:item).permit(:name, :desc, :type_id, :category_id,
-                                 :vendor_id, :color_id, :texture_id, :tone_id,
+                                 :vendor_id, :color_id, :texture_id, :tone_id, :foil_form_id,
                                  products_attributes: %i[
                                    size_id
                                    quantity
@@ -104,5 +98,13 @@ class Admin::ItemsController < Admin::AdminController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def find_item
+    @item = Item.find_or_create_by(texture_id: item_params[:texture_id],
+                                   tone_id: item_params[:tone_id],
+                                   foil_form_id: item_params[:foil_form_id],
+                                   category_id: item_params[:category_id],
+                                   type_id: item_params[:type_id])
   end
 end

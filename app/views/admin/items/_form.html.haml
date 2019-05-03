@@ -4,6 +4,9 @@
   %h2 Добавить товар
   .col-12
     = form_for [:admin, @item] do |f|
+      .form-group
+        = f.label :name, 'Название'
+        = f.text_field :name, class: 'form-control'
       = f.fields_for :products, @item.products.build do |nf|
         = render partial: 'product_fields', locals: {nf: nf}
       .form-group

@@ -21,7 +21,7 @@ class Product < ApplicationRecord
   accepts_nested_attributes_for :item
 
   validates :item_id, presence: true
-  validates :name, uniqueness: true, presence: true
+  validates :complex_name, uniqueness: true, presence: true
 
   has_attached_file :img,
                     processors: [:thumbnail],
@@ -34,9 +34,9 @@ class Product < ApplicationRecord
                                     default_url: '/missing/:style/missing.png'
 
   attr_reader :img_remote_url
-  after_save :set_complex_name
+  before_validation :set_complex_name, on: :create
 
-  scope :search, ->(word) { where('lower(products.name) LIKE ? ', "%#{word}%").distinct.availible_products }
+  scope :search, ->(word) { where('lower(products.complex_name) LIKE ? ', "%#{word}%")}
 
 
   def in_cart?(cart)
@@ -53,17 +53,14 @@ class Product < ApplicationRecord
   end
 
   def set_complex_name
-    unless self.type == 'разное' || self.item.name.blank?
       item_name = self.item.sanitized_name
-      self_name = category.title == 'без рисунка' ? '' : " #{item_name}"
       size_name = size ?  "#{size.in_inch.to_i}'' (#{size.in_cm.to_i}см) " : ''
       form = foil_form ? " #{foil_form.name}" : ''
       color_name = color ? " #{color.name}" : ''
       texture_name = texture ? " #{texture.name}" : ''
       tone_name = tone ? " #{tone.name}" : ''
-      complex_name = 'Шар ' + size_name + form + texture_name + tone_name + self_name
-      update_columns(complex_name: complex_name.downcase.capitalize)
-    end
+      complex_name = 'Шар ' + size_name + form + texture_name + tone_name + item_name
+      self.complex_name = complex_name.downcase.capitalize
   end
 
 

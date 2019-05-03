@@ -105,6 +105,7 @@ class Admin::ItemsController < Admin::AdminController
                                    tone_id: item_params[:tone_id],
                                    foil_form_id: item_params[:foil_form_id],
                                    category_id: item_params[:category_id],
-                                   type_id: item_params[:type_id])
+                                   type_id: item_params[:type_id],
+                                   name: item_params[:name])
   end
 end

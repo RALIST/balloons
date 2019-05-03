@@ -2,44 +2,45 @@
   - if @product.errors.any?
     = @product.errors.full_messages
   .col-8.mt-5
-    = form_for [:admin, @item] do |nf|
+    = form_for [:admin, @product] do |f|
+
       .form-group
-        = nf.label :type_id, 'Тип'
-        = nf.select :type_id, Type.all.collect{|t| [t.name, t.id]}.reject(&:blank?), { include_blank: false }, class: 'form-control'
+        = f.label :complex_name, 'Название'
+        = f.text_field :complex_name, class: 'form-control'
       .form-group
-        = nf.label :category_id, 'Категория'
-        = nf.select :category_id, Category.all.map{|c| [c.title, c.id]},{}, class: 'form-control'
+        = f.label :size_id, 'Размер'
+        = f.select :size_id, Size.all.order(:in_inch).map{|s| [s.in_inch, s.id]},{}, class: 'form-control'
       .form-group
-        = nf.label :color_id, "Цвет"
-        = nf.select :color_id, Color.all.map{|s| [s.name, s.id]}, {include_blank: true}, class: 'form-control'
+        = f.label :price_with_helium, "Цена с гелием"
+        = f.number_field :price_with_helium, class: 'form-control'
       .form-group
-        = nf.label :tone_id, 'Оттенок'
-        = nf.select :tone_id, Tone.all.map{|s| [s.name + ' / ' + s.code, s.id]}, {include_blank: true}, class: 'form-control'
-      .form-group
-        = nf.label :texture_id, 'Текстура'
-        = nf.select :texture_id, Texture.all.map{|s| [s.name, s.id]}, {include_blank: true}, class: 'form-control'
-      .form-group
-        = nf.label :foil_form_id, 'Форма'
-        = nf.select :foil_form_id, FoilForm.all.map{|s| [s.name, s.id]}, {include_blank: true}, class: 'form-control'
-      .form-group
-        = link_to '#', data: {toggle: 'collapse', target: '#collections'} do
-          Коллекции
-          %i.fas.fa-angle-down
-      .collapse#collections
-        = nf.collection_check_boxes :subcategory_ids, Subcategory.all, :id, :name, class: 'form-control check-boxes' do |b|
-          = b.label(class: 'mr-3') { b.check_box + b.text.capitalize }
-      = fields_for @product do |f|
+        = f.label :img, "Картинка"
+        = f.file_field :img, class: 'form-control'
+      = fields_for @product.item do |nf|
         .form-group
-          = f.label :name, 'Название'
-          = f.text_field :name, class: 'form-control'
+          = nf.label :type_id, 'Тип'
+          = nf.select :type_id, Type.all.collect{|t| [t.name, t.id]}.reject(&:blank?), { include_blank: false }, class: 'form-control'
         .form-group
-          = f.label :size_id, 'Размер'
-          = f.select :size_id, Size.all.order(:in_inch).map{|s| [s.in_inch, s.id]},{}, class: 'form-control'
+          = nf.label :category_id, 'Категория'
+          = nf.select :category_id, Category.all.map{|c| [c.title, c.id]},{}, class: 'form-control'
         .form-group
-          = f.label :price_with_helium, "Цена с гелием"
-          = f.number_field :price_with_helium, class: 'form-control'
+          = nf.label :color_id, "Цвет"
+          = nf.select :color_id, Color.all.map{|s| [s.name, s.id]}, {include_blank: true}, class: 'form-control'
         .form-group
-          = f.label :img, "Картинка"
-          = f.file_field :img, class: 'form-control'
+          = nf.label :tone_id, 'Оттенок'
+          = nf.select :tone_id, Tone.all.map{|s| [s.name + ' / ' + s.code, s.id]}, {include_blank: true}, class: 'form-control'
+        .form-group
+          = nf.label :texture_id, 'Текстура'
+          = nf.select :texture_id, Texture.all.map{|s| [s.name, s.id]}, {include_blank: true}, class: 'form-control'
+        .form-group
+          = nf.label :foil_form_id, 'Форма'
+          = nf.select :foil_form_id, FoilForm.all.map{|s| [s.name, s.id]}, {include_blank: true}, class: 'form-control'
+        .form-group
+          = link_to '#', data: {toggle: 'collapse', target: '#collections'} do
+            Коллекции
+            %i.fas.fa-angle-down
+        .collapse#collections
+          = nf.collection_check_boxes :subcategory_ids, Subcategory.all, :id, :name, class: 'form-control check-boxes' do |b|
+            = b.label(class: 'mr-3') { b.check_box + b.text.capitalize }
       .from-group
-        = nf.submit
+        = f.submit

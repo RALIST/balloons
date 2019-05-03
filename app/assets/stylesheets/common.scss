@@ -23,6 +23,11 @@
   }
 }
 
+#main-offer-2 {
+  @extend #main-offer;
+  min-height: 30vh;
+}
+
 
 #menu {
   position: relative;

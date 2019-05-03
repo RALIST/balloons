@@ -23,8 +23,6 @@ group :development, :test do
 end
 
 gem 'bootstrap', '~> 4.3.1'
-gem 'friendly_id', '~> 5.1.0'
-gem 'gretel'
 gem 'haml-rails'
 gem 'image_optim'
 gem 'loadcss-rails', '~> 2.0.1'
@@ -53,6 +51,8 @@ gem 'aws-sdk-s3', require: false
 gem 'puma_worker_killer'
 gem 'active_link_to'
 gem 'pagy'
+gem 'friendly_id'
+gem 'gretel'
 
 group :production do
   gem 'fog-aws', require: false

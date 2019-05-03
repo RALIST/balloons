@@ -12,6 +12,13 @@
         = receiver.title
         = link_to admin_remove_receiver_path(receiver_id: receiver.id), method: :put, title: 'Удалить' do
           %i.fas.fa-times.text-danger
+    .my-2
+      = form_for [:admin, @comp] do |f|
+        .form-group
+          = f.label :img, 'Новое изображение'
+          = f.file_field :img, class: 'form-control form-control-sm'
+        .form-group
+          = f.submit 'Загрузить', class: 'btn btn-success btn-sm'
   .col-lg-8.col-12.my-2
     .bg-info.text-white.p-2.lead.rounded-top Товары в композиции
     %table.table.card.table-responsive-sm

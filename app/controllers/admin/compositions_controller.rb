@@ -25,8 +25,6 @@ class Admin::CompositionsController < Admin::AdminController
       params[:imgs].each do |img|
         @comp = Composition.create(img: img)
       end
-    else
-      @comp = Composition.create(comp_params)
       if @comp.save
         redirect_to admin_compositions_path
       else

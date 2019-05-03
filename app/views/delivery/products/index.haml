@@ -1,36 +1,62 @@
 - breadcrumb :products
-.container-fluid.c-list
+-#.container-fluid.c-list
+-#  %h1.h5.text-center
+-#    %span
+-#      Гелиевые шары с доставкой
+-#  .row.my-3
+-#    .col-12.col-lg-4
+-#      %i.fas.fa-check.fa-lg.text-success
+-#      Бесплатная доставка от 1500 руб.
+-#    .col-12.col-lg-4
+-#      %i.fas.fa-check.fa-lg.text-success
+-#      Гарантия на все шары 3 дня
+-#    .col-12.col-lg-4
+-#      %i.fas.fa-check.fa-lg.text-success
+-#      Только качественная продукция
+-#    .col-4
+-#  .row
+-#    .col-12.my-3
+-#      .input-group
+-#        = text_field_tag :search,'', class: 'form-control', placeholder: 'Поиск по категориям'
+-#        %span.input-group-append
+-#          = button_tag(class: 'btn btn-info', id: 'clear-search', title: 'Очистить', data: {toggle: 'tooltip'}) do
+-#            %i.fa.fa-times
+-#  %h2.h6.text-center
+-#    %span Цвета
+-#  .row
+-#    = render partial: 'delivery/colors/color', collection:  @colors, cached: true
+-#  %h2.h6.text-center
+-#    %span Коллекции
+-#  .row
+-#    = render partial: 'delivery/categories/category', collection:  @categories, cached: true
+-#
+
+
+#main-offer-2.container-fluid.text-center.justify-content-center.c-list
   %h1.h5.text-center
-    %span
-      Гелиевые шары с доставкой
-  .row.my-3
-    .col-12.col-lg-4
+    %span.text-white
+      Гелиевые шары с доставкой в Ижевске
+  %hr.bg-white.w-100
+  .lead.mb-3.text-white
+    Подберите себе шарики на любой праздник!
+  .row.w-100.my-3
+    .col-12.col-lg-4.text-white
       %i.fas.fa-check.fa-lg.text-success
       Бесплатная доставка от 1500 руб.
-    .col-12.col-lg-4
+    .col-12.col-lg-4.text-white
       %i.fas.fa-check.fa-lg.text-success
       Гарантия на все шары 3 дня
-    .col-12.col-lg-4
+    .col-12.col-lg-4.text-white
       %i.fas.fa-check.fa-lg.text-success
       Только качественная продукция
-    .col-4
-  .row
-    .col-12.my-3
-      .input-group
-        = text_field_tag :search,'', class: 'form-control', placeholder: 'Поиск по категориям'
-        %span.input-group-append
-          = button_tag(class: 'btn btn-info', id: 'clear-search', title: 'Очистить', data: {toggle: 'tooltip'}) do
-            %i.fa.fa-times
-  %h2.h6.text-center
-    %span Цвета
-  .row
-    = render partial: 'delivery/colors/color', collection:  @colors, cached: true
-  %h2.h6.text-center
-    %span Коллекции
-  .row
-    = render partial: 'delivery/categories/category', collection:  @categories, cached: true
-  
-
-
-
+.main-line
+.row.my-5
+  .col-12.col-lg-4.my-2
+    = link_to 'Шары по цветам', colors_path, class: 'btn btn-secondary btn-block btn-lg'
+  .col-12.col-lg-4.my-2
+    = link_to 'Шары по форме', forms_path, class: 'btn btn-secondary btn-block btn-lg'
+  .col-12.col-lg-4.my-2
+    = link_to 'Шары по категориям', categories_path, class: 'btn btn-secondary btn-block btn-lg'
+  .col-12.my-2
+    = link_to 'Готовые композиции на любой праздник', tags_path, class: 'btn btn-info btn-block'
 

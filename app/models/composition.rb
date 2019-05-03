@@ -26,7 +26,6 @@ class Composition < ApplicationRecord
   validates_attachment_content_type :img,
                                     content_type: ['image/jpeg', 'image/jpg', 'image/png', 'image/webp' ]
 
-  before_post_process :rename_img
 
   after_save :random_title
 
@@ -42,14 +41,6 @@ class Composition < ApplicationRecord
   scope :without_tags, -> { joins(:products).where.not(id: Composition.with_tags.map(&:id)).where(deleted: false).where('compositions.img_file_size > ?', 0).distinct }
   scope :availible, -> {joins(:products, :tags).where('compositions.img_file_size > ?',0).distinct}
 
-
-
-  def rename_img
-    if self.img_file_name
-      extension = File.extname(img_file_name).downcase
-      self.img.instance_write :file_name, "composition_#{self.id}#{extension}"
-    end
-  end
 
 
 

@@ -1072,7 +1072,7 @@ DEPENDENCIES
   dotenv-rails
   fog-aws
   font_assets
-  friendly_id (~> 5.1.0)
+  friendly_id
   geocoder
   gretel
   haml-rails

@@ -4,24 +4,29 @@
     в
     = t "cities.#{@city}.where"
   %hr.bg-white.w-100
-  .lead.mb-3.text-white
-    Бесплатно подберем уникальное оформление под ваш праздник!
+  .lead.mb-2.text-white
+    Бесплатно подберем уникальное оформление из воздушных шаров под ваш праздник!
   .row.w-100.mt-3.justify-content-center
     .col-12.col-lg-6
-      = button_tag 'Заказать звонок', class: 'btn btn-block mx-auto btn-secondary', data:{ toggle: 'modal', target: '#call-modal'}
+      = button_tag 'Оставить заявку на подбор', class: 'btn btn-block mx-auto btn-secondary', data:{ toggle: 'modal', target: '#call-modal'}
       .row.mt-3
-        .col-12.col-lg-6.d-none.d-lg-block
-          = link_to 'viber://chat?number=+79501718109', class: 'btn btn-info btn-block chat-link btn-sm' do
-            %i.fab.fa-viber
-            Связаться в Viber
-        .col-12.col-lg-6.d-lg-none
-          = link_to 'viber://add?number=79501718109', class: 'btn btn-info btn-block chat-link btn-sm' do
-            %i.fab.fa-viber
-            Связаться в Viber
-        .col-12.col-lg-6.mt-lg-0.mt-3
-          = link_to 'https://api.whatsapp.com/send?phone=79501718109&text=Здравствуйте! Хочу проконсультироваться по шарам!', class: 'btn btn-success btn-block chat-link btn-sm' do
-            %i.fab.fa-whatsapp
-            Связаться в WhatsApp
+        .col-12.col-lg-6
+          = link_to 'Выбрать из готовых композиций', tags_path, class: 'btn btn-light btn-block btn-sm'
+        .col-12.col-lg-6
+          = link_to 'Собрать свою композицию', products_path, class: 'btn btn-light btn-block btn-sm'
+      -#.row.mt-3
+      -#  .col-12.col-lg-6.d-none.d-lg-block
+      -#    = link_to 'viber://chat?number=+79501718109', class: 'btn btn-info btn-block chat-link btn-sm' do
+      -#      %i.fab.fa-viber
+      -#      Связаться в Viber
+      -#  .col-12.col-lg-6.d-lg-none
+      -#    = link_to 'viber://add?number=79501718109', class: 'btn btn-info btn-block chat-link btn-sm' do
+      -#      %i.fab.fa-viber
+      -#      Связаться в Viber
+      -#  .col-12.col-lg-6.mt-lg-0.mt-3
+      -#    = link_to 'https://api.whatsapp.com/send?phone=79501718109&text=Здравствуйте! Хочу проконсультироваться по шарам!', class: 'btn btn-success btn-block chat-link btn-sm' do
+      -#      %i.fab.fa-whatsapp
+      -#      Связаться в WhatsApp
 .main-line
 -#.row.no-gutters
 -#  .col-12

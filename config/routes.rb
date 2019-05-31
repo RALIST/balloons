@@ -54,8 +54,8 @@ Rails.application.routes.draw do
         resources :categories
         resources :forms
         resources :products, path: ''
-
       end
+      
       resources :carts
       resources :orders
       resources :positions
@@ -63,6 +63,7 @@ Rails.application.routes.draw do
       resources :sessions
       resources :subpositions, only: %i[edit update destroy]
       resources :calls, only: %i[new create]
+      get '/success', to: 'calls#thanks', as: :after_call
       resources :business, only: :index
       resources :graduations, only: :index
       resources :receivers, path: 'persons' do

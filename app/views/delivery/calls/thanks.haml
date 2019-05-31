@@ -1,0 +1,22 @@
+.container
+  %h3.text-center.mt-5.text-success
+    Спасибо за вашу заявку!
+  %hr.w-50
+  .text-center
+    Обычно мы отвечаем на заявки в течение 3-4 часов (нужно все подготовить, придумать и подобрать), но в особо нагруженные дни все может затянуться. В этом случае не стоит паниковать (но если у вас мероприятие в ближайшие 3-4 часа -  тогда можно!), мы обязательно с вами свяжемся до конца этого рабочего дня или на утро следующего!
+  %hr.w-50
+  .lead.text-center
+    А еще будет очень здорово, если вы подпишитесь на нас в соц.сетях!
+  .row.mt-3.lead
+    .col-4.text-center
+      = link_to 'https://www.instagram.com/bigairballoon_izh/', target: :_blank, rel: 'nofollow', title: 'Instagram' do
+        %i.fab.fa-instagram.text-secondary{"aria-hidden":  "true"}
+        Instagram
+    .col-4.text-center
+      = link_to 'https://www.facebook.com/bigairballoons/', target: :_blank, rel: 'nofollow', title: 'Facebook' do
+        %i.fab.fa-facebook.text-secondary{"aria-hidden": "true"}
+        Facebook
+    .col-4.text-center
+      = link_to 'https://vk.com/bigairballoon_izh', target: :_blank, rel: 'nofollow', title: 'Вконтакте' do
+        %i.fab.fa-vk.text-secondary{"aria-hidden": "true"}
+        Vkontakte

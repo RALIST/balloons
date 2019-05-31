@@ -1,5 +1,17 @@
 = form_for @call do |f|
   .form-group
+    = f.label :person, 'Для кого?', class: 'text-lavender'
+    = f.text_field :person, class: 'form-control', placeholder: 'Сыну, дочке, мужу...'
+  .form-group
+    = f.label :event, 'Какой повод?', class: 'text-lavender'
+    = f.text_field :event, class: 'form-control', placeholder: 'День рождения, свадьба, юбилей...'
+  .form-group
+    = f.label :budget, 'Примерный бюджет', class: 'text-lavender'
+    = f.text_field :budget, class: 'form-control', placeholder: 'Пара шекелей найдется...'
+  .form-group
+    = f.label :desc, 'Доп. информация', class: 'text-lavender'
+    = f.text_area :desc, class: 'form-control', placeholder: 'Например, желаемая цветовая гамма или любимый мультфильм ребенка', rows: 3
+  .form-group
     = f.label :username,  'Как вас зовут?', class: 'text-lavender'
     = f.text_field :username, class: 'form-control', required: true
   .form-group

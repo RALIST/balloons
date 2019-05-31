@@ -7,14 +7,20 @@ class Delivery::CallsController < Delivery::DeliveryController
     if @call.save
       @call.send_sms_to_admin
       @call.send_new_call_notification
-      redirect_to root_path
+      redirect_to after_call_path
       flash[:success] = 'Спасибо за заявку! Мы свяжемся с вами в ближайшее время!'
     end
+  end
+  
+  def thanks
+    @disable_sidebar = true
+    @disable_help = true
+  
   end
 
   private
 
   def call_params
-    params.require(:call).permit(:username, :userphone, :url, :city, messangers: [])
+    params.require(:call).permit(:username, :userphone, :url, :city, :event, :person, :budget, :desc, messangers: [])
   end
 end

@@ -105,6 +105,8 @@ Rails.application.routes.draw do
 
       get '/chat-me', to: 'main#chat_me'
 
+      get '/privacy', to: 'main#privacy'
+
       constraints(format: /[a-z]+(\.[a-z]+)?/) do
         resources :sitemaps, only: :show
         get '/sitemap', to: 'sitemaps#show'

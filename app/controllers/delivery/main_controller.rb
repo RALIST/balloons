@@ -28,6 +28,8 @@ class Delivery::MainController < Delivery::DeliveryController
     @order = Order.find(params[:order])
   end
 
+  def privacy; end
+
   def contacts; end
 
   def lp; end

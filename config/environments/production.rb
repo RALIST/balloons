@@ -100,7 +100,9 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
   config.action_mailer.default_url_options = { host: 'https://bigairballoons.ru'}
+  config.action_mailer.default_options = { from: 'orders@bigairballoons.ru' }
   config.force_ssl = true
+
   unless Rails.env.test?
     config.paperclip_defaults = {
         default_url: 'https://s3.eu-central-1.amazonaws.com/images/missing/small/missing_small.png',

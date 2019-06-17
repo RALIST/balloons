@@ -15,13 +15,14 @@
 //= require common
 //= require pagination
 //= require ym
-//=require goals
+//= require goals
 
 
 
 
 var ready = function(){
   if(!($('body').attr('data-loaded') == 'T')) {
+    RCinit();
     paginate();
     toTop();
     search();
@@ -31,6 +32,26 @@ var ready = function(){
     return;
   }
 };
+
+const RCinit = function(){
+  var div = document.getElementById('recaptcha');
+  grecaptcha.ready(function() {
+    while (div.firstChild) {
+      div.removeChild(div.firstChild);
+    }
+    var id = "new_google_recaptcha_token_<%= SecureRandom.hex(10) %>"
+    var field = document.createElement('input')
+    field.setAttribute('name', 'new_google_recaptcha_token');
+    field.setAttribute('type', 'hidden');
+    field.setAttribute('id', id);
+    div.appendChild(field);
+    grecaptcha.execute("<%= NewGoogleRecaptcha.site_key %>", {action: "call"}).then(function(token) {
+      field.value = token;
+    });
+  });
+
+};
+
 
 
 var search = function(){
@@ -97,6 +118,5 @@ function onScroll(event){
   });
 }
 
-$(document).on('turbolinks:load', ready);
-$(document).ready(ready)
-
+document.addEventListener('turbolinks:load', ready);
+document.addEventListener('DOMContentLoaded', ready)

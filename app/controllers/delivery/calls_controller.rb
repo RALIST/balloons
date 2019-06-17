@@ -12,7 +12,6 @@ class Delivery::CallsController < Delivery::DeliveryController
       @call.send_sms_to_admin
       @call.send_new_call_notification
       redirect_to after_call_path
-      # flash[:success] = 'Спасибо за заявку! Мы свяжемся с вами в ближайшее время!'
     end
   end
   

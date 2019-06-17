@@ -8,7 +8,7 @@
     = csrf_meta_tags
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload', defer: true, async: Rails.env.production?
-    = include_recaptcha_js
+    = javascript_include_tag "https://www.google.com/recaptcha/api.js?render=#{NewGoogleRecaptcha.site_key}", 'data-turbolinks-track': 'reload', defer: true, async: Rails.env.production?
   %body
     %a#return-to-top
       %span.fa-stack

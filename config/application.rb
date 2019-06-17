@@ -6,6 +6,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+
 module Balloons
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -28,5 +29,7 @@ module Balloons
     config.i18n.default_locale = :ru
     config.exceptions_app = routes
     Rack::Utils.multipart_part_limit = 512
+
+    config.eager_load_paths << Rails.root.join('lib')
   end
 end

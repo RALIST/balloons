@@ -44,7 +44,8 @@ function myCallback() {
 const RCinit = function(){
   grecaptcha.ready(function() {
     grecaptcha.execute(document.grecaptchaHandle, {action: "call"}).then(function(token) {
-      field.value = token;
+      document.getElementById('token').value = token
+      console.log("executed", token)
     });
   });
 
@@ -116,5 +117,5 @@ function onScroll(event){
   });
 }
 
-document.addEventListener('turbolinks:load', ready);
-document.addEventListener('DOMContentLoaded', ready)
+$(document).on('turbolinks:load', ready);
+$(document).ready(ready)

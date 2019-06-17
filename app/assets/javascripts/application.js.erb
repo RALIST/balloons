@@ -36,7 +36,6 @@ var ready = function(){
 function myCallback() {
   document.grecaptchaHandle = grecaptcha.render('recaptcha', {
     'sitekey': "<%= NewGoogleRecaptcha.site_key %>",
-    'badge': 'inline', // must be inline
     'size': 'invisible' // must be invisible
   });
 }

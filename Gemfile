@@ -53,6 +53,7 @@ gem 'active_link_to'
 gem 'pagy'
 gem 'friendly_id'
 gem 'gretel'
+gem 'new_google_recaptcha'
 
 group :production do
   gem 'fog-aws', require: false

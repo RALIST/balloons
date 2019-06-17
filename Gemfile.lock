@@ -890,6 +890,8 @@ GEM
     multi_json (1.13.1)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
+    new_google_recaptcha (1.0.0)
+      rails (>= 4.2.0)
     nio4r (2.3.1)
     nokogiri (1.10.2-x86-mingw32)
       mini_portile2 (~> 2.4.0)
@@ -1086,6 +1088,7 @@ DEPENDENCIES
   mainsms_api
   memcachier
   meta-tags
+  new_google_recaptcha
   pagy
   paperclip
   paperclip-compression

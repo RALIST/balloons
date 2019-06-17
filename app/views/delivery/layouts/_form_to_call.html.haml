@@ -38,6 +38,8 @@
         Telegram
     = f.hidden_field :url, value: request.original_url
     = f.hidden_field :city, value: @city
+    .recaptcha
+      = recaptcha_action('call')
   .form-group.text-center
     = submit_tag 'Отправить', class: 'btn btn-success btn-block btn-sm', data:{disable_with: 'Отправляю...'}
 

@@ -5,7 +5,7 @@ class Delivery::CallsController < Delivery::DeliveryController
   def create
     @call = Call.create(call_params)
     if NewGoogleRecaptcha.human?(
-        params[:new_google_recaptcha_token],
+        params['g-recaptcha-response'],
         "call",
         NewGoogleRecaptcha.minimum_score,
         @call) && @call.save
@@ -24,6 +24,6 @@ class Delivery::CallsController < Delivery::DeliveryController
   private
 
   def call_params
-    params.require(:call).permit(:username, :userphone, :url, :city, :event, :person, :budget, :desc, :new_google_recaptcha_token, messangers: [])
+    params.require(:call).permit(:username, :userphone, :url, :city, :event, :person, :budget, :desc, messangers: [])
   end
 end

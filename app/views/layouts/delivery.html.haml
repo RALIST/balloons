@@ -8,7 +8,7 @@
     = csrf_meta_tags
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload', defer: true, async: Rails.env.production?
-    = javascript_include_tag "https://www.google.com/recaptcha/api.js?render=#{NewGoogleRecaptcha.site_key}", 'data-turbolinks-track': 'reload', defer: true, async: Rails.env.production?
+    = javascript_include_tag 'https://www.google.com/recaptcha/api.js?render=explicit&onload=myCallback', 'data-turbolinks-track': 'reload', defer: true, async: Rails.env.production?
   %body
     %a#return-to-top
       %span.fa-stack
@@ -26,9 +26,9 @@
             = yield
             = render 'delivery/main/help' unless @disable_help
             = render 'delivery/main/seo'
-            = render 'delivery/layouts/call'
-            -#= render 'delivery/layouts/modal_city'
 
+            -#= render 'delivery/layouts/modal_city'
+    = render 'delivery/layouts/call'
     %footer
       = render 'delivery/layouts/footer' unless @disable_footer
     = render 'delivery/layouts/special/scripts'

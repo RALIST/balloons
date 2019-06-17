@@ -33,19 +33,18 @@ var ready = function(){
   }
 };
 
+function myCallback() {
+  document.grecaptchaHandle = grecaptcha.render('recaptcha', {
+    'sitekey': "<%= NewGoogleRecaptcha.site_key %>",
+    'badge': 'inline', // must be inline
+    'size': 'invisible' // must be invisible
+  });
+}
+
+
 const RCinit = function(){
-  var div = document.getElementById('recaptcha');
   grecaptcha.ready(function() {
-    while (div.firstChild) {
-      div.removeChild(div.firstChild);
-    }
-    var id = "new_google_recaptcha_token_<%= SecureRandom.hex(10) %>"
-    var field = document.createElement('input')
-    field.setAttribute('name', 'new_google_recaptcha_token');
-    field.setAttribute('type', 'hidden');
-    field.setAttribute('id', id);
-    div.appendChild(field);
-    grecaptcha.execute("<%= NewGoogleRecaptcha.site_key %>", {action: "call"}).then(function(token) {
+    grecaptcha.execute(document.grecaptchaHandle, {action: "call"}).then(function(token) {
       field.value = token;
     });
   });

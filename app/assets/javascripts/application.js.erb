@@ -8,6 +8,7 @@
 //= require bootstrap/popover
 //= require bootstrap/collapse
 //= require bootstrap/tab
+//= require bootstrap/alert
 //= require turbolinks
 //= require jquery.maskedinput
 //= require bootstrap-clockpicker.min
@@ -43,8 +44,7 @@ function myCallback() {
 
 const RCinit = function(){
   grecaptcha.ready(function() {
-    grecaptcha.execute(document.grecaptchaHandle, {action: "call"}).then(function(token) {
-      document.getElementById('token').value = token
+    grecaptcha.execute(document.grecaptchaHandle, {action: 'call'}).then(function(token) {
       console.log("executed", token)
     });
   });

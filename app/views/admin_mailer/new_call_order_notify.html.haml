@@ -1,7 +1,6 @@
+%h1
+  Заказали обратный звонок!
 %table
-  %tr
-    %td
-      Заказали обратный звонок!
   %tr
     %td
       Данные:
@@ -11,6 +10,8 @@
     %td
       = @call.username
   %tr
+    %td
+      Город:
     %td
       = t("cities.#{@call.city}.base")
   %tr
@@ -23,6 +24,26 @@
       Можно связаться через
     %td
       = @call.messangers.join(',') if @call.messangers
+  %tr
+    %td
+      Повод
+    %td
+      = @call.event
+  %tr
+    %td
+      Кому
+    %td
+      = @call.person
+  %tr
+    %td
+      Бюджет
+    %td
+      = @call.budget
+  %tr
+    %td
+      Дополнительно
+    %td
+      = @call.desc
   %tr
     %td
       Заявка поступила в

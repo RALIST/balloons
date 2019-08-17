@@ -5,20 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1b38864-17e2-48ba-9f1a-eee384936dde" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/common.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/common.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/composition.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/composition.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/main.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/sidebar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/sidebar.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/delivery/compositions_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/delivery/compositions_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/delivery/main_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/delivery/main_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/compositions_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/compositions_helper.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/carts/add_to_cart.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/carts/add_to_cart.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/compositions/_composition.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/compositions/_composition.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/layouts/_sidebar.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/layouts/_sidebar.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/main/_thumb_composition.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/main/_thumb_composition.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/main/index.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/main/index.haml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -72,7 +59,7 @@
           <entry key="erb" value="1" />
           <entry key="haml" value="23" />
           <entry key="js" value="2" />
-          <entry key="rb" value="40" />
+          <entry key="rb" value="41" />
           <entry key="scss" value="6" />
           <entry key="yml" value="1" />
         </counts>
@@ -83,7 +70,7 @@
           <entry key="Haml" value="23" />
           <entry key="JavaScript" value="2" />
           <entry key="RHTML" value="1" />
-          <entry key="Ruby" value="41" />
+          <entry key="Ruby" value="42" />
           <entry key="SCSS" value="6" />
           <entry key="YAML" value="1" />
         </counts>
@@ -94,7 +81,7 @@
           <entry key="erb" value="630" />
           <entry key="haml" value="1328" />
           <entry key="js" value="102" />
-          <entry key="rb" value="748" />
+          <entry key="rb" value="751" />
           <entry key="scss" value="164" />
         </counts>
       </usages-collector>
@@ -104,7 +91,7 @@
           <entry key="Haml" value="1328" />
           <entry key="JavaScript" value="102" />
           <entry key="RHTML" value="629" />
-          <entry key="Ruby" value="749" />
+          <entry key="Ruby" value="752" />
           <entry key="SCSS" value="164" />
         </counts>
       </usages-collector>
@@ -117,6 +104,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="551">
               <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/delivery/main_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -139,10 +135,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/helpers/compositions_helper.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="529">
+            <state relative-caret-position="703">
               <caret line="33" column="62" selection-start-line="33" selection-start-column="62" selection-end-line="33" selection-end-column="62" />
             </state>
           </provider>
@@ -207,12 +203,12 @@
         <option value="$PROJECT_DIR$/app/assets/stylesheets/main.scss" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/composition.scss" />
         <option value="$PROJECT_DIR$/app/views/delivery/main/index.haml" />
-        <option value="$PROJECT_DIR$/app/controllers/delivery/main_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/delivery/compositions/_composition.html.haml" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/common.scss" />
         <option value="$PROJECT_DIR$/app/views/delivery/main/_thumb_composition.haml" />
         <option value="$PROJECT_DIR$/app/views/delivery/carts/add_to_cart.js.erb" />
         <option value="$PROJECT_DIR$/app/helpers/compositions_helper.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/delivery/main_controller.rb" />
       </list>
     </option>
   </component>
@@ -277,6 +273,13 @@
               <item name="Balloons" type="b2602c69:ProjectViewProjectNode" />
               <item name="Balloons" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="delivery" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Balloons" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Balloons" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="helpers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -284,37 +287,6 @@
               <item name="Balloons" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Balloons" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Balloons" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="delivery" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Balloons" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Balloons" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="delivery" type="462c0819:PsiDirectoryNode" />
-              <item name="carts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Balloons" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Balloons" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="delivery" type="462c0819:PsiDirectoryNode" />
-              <item name="compositions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Balloons" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Balloons" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="delivery" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -493,12 +465,12 @@
       <workItem from="1559558456988" duration="1657000" />
       <workItem from="1560754265598" duration="22505000" />
       <workItem from="1563181992648" duration="625000" />
-      <workItem from="1565938073242" duration="7823000" />
+      <workItem from="1565938073242" duration="8620000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="638004000" />
+    <option name="totallyTimeSpent" value="638801000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -513,12 +485,12 @@
     <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.32166123" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32166123" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32918397" />
-      <window_info active="true" anchor="bottom" x="272" y="188" width="902" height="540" id="Run" order="2" type="WINDOWED" visible="true" weight="0.32953104" />
+      <window_info anchor="bottom" x="272" y="188" width="902" height="540" id="Run" order="2" type="WINDOWED" visible="true" weight="0.32953104" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -805,24 +777,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/delivery/main_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="71" selection-start-line="7" selection-start-column="71" selection-end-line="7" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/composition.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2945">
           <caret line="155" selection-start-line="155" selection-end-line="155" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/delivery/compositions_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -881,8 +839,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/helpers/compositions_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
+        <state relative-caret-position="703">
           <caret line="33" column="62" selection-start-line="33" selection-start-column="62" selection-end-line="33" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/delivery/compositions_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/delivery/main_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
         </state>
       </provider>
     </entry>

@@ -5,6 +5,7 @@ class Delivery::MainController < Delivery::DeliveryController
 
   def index
     @disable_bread = true
+    @compositions = Composition.all.order(:views).reverse_order.limit(4)
     respond_to do |format|
       format.html
       format.js

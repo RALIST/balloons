@@ -11,8 +11,8 @@
     overflow-x: hidden;
     overflow-y: auto;
     //box-shadow: inset -10px 0 25px -5px rgba(0,0,0,0.3);
-    background: white;
-    border-right: 1px solid $brand-info;
+    //background: white;
+    //border-right: 1px solid $brand-info;
     z-index: 1;
 
   }
@@ -22,7 +22,7 @@
     @include media-breakpoint-up(lg){
       display: block !important;
       background: none;
-      margin-top: 1rem;
+      //margin-top: 1rem;
     }
     .small.nav-link {
       position: relative;

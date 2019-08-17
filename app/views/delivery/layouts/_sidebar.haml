@@ -1,6 +1,6 @@
 
-.col-12.col-lg-2.sidebar-sticky.bg-white.border-bottom
-  .d-flex.align-items-center.py-3
+.col-12.col-lg-3.sidebar-sticky.mt-3
+  .d-flex.align-items-center.py-3.d-lg-none
     .input-group.border.rounded
       = text_field_tag :global_search,'', class: 'form-control form-control-sm border-0', placeholder: 'Поиск...'
       %span.input-group-append.bg-white
@@ -8,8 +8,8 @@
           %i.fa.fa-search.text-muted
     = link_to '#', class: 'd-lg-none collapsed d-inline-block text-center px-2 border rounded ml-2 pt-1', data:{toggle: 'collapse', target: '#sidebar'} do
       %i.fas.fa-sliders-h.fa-2x.text-info
-  %ul#sidebar.navbar-nav.flex-column.collapse.bg-white
-    .sidebar-heading.text-center.text-muted
+  %ul#sidebar.navbar-nav.flex-column.collapse
+    .sidebar-heading.text-center.text-info
       %span
         Готовые композиции
     %hr.my-1
@@ -31,7 +31,7 @@
       - @menu_receivers.each do |r|
         %li.nav-item
           = active_link_to r.title.capitalize, receiver_path(r), class: 'nav-link small'
-    .sidebar-heading.text-center.text-muted
+    .sidebar-heading.text-center.text-info
       %span
         Гелиевые шары
     %hr.my-1

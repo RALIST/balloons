@@ -12,8 +12,9 @@
       .row.mt-3
         .col-12.col-lg-6
           = link_to 'Выбрать из готовых композиций', tags_path, class: 'btn btn-light btn-block btn-sm'
-        .col-12.col-lg-6
+        .col-12.col-lg-6.mt-3.mt-lg-0
           = link_to 'Собрать свою композицию', products_path, class: 'btn btn-light btn-block btn-sm'
+
       -#.row.mt-3
       -#  .col-12.col-lg-6.d-none.d-lg-block
       -#    = link_to 'viber://chat?number=+79501718109', class: 'btn btn-info btn-block chat-link btn-sm' do
@@ -32,3 +33,8 @@
 -#  .col-12
 -#    %h2.h3.text-center
 -#      Каталог шариков на любой праздник
+.container
+  %h2.my-4.text-center.text-uppercase.font-weight-bold.h4
+    Популярные композиции
+  .row.justify-content-around.compositions.text-center#popular
+    = render partial: 'delivery/main/thumb_composition', collection: @compositions, as: :c, cached: true

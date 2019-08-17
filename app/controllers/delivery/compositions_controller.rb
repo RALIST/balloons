@@ -14,6 +14,7 @@ class Delivery::CompositionsController < Delivery::DeliveryController
   end
 
   def show
+    @disable_sidebar = true
     @products = @composition.products.includes(:type, :size, :tone, :texture).distinct
     @composition.update_columns(views: @composition.views + 1)
     fresh_when [@composition, @products], public: true, last_modified: @composition.products.maximum(:updated_at) unless current_user.try(:admin?)

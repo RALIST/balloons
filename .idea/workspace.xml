@@ -6,11 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f1b38864-17e2-48ba-9f1a-eee384936dde" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/layouts/_header.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/layouts/_header.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/main/_main_text.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/main/_main_text.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/main/index.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/main/index.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/products/_seo_text.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/products/_seo_text.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/products/index.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/products/index.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" afterPath="$PROJECT_DIR$/public/robots.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -66,6 +62,7 @@
           <entry key="js" value="2" />
           <entry key="rb" value="41" />
           <entry key="scss" value="7" />
+          <entry key="txt" value="1" />
           <entry key="yml" value="1" />
         </counts>
       </usages-collector>
@@ -74,6 +71,7 @@
           <entry key=".env file" value="1" />
           <entry key="Haml" value="29" />
           <entry key="JavaScript" value="2" />
+          <entry key="PLAIN_TEXT" value="1" />
           <entry key="RHTML" value="1" />
           <entry key="Ruby" value="42" />
           <entry key="SCSS" value="7" />
@@ -84,17 +82,19 @@
         <counts>
           <entry key="Gemfile" value="1" />
           <entry key="erb" value="630" />
-          <entry key="haml" value="1629" />
+          <entry key="haml" value="1725" />
           <entry key="js" value="102" />
           <entry key="rb" value="751" />
           <entry key="scss" value="164" />
+          <entry key="txt" value="32" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="1" />
-          <entry key="Haml" value="1629" />
+          <entry key="Haml" value="1725" />
           <entry key="JavaScript" value="102" />
+          <entry key="PLAIN_TEXT" value="32" />
           <entry key="RHTML" value="629" />
           <entry key="Ruby" value="752" />
           <entry key="SCSS" value="164" />
@@ -122,11 +122,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/delivery/products/index.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="12" column="10" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
+            <state relative-caret-position="209">
+              <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/robots.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="21" column="11" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -190,7 +199,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/controllers/admin/compositions_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/composition.rb" />
         <option value="$PROJECT_DIR$/config/initializers/paperclip.rb" />
         <option value="$PROJECT_DIR$/app/views/admin/items/_items_sidebar.haml" />
@@ -241,6 +249,7 @@
         <option value="$PROJECT_DIR$/app/views/delivery/layouts/_header.html.haml" />
         <option value="$PROJECT_DIR$/app/views/delivery/products/_seo_text.haml" />
         <option value="$PROJECT_DIR$/app/views/delivery/products/index.haml" />
+        <option value="$PROJECT_DIR$/public/robots.txt" />
       </list>
     </option>
   </component>
@@ -298,42 +307,7 @@
             <path>
               <item name="Balloons" type="b2602c69:ProjectViewProjectNode" />
               <item name="Balloons" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Balloons" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Balloons" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="delivery" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Balloons" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Balloons" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="helpers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Balloons" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Balloons" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Balloons" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Balloons" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="delivery" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Balloons" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Balloons" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="delivery" type="462c0819:PsiDirectoryNode" />
-              <item name="products" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -513,12 +487,12 @@
       <workItem from="1560754265598" duration="22505000" />
       <workItem from="1563181992648" duration="625000" />
       <workItem from="1565938073242" duration="8958000" />
-      <workItem from="1566199231885" duration="1862000" />
+      <workItem from="1566199231885" duration="2824000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="641001000" />
+    <option name="totallyTimeSpent" value="641963000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -546,7 +520,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" weight="0.3289941" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" x="234" y="224" width="743" height="581" id="Terminal" order="10" type="WINDOWED" weight="0.32953104" />
+      <window_info anchor="bottom" x="234" y="224" width="743" height="581" id="Terminal" order="10" type="WINDOWED" visible="true" weight="0.32953104" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32662722" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32780084" />
       <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.3289941" />
@@ -591,9 +565,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/admin/layouts/_header.html.haml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/admin/layouts/_left_menu.html.haml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -915,8 +886,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/delivery/products/index.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="10" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
+        <state relative-caret-position="209">
+          <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/robots.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="21" column="11" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
         </state>
       </provider>
     </entry>

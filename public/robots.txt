@@ -18,5 +18,9 @@ Disallow: /products/
 Disallow: /cp/
 Disallow: /kazan
 Disallow: /perm
+Disallow: /mozhga
+Disallow: /glazov
+Disallow: /sarapul
+Disallow: /votkinsk
 Host: https://bigairballoons.ru
 Sitemap: https://bigairballoons.ru/sitemap.xml

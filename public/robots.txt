@@ -22,5 +22,6 @@ Disallow: /mozhga
 Disallow: /glazov
 Disallow: /sarapul
 Disallow: /votkinsk
+Disallow: /izhevsk
 Host: https://bigairballoons.ru
 Sitemap: https://bigairballoons.ru/sitemap.xml

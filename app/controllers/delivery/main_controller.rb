@@ -6,6 +6,8 @@ class Delivery::MainController < Delivery::DeliveryController
   def index
     @disable_bread = true
     @compositions = Composition.availible.order(:views).reverse_order.limit(4)
+    categories = Subcategory.joins(:products).where(products: {id: Product.availible_products})
+    @categories = categories.distinct(:name).group('subcategories.id').select("subcategories.slug, subcategories.name, subcategories.id, subcategories.updated_at, COUNT(products.id) as total").order('total desc').limit(9)
     respond_to do |format|
       format.html
       format.js

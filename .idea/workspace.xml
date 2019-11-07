@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f1b38864-17e2-48ba-9f1a-eee384936dde" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/environments/production.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/environments/production.rb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -237,7 +236,7 @@
       <workItem from="1573106146028" duration="1767000" />
       <workItem from="1573108035619" duration="708000" />
       <workItem from="1573108773149" duration="4000" />
-      <workItem from="1573108927731" duration="12562000" />
+      <workItem from="1573108927731" duration="13082000" />
     </task>
     <servers />
   </component>

@@ -322,8 +322,6 @@
     <orderEntry type="library" scope="PROVIDED" name="railties (v5.0.7.2, ruby-2.6.3-p62) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rainbow (v3.0.0, ruby-2.6.3-p62) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rake (v12.3.2, ruby-2.6.3-p62) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rb-fsevent (v0.10.3, ruby-2.6.3-p62) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rb-inotify (v0.10.0, ruby-2.6.3-p62) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="redis (v3.3.5, ruby-2.6.3-p62) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="roo (v2.7.1, ruby-2.6.3-p62) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rubocop (v0.52.1, ruby-2.6.3-p62) [gem]" level="application" />
@@ -331,9 +329,6 @@
     <orderEntry type="library" scope="PROVIDED" name="ruby_parser (v3.13.0, ruby-2.6.3-p62) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rubyzip (v1.2.2, ruby-2.6.3-p62) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="russian (v0.6.0, ruby-2.6.3-p62) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="sass (v3.7.3, ruby-2.6.3-p62) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="sass-listen (v4.0.0, ruby-2.6.3-p62) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="sass-rails (v5.0.7, ruby-2.6.3-p62) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sassc (v2.0.1, ruby-2.6.3-p62) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sassc-rails (v2.1.0, ruby-2.6.3-p62) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sexp_processor (v4.12.0, ruby-2.6.3-p62) [gem]" level="application" />

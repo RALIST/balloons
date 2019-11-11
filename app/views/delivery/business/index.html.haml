@@ -16,7 +16,10 @@
 .container-fluid.c-list#out
   %h2.text-center
     %span
-      C нами работают
+      Мы оформляли
+    .row
+      - @partners.each do |p|
+        = image_tag p.logo(:small)
   %h2.text-center
     %span
       Оформление входных групп

@@ -3,8 +3,8 @@ class Partner < ApplicationRecord
   accepts_nested_attributes_for :images
 
   validates :logo, presence: true
-  has_attached_file :logo, styles: { small:  ['x100', :png],
-                                     thumb: ['x300', :png] },
+  has_attached_file :logo, styles: { small:  ['x100'],
+                                     thumb: ['x300'] },
                            convert_options: {
                              small: '-quality 75 -strip',
                              thumb: '-quality 75 -strip'

@@ -6,9 +6,75 @@
   <component name="ChangeListManager">
     <list default="true" id="f1b38864-17e2-48ba-9f1a-eee384936dde" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/ym.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/ym.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/partner.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/partner.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/business/index.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/business/index.html.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/environments/production.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/environments/production.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/.sprockets-manifest-3cd9d513f4030008be2c3eeddf6bd181.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/12-b14f81076e35c3ad1be9817f903e04cd58d00bd05083374903c7d4ba5d7214ec.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/Logos-2bd2d3facf670d8b5f3640554a9ca855337abb8ff0d1bd9a901fb2e712348f4e.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/application-173aedf5773c1c68257e03e8091ddcb11d13b8c3be5fffcae607996d82cd824d.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/application-173aedf5773c1c68257e03e8091ddcb11d13b8c3be5fffcae607996d82cd824d.js.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/application-fcb7a781bbf1fc5bb9cffa532429f44876bade9086f58ddd98491db0cadb3b87.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/application-fcb7a781bbf1fc5bb9cffa532429f44876bade9086f58ddd98491db0cadb3b87.css.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/balloon-contacts-7bbc156977e094e06fb7b2d16a6d8ca8081dac7fd6bcf9a0c157004ae99c6441.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/balloons-225182339768f9fac8fb2635fda179359587e28836d783abb73994e706c345e7.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/balloons-225182339768f9fac8fb2635fda179359587e28836d783abb73994e706c345e7.svg.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/bg-tags-c62902bacd7df4c4a3cf9761742b4faef1b2f5bd850fc20ce94dc4b4b43c0d8d.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/business-a3bce571711da922ed98d5b44e74e2c2cd6eea93014814f5da8313e3341ded8e.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/fa-viber-0f72b80f924bc19aba2d2c6643d55401d0afd373b709d4ced97da8d171133e26.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/fa-viber-520bc9ceb638825cc3e8f4ec20cdcf77f7faad74fe96fc9a22d9a7ff48a36eb5.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/fa-viber-520bc9ceb638825cc3e8f4ec20cdcf77f7faad74fe96fc9a22d9a7ff48a36eb5.svg.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/fa-viber-8cdc0fc7fdea17d998aba0a5f668ba882e73c224fa25d5dad62896053568cf4e.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/fa-viber-8cdc0fc7fdea17d998aba0a5f668ba882e73c224fa25d5dad62896053568cf4e.ttf.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/fa-viber-9508d093b3f93a600c1444ce95e4fd0547d43ea58ab560036fe80c5f9a49cd79.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/fa-viber-9508d093b3f93a600c1444ce95e4fd0547d43ea58ab560036fe80c5f9a49cd79.eot.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/favicons/favicon-114-9b0797a57142db9433522a305a7d9a16a919c6b0f1cbcbf40a4b447f1bde0f81.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/favicons/favicon-120-8a211ce5386b7f602f6f1675545e8d0429fd1a407eace76a7fc8b3e6f561e4a7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/favicons/favicon-144-80f78b119c5b988770520f516387cb9b8ce1fe7c398cc1e50520d49e8d0f9092.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/favicons/favicon-150-ae3f331f67251d5ae0b445eb9c974e33e89f253fbb266b159e96671c0fd6c243.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/favicons/favicon-152-53fa1fc71bfb5c4162bb0dca659e9ab8731d302f40f1c101833b293d07daf25a.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/favicons/favicon-16-27543b3ab964057a485770b232752c77eb66da50e89097e769e51cffff9edbb7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/favicons/favicon-160-daf82aedf70cca907bff027cfbe47368437dc9dbd4978a32b9b7f36099816987.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/favicons/favicon-180-2adb2a205150f50a4e608e19e8dfbc5ebb6b5cc0892963d9df55cecfa9ec762a.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/favicons/favicon-192-6b045a3f37a4740b5e192a9ef8751d979dd5670ffe65eafc15a32dc9984b9866.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/favicons/favicon-310-8990fb4de545256dca80efdd7cec174f4c5dfc4e619d45e385d6e717f0465a32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/favicons/favicon-32-79d3f9b518374e7432314b1e224bcfa550552069e472801cc4cc46789dd3f431.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/favicons/favicon-57-cc1bd5b80f1233061df83b485cc4997c65831fcd77eeb3e1b7cd61d57c54f997.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/favicons/favicon-60-7ed60bee34349f5fcda47a4684f0a18e58b4e066df471cee7caf145f5c17a431.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/favicons/favicon-64-63163fdf7dcab6696a63094e8ee1561d791171058e3ef2efdbe198540bef00da.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/favicons/favicon-70-ce78c3d8f04298da158781d8799734a210022fb04435849f1208dfc205a13baa.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/favicons/favicon-72-bb1755d0cede8f8b831f667c17f290fb91421d1f33d48f0b01070c4d32e262a4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/favicons/favicon-76-b9c77b4a278e97fb6fe54955804547c8b7ec16c3370321eb212b5d0084c547fe.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/favicons/favicon-96-e96fb651b38cb104461cd6228799af690e1479794d3ff8eda3aa9e2ad0351abf.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/flag-91233dd5869eb98487ef49a4139db4a591c720d236fd6ed9f3c288bae9ee5824.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/form-logo-601c8926fd0a7da847a7dfa37cf6b64f4334a8593edda54a7adc5245144ad5f9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/gift-c2f24cb3d209c9a462a23c31162a29effc1a338434a08caba1351b832f404cb9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/hat-ad94ae560e7d5ab1c2109ef2e2c5e2a9c14d7ce768993f1f8f1468378bbfa347.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/line-dbe2ced8ef21280d4c01aad9e8fc1f444e95ec54eafe4d6975249719322b284a.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/line-inverse-5be8f82126c662a9604d2a4512aced8e9d8eca0c5f5a580633bfd28d3cca99f3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/logo-footer-44002270f649015edd0dc35f4e3ace54c8f09f48d319ae7304e6e33f85362ef8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/logo-resp-ea244f40a5c564757317dab1877d4966e21e58716ba1eaee41691ba6895e46ae.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/logo-round-076bb3b943ea473074cbf9e17365d6cf386b041b10f30517e55d0d0fb09f287d.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/logo-shop-23eb5014443f39eddc25347d1925de71a130149b66f0542b764fa01b83261f95.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/logo1-35993db397fe1bc3872aff5d5d6e5c0bf5fbde9152540a7701977719dbf17c68.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/logo2-41e3bb3b9f0e140da4fb207629f9e0d3cf4e47c92449f238cc638347cf44c74b.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/missing-c21cf810b9976bec04fdb8b9fd07b54cbc2df162830cc0a8c43c41c951ac4e48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/missing_large-364b90fe5430fa51e85eb85a60c2d2b62aa7b251657259c4e377d09619aac77f.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/missing_small-5eb6a6f118b62515dfb7dc593e37af70e04220965b439a9b9946c125e9377ce8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/offer-b9ae447275bd92aa08e08026266d6f0c74705e6a7e8d4ceba28d5215016ce34f.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/offer-c8dbf29fee8979070cbf98bf30f3e82207036a081f8ad7e7c1c7f3ae5334c9a5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/svg/baby-e59751c0e4067b17ba5055a96c20f18556634e3dd8bece629d8a373ab9f0f4f1.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/svg/baby-e59751c0e4067b17ba5055a96c20f18556634e3dd8bece629d8a373ab9f0f4f1.svg.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/svg/boy-e56ac5eb775e64d5b371b7ccc13c3c00c8739133b99f5ae6b7306b3151c3312a.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/svg/boy-e56ac5eb775e64d5b371b7ccc13c3c00c8739133b99f5ae6b7306b3151c3312a.svg.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/svg/cake-493999cbbae990d07dc8205678fbd34bb3fb97c4fd65b61767ac4260488aaea3.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/svg/cake-493999cbbae990d07dc8205678fbd34bb3fb97c4fd65b61767ac4260488aaea3.svg.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/svg/girl-79601a86e630dff1498dc986b1ca4ee2a1ae21fab2c4d2dc5b60bda474297fc9.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/svg/girl-79601a86e630dff1498dc986b1ca4ee2a1ae21fab2c4d2dc5b60bda474297fc9.svg.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/svg/heart-72b39d8079d6bbe4c1b58ab993c70d33e1dd488d6dc6c6000547ea1fdcbd4278.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/svg/heart-72b39d8079d6bbe4c1b58ab993c70d33e1dd488d6dc6c6000547ea1fdcbd4278.svg.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/svg/unicorn-02e7bba977bdd042ca947d20292eafba6bb324d6191cae53fc98772dfc42fe20.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/svg/unicorn-02e7bba977bdd042ca947d20292eafba6bb324d6191cae53fc98772dfc42fe20.svg.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/svg/wedding-3ed512e8a66c81981abd91ee5eec06b18d4cd1f15a600f21542875f4d6a437ce.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/svg/wedding-3ed512e8a66c81981abd91ee5eec06b18d4cd1f15a600f21542875f4d6a437ce.svg.gz" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -239,7 +305,7 @@
       <workItem from="1573106146028" duration="1767000" />
       <workItem from="1573108035619" duration="708000" />
       <workItem from="1573108773149" duration="4000" />
-      <workItem from="1573108927731" duration="16811000" />
+      <workItem from="1573108927731" duration="17697000" />
     </task>
     <servers />
   </component>

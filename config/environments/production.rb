@@ -23,7 +23,8 @@ Rails.application.configure do
   config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  config.assets.compile = true
+
   config.public_file_server.headers = {
     "Cache-Control" => "public, s-maxage=31536000, maxage=31536000",
     "Expires" => "#{1.year.from_now.to_formatted_s(:rfc822)}",
@@ -99,9 +100,9 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
   config.action_mailer.default_url_options = { host: 'https://bigairballoons.ru'}
   config.action_mailer.default_options = { from: 'orders@bigairballoons.ru' }
-  config.force_ssl = true
 
   unless Rails.env.test?
     config.paperclip_defaults = {
@@ -123,4 +124,5 @@ Rails.application.configure do
     'Access-Control-Allow-Origin' => 'https://bigairballoons.ru',
     'Access-Control-Request-Method' => %w{GET POST OPTIONS}.join(",")
   }
+  config.session_store :cookie_store, key: '_session', same_site: :strict
 end

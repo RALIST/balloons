@@ -70,5 +70,5 @@
     %span.px-3.text-uppercase
       Похожие композиции
   .row.justify-content-around.compositions.text-center#popular{itemprop: 'isSimilarTo'}
-    = render partial: 'delivery/main/thumb_composition', collection: composition.related.limit(4).order(:price), as: :c, cached: true
+    = render partial: 'delivery/main/thumb_composition', collection: composition.related.limit(4).order(:price), as: :composition
 

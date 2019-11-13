@@ -12,7 +12,8 @@
     "popper.js": "^1.16.0",
     "rails-erb-loader": "^5.5.2",
     "rails-ujs": "^5.2.3",
-    "turbolinks": "^5.2.0"
+    "turbolinks": "^5.2.0",
+    "webpack": "^4.41.2"
   },
   "devDependencies": {
     "webpack-dev-server": "^3.9.0"

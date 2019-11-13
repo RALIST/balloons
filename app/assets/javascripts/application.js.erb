@@ -17,7 +17,7 @@ var ready = function(){
 
 function myCallback() {
   document.grecaptchaHandle = grecaptcha.render('recaptcha', {
-    'sitekey': "<%= NewGoogleRecaptcha.site_key %>",
+    'sitekey': "<%= MyGoogleRecaptcha.site_key %>",
     'size': 'invisible' // must be invisible
   });
 }

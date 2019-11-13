@@ -1,21 +1,28 @@
-- cache [(@tag.present? ? @tag.name : 'tag_false'), (@person.present? ? @person.title : 'receiver_false'), c] do
-  .composition
-    .card.h-100
-      .card-image-top
-        = link_to custom_url_path(c) do
-          = image_tag c.img(:preview), class: 'img-fluid', alt: c.title, title: "Композиция из воздушных шаров №#{c.id}"
-        .line
-      .card-footer.bg-white
-        .row.align-items-center.my-2#price
-          .col-8.text-left
-            .small
-              Цена как на фото
-            .h4
-              = c.price.round(0)
-              %i.fas.fa-ruble-sign
-          .col-4.text-right
-            -#= link_to 'Состав', custom_url_path(c), class: 'btn btn-info btn-sm small'
-            - unless @cart.compositions.include?(c)
-              = cart_button(c)
-            - else
-              = added
+-#- cache c do
+-#  .composition
+-#    .card.h-100
+-#      .card-image-top
+-#        = link_to custom_url_path(c) do
+-#          = image_tag c.img(:preview), class: 'img-fluid', alt: c.title, title: "Композиция из воздушных шаров №#{c.id}"
+-#        .line
+-#      .card-footer.bg-white
+-#        - if c.price > 0
+-#          .row.align-items-center.my-2#price
+-#            .col-8.text-left
+-#              .small
+-#                Цена как на фото
+-#              .h4
+-#                = c.price.round(0)
+-#                %i.fas.fa-ruble-sign
+-#            .col-4.text-right
+-#              -#= link_to 'Состав', custom_url_path(c), class: 'btn btn-info btn-sm small'
+-#              - unless @cart.compositions.include?(c)
+-#                = cart_button(c)
+-#              - else
+-#                = added
+-#        - else
+-#          Нет цены
+- cache composition do
+  .col-4.col-lg-4.small-composition
+    = link_to custom_url_path(composition) do
+      = image_tag composition.img(:original)

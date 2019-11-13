@@ -39,7 +39,7 @@ class Composition < ApplicationRecord
     .where(items_in_compositions: { id: nil }).where(deleted: false).distinct}
   scope :with_tags, -> { joins(:tags).joins(:receivers) }
   scope :without_tags, -> { joins(:products).where.not(id: Composition.with_tags.map(&:id)).where(deleted: false).where('compositions.img_file_size > ?', 0).distinct }
-  scope :availible, -> {joins(:products, :tags).where('compositions.img_file_size > ?',0).distinct}
+  scope :availible, -> {where.not(img_file_size: 0).distinct}
 
 
 

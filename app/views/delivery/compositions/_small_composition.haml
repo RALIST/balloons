@@ -1,4 +1,4 @@
-- cache [(@tag.present? ? @tag.name : 'tag_false'), (@person.present? ? @person.title : 'receiver_false'), composition] do
+- cache composition do
   .col-4.col-lg-3.small-composition
     = link_to custom_url_path(composition) do
       = image_tag composition.img(:preview)

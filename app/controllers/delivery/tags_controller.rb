@@ -18,7 +18,7 @@ class Delivery::TagsController < Delivery::DeliveryController
 																оформление праздников воздушными шарами,
 																оформление детского праздника воздушными шарами"
 		@compositions = Composition.availible.order(:price)
-		fresh_when @compositions, last_modified: @compositions.maximum(:updated_at), public: true unless current_user.try(:admin?)
+		fresh_when @compositions, last_modified: @compositions.maximum(:updated_at), public: true unless (current_user.try(:admin?) || Rails.env.development?)
 	end
 
 	def show

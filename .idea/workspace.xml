@@ -5,35 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1b38864-17e2-48ba-9f1a-eee384936dde" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Balloons.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Balloons.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/common.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/common.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/goals.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/js/goals.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/ym.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/js/ym.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/common.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/common.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/delivery/calls_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/delivery/calls_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/delivery/categories_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/delivery/categories_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/delivery/subpositions_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/delivery/subpositions_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/carts/_in_cart.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/carts/_in_cart.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/carts/add_product_to_cart.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/carts/add_product_to_cart.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/carts/add_to_cart.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/carts/add_to_cart.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/carts/remove_from_cart.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/carts/remove_from_cart.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/layouts/_form_to_call.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/layouts/_form_to_call.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/subpositions/destroy.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/subpositions/destroy.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/subpositions/down_quantity.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/subpositions/down_quantity.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/subpositions/up_quantity.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/subpositions/up_quantity.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/subpositions/update.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/subpositions/update.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/delivery.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/delivery.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/application.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/application.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/initializers/new_google_recaptcha.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/initializers/my_google_recaptcha.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/assets/javascripts/bootstrap-clockpicker.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/js/bootstrap-clockpicker.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/assets/javascripts/cookies.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/js/cookies.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/assets/javascripts/jquery.maskedinput.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/js/jquery.maskedinput.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/delivery/tags_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/delivery/tags_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/composition.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/composition.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/delivery/compositions/_compositions_list.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/compositions/_compositions_list.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/delivery/compositions/_small_composition.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/compositions/_small_composition.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/delivery/main/_thumb_composition.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/main/_thumb_composition.haml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -288,7 +265,7 @@
       <workItem from="1573106146028" duration="1767000" />
       <workItem from="1573108035619" duration="708000" />
       <workItem from="1573108773149" duration="4000" />
-      <workItem from="1573108927731" duration="39906000" />
+      <workItem from="1573108927731" duration="41443000" />
     </task>
     <servers />
   </component>

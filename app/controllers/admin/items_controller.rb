@@ -107,7 +107,6 @@ class Admin::ItemsController < Admin::AdminController
                                    category_id: item_params[:category_id],
                                    type_id: item_params[:type_id],
                                    name: item_params[:name],
-                                   color_id: item_params[:color_id],
-                                   tone_id: item_params[:tone_id])
+                                   color_id: item_params[:color_id])
   end
 end

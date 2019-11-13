@@ -6,9 +6,19 @@ class Call < ApplicationRecord
   end
 
   def send_sms_to_admin
-    new_call = 'Заявка на обратный звонок: ' + userphone.to_s + ' ' + username + ' ' + (messangers ? messangers.join(',') : '') + ' ' + I18n.t("cities.#{city}.base")
-    message = MainsmsApi::Message.new(sender: 'shar_feya', message: new_call,
-                                      recipients: ['79501718109'])
-    response = message.deliver unless Rails.env.development?
+    if call_type == 'Запрос цены'
+      call_url = Rails.application.routes.url_helpers.admin_call_url(self, host: 'bigairballoons.ru', protocol: 'https')
+      new_call = "Запрос цены: #{call_url}"
+      # new_call = 'Запрос цены: ' + userphone.to_s + ' ' + (messangers ? messangers.join(',') : '') + url
+      message = MainsmsApi::Message.new(sender: 'shar_feya', message: new_call,
+                                        recipients: ['79501718109'])
+      response = message.deliver
+    else
+      new_call = 'Заявка на обратный звонок: ' + userphone.to_s + ' ' + username + ' ' + (messangers ? messangers.join(',') : '') + ' ' + I18n.t("cities.#{city}.base")
+      message = MainsmsApi::Message.new(sender: 'shar_feya', message: new_call,
+                                        recipients: ['79501718109'])
+      response = message.deliver unless Rails.env.development?
+    end
+
   end
 end

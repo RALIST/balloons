@@ -87,7 +87,8 @@ class Composition < ApplicationRecord
   def related
     min = (self.price.to_f - 500)
     max = (self.price.to_f + 500)
-    Composition.availible.where(price: min..max).where.not(id: self.id).distinct(:id)
+    tags = self.tag_ids
+    Composition.includes(:tags).availible.where(tags: {id: tags}, price: min..max).where.not(id: self.id).distinct(:id)
   end
 
   def self.price_range(min, max)

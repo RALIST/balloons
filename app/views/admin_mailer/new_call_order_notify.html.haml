@@ -1,9 +1,11 @@
 %h1
-  Заказали обратный звонок!
+  = @call.call_type == 'Запрос цены' ? 'Запрос цены' : 'Заказали обратный звонок!'
 %table
   %tr
     %td
-      Данные:
+      Тип заявки
+    %td
+      = @call.call_type
   %tr
     %td
       Имя
@@ -21,36 +23,42 @@
       = @call.userphone
   %tr
     %td
-      Можно связаться через
+      Способы связи
     %td
       = @call.messangers.join(',') if @call.messangers
+  - if @call.event
+    %tr
+      %td
+        Повод
+      %td
+        = @call.event
+  - if @call.person
+    %tr
+      %td
+        Кому
+      %td
+        = @call.person
+  - if @call.budget
+    %tr
+      %td
+        Бюджет
+      %td
+        = @call.budget
+  - if @call.desc
+    %tr
+      %td
+        Дополнительно
+      %td
+        = @call.desc
   %tr
     %td
-      Повод
-    %td
-      = @call.event
-  %tr
-    %td
-      Кому
-    %td
-      = @call.person
-  %tr
-    %td
-      Бюджет
-    %td
-      = @call.budget
-  %tr
-    %td
-      Дополнительно
-    %td
-      = @call.desc
-  %tr
-    %td
-      Заявка поступила в
+      Заявка поступила
     %td
       = @call.created_at.in_time_zone
   %tr
     %td
       Страница заказа:
     %td
-      = @call.url
+      %a{href: @call.url }
+        = @call.url
+

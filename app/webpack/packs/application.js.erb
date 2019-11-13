@@ -37,13 +37,27 @@ const ready = function(){
     }
 }
 
-
+const myCallback = function() {
+  document.recaptcha1 = grecaptcha.render('recaptcha', {
+    'sitekey': "<%= MyGoogleRecaptcha.site_key %>",
+    'size': 'invisible' // must be invisible
+  });
+  console.log('GR1 callback fired')
+  document.recaptcha2 = grecaptcha.render('recaptcha2', {
+    'sitekey': "<%= MyGoogleRecaptcha.site_key %>",
+    'size': 'invisible' // must be invisible
+  });
+  console.log('GR2 callback fired')
+};
 
 
 const grInit = function () {
      grecaptcha.ready(function() {
-      grecaptcha.execute(document.grecaptchaHandle, {action: 'call'}).then(function(token) {
-        console.log("Google recptcha executed")
+      grecaptcha.execute(document.recaptcha1, {action: 'call'}).then(function(token) {
+        console.log("Google recaptcha executed")
+      });
+      grecaptcha.execute(document.recaptcha2, {action: 'call'}).then(function(token) {
+        console.log("Google recaptcha2 executed")
       });
     });
 };
@@ -95,13 +109,7 @@ const dataMask = function () {
         element.mask($(value).data('mask'), {placeholder: '-'})
     });
 };
-const myCallback = function() {
-  document.grecaptchaHandle = grecaptcha.render('recaptcha', {
-    'sitekey': "<%= MyGoogleRecaptcha.site_key %>",
-    'size': 'invisible' // must be invisible
-  });
-  console.log('GR callback fired')
-};
+
 const search = function(){
   $("input[name='search']").on('keyup touchend', function(e){
     if( e.key == 8 || e.key == 46 ){

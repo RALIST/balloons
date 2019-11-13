@@ -5,11 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1b38864-17e2-48ba-9f1a-eee384936dde" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Balloons.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Balloons.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/application.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/webpack/packs/application.js.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/webpack/src/js/common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/css/admin.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/webpack/src/css/admin.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/css/cart.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/webpack/src/css/cart.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/css/common.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/webpack/src/css/common.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/css/custom_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/webpack/src/css/custom_variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/css/modal.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/webpack/src/css/modal.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/css/products.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/webpack/src/css/products.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/css/sidebar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/webpack/src/css/sidebar.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/hello_erb.js.erb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/js/bootstrap-clockpicker.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/webpack/src/js/bootstrap-clockpicker.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/js/cookies.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/webpack/src/js/cookies.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/js/goals.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/webpack/src/js/goals.js.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/js/jquery.maskedinput.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/webpack/src/js/jquery.maskedinput.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/js/ym.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/webpack/src/js/ym.js.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/webpack/packs/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/admin.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/admin.html.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/environments/development.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/environments/development.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/webpacker.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/webpacker.yml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -61,7 +76,7 @@
   <component name="PropertiesComponent">
     <property name="Ruby.ViewRefParam.DefaultExtension" value="haml" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../jewelry" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../jewelry/config/webpacker.yml" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -69,11 +84,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Sites\Balloons\app\webpack\src\js" />
+      <recent name="C:\Sites\Balloons\app\webpack\src" />
+      <recent name="C:\Sites\Balloons\app\webpack" />
       <recent name="C:\Sites\Balloons\app\javascript\packs" />
       <recent name="C:\Sites\Balloons\lib\my_google_recaptcha" />
-      <recent name="C:\Sites\Balloons\lib" />
-      <recent name="C:\Sites\Balloons\app\helpers" />
-      <recent name="C:\Sites\Balloons\app\javascript\packs\js" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Sites\Balloons\app\javascript\packs\css" />
@@ -264,7 +279,7 @@
       <workItem from="1573106146028" duration="1767000" />
       <workItem from="1573108035619" duration="708000" />
       <workItem from="1573108773149" duration="4000" />
-      <workItem from="1573108927731" duration="44032000" />
+      <workItem from="1573108927731" duration="47067000" />
     </task>
     <servers />
   </component>
@@ -298,6 +313,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Balloons@railtie.rcov" NAME="railtie Coverage Results" MODIFIED="1573558715273" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/new_google_recaptcha-1.0.0/lib/new_google_recaptcha" MODULE_NAME="Balloons" />
-    <SUITE FILE_PATH="coverage/Balloons@Development__Balloons.rcov" NAME="Development: Balloons Coverage Results" MODIFIED="1573630156762" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Balloons" />
+    <SUITE FILE_PATH="coverage/Balloons@Development__Balloons.rcov" NAME="Development: Balloons Coverage Results" MODIFIED="1573632747466" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Balloons" />
   </component>
 </project>

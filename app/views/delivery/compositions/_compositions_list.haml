@@ -11,10 +11,10 @@
     .row.small-compositions
       = render partial: 'delivery/main/thumb_composition',
                collection:  @compositions,
-               as: :composition
+               as: :composition, cached: true
 
   .tab-pane.active.show.fade#small-preview
     .row.small-compositions
       = render partial: 'delivery/compositions/small_composition',
                 collection: @compositions,
-                as: :composition
+                as: :composition, cached: true

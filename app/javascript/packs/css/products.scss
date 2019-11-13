@@ -1,0 +1,10 @@
+#product {
+  @extend .shadow;
+}
+#products-list {
+  @include media-breakpoint-down(md) {
+    .h5, input {
+
+    }
+  }
+}

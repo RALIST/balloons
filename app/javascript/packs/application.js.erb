@@ -1,0 +1,124 @@
+
+
+import Rails from 'rails-ujs';
+import Turbolinks from 'turbolinks';
+
+import $ from 'jquery';
+import jQuery from 'jquery';
+window.jQuery = $; window.$ = jQuery; global.$ = jQuery;
+
+import 'bootstrap';
+import 'popper.js';
+import './js/jquery.maskedinput';
+import 'clockpicker/src/clockpicker';
+import './js/cookies.js'
+import './js/ym.js.erb'
+import './js/goals.js.erb'
+import './common'
+import './styles.scss'
+
+
+Rails.start();
+Turbolinks.start();
+
+
+
+const ready = function(){
+    if(!($('body').attr('data-loaded') == 'T')) {
+        clockPicker();
+        dataMask();
+        showMore();
+        cartQuantity();
+        grInit();
+        search();
+        $('body').attr('data-loaded', 'T');
+    } else {
+        return;
+    }
+}
+
+
+
+
+const grInit = function () {
+     grecaptcha.ready(function() {
+      grecaptcha.execute(document.grecaptchaHandle, {action: 'call'}).then(function(token) {
+        console.log("Google recptcha executed")
+      });
+    });
+};
+const cartQuantity = function () {
+    $(document).on('change','#subposition_quantity', function (e) {
+      var input = this;
+      if ($(input).val()){
+        var form = $(input).closest('form');
+        form.trigger('submit.rails')
+      }
+    });
+};
+const showMore = function () {
+    var more = $('#more')
+    var i;
+    more.hide();
+    var rows = $('.item');
+
+    if (rows.length > 4){
+        more.show();
+        $(rows[3]).addClass('grad-1');
+        for (i = 4; i < rows.length; i++) {
+          $(rows[i]).hide();
+        }
+        more.on('click', function(){
+          for (i = 4; i < rows.length; i++) {
+            $(rows[i]).toggle(100);
+          }
+          $(rows[3]).toggleClass('grad-1');
+          $(this).find('i').toggleClass('fa-chevron-up').toggleClass('fa-chevron-down');
+          $(this).toggleClass('with-grad');
+          $(this).find('.small').text(function(){
+            var text = $(this).text();
+            return text == 'Спрятать' ? "Показать все" : "Спрятать"
+          })
+        });
+      }
+};
+const clockPicker = function(){
+    $('.clockpicker').clockpicker(
+    {'default': 'now',
+      autoclose: true,
+      donetext: 'Готово!'}
+    );
+};
+const dataMask = function () {
+    $('[data-mask]').each(function(index, value){
+        var element = $(value);
+        element.mask($(value).data('mask'), {placeholder: '-'})
+    });
+};
+const myCallback = function() {
+  document.grecaptchaHandle = grecaptcha.render('recaptcha', {
+    'sitekey': "<%= MyGoogleRecaptcha.site_key %>",
+    'size': 'invisible' // must be invisible
+  });
+  console.log('GR callback fired')
+};
+const search = function(){
+  $("input[name='search']").on('keyup touchend', function(e){
+    if( e.key == 8 || e.key == 46 ){
+      return false;
+    };
+    var text = $("input[name='search']").val();
+    if(text.length){
+      $('.as_btn').not(":containsi('" + text + "')").closest('.col-6').hide();
+      $(".as_btn:containsi('" + text + "')").closest('.col-6').show();
+    }else{
+      $('.as_btn').closest('.col-6').show();
+    }
+
+  });
+};
+
+window.myCallback = myCallback;
+
+document.addEventListener("turbolinks:load", ready);
+document.addEventListener('ready', ready);

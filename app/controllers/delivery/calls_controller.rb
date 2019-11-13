@@ -4,12 +4,13 @@ class Delivery::CallsController < Delivery::DeliveryController
   
   def create
     @call = Call.create(call_params)
-    response =  NewGoogleRecaptcha.human?(
+    response =  MyGoogleRecaptcha.human?(
         params['g-recaptcha-response'],
         'call',
-        NewGoogleRecaptcha.minimum_score,
+        MyGoogleRecaptcha.minimum_score,
         @call)
-    if !!response
+    Rails.logger.debug response.inspect
+    if response
       if @call.save
         @call.send_sms_to_admin
         @call.send_new_call_notification

@@ -2,6 +2,10 @@ require_relative 'boot'
 
 require 'rails/all'
 
+require './lib/my_google_recaptcha/my_google_recaptcha.rb'
+
+
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -30,6 +34,7 @@ module Balloons
     config.exceptions_app = routes
     Rack::Utils.multipart_part_limit = 512
 
-    config.eager_load_paths << Rails.root.join('lib')
+    config.eager_load_paths << Rails.root.join('/lib')
+    config.autoload_paths += %W( lib/ )
   end
 end

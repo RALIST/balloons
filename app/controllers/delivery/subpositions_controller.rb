@@ -1,4 +1,7 @@
 class Delivery::SubpositionsController < Delivery::DeliveryController
+
+  skip_before_filter :verify_authenticity_token, :only => :update
+
   def up_quantity
     @subposition = Subposition.find(params[:id])
     @subposition.update_attribute(:quantity, @subposition.quantity + 1)
@@ -47,8 +50,8 @@ class Delivery::SubpositionsController < Delivery::DeliveryController
     @subposition = Subposition.find(params[:id])
     @subposition.update(sub_params) if params[:subposition][:quantity].to_i > 0
     respond_to do |format|
-      format.html
-      format.js
+      format.html{ redirect_back(fallback_location: root_path) }
+      format.js{ render :update, layout: false }
     end
     current_cart.total_with_discounts
   end

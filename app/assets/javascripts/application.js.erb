@@ -1,22 +1,3 @@
-//= require jquery3
-//= require popper
-//= require jquery_ujs
-//= require bootstrap/util
-//= require bootstrap/modal
-//= require bootstrap/dropdown
-//= require bootstrap/tooltip
-//= require bootstrap/popover
-//= require bootstrap/collapse
-//= require bootstrap/tab
-//= require bootstrap/alert
-//= require turbolinks
-//= require jquery.maskedinput
-//= require bootstrap-clockpicker.min
-//= require cookies
-//= require common
-//= require pagination
-//= require ym
-//= require goals
 
 
 
@@ -45,7 +26,7 @@ function myCallback() {
 const RCinit = function(){
   grecaptcha.ready(function() {
     grecaptcha.execute(document.grecaptchaHandle, {action: 'call'}).then(function(token) {
-      console.log("executed", token)
+      console.log("GR executed with token:", token)
     });
   });
 };

@@ -1,7 +1,5 @@
 <% unless @subposition.destroyed? %>
-  $(document).on('ajaxSuccess', function(){
-    $('#edit_subposition_<%=@subposition.id%> #subposition_quantity').val('<%= @subposition.quantity %>')
-  });
+  $('#edit_subposition_<%=@subposition.id%> #subposition_quantity').val('<%= @subposition.quantity %>')
 <% else %>
   $('#edit_subposition_<%=@subposition.id%>').closest('tr').fadeOut();
 <% end %>

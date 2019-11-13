@@ -3,7 +3,7 @@
     .row
       .col-12.text-center
         %table.table.table-sm.table-borderless.table-responsive-md
-          = render p.subpositions
+          = render p.subpositions.order(:id)
       .col-8
         = link_to 'Добавить в композицию', products_path, class: 'btn btn-info btn-block btn-sm'
       .col-4

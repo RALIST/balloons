@@ -1,9 +1,9 @@
-$(document).on('ajaxSuccess', function(){
-  <% unless @subposition.destroyed? %>
-    $(" #edit_subposition_<%= @subposition.id %> #subposition_quantity").val('<%= @subposition.quantity %>').blur();
-  <% else %>
-    $('#<%= @subposition.id %>').hide();
-  <% end %>
-  $('#subtotal').html('<%= j(render "delivery/carts/subtotal") %>');
-});
+
+<% unless @subposition.destroyed? %>
+  $(" #edit_subposition_<%= @subposition.id %> #subposition_quantity").val('<%= @subposition.quantity %>').blur();
+<% else %>
+  $('#<%= @subposition.id %>').hide();
+<% end %>
+$('#subtotal').html('<%= j(render "delivery/carts/subtotal") %>');
+
 

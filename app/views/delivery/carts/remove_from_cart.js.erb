@@ -1,5 +1,5 @@
 
-$('#position<%=@position.id %>').fadeOut();
+$('#position<%=@position.id %>').fadeOut('fast');
 $('#subtotal').html('<%= j(render "subtotal") %>');
 <% if @cart.positions.any? %>
   $('#cart-count').html("(<%= @cart.subpositions.count %>)")

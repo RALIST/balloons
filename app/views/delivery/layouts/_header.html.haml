@@ -35,7 +35,7 @@
             = link_to logout_path, method: :post, title: 'Выйти', class: 'nav-link' do
               Выйти
 
-  %nav.navbar.navbar-expand-lg.navbar-light.bg-white.border-bottom
+  %nav.navbar.navbar-expand-lg.navbar-light.bg-white.border-bottom.better-bootstrap-nav-left
     = link_to root_path, class: 'navbar-brand' do
       = image_tag 'logo-round.png', class: 'img-fluid logo-lg bg-white rounded-circle'
     = link_to '#', class: 'navbar-toggler navbar-toggler-right pt-1', data: {toggle: 'collapse', target: '#main-nav'} do
@@ -54,7 +54,7 @@
           .dropdown-menu
             = link_to 'По цветам', colors_path, class: 'dropdown-item'
             = link_to 'По форме', forms_path, class: 'dropdown-item'
-            = link_to 'По коллекциям', categories_path, class: 'dropdown-item'
+            = link_to 'По тематике', categories_path, class: 'dropdown-item'
         %li.nav-item
           = link_to 'Для бизнеса', business_index_path, class: 'nav-link'
 

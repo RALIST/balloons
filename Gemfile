@@ -2,16 +2,12 @@ source 'http://rubygems.org'
 ruby '2.6.3'
 
 gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
-# gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
-# gem 'jquery-rails'
 gem 'puma', '~> 3.0'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'redis', '~> 3.0'
-# gem 'sassc-rails'
 gem 'sprockets-rails'
-# gem 'turbolinks', '~> 5.0.0'
-# gem 'uglifier', '>= 1.3.0'
+
 
 group :development, :test do
   gem 'bullet'
@@ -22,7 +18,7 @@ group :development, :test do
   gem 'sys-proctable'
 end
 
-# gem 'bootstrap', '~> 4.3.1'
+
 gem 'haml-rails'
 gem 'image_optim'
 gem 'loadcss-rails', '~> 2.0.1'
@@ -53,7 +49,6 @@ gem 'active_link_to'
 gem 'pagy'
 gem 'friendly_id'
 gem 'gretel'
-# gem 'new_google_recaptcha'
 gem 'webpacker', '~> 4.x'
 
 group :production do

@@ -11,16 +11,15 @@ import 'bootstrap';
 import 'popper.js';
 import '../src/js/jquery.maskedinput';
 import 'clockpicker/src/clockpicker';
-import '../src/js/cookies.js'
-import '../src/js/ym.js.erb'
-import '../src/js/goals.js.erb'
-import '../src/js/common.js'
-
+import '../src/js/cookies.js';
+import '../src/js/ym.js.erb';
+import '../src/js/goals.js.erb';
+import '../src/js/common.js';
+import nav from  '../src/js/bootstrap-better-nav';
 
 
 Rails.start();
 Turbolinks.start();
-
 
 
 const ready = function(){
@@ -31,6 +30,7 @@ const ready = function(){
         cartQuantity();
         grInit();
         search();
+        nav();
         $('body').attr('data-loaded', 'T');
     } else {
         return;

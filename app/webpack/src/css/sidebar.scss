@@ -1,8 +1,9 @@
 .sidebar-sticky {
-  padding-right: 15px !important;
-  padding-left: 15px !important;
   padding-top: 35px;
   @include media-breakpoint-up(lg){
+    max-width: 75px;
+    background: white;
+    box-shadow: inset -7px 0 9px -7px rgba(0,0,0,0.4);
     padding-top: 1rem;
     position: -webkit-sticky;
     position: sticky;
@@ -14,11 +15,16 @@
     //background: white;
     //border-right: 1px solid $brand-info;
     z-index: 1;
-
   }
 
+  .navbar {
+    padding: 0;
+  }
+
+}
+
+#side-menu {
   .navbar-nav {
-    background: $light;
     @include media-breakpoint-up(lg){
       display: block !important;
       background: none;

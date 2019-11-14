@@ -13,6 +13,7 @@
     "rails-erb-loader": "^5.5.2",
     "rails-ujs": "^5.2.3",
     "turbolinks": "^5.2.0",
+    "vanilla-lazyload": "^12.3.0",
     "webpack": "^4.41.2"
   },
   "devDependencies": {

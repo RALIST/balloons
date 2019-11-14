@@ -16,7 +16,7 @@ import '../src/js/ym.js.erb';
 import '../src/js/goals.js.erb';
 import '../src/js/common.js';
 import nav from  '../src/js/bootstrap-better-nav';
-
+import LazyLoad from 'vanilla-lazyload';
 
 Rails.start();
 Turbolinks.start();
@@ -31,10 +31,23 @@ const ready = function(){
         grInit();
         search();
         nav();
+        Lazy();
         $('body').attr('data-loaded', 'T');
     } else {
         return;
     }
+}
+
+const Lazy = function(){
+    var count = 0;
+    var lazyLoadInstance = new LazyLoad({
+      elements_selector: "img",
+      callback_loaded: function (el) { console.log('Loaded', el, count), count += 1 },
+      callback_finish: function () {console.log('No more images to lazy load')},
+      callback_error: function (el) {console.log('Error', el)}
+    });
+    lazyLoadInstance.update();
+    console.log('Loaded images', count)
 }
 
 const myCallback = function() {

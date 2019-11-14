@@ -10,7 +10,7 @@ class Delivery::CallsController < Delivery::DeliveryController
         MyGoogleRecaptcha.minimum_score,
         @call)
     Rails.logger.debug response.inspect
-    if response && @call.save
+    if response != false && @call.save
       @call.send_sms_to_admin
       @call.send_new_call_notification
       redirect_to after_call_path

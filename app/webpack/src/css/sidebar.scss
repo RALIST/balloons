@@ -16,9 +16,16 @@
     //border-right: 1px solid $brand-info;
     z-index: 1;
   }
+  @include media-breakpoint-down(lg){
+    display: none;
+  }
 
   .navbar {
     padding: 0;
+  }
+
+  svg {
+    width: 30px;
   }
 
 }

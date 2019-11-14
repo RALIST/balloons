@@ -163,7 +163,7 @@ body {
     border: 1px solid $brand-info;
     //box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     z-index: 2;
-    @include media-breakpoint-down(md){
+    @include media-breakpoint-down(lg){
       position: initial;
       box-shadow: none;
       height: 53px;
@@ -356,7 +356,7 @@ body {
 .c-list{
   padding-top: 1rem;
   @include media-breakpoint-down(md){
-    padding-top: 0;
+    padding-top: 2rem;
   }
   h1, h2 {
     padding-top: .5rem;
@@ -470,5 +470,22 @@ body {
     .card-title {
       font-size: 0.8rem;
     }
+  }
+}
+
+#parties svg {
+  width: 100px;
+  height: 100px;
+}
+
+.lg-menu {
+  @include media-breakpoint-down(lg){
+    display: none;
+  }
+}
+
+.sm-menu {
+  @include media-breakpoint-up(md){
+    display: none;
   }
 }

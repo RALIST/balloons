@@ -5,22 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1b38864-17e2-48ba-9f1a-eee384936dde" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.rakeTasks" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Balloons.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Balloons.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/delivery/calls_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/delivery/calls_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/delivery/categories_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/delivery/categories_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/categories/_category_with_image.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/categories/_category_with_image.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/delivery/compositions_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/delivery/compositions_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/helpers/application_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/application_helper.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/call.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/call.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/delivery/layouts/_header.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/layouts/_header.html.haml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/delivery/layouts/_sidebar.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/layouts/_sidebar.haml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/delivery/main/index.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/main/index.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/webpack/packs/application.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/webpack/packs/application.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/webpack/packs/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/webpack/packs/styles.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/webpack/src/css/common.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/webpack/src/css/common.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/webpack/src/css/sidebar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/webpack/src/css/sidebar.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/breadcrumbs.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/breadcrumbs.rb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,12 +42,6 @@
     </option>
     <expand />
     <select />
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>bread</find>
-      <find>btn-secondary</find>
-    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -276,7 +264,7 @@
       <workItem from="1573108035619" duration="708000" />
       <workItem from="1573108773149" duration="4000" />
       <workItem from="1573108927731" duration="59468000" />
-      <workItem from="1573718237876" duration="7525000" />
+      <workItem from="1573718237876" duration="12929000" />
     </task>
     <servers />
   </component>

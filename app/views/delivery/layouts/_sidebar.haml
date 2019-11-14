@@ -8,9 +8,9 @@
   -#        %i.fa.fa-search.text-muted
   -#  = link_to '#', class: 'd-lg-none collapsed d-inline-block text-center px-2 border rounded ml-2 pt-1', data:{toggle: 'collapse', target: '#sidebar'} do
   -#    %i.fas.fa-sliders-h.fa-2x.text-info
-  %nav.navbar.better-bootstrap-nav-left
-    = link_to '#', class: 'navbar-toggler navbar-toggler-right text-center py-1', data: {toggle: 'collapse', target: '#sidebar'} do
-      %i.fas.fa-chevron-circle-right.fa-lg.text-info
+  %nav.navbar.better-bootstrap-nav-left.align-items-end.justify-content-end
+    = link_to '#', class: 'navbar-toggler navbar-toggler-right text-center py-1 text-info', title: 'Меню', data: {toggle: 'collapse', target: '#sidebar'} do
+      %i.fas.fa-chevron-circle-right.fa-lg.text-secondary
       .small.mt-1
         Меню
     #sidebar.navbar-collapse.collapse

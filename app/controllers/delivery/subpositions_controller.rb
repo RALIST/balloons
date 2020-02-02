@@ -1,21 +1,16 @@
 class Delivery::SubpositionsController < Delivery::DeliveryController
 
-  skip_before_filter :verify_authenticity_token, :only => :update
+  skip_before_action :verify_authenticity_token
 
   def up_quantity
-    @subposition = Subposition.find(params[:id])
-    @subposition.update_attribute(:quantity, @subposition.quantity + 1)
-    respond_to do |format|
-      format.html { redirect_back(fallback_location: root_path) }
-      format.js
-    end
+    subposition.update_attribute(:quantity, subposition.quantity + 1)
+    respond_to(:js)
     current_cart.total_with_discounts
   end
 
   def down_quantity
-    @subposition = Subposition.find(params[:id])
-    if @subposition.quantity > 1
-      @subposition.update_attribute(:quantity, @subposition.quantity - 1)
+    if subposition.quantity > 1
+      subposition.update_attribute(:quantity, subposition.quantity - 1)
       respond_to do |format|
         format.html { redirect_back(fallback_location: root_path) }
         format.js
@@ -32,7 +27,7 @@ class Delivery::SubpositionsController < Delivery::DeliveryController
   end
 
   def add_subposition
-    item = Product.find(params[:item])
+
     @position = Position.find(params[:position])
     if @position.sub_exists?(item)
       @position.add_quantity_to_sub(item, 1)
@@ -47,18 +42,16 @@ class Delivery::SubpositionsController < Delivery::DeliveryController
   end
 
   def update
-    @subposition = Subposition.find(params[:id])
-    @subposition.update(sub_params) if params[:subposition][:quantity].to_i > 0
+    subposition.update(sub_params) if params[:subposition][:quantity].to_i > 0
     respond_to do |format|
       format.html{ redirect_back(fallback_location: root_path) }
-      format.js{ render :update, layout: false }
+      format.js
     end
     current_cart.total_with_discounts
   end
 
   def destroy
-    @subposition = Subposition.find(params[:id])
-    if @subposition.destroy
+    if subposition.destroy
       respond_to do |format|
         format.html
         format.js
@@ -68,8 +61,11 @@ class Delivery::SubpositionsController < Delivery::DeliveryController
   end
 
   private
+    def subposition
+      @subposition ||= Subposition.find(params[:id])
+    end
 
-  def sub_params
-    params.require(:subposition).permit(:quantity)
-  end
+    def sub_params
+      params.require(:subposition).permit(:quantity)
+    end
 end

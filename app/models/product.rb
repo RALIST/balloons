@@ -20,7 +20,6 @@ class Product < ApplicationRecord
 
   accepts_nested_attributes_for :item
 
-  validates :item_id, presence: true
   validates :complex_name, uniqueness: true, presence: true
 
   has_attached_file :img,
@@ -137,7 +136,7 @@ class Product < ApplicationRecord
     arr
   end
 
-  
+
   def img_remote_url=(url)
     begin
     self.img = URI.parse(url)

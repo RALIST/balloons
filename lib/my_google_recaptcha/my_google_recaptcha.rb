@@ -1,13 +1,23 @@
-require "./lib/my_google_recaptcha/railtie"
+require_relative 'railtie'
+require_relative 'view_ext'
+require_relative 'validator'
 
 module MyGoogleRecaptcha
-  mattr_accessor :site_key
-  mattr_accessor :secret_key
-  mattr_accessor :minimum_score
-  mattr_accessor :onload_function
 
-  def self.setup
-    yield(self)
+  def self.site_key
+    "6LeRLakUAAAAAF7l-9OVwZ8eefKxv6i6us4BtKf_"
+  end
+
+  def self.secret_key
+    "6LeRLakUAAAAABS2C4H83rLEC3BL382S-qx-CyXg"
+  end
+
+  def self.minimum_score
+    0.5
+  end
+
+  def self.onload_function
+    'myCallback'
   end
 
   def self.human?(token, action, minimum_score = self.minimum_score, model = nil)
@@ -25,8 +35,4 @@ module MyGoogleRecaptcha
       default
     end
   end
-
 end
-
-require_relative "view_ext"
-require_relative "validator"

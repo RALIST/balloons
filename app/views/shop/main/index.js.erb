@@ -1,7 +1,0 @@
-$('.products').append('<%= j(render partial: "shop/items/thumb_item", collection: @items, as: :item) %>');
-<% if @items.next_page %>
-  $('.pagination').replaceWith('<%= j will_paginate @items %>');
-<% else %>
-  $(window).off('scroll');
-  $('.pagination').remove();
-<% end %>

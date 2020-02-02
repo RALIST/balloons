@@ -1,8 +1,4 @@
-
-
 Rails.application.routes.draw do
-
-
   namespace :admin, module: 'admin' do
     root 'main#index'
     resources :items
@@ -56,7 +52,7 @@ Rails.application.routes.draw do
         resources :forms
         resources :products, path: ''
       end
-      
+
       resources :carts
       resources :orders
       resources :positions

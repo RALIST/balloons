@@ -1,8 +1,8 @@
 class Cart < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, optional: true
   has_many :items, through: :positions
-  has_many :compositions, through: :positions
   has_many :positions, dependent: :destroy
+  has_many :compositions, through: :positions
   has_many :subpositions, through: :positions
   has_many :products, through: :subpositions
 

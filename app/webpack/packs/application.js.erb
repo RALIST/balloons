@@ -28,7 +28,6 @@ const ready = function(){
         dataMask();
         showMore();
         cartQuantity();
-        grInit();
         search();
         nav();
         Lazy();
@@ -50,30 +49,6 @@ const Lazy = function(){
     console.log('Loaded images', count)
 }
 
-const myCallback = function() {
-  document.recaptcha1 = grecaptcha.render('recaptcha', {
-    'sitekey': "<%= MyGoogleRecaptcha.site_key %>",
-    'size': 'invisible' // must be invisible
-  });
-  console.log('GR1 callback fired')
-  document.recaptcha2 = grecaptcha.render('recaptcha2', {
-    'sitekey': "<%= MyGoogleRecaptcha.site_key %>",
-    'size': 'invisible' // must be invisible
-  });
-  console.log('GR2 callback fired')
-};
-
-
-const grInit = function () {
-     grecaptcha.ready(function() {
-      grecaptcha.execute(document.recaptcha1, {action: 'call'}).then(function(token) {
-        console.log("Google recaptcha executed")
-      });
-      grecaptcha.execute(document.recaptcha2, {action: 'call'}).then(function(token) {
-        console.log("Google recaptcha2 executed")
-      });
-    });
-};
 const cartQuantity = function () {
     $(document).on('change','#subposition_quantity', function (e) {
       var input = this;
@@ -139,7 +114,6 @@ const search = function(){
   });
 };
 
-window.myCallback = myCallback;
 
 document.addEventListener("turbolinks:load", ready);
 document.addEventListener('ready', ready);

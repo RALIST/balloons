@@ -1,8 +1,8 @@
 class Position < ApplicationRecord
   belongs_to :cart
-  belongs_to :item
+  belongs_to :item, optional: true
   belongs_to :composition
-  belongs_to :order
+  belongs_to :order, optional: true
   has_many :items, through: :subpositions
   has_many :products, through: :subpositions
   has_many :subpositions, dependent: :destroy

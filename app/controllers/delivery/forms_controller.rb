@@ -2,7 +2,7 @@ class Delivery::FormsController < Delivery::DeliveryController
   def index
     set_meta_tags title: "Воздушные шары любой формы с доставкой по Ижевску",
                   description: "Все формы воздушных шаров с гелием от Шариковой феи"
-    @forms = FoilForm.joins(:products)
+    @forms = FoilForm.joins(:products).distinct
   end
 
   def show

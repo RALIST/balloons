@@ -9,8 +9,8 @@ class Delivery::DeliveryController < ApplicationController
 
 
   def set_tags
-    @tags = Rails.cache.fetch('tags', expires_in: 12.hours) { Tag.joins(:compositions).distinct }
-    @menu_receivers = Rails.cache.fetch('receivers', expires_in: 12.hours) { Receiver.joins(:compositions).distinct }
+    @tags = Tag.joins(:compositions).distinct
+    @menu_receivers = Receiver.joins(:compositions).distinct
   end
 
 

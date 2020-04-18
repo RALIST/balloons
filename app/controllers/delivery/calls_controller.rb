@@ -4,9 +4,11 @@ class Delivery::CallsController < Delivery::DeliveryController
 
   def create
     @call = Call.new(call_params)
+    puts params
     response =  MyGoogleRecaptcha.human?(
         params['g-recaptcha-response'],
         'call',
+        MyGoogleRecaptcha.minimum_score,
         @call)
     if response != false
       if @call.save!

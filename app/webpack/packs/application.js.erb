@@ -1,4 +1,17 @@
+const myCallback = function() {
+  document.recaptcha1 = grecaptcha.render('recaptcha', {
+    'sitekey': "<%= MyGoogleRecaptcha.site_key %>",
+    'size': 'invisible' // must be invisible
+  });
+  console.log('GR1 callback fired')
+  document.recaptcha2 = window.grecaptcha.render('recaptcha2', {
+    'sitekey': "<%= MyGoogleRecaptcha.site_key %>",
+    'size': 'invisible' // must be invisible
+  });
+  console.log('GR2 callback fired')
+};
 
+window.myCallback = myCallback;
 
 import Rails from 'rails-ujs';
 import Turbolinks from 'turbolinks';
@@ -21,27 +34,38 @@ import LazyLoad from 'vanilla-lazyload';
 Rails.start();
 Turbolinks.start();
 
-
 const ready = function(){
-    if(!($('body').attr('data-loaded') == 'T')) {
-        clockPicker();
-        dataMask();
-        showMore();
-        cartQuantity();
-        search();
-        nav();
-        Lazy();
-        $('body').attr('data-loaded', 'T');
-    } else {
-        return;
-    }
+  if(!($('body').attr('data-loaded') == 'T')) {
+    clockPicker();
+    dataMask();
+    showMore();
+    cartQuantity();
+    search();
+    nav();
+    Lazy();
+    grInit();
+    $('body').attr('data-loaded', 'T');
+  } else {
+    return false;
+  }
 }
+
+const grInit = function () {
+   grecaptcha.ready(function() {
+    grecaptcha.execute(document.recaptcha1, {action: 'call'}).then(function(token) {
+      console.log("Google recaptcha executed")
+    });
+    grecaptcha.execute(document.recaptcha2, {action: 'call'}).then(function(token) {
+      console.log("Google recaptcha2 executed")
+    });
+  });
+};
 
 const Lazy = function(){
     var count = 0;
     var lazyLoadInstance = new LazyLoad({
       elements_selector: "img",
-      callback_loaded: function (el) { console.log('Loaded', el, count), count += 1 },
+      callback_loaded: function (el) { console.log('Loaded', count), count += 1 },
       callback_finish: function () {console.log('No more images to lazy load')},
       callback_error: function (el) {console.log('Error', el)}
     });
@@ -58,6 +82,7 @@ const cartQuantity = function () {
       }
     });
 };
+
 const showMore = function () {
     var more = $('#more')
     var i;
@@ -84,6 +109,7 @@ const showMore = function () {
         });
       }
 };
+
 const clockPicker = function(){
     $('.clockpicker').clockpicker(
     {'default': 'now',
@@ -91,6 +117,7 @@ const clockPicker = function(){
       donetext: 'Готово!'}
     );
 };
+
 const dataMask = function () {
     $('[data-mask]').each(function(index, value){
         var element = $(value);
@@ -113,7 +140,6 @@ const search = function(){
 
   });
 };
-
 
 document.addEventListener("turbolinks:load", ready);
 document.addEventListener('ready', ready);

@@ -11,11 +11,8 @@ namespace :db do
     database = config["database"]
     port = config['port']
     user = config["username"]
-    puts database
-    puts config
 
     # import
     system("pg_restore --verbose --clean -U postgres -h localhost -p #{port} -d #{database} #{Rails.root}/latest.dump")
   end
-
 end

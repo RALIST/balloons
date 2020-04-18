@@ -20,7 +20,7 @@ class Composition < ApplicationRecord
                         large:
                                              ['x600', :jpg] },
                     convert_options: {
-                        all: '-normalize -compress JPEG2000 -quality 90'
+                        all: '-strip -auto-orient'
                     }
 
   validates_attachment_content_type :img,
@@ -53,7 +53,7 @@ class Composition < ApplicationRecord
   end
 
   def comp_price
-    price = self.products.map { |i| i.price_with_helium }.reject(&:nil?).sum.round(2)
+    self.products.map { |i| i.price_with_helium }.reject(&:nil?).sum.round(2)
   end
 
   def update_price
@@ -80,7 +80,9 @@ class Composition < ApplicationRecord
 
   def receiver_title=(title)
     title = Unicode.downcase(title.strip)
-    receiver = Receiver.find_or_create_by!(title: title) unless title.blank?
+    return if  title.blank?
+
+    receiver = Receiver.find_or_create_by!(title: title)
     self.receivers << receiver
   end
 

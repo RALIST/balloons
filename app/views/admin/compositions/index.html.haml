@@ -1,22 +1,20 @@
-
-%ul.nav.nav-tabs.my-2
+%ul.nav.nav-tabs.my-3
   %li.nav-item
-    = link_to '#', data: {toggle: 'tab', target: '#availible'}, class: 'nav-link' do
+    = link_to '#', data: {toggle: 'tab', target: '#availible'}, class: 'nav-link active' do
       Доступные композиции
   %li.nav-item
     = link_to '#', data: {toggle: 'tab', target: '#without_items'}, class: 'nav-link' do
       Композиции без товаров
-
   %li.nav-item
     = link_to '#', data: {toggle: 'tab', target: '#without_tags'}, class: 'nav-link' do
       Композиции без тегов
-  %li.nav-item
+  %li.nav-item.ml-3
     = link_to 'Добавить композицию', new_admin_composition_path, class: 'btn btn-sm btn-info nav-link'
 .tab-content
   .tab-pane.fade.show.active#availible
-    .row.small-compositions
+    .card-columns.small-compositions
       = render partial: 'small_composition', collection: @compositions, as: :composition
-  .tab-pabe.fade#without_items
+  .tab-pane.fade#without_items
     .row.small-compositions
       = render partial: 'small_composition', collection: @compositions_without_items, as: :composition
   .tab-pane.fade#without_tags

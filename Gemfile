@@ -39,12 +39,12 @@ gem 'sorcery'
 gem 'unicode'
 gem "roo", "~> 2.7.0"
 gem 'rubyzip', require: false
-gem 'aws-sdk', require: false
 gem 'aws-sdk-s3', require: false
 gem 'active_link_to'
 gem 'friendly_id'
 gem 'gretel'
 gem 'webpacker', '~> 4.x'
+gem 'will_paginate'
 
 group :production do
   gem 'fog-aws', require: false

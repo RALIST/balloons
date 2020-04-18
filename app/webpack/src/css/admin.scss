@@ -9,9 +9,6 @@
 
 .destroy-button {
   position: relative;
-  left: 5px;
-  bottom: 5px;
   z-index: 999;
   @extend .btn;
-  @extend .btn-info;
 }

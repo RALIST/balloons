@@ -3,8 +3,6 @@ class Type < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   before_save :sanitize
 
-
-
   private
 
   def sanitize

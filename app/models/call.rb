@@ -9,7 +9,6 @@ class Call < ApplicationRecord
     if call_type == 'Запрос цены'
       call_url = Rails.application.routes.url_helpers.admin_call_url(self, host: 'bigairballoons.ru', protocol: 'https')
       new_call = "Запрос цены: #{call_url}"
-      # new_call = 'Запрос цены: ' + userphone.to_s + ' ' + (messangers ? messangers.join(',') : '') + url
       message = MainsmsApi::Message.new(sender: 'shar_feya', message: new_call,
                                         recipients: ['79501718109'])
       response = message.deliver unless Rails.env.development?

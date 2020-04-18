@@ -18,7 +18,7 @@
         %td
           = call.id
         %td
-          = call.username
+          = link_to call.username, admin_call_path(call)
         %td
           = call.userphone
         %td
@@ -26,4 +26,5 @@
         %td
           = call.call_type
         %td
-          = link_to 'Show',  admin_call_path(call)
+          = link_to admin_call_path(call), method: :delete do
+            %i.fas.fa-times

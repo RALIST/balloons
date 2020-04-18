@@ -1,7 +1,7 @@
 
 .row
   .col-lg-4.col-12.my-2
-    = image_tag @comp.img.url(:preview), class: 'img-fluid'
+    = image_tag @comp.img.url(:original), class: 'img-fluid'
     - @comp.tags.each do |tag|
       .badge.badge-info
         = tag.name.capitalize

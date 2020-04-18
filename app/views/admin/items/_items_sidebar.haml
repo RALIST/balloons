@@ -1,11 +1,11 @@
-.sidebar-sticky.admin-sidebar.col-2.bg-dark.navbar-dark
-  %ul.navbar-nav#sidebar
-    %li.nav-item.d-flex.justify-content-between
+.sidebar-sticky.navbar-light.bg-light.col-2.border-right
+  %ul.navbar-nav
+    %li.nav-item.d-flex.justify-content-between.w-100
       = link_to '#', data: {toggle: 'collapse', target: '#colors'}, class: 'nav-link h5 collapsed' do
         Цвета
     .collapse#colors
       - Color.all.each do |color|
-        %li.nav-item= link_to color.name.capitalize, admin_items_path(color: color.id), class: 'nav-link small'
+        %li.nav-item= active_link_to color.name.capitalize, admin_color_path(color.id), class: 'nav-link small'
       %p
         = link_to 'Добавить цвет', new_admin_color_path, class: 'btn btn-info btn-sm'
     %li.nav-item
@@ -13,7 +13,7 @@
         Тип продукции
     .collapse#types
       - Type.all.each do |type|
-        %li.nav-item= link_to type.name.capitalize, admin_items_path(type: type.id), class: 'nav-link small'
+        %li.nav-item= link_to type.name.capitalize, admin_type_path(type.id), class: 'nav-link small'
       %p
         = link_to 'Добавить тип', new_admin_type_path, class: 'btn btn-info btn-sm'
     %li.nav-item
@@ -21,7 +21,7 @@
         Текстура
     .collapse#textures
       - Texture.all.each do |texture|
-        %li.nav-item= link_to texture.name.capitalize, admin_items_path(texture: texture.id), class: 'nav-link small'
+        %li.nav-item= link_to texture.name.capitalize, admin_texture_path(texture.id), class: 'nav-link small'
       %p
         = link_to 'Добавить текстуру', new_admin_texture_path, class: 'btn btn-info btn-sm'
     %li.nav-item
@@ -29,7 +29,7 @@
         Оттенок
     .collapse#tones
       - Tone.all.distinct.each do |tone|
-        %li.nav-item= link_to tone.name.capitalize, admin_items_path(tone: tone.id), class: 'nav-link small'
+        %li.nav-item= link_to tone.name.capitalize, admin_tone_path(tone.id), class: 'nav-link small'
       %p
         = link_to 'Добавить оттенок', new_admin_tone_path, class: 'btn btn-info btn-sm'
     %li.nav-item
@@ -37,7 +37,7 @@
         Форма
     .collapse#forms
       - FoilForm.find_each do |form|
-        %li.nav-item= link_to form.name.capitalize, admin_items_path(form: form.id), class: 'nav-link small'
+        %li.nav-item= link_to form.name.capitalize, admin_foil_form_path(form.id), class: 'nav-link small'
       %p
         = link_to 'Добавить форму', new_admin_foil_form_path, class: 'btn btn-info btn-sm'
     %li.nav-item
@@ -45,7 +45,7 @@
         Коллекции
     .collapse#collection
       - Subcategory.joins(:products).distinct.each do |category|
-        %li.nav-item= link_to category.name.capitalize,  admin_items_path(subcategory: category.id), class: 'nav-link small'
+        %li.nav-item= link_to category.name.capitalize,  admin_subcategory_path(category.id), class: 'nav-link small'
       %p
         = link_to 'Добавить категорию', new_admin_subcategory_path, class: 'btn btn-info btn-sm'
     = link_to 'Добавить товар', new_admin_item_path, class: 'btn btn-info '

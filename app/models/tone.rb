@@ -11,10 +11,10 @@ class Tone < ApplicationRecord
   validates_attachment_content_type :img,
                                     content_type: ['image/jpeg', 'image/jpg', 'image/png', 'image/webp']
 
-  before_save :sanitize, :set_image
+  before_save :sanitize_name, :set_image
 
 
-  def sanitize
+  def sanitize_name
     self.name = name.downcase
     self.eng_name = eng_name.downcase if eng_name.present?
   end
@@ -29,7 +29,7 @@ class Tone < ApplicationRecord
   end
 
   def set_image
-    if !img.present?
+    unless img.present?
       if File.exist?("#{Rails.root}/public/#{vendor.name}/#{code + '.png'}")
         self.img = File.open("#{Rails.root}/public/#{vendor.name}/#{code + '.png'}")
       end

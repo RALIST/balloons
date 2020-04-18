@@ -2,7 +2,7 @@ class Color < ApplicationRecord
   has_many :tones
   has_many :items
   has_many :products, through: :items
-  before_save :sanitize
+  before_save :sanitize_name
   validates :name, presence: true, uniqueness: true
   extend FriendlyId
   friendly_id :name, use: :slugged
@@ -16,10 +16,7 @@ class Color < ApplicationRecord
     end
   end
 
-
-  private
-
-  def sanitize
+  def sanitize_name
     self.name = name.downcase
   end
 end

@@ -5,12 +5,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1b38864-17e2-48ba-9f1a-eee384936dde" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/Balloons.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Balloons.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/webpack/packs/application.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/webpack/packs/application.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/admin/calls_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/admin/calls_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/admin/colors_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/admin/colors_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/admin/foil_forms_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/admin/foil_forms_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/admin/items_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/admin/items_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/admin/textures_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/admin/textures_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/admin/tones_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/admin/tones_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/admin/types_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/admin/types_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/delivery/calls_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/delivery/calls_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/call.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/call.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/category.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/category.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/color.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/color.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/composition.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/composition.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/foil_form.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/foil_form.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/image.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/image.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/tone.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/tone.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/type.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/type.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/admin/calls/index.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/calls/index.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/admin/compositions/_small_composition.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/compositions/_small_composition.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/admin/compositions/index.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/compositions/index.html.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/admin/compositions/show.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/compositions/show.html.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/admin/items/_items_sidebar.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/items/_items_sidebar.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/admin/items/index.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/items/index.html.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/delivery.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/delivery.html.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/webpack/packs/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/webpack/packs/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/webpack/src/css/admin.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/webpack/src/css/admin.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/webpack/src/css/sidebar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/webpack/src/css/sidebar.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/application.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/application.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/my_google_recaptcha/my_google_recaptcha.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/tasks/database.rake" beforeDir="false" afterPath="$PROJECT_DIR$/lib/tasks/database.rake" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,6 +69,11 @@
     <select />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="LogFilters">
@@ -51,39 +87,38 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
+    <option name="compactDirectories" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="Ruby.ViewRefParam.DefaultExtension" value="haml" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../jewelry/config/webpacker.yml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/services" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.ruby.settings.RubyActiveModuleSdkConfigurable" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.web.browsers" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Sites\Balloons\app\views\admin\subcategories" />
+      <recent name="C:\Sites\Balloons\config\initializers" />
       <recent name="C:\Sites\Balloons\app\webpack\src\js" />
       <recent name="C:\Sites\Balloons\app\webpack\src" />
       <recent name="C:\Sites\Balloons\app\webpack" />
-      <recent name="C:\Sites\Balloons\app\javascript\packs" />
-      <recent name="C:\Sites\Balloons\lib\my_google_recaptcha" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Sites\Balloons\app\services" />
+      <recent name="C:\Sites\Balloons\app\webpack\src\css" />
       <recent name="C:\Sites\Balloons\app\javascript\packs\css" />
       <recent name="C:\Sites\Balloons\app\views\delivery\receivers" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="Rails.Development: Balloons">
     <configuration name="Development: Balloons" type="RailsRunConfigurationType" factoryName="Rails">
@@ -142,7 +177,7 @@
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TRACE" VALUE="false" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_DRYRUN" VALUE="false" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_PREREQS" VALUE="false" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_VERBOSE" VALUE="null" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TESTOPTS" VALUE="" />
       <method v="2" />
     </configuration>
     <configuration name="test: Balloons" type="RakeRunConfigurationType" factoryName="Rake">
@@ -164,7 +199,7 @@
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TRACE" VALUE="false" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_DRYRUN" VALUE="false" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_PREREQS" VALUE="false" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_VERBOSE" VALUE="null" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TESTOPTS" VALUE="" />
       <method v="2" />
     </configuration>
     <configuration name="railtie" type="RubyRunConfigurationType" factoryName="Ruby" temporary="true">
@@ -258,8 +293,30 @@
       <workItem from="1573108035619" duration="708000" />
       <workItem from="1573108773149" duration="4000" />
       <workItem from="1573108927731" duration="59468000" />
-      <workItem from="1573718237876" duration="15312000" />
+      <workItem from="1573718237876" duration="17510000" />
+      <workItem from="1574934857693" duration="2009000" />
+      <workItem from="1575356798028" duration="796000" />
+      <workItem from="1580642404886" duration="11919000" />
+      <workItem from="1580792574545" duration="524000" />
+      <workItem from="1586228135388" duration="1044000" />
+      <workItem from="1586229241351" duration="3623000" />
+      <workItem from="1587134193997" duration="9558000" />
     </task>
+    <task id="LOCAL-00001" summary="migration to rails 6">
+      <created>1580656701423</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1580656701423</updated>
+    </task>
+    <task id="LOCAL-00002" summary="migration to rails 6">
+      <created>1580657363867</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1580657363867</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView">
@@ -288,10 +345,53 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="migration to rails 6" />
+    <option name="LAST_COMMIT_MESSAGE" value="migration to rails 6" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="370" y="191" key="FileChooserDialogImpl" timestamp="1586244836361">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state x="370" y="191" key="FileChooserDialogImpl/0.0.1280.984@0.0.1280.984" timestamp="1586244836361" />
+    <state width="902" height="492" key="GridCell.Tab.0.bottom" timestamp="1587198936653">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state width="902" height="492" key="GridCell.Tab.0.bottom/0.0.1280.984@0.0.1280.984" timestamp="1587198936653" />
+    <state width="902" height="492" key="GridCell.Tab.0.center" timestamp="1587198936653">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state width="902" height="492" key="GridCell.Tab.0.center/0.0.1280.984@0.0.1280.984" timestamp="1587198936653" />
+    <state width="902" height="492" key="GridCell.Tab.0.left" timestamp="1587198936653">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state width="902" height="492" key="GridCell.Tab.0.left/0.0.1280.984@0.0.1280.984" timestamp="1587198936653" />
+    <state width="902" height="492" key="GridCell.Tab.0.right" timestamp="1587198936653">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state width="902" height="492" key="GridCell.Tab.0.right/0.0.1280.984@0.0.1280.984" timestamp="1587198936653" />
+    <state width="902" height="492" key="GridCell.Tab.1.bottom" timestamp="1587198937100">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state width="902" height="492" key="GridCell.Tab.1.bottom/0.0.1280.984@0.0.1280.984" timestamp="1587198937100" />
+    <state width="902" height="492" key="GridCell.Tab.1.center" timestamp="1587198937100">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state width="902" height="492" key="GridCell.Tab.1.center/0.0.1280.984@0.0.1280.984" timestamp="1587198937100" />
+    <state width="902" height="492" key="GridCell.Tab.1.left" timestamp="1587198937100">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state width="902" height="492" key="GridCell.Tab.1.left/0.0.1280.984@0.0.1280.984" timestamp="1587198937100" />
+    <state width="902" height="492" key="GridCell.Tab.1.right" timestamp="1587198937100">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state width="902" height="492" key="GridCell.Tab.1.right/0.0.1280.984@0.0.1280.984" timestamp="1587198937100" />
+    <state x="356" y="34" key="git4idea.branch.GitSmartOperationDialog" timestamp="1587199227641">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state x="356" y="34" key="git4idea.branch.GitSmartOperationDialog/0.0.1280.984@0.0.1280.984" timestamp="1587199227641" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Balloons@railtie.rcov" NAME="railtie Coverage Results" MODIFIED="1573718352602" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/new_google_recaptcha-1.0.0/lib/new_google_recaptcha" MODULE_NAME="Balloons" />
-    <SUITE FILE_PATH="coverage/Balloons@Development__Balloons.rcov" NAME="Development: Balloons Coverage Results" MODIFIED="1573718415234" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Balloons" />
+    <SUITE FILE_PATH="coverage/Balloons@Development__Balloons.rcov" NAME="Development: Balloons Coverage Results" MODIFIED="1587198921714" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Balloons" />
   </component>
 </project>

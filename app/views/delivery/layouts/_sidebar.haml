@@ -23,7 +23,7 @@
           = link_to 'Праздники', '#', class: ('nav-link h5' + (is_active_link?(tags_path) ? '' : ' collapsed')), data: {toggle: 'collapse', target: '#events'}
         .collapse#events{class: ('show' if is_active_link?(tags_path))}
           %li.nav-item
-            = active_link_to 'Все композиции', tags_path, class: 'nav-link small', active: :exact
+            = active_link_to 'Все праздники', tags_path, class: 'nav-link small', active: :exact
           - @tags.each do |tag|
             %li.nav-item= active_link_to tag.name.capitalize,  tag_path(tag), class: 'nav-link small'
           %li.nav-item
@@ -33,7 +33,7 @@
         %li.nav-item
           = link_to 'Кому', '#', class: ('nav-link h5' + (is_active_link?(receivers_path) ? '' : ' collapsed')), data: {toggle: 'collapse', target: '#persons'}
         .collapse#persons{class: ('show' if is_active_link?(receivers_path))}
-          = active_link_to 'Все композиции', receivers_path, class: 'nav-link small', active: :exact
+          = active_link_to 'Все получатели', receivers_path, class: 'nav-link small', active: :exact
           - @menu_receivers.each do |r|
             %li.nav-item
               = active_link_to r.title.capitalize, receiver_path(r), class: 'nav-link small'

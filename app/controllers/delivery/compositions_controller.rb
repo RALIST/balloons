@@ -5,8 +5,8 @@ class Delivery::CompositionsController < Delivery::DeliveryController
   include CompositionsHelper
 
   def index
-    @compositions = Composition.availible.distinct.order(:price).paginate(page: params[:page], per_page: 6)
-    fresh_when @compositions, public: true, last_modified: @compositions.maximum(:updated_at) unless current_user.try(:admin?)
+    @compositions = Composition.availible.distinct.order(:price).with_attached_image
+    fresh_when @compositions, public: true, last_modified: @compositions.maximum(:updated_at)
     respond_to do |format|
       format.html
       format.js if params[:page]
@@ -14,10 +14,9 @@ class Delivery::CompositionsController < Delivery::DeliveryController
   end
 
   def show
-    # @disable_sidebar = true
     @products = @composition.products.includes(:type, :size, :tone, :texture).distinct
     @composition.update_columns(views: @composition.views + 1)
-    fresh_when [@composition, @products], public: true, last_modified: @composition.products.maximum(:updated_at) unless current_user.try(:admin?)
+    fresh_when [@composition, @products], public: true, last_modified: @composition.products.maximum(:updated_at)
   end
 
   private

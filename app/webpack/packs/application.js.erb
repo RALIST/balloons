@@ -44,10 +44,15 @@ const ready = function(){
     nav();
     Lazy();
     grInit();
+    tooltip();
     $('body').attr('data-loaded', 'T');
   } else {
     return false;
   }
+}
+
+const tooltip = function(){
+  $('[data-toggle="tooltip"]').tooltip()
 }
 
 const grInit = function () {

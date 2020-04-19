@@ -16,6 +16,7 @@ namespace :images do
           filename: c.img_file_name
         )
         ImageProcessingJob.perform_later(c.id)
+        c.touch
         print '.'
       rescue => e
         puts "Error with processing composition ##{c.id}: #{e}"

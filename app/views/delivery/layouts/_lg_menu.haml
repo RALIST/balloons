@@ -3,6 +3,7 @@
     = link_to '', class: 'dropdown-toggle nav-link', data: {toggle: 'dropdown'} do
       Готовые композиции
     .dropdown-menu
+      = link_to 'Все композиции', compositions_path, class: 'dropdown-item'
       = link_to 'По праздникам', tags_path, class: 'dropdown-item'
       = link_to 'Кому', receivers_path, class: 'dropdown-item'
   %li.dropdown.nav-item

@@ -1,4 +1,4 @@
-- cache do
+- cache composition do
   %h1.h5.text-center.mt-4{itemprop: 'name'}
     %span
       Композиция № #{composition.id} из воздушных шаров
@@ -23,7 +23,7 @@
                     %tr.item.text-center
                       %td.text-center.align-middle{data: {item_id: "#{product.id}", content: "#{product.complex_name}" }}
                         %span{style: 'border-bottom: 1px dashed black; cursor: pointer;'}
-                          = image_tag product.img(:small), alt: 'Воздушный шар' + " " + product.complex_name
+                          = image_tag product.img(:small), alt: 'Воздушный шар' + " " + product.complex_name, title: product.complex_name, data: { toggle: 'tooltip'}
                       %td.h5.strong.align-middle
                         = composition.products.where(id: product.id).count
                         %small
@@ -53,7 +53,7 @@
               - else
                 = link_to 'Перейти в корзину', my_cart_path, class: 'btn btn-success btn-block btn-sm'
             .col-12.text-center.text-lavender.mt-2.small
-              Вы cможете изменить состав композиции в корзине
+              Вы можете изменить состав композиции добавив ее в корзину
         - else
           .h4.text-center
             К сожалению, мы еще не успели добавить цену на эту композицию, но вы все равно можете заказать ее.
@@ -69,7 +69,7 @@
 - if composition.related.any?
   .container
     %h2.h5.text-center.strong.my-3.text-secondary
-      %span.px-3.text-uppercase
+      %span.text-uppercase
         Похожие композиции
     .row.justify-content-around.compositions.text-center.small-compositions#popular{itemprop: 'isSimilarTo'}
       = render partial: 'delivery/compositions/small_composition', collection: composition.related.limit(4).order(:price), as: :composition

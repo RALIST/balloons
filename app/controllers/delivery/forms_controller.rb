@@ -9,9 +9,9 @@ class Delivery::FormsController < Delivery::DeliveryController
     @form = FoilForm.friendly.find(params[:id])
     products = @form.products.availible_products
     @grouped_products = products.includes(:item, :type).availible_products.group_by{|s| s.type.name}
-    fresh_when products, last_modified: products.maximum(:updated_at), public: true unless current_user.try(:admin?)
-
     set_meta_tags title: "Воздушные шары #{@form.name} с гелием c доставкой в Ижевске",
                   description: "Воздушные шары с гелием в форме #{@form.name} с бесплатной доставкой по Ижевску"
+
+    fresh_when products, last_modified: products.maximum(:updated_at), public: true
   end
 end

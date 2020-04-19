@@ -16,7 +16,7 @@ class Composition < ApplicationRecord
   VARIANTS = {
     small: { width: 150, height: 150, process: :resize_to_fill},
     medium: { width: 300, height: 300, process: :resize_to_fill },
-    large: { width: 600, height: 600, process: :resize_to_fit }
+    large: { width: 800, height: 800, process: :resize_to_limit }
   }
 
   def missing

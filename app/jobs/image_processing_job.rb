@@ -4,13 +4,13 @@ class ImageProcessingJob < ApplicationJob
     composition = Composition.find_by(id: id)
     return unless composition.present? && composition.image.attached?
 
-    retry_job and return unless composition.image.analyzed?
+    raise StandardError.new('Image did not analyzed yet') unless composition.image.analyzed?
 
-    attach_watermark!(composition)
+    attach_watermark!(composition) unless composition.image.filename =~ /watermarked/
 
     composition.image.attach(
       io: @watermarked_image,
-      filename: composition.image.filename
+      filename: ( 'watermarked_' + composition.image.filename.to_s)
     )
 
     Composition::VARIANTS.each do |_, variant|

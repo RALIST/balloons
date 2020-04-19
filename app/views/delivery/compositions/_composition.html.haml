@@ -1,10 +1,10 @@
-- cache ["admin_#{current_user.present? && current_user.admin?}", composition, @cart.products] do
+- cache do
   %h1.h5.text-center.mt-4{itemprop: 'name'}
     %span
       Композиция № #{composition.id} из воздушных шаров
   %hr
   .container
-    .row.align-items-center
+    .row
       .col-12.col-lg-6.order-2
         - if composition.price > 0
           #products.card
@@ -54,10 +54,6 @@
                 = link_to 'Перейти в корзину', my_cart_path, class: 'btn btn-success btn-block btn-sm'
             .col-12.text-center.text-lavender.mt-2.small
               Вы cможете изменить состав композиции в корзине
-              - if current_user && current_user.admin?
-                .col-12.text-center
-                  = link_to 'Редактировать', admin_composition_path(composition), class: 'btn btn-light btn-sm'
-                  = link_to 'Удалить', admin_composition_path(composition), method: :delete, class: 'btn btn-light btn-sm', data: {confirm: 'Вы уверены?'}
         - else
           .h4.text-center
             К сожалению, мы еще не успели добавить цену на эту композицию, но вы все равно можете заказать ее.
@@ -65,15 +61,16 @@
             Просто оставьте заявку и мы просчитаем цену для вас.
           = link_to 'Узнать цену', '#', class: 'btn btn-info btn-block' , data:{ toggle: 'modal', target: '#price-call-modal'}
       .col-12.col-lg-6.text-center.order-1
-        = image_tag composition.img.url(:large), class: 'img-fluid rounded w-100', itemprop: 'image', alt: composition.title
+        = image_tag composition.large_url, class: 'img-fluid rounded', itemprop: 'image', alt: composition.title
         .row.comp-text.text-secondary.justify-content-between.mt-3
           .col-12.d-flex.flex-row.justify-content-between
 
 %hr.w-100
-.container
-  %h2.h5.text-center.strong.my-3.text-secondary
-    %span.px-3.text-uppercase
-      Похожие композиции
-  .row.justify-content-around.compositions.text-center.small-compositions#popular{itemprop: 'isSimilarTo'}
-    = render partial: 'delivery/main/thumb_composition', collection: composition.related.limit(4).order(:price), as: :composition
+- if composition.related.any?
+  .container
+    %h2.h5.text-center.strong.my-3.text-secondary
+      %span.px-3.text-uppercase
+        Похожие композиции
+    .row.justify-content-around.compositions.text-center.small-compositions#popular{itemprop: 'isSimilarTo'}
+      = render partial: 'delivery/compositions/small_composition', collection: composition.related.limit(4).order(:price), as: :composition
 

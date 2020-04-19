@@ -372,19 +372,7 @@ body {
       position: relative;
       text-transform: uppercase;
     }
-
-    //&:before{
-    //  content: '';
-    //  position: absolute;
-    //  height: 1px;
-    //  width: 100%;
-    //  top: 50%;
-    //  left: 0;
-    //  background-color: #dedede;
-    //  border-bottom: 2px solid #dee2e6;
-    //}
   }
-
 }
 
 .card {
@@ -394,60 +382,36 @@ body {
 
 .small-compositions {
   .small-composition {
-    display: inline-block;
+    position: relative;
     overflow: hidden;
     padding: 0;
-  }
-}
-
-#view-type {
-  .nav-link {
-    -webkit-transition: border-top-color .5s ease-out;
-    -moz-transition: border-top-color  .5s ease-out;
-    -ms-transition: border-top-color  .5s ease-out;
-    -o-transition: border-top-color  .5s ease-out;
-    transition: border-top-color  .5s ease-out;
-    i {
-      -webkit-transition: color .5s linear;
-      -moz-transition: color .5s linear;
-      -ms-transition: color .5s linear;
-      -o-transition: color .5s linear;
-      transition: color .5s linear;
+    box-sizing: border-box;
+    &:before {
+      content: '';
+      display: block;
+      padding-top: 100%;
     }
-  }
-  .nav-link.active {
-    i {
-      color: $dark !important;
-    }
-  }
-  @include media-breakpoint-down(lg){
-    .nav-item {
-      width: 50%;
-      text-align: center;
-    }
-    .nav-link {
-      border-left: none;
-      border-right: none;
-      border-bottom: none;
-      border-top: 1px solid transparent;
-      border-radius: 0;
-      background: none;
-    }
-    .nav-link.active{
-      border-top: 1px solid $dark;
+    img {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      -o-object-fit: cover;
+      object-fit: cover;
+      -o-object-position: top;
+      object-position: top;
+      top: 0;
+      left: 0;
+      padding: 5px;
     }
   }
 }
-
 
 .category-with-image {
   width: 100%;
   overflow: hidden;
   transition: height .5s;
   -webkit-transition: height .5s;
-  //&:hover {
-  //  height: 250px;
-  //}
+
   @include media-breakpoint-down(lg){
     .card-title {
       font-size: 0.8rem;

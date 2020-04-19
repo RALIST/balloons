@@ -31,7 +31,6 @@ Rails.application.configure do
     "Access-Control-Allow-Origin" => '*'
   }
   config.action_controller.asset_host = ENV['ASSET_HOST']
-  config.font_assets.origin = 'https://bigairballoons.ru'
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 

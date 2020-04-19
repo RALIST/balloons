@@ -1,8 +1,5 @@
 class Delivery::DeliveryController < ApplicationController
   layout 'delivery'
-  include Pagy::Backend
-  include MetaHelper
-  include ApplicationHelper
 
   before_action :current_cart, :new_call, :set_tags
   before_action :set_location
@@ -12,21 +9,19 @@ class Delivery::DeliveryController < ApplicationController
 
 
   def set_tags
-    @tags = Rails.cache.fetch('tags', expires_in: 12.hours) { Tag.joins(:compositions).distinct }
-    @menu_receivers = Rails.cache.fetch('receivers', expires_in: 12.hours) {Receiver.joins(:compositions).distinct}
+    @tags = Tag.joins(:compositions).distinct
+    @menu_receivers = Receiver.joins(:compositions).distinct
   end
 
 
   private
 
-  
   def disable_sidebar
     @disable_sidebar = true
     @disable_help = true
   end
 
   def set_location
-    # @city = city_from_params || user_location || default_city
     @city = default_city
   end
 
@@ -65,7 +60,7 @@ class Delivery::DeliveryController < ApplicationController
   def current_cart
     if current_user
       if current_user.cart.blank?
-        @cart = Cart.create
+        @cart = current_user.cart.create!
         cookies.permanent[:cart_id] = @cart.id
         current_user.cart = @cart
       else
@@ -76,7 +71,7 @@ class Delivery::DeliveryController < ApplicationController
     end
     return @cart
   rescue ActiveRecord::RecordNotFound
-    @cart = Cart.create
+    @cart = Cart.create!
     cookies.permanent[:cart_id] = @cart.id
     return @cart
   end

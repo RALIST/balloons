@@ -1,19 +1,4 @@
-%ul.nav.nav-tabs.justify-content-end#view-type
-  %li.nav-item
-    = link_to '#', class: 'nav-link active', data: {toggle: 'tab', target: '#large-preview'} do
-      %i.fas.fa-th-large.fa-lg.text-muted
-  %li.nav-item
-    = link_to '#', class: 'nav-link', data: {toggle: 'tab', target: '#small-preview'} do
-      %i.fas.fa-th.fa-lg.text-muted
-.tab-content
-  .tab-pane.active.show.fade#large-preview
-    .row.compositions
-      = render partial: 'delivery/main/thumb_composition',
-               collection:  @compositions,
-               as: :c
-
-  .tab-pane.fade#small-preview
-    .row.small-compositions
-      = render partial: 'delivery/compositions/small_composition',
-                collection: @compositions,
-                as: :composition
+.row.small-compositions
+  = render partial: 'delivery/compositions/small_composition',
+            collection: @compositions,
+            as: :composition, cached: true

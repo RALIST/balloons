@@ -1,0 +1,58 @@
+%ul.navbar-nav.sm-menu
+  .sidebar-heading.text-center.text-info
+    %span
+      Готовые композиции
+  %hr.my-1.w-100
+  %li.nav-item
+    = link_to 'Праздники', '#', class: ('nav-link h5' + (is_active_link?(tags_path) ? '' : ' collapsed')), data: {toggle: 'collapse', target: '#events'}
+  .collapse#events{class: ('show' if is_active_link?(tags_path))}
+    %li.nav-item
+      = active_link_to 'Все праздники', tags_path, class: 'nav-link small', active: :exact
+    - @tags.each do |tag|
+      %li.nav-item= active_link_to tag.name.capitalize, tag_path(tag), class: 'nav-link small'
+    %li.nav-item
+      = active_link_to 'Выпускной из садика', kg_tags_path, class: 'nav-link small'
+    %li.nav-item
+      = active_link_to 'Выпускной из школы', school_tags_path, class: 'nav-link small'
+  %li.nav-item
+    = link_to 'Кому', '#', class: ('nav-link h5' + (is_active_link?(receivers_path) ? '' : ' collapsed')), data: {toggle: 'collapse', target: '#persons'}
+  .collapse#persons{class: ('show' if is_active_link?(receivers_path))}
+    = active_link_to 'Все получатели', receivers_path, class: 'nav-link small', active: :exact
+    - @menu_receivers.each do |r|
+      %li.nav-item
+        = active_link_to r.title.capitalize, receiver_path(r), class: 'nav-link small'
+  .sidebar-heading.text-center.text-info
+    %span
+      Гелиевые шары
+  %hr.my-1.w-100
+  %li.nav-item
+    = link_to 'Гелиевые шары', '#', class: ('nav-link h5' + (is_active_link?(products_path) ? '' : ' collapsed')), data: {toggle: 'collapse', target: '#products-menu'}
+
+  .collapse#products-menu{class: ('show' if is_active_link?(products_path))}
+    %li.nav-item
+      = active_link_to 'Все шары', products_path, class: 'nav-link small', active: :exact
+    %li.nav-item
+      = active_link_to categories_path, class: 'nav-link small' do
+        По тематике
+    %li.nav-item
+      = active_link_to 'По цветам', colors_path, class: 'nav-link small'
+    %li.nav-item
+      = active_link_to 'По форме', forms_path, class: 'nav-link small'
+  %hr.my-1.w-100
+  %li.nav-item
+    = link_to 'Для бизнеса', business_index_path, class: 'nav-link'
+  %hr.my-1.w-100
+  %li.nav-item
+    = link_to 'Контакты', contacts_path, class: 'nav-link'
+  %hr.my-1.w-100
+  %li.nav-item
+    = link_to my_cart_path, rel: 'nofollow', title: 'Корзина', class: 'nav-link' do
+      %i.fas.fa-shopping-cart.text-info
+      Корзина
+      #cart-count.d-inline.text-danger
+        = @cart.subpositions.any? ? "(#{@cart.subpositions.count})" : ''
+  %hr.my-1.w-100
+  %li.nav-item
+    = link_to 'tel: +79501718109', class: 'nav-link font-weight-bold' do
+      %i.fas.fa-phone.text-info.fa-rotate-180
+      +7 (950) 171-81-09

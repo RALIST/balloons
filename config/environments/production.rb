@@ -19,11 +19,12 @@ Rails.application.configure do
   config.public_file_server.enabled = true
 
   # Compress JavaScripts and CSS.
-  config.assets.js_compressor = Uglifier.new(harmony: true)
-  config.assets.css_compressor = :sass
+  # config.assets.js_compressor = Uglifier.new(harmony: true)
+  # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  # config.assets.compile = true
+
   config.public_file_server.headers = {
     "Cache-Control" => "public, s-maxage=31536000, maxage=31536000",
     "Expires" => "#{1.year.from_now.to_formatted_s(:rfc822)}",
@@ -47,7 +48,7 @@ Rails.application.configure do
   # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  # config.force_ssl = true
+  config.force_ssl = true
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
@@ -58,14 +59,14 @@ Rails.application.configure do
 
   # Use a different cache store in production.
   config.cache_store = :mem_cache_store,
-      (ENV["MEMCACHIER_SERVERS"] || "").split(","),
-      {:username => ENV["MEMCACHIER_USERNAME"],
-       :password => ENV["MEMCACHIER_PASSWORD"],
-       :failover => true,
-       :socket_timeout => 1.5,
-       :socket_failure_delay => 0.2,
-       :down_retry_delay => 60
-      }
+    (ENV["MEMCACHIER_SERVERS"] || "").split(","),
+    {:username => ENV["MEMCACHIER_USERNAME"],
+     :password => ENV["MEMCACHIER_PASSWORD"],
+     :failover => true,
+     :socket_timeout => 1.5,
+     :socket_failure_delay => 0.2,
+     :down_retry_delay => 60
+    }
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
@@ -99,28 +100,26 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
   config.action_mailer.default_url_options = { host: 'https://bigairballoons.ru'}
   config.action_mailer.default_options = { from: 'orders@bigairballoons.ru' }
-  config.force_ssl = true
 
-  unless Rails.env.test?
-    config.paperclip_defaults = {
-        default_url: 'https://s3.eu-central-1.amazonaws.com/images/missing/small/missing_small.png',
-        storage: :s3,
-        s3_region: ENV['AWS_REGION'],
-        s3_host_name: "s3.eu-central-1.amazonaws.com",
-        s3_protocol: :https,
-        path: ':class/:attachment/:style/:filename',
-        s3_headers: { 'Expires': 1.year.from_now.httpdate },
-        s3_credentials: {
-            bucket: ENV['AWS_BUCKET'],
-            access_key_id: ENV['AWS_ACCESS_KEY'],
-            secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
-        }
-    }
-  end
-  config.action_dispatch.default_headers = {
-    'Access-Control-Allow-Origin' => 'https://bigairballoons.ru',
-    'Access-Control-Request-Method' => %w{GET POST OPTIONS}.join(",")
+  config.active_storage.service = :amazon
+  config.active_job.queue_adapter = :delayed_job
+
+  config.paperclip_defaults = {
+      default_url: 'https://s3.eu-central-1.amazonaws.com/images/missing/small/missing_small.png',
+      storage: :s3,
+      s3_region: ENV['AWS_REGION'],
+      s3_host_name: "s3.eu-central-1.amazonaws.com",
+      s3_protocol: :https,
+      path: ':class/:attachment/:style/:filename',
+      s3_headers: { 'Expires': 1.year.from_now.httpdate },
+      s3_credentials: {
+          bucket: ENV['AWS_BUCKET'],
+          access_key_id: ENV['AWS_ACCESS_KEY'],
+          secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
+      }
   }
+  config.session_store :cookie_store, key: '_session', same_site: :strict
 end

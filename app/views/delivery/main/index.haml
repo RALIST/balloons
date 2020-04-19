@@ -14,27 +14,58 @@
           = link_to 'Выбрать из готовых композиций', tags_path, class: 'btn btn-light btn-block btn-sm'
         .col-12.col-lg-6.mt-3.mt-lg-0
           = link_to 'Собрать свою композицию', products_path, class: 'btn btn-light btn-block btn-sm'
-
-      -#.row.mt-3
-      -#  .col-12.col-lg-6.d-none.d-lg-block
-      -#    = link_to 'viber://chat?number=+79501718109', class: 'btn btn-info btn-block chat-link btn-sm' do
-      -#      %i.fab.fa-viber
-      -#      Связаться в Viber
-      -#  .col-12.col-lg-6.d-lg-none
-      -#    = link_to 'viber://add?number=79501718109', class: 'btn btn-info btn-block chat-link btn-sm' do
-      -#      %i.fab.fa-viber
-      -#      Связаться в Viber
-      -#  .col-12.col-lg-6.mt-lg-0.mt-3
-      -#    = link_to 'https://api.whatsapp.com/send?phone=79501718109&text=Здравствуйте! Хочу проконсультироваться по шарам!', class: 'btn btn-success btn-block chat-link btn-sm' do
-      -#      %i.fab.fa-whatsapp
-      -#      Связаться в WhatsApp
 .main-line
--#.row.no-gutters
--#  .col-12
--#    %h2.h3.text-center
--#      Каталог шариков на любой праздник
+.container.mb-5#parties
+  %h2.my-4.text-center.text-uppercase.font-weight-bold.h4
+    Посмотрите готовые оформления на ваш праздник
+  .row.text-center
+    .col-6.col-lg-3.my-2
+      = link_to '/events/den-rozhdeniya', class: 'text-center' do
+        = show_svg 'svg/cake.svg'
+        %br
+        Шарики на День рождения
+    .col-6.col-lg-3.my-2
+      = link_to '/events/vypisku-iz-roddoma' do
+        = show_svg  'svg/baby.svg'
+        %br
+        Шарики на выписку
+    .col-6.col-lg-3.my-2
+      = link_to '/events/den-svyatogo-valentina' do
+        = show_svg  'svg/heart.svg'
+        %br
+        Шарики для влюбленных
+    .col-6.col-lg-3.my-2
+      = link_to '/events/svadba' do
+        = show_svg  'svg/wedding.svg'
+        %br
+        Шарики на свадьбу
+  .row.my-4.text-center.align-items-center
+    .col-6.col-lg-3.my-2
+      = link_to '/persons/synu', class: 'text-center' do
+        = show_svg 'svg/boy.svg'
+        %br
+        Шарики для мальчика
+    .col-6.col-lg-3.my-2
+      = link_to '/persons/dochke', class: 'text-center' do
+        = show_svg  'svg/girl.svg'
+        %br
+        Шарики для девочки
+    .col-6.col-lg-3.my-2
+      = link_to '/events', class: 'text-center' do
+        %i.fas.fa-arrow-right.fa-3x.text-success
+        %br
+        посмотреть все композиции
+%hr
 .container
   %h2.my-4.text-center.text-uppercase.font-weight-bold.h4
-    Популярные композиции
-  .row.justify-content-around.compositions.text-center#popular
-    = render partial: 'delivery/main/thumb_composition', collection: @compositions, as: :c, cached: true
+    Или выберите воздушные шары из нашего каталога
+  .row.align-items-center
+    = render partial: 'delivery/categories/category_with_image', collection:  @categories, as: :category
+    .col-6.col-lg-3.mb-3.text-center
+      = link_to categories_path do
+        %i.fas.fa-arrow-right.fa-3x.text-success
+        %br
+        все категории
+  -#.row.justify-content-around.compositions.text-center#popular
+  -#  = render partial: 'delivery/main/thumb_composition', collection: @compositions, as: :c, cached: true
+%hr

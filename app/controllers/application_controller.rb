@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :new_call, :redirect_subdomain
 
-  include MainHelper
+  include MetaHelper
 
   private
   def new_call

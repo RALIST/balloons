@@ -4,8 +4,8 @@ class Image < ApplicationRecord
   validates :img, presence: true
   has_attached_file :img, styles: { small:  'x100', thumb: 'x400'},
                           convert_options: {
-                            small: '-quality 75 -strip',
-                            thumb: '-quality 75 -strip'
+                            small: '-auto-orient -strip',
+                            thumb: '-auto-orient -strip'
                           },
                           processors: %i[thumbnail compression]
   validates_attachment_content_type :img,

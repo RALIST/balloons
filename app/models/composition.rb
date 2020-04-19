@@ -1,4 +1,6 @@
 class Composition < ApplicationRecord
+  include Rails.application.routes.url_helpers
+
   has_many :items_in_compositions, dependent: :destroy
   has_many :items, through: :items_in_compositions
   has_many :products, through: :items_in_compositions
@@ -8,6 +10,48 @@ class Composition < ApplicationRecord
   has_many :positions
   has_and_belongs_to_many :tags
   has_and_belongs_to_many :receivers
+
+  has_one_attached :image
+
+  VARIANTS = {
+    small: { width: 150, height: 150, process: :resize_to_fill},
+    medium: { width: 300, height: 300, process: :resize_to_fill },
+    large: { width: 800, height: 800, process: :resize_to_limit }
+  }
+
+  def missing
+    Rails.root.join('app/assets/images/missing_small.png').to_s
+  end
+
+  def small_url
+    return missing unless image.present?
+
+    process_variant(VARIANTS[:small]).service_url.split('?').first
+  end
+
+  def medium_url
+    return missing unless image.present?
+
+    process_variant(VARIANTS[:medium]).service_url.split('?').first
+  end
+
+  def large_url
+    return missing unless image.present?
+
+    process_variant(VARIANTS[:large]).service_url.split('?').first
+  end
+
+  def process_variant(variant)
+    image.variant(
+      variant[:process] => [variant[:width], variant[:height]],
+      auto_orient: true,
+      strip: true,
+      gravity: 'center',
+      quality: '100%'
+    )
+  end
+
+  after_create_commit { ImageProcessingJob.perform_later(id) }
 
   has_attached_file :img,
                     processors: [:watermark, :thumbnail],
@@ -20,7 +64,7 @@ class Composition < ApplicationRecord
                         large:
                                              ['x600', :jpg] },
                     convert_options: {
-                        all: '-normalize -compress JPEG2000 -quality 90'
+                        all: '-strip -auto-orient'
                     }
 
   validates_attachment_content_type :img,
@@ -29,17 +73,13 @@ class Composition < ApplicationRecord
 
   after_save :random_title
 
-
-
-
-
   scope :with_items, -> { joins(:products).distinct(:id) }
   scope :without_items, -> {
                           left_outer_joins(:items)
     .where(items_in_compositions: { id: nil }).where(deleted: false).distinct}
   scope :with_tags, -> { joins(:tags).joins(:receivers) }
   scope :without_tags, -> { joins(:products).where.not(id: Composition.with_tags.map(&:id)).where(deleted: false).where('compositions.img_file_size > ?', 0).distinct }
-  scope :availible, -> {joins(:products, :tags).where('compositions.img_file_size > ?',0).distinct}
+  scope :availible, -> { joins(:image_attachment) }
 
 
 
@@ -53,7 +93,7 @@ class Composition < ApplicationRecord
   end
 
   def comp_price
-    price = self.products.map { |i| i.price_with_helium }.reject(&:nil?).sum.round(2)
+    self.products.map { |i| i.price_with_helium }.reject(&:nil?).sum.round(2)
   end
 
   def update_price
@@ -80,14 +120,17 @@ class Composition < ApplicationRecord
 
   def receiver_title=(title)
     title = Unicode.downcase(title.strip)
-    receiver = Receiver.find_or_create_by!(title: title) unless title.blank?
+    return if  title.blank?
+
+    receiver = Receiver.find_or_create_by!(title: title)
     self.receivers << receiver
   end
 
   def related
     min = (self.price.to_f - 500)
     max = (self.price.to_f + 500)
-    Composition.availible.where(price: min..max).where.not(id: self.id).distinct(:id)
+    tags = self.tag_ids
+    Composition.includes(:tags).availible.where(tags: {id: tags}, price: min..max).where.not(id: self.id).distinct(:id)
   end
 
   def self.price_range(min, max)
@@ -101,7 +144,7 @@ class Composition < ApplicationRecord
   end
 
   def random_title
-    if img.present?
+    if image.present?
       if self.title.blank?
         tags = self.tags.map { |i| 'на ' + i.name }
         start = ['Букет из воздушных шаров', 'Композиция из воздушных шаров', 'Облако из воздушных шаров', 'Оформление из воздушных шаров', 'Стойка из воздушных шаров', 'Красота из воздушных шаров']

@@ -1,8 +1,8 @@
-$(document).on('ajaxComplete', function(){
-  $("a.add-to-cart<%=@composition.id%>").hide().closest('div').html("<%=j added %>");
-  $('#cart #to-cart').html("<%=j link_to 'В корзину', my_cart_path %>");
-  $('#cart-count').html("(<%= @cart.subpositions.count %>)")
-});
+
+$("a.add-to-cart<%=@composition.id%>").hide().closest('div').html("<%=j added %>");
+$('#cart #to-cart').html("<%=j link_to 'В корзину', my_cart_path %>");
+$('#cart-count').html("(<%= @cart.subpositions.count %>)")
+
 
 
 

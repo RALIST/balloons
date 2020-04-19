@@ -1,5 +1,4 @@
 class Product < ApplicationRecord
-  require 'paperclip_processors/watermark'
   belongs_to :item, inverse_of: :products, optional: true
   belongs_to :latex, foreign_key: :item_id
   belongs_to :foil, foreign_key: :item_id
@@ -19,9 +18,6 @@ class Product < ApplicationRecord
   has_many :carts, through: :subpositions
 
   accepts_nested_attributes_for :item
-
-  validates :item_id, presence: true
-  validates :complex_name, uniqueness: true, presence: true
 
   has_attached_file :img,
                     processors: [:thumbnail],
@@ -137,7 +133,7 @@ class Product < ApplicationRecord
     arr
   end
 
-  
+
   def img_remote_url=(url)
     begin
     self.img = URI.parse(url)

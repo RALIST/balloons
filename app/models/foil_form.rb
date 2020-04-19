@@ -7,11 +7,9 @@ class FoilForm < ApplicationRecord
   extend FriendlyId
   friendly_id :name, use: :slugged
 
-  before_save :sanitize
+  before_save :sanitize_name
 
-  private
-
-  def sanitize
+  def sanitize_name
     self.name = name.strip.downcase
   end
 end

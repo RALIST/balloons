@@ -3,4 +3,10 @@
   %h1.h5.text-center
     %span.text-uppercase
       Воздушные шары для любимых
-  = render 'delivery/compositions/compositions_list'
+  - @grouped_compositions.each do |compositions, tag|
+    %h2.h5.text-uppercase.py-2.my-3.border-bottom
+      = link_to receiver_path(tag[0]), class: 'text-secondary' do
+        = tag[0].title
+        %i.fas.fa-angle-double-right
+    - @compositions = compositions
+    = render partial: 'delivery/compositions/compositions_list'

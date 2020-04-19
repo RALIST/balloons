@@ -68,7 +68,7 @@ crumb :color do |color|
 end
 
 crumb :categories do
-  link 'Коллекции', categories_path
+  link 'По тематике', categories_path
   parent :products
 end
 

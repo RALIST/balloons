@@ -33,5 +33,11 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://127.0.0.1:5433/dev</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="development" uuid="2af44e16-9e94-4ccb-93aa-ee9728f5633c">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Sites\Balloons\db\development.sqlite3</jdbc-url>
+    </data-source>
   </component>
 </project>

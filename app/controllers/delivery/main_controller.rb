@@ -5,23 +5,11 @@ class Delivery::MainController < Delivery::DeliveryController
 
   def index
     @disable_bread = true
-    @compositions = Composition.all.order(:views).reverse_order.limit(4)
+    categories = Subcategory.joins(:products).all
+    @categories = categories.distinct(:name).group('subcategories.id').select("subcategories.slug, subcategories.name, subcategories.id, subcategories.updated_at, COUNT(products.id) as total").order('total desc').limit(9)
     respond_to do |format|
       format.html
       format.js
-    end
-  end
-
-  def by_price
-    if params[:min].to_i > 0 || params[:max].to_i > 0
-      @compositions = Composition.availible.price_range(params[:min], params[:max]).order(:price)
-      unless @compositions.any?
-        redirect_to root_path
-        flash[:danger] = 'Нет композиций в этом диапазоне!'
-      end
-    else
-      redirect_to root_path
-      flash[:danger] = 'Необходимо указать хотя бы одну цену!'
     end
   end
 
@@ -46,9 +34,8 @@ class Delivery::MainController < Delivery::DeliveryController
   def faq; end
 
   def chat_me
-    #render layout: false
-    http_cache_forever(public: true) {render layout: false}
+    http_cache_forever(public: true) { render layout: false }
   end
-  
-  
+
+
 end

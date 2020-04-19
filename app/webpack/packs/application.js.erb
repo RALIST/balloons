@@ -1,0 +1,150 @@
+const myCallback = function() {
+  document.recaptcha1 = grecaptcha.render('recaptcha', {
+    'sitekey': "<%= MyGoogleRecaptcha.site_key %>",
+    'size': 'invisible' // must be invisible
+  });
+  console.log('GR1 callback fired')
+  document.recaptcha2 = window.grecaptcha.render('recaptcha2', {
+    'sitekey': "<%= MyGoogleRecaptcha.site_key %>",
+    'size': 'invisible' // must be invisible
+  });
+  console.log('GR2 callback fired')
+};
+
+window.myCallback = myCallback;
+
+import Rails from 'rails-ujs';
+import Turbolinks from 'turbolinks';
+
+import $ from 'jquery';
+import jQuery from 'jquery';
+window.jQuery = $; window.$ = jQuery; global.$ = jQuery;
+
+import 'bootstrap';
+import 'popper.js';
+import '../src/js/jquery.maskedinput';
+import 'clockpicker/src/clockpicker';
+import '../src/js/cookies.js';
+import '../src/js/ym.js.erb';
+import '../src/js/goals.js.erb';
+import '../src/js/common.js';
+import nav from  '../src/js/bootstrap-better-nav';
+import LazyLoad from 'vanilla-lazyload';
+
+Rails.start();
+Turbolinks.start();
+
+const ready = function(){
+  if(!($('body').attr('data-loaded') == 'T')) {
+    clockPicker();
+    dataMask();
+    showMore();
+    cartQuantity();
+    search();
+    nav();
+    Lazy();
+    grInit();
+    tooltip();
+    $('body').attr('data-loaded', 'T');
+  } else {
+    return false;
+  }
+}
+
+const tooltip = function(){
+  $('[data-toggle="tooltip"]').tooltip()
+}
+
+const grInit = function () {
+   grecaptcha.ready(function() {
+    grecaptcha.execute(document.recaptcha1, {action: 'call'}).then(function(token) {
+      console.log("Google recaptcha executed")
+    });
+    grecaptcha.execute(document.recaptcha2, {action: 'call'}).then(function(token) {
+      console.log("Google recaptcha2 executed")
+    });
+  });
+};
+
+const Lazy = function(){
+    var count = 0;
+    var lazyLoadInstance = new LazyLoad({
+      elements_selector: "img",
+      callback_loaded: function (el) { console.log('Loaded', count), count += 1 },
+      callback_finish: function () {console.log('No more images to lazy load')},
+      callback_error: function (el) {console.log('Error', el)}
+    });
+    lazyLoadInstance.update();
+    console.log('Loaded images', count)
+}
+
+const cartQuantity = function () {
+    $(document).on('change','#subposition_quantity', function (e) {
+      var input = this;
+      if ($(input).val()){
+        var form = $(input).closest('form');
+        form.trigger('submit.rails')
+      }
+    });
+};
+
+const showMore = function () {
+    var more = $('#more')
+    var i;
+    more.hide();
+    var rows = $('.item');
+
+    if (rows.length > 4){
+        more.show();
+        $(rows[3]).addClass('grad-1');
+        for (i = 4; i < rows.length; i++) {
+          $(rows[i]).hide();
+        }
+        more.on('click', function(){
+          for (i = 4; i < rows.length; i++) {
+            $(rows[i]).toggle(100);
+          }
+          $(rows[3]).toggleClass('grad-1');
+          $(this).find('i').toggleClass('fa-chevron-up').toggleClass('fa-chevron-down');
+          $(this).toggleClass('with-grad');
+          $(this).find('.small').text(function(){
+            var text = $(this).text();
+            return text == 'Спрятать' ? "Показать все" : "Спрятать"
+          })
+        });
+      }
+};
+
+const clockPicker = function(){
+    $('.clockpicker').clockpicker(
+    {'default': 'now',
+      autoclose: true,
+      donetext: 'Готово!'}
+    );
+};
+
+const dataMask = function () {
+    $('[data-mask]').each(function(index, value){
+        var element = $(value);
+        element.mask($(value).data('mask'), {placeholder: '-'})
+    });
+};
+
+const search = function(){
+  $("input[name='search']").on('keyup touchend', function(e){
+    if( e.key == 8 || e.key == 46 ){
+      return false;
+    };
+    var text = $("input[name='search']").val();
+    if(text.length){
+      $('.as_btn').not(":containsi('" + text + "')").closest('.col-6').hide();
+      $(".as_btn:containsi('" + text + "')").closest('.col-6').show();
+    }else{
+      $('.as_btn').closest('.col-6').show();
+    }
+
+  });
+};
+
+document.addEventListener("turbolinks:load", ready);
+document.addEventListener('ready', ready);

@@ -1,0 +1,31 @@
+%ul.navbar-nav.ml-auto.w-100.justify-content-around.lg-menu
+  %li.dropdown.nav-item
+    = link_to '', class: 'dropdown-toggle nav-link', data: {toggle: 'dropdown'} do
+      Готовые композиции
+    .dropdown-menu
+      = link_to 'Все композиции', compositions_path, class: 'dropdown-item'
+      = link_to 'По праздникам', tags_path, class: 'dropdown-item'
+      = link_to 'Кому', receivers_path, class: 'dropdown-item'
+  %li.dropdown.nav-item
+    = link_to '', class: 'dropdown-toggle nav-link', data: {toggle: 'dropdown'} do
+      Гелиевые шары
+    .dropdown-menu
+      = link_to 'По цветам', colors_path, class: 'dropdown-item'
+      = link_to 'По форме', forms_path, class: 'dropdown-item'
+      = link_to 'По тематике', categories_path, class: 'dropdown-item'
+  %li.nav-item
+    = link_to 'Для бизнеса', business_index_path, class: 'nav-link'
+
+  %li.nav-item
+    = link_to 'Контакты', contacts_path, class: 'nav-link'
+  %li.nav-item
+    = link_to my_cart_path, rel: 'nofollow', title: 'Корзина', class: 'nav-link' do
+      %i.fas.fa-shopping-cart.text-info
+      Корзина
+      #cart-count.d-inline.text-danger
+        = @cart.subpositions.any? ? "(#{@cart.subpositions.count})" : ''
+
+  %li.nav-item
+    = link_to 'tel: +79501718109', class: 'nav-link font-weight-bold' do
+      %i.fas.fa-phone.text-info.fa-rotate-180
+      +7 (950) 171-81-09

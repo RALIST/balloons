@@ -1,12 +1,13 @@
 # Set the host name for URL creation
 
+require 'aws-sdk'
+
 SitemapGenerator::Sitemap.default_host = 'https://bigairballoons.ru'
 if Rails.env.production?
-  SitemapGenerator::Sitemap.adapter = SitemapGenerator::S3Adapter.new(fog_provider: 'AWS',
+  SitemapGenerator::Sitemap.adapter = SitemapGenerator::AwsSdkAdapter.new(ENV['AWS_BUCKET'],
                                                                       aws_access_key_id: ENV['AWS_ACCESS_KEY'],
                                                                       aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
-                                                                      fog_directory: ENV['AWS_BUCKET'],
-                                                                      fog_region: ENV['AWS_REGION'])
+                                                                      aws_region: ENV['AWS_REGION'])
   SitemapGenerator::Sitemap.public_path = 'tmp/'
   SitemapGenerator::Sitemap.sitemaps_host = 'https://s3.eu-central-1.amazonaws.com/balloons-images'
   SitemapGenerator::Sitemap.sitemaps_path = 'sitemaps/'
@@ -58,7 +59,5 @@ SitemapGenerator::Sitemap.create do
   add about_path(city: nil)
   add business_index_path(city: nil)
   add feedbacks_path(city: nil)
-  add kg_path(city: nil)
-  add school_path(city: nil)
   add faq_path(city: nil)
 end

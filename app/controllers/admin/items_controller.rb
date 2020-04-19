@@ -41,39 +41,7 @@ class Admin::ItemsController < Admin::AdminController
   def show; end
 
   def index
-    if params[:q]
-      @items = Item.search(params[:q]).paginate(page: params[:page], per_page: 20)
-    elsif params[:type]
-      type = Type.find(params[:type])
-      @items = Item.where(type: type).paginate(page: params[:page], per_page: 20)
-    elsif params[:vendor]
-      vendor = Vendor.find(params[:vendor])
-      @items = Item.where(vendor: vendor).paginate(page: params[:page], per_page: 20)
-    elsif params[:category]
-      category = Category.find(params[:category])
-      @items = Item.where(category: category).paginate(page: params[:page], per_page: 20)
-    elsif params[:tone]
-      tone = Tone.find(params[:tone])
-      @items = Item.where(tone: tone).paginate(page: params[:page], per_page: 20)
-    elsif params[:form]
-      form = FoilForm.find(params[:form])
-      @items = Item.where(foil_form: form).paginate(page: params[:page], per_page: 20)
-    elsif params[:color]
-      @items = Item.where(color_id: params[:color]).paginate(page: params[:page], per_page: 20)
-    elsif params[:texture]
-      texture = Texture.find(params[:texture])
-      @items = Item.where(texture: texture).paginate(page: params[:page], per_page: 20)
-    elsif params[:subcategory]
-      subcategory = Subcategory.find(params[:subcategory])
-      @items = subcategory.items.paginate(page: params[:page], per_page: 20)
-    elsif params[:size]
-      size = Size.find(params[:size])
-      ids = []
-      size.products.each do |product|
-        ids << product.item.id
-      end
-      @items = Item.where(id: ids).paginate(page: params[:page], per_page: 20)
-    end
+
   end
 
   private
@@ -107,7 +75,6 @@ class Admin::ItemsController < Admin::AdminController
                                    category_id: item_params[:category_id],
                                    type_id: item_params[:type_id],
                                    name: item_params[:name],
-                                   color_id: item_params[:color_id],
-                                   tone_id: item_params[:tone_id])
+                                   color_id: item_params[:color_id])
   end
 end

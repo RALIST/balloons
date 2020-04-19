@@ -1,17 +1,17 @@
 source 'http://rubygems.org'
-ruby '2.3.3'
+ruby '2.6.5'
 
-gem 'bcrypt'
-gem 'coffee-rails', '~> 4.2'
+git_source(:github) do |repo_name|
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  "https://github.com/#{repo_name}.git"
+end
+
+gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
 gem 'jbuilder', '~> 2.5'
-gem 'jquery-rails'
 gem 'puma', '~> 3.0'
-gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
-gem 'redis', '~> 3.0'
-gem 'sass-rails'
+gem 'rails', '~> 6.0.2.1'
 gem 'sprockets-rails'
-gem 'turbolinks', '~> 5.0.0'
-gem 'uglifier', '>= 1.3.0'
+
 
 group :development, :test do
   gem 'bullet'
@@ -20,40 +20,33 @@ group :development, :test do
   gem 'web-console'
   gem 'active_record_query_trace'
   gem 'sys-proctable'
+  gem 'tzinfo-data'
 end
 
-gem 'bootstrap', '~> 4.3.1'
+
 gem 'haml-rails'
-gem 'image_optim'
-gem 'loadcss-rails', '~> 2.0.1'
 gem 'mainsms_api'
 gem 'meta-tags'
 gem 'paperclip'
 gem 'paperclip-compression'
 gem 'paperclip-optimizer'
-gem 'pg', '~> 0.21'
+gem 'pg'
 gem 'popper_js'
-gem 'premailer-rails'
 gem 'rack-canonical-host'
-gem 'rubocop', '~> 0.52.1', require: false
 gem 'russian'
 gem 'sitemap_generator'
 gem 'sorcery'
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'unicode'
-gem 'will_paginate'
-gem 'geocoder'
 gem "roo", "~> 2.7.0"
 gem 'rubyzip', require: false
-gem 'font_assets'
-gem 'aws-sdk', require: false
 gem 'aws-sdk-s3', require: false
-gem 'puma_worker_killer'
 gem 'active_link_to'
-gem 'pagy'
 gem 'friendly_id'
 gem 'gretel'
-gem 'new_google_recaptcha'
+gem 'webpacker', '~> 4.x'
+gem 'will_paginate'
+gem 'delayed_job_active_record'
+gem 'image_processing'
 
 group :production do
   gem 'fog-aws', require: false

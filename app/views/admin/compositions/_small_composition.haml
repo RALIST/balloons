@@ -1,5 +1,3 @@
-.col-4.col-lg-3.small-composition
-  - cache ['small_composition', composition] do
-    = link_to admin_composition_path(composition) do
-      = image_tag composition.img(:preview)
-    = link_to 'Удалить', admin_composition_path(composition), method: :delete, remote: true
+.small-composition
+  = link_to admin_composition_path(composition) do
+    = image_tag composition.small_url

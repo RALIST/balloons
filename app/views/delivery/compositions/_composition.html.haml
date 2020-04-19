@@ -1,4 +1,4 @@
-- cache ["admin_#{current_user.present? && current_user.admin?}", composition, @cart.products] do
+- cache composition do
   %h1.h5.text-center.mt-4{itemprop: 'name'}
     %span
       Композиция № #{composition.id} из воздушных шаров
@@ -6,69 +6,71 @@
   .container
     .row
       .col-12.col-lg-6.order-2
-        -#.lead.strong.text-uppercase.mb-0.text-center
-        -#  Состав композиции
-        #products.card
-          %table.table.table-borderless.table-responsive-md
-            %thead.border-bottom
-              %tr
-                %th.text-center
-                  Шар
-                %th.text-center
-                  Количество
-                %th.text-center
-                  Цена
-            %tbody
-              - @products.each do |product|
-                - cache product do
-                  %tr.item.text-center
-                    %td.text-center.align-middle{data: {item_id: "#{product.id}", content: "#{product.complex_name}" }}
-                      %span{style: 'border-bottom: 1px dashed black; cursor: pointer;'}
-                        = image_tag product.img(:small), alt: 'Воздушный шар' + " " + product.complex_name
-                    %td.h5.strong.align-middle
-                      = composition.products.where(id: product.id).count
-                      %small
-                        шт.
-                    %td.h5.strong.align-middle
-                      = product.price_with_helium.round(0)
-                      %small
-                        руб.
+        - if composition.price > 0
+          #products.card
+            %table.table.table-borderless.table-responsive-md
+              %thead.border-bottom
+                %tr
+                  %th.text-center
+                    Шар
+                  %th.text-center
+                    Количество
+                  %th.text-center
+                    Цена
+              %tbody
+                - @products.each do |product|
+                  - cache product do
+                    %tr.item.text-center
+                      %td.text-center.align-middle{data: {item_id: "#{product.id}", content: "#{product.complex_name}" }}
+                        %span{style: 'border-bottom: 1px dashed black; cursor: pointer;'}
+                          = image_tag product.img(:small), alt: 'Воздушный шар' + " " + product.complex_name, title: product.complex_name, data: { toggle: 'tooltip'}
+                      %td.h5.strong.align-middle
+                        = composition.products.where(id: product.id).count
+                        %small
+                          шт.
+                      %td.h5.strong.align-middle
+                        = product.price_with_helium.round(0)
+                        %small
+                          руб.
 
-          #more.text-center.w-100.lead.with-grad{style: 'cursor: pointer; line-height: 0.3rem;'}
-            .small.lead
-              Показать все
-            %br
-            %i.fa.fa-chevron-down
-        #total.row.align-items-center
-          .col-12.my-2.text-right
-            %span.text-uppercase.text-left.mr-1.text-lavender
-              Итого:
-            %span.h1{itemprop: 'price'}
-              = composition.price.round(0)
-            %span{itemprop: 'priceCurrency', content: 'RUB'}
-              руб.
-            %link{itemprop: 'availability', href: 'http://schema.org/Preorder'}
-          .col-12.text-right
-            - unless @cart.compositions.include?(composition)
-              = link_to 'Добавить в корзину', add_to_cart_path(composition), class: "btn btn-info btn-block add-to-cart#{composition.id}", id: 'ga-add-to-cart', data: {disable_with: 'Добавляем...', turbolinks: false}, remote: true, method: :post
-            - else
-              = link_to 'Перейти в корзину', my_cart_path, class: 'btn btn-success btn-block btn-sm'
-          .col-12.text-center.text-lavender.mt-2.small
-            Вы cможете изменить состав композиции в корзине
-            - if current_user && current_user.admin?
-              .col-12.text-center
-                = link_to 'Редактировать', admin_composition_path(composition), class: 'btn btn-light btn-sm'
-                = link_to 'Удалить', admin_composition_path(composition), method: :delete, class: 'btn btn-light btn-sm', data: {confirm: 'Вы уверены?'}
+            #more.text-center.w-100.lead.with-grad{style: 'cursor: pointer; line-height: 0.3rem;'}
+              .small.lead
+                Показать все
+              %br
+              %i.fa.fa-chevron-down
+          #total.row.align-items-center
+            .col-12.my-2.text-right
+              %span.text-uppercase.text-left.mr-1.text-lavender
+                Итого:
+              %span.h1{itemprop: 'price'}
+                = composition.price.round(0)
+              %span{itemprop: 'priceCurrency', content: 'RUB'}
+                руб.
+              %link{itemprop: 'availability', href: 'http://schema.org/Preorder'}
+            .col-12.text-right
+              - unless @cart.compositions.include?(composition)
+                = link_to 'Добавить в корзину', add_to_cart_path(composition), class: "btn btn-info btn-block add-to-cart#{composition.id}", id: 'ga-add-to-cart', data: {disable_with: 'Добавляем...', turbolinks: false}, remote: true, method: :post
+              - else
+                = link_to 'Перейти в корзину', my_cart_path, class: 'btn btn-success btn-block btn-sm'
+            .col-12.text-center.text-lavender.mt-2.small
+              Вы можете изменить состав композиции добавив ее в корзину
+        - else
+          .h4.text-center
+            К сожалению, мы еще не успели добавить цену на эту композицию, но вы все равно можете заказать ее.
+          .small.my-3.text-center.text-uppercase
+            Просто оставьте заявку и мы просчитаем цену для вас.
+          = link_to 'Узнать цену', '#', class: 'btn btn-info btn-block' , data:{ toggle: 'modal', target: '#price-call-modal'}
       .col-12.col-lg-6.text-center.order-1
-        = image_tag composition.img.url(:large), class: 'img-fluid rounded w-100', itemprop: 'image', alt: composition.title
+        = image_tag composition.large_url, class: 'img-fluid rounded', itemprop: 'image', alt: composition.title
         .row.comp-text.text-secondary.justify-content-between.mt-3
           .col-12.d-flex.flex-row.justify-content-between
 
 %hr.w-100
-.container
-  %h2.h5.text-center.strong.my-3.text-secondary
-    %span.px-3.text-uppercase
-      Похожие композиции
-  .row.justify-content-around.compositions.text-center#popular{itemprop: 'isSimilarTo'}
-    = render partial: 'delivery/main/thumb_composition', collection: composition.related.limit(4).order(:price), as: :c, cached: true
+- if composition.related.any?
+  .container
+    %h2.h5.text-center.strong.my-3.text-secondary
+      %span.text-uppercase
+        Похожие композиции
+    .row.justify-content-around.compositions.text-center.small-compositions#popular{itemprop: 'isSimilarTo'}
+      = render partial: 'delivery/compositions/small_composition', collection: composition.related.limit(4).order(:price), as: :composition
 

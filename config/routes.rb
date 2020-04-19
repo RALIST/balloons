@@ -1,29 +1,37 @@
-
-
 Rails.application.routes.draw do
-
-
   namespace :admin, module: 'admin' do
     root 'main#index'
-    resources :items
+
+    resources :items do
+      collection do
+        resources :types
+        resources :colors
+        resources :categories
+        resources :tones
+        resources :vendors
+        resources :textures
+        resources :sizes
+      end
+    end
     resources :compositions
     resources :tags
     resources :users
     resources :orders
     resources :sessions
     resources :prices
-    resources :types
-    resources :colors
-    resources :categories
-    resources :tones
-    resources :vendors
-    resources :textures
-    resources :sizes
+    resources :types, only: [:new, :create]
+    resources :colors, only: [:new, :create]
+    resources :categories, only: [:new, :create]
+    resources :tones, only: [:new, :create]
+    resources :vendors, only: [:new, :create]
+    resources :textures, only: [:new, :create]
+    resources :sizes, only: [:new, :create]
     resources :products
     resources :foil_forms
     resources :subcategories
     resources :promotions
     resources :partners
+    resources :calls
     post '/parse_price', to: 'prices#parse_price', as: :parse_price
     post '/destroy_items', to: 'items#destroy_items', as: :destroy_items
     get '/get_images', to: 'items#get_images', as: :get_images
@@ -55,7 +63,7 @@ Rails.application.routes.draw do
         resources :forms
         resources :products, path: ''
       end
-      
+
       resources :carts
       resources :orders
       resources :positions

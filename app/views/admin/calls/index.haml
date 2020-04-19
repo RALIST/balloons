@@ -1,0 +1,30 @@
+%table.table
+  %thead
+    %th
+      \#
+    %th
+      Имя
+    %th
+      Телефон
+    %th
+      Дата заявки
+    %th
+      Тип
+    %th
+      Actions
+  %tbody
+    - @calls.each do |call|
+      %tr
+        %td
+          = call.id
+        %td
+          = link_to call.username, admin_call_path(call)
+        %td
+          = call.userphone
+        %td
+          = call.created_at
+        %td
+          = call.call_type
+        %td
+          = link_to admin_call_path(call), method: :delete do
+            %i.fas.fa-times

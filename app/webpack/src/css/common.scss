@@ -1,0 +1,437 @@
+body {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   background-color: $light;
+   @include media-breakpoint-down(md){
+     padding-top: 80px;
+   }
+
+
+  .wrapper {
+    position: relative;
+     min-height: 100vh;
+  }
+
+   #seo-text {
+     margin-top: 2rem;
+   }
+
+   footer {
+     background: white;
+   }
+   #main-container {
+     padding: 0 !important;
+   }
+}
+
+#admin {
+  padding-top: 0 !important;
+}
+
+
+
+.bg-info {
+  color: white;
+  li > a {
+    color: white;
+  }
+}
+
+
+#return-to-top {
+  z-index: 999;
+  cursor: pointer;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  color: rgba($brand-secondary, 0.5);
+  width: 56px;
+  height: 56px;
+  display: block;
+  text-decoration: none;
+  display: none;
+  -webkit-transition: all 0.3s linear;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.fa-angle-double-up {
+  color: #ffffff !important;
+}
+#return-to-top i {
+    color: rgba($brand-secondary, 0.6);
+    margin: 0;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+#return-to-top:hover .fa-circle {
+    // background: rgba(darken($brand-secondary, 10%), 0.9);
+    color: $brand-secondary;
+}
+#return-to-top:hover .fa-angle-double-up {
+    bottom: 0.3em;
+}
+
+
+#flash {
+  position: fixed;
+  top: 10%;
+  right: 0;
+  z-index: 999;
+  font-size: 1.2em;
+  //font-family: $font-family-serif;
+}
+
+
+//input, select, textarea {
+//  font-size: 16px !important;
+//}
+ .bd-callout-danger {
+   padding: 1.25rem;
+   margin-top: 1.25rem;
+   margin-bottom: 1.25rem;
+   border: 1px solid #eee;
+   border-left-width: .25rem;
+   border-radius: .25rem;
+   border-left-color: $danger;
+   background: white;
+ }
+
+
+#main-offer {
+  min-height: calc(90vh - 78px);
+  background: url("../../assets/images/balloon-contacts.png") no-repeat;
+  background-size: contain;
+  background-position: right;
+  background-color: $lavander;
+  @extend .d-flex;
+  @extend .flex-column;
+  @extend .align-items-center;
+  @include media-breakpoint-down(lg){
+    background-position: top right;
+    background-size: 50%;
+    min-height: calc(100vh - 80px);
+    .display-4 {
+      font-size: 1.7rem;
+      //background-color: rgba(0,0,0,0.5);
+      //padding: 1rem 0;
+      //border-radius: 0.5rem;
+    }
+    .lead {
+      font-size: 1rem;
+    }
+  }
+}
+
+#main-offer-2 {
+  @extend #main-offer;
+  min-height: 30vh;
+}
+
+#business-offer {
+  @extend #main-offer;
+  min-height: calc(100vh - 78px - 35px);
+  @include media-breakpoint-down(lg) {
+    margin-top: 35px;
+    background-position: top right;
+    background-size: 50%;
+    min-height: calc(100vh - 83px - 35px);
+    .display-4 {
+      font-size: 1.7rem;
+    }
+    .lead {
+      font-size: 1rem;
+    }
+  }
+}
+
+
+#menu {
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  .logo-lg{
+    position: absolute;
+    top: -35px;
+    left: 0;
+    height: 129px;
+    border: 1px solid $brand-info;
+    //box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+    @include media-breakpoint-down(lg){
+      position: initial;
+      box-shadow: none;
+      height: 53px;
+      top: 0;
+      left: 1rem;
+    }
+  }
+  .breadcrumbs {
+    @extend .d-flex;
+    @extend .justify-content-start;
+    breadcrumb:not(:first-child){
+      padding: 0 0.25rem;
+      @include media-breakpoint-down(lg){
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+    }
+
+    breadcrumb:first-child{
+      padding-right: 0.25rem;
+    }
+
+    .current {
+      color: $light-pink;
+    }
+  }
+  @include media-breakpoint-down(md){
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+  }
+}
+
+#seo-text {
+  p, ul {
+    @extend .text-justify;
+  }
+  h2, h3 {
+    @extend .text-info;
+    @extend .h5;
+  }
+}
+
+
+.form-check {
+  label {
+    color: transparentize(#000000, 0.4);
+  }
+}
+
+.form-control:focus{
+  box-shadow: none;
+}
+
+.sidebar{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  padding: 160px 0;
+}
+
+.composition{
+  @include media-breakpoint-up(xl){
+    @include make-col-ready();
+    @include make-col(3);
+  }
+
+  @include media-breakpoint-up(md){
+    @include make-col-ready();
+    @include make-col(4);
+  }
+  @include media-breakpoint-down(md){
+    @include make-col-ready();
+    @include make-col(6);
+  }
+  @include media-breakpoint-down(xs){
+    @include make-col-ready();
+    @include make-col(12);
+  }
+  margin-bottom: 10px;
+  .card {
+    @extend .shadow;
+    min-height: 100%;
+    .line {
+      position: relative;
+      bottom: 11px;
+    }
+    .img-fluid {
+      min-width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+
+    }
+    .card-image-top{
+      width: 100%;
+      height: 300px;
+      overflow: hidden;
+      border-radius: 0.25rem;
+    }
+    .card-footer {
+      border: 0;
+    }
+
+  }
+  padding: 0;
+}
+
+#popular {
+  .composition {
+    @include media-breakpoint-up(xl){
+      @include make-col-ready();
+      @include make-col(3);
+    }
+
+    @include media-breakpoint-up(md){
+      @include make-col-ready();
+      @include make-col(3);
+    }
+    @include media-breakpoint-down(md){
+      @include make-col-ready();
+      @include make-col(6);
+    }
+    @include media-breakpoint-down(xs){
+      @include make-col-ready();
+      @include make-col(12);
+    }
+  }
+  .card {
+    @extend .shadow;
+    min-height: 100%;
+    .line {
+      position: relative;
+      bottom: 8px;
+      height: 8px;
+    }
+    .img-fluid {
+      min-width: 100%;
+      height: 100%;
+      object-fit: cover;
+
+    }
+    .card-image-top{
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      border-radius: 0.25rem;
+    }
+    .card-footer {
+      border: 0;
+      .h4 {
+        @extend .h5;
+      }
+    }
+
+  }
+}
+
+
+.line {
+  height: 11px;
+  left: 0;
+  background: image-url('../../assets/images/line.png') repeat-x center;
+  background-size: 6% 100%;
+  @include media-breakpoint-down(lg){
+    background-size: 12% 100%;
+    height: 12px;
+  }
+}
+.composition .line {
+  background-size: 15% 100%;
+  @include media-breakpoint-down(lg){
+    background-size: 12% 100%;
+    height: 12px;
+  }
+}
+
+.main-line {
+  position: relative;
+  @extend .line;
+  top: -11px;
+}
+
+.c-list{
+  padding-top: 1rem;
+  @include media-breakpoint-down(md){
+    padding-top: 2rem;
+  }
+  h1, h2 {
+    padding-top: .5rem;
+    padding-bottom: 0.5rem;
+    margin: 0;
+    position: relative;
+    @include media-breakpoint-down(md){
+      padding: 0.75rem 0;
+    }
+    //border-bottom: 1px solid transparentize(black, 0.6);
+    span {
+      font-weight: 600;
+      position: relative;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.card {
+  word-break: normal;
+  word-wrap: normal;
+}
+
+.small-compositions {
+  .small-composition {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    box-sizing: border-box;
+    &:before {
+      content: '';
+      display: block;
+      padding-top: 100%;
+    }
+    img {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      -o-object-fit: cover;
+      object-fit: cover;
+      -o-object-position: top;
+      object-position: top;
+      top: 0;
+      left: 0;
+      padding: 5px;
+    }
+  }
+}
+
+.category-with-image {
+  width: 100%;
+  overflow: hidden;
+  transition: height .5s;
+  -webkit-transition: height .5s;
+
+  @include media-breakpoint-down(lg){
+    .card-title {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+#parties svg {
+  width: 100px;
+  height: 100px;
+}
+
+.lg-menu {
+  @include media-breakpoint-down(lg){
+    display: none;
+  }
+}
+
+.sm-menu {
+  @include media-breakpoint-up(md){
+    display: none;
+  }
+}

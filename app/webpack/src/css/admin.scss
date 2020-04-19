@@ -1,0 +1,14 @@
+.admin-sidebar {
+  .nav-link.small {
+    color: rgba(255, 255, 255, 0.5) !important;
+    &:hover, &:active, &:focus {
+    color: rgba(255, 255, 255, 0.75) !important;
+    }
+  }
+}
+
+.destroy-button {
+  position: relative;
+  z-index: 999;
+  @extend .btn;
+}

@@ -1,11 +1,11 @@
-$("#<%= @subposition.id%>").fadeOut();
+$("#<%= @subposition.id%>").fadeOut('fast');
 $('#subtotal').html('<%= j(render "delivery/carts/subtotal") %>');
-$(document).on('ajaxSuccess', function(){
-  <% if @cart.subpositions.any? %>
-    $('#cart-count').html("(<%= @cart.subpositions.count %>)");
-  <% else %>
-    $('#cart-count').remove();
-  <% end %>
-});
+
+<% if @cart.subpositions.any? %>
+  $('#cart-count').html("(<%= @cart.subpositions.count %>)");
+<% else %>
+  $('#cart-count').remove();
+<% end %>
+
 
 

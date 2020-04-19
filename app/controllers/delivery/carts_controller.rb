@@ -1,15 +1,12 @@
 class Delivery::CartsController < Delivery::DeliveryController
-  
+
   before_action :disable_sidebar
-  
+
   def index; end
 
   def show
+    ActiveRecord::Associations::Preloader.new.preload(current_cart, positions: [:composition, :subpositions])
     @cart = current_cart
-    respond_to do |format|
-      format.html
-      format.js
-    end
   end
 
   def add_to_cart
@@ -17,12 +14,14 @@ class Delivery::CartsController < Delivery::DeliveryController
     if current_cart.compositions.include?(@composition)
       flash.now[:danger] = 'Эта композиция уже в корзине!'
     else
-      @position = current_cart.positions.create(composition: @composition)
-      @composition.products.uniq.each do |product|
-        quantity = @composition.products.where(id: product.id).count
-        @position.subpositions.create(product: product, quantity: quantity)
+      position = current_cart.positions.create!(composition: @composition)
+      if position.save
+        @composition.products.uniq.each do |product|
+          quantity = @composition.products.where(id: product.id).count
+          position.subpositions.create(product: product, quantity: quantity)
+        end
+        flash[:success] = 'Композиция добавлена в корзину!'
       end
-      flash.now[:success] = 'Композиция добавлена в корзину!'
     end
     respond_to do |format|
       format.html { redirect_back(fallback_location: root_path) }

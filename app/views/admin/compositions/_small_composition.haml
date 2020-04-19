@@ -1,5 +1,3 @@
-.small-composition.card
+.small-composition
   = link_to admin_composition_path(composition) do
-    = image_tag composition.img(:preview)
-  = link_to  admin_composition_path(composition), method: :delete, remote: true, class: 'destroy-button' do
-    %i.fas.fa-times.text-danger
+    = image_tag composition.small_url

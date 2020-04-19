@@ -45,6 +45,8 @@ gem 'friendly_id'
 gem 'gretel'
 gem 'webpacker', '~> 4.x'
 gem 'will_paginate'
+gem 'delayed_job_active_record'
+gem 'image_processing'
 
 group :production do
   gem 'fog-aws', require: false

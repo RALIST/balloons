@@ -1,4 +1,6 @@
 class Composition < ApplicationRecord
+  include Rails.application.routes.url_helpers
+
   has_many :items_in_compositions, dependent: :destroy
   has_many :items, through: :items_in_compositions
   has_many :products, through: :items_in_compositions
@@ -8,6 +10,48 @@ class Composition < ApplicationRecord
   has_many :positions
   has_and_belongs_to_many :tags
   has_and_belongs_to_many :receivers
+
+  has_one_attached :image
+
+  VARIANTS = {
+    small: { width: 150, height: 150, process: :resize_to_fill},
+    medium: { width: 300, height: 300, process: :resize_to_fill },
+    large: { width: 600, height: 600, process: :resize_to_fit }
+  }
+
+  def missing
+    Rails.root.join('app/assets/images/missing_small.png').to_s
+  end
+
+  def small_url
+    return missing unless image.present?
+
+    process_variant(VARIANTS[:small]).service_url.split('?').first
+  end
+
+  def medium_url
+    return missing unless image.present?
+
+    process_variant(VARIANTS[:medium]).service_url.split('?').first
+  end
+
+  def large_url
+    return missing unless image.present?
+
+    process_variant(VARIANTS[:large]).service_url.split('?').first
+  end
+
+  def process_variant(variant)
+    image.variant(
+      variant[:process] => [variant[:width], variant[:height]],
+      auto_orient: true,
+      strip: true,
+      gravity: 'center',
+      quality: '100%'
+    )
+  end
+
+  after_create_commit { ImageProcessingJob.perform_later(id) }
 
   has_attached_file :img,
                     processors: [:watermark, :thumbnail],
@@ -29,17 +73,13 @@ class Composition < ApplicationRecord
 
   after_save :random_title
 
-
-
-
-
   scope :with_items, -> { joins(:products).distinct(:id) }
   scope :without_items, -> {
                           left_outer_joins(:items)
     .where(items_in_compositions: { id: nil }).where(deleted: false).distinct}
   scope :with_tags, -> { joins(:tags).joins(:receivers) }
   scope :without_tags, -> { joins(:products).where.not(id: Composition.with_tags.map(&:id)).where(deleted: false).where('compositions.img_file_size > ?', 0).distinct }
-  scope :availible, -> {where.not(img_file_size: 0).distinct}
+  scope :availible, -> { joins(:image_attachment).order(:created_at) }
 
 
 
@@ -104,7 +144,7 @@ class Composition < ApplicationRecord
   end
 
   def random_title
-    if img.present?
+    if image.present?
       if self.title.blank?
         tags = self.tags.map { |i| 'на ' + i.name }
         start = ['Букет из воздушных шаров', 'Композиция из воздушных шаров', 'Облако из воздушных шаров', 'Оформление из воздушных шаров', 'Стойка из воздушных шаров', 'Красота из воздушных шаров']

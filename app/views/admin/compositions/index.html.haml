@@ -12,12 +12,12 @@
     = link_to 'Добавить композицию', new_admin_composition_path, class: 'btn btn-sm btn-info nav-link'
 .tab-content
   .tab-pane.fade.show.active#availible
-    .card-columns.small-compositions
+    .small-compositions
       = render partial: 'small_composition', collection: @compositions, as: :composition
   .tab-pane.fade#without_items
-    .row.small-compositions
+    .small-compositions
       = render partial: 'small_composition', collection: @compositions_without_items, as: :composition
   .tab-pane.fade#without_tags
-    .row.small-compositions
+    .small-compositions
       = render partial: 'small_composition', collection: @compositions_without_tags, as: :composition
 

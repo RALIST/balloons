@@ -4,7 +4,7 @@ class Admin::CompositionsController < Admin::AdminController
                                     update_price delete remove_item]
 
   def index
-    @compositions = Composition.availible
+    @compositions = Composition.availible.with_attached_image
     @compositions_without_items = Composition.without_items.order(:id)
     @compositions_without_tags = Composition.without_tags.order(:id)
   end
@@ -23,7 +23,7 @@ class Admin::CompositionsController < Admin::AdminController
   def create
     if params[:imgs]
       params[:imgs].each do |img|
-        @comp = Composition.create(img: img)
+        @comp = Composition.create(image: img)
       end
       if @comp.save
         redirect_to admin_compositions_path
@@ -89,7 +89,7 @@ class Admin::CompositionsController < Admin::AdminController
   private
 
   def comp_params
-    params.require(:composition).permit(:title, :img, :price, :tag_name, :deleted, :receiver_title)
+    params.require(:composition).permit(:title, :img, :price, :tag_name, :deleted, :receiver_title, :image)
   end
 
   def set_comp

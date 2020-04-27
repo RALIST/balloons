@@ -14,7 +14,7 @@ class User < ApplicationRecord
   validates :phone, uniqueness: true
 
 
-  CITIES = ['izhevsk', 'sarapul', 'glazov', 'mozhga', 'votkinsk']
+  CITIES = %w(izhevsk sarapul glazov mozhga votkinsk)
 
 
   def set_password

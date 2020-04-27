@@ -17,9 +17,9 @@ class Delivery::TagsController < Delivery::DeliveryController
 														детские праздники воздушными шарами,
 														оформление праздников воздушными шарами,
 														оформление детского праздника воздушными шарами"
-		compositions = Composition.availible.with_attached_image
 		@grouped_compositions = Tag.distinct(:name).joins(:compositions).order(:id).group_by{|tag| tag.compositions.with_attached_image.distinct.limit(7) }
-		fresh_when compositions, last_modified: compositions.maximum(:updated_at), public: true
+
+		fresh_when @grouped_compositions.keys, public: true
 	end
 
 	def show
@@ -27,6 +27,6 @@ class Delivery::TagsController < Delivery::DeliveryController
 		@compositions = Composition.availible.with_tag(@tag.name).order(:price).with_attached_image
   	set_meta_tags_for_tag(@tag)
 
-		fresh_when @compositions, last_modified: @compositions.maximum(:updated_at), public: true
+		fresh_when @compositions, public: true
 	end
 end

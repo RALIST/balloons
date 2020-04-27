@@ -2,7 +2,7 @@ class Call < ApplicationRecord
   # after_save :send_new_call_notification, :send_sms_to_admin
 
   def send_new_call_notification
-    AdminMailer.new_call_order_notify(self).deliver_now
+    AdminMailer.new_call_order_notify(self).deliver_later
   end
 
   def send_sms_to_admin
@@ -18,6 +18,5 @@ class Call < ApplicationRecord
                                         recipients: ['79501718109'])
       response = message.deliver unless Rails.env.development?
     end
-
   end
 end

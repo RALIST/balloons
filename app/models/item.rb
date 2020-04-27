@@ -43,7 +43,7 @@ class Item < ApplicationRecord
     sanitized = sanitized.gsub(/#{form}/, '') if form
     sanitized = sanitized.gsub(/#{color_name}/, '') if color_name
     sanitized = sanitized.gsub(/#{texture_name}/, '') if texture_name
-    return sanitized
+    sanitized
   end
 
 end

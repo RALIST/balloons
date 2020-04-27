@@ -157,8 +157,9 @@ class Product < ApplicationRecord
         get_image_from_web
       end
     end
-    rescue
-
+    rescue => e
+      puts e
+      nil
     end
   end
 

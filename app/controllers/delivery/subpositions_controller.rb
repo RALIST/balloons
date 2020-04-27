@@ -27,7 +27,6 @@ class Delivery::SubpositionsController < Delivery::DeliveryController
   end
 
   def add_subposition
-
     @position = Position.find(params[:position])
     if @position.sub_exists?(item)
       @position.add_quantity_to_sub(item, 1)

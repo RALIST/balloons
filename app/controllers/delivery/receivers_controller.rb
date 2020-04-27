@@ -6,7 +6,7 @@ class Delivery::ReceiversController < Delivery::DeliveryController
 
     compositions = Composition.availible.with_attached_image
 		@grouped_compositions = Receiver.distinct(:title).joins(:compositions).order(:id).group_by{|tag| tag.compositions.with_attached_image.distinct.limit(7) }
-    fresh_when compositions, last_modified: compositions.maximum(:updated_at), public: true
+    fresh_when compositions, public: true
   end
 
 
@@ -25,6 +25,6 @@ class Delivery::ReceiversController < Delivery::DeliveryController
     set_meta_tags_for_receiver(@person)
     @compositions = @person.compositions.availible.order(:price).with_attached_image
 
-    fresh_when @compositions, last_modified: @compositions.maximum(:updated_at), public: true
+    fresh_when @compositions, public: true
   end
 end

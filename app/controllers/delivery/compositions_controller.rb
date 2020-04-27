@@ -6,17 +6,13 @@ class Delivery::CompositionsController < Delivery::DeliveryController
 
   def index
     @compositions = Composition.availible.distinct.order(:price).with_attached_image
-    fresh_when @compositions, public: true, last_modified: @compositions.maximum(:updated_at)
-    respond_to do |format|
-      format.html
-      format.js if params[:page]
-    end
+    fresh_when @compositions, public: true
   end
 
   def show
     @products = @composition.products.includes(:type, :size, :tone, :texture).distinct
     @composition.update_columns(views: @composition.views + 1)
-    fresh_when [@composition, @products], public: true, last_modified: @composition.products.maximum(:updated_at)
+    fresh_when @composition, public: true
   end
 
   private

@@ -3,11 +3,11 @@ class ImageProcessingJob < ApplicationJob
   def perform(id, class_name)
 
     obj = class_name.constantize.find_by(id: id)
-    return unless obj.present? && obj.image.attached?
+    return unless obj.present?
 
     raise StandardError.new('Image did not analyzed yet') unless obj.image.analyzed?
 
-    unless obj.image.filename =~ /watermarked/ || class_name == 'Product'
+    unless obj.image.filename =~ /watermarked/ || class_name == 'Product' || obj.image.attached?
       attach_watermark!(obj)
 
       obj.image.attach(

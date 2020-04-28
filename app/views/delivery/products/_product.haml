@@ -1,8 +1,8 @@
-- cache ["admin_#{current_user.present? && current_user.admin?}", product] do
+- cache product do
   .col-12.col-lg-4.col-md-6.mb-3
     .card.text-center.h-100#product
       .card-image-top
-        = image_tag product.img(:thumb), class: 'img-fluid', title: product.complex_name, alt: product.complex_name
+        = image_tag product.medium_url, class: 'img-fluid', title: product.complex_name, alt: product.complex_name
       .card-body
         .card-title.text-center
           = product.complex_name
@@ -17,7 +17,3 @@
               = button_to 'В корзину', add_product_to_cart_path(product), class: 'btn btn-info btn-sm', id: "add-#{product.id}", method: :post, remote: true, data: {disable_with: 'Добавляю...'}
             - else
               = link_to 'В корзине', my_cart_path, class: 'btn btn-success btn-sm'
-          .col-12.mt-2.text-center
-            - if current_user && current_user.admin?
-              = link_to 'Редактировать', edit_admin_product_path(product), class: 'btn btn-light btn-sm', target: "_blank"
-              = link_to 'Удалить', admin_product_path(product), method: :delete, data: {confirm:"Удалить товар?"}, class: 'btn btn-light btn-sm'

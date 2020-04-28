@@ -1,9 +1,9 @@
 - product = subposition.product
 %tr.text-center{id: "#{subposition.id}"}
-  %td{data: {toggle: 'popover', product_id: "#{subposition.product.id}", content: "#{subposition.product.complex_name}", title: "#{subposition.product.complex_name}"}}
-    = image_tag product.img(:small)
+  %td{data: {toggle: 'popover', product_id: "#{product.id}", content: "#{product.complex_name}", title: "#{product.complex_name}"}}
+    = image_tag product.small_url
   %td.align-middle.small.d-none.d-lg-table-cell
-    = subposition.product.complex_name
+    = product.complex_name
   %td.align-middle
     = form_for subposition, class: 'form-inline', remote: true do |f|
       .input-group.w-50.mx-auto

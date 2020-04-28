@@ -130,34 +130,37 @@ class Price < ApplicationRecord
   end
 
   def self.parse_price
-    Dir.glob(File.join('public/prices/**', '*.xlsm')).each do |file|
-      xls = Roo::Spreadsheet.open(file, extension: :xlsm)
-      (1..xls.last_row).each do |row|
-        vendor_name = xls.cell(row, 'A')
-        name = xls.cell(row, 'B').strip.downcase unless xls.cell(row, 'B').blank?
-        category =  Subcategory.find_or_create_by!(name: xls.cell(row, 'G').downcase) unless xls.cell(row, 'G').blank?
-        code = xls.cell(row, 'D')
-        if vendor_name.blank?
-          if name.present? && !/ассорти/.match(name)
+    begin
+      Dir.glob(File.join('public/prices/**', '*.xlsm')).each do |file|
+        xls = Roo::Spreadsheet.open(file, extension: :xlsm)
+        (1..xls.last_row).each do |row|
+          vendor_name = xls.cell(row, 'A')
+          name = xls.cell(row, 'B').strip.downcase unless xls.cell(row, 'B').blank?
+          category =  Subcategory.find_or_create_by!(name: xls.cell(row, 'G').downcase) unless xls.cell(row, 'G').blank?
+          code = xls.cell(row, 'D')
+          if vendor_name.blank?
+            if name.present? && !/ассорти/.match(name)
 
-            Product.find_or_create_by(name: name) do |product|
-              vendor = Vendor.find_or_create_by(name: 'belbal')
-              get_latex(name, vendor, product, category, code) if name.present?
+              Product.find_or_create_by(name: name) do |product|
+                vendor = Vendor.find_or_create_by(name: 'belbal')
+                get_latex(name, vendor, product, category, code) if name.present?
+              end
+
             end
-
-          end
-        else
-          vendor = Vendor.find_or_create_by(name: vendor_name.downcase)
-          Product.find_or_create_by!(name: name) do |product|
-            get_foil(name, vendor, product, category, code) if name.present?
+          else
+            vendor = Vendor.find_or_create_by(name: vendor_name.downcase)
+            Product.find_or_create_by!(name: name) do |product|
+              get_foil(name, vendor, product, category, code) if name.present?
+            end
           end
         end
       end
+
+      self.don
+    rescue => e
+      puts e
+      nil
     end
-
-    self.don
-
-
   end
 
   def self.get_latex(name, vendor, product, category, code)

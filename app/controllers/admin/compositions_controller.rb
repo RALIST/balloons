@@ -55,7 +55,6 @@ class Admin::CompositionsController < Admin::AdminController
     params[:count].to_i.times do
       @comp.products.push(@product)
     end
-    @comp.update_price
     respond_to do |format|
       format.html { redirect_to admin_composition_path(@comp) }
       format.js
@@ -74,16 +73,11 @@ class Admin::CompositionsController < Admin::AdminController
     redirect_back fallback_location: admin_root_path
   end
 
-  def update_price
-    @comp.update_price
-    redirect_back fallback_location: admin_root_path
-  end
 
   def remove_item
     @product = Product.find(params[:product_id])
     @comp.products.delete(@product)
-    @comp.comp_price
-    redirect_back fallback_location: admin_root_path
+    redirect_to [:admin, @comp]
   end
 
   private

@@ -4,4 +4,5 @@ class ItemsInComposition < ApplicationRecord
   belongs_to :product
 
   after_commit { UpdateCompositionsPriceJob.perform_later(product.id) }
+  before_destroy { UpdateCompositionsPriceJob.perform_later(product.id) }
 end

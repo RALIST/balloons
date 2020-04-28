@@ -6,10 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="f1b38864-17e2-48ba-9f1a-eee384936dde" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/jobs/image_processing_job.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/jobs/image_processing_job.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/admin/compositions_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/admin/compositions_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/concerns/imageable.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/concerns/imageable.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/items_in_composition.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/items_in_composition.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/admin/products/_product.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/products/_product.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/products/_product.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/products/_product.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/subpositions/_subposition.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/subpositions/_subposition.html.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/storage.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/storage.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -264,7 +265,7 @@
       <workItem from="1587296324493" duration="6503000" />
       <workItem from="1587380593673" duration="1727000" />
       <workItem from="1587550897760" duration="1247000" />
-      <workItem from="1587896023839" duration="32096000" />
+      <workItem from="1587896023839" duration="38715000" />
     </task>
     <task id="LOCAL-00001" summary="fix">
       <created>1587296403150</created>
@@ -357,7 +358,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588074832978</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="fix">
+      <created>1588080614141</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1588080614141</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TodoView">
@@ -390,50 +398,50 @@
     <option name="LAST_COMMIT_MESSAGE" value="fix" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="151" y="0" key="CommitChangelistDialog2" timestamp="1588074829463">
+    <state x="151" y="0" key="CommitChangelistDialog2" timestamp="1588080612178">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state x="151" y="0" key="CommitChangelistDialog2/0.0.1280.984@0.0.1280.984" timestamp="1588074829463" />
+    <state x="151" y="0" key="CommitChangelistDialog2/0.0.1280.984@0.0.1280.984" timestamp="1588080612178" />
     <state x="370" y="191" key="FileChooserDialogImpl" timestamp="1588000109153">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="370" y="191" key="FileChooserDialogImpl/0.0.1280.984@0.0.1280.984" timestamp="1588000109153" />
-    <state width="902" height="492" key="GridCell.Tab.0.bottom" timestamp="1588075184342">
+    <state width="902" height="492" key="GridCell.Tab.0.bottom" timestamp="1588086882579">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="902" height="492" key="GridCell.Tab.0.bottom/0.0.1280.984@0.0.1280.984" timestamp="1588075184342" />
-    <state width="902" height="492" key="GridCell.Tab.0.center" timestamp="1588075184342">
+    <state width="902" height="492" key="GridCell.Tab.0.bottom/0.0.1280.984@0.0.1280.984" timestamp="1588086882579" />
+    <state width="902" height="492" key="GridCell.Tab.0.center" timestamp="1588086882579">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="902" height="492" key="GridCell.Tab.0.center/0.0.1280.984@0.0.1280.984" timestamp="1588075184342" />
-    <state width="902" height="492" key="GridCell.Tab.0.left" timestamp="1588075184341">
+    <state width="902" height="492" key="GridCell.Tab.0.center/0.0.1280.984@0.0.1280.984" timestamp="1588086882579" />
+    <state width="902" height="492" key="GridCell.Tab.0.left" timestamp="1588086882579">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="902" height="492" key="GridCell.Tab.0.left/0.0.1280.984@0.0.1280.984" timestamp="1588075184341" />
-    <state width="902" height="492" key="GridCell.Tab.0.right" timestamp="1588075184342">
+    <state width="902" height="492" key="GridCell.Tab.0.left/0.0.1280.984@0.0.1280.984" timestamp="1588086882579" />
+    <state width="902" height="492" key="GridCell.Tab.0.right" timestamp="1588086882579">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="902" height="492" key="GridCell.Tab.0.right/0.0.1280.984@0.0.1280.984" timestamp="1588075184342" />
-    <state width="902" height="492" key="GridCell.Tab.1.bottom" timestamp="1588074572680">
+    <state width="902" height="492" key="GridCell.Tab.0.right/0.0.1280.984@0.0.1280.984" timestamp="1588086882579" />
+    <state width="902" height="492" key="GridCell.Tab.1.bottom" timestamp="1588086078161">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="902" height="492" key="GridCell.Tab.1.bottom/0.0.1280.984@0.0.1280.984" timestamp="1588074572680" />
-    <state width="902" height="492" key="GridCell.Tab.1.center" timestamp="1588074572680">
+    <state width="902" height="492" key="GridCell.Tab.1.bottom/0.0.1280.984@0.0.1280.984" timestamp="1588086078161" />
+    <state width="902" height="492" key="GridCell.Tab.1.center" timestamp="1588086078161">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="902" height="492" key="GridCell.Tab.1.center/0.0.1280.984@0.0.1280.984" timestamp="1588074572680" />
-    <state width="902" height="492" key="GridCell.Tab.1.left" timestamp="1588074572680">
+    <state width="902" height="492" key="GridCell.Tab.1.center/0.0.1280.984@0.0.1280.984" timestamp="1588086078160" />
+    <state width="902" height="492" key="GridCell.Tab.1.left" timestamp="1588086078160">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="902" height="492" key="GridCell.Tab.1.left/0.0.1280.984@0.0.1280.984" timestamp="1588074572680" />
-    <state width="902" height="492" key="GridCell.Tab.1.right" timestamp="1588074572680">
+    <state width="902" height="492" key="GridCell.Tab.1.left/0.0.1280.984@0.0.1280.984" timestamp="1588086078160" />
+    <state width="902" height="492" key="GridCell.Tab.1.right" timestamp="1588086078161">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="902" height="492" key="GridCell.Tab.1.right/0.0.1280.984@0.0.1280.984" timestamp="1588074572680" />
-    <state x="132" y="161" key="Vcs.Push.Dialog.v2" timestamp="1588074837833">
+    <state width="902" height="492" key="GridCell.Tab.1.right/0.0.1280.984@0.0.1280.984" timestamp="1588086078161" />
+    <state x="132" y="161" key="Vcs.Push.Dialog.v2" timestamp="1588080617811">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state x="132" y="161" key="Vcs.Push.Dialog.v2/0.0.1280.984@0.0.1280.984" timestamp="1588074837833" />
+    <state x="132" y="161" key="Vcs.Push.Dialog.v2/0.0.1280.984@0.0.1280.984" timestamp="1588080617811" />
     <state x="297" y="235" key="git4idea.merge.GitPullDialog" timestamp="1587296332087">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
@@ -441,6 +449,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Balloons@railtie.rcov" NAME="railtie Coverage Results" MODIFIED="1573718352602" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/new_google_recaptcha-1.0.0/lib/new_google_recaptcha" MODULE_NAME="Balloons" />
-    <SUITE FILE_PATH="coverage/Balloons@Development__Balloons.rcov" NAME="Development: Balloons Coverage Results" MODIFIED="1587896029867" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Balloons" />
+    <SUITE FILE_PATH="coverage/Balloons@Development__Balloons.rcov" NAME="Development: Balloons Coverage Results" MODIFIED="1588086078046" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Balloons" />
   </component>
 </project>

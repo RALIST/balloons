@@ -2,7 +2,7 @@ class Product < ApplicationRecord
   include Imageable
 
   belongs_to :item, inverse_of: :products, optional: true
-  belongs_to :size
+  belongs_to :size, optional: true
   has_many :items_in_compositions
   has_many :compositions, through: :items_in_compositions
   has_many :subpositions, dependent: :delete_all
@@ -51,12 +51,17 @@ class Product < ApplicationRecord
   end
 
   def set_image
-    if tone && size && type.name != 'фольгированные шары' && type.name != 'товары для композиций' && self.size.in_inch != 36
-      self.img = tone.img if tone.img.present?
-    else
-      get_image unless self.img.present?
+    begin
+      if tone && size && type.name != 'фольгированные шары' && type.name != 'товары для композиций' && self.size.in_inch != 36
+        self.img = tone.img if tone.img.present?
+      else
+        get_image unless self.img.present?
+      end
+      save!
+    rescue => e
+      puts e
+      nil
     end
-    save!
   end
 
   def set_complex_name

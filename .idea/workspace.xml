@@ -4,31 +4,10 @@
     <option name="ANALYZE_TEST_SOURCES" value="false" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f1b38864-17e2-48ba-9f1a-eee384936dde" name="Default Changelist" comment="fix">
-      <change afterPath="$PROJECT_DIR$/app/jobs/update_compositions_price_job.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/concerns/imageable.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.rakeTasks" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Balloons.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Balloons.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="f1b38864-17e2-48ba-9f1a-eee384936dde" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/missing.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/missing_large.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/images/missing_large.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/admin/compositions_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/admin/compositions_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/admin/products_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/admin/products_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/delivery/compositions_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/delivery/compositions_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/delivery/subpositions_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/delivery/subpositions_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/jobs/image_processing_job.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/jobs/image_processing_job.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/composition.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/composition.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/item.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/item.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/items_in_composition.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/items_in_composition.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/price.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/price.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/product.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/product.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/compositions/_small_composition.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/compositions/_small_composition.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/compositions/index.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/compositions/index.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/items/_all_items.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/items/_all_items.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/products/_form.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/products/_form.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/delivery/compositions/_composition.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/compositions/_composition.html.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/tasks/image_migration.rake" beforeDir="false" afterPath="$PROJECT_DIR$/lib/tasks/image_migration.rake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/feedback.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/feedback.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/order.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/order.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -283,7 +262,7 @@
       <workItem from="1587296324493" duration="6503000" />
       <workItem from="1587380593673" duration="1727000" />
       <workItem from="1587550897760" duration="1247000" />
-      <workItem from="1587896023839" duration="22042000" />
+      <workItem from="1587896023839" duration="22322000" />
     </task>
     <task id="LOCAL-00001" summary="fix">
       <created>1587296403150</created>
@@ -334,7 +313,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587995163800</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="fix">
+      <created>1588060362614</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1588060362614</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView">
@@ -367,10 +353,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="fix" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="151" y="0" key="CommitChangelistDialog2" timestamp="1588058974138">
+    <state x="151" y="0" key="CommitChangelistDialog2" timestamp="1588060360755">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state x="151" y="0" key="CommitChangelistDialog2/0.0.1280.984@0.0.1280.984" timestamp="1588058974138" />
+    <state x="151" y="0" key="CommitChangelistDialog2/0.0.1280.984@0.0.1280.984" timestamp="1588060360755" />
     <state x="370" y="191" key="FileChooserDialogImpl" timestamp="1588000109153">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
@@ -407,10 +393,10 @@
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state width="902" height="492" key="GridCell.Tab.1.right/0.0.1280.984@0.0.1280.984" timestamp="1588060272092" />
-    <state x="132" y="161" key="Vcs.Push.Dialog.v2" timestamp="1587995169655">
+    <state x="132" y="161" key="Vcs.Push.Dialog.v2" timestamp="1588060367233">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state x="132" y="161" key="Vcs.Push.Dialog.v2/0.0.1280.984@0.0.1280.984" timestamp="1587995169655" />
+    <state x="132" y="161" key="Vcs.Push.Dialog.v2/0.0.1280.984@0.0.1280.984" timestamp="1588060367233" />
     <state x="297" y="235" key="git4idea.merge.GitPullDialog" timestamp="1587296332087">
       <screen x="0" y="0" width="1280" height="984" />
     </state>

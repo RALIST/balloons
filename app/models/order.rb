@@ -6,7 +6,7 @@ class Order < ApplicationRecord
   has_many :products, through: :subpositions
   has_many :positions, dependent: :destroy
   validates :user_id, :order_date, :phone, :name, :total, presence: true
-  validate :availible_date
+  validate :available_date
 
   before_validation :normalize_date
   after_save :send_sms_to_admin, :send_sms_to_user, :recalculate_discount
@@ -39,7 +39,7 @@ class Order < ApplicationRecord
     self.order_date = Time.zone.parse(order_time + ' ' + order_date.to_s)
   end
 
-  def availible_date
+  def available_date
     if order_date - Time.current < 2.hours
       errors.add(:order_date, 'Возможно, мы не успеем привезти ваш заказ вовремя! Пожалуйста, дайте нам больше времени!')
     end

@@ -11,7 +11,7 @@ module Imageable
   end
 
   def missing(key)
-    Rails.root.join("app/assets/images/missing_#{key}.png").to_s
+    ActionController::Base.helpers.asset_path("missing_#{key}.png")
   end
 
   def small_url

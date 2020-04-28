@@ -17,7 +17,7 @@
             - item.products.order(:size_id).each do |product|
               %tr
                 %td.align-middle
-                  = image_tag product.img(:small)
+                  = image_tag product.small_url
                 %td.align-middle
                   = product.complex_name
                   .small

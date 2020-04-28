@@ -6,7 +6,7 @@
   .container
     .row
       .col-12.col-lg-6.order-2
-        - if composition.price > 0
+        - if composition.products.present?
           #products.card
             %table.table.table-borderless.table-responsive-md
               %thead.border-bottom
@@ -23,7 +23,7 @@
                     %tr.item.text-center
                       %td.text-center.align-middle{data: {item_id: "#{product.id}", content: "#{product.complex_name}" }}
                         %span{style: 'border-bottom: 1px dashed black; cursor: pointer;'}
-                          = image_tag product.img(:small), alt: 'Воздушный шар' + " " + product.complex_name, title: product.complex_name, data: { toggle: 'tooltip'}
+                          = image_tag product.small_url, alt: 'Воздушный шар' + " " + product.complex_name, title: product.complex_name, data: { toggle: 'tooltip'}
                       %td.h5.strong.align-middle
                         = composition.products.where(id: product.id).count
                         %small

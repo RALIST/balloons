@@ -1,5 +1,5 @@
 class Composition < ApplicationRecord
-  include Rails.application.routes.url_helpers
+  include Imageable
 
   has_many :items_in_compositions, dependent: :destroy
   has_many :items, through: :items_in_compositions
@@ -11,47 +11,13 @@ class Composition < ApplicationRecord
   has_and_belongs_to_many :tags
   has_and_belongs_to_many :receivers
 
-  has_one_attached :image
-
-  VARIANTS = {
-    small: { width: 150, height: 150, process: :resize_to_fill},
-    medium: { width: 300, height: 300, process: :resize_to_fill },
-    large: { width: 800, height: 800, process: :resize_to_limit }
-  }
-
-  def missing
-    Rails.root.join('app/assets/images/missing_small.png').to_s
+  def variants
+    {
+      small: { width: 150, height: 150, process: :resize_to_fill},
+      medium: { width: 300, height: 300, process: :resize_to_fill },
+      large: { width: 800, height: 800, process: :resize_to_limit }
+      }
   end
-
-  def small_url
-    return missing unless image.present?
-
-    process_variant(VARIANTS[:small]).service_url.split('?').first
-  end
-
-  def medium_url
-    return missing unless image.present?
-
-    process_variant(VARIANTS[:medium]).service_url.split('?').first
-  end
-
-  def large_url
-    return missing unless image.present?
-
-    process_variant(VARIANTS[:large]).service_url.split('?').first
-  end
-
-  def process_variant(variant)
-    image.variant(
-      variant[:process] => [variant[:width], variant[:height]],
-      auto_orient: true,
-      strip: true,
-      gravity: 'center',
-      quality: '100%'
-    )
-  end
-
-  after_create_commit { ImageProcessingJob.perform_later(id) }
 
   has_attached_file :img,
                     processors: [:watermark, :thumbnail],
@@ -79,10 +45,7 @@ class Composition < ApplicationRecord
     .where(items_in_compositions: { id: nil }).where(deleted: false).distinct}
   scope :with_tags, -> { joins(:tags).joins(:receivers) }
   scope :without_tags, -> { joins(:products).where.not(id: Composition.with_tags.map(&:id)).where(deleted: false).where('compositions.img_file_size > ?', 0).distinct }
-  scope :availible, -> { joins(:image_attachment) }
-
-
-
+  scope :availible, -> { joins(:image_attachment).distinct }
 
   def self.with_tag(tag)
     joins(:products, :tags).where('tags.name = ?', tag).distinct(:id)
@@ -96,8 +59,8 @@ class Composition < ApplicationRecord
     self.products.map { |i| i.price_with_helium }.reject(&:nil?).sum.round(2)
   end
 
-  def update_price
-    self.update(price: self.comp_price)
+  def update_price!
+    self.update!(price: self.comp_price)
   end
 
   def tag_name
@@ -130,7 +93,7 @@ class Composition < ApplicationRecord
     min = (self.price.to_f - 500)
     max = (self.price.to_f + 500)
     tags = self.tag_ids
-    Composition.includes(:tags).availible.where(tags: {id: tags}, price: min..max).where.not(id: self.id).distinct(:id)
+    Composition.includes(:tags).availible.where(tags: {id: tags}, price: min..max).where.not(id: self.id).distinct
   end
 
   def self.price_range(min, max)

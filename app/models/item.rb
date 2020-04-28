@@ -4,13 +4,13 @@ class Item < ApplicationRecord
   has_and_belongs_to_many :subcategories,
                           after_add: :touch_updated_at,
                           after_remove: :touch_updated_at
-  belongs_to :vendor
-  belongs_to :type
-  belongs_to :tone
-  belongs_to :category
-  belongs_to :texture
-  belongs_to :color
-  belongs_to :foil_form
+  belongs_to :vendor, optional: true
+  belongs_to :type, optional: true
+  belongs_to :tone, optional: true
+  belongs_to :category, optional: true
+  belongs_to :texture, optional: true
+  belongs_to :color, optional: true
+  belongs_to :foil_form, optional: true
   has_many :sizes, through: :products
   has_many :products, dependent: :destroy, autosave: true
 

@@ -1,20 +1,23 @@
 class ImageProcessingJob < ApplicationJob
 
-  def perform(id)
-    composition = Composition.find_by(id: id)
-    return unless composition.present? && composition.image.attached?
+  def perform(id, class_name)
 
-    raise StandardError.new('Image did not analyzed yet') unless composition.image.analyzed?
+    obj = class_name.constantize.find_by(id: id)
+    return unless obj.present? && obj.image.attached?
 
-    attach_watermark!(composition) unless composition.image.filename =~ /watermarked/
+    raise StandardError.new('Image did not analyzed yet') unless obj.image.analyzed?
 
-    composition.image.attach(
-      io: @watermarked_image,
-      filename: ( 'watermarked_' + composition.image.filename.to_s)
-    )
+    unless obj.image.filename =~ /watermarked/ || class_name == 'Product'
+      attach_watermark!(obj)
 
-    Composition::VARIANTS.each do |_, variant|
-      composition.process_variant(variant).processed
+      obj.image.attach(
+        io: @watermarked_image,
+        filename: ( 'watermarked_' + obj.image.filename.to_s)
+      )
+    end
+
+    obj.variants.each do |_, variant|
+      obj.process_variant(variant).processed
     end
   end
 

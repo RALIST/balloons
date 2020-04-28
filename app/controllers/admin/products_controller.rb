@@ -7,7 +7,6 @@ class Admin::ProductsController < Admin::AdminController
   end
 
   def create
-
     @product = Product.create(product_params)
     if @product.save
       redirect_to admin_products_path
@@ -24,6 +23,8 @@ class Admin::ProductsController < Admin::AdminController
       @product.item.update(item_params)
       redirect_back(fallback_location: admin_items_path)
       flash[:success] = 'Товар успешно обновлен!'
+    else
+      render :edit
     end
   end
 

@@ -1,10 +1,10 @@
 class Product < ApplicationRecord
+  include Imageable
+
   belongs_to :item, inverse_of: :products, optional: true
-  belongs_to :latex, foreign_key: :item_id
-  belongs_to :foil, foreign_key: :item_id
   belongs_to :size
+  has_many :items_in_compositions
   has_many :compositions, through: :items_in_compositions
-  has_many :items_in_compositions, dependent: :destroy
   has_many :subpositions, dependent: :delete_all
   has_one :tone, through: :item
   has_one :color, through: :item
@@ -17,6 +17,15 @@ class Product < ApplicationRecord
   has_many :subcategories, through: :item
   has_many :carts, through: :subpositions
 
+  has_one_attached :image
+
+  def variants
+    {
+      small: { width: 100, height: 100, process: :resize_to_fit },
+      medium: { width: 200, height: 200, process: :resize_to_fit },
+      large: { width: 300, height: 300, process: :resize_to_limit }
+    }
+  end
   accepts_nested_attributes_for :item
 
   has_attached_file :img,
@@ -34,11 +43,12 @@ class Product < ApplicationRecord
 
   scope :search, ->(word) { where('lower(products.complex_name) LIKE ? ', "%#{word}%")}
 
+  after_commit { UpdateCompositionsPriceJob.perform_later(id) }
+
 
   def in_cart?(cart)
     Rails.cache.fetch("#{self.updated_at}/#{cart.id}"){self.carts.include?(cart)}
   end
-
 
   def set_image
     if tone && size && type.name != 'фольгированные шары' && type.name != 'товары для композиций' && self.size.in_inch != 36
@@ -46,6 +56,7 @@ class Product < ApplicationRecord
     else
       get_image unless self.img.present?
     end
+    save!
   end
 
   def set_complex_name

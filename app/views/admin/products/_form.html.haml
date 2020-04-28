@@ -1,6 +1,6 @@
 .row.justify-content-center
   - if @product.errors.any?
-    = @product.errors.full_messages
+    = @product.errors.inspect
   .col-8.mt-5
     = form_for [:admin, @product] do |f|
 

@@ -11,19 +11,19 @@ class Delivery::SubpositionsController < Delivery::DeliveryController
   def down_quantity
     if subposition.quantity > 1
       subposition.update_attribute(:quantity, subposition.quantity - 1)
+      current_cart.total_with_discounts
       respond_to do |format|
         format.html { redirect_back(fallback_location: root_path) }
         format.js
       end
     else
       @subposition.destroy
+      current_cart.total_with_discounts
       respond_to do |format|
         format.html { redirect_back(fallback_location: root_path) }
         format.js {render action: :destroy}
       end
     end
-    current_cart.total_with_discounts
-
   end
 
   def add_subposition

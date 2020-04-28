@@ -5,7 +5,7 @@ class Delivery::CompositionsController < Delivery::DeliveryController
   include CompositionsHelper
 
   def index
-    @compositions = Composition.availible.distinct.order(:price).with_attached_image
+    @compositions = Composition.availible.distinct.order(:price)
     fresh_when @compositions, public: true
   end
 
@@ -20,5 +20,4 @@ class Delivery::CompositionsController < Delivery::DeliveryController
   def set_composition
     @composition = Composition.find(params[:id])
   end
-
 end

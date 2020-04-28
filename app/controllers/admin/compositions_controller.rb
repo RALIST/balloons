@@ -4,7 +4,7 @@ class Admin::CompositionsController < Admin::AdminController
                                     update_price delete remove_item]
 
   def index
-    @compositions = Composition.availible.with_attached_image
+    @compositions = Composition.availible
     @compositions_without_items = Composition.without_items.order(:id)
     @compositions_without_tags = Composition.without_tags.order(:id)
   end

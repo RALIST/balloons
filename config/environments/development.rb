@@ -63,12 +63,11 @@ Rails.application.configure do
   }
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.asset_host = 'http://localhost:3000'
-  config.action_mailer.default_options = { from: 'danilov@ralist.ru' }
   config.action_mailer.perform_deliveries = true
 
   config.active_job.queue_adapter = :delayed_job
-
   config.active_storage.service = :amazon
+
   unless Rails.env.test?
     config.paperclip_defaults = {
       default_url: 'https://s3.eu-central-1.amazonaws.com/images/missing/small/missing_small.png',

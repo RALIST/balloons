@@ -58,7 +58,7 @@ class Delivery::DeliveryController < ApplicationController
   end
 
   def current_cart
-    if current_user
+    if current_user && !current_user.admin?
       if current_user.cart.blank?
         @cart = current_user.cart.create!
         cookies.permanent[:cart_id] = @cart.id
@@ -69,11 +69,11 @@ class Delivery::DeliveryController < ApplicationController
     else
       @cart = Cart.find(cookies[:cart_id])
     end
-    return @cart
+    @cart
   rescue ActiveRecord::RecordNotFound
     @cart = Cart.create!
     cookies.permanent[:cart_id] = @cart.id
-    return @cart
+    @cart
   end
 
   def new_call

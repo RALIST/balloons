@@ -21,6 +21,8 @@ group :development, :test do
   gem 'active_record_query_trace'
   gem 'sys-proctable'
   gem 'tzinfo-data'
+  gem 'rspec-rails'
+  gem 'factory_bot'
 end
 
 
@@ -47,6 +49,9 @@ gem 'webpacker', '~> 4.x'
 gem 'will_paginate'
 gem 'delayed_job_active_record'
 gem 'image_processing'
+gem 'dotenv-rails'
+gem 'mailgun-ruby', '~>1.1.6'
+gem "recaptcha"
 
 group :production do
   gem 'fog-aws', require: false

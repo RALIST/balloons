@@ -9,7 +9,7 @@ class Order < ApplicationRecord
   validate :available_date
 
   before_validation :normalize_date
-  after_save :send_sms_to_admin, :send_sms_to_user, :recalculate_discount
+  after_create_commit :send_sms_to_admin, :send_sms_to_user, :recalculate_discount
 
   attr_accessor :order_time, :admin
 

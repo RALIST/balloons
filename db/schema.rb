@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_18_115128) do
+ActiveRecord::Schema.define(version: 2020_09_23_100356) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,10 @@ ActiveRecord::Schema.define(version: 2020_04_18_115128) do
     t.string "budget"
     t.string "desc"
     t.string "call_type"
+    t.string "sms_status"
+    t.datetime "sms_sent_at"
+    t.string "email_status"
+    t.datetime "email_sent_at"
   end
 
   create_table "carts", id: :serial, force: :cascade do |t|
@@ -65,7 +69,7 @@ ActiveRecord::Schema.define(version: 2020_04_18_115128) do
     t.text "desc"
     t.string "img_file_name"
     t.string "img_content_type"
-    t.integer "img_file_size"
+    t.bigint "img_file_size"
     t.datetime "img_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -82,7 +86,7 @@ ActiveRecord::Schema.define(version: 2020_04_18_115128) do
     t.string "title"
     t.string "img_file_name"
     t.string "img_content_type"
-    t.integer "img_file_size"
+    t.bigint "img_file_size"
     t.datetime "img_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -123,7 +127,7 @@ ActiveRecord::Schema.define(version: 2020_04_18_115128) do
     t.text "body"
     t.string "img_file_name"
     t.string "img_content_type"
-    t.integer "img_file_size"
+    t.bigint "img_file_size"
     t.datetime "img_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -154,7 +158,7 @@ ActiveRecord::Schema.define(version: 2020_04_18_115128) do
   create_table "images", id: :serial, force: :cascade do |t|
     t.string "img_file_name"
     t.string "img_content_type"
-    t.integer "img_file_size"
+    t.bigint "img_file_size"
     t.datetime "img_updated_at"
     t.string "imageable_type"
     t.integer "imageable_id"
@@ -236,7 +240,7 @@ ActiveRecord::Schema.define(version: 2020_04_18_115128) do
     t.string "name"
     t.string "logo_file_name"
     t.string "logo_content_type"
-    t.integer "logo_file_size"
+    t.bigint "logo_file_size"
     t.datetime "logo_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -259,7 +263,7 @@ ActiveRecord::Schema.define(version: 2020_04_18_115128) do
   create_table "prices", id: :serial, force: :cascade do |t|
     t.string "price_sheet_file_name"
     t.string "price_sheet_content_type"
-    t.integer "price_sheet_file_size"
+    t.bigint "price_sheet_file_size"
     t.datetime "price_sheet_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -279,7 +283,7 @@ ActiveRecord::Schema.define(version: 2020_04_18_115128) do
     t.string "name"
     t.string "img_file_name"
     t.string "img_content_type"
-    t.integer "img_file_size"
+    t.bigint "img_file_size"
     t.datetime "img_updated_at"
     t.float "price_with_helium", default: 0.0
     t.string "complex_name"
@@ -295,7 +299,7 @@ ActiveRecord::Schema.define(version: 2020_04_18_115128) do
     t.string "desc"
     t.string "img_file_name"
     t.string "img_content_type"
-    t.integer "img_file_size"
+    t.bigint "img_file_size"
     t.datetime "img_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -365,7 +369,7 @@ ActiveRecord::Schema.define(version: 2020_04_18_115128) do
     t.string "code"
     t.string "img_file_name"
     t.string "img_content_type"
-    t.integer "img_file_size"
+    t.bigint "img_file_size"
     t.datetime "img_updated_at"
     t.index ["color_id"], name: "index_tones_on_color_id"
     t.index ["vendor_id"], name: "index_tones_on_vendor_id"
@@ -387,8 +391,8 @@ ActiveRecord::Schema.define(version: 2020_04_18_115128) do
     t.string "last_name"
     t.text "address"
     t.float "discount", default: 0.0
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "remember_me_token"
     t.datetime "remember_me_token_expires_at"
     t.boolean "admin", default: false
@@ -404,7 +408,7 @@ ActiveRecord::Schema.define(version: 2020_04_18_115128) do
     t.string "country"
     t.string "logo_file_name"
     t.string "logo_content_type"
-    t.integer "logo_file_size"
+    t.bigint "logo_file_size"
     t.datetime "logo_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

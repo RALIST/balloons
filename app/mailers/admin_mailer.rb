@@ -1,11 +1,15 @@
 class AdminMailer < ApplicationMailer
+  default from: ENV['MAILGUN_SENDER_EMAIL']
+
   def new_order_notify(order)
     @order = order
-    mail(to: 'info@bigairballoons.ru', subject: "Новый заказ №#{@order.id} создан")
+    emails = ENV['ADMIN_EMAILS']
+    mail(to: emails, subject: "Новый заказ №#{@order.id} создан")
   end
 
   def new_call_order_notify(call)
     @call = call
-    mail(to: 'info@bigairballoons.ru', subject: "Заявка на обратный звонок!")
+    emails = ENV['ADMIN_EMAILS']
+    mail(to: emails, subject: "Заявка")
   end
 end

@@ -101,8 +101,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.default_url_options = { host: 'https://bigairballoons.ru'}
-  config.action_mailer.default_options = { from: 'orders@bigairballoons.ru' }
-
   config.active_storage.service = :amazon
   config.active_job.queue_adapter = :delayed_job
 

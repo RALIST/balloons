@@ -1,10 +1,14 @@
 ru:
- will_paginate:
-  next_label: 'Вперед'
-  previous_label: 'Назад'
-  page_gap: '...'
- cities:
-  izhevsk:
+  recaptcha:
+    errors:
+      verification_failed: 'reCAPTCHA was incorrect, please try again.'
+      recaptcha_unreachable: 'reCAPTCHA verification server error, please try again.'
+  will_paginate:
+    next_label: 'Вперед'
+    previous_label: 'Назад'
+    page_gap: '...'
+  cities:
+    izhevsk:
       base: 'Ижевск'
       where: 'Ижевске'
       in: 'Ижевску'

@@ -1,7 +1,7 @@
 class Admin::OrdersController < Admin::AdminController
   before_action :set_order, only: %i[show destroy]
   def index
-    @orders = Order.all
+    @orders = Order.all.order(created_at: :desc)
   end
 
   def new

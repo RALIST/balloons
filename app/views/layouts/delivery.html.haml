@@ -8,7 +8,6 @@
     = csrf_meta_tags
     = stylesheet_pack_tag 'styles', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag "https://www.google.com/recaptcha/api.js?render=explicit&onload=#{MyGoogleRecaptcha.onload_function}", 'data-turbolinks-track': 'reload'
   %body
     .wrapper
       %header
@@ -23,9 +22,8 @@
             = render 'delivery/main/help' unless @disable_help
             = render 'delivery/main/seo'
 
-            -#= render 'delivery/layouts/modal_city'
-    = render 'delivery/layouts/call'
-    = render 'delivery/calls/price_call'
+
+    = render 'delivery/calls/request_call'
     %footer
       = render 'delivery/layouts/footer' unless @disable_footer
     = render 'delivery/layouts/special/scripts'

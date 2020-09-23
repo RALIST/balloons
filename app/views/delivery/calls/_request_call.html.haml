@@ -1,18 +1,19 @@
-.modal.fade{id: "price-call-modal",  tabindex: "-1",  role: "dialog"}
+.modal.fade{id: "call-modal",  tabindex: "-1",  role: "dialog"}
   .modal-dialog#call{role: "document"}
     .modal-content
       .modal-header.text-center.pb-0
-        .h3.modal-title.w-100.text-uppercase
+        .h3.modal-title.w-100
           Оставьте заявку
         %button.close{data: {dismiss: "modal"}, 'aria-label': "Close"}
           %span
             &times;
       .modal-body.pt-0
         .text-muted.text-center.mb-2
-          и мы свяжемся с вами в ближайшие время
+          и мы свяжемся с вами в ближайшее время
         = render 'delivery/calls/form_price_call'
         .text-center.text-muted
           Мы отвечаем на заявки ежедневно с 9:00 до 20:00
       .modal-footer.justify-content-center
         .small.text-justify
           В соответствии с Федеральным законом № 152-ФЗ «О персональных данных» от 27.07.2006, отправляя данную форму, вы подтверждаете свое согласие на обработку персональных данных.
+

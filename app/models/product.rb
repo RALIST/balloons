@@ -189,7 +189,7 @@ class Product < ApplicationRecord
         case foil_form.name
           when 'звезда', 'круг', 'сердце', 'квадрат'
             if size.in_inch < 32
-              self.price_with_helium = 199
+              self.price_with_helium = 220
             else
               self.price_with_helium = 499
             end

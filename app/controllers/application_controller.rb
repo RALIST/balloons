@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   include MetaHelper
 
   private
+
   def new_call
     @call = Call.new
   end

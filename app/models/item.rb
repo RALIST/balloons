@@ -23,7 +23,7 @@ class Item < ApplicationRecord
   scope :special, -> { joins(:type).where(types: { name: 'разное' }) }
 
   def touch_updated_at(subcategory)
-   subcategory.touch
+    subcategory.touch
   end
 
   def not_special?

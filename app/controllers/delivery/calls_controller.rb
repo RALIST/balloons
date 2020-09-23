@@ -4,20 +4,11 @@ class Delivery::CallsController < Delivery::DeliveryController
 
   def create
     @call = Call.new(call_params)
-    puts params
-    response =  MyGoogleRecaptcha.human?(
-        params['g-recaptcha-response'],
-        'call',
-        MyGoogleRecaptcha.minimum_score,
-        @call)
-    if response != false
-      if @call.save!
-        @call.send_sms_to_admin
-        @call.send_new_call_notification
-        redirect_to after_call_path
-      end
+    if verify_recaptcha(action: 'call', minimum_score: 0.5) && @call.save
+      logger.tagged('RECAPTCHA') { logger.info recaptcha_reply }
+      redirect_to after_call_path
     else
-      flash[:danger] = @call.errors.full_messages
+      flash[:danger] = @call.errors.full_messages.join(', ')
       redirect_back(fallback_location: root_path)
     end
   end

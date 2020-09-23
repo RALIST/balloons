@@ -3,14 +3,87 @@
   <component name="AnalysisUIOptions">
     <option name="ANALYZE_TEST_SOURCES" value="false" />
   </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:bundler" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:npm_and_yarn" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="f1b38864-17e2-48ba-9f1a-eee384936dde" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/db/migrate/20200923100356_add_status_to_call.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.rakeTasks" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Balloons.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Balloons.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/admin/compositions_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/admin/compositions_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/concerns/imageable.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/concerns/imageable.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/items_in_composition.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/items_in_composition.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/products/_product.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/products/_product.haml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/storage.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/storage.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/admin/orders_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/admin/orders_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/delivery/business_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/delivery/business_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/delivery/calls_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/delivery/calls_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/delivery/delivery_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/delivery/delivery_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/mailers/admin_mailer.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/mailers/admin_mailer.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/call.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/call.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/item.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/item.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/order.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/order.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/product.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/product.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/my_google_recaptcha.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/admin/calls/index.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/calls/index.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/admin_mailer/new_call_order_notify.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin_mailer/new_call_order_notify.html.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/delivery/business/index.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/business/index.html.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/delivery/calls/_form_price_call.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/calls/_form_price_call.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/delivery/calls/_price_call.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/calls/_request_call.html.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/delivery/compositions/_composition.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/compositions/_composition.html.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/delivery/layouts/_call.html.haml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/delivery/layouts/_footer.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery/layouts/_footer.html.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/delivery/layouts/_form_to_call.html.haml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/delivery.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/delivery.html.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/webpack/packs/application.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/webpack/packs/application.js.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/webpack/packs/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/webpack/packs/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/application.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/application.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/environments/development.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/environments/development.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/environments/production.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/environments/production.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/environments/staging.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/environments/staging.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/locales/ru.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/locales/ru.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/mainsms.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/my_google_recaptcha/railtie.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/my_google_recaptcha/validator.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/my_google_recaptcha/view_ext.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,24 +140,27 @@
   </component>
   <component name="PropertiesComponent">
     <property name="Ruby.ViewRefParam.DefaultExtension" value="haml" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../shipstock-api" />
+    <property name="add_unversioned_files" value="$PROJECT_DIR$/.env" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="yarn" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.ruby.settings.RubyActiveModuleSdkConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Sites\Balloons\app\javascript\packs\css" />
-      <recent name="C:\Sites\Balloons\app\views\delivery\receivers" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Sites\balloons\app\views\delivery\calls" />
       <recent name="C:\Sites\Balloons\app\webpack\src\js" />
       <recent name="C:\Sites\Balloons\app\webpack\src" />
       <recent name="C:\Sites\Balloons\app\webpack" />
       <recent name="C:\Sites\Balloons\app\javascript\packs" />
-      <recent name="C:\Sites\Balloons\lib\my_google_recaptcha" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Sites\Balloons\app\javascript\packs\css" />
+      <recent name="C:\Sites\Balloons\app\views\delivery\receivers" />
     </key>
   </component>
   <component name="RunManager" selected="Rails.Development: Balloons">
@@ -99,11 +175,12 @@
       <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
       <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
       <EXTENSION ID="RubyCoverageRunConfigurationExtension" track_test_folders="true" runner="rcov" />
+      <EXTENSION ID="org.jetbrains.plugins.ruby.rails.run.RailsRunConfigurationExtension" SCRATCH_USE_RAILS_RUNNER="false" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SCRIPT_ARGS" VALUE="" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="PORT" VALUE="3000" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="IP" VALUE="127.0.0.1" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="DUMMY_APP" VALUE="test/dummy" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RAILS_SERVER_TYPE" VALUE="Default" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RAILS_SERVER_TYPE" VALUE="default" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ENVIRONMENT_TYPE" VALUE="development" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="LAUNCH_JS" VALUE="false" />
       <method v="2" />
@@ -172,14 +249,29 @@
     <configuration name="railtie" type="RubyRunConfigurationType" factoryName="Ruby" temporary="true">
       <module name="Balloons" />
       <RUBY_RUN_CONFIG NAME="RUBY_ARGS" VALUE="" />
-      <RUBY_RUN_CONFIG NAME="WORK DIR" VALUE="C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/new_google_recaptcha-1.0.0/lib/new_google_recaptcha" />
+      <RUBY_RUN_CONFIG NAME="WORK DIR" VALUE="$MODULE_DIR$/../../Ruby26-x64/lib/ruby/gems/2.6.0/gems/new_google_recaptcha-1.0.0/lib/new_google_recaptcha" />
       <RUBY_RUN_CONFIG NAME="SHOULD_USE_SDK" VALUE="false" />
       <RUBY_RUN_CONFIG NAME="ALTERN_SDK_NAME" VALUE="" />
       <RUBY_RUN_CONFIG NAME="myPassParentEnvs" VALUE="true" />
       <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
       <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
       <EXTENSION ID="RubyCoverageRunConfigurationExtension" track_test_folders="true" runner="rcov" />
-      <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/new_google_recaptcha-1.0.0/lib/new_google_recaptcha/railtie.rb" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="$MODULE_DIR$/../../Ruby26-x64/lib/ruby/gems/2.6.0/gems/new_google_recaptcha-1.0.0/lib/new_google_recaptcha/railtie.rb" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="webpack-dev-server" type="RubyRunConfigurationType" factoryName="Ruby">
+      <module name="Balloons" />
+      <RUBY_RUN_CONFIG NAME="RUBY_ARGS" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="WORK DIR" VALUE="$MODULE_DIR$" />
+      <RUBY_RUN_CONFIG NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RUBY_RUN_CONFIG NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="myPassParentEnvs" VALUE="true" />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" track_test_folders="true" runner="rcov" />
+      <EXTENSION ID="org.jetbrains.plugins.ruby.rails.run.RailsRunConfigurationExtension" SCRATCH_USE_RAILS_RUNNER="false" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="$MODULE_DIR$/bin/webpack-dev-server" />
       <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
       <method v="2" />
     </configuration>
@@ -188,6 +280,7 @@
       <item itemvalue="Rails.Development: Balloons" />
       <item itemvalue="Rake.test: Balloons" />
       <item itemvalue="Rake.spec: Balloons" />
+      <item itemvalue="Ruby.webpack-dev-server" />
       <item itemvalue="Ruby.railtie" />
     </list>
     <recent_temporary>
@@ -197,6 +290,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SpringUtil" SPRING_PRE_LOADER_OPTION="true" RAKE_SPRING_PRE_LOADER_OPTION="false" RAILS_SPRING_PRE_LOADER_OPTION="false" />
   <component name="SvnConfiguration">
     <configuration />
@@ -266,6 +360,10 @@
       <workItem from="1587380593673" duration="1727000" />
       <workItem from="1587550897760" duration="1247000" />
       <workItem from="1587896023839" duration="38715000" />
+      <workItem from="1596814747837" duration="86000" />
+      <workItem from="1596814864977" duration="83000" />
+      <workItem from="1596815105089" duration="1749000" />
+      <workItem from="1600850742144" duration="19881000" />
     </task>
     <task id="LOCAL-00001" summary="fix">
       <created>1587296403150</created>
@@ -378,77 +476,86 @@
     </todo-panel>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix" />
     <option name="LAST_COMMIT_MESSAGE" value="fix" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="151" y="0" key="CommitChangelistDialog2" timestamp="1588080612178">
-      <screen x="0" y="0" width="1280" height="984" />
+    <state x="250" y="76" width="1099" height="737" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600851603780">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="151" y="0" key="CommitChangelistDialog2/0.0.1280.984@0.0.1280.984" timestamp="1588080612178" />
-    <state x="370" y="191" key="FileChooserDialogImpl" timestamp="1588000109153">
-      <screen x="0" y="0" width="1280" height="984" />
+    <state x="250" y="76" width="1099" height="737" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1600.860@0.0.1600.860" timestamp="1600851603780" />
+    <state x="464" y="116" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1600867710635">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="370" y="191" key="FileChooserDialogImpl/0.0.1280.984@0.0.1280.984" timestamp="1588000109153" />
-    <state width="902" height="492" key="GridCell.Tab.0.bottom" timestamp="1588086882579">
-      <screen x="0" y="0" width="1280" height="984" />
+    <state x="464" y="116" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1600.860@0.0.1600.860" timestamp="1600867710635" />
+    <state x="645" y="137" key="EnvironmentVariablesDialog" timestamp="1600851600400">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="902" height="492" key="GridCell.Tab.0.bottom/0.0.1280.984@0.0.1280.984" timestamp="1588086882579" />
-    <state width="902" height="492" key="GridCell.Tab.0.center" timestamp="1588086882579">
-      <screen x="0" y="0" width="1280" height="984" />
+    <state x="645" y="137" key="EnvironmentVariablesDialog/0.0.1600.860@0.0.1600.860" timestamp="1600851600400" />
+    <state x="501" y="126" key="FileChooserDialogImpl" timestamp="1600853933255">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="902" height="492" key="GridCell.Tab.0.center/0.0.1280.984@0.0.1280.984" timestamp="1588086882579" />
-    <state width="902" height="492" key="GridCell.Tab.0.left" timestamp="1588086882579">
-      <screen x="0" y="0" width="1280" height="984" />
+    <state x="501" y="126" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1600853933255" />
+    <state width="949" height="600" key="GridCell.Tab.0.bottom" timestamp="1600870727905">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="902" height="492" key="GridCell.Tab.0.left/0.0.1280.984@0.0.1280.984" timestamp="1588086882579" />
-    <state width="902" height="492" key="GridCell.Tab.0.right" timestamp="1588086882579">
-      <screen x="0" y="0" width="1280" height="984" />
+    <state width="949" height="600" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1600870727905" />
+    <state width="949" height="600" key="GridCell.Tab.0.center" timestamp="1600870727905">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="902" height="492" key="GridCell.Tab.0.right/0.0.1280.984@0.0.1280.984" timestamp="1588086882579" />
-    <state width="902" height="492" key="GridCell.Tab.1.bottom" timestamp="1588086078161">
-      <screen x="0" y="0" width="1280" height="984" />
+    <state width="949" height="600" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1600870727905" />
+    <state width="949" height="600" key="GridCell.Tab.0.left" timestamp="1600870727904">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="902" height="492" key="GridCell.Tab.1.bottom/0.0.1280.984@0.0.1280.984" timestamp="1588086078161" />
-    <state width="902" height="492" key="GridCell.Tab.1.center" timestamp="1588086078161">
-      <screen x="0" y="0" width="1280" height="984" />
+    <state width="949" height="600" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1600870727904" />
+    <state width="949" height="600" key="GridCell.Tab.0.right" timestamp="1600870727905">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="902" height="492" key="GridCell.Tab.1.center/0.0.1280.984@0.0.1280.984" timestamp="1588086078160" />
-    <state width="902" height="492" key="GridCell.Tab.1.left" timestamp="1588086078160">
-      <screen x="0" y="0" width="1280" height="984" />
+    <state width="949" height="600" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1600870727905" />
+    <state width="949" height="600" key="GridCell.Tab.1.bottom" timestamp="1600870729003">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="902" height="492" key="GridCell.Tab.1.left/0.0.1280.984@0.0.1280.984" timestamp="1588086078160" />
-    <state width="902" height="492" key="GridCell.Tab.1.right" timestamp="1588086078161">
-      <screen x="0" y="0" width="1280" height="984" />
+    <state width="949" height="600" key="GridCell.Tab.1.bottom/0.0.1600.860@0.0.1600.860" timestamp="1600870729003" />
+    <state width="949" height="600" key="GridCell.Tab.1.center" timestamp="1600870729003">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="902" height="492" key="GridCell.Tab.1.right/0.0.1280.984@0.0.1280.984" timestamp="1588086078161" />
-    <state x="132" y="161" key="Vcs.Push.Dialog.v2" timestamp="1588080617811">
-      <screen x="0" y="0" width="1280" height="984" />
+    <state width="949" height="600" key="GridCell.Tab.1.center/0.0.1600.860@0.0.1600.860" timestamp="1600870729003" />
+    <state width="949" height="600" key="GridCell.Tab.1.left" timestamp="1600870729003">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="132" y="161" key="Vcs.Push.Dialog.v2/0.0.1280.984@0.0.1280.984" timestamp="1588080617811" />
-    <state x="297" y="235" key="git4idea.merge.GitPullDialog" timestamp="1587296332087">
-      <screen x="0" y="0" width="1280" height="984" />
+    <state width="949" height="600" key="GridCell.Tab.1.left/0.0.1600.860@0.0.1600.860" timestamp="1600870729003" />
+    <state width="949" height="600" key="GridCell.Tab.1.right" timestamp="1600870729003">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="297" y="235" key="git4idea.merge.GitPullDialog/0.0.1280.984@0.0.1280.984" timestamp="1587296332087" />
+    <state width="949" height="600" key="GridCell.Tab.1.right/0.0.1600.860@0.0.1600.860" timestamp="1600870729003" />
+    <state x="204" y="0" width="1141" height="860" key="SettingsEditor" timestamp="1596815506725">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="204" y="0" width="1141" height="860" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1596815506725" />
+    <state x="445" y="98" width="710" height="664" key="find.popup" timestamp="1600861062980">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="445" y="98" width="710" height="664" key="find.popup/0.0.1600.860@0.0.1600.860" timestamp="1600861062980" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Balloons@railtie.rcov" NAME="railtie Coverage Results" MODIFIED="1573718352602" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/new_google_recaptcha-1.0.0/lib/new_google_recaptcha" MODULE_NAME="Balloons" />
+    <SUITE FILE_PATH="coverage/balloons@Development__Balloons.rcov" NAME="Development: Balloons Coverage Results" MODIFIED="1600867485650" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Balloons" />
+    <SUITE FILE_PATH="coverage/Balloons@railtie.rcov" NAME="railtie Coverage Results" MODIFIED="1573718352602" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../Ruby26-x64/lib/ruby/gems/2.6.0/gems/new_google_recaptcha-1.0.0/lib/new_google_recaptcha" MODULE_NAME="Balloons" />
+    <SUITE FILE_PATH="coverage/balloons@webpack_dev_server.rcov" NAME="webpack-dev-server Coverage Results" MODIFIED="1600852156288" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Balloons" />
     <SUITE FILE_PATH="coverage/Balloons@Development__Balloons.rcov" NAME="Development: Balloons Coverage Results" MODIFIED="1588086078046" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Balloons" />
   </component>
 </project>

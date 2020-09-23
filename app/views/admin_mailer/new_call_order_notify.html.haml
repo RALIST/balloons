@@ -1,21 +1,11 @@
 %h1
-  = @call.call_type == 'Запрос цены' ? 'Запрос цены' : 'Заказали обратный звонок!'
+  = @call.call_type
 %table
-  %tr
-    %td
-      Тип заявки
-    %td
-      = @call.call_type
   %tr
     %td
       Имя
     %td
       = @call.username
-  %tr
-    %td
-      Город:
-    %td
-      = t("cities.#{@call.city}.base")
   %tr
     %td
       Телефон
@@ -25,31 +15,7 @@
     %td
       Способы связи
     %td
-      = @call.messangers.join(',') if @call.messangers
-  - if @call.event
-    %tr
-      %td
-        Повод
-      %td
-        = @call.event
-  - if @call.person
-    %tr
-      %td
-        Кому
-      %td
-        = @call.person
-  - if @call.budget
-    %tr
-      %td
-        Бюджет
-      %td
-        = @call.budget
-  - if @call.desc
-    %tr
-      %td
-        Дополнительно
-      %td
-        = @call.desc
+      = @call.messangers.join(', ') if @call.messangers
   %tr
     %td
       Заявка поступила

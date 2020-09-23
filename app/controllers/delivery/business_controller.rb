@@ -1,6 +1,6 @@
 class Delivery::BusinessController < Delivery::DeliveryController
-
   before_action :disable_sidebar
+
   def index
     set_meta_tags title: 'Оформление шарами открытия магазина',
                   description: 'Для привлечения внимания или в целях рекламной кампании вы можете обратиться в "Шариковую фею" для оформления шарами такого события, как открытие магазина.',

@@ -1,8 +1,6 @@
-import './turbolinks'
+import Turbolinks from 'turbolinks';
+import Rails from 'rails-ujs';
 import $ from 'jquery';
-import jQuery from 'jquery';
-window.jQuery = $; window.$ = jQuery; global.$ = jQuery;
-
 import 'bootstrap';
 import 'popper.js';
 import '../src/js/jquery.maskedinput';
@@ -12,6 +10,9 @@ import '../src/js/ym.js.erb';
 import '../src/js/goals.js.erb';
 import '../src/js/common.js';
 import nav from  '../src/js/bootstrap-better-nav';
+
+Turbolinks.start();
+Rails.start();
 
 const ready = function(){
   if(!($('body').attr('data-loaded') == 'T')) {
@@ -89,7 +90,7 @@ const search = function(){
     if( e.key == 8 || e.key == 46 ){
       return false;
     };
-    var text = $("input[name='search']").val();
+    const text = $("input[name='search']").val();
     if(text.length){
       $('.as_btn').not(":containsi('" + text + "')").closest('.col-6').hide();
       $(".as_btn:containsi('" + text + "')").closest('.col-6').show();

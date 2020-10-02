@@ -1,5 +1,9 @@
 import Turbolinks from 'turbolinks';
 import Rails from 'rails-ujs';
+
+Turbolinks.start();
+Rails.start();
+
 import $ from 'jquery';
 import 'bootstrap';
 import 'popper.js';
@@ -11,8 +15,7 @@ import '../src/js/common.js';
 import nav from  '../src/js/bootstrap-better-nav';
 import YM from '../src/js/ym.js.erb'
 
-Turbolinks.start();
-Rails.start();
+
 
 const ready = function(){
   if(!($('body').attr('data-loaded') == 'T')) {

@@ -13,4 +13,5 @@ environment.plugins.append('Provide', new webpack.ProvidePlugin({
 
 const erb = require('./loaders/erb');
 environment.loaders.prepend('erb', erb)
+environment.splitChunks()
 module.exports = environment;

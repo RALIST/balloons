@@ -28,7 +28,7 @@
     = f.hidden_field :city, value: @city
     = f.hidden_field :call_type, value: 'Запрос цены'
 
-    = recaptcha_v3(action: 'call', turbolinks: true)
+    = recaptcha_v3(action: 'call', turbolinks: true, nonce: SecureRandom.hex(10))
   .form-group.text-center
     = submit_tag 'Отправить', class: 'btn btn-success btn-block btn-sm', data:{disable_with: 'Отправляю...'}
 

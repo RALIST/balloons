@@ -6,10 +6,10 @@ import 'popper.js';
 import '../src/js/jquery.maskedinput';
 import 'clockpicker/src/clockpicker';
 import '../src/js/cookies.js';
-import '../src/js/ym.js.erb';
 import '../src/js/goals.js.erb';
 import '../src/js/common.js';
 import nav from  '../src/js/bootstrap-better-nav';
+import YM from '../src/js/ym.js.erb'
 
 Turbolinks.start();
 Rails.start();
@@ -103,3 +103,4 @@ const search = function(){
 
 document.addEventListener("turbolinks:load", ready);
 document.addEventListener('ready', ready);
+document.addEventListener('load', YM())

@@ -8,7 +8,7 @@ end
 
 gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
 gem 'jbuilder', '~> 2.5'
-gem 'puma', '~> 3.0'
+gem 'puma', '~> 3.12'
 gem 'rails', '~> 6.0.2.1'
 gem 'sprockets-rails'
 

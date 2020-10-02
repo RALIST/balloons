@@ -1,6 +1,4 @@
-import Rails from 'rails-ujs';
-import Turbolinks from 'turbolinks';
-
+import './turbolinks'
 import $ from 'jquery';
 import jQuery from 'jquery';
 window.jQuery = $; window.$ = jQuery; global.$ = jQuery;
@@ -14,10 +12,6 @@ import '../src/js/ym.js.erb';
 import '../src/js/goals.js.erb';
 import '../src/js/common.js';
 import nav from  '../src/js/bootstrap-better-nav';
-import LazyLoad from 'vanilla-lazyload';
-
-Rails.start();
-Turbolinks.start();
 
 const ready = function(){
   if(!($('body').attr('data-loaded') == 'T')) {

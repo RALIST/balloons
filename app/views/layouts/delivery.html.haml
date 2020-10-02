@@ -1,13 +1,14 @@
 !!!
-%html
+%html{lang: 'ru'}
   %head
     = render 'delivery/layouts/special/meta'
     = display_meta_tags
     = favicon_link_tag 'favicons/favicon-32.png'
     = favicon_link_tag 'favicons/favicon-120.png', rel: 'apple-touch-icon'
     = csrf_meta_tags
+    = javascript_pack_tag 'turbolinks', 'data-turbolinks-track': 'reload'
+    = javascript_packs_with_chunks_tag 'application', 'styles', 'data-turbolinks-track': 'reload', async: true, defer: true
     = stylesheet_pack_tag 'styles', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_packs_with_chunks_tag 'application', 'styles', 'data-turbolinks-track': 'reload'
   %body
     .wrapper
       %header

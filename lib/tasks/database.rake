@@ -1,12 +1,12 @@
 namespace :db do
 
   desc "Copy production database to local"
-  task :copy_production => :environment do
+  task :copy => :environment do
     # Download latest dump
-    system "heroku pg:backups:download"
+    system "heroku pg:backups:download -a bigairballoons1"
   end
 
-  task :dump_production => :environment do
+  task :dump => :environment do
     # get user and database name
     config   = Rails.configuration.database_configuration["development"]
     database = config["database"]

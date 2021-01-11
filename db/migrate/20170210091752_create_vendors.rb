@@ -4,7 +4,6 @@ class CreateVendors < ActiveRecord::Migration[5.0]
       t.string :name
       t.text :description
       t.string :country
-      t.attachment :logo
 
       t.timestamps
     end

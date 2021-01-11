@@ -81,15 +81,15 @@ Rails.application.routes.draw do
       scope '/graduations' do
         get 'universitet', to: 'graduations#univ', as: :univ
       end
-      post '/add_to_cart/:id',              to: 'carts#add_to_cart',        as: :add_to_cart
+      post '/add_to_cart/:id',          to: 'carts#add_to_cart',            as: :add_to_cart
       post '/add_product_to_cart/:id',  to: 'carts#add_product_to_cart',    as: :add_product_to_cart
       post '/apply_code',               to: 'carts#apply_code',             as: :apply_code
-      delete '/remove_from_cart/:id',     to: 'carts#remove_from_cart',       as: :remove_from_cart
+      delete '/remove_from_cart/:id',   to: 'carts#remove_from_cart',       as: :remove_from_cart
       post '/add_quantity/:id',         to: 'subpositions#up_quantity',     as: :add_quantity
       post '/down_quantity/:id',        to: 'subpositions#down_quantity',   as: :down_quantity
       post '/add_subposition',          to: 'subpositions#add_subposition', as: :add_subposition
       get '/login',                     to: 'sessions#new',                 as: :login
-      post '/logout', to: 'sessions#destroy', as: :logout
+      post '/logout',                   to: 'sessions#destroy',             as: :logout
       get '/signin',                    to: 'users#new',                    as: :signin
       get '/search',                    to: 'main#search',                  as: :search
       get '/my_cart',                   to: 'carts#show',                   as: :my_cart
@@ -99,21 +99,19 @@ Rails.application.routes.draw do
       get '/by_price',                  to: 'main#by_price',                as: :price_range
       get '/account',                   to: 'users#show',                   as: :account
       get '/thank_you',                 to: 'main#thanks',                  as: :thanks
-      get '/contacts', to: 'main#contacts', as: :contacts
-      post '/fogot_password', to: 'users#fogot_password', as: :fogot_password
-      get '/lp', to: redirect('/', status: 301)
-      get '/prices', to: 'main#prices', as: :prices
-      get '/o-nas', to: 'main#about', as: :about
-      get '/dostavka', to: 'main#info', as: :info
-      get '/garantee', to: 'main#garant', as: :garant
-      match '/404', to: 'errors#not_found', via: :all
-      match '/500', to: 'errors#internal_server_error', via: :all
-      get '/partners', to: 'partners#index', as: :partners
-      get '/faq', to: 'main#faq', as: :faq
-
-      get '/chat-me', to: 'main#chat_me'
-
-      get '/privacy', to: 'main#privacy'
+      get '/contacts',                  to: 'main#contacts',                as: :contacts
+      post '/fogot_password',           to: 'users#fogot_password',         as: :fogot_password
+      get '/lp',                        to: redirect('/', status: 301)
+      get '/prices',                    to: 'main#prices',                  as: :prices
+      get '/o-nas',                     to: 'main#about',                   as: :about
+      get '/dostavka',                  to: 'main#info',                    as: :info
+      get '/garantee',                  to: 'main#garant',                  as: :garant
+      match '/404',                     to: 'errors#not_found',             via: :all
+      match '/500',                     to: 'errors#internal_server_error', via: :all
+      get '/partners',                  to: 'partners#index',               as: :partners
+      get '/faq',                       to: 'main#faq',                     as: :faq
+      get '/chat-me',                   to: 'main#chat_me'
+      get '/privacy',                   to: 'main#privacy'
 
       constraints(format: /[a-z]+(\.[a-z]+)?/) do
         resources :sitemaps, only: :show

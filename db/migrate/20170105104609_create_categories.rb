@@ -3,7 +3,6 @@ class CreateCategories < ActiveRecord::Migration[5.0]
     create_table :categories do |t|
       t.string :title
       t.text :desc
-      t.attachment :img
 
       t.timestamps
     end

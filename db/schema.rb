@@ -2,8 +2,8 @@
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# This file is the source Rails uses to define your schema when running `rails
-# db:schema:load`. When creating a new database, `rails db:schema:load` tends to
+# This file is the source Rails uses to define your schema when running `bin/rails
+# db:schema:load`. When creating a new database, `bin/rails db:schema:load` tends to
 # be faster and is potentially less error prone than running all of your
 # migrations from scratch. Old migrations may fail to apply correctly if those
 # migrations use external dependencies or application code.
@@ -67,10 +67,6 @@ ActiveRecord::Schema.define(version: 2020_09_23_100356) do
   create_table "categories", id: :serial, force: :cascade do |t|
     t.string "title"
     t.text "desc"
-    t.string "img_file_name"
-    t.string "img_content_type"
-    t.bigint "img_file_size"
-    t.datetime "img_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -84,10 +80,6 @@ ActiveRecord::Schema.define(version: 2020_09_23_100356) do
 
   create_table "compositions", id: :serial, force: :cascade do |t|
     t.string "title"
-    t.string "img_file_name"
-    t.string "img_content_type"
-    t.bigint "img_file_size"
-    t.datetime "img_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "deleted", default: false
@@ -125,10 +117,6 @@ ActiveRecord::Schema.define(version: 2020_09_23_100356) do
   create_table "feedbacks", id: :serial, force: :cascade do |t|
     t.string "name"
     t.text "body"
-    t.string "img_file_name"
-    t.string "img_content_type"
-    t.bigint "img_file_size"
-    t.datetime "img_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "phone"
@@ -156,16 +144,12 @@ ActiveRecord::Schema.define(version: 2020_09_23_100356) do
   end
 
   create_table "images", id: :serial, force: :cascade do |t|
-    t.string "img_file_name"
-    t.string "img_content_type"
-    t.bigint "img_file_size"
-    t.datetime "img_updated_at"
     t.string "imageable_type"
     t.integer "imageable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "style"
-    t.index ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id"
+    t.index ["imageable_type", "imageable_id"], name: "index_images_on_imageable"
   end
 
   create_table "items", id: :serial, force: :cascade do |t|
@@ -238,10 +222,6 @@ ActiveRecord::Schema.define(version: 2020_09_23_100356) do
 
   create_table "partners", id: :serial, force: :cascade do |t|
     t.string "name"
-    t.string "logo_file_name"
-    t.string "logo_content_type"
-    t.bigint "logo_file_size"
-    t.datetime "logo_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -261,10 +241,6 @@ ActiveRecord::Schema.define(version: 2020_09_23_100356) do
   end
 
   create_table "prices", id: :serial, force: :cascade do |t|
-    t.string "price_sheet_file_name"
-    t.string "price_sheet_content_type"
-    t.bigint "price_sheet_file_size"
-    t.datetime "price_sheet_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -281,10 +257,6 @@ ActiveRecord::Schema.define(version: 2020_09_23_100356) do
     t.bigint "barcode"
     t.string "code"
     t.string "name"
-    t.string "img_file_name"
-    t.string "img_content_type"
-    t.bigint "img_file_size"
-    t.datetime "img_updated_at"
     t.float "price_with_helium", default: 0.0
     t.string "complex_name"
     t.index ["item_id"], name: "index_products_on_item_id"
@@ -297,10 +269,6 @@ ActiveRecord::Schema.define(version: 2020_09_23_100356) do
     t.datetime "start_date"
     t.datetime "end_date"
     t.string "desc"
-    t.string "img_file_name"
-    t.string "img_content_type"
-    t.bigint "img_file_size"
-    t.datetime "img_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -310,7 +278,7 @@ ActiveRecord::Schema.define(version: 2020_09_23_100356) do
     t.string "personable_type"
     t.integer "personable_id"
     t.string "slug"
-    t.index ["personable_type", "personable_id"], name: "index_receivers_on_personable_type_and_personable_id"
+    t.index ["personable_type", "personable_id"], name: "index_receivers_on_personable"
     t.index ["slug"], name: "index_receivers_on_slug"
   end
 
@@ -350,7 +318,7 @@ ActiveRecord::Schema.define(version: 2020_09_23_100356) do
     t.datetime "updated_at", null: false
     t.string "slug"
     t.index ["slug"], name: "index_tags_on_slug"
-    t.index ["taggable_type", "taggable_id"], name: "index_tags_on_taggable_type_and_taggable_id"
+    t.index ["taggable_type", "taggable_id"], name: "index_tags_on_taggable"
   end
 
   create_table "textures", id: :serial, force: :cascade do |t|
@@ -367,10 +335,6 @@ ActiveRecord::Schema.define(version: 2020_09_23_100356) do
     t.datetime "updated_at", null: false
     t.integer "vendor_id"
     t.string "code"
-    t.string "img_file_name"
-    t.string "img_content_type"
-    t.bigint "img_file_size"
-    t.datetime "img_updated_at"
     t.index ["color_id"], name: "index_tones_on_color_id"
     t.index ["vendor_id"], name: "index_tones_on_vendor_id"
   end
@@ -406,10 +370,6 @@ ActiveRecord::Schema.define(version: 2020_09_23_100356) do
     t.string "name"
     t.text "description"
     t.string "country"
-    t.string "logo_file_name"
-    t.string "logo_content_type"
-    t.bigint "logo_file_size"
-    t.datetime "logo_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "abbr"

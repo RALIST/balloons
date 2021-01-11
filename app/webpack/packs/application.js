@@ -1,10 +1,6 @@
-import Turbolinks from 'turbolinks';
 import Rails from 'rails-ujs';
-
-Turbolinks.start();
 Rails.start();
 
-import $ from 'jquery';
 import 'bootstrap';
 import 'popper.js';
 import '../src/js/jquery.maskedinput';
@@ -14,11 +10,12 @@ import '../src/js/goals.js.erb';
 import '../src/js/common.js';
 import nav from  '../src/js/bootstrap-better-nav';
 import YM from '../src/js/ym.js.erb'
-
-
+import { Turbo } from "@hotwired/turbo-rails"
+window.Turbo = Turbo
 
 const ready = function(){
-  if(!($('body').attr('data-loaded') == 'T')) {
+  let body = document.body
+  if(!(body.attr('data-loaded') === 'T')) {
     clockPicker();
     dataMask();
     showMore();
@@ -26,54 +23,54 @@ const ready = function(){
     search();
     nav();
     tooltip();
-    $('body').attr('data-loaded', 'T');
+    body.attr('data-loaded', 'T');
   } else {
     return false;
   }
 }
 
-const tooltip = function(){
+const tooltip = () => {
   $('[data-toggle="tooltip"]').tooltip()
 }
 
-const cartQuantity = function () {
-    $(document).on('change','#subposition_quantity', function (e) {
-      var input = this;
-      if ($(input).val()){
-        var form = $(input).closest('form');
+const cartQuantity = () => {
+    document.on('change','#subposition_quantity', function (e) {
+      const input = this;
+      if (input.val()){
+        const form = input.closest('form');
         form.trigger('submit.rails')
       }
     });
 };
 
-const showMore = function () {
-    var more = $('#more')
-    var i;
-    more.hide();
-    var rows = $('.item');
+const showMore = () => {
+  const more = document.getElementById('#more');
+  let i;
+  more.hide();
+  const rows = document.getElementsByClassName('item');
 
-    if (rows.length > 4){
+  if (rows.length > 4){
         more.show();
-        $(rows[3]).addClass('grad-1');
+        rows[3].addClass('grad-1');
         for (i = 4; i < rows.length; i++) {
-          $(rows[i]).hide();
+          rows[i].hide();
         }
         more.on('click', function(){
           for (i = 4; i < rows.length; i++) {
-            $(rows[i]).toggle(100);
+            rows[i].toggle(100);
           }
-          $(rows[3]).toggleClass('grad-1');
-          $(this).find('i').toggleClass('fa-chevron-up').toggleClass('fa-chevron-down');
-          $(this).toggleClass('with-grad');
-          $(this).find('.small').text(function(){
-            var text = $(this).text();
-            return text == 'Спрятать' ? "Показать все" : "Спрятать"
+          rows[3].toggleClass('grad-1');
+          this.find('i').toggleClass('fa-chevron-up').toggleClass('fa-chevron-down');
+          this.toggleClass('with-grad');
+          this.find('.small').text(function(){
+            const text = $(this).text();
+            return text === 'Спрятать' ? "Показать все" : "Спрятать"
           })
         });
       }
 };
 
-const clockPicker = function(){
+const clockPicker = () => {
     $('.clockpicker').clockpicker(
     {'default': 'now',
       autoclose: true,
@@ -81,16 +78,16 @@ const clockPicker = function(){
     );
 };
 
-const dataMask = function () {
+const dataMask = () => {
     $('[data-mask]').each(function(index, value){
-        var element = $(value);
-        element.mask($(value).data('mask'), {placeholder: '-'})
+      const element = $(value);
+      element.mask($(value).data('mask'), {placeholder: '-'})
     });
 };
 
-const search = function(){
+const search = () => {
   $("input[name='search']").on('keyup touchend', function(e){
-    if( e.key == 8 || e.key == 46 ){
+    if( e.key === 8 || e.key === 46 ){
       return false;
     };
     const text = $("input[name='search']").val();
@@ -104,6 +101,6 @@ const search = function(){
   });
 };
 
-document.addEventListener("turbolinks:load", ready);
+document.addEventListener("turbo:load", ready);
 document.addEventListener('ready', ready);
 document.addEventListener('load', YM())

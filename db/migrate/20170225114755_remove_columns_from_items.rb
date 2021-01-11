@@ -2,7 +2,6 @@ class RemoveColumnsFromItems < ActiveRecord::Migration[5.0]
   def change
     change_table :items do |t|
       t.remove :price
-      remove_attachment :items, :img
       t.remove :price_with_helium
       t.remove :made_by
       t.remove :barcode

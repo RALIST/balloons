@@ -1,26 +1,24 @@
 export default function nav() {
 
-    var body = $('body');
-    var navbar = $('.navbar');
-    var navbarCollapse = $('.navbar-collapse');
-
+    const body = document.body;
+    const navbar = $('.navbar');
+    const navbarCollapse = $('.navbar-collapse');
 
 
     // Add the needed HTML elements for the plugin to work.
-    // All the elements are styled in navbar-sidemnu.css.
+    // All the elements are styled in navbar-sidmenu.css.
 
     body.append('<div class="side-menu-overlay"></div>');
-    var overlay = $('.side-menu-overlay');
+    const overlay = $('.side-menu-overlay');
 
     body.append('<div id="side-menu"></div>');
-    var sideMenu = $('#side-menu');
+    const sideMenu = $('#side-menu');
 
     sideMenu.append('<button class="close"><i class="fas fa-times" aria-hidden="true"></i></button>')
-    var sideMenuCloseBtn = sideMenu.find('.close');
+    const sideMenuCloseBtn = sideMenu.find('.close');
 
     sideMenu.append('<div class="contents"></div>')
-    var sideMenuContents = sideMenu.find('.contents');
-
+    const sideMenuContents = sideMenu.find('.contents');
 
 
     // Configure Slide menu direction
@@ -41,7 +39,7 @@ export default function nav() {
         });
 
         // Instead we copy the navbar contents and add them to our side menu.
-        var menuContent = $(this).html();
+        const menuContent = $(this).html();
         sideMenuContents.html(menuContent);
 
         // Animate the side menu into frame.

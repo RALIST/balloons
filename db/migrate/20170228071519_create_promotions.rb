@@ -6,7 +6,6 @@ class CreatePromotions < ActiveRecord::Migration[5.0]
       t.datetime :start_date
       t.datetime :end_date
       t.string :desc
-      t.attachment :img
       t.timestamps
     end
   end

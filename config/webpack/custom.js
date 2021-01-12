@@ -1,4 +1,5 @@
 const webpack = require('webpack')
+
 module.exports = {
   module: {
     rules: [
@@ -34,10 +35,6 @@ module.exports = {
       "window.jQuery": "jquery",
       "window.$": "jquery",
     }),
-  ],
-  watchOptions: {
-    poll: true,
-    ignored: 'node_modules/**'
-  }
+  ]
 };
 

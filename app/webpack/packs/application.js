@@ -34,7 +34,7 @@ const cartQuantity = () => {
       const input = this;
       if ($(input).val()){
         const form = $(input).closest('form');
-        $(form).trigger('submit.rails')
+        $(form).submit();
       }
     });
 };

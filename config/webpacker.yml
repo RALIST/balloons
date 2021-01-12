@@ -40,10 +40,11 @@ development:
     # When enabled, nothing except the initial startup information will be written to the console.
     # This also means that errors or warnings from webpack are not visible.
     quiet: false
-    pretty: true
+    pretty: false
     headers:
       'Access-Control-Allow-Origin': '*'
     watch_options:
+      poll: true
       ignored: '**/node_modules/**'
 
 test:
@@ -54,6 +55,15 @@ test:
   public_output_path: packs-test
 
 production:
+  <<: *default
+
+  # Production depends on precompilation of packs prior to booting for performance.
+  compile: false
+
+  # Cache manifest.json for performance
+  cache_manifest: true
+
+staging:
   <<: *default
 
   # Production depends on precompilation of packs prior to booting for performance.

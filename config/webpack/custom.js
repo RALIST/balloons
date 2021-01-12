@@ -1,3 +1,4 @@
+const webpack = require('webpack')
 module.exports = {
   module: {
     rules: [
@@ -26,4 +27,17 @@ module.exports = {
       }
     ],
   },
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      "window.jQuery": "jquery",
+      "window.$": "jquery",
+    }),
+  ],
+  watchOptions: {
+    poll: true,
+    ignored: 'node_modules/**'
+  }
 };
+

@@ -48,8 +48,8 @@
                 руб.
               %link{itemprop: 'availability', href: 'http://schema.org/Preorder'}
             .col-12.text-right
-              - unless @cart.compositions.include?(composition)
-                = link_to 'Добавить в корзину', add_to_cart_path(composition), class: "btn btn-info btn-block add-to-cart#{composition.id}", id: 'ga-add-to-cart', data: {disable_with: 'Добавляем...', turbolinks: false}, remote: true, method: :post
+              - if @cart.compositions.exclude?(composition)
+                = link_to 'Добавить в корзину', add_to_cart_path(composition), class: "btn btn-info btn-block add-to-cart#{composition.id}", id: 'ga-add-to-cart', data: {disable_with: 'Добавляем...'}, method: :post
               - else
                 = link_to 'Перейти в корзину', my_cart_path, class: 'btn btn-success btn-block btn-sm'
             .col-12.text-center.text-lavender.mt-2.small

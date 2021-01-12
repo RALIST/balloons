@@ -1,24 +1,25 @@
 - product = subposition.product
-%tr.text-center{id: "#{subposition.id}"}
-  %td{data: {toggle: 'popover', product_id: "#{product.id}", content: "#{product.complex_name}", title: "#{product.complex_name}"}}
-    = image_tag product.small_url
-  %td.align-middle.small.d-none.d-lg-table-cell
-    = product.complex_name
-  %td.align-middle
-    = form_for subposition, class: 'form-inline', remote: true do |f|
-      .input-group.w-50.mx-auto
-        .input-group-prepend
-          = link_to add_quantity_path(subposition), method: :post, remote: true, class: "sub-#{subposition.id} btn btn-info btn-sm" do
-            %i.fas.fa-plus
-        = f.number_field :quantity, class: 'form-control form-control-sm text-center'
-        .input-group-append
-          = link_to down_quantity_path(subposition), method: :post, remote: true, class: "sub-#{subposition.id} btn btn-info btn-sm" do
-            %i.fas.fa-minus
-  %td.align-middle.product-price
-    .text-center
-      по
-      = product.price_with_helium.round(0)
-      %i.fas.fa-ruble-sign
-  %td.text-center.align-middle
-    = link_to subposition_path(subposition), method: :delete, remote: true, data: {toggle: 'tooltip'}, title: 'Удалить из композиции' do
-      %i.fa.fa-times.text-danger
+%turbo-frame{id: "frame#{"#{subposition.id}"}"}
+  %tr.text-center{id: "subposition#{subposition.id}"}
+    %td{data: {toggle: 'popover', product_id: "#{product.id}", content: "#{product.complex_name}", title: "#{product.complex_name}"}}
+      = image_tag product.small_url
+    %td.align-middle.small.d-none.d-lg-table-cell
+      = product.complex_name
+    %td.align-middle
+      = form_for subposition do |f|
+        .input-group
+          .input-group-prepend
+            = link_to add_quantity_path(subposition), method: :put, class: "sub-#{subposition.id} btn btn-info btn-sm", data: {toggle: 'tooltip'}, title: 'Добавить' do
+              %i.fas.fa-plus
+            = f.number_field :quantity, class: 'form-control form-control-sm text-center', id: "subposition#{subposition.id}_quantity"
+          .input-group-append
+            = link_to down_quantity_path(subposition), method: :put, class: "sub-#{subposition.id} btn btn-info btn-sm", data: {toggle: 'tooltip'}, title: 'Уменьшить' do
+              %i.fas.fa-minus
+    %td.align-middle.product-price
+      .text-center
+        по
+        = product.price_with_helium.round(0)
+        %i.fas.fa-ruble-sign
+    %td.text-center.align-middle
+      = link_to subposition_path(subposition), method: :delete, data: {toggle: 'tooltip'}, title: 'Удалить из композиции' do
+        %i.fa.fa-times.text-danger

@@ -60,10 +60,7 @@ class Delivery::CartsController < Delivery::DeliveryController
     current_cart.positions.destroy(@position)
     current_cart.remove_code
     current_cart.total_with_discounts
-    respond_to do |format|
-      format.html { redirect_back(fallback_location: root_path) }
-      format.js
-    end
+    redirect_back(fallback_location: root_path)
   end
 
   def apply_code

@@ -3,6 +3,6 @@
     = link_to category_path(category) do
       .card.text-center.category-with-image
         .card-body
-          = image_tag category.products.first.img(:small), alt: 'Воздушные шары в категории ' + category.name, title: 'Воздушные шары в категории ' + category.name
+          = image_tag category.products.first.small_url, alt: 'Воздушные шары в категории ' + category.name, title: 'Воздушные шары в категории ' + category.name
       .text-center
         = category.name.capitalize

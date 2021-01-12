@@ -24,7 +24,7 @@ class Delivery::TagsController < Delivery::DeliveryController
 
 	def show
 		@tag = Tag.friendly.find(params[:id])
-		@compositions = Composition.availible.with_tag(@tag.name).order(:price).with_attached_image
+		@compositions = Composition.with_tag(@tag.name).order(:price).with_attached_image
   	set_meta_tags_for_tag(@tag)
 
 		fresh_when @compositions, public: true

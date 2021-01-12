@@ -5,14 +5,14 @@ class Delivery::CompositionsController < Delivery::DeliveryController
   include CompositionsHelper
 
   def index
-    @compositions = Composition.availible.distinct.order(:price)
+    @compositions = Composition.all.order(:price)
     fresh_when @compositions, public: true
   end
 
   def show
     @products = @composition.products.includes(:type, :size, :tone, :texture).distinct
     @composition.update_columns(views: @composition.views + 1)
-    fresh_when @composition, public: true
+    # fresh_when @composition, public: true
   end
 
   private

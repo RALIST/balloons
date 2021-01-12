@@ -1,6 +1,6 @@
 export default function nav() {
 
-    const body = document.body;
+    const body = $('body');
     const navbar = $('.navbar');
     const navbarCollapse = $('.navbar-collapse');
 

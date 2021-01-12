@@ -294,7 +294,7 @@ module MetaHelper
 									      url: request.url,
 									      description: "Оформление торжества воздушными шарами от Шариковой феи оставит приятные впечатления и сделает этот день ярким. Для оформления заказа звоните по телефону %{phone}" % {phone: t("cities.#{@city}.phones.mobile")},
 									      image: {
-									        _: "https:" + view_context.image_path(@composition.img.url(:large)),
+									        _: "https:" + view_context.image_path(@composition.large_url),
 									        width: 968,
 									        height: 504,
 									        alt: @composition.title

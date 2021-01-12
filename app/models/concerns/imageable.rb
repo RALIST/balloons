@@ -16,17 +16,17 @@ module Imageable
 
   def small_url
     return missing(:small) unless image.attached?
-    process_variant(variants[:small]).service_url(expires_in: 24.hours).split('?').first
+    process_variant(variants[:small]).processed.url
   end
 
   def medium_url
     return missing(:medium) unless image.attached?
-    process_variant(variants[:medium]).service_url(expires_in: 24.hours).split('?').first
+    process_variant(variants[:medium]).processed.url
   end
 
   def large_url
     return missing(:large) unless image.attached?
-    process_variant(variants[:large]).processed.service_url(expires_in: 24.hours).split('?').first
+    process_variant(variants[:large]).processed.url
   end
 
   def process_variant(variant)

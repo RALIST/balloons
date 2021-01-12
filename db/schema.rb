@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_23_100356) do
+ActiveRecord::Schema.define(version: 2021_01_12_071423) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,7 +33,14 @@ ActiveRecord::Schema.define(version: 2020_09_23_100356) do
     t.bigint "byte_size", null: false
     t.string "checksum", null: false
     t.datetime "created_at", null: false
+    t.string "service_name", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "active_storage_variant_records", force: :cascade do |t|
+    t.bigint "blob_id", null: false
+    t.string "variation_digest", null: false
+    t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
   create_table "calls", id: :serial, force: :cascade do |t|
@@ -67,6 +74,10 @@ ActiveRecord::Schema.define(version: 2020_09_23_100356) do
   create_table "categories", id: :serial, force: :cascade do |t|
     t.string "title"
     t.text "desc"
+    t.string "img_file_name"
+    t.string "img_content_type"
+    t.integer "img_file_size"
+    t.datetime "img_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -80,6 +91,10 @@ ActiveRecord::Schema.define(version: 2020_09_23_100356) do
 
   create_table "compositions", id: :serial, force: :cascade do |t|
     t.string "title"
+    t.string "img_file_name"
+    t.string "img_content_type"
+    t.integer "img_file_size"
+    t.datetime "img_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "deleted", default: false
@@ -117,6 +132,10 @@ ActiveRecord::Schema.define(version: 2020_09_23_100356) do
   create_table "feedbacks", id: :serial, force: :cascade do |t|
     t.string "name"
     t.text "body"
+    t.string "img_file_name"
+    t.string "img_content_type"
+    t.integer "img_file_size"
+    t.datetime "img_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "phone"
@@ -144,12 +163,16 @@ ActiveRecord::Schema.define(version: 2020_09_23_100356) do
   end
 
   create_table "images", id: :serial, force: :cascade do |t|
+    t.string "img_file_name"
+    t.string "img_content_type"
+    t.integer "img_file_size"
+    t.datetime "img_updated_at"
     t.string "imageable_type"
     t.integer "imageable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "style"
-    t.index ["imageable_type", "imageable_id"], name: "index_images_on_imageable"
+    t.index ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id"
   end
 
   create_table "items", id: :serial, force: :cascade do |t|
@@ -222,6 +245,10 @@ ActiveRecord::Schema.define(version: 2020_09_23_100356) do
 
   create_table "partners", id: :serial, force: :cascade do |t|
     t.string "name"
+    t.string "logo_file_name"
+    t.string "logo_content_type"
+    t.integer "logo_file_size"
+    t.datetime "logo_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -241,6 +268,10 @@ ActiveRecord::Schema.define(version: 2020_09_23_100356) do
   end
 
   create_table "prices", id: :serial, force: :cascade do |t|
+    t.string "price_sheet_file_name"
+    t.string "price_sheet_content_type"
+    t.integer "price_sheet_file_size"
+    t.datetime "price_sheet_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -257,6 +288,10 @@ ActiveRecord::Schema.define(version: 2020_09_23_100356) do
     t.bigint "barcode"
     t.string "code"
     t.string "name"
+    t.string "img_file_name"
+    t.string "img_content_type"
+    t.integer "img_file_size"
+    t.datetime "img_updated_at"
     t.float "price_with_helium", default: 0.0
     t.string "complex_name"
     t.index ["item_id"], name: "index_products_on_item_id"
@@ -269,6 +304,10 @@ ActiveRecord::Schema.define(version: 2020_09_23_100356) do
     t.datetime "start_date"
     t.datetime "end_date"
     t.string "desc"
+    t.string "img_file_name"
+    t.string "img_content_type"
+    t.integer "img_file_size"
+    t.datetime "img_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -278,7 +317,7 @@ ActiveRecord::Schema.define(version: 2020_09_23_100356) do
     t.string "personable_type"
     t.integer "personable_id"
     t.string "slug"
-    t.index ["personable_type", "personable_id"], name: "index_receivers_on_personable"
+    t.index ["personable_type", "personable_id"], name: "index_receivers_on_personable_type_and_personable_id"
     t.index ["slug"], name: "index_receivers_on_slug"
   end
 
@@ -318,7 +357,7 @@ ActiveRecord::Schema.define(version: 2020_09_23_100356) do
     t.datetime "updated_at", null: false
     t.string "slug"
     t.index ["slug"], name: "index_tags_on_slug"
-    t.index ["taggable_type", "taggable_id"], name: "index_tags_on_taggable"
+    t.index ["taggable_type", "taggable_id"], name: "index_tags_on_taggable_type_and_taggable_id"
   end
 
   create_table "textures", id: :serial, force: :cascade do |t|
@@ -335,6 +374,10 @@ ActiveRecord::Schema.define(version: 2020_09_23_100356) do
     t.datetime "updated_at", null: false
     t.integer "vendor_id"
     t.string "code"
+    t.string "img_file_name"
+    t.string "img_content_type"
+    t.integer "img_file_size"
+    t.datetime "img_updated_at"
     t.index ["color_id"], name: "index_tones_on_color_id"
     t.index ["vendor_id"], name: "index_tones_on_vendor_id"
   end
@@ -355,8 +398,8 @@ ActiveRecord::Schema.define(version: 2020_09_23_100356) do
     t.string "last_name"
     t.text "address"
     t.float "discount", default: 0.0
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string "remember_me_token"
     t.datetime "remember_me_token_expires_at"
     t.boolean "admin", default: false
@@ -370,12 +413,17 @@ ActiveRecord::Schema.define(version: 2020_09_23_100356) do
     t.string "name"
     t.text "description"
     t.string "country"
+    t.string "logo_file_name"
+    t.string "logo_content_type"
+    t.integer "logo_file_size"
+    t.datetime "logo_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "abbr"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "carts", "users"
   add_foreign_key "items", "categories"
   add_foreign_key "items", "colors"

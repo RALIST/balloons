@@ -6,7 +6,7 @@ class Delivery::CategoriesController < Delivery::DeliveryController
 
     @categories = categories.distinct(:name).group('subcategories.id').select("subcategories.slug, subcategories.name, subcategories.id, subcategories.updated_at, COUNT(products.id) as total").order('total desc')
 
-    fresh_when categories, last_modified: categories.maximum(:updated_at), public: true
+    # fresh_when categories, last_modified: categories.maximum(:updated_at), public: true
   end
 
   def show

@@ -19,24 +19,6 @@ class Composition < ApplicationRecord
       }
   end
 
-  has_attached_file :img,
-                    processors: [:watermark, :thumbnail],
-                    styles: {
-                        small:
-                                             ['x200', :jpg],
-                        preview:
-                                             ['x350', :jpg],
-
-                        large:
-                                             ['x600', :jpg] },
-                    convert_options: {
-                        all: '-strip -auto-orient'
-                    }
-
-  validates_attachment_content_type :img,
-                                    content_type: ['image/jpeg', 'image/jpg', 'image/png', 'image/webp' ]
-
-
   after_save :random_title
 
   scope :with_items, -> { joins(:products).distinct(:id) }
@@ -45,7 +27,9 @@ class Composition < ApplicationRecord
     .where(items_in_compositions: { id: nil }).where(deleted: false).distinct}
   scope :with_tags, -> { joins(:tags).joins(:receivers) }
   scope :without_tags, -> { joins(:products).where.not(id: Composition.with_tags.map(&:id)).where(deleted: false).where('compositions.img_file_size > ?', 0).distinct }
-  scope :availible, -> { joins(:image_attachment).distinct }
+  scope :available, -> { joins(:image_attachment).distinct }
+
+  default_scope -> { available.with_attached_image }
 
   def self.with_tag(tag)
     joins(:products, :tags).where('tags.name = ?', tag).distinct(:id)
@@ -93,7 +77,8 @@ class Composition < ApplicationRecord
     min = (self.price.to_f - 500)
     max = (self.price.to_f + 500)
     tags = self.tag_ids
-    Composition.includes(:tags).availible.where(tags: {id: tags}, price: min..max).where.not(id: self.id).distinct
+    @related ||=
+      Composition.includes(:tags).where(tags: {id: tags}, price: min..max).where.not(id: self.id).distinct
   end
 
   def self.price_range(min, max)

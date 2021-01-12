@@ -19,11 +19,13 @@ group :development, :test do
   gem 'tzinfo-data'
   gem 'rspec-rails'
   gem 'factory_bot'
+  gem 'dotenv-rails'
 end
 
 gem 'haml-rails'
 gem 'mainsms_api'
 gem 'meta-tags'
+gem 'aws-sdk'
 gem 'paperclip'
 gem 'paperclip-compression'
 gem 'paperclip-optimizer'
@@ -36,7 +38,6 @@ gem 'sorcery'
 gem 'unicode'
 gem "roo", "~> 2.7.0"
 gem 'rubyzip', require: false
-gem 'aws-sdk-s3', require: false
 gem 'active_link_to'
 gem 'friendly_id'
 gem 'gretel'
@@ -44,14 +45,12 @@ gem 'webpacker', git: 'https://github.com/rails/webpacker.git'
 gem 'will_paginate'
 gem 'delayed_job_active_record'
 gem 'image_processing'
-gem 'dotenv-rails'
 gem 'mailgun-ruby'
 gem 'recaptcha'
 gem 'shrine', '~> 3.0'
 gem 'turbo-rails'
 
 group :production do
-  gem 'fog-aws', require: false
   gem 'heroku-deflater'
   gem 'image_optim_bin'
   gem 'rack-cors', require: 'rack/cors'

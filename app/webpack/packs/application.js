@@ -1,18 +1,20 @@
-import Rails from 'rails-ujs';
+import 'core-js/stable'
+import 'regenerator-runtime/runtime'
+
+import Rails from '@rails/ujs';
 Rails.start();
 
 import { Turbo, cable } from "@hotwired/turbo-rails"
 global.Turbo = Turbo
 
-import 'bootstrap';
-import 'popper.js';
-import nav from  '../src/js/bootstrap-better-nav';
-import '../src/js/jquery.maskedinput';
-import 'clockpicker/src/clockpicker';
-import '../src/js/cookies.js';
-import '../src/js/goals.js.erb';
-import '../src/js/common.js';
-import YM from '../src/js/ym.js.erb'
+import { YM, Goals } from '../src/js/ym.js.erb'
+require('bootstrap');
+require('popper.js');
+import nav from '../src/js/bootstrap-better-nav';
+require('../src/js/jquery.maskedinput');
+require('clockpicker/dist/bootstrap-clockpicker.min');
+require('../src/js/cookies.js');
+require('../src/js/common.js');
 
 const ready = function(){
   clockPicker();
@@ -23,6 +25,8 @@ const ready = function(){
   search();
   nav();
   YM();
+  Goals();
+  console.log('Turbo loaded')
 }
 
 const tooltip = () => {
@@ -30,13 +34,13 @@ const tooltip = () => {
 }
 
 const cartQuantity = () => {
-    $(document).on('change','#subposition_quantity', function (e) {
-      const input = this;
-      if ($(input).val()){
-        const form = $(input).closest('form');
-        $(form).submit();
-      }
-    });
+  $(document).on('change','#subposition_quantity', function (e) {
+    const input = this;
+    if ($(input).val()){
+      const form = $(input).closest('form');
+      $(form).submit();
+    }
+  });
 };
 
 const showMore = () => {

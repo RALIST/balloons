@@ -7,7 +7,7 @@
     = favicon_link_tag 'favicons/favicon-120.png', rel: 'apple-touch-icon'
     = csrf_meta_tags
     = javascript_packs_with_chunks_tag 'application', 'data-turbo-track': 'reload', async: true, defer: true
-    = stylesheet_packs_with_chunks_tag 'styles', media: 'all', 'data-turbo-track': 'reload'
+    = stylesheet_packs_with_chunks_tag 'application', media: 'all', 'data-turbo-track': 'reload'
   %body
     .wrapper
       %header

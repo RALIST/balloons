@@ -29,6 +29,9 @@ module BalloonsNew
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
 
+    # user sidekiq as AJ adapter
+    config.active_job.queue_adapter = :sidekiq
+
     # Don't generate system test files.
     config.generators.system_tests = nil
   end

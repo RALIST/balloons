@@ -93,6 +93,7 @@ GEM
       aws-sigv4 (~> 1.1)
     aws-sigv4 (1.2.2)
       aws-eventstream (~> 1, >= 1.0.2)
+    babosa (1.0.4)
     bindex (0.8.1)
     bootsnap (1.5.1)
       msgpack (~> 1.0)
@@ -330,6 +331,7 @@ PLATFORMS
 
 DEPENDENCIES
   aws-sdk-s3
+  babosa
   bootsnap (>= 1.4.4)
   byebug
   factory_bot

@@ -24,6 +24,7 @@ gem 'meta-tags'
 gem 'pagy'
 gem 'recaptcha'
 gem 'sitemap_generator'
+gem 'babosa'
 
 # Mails
 gem 'mailgun-ruby'

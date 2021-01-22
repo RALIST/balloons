@@ -4,8 +4,19 @@
 // that code so it'll be compiled.
 
 import Rails from "@rails/ujs"
+import { Turbo } from "@hotwired/turbo-rails"
 import "channels"
 
 Rails.start()
+window.Turbo = Turbo
 
 import "controllers"
+import "./application.scss"
+
+document.addEventListener('ready', function(){
+  console.log('Document ready!')
+})
+
+document.addEventListener('turbo:load', function(){
+  console.log('Turbo load!')
+})

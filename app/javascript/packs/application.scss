@@ -1,0 +1,15 @@
+/*! purgecss start ignore */
+@import 'normalize.css';
+/*! purgecss end ignore */
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+
+/*! purgecss start ignore */
+body {
+  @apply px-10 py-10;
+  background-color: cyan;
+}
+/*! purgecss end ignore */
+
+@import "tailwindcss/utilities";

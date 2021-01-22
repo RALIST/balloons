@@ -16,7 +16,11 @@
 #
 default: &default
   adapter: postgresql
-  encoding: unicode
+  encoding: utf8
+  host: localhost
+  username: postgres
+  password: postgres
+  port: 5432
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -81,6 +85,4 @@ test:
 #
 production:
   <<: *default
-  database: balloons_new_production
-  username: balloons_new
-  password: <%= ENV['BALLOONS_NEW_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>

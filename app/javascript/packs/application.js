@@ -4,11 +4,10 @@
 // that code so it'll be compiled.
 
 import Rails from "@rails/ujs"
-import { Turbo } from "@hotwired/turbo-rails"
+import "@hotwired/turbo-rails"
 import "channels"
 
 Rails.start()
-window.Turbo = Turbo
 
 import "controllers"
 import "./application.scss"

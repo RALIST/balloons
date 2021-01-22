@@ -12,7 +12,7 @@ module.exports = {
     }),
     require('@fullhuman/postcss-purgecss')({
       content: [
-        './app/**/.html.haml',
+        './app/**/*.haml',
         './app/helpers/**/*.rb',
         './app/javascript/**/*.js',
         './app/javascript/**/*.vue',
